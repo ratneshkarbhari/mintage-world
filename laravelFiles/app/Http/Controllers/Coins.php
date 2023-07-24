@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Coin;
+use App\Models\Ruler;
+use App\Models\Period;
 use App\Models\Country;
 use App\Models\Dynasty;
-use App\Models\Period;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -44,7 +46,9 @@ class Coins extends Controller
             "title" => "Coins From Around the World, now at Your Fingertips",
             "info_title" => "Coins",
             "countries" => $data,
-            "breadCrumbsData" => '[]',
+            "breadCrumbsData" => json_encode([
+                "coins" => FALSE
+            ]),
             "url_prefix" => "coin/",
             "image_base_url" => getenv("COUNTRY_FLAG_IMAGE_BASE_URL"),
             "footer_content" => $footer_content 
@@ -82,6 +86,7 @@ class Coins extends Controller
             "info_title" => "Periods : ".$countryName,
             "periods" => $periods,
             "breadCrumbsData" => json_encode([
+                "coins" => TRUE,
                 "country" => [
                     "id" => $country["id"],
                     "name" => $country["name"]
@@ -122,6 +127,8 @@ class Coins extends Controller
             "info_title" => "Dynasties : ".$period["title"],
             "dynasties" => $dynasties,
             "breadCrumbsData" => json_encode([
+                "coins" => TRUE,
+
                 "country" => [
                     "id" => $country["id"],
                     "name" => $country["name"]
@@ -132,6 +139,108 @@ class Coins extends Controller
                 ]
             ]),
             "footer_content" =>$period["footer_content"]
+        ]);
+
+    }
+
+    function coin_rulers($dynastyId){
+        
+
+
+        if(!Cache::get('coin-rulers-'.$dynastyId)){
+
+            $rulerModel = new Ruler();
+
+            $rulers = $rulerModel->where("dynasty_id",$dynastyId)->get();
+
+
+            Cache::put('coin-rulers-'.$dynastyId,$rulers);
+
+        }
+
+        $rulers = Cache::get('coin-rulers-'.$dynastyId);
+
+        $dynasty = Dynasty::find($dynastyId);
+
+        $period = Period::find($dynasty["period_id"]);
+
+        $country = Country::find($period["country_id"]);
+
+        $this->page_loader("rulers",[
+            "title" => "Biggest Online Information Repository of ".$dynasty["title"]." Coins | Mintage World",
+            "info_title" => "Rulers : ".$dynasty["title"],
+            "rulers" => $rulers,
+            "breadCrumbsData" => json_encode([
+                "coins" => TRUE,
+
+                "country" => [
+                    "id" => $country["id"],
+                    "name" => $country["name"]
+                ],
+                "period" => [
+                    "id" => $period["id"],
+                    "name" => $period["title"]
+                ],
+                "dynasty" => [
+                    "id" => $dynasty["id"],
+                    "name" => $dynasty["title"]
+                ],
+            ]),
+            "footer_content" =>$dynasty["footer_content"]
+        ]);
+
+    }
+
+
+    function coin_list($rulerId){
+        
+
+
+        if(!Cache::get('coins-'.$rulerId)){
+
+            $coinModel = new Coin();
+
+            $coins = $coinModel->where("ruler_id",$rulerId)->with("denomination")->get();
+
+
+            Cache::put('coins-'.$rulerId,$coins);
+
+        }
+
+        $coins = Cache::get('coins-'.$rulerId);
+
+        $ruler = Ruler::find($rulerId);
+
+        $dynasty = Dynasty::find($ruler["dynasty_id"]);
+
+        $period = Period::find($dynasty["period_id"]);
+
+        $country = Country::find($period["country_id"]);
+
+        $this->page_loader("list",[
+            "title" => "Coins of ".$ruler["title"]." | Mintage World",
+            "info_title" => "Coins : ".$ruler["title"],
+            "coins" => $coins,
+            "breadCrumbsData" => json_encode([
+                "coins" => TRUE,
+                "country" => [
+                    "id" => $country["id"],
+                    "name" => $country["name"]
+                ],
+                "period" => [
+                    "id" => $period["id"],
+                    "name" => $period["title"]
+                ],
+                "dynasty" => [
+                    "id" => $dynasty["id"],
+                    "name" => $dynasty["title"]
+                ],
+                "ruler" => [
+                    "id" => $ruler["id"],
+                    "name" => $ruler["title"]
+                ]
+            ]),
+            "footer_content" => ""
         ]);
 
     }

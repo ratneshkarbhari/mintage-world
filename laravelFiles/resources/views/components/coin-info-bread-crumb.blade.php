@@ -1,21 +1,6 @@
 @php
- 
- $breadCrumbsData  = json_decode($breadCrumbsData,TRUE);
-
-
-// if(isset($breadCrumbsData["country"])){
-//     $country = $breadCrumbsData["country"];
-// }elseif (isset($breadCrumbsData["period"])) {
-//     $period = $breadCrumbsData["period"];
-// }elseif ($breadCrumbsData["dynasty"]) {
-//     $dynasty = $breadCrumbsData["dynasty"];
-// }elseif ($breadCrumbsData["ruler"]) {
-//     $ruler = $breadCrumbsData["ruler"];
-// }elseif ($breadCrumbsData["coin"]) {
-//     $coin = $breadCrumbsData["coin"];
-// }
-
- print_r($breadCrumbsData);  
+    $breadCrumbsData = json_decode($breadCrumbsData,TRUE);
+    
 @endphp
 
 
@@ -29,41 +14,36 @@
 
 
                 
-                @if(isset($country))
+                @if($breadCrumbsData["coins"])
                 <li class="breadcrumb-item me-2"><a href="{{url("coins")}}"> Coins </a></li>
                 @else
                 <li class="breadcrumb-item me-2">Coins</li>
                 @endif
 
-                @if(isset($country)&&isset($period))
-                <li class="breadcrumb-item me-2"><a href="{{url("/")}}"> Coins </a></li>
-                @elseif(isset($country))
-                <li class="breadcrumb-item me-2">{{$country["name"]}}</li>
+                @if(isset($breadCrumbsData["country"])&&isset($breadCrumbsData["period"]))
+                <li class="breadcrumb-item me-2"><a href="{{url('coin/'.$breadCrumbsData["country"]["id"]."-".strtolower($breadCrumbsData["country"]["name"]))}}"> {{$breadCrumbsData["country"]["name"]}} </a></li>
+                @elseif(isset($breadCrumbsData["country"]))
+                <li class="breadcrumb-item me-2">{{$breadCrumbsData["country"]["name"]}}</li>
                 @endif
                 
-                @if(isset($dynasty)&&isset($period))
-                <li class="breadcrumb-item me-2"><a href="{{url("coin/".$period["id"])}}"> {{$period["name"]}} </a></li>
-                @elseif(isset($period))
-                <li class="breadcrumb-item me-2">{{$period["name"]}}</li>
+                @if(isset($breadCrumbsData["period"])&&isset($breadCrumbsData["dynasty"]))
+                <li class="breadcrumb-item me-2"><a href="{{url("coin/dynasty/".$breadCrumbsData["period"]["id"])}}"> {{$breadCrumbsData["period"]["name"]}} </a></li>
+                @elseif(isset($breadCrumbsData["period"]))
+                <li class="breadcrumb-item me-2">{{$breadCrumbsData["period"]["name"]}}</li>
                 @endif
                 
-                @if(isset($ruler)&&isset($dynasty))
-                <li class="breadcrumb-item me-2"><a href="{{url("coin/dynasty/".$dynasty["id"])}}"> {{$dynasty["name"]}} </a></li>
-                @elseif(isset($dynasty))
-                <li class="breadcrumb-item me-2">{{$dynasty["name"]}}</li>
+                @if(isset($breadCrumbsData["ruler"])&&isset($breadCrumbsData["dynasty"]))
+                <li class="breadcrumb-item me-2"><a href="{{url("coin/ruler/".$breadCrumbsData["dynasty"]["id"])}}"> {{$breadCrumbsData["dynasty"]["name"]}} </a></li>
+                @elseif(isset($breadCrumbsData["dynasty"]))
+                <li class="breadcrumb-item me-2">{{$breadCrumbsData["dynasty"]["name"]}}</li>
                 @endif
 
-                @if(isset($coin)&&isset($ruler))
+                @if(isset($breadCrumbsData["ruler"])&&isset($breadCrumbsData["coin"]))
                 <li class="breadcrumb-item me-2"><a href="{{url("coin/ruler/".$ruler["id"])}}"> {{$ruler["name"]}} </a></li>
-                @elseif(isset($ruler))
-                <li class="breadcrumb-item me-2">{{$ruler["name"]}}</li>
+                @elseif(isset($breadCrumbsData["ruler"]))
+                <li class="breadcrumb-item me-2">{{$breadCrumbsData["ruler"]["name"]}}</li>
                 @endif
 
-                @if(isset($coin)&&isset($ruler))
-                <li class="breadcrumb-item me-2"><a href="{{url("coin/list/".$ruler["id"])}}"> {{$ruler["name"]}} </a></li>
-                @elseif(isset($coin))
-                <li class="breadcrumb-item me-2">{{$coin["name"]}}</li>
-                @endif
 
             </ol>
         </nav>

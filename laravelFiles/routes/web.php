@@ -22,3 +22,5 @@ Route::get('/', [PageLoader::class,'home']);
 Route::get('/coins', [Coins::class,'coin_countries']);
 Route::get("/coin/{slug}", [Coins::class,'coin_country_periods']);
 Route::get("/coin/dynasty/{periodId}", [Coins::class,'coin_dynasties']);
+Route::get("/coin/ruler/{dynastyId}", [Coins::class,'coin_rulers']);
+Route::get("coin/list/{rulerId}",[Coins::class,'coin_list']);

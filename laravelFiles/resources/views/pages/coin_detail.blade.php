@@ -32,46 +32,14 @@
                 </div>
                 <div class="col-lg-5 col-md-12 col-sm-12 order-lg-1">
 
-                    <div id="sync1" class="owl-carousel owl-theme tz-gallery owl-loaded owl-drag">
-
-                        
-                        
-                    <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1816px, 0px, 0px); transition: all 0.25s ease 0s; width: 3634px;"><div class="owl-item cloned" style="width: 605.578px;"><div class="item zoomable" style="--zoom: 3;">
-                            <a class="lightbox" href="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 O.jpg">
-                                <img src="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 O.jpg" class="img-fluid zoomable__img" draggable="false">
-                            </a>
-                        </div></div><div class="owl-item cloned" style="width: 605.578px;"><div class="item zoomable" style="--zoom: 3;">
-                            <a class="lightbox" href="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 R.jpg">
-                                <img src="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 R.jpg" class="img-fluid zoomable__img" draggable="false">
-                            </a>
-                        </div></div><div class="owl-item" style="width: 605.578px;"><div class="item zoomable" style="--zoom: 3;">
-                            <a class="lightbox" href="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 O.jpg">
-                                <img src="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 O.jpg" class="img-fluid zoomable__img" draggable="false">
-                            </a>
-                        </div></div><div class="owl-item active" style="width: 605.578px;"><div class="item zoomable" style="--zoom: 3;">
-                            <a class="lightbox" href="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 R.jpg">
-                                <img src="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 R.jpg" class="img-fluid zoomable__img" draggable="false">
-                            </a>
-                        </div></div><div class="owl-item cloned" style="width: 605.578px;"><div class="item zoomable" style="--zoom: 3;">
-                            <a class="lightbox" href="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 O.jpg">
-                                <img src="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 O.jpg" class="img-fluid zoomable__img" draggable="false">
-                            </a>
-                        </div></div><div class="owl-item cloned" style="width: 605.578px;"><div class="item zoomable" style="--zoom: 3;">
-                            <a class="lightbox" href="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 R.jpg">
-                                <img src="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 R.jpg" class="img-fluid zoomable__img" draggable="false">
-                            </a>
-                        </div></div></div></div><div class="owl-nav"><div class="owl-prev"><svg width="100%" height="100%" viewBox="0 0 11 20"><path style="fill:none;stroke-width: 1px;stroke: #FFF;" d="M9.554,1.001l-8.607,8.607l8.607,8.606"></path></svg></div><div class="owl-next"><svg width="100%" height="100%" viewBox="0 0 11 20" version="1.1"><path style="fill:none;stroke-width: 1px;stroke: #FFF;" d="M1.054,18.214l8.606,-8.606l-8.606,-8.607"></path></svg></div></div><div class="owl-dots disabled"></div></div>
-
-                    <div id="sync2" class="owl-carousel owl-theme owl-loaded owl-drag">
-                        
-                        
-                    <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 303px;"><div class="owl-item active current" style="width: 151.394px;"><div class="item">
-                            <img src="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 O.jpg" class="img-fluid">
-                        </div></div><div class="owl-item active" style="width: 151.394px;"><div class="item">
-                            <img src="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 R.jpg" class="img-fluid">
-                        </div></div></div></div><div class="owl-nav disabled"><div class="owl-prev">prev</div><div class="owl-next">next</div></div><div class="owl-dots disabled"></div></div>
-
-
+                  <div id="sync1" class="owl-carousel owl-theme tz-gallery">
+   <div class="item zoomable"> <a class="lightbox" href="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 O.jpg"> <img src="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 O.jpg" class="img-fluid zoomable__img" /> </a> </div>
+   <div class="item zoomable"> <a class="lightbox" href="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 R.jpg"> <img src="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 R.jpg" class="img-fluid zoomable__img" /> </a> </div>
+</div>
+<div id="sync2" class="owl-carousel owl-theme">
+   <div class="item"> <img src="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 O.jpg" class="img-fluid" /> </div>
+   <div class="item"> <img src="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 R.jpg" class="img-fluid" /> </div>
+</div>
                 </div>
                 <div class="col-lg-2 col-md-12 col-sm-12 product-history-wrap mt-5 mt-lg-0 mt-md-5 order-lg-3">
                     <h5>History of Malwa Sultan</h5>

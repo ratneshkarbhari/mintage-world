@@ -1,10 +1,5 @@
-/*
- * Stellarnav.js 2.5.0
- * Responsive, lightweight, multi-level dropdown menu.
- * Copyright (c) 2018 Vinny Moreira - http://vinnymoreira.com
- * Released under the MIT license
- */
-/* all nav */
+/*Stellarnav.js 2.5.0
+all nav */
 .stellarnav { position: relative; width: 100%; z-index: 9900; line-height: normal; }
 .stellarnav a { color: #777; }
 .stellarnav ul { margin: 0; padding: 0; text-align: center; }
@@ -34,7 +29,7 @@
 .stellarnav.light li a { color: #000; }
 
 /* dark theme */
-.stellarnav.dark { background: rgba(0, 0, 0, 1); }
+.stellarnav.dark {/* background: rgba(0, 0, 0, 1); */}
 .stellarnav.dark a { color: #FFF; }
 .stellarnav.dark ul ul { background: rgba(0, 0, 0, 1); }
 .stellarnav.dark li a { color: #FFF; }
@@ -90,6 +85,21 @@ body.stellarnav-noscroll-x { overflow-x: hidden; }
     border-radius: 0px;
     background: #777;
     margin: 0 0 5px;
+}
+
+.stellarnav.mobile .close-bg a {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgb(0 0 0 / 50%);
+    content: "";
+    top: 90px;
+    right: -100%;
+    transition: 0.5s;
+}
+.stellarnav.mobile.active .close-bg a {
+    right: 0px;
+transition: 0.5s;
 }
 .stellarnav .full { width: 100%; }
 .stellarnav .half { width: 50%; }

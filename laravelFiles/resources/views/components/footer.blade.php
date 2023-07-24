@@ -98,18 +98,7 @@
     <script src="{{url("assets/lib/owlcarousel/owl.carousel.min.js")}}"></script>
 
     <!-- Template Javascript -->
-    <script type="text/javascript" src="{{url("assets/js/stellarnav.min.js")}}"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            jQuery('.stellarnav').stellarNav({
-                theme: 'dark',
-                breakpoint: 991,
-                position: 'right',
-                phoneBtn: '8591908969',
-                locationBtn: 'https://goo.gl/maps/MVGRHf5VqZWBAvJD9'
-            });
-        });
-    </script>
+    <script type="text/javascript" src="{{url("assets/js/stellarnav.min.js")}}"></script>    
     <script src="{{url("assets/js/main.js")}}"></script>   
     <script src="{{url("assets/js/baguetteBox.min.js")}}"></script>
     <script>

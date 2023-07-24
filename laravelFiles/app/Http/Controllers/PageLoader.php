@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Country;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+
+class PageLoader extends Controller
+{
+
+    private function page_loader($viewName,$data){
+
+        echo view("components.header",$data);
+        echo view("pages.".$viewName,$data);
+        echo view("components.footer",$data);
+
+    }
+
+    function home(){
+
+
+        $this->page_loader("home",[
+            "title" => "Online Museum of Coins, Stamps and Notes"
+        ]);
+        
+    }
+
+    
+
+}

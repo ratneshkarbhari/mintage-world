@@ -25,8 +25,15 @@
     <link href="{{url("assets/lib/animate/animate.min.css")}}" rel="stylesheet">
     <link href="{{url("assets/lib/owlcarousel/assets/owl.carousel.min.css")}}" rel="stylesheet">
 
+
+
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{url("assets/css/bootstrap.min.css")}}" rel="stylesheet">
+
+    
+    <!-- image gallery on detail page Stylesheet -->
+    <link href="{{url("assets/css/baguetteBox.min.css")}}" rel="stylesheet">
+
 
     <link rel="stylesheet" type="text/css" media="all" href="{{url("assets/css/stellarnav.css")}}">
 

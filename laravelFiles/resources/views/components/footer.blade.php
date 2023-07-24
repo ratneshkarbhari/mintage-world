@@ -110,7 +110,13 @@
             });
         });
     </script>
-    <script src="{{url("assets/js/main.js")}}"></script>
+    <script src="{{url("assets/js/main.js")}}"></script>   
+    <script src="{{url("assets/js/baguetteBox.min.js")}}"></script>
+    <script>
+        baguetteBox.run('.tz-gallery');
+    </script>
+     <script src="{{url("assets/js/thumb-carousel.js")}}"></script>
+     <script src="{{url("assets/js/image-zoom.js")}}"></script>
 
 </body>
 

@@ -245,4 +245,54 @@ class Coins extends Controller
 
     }
 
+
+
+    function coin_detail($coinId){
+
+
+        $coinModel = new Coin();
+
+        $coin = $coinModel->with("denomination")->with("metal")->with("calendar_system")->with("ruler")->with("minting_technique")->with("shape")->with("rarity")->with("feedback")->find($coinId);
+
+        $ruler = $coin["ruler"];
+
+        $dynasty = Dynasty::find($ruler["dynasty_id"]);
+
+        $period = Period::find($dynasty["period_id"]);
+
+        $country = Country::find($period["country_id"]);
+
+        $this->page_loader("coin_detail",[
+            "title" => "Coins of ".$ruler["title"]." | Mintage World",
+            "info_title" => "Coins : ".$ruler["title"],
+            "coin" => $coin,
+            
+            "breadCrumbsData" => json_encode([
+                "coins" => TRUE,
+                "country" => [
+                    "id" => $country["id"],
+                    "name" => $country["name"]
+                ],
+                "period" => [
+                    "id" => $period["id"],
+                    "name" => $period["title"]
+                ],
+                "dynasty" => [
+                    "id" => $dynasty["id"],
+                    "name" => $dynasty["title"]
+                ],
+                "ruler" => [
+                    "id" => $ruler["id"],
+                    "name" => $ruler["title"]
+                ],
+                "coin" => [
+                    "id" => $coin["id"],
+                    "name" => $coin["denomination"]["title"]
+                ]
+            ]),
+            "footer_content" => ""
+        ]);
+
+    }
+
 }

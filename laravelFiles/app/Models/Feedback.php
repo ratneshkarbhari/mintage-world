@@ -21,4 +21,9 @@ class Feedback extends Model {
 
     protected $primaryKey = "id";
     
+    public function member() : HasOne
+    {
+        return $this->hasOne(Member::class,"id","member_id");
+    }
+
 }

@@ -93,34 +93,16 @@
                         <p>No Comments found </p>
                         @else
                         <div class="comment-wrap">
+
+                            @foreach($coin["feedback"] as $feedback)
+
                             <div class="UserDetail">
-                                <p class="d-flex justify-content-between"><span class="UserName" id="UserName">User
-                                        Name</span><span class="UserName" id="CommentDate">05/07/2023</span></p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis sit quaerat
-                                    iusto, iure debitis eos eveniet libero ipsam animi ratione, explicabo odit dicta
-                                    totam. Aspernatur magni iusto omnis aliquid ea!</p>
+                                <p class="d-flex justify-content-between"><span class="UserName" id="UserName">{{$feedback["member"]["name"]}}</span><span class="UserName" id="CommentDate">{{date("d/m/Y",strtotime($feedback["created"]))}}</span></p>
+                                <p>{{$feedback["comment"]}}</p>
                             </div>
-                            <div class="UserDetail">
-                                <p class="d-flex justify-content-between"><span class="UserName" id="UserName">User
-                                        Name</span><span class="UserName" id="CommentDate">05/07/2023</span></p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis sit quaerat
-                                    iusto, iure debitis eos eveniet libero ipsam animi ratione, explicabo odit dicta
-                                    totam. Aspernatur magni iusto omnis aliquid ea!</p>
-                            </div>
-                            <div class="UserDetail">
-                                <p class="d-flex justify-content-between"><span class="UserName" id="UserName">User
-                                        Name</span><span class="UserName" id="CommentDate">05/07/2023</span></p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis sit quaerat
-                                    iusto, iure debitis eos eveniet libero ipsam animi ratione, explicabo odit dicta
-                                    totam. Aspernatur magni iusto omnis aliquid ea!</p>
-                            </div>
-                            <div class="UserDetail">
-                                <p class="d-flex justify-content-between"><span class="UserName" id="UserName">User
-                                        Name</span><span class="UserName" id="CommentDate">05/07/2023</span></p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis sit quaerat
-                                    iusto, iure debitis eos eveniet libero ipsam animi ratione, explicabo odit dicta
-                                    totam. Aspernatur magni iusto omnis aliquid ea!</p>
-                            </div>
+
+                            @endforeach
+                            
                         </div>
                         @endif
                     </div>

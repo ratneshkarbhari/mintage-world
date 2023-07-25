@@ -253,7 +253,7 @@ class Coins extends Controller
 
         $coinModel = new Coin();
 
-        $coin = $coinModel->with("denomination")->with("metal")->with("calendar_system")->with("ruler")->with("minting_technique")->with("shape")->with("rarity")->with("feedback")->find($coinId);
+        $coin = $coinModel->with("denomination")->with("metal")->with("calendar_system")->with("ruler")->with("minting_technique")->with("shape")->with("rarity")->with("feedback.member")->find($coinId);
 
         $ruler = $coin["ruler"];
 

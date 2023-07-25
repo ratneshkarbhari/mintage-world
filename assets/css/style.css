@@ -1,5 +1,5 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
 
 /* font-family: 'Berkshire Swash', cursive;
 font-family: 'Satisfy', cursive; 
@@ -263,9 +263,12 @@ p {
   height: 32px;
 }
 
-.btn-lg-square {
+.back-to-top.btn-lg-square {
   width: 48px;
   height: 48px;
+  padding: 0px;
+  line-height: 48px;
+  text-align: center;
 }
 
 .social-media-icon .btn-square,

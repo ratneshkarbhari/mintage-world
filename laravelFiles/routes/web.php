@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Coins;
 use App\Http\Controllers\PageLoader;
+use App\Http\Controllers\Histories;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +27,6 @@ Route::get("/coin/dynasty/{periodId}", [Coins::class,'coin_dynasties']);
 Route::get("/coin/ruler/{dynastyId}", [Coins::class,'coin_rulers']);
 Route::get("coin/list/{rulerId}",[Coins::class,'coin_list']);
 Route::get("coin/detail/{coinId}",[Coins::class,'coin_detail']);
+
+//history routes
+Route::get('/history', [Histories::class,'history']);

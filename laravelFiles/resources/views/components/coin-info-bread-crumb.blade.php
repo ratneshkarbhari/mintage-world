@@ -1,4 +1,6 @@
 @php
+
+    //echo $breadCrumbsData;
     $breadCrumbsData = json_decode($breadCrumbsData,TRUE);
     
 @endphp
@@ -40,7 +42,7 @@
 
                 @if(isset($breadCrumbsData["ruler"])&&isset($breadCrumbsData["coin"]))
                 <li class="breadcrumb-item me-2"><a href="{{url("coin/ruler/".$breadCrumbsData["ruler"]["id"])}}"> {{$breadCrumbsData["ruler"]["name"]}} </a></li>
-                @elseif(isset($breadCrumbsData["coin"]))
+                @elseif(isset($breadCrumbsData["ruler"]))
                 <li class="breadcrumb-item me-2"> {{$breadCrumbsData["ruler"]["name"]}} </li>
                 @endif
 

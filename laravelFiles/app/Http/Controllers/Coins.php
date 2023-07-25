@@ -7,6 +7,7 @@ use App\Models\Ruler;
 use App\Models\Period;
 use App\Models\Country;
 use App\Models\Dynasty;
+use App\Models\History;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -262,11 +263,16 @@ class Coins extends Controller
 
         $country = Country::find($period["country_id"]);
 
+        $history = History::where("dynasty_id",$dynasty["id"])->get();
+
         $this->page_loader("coin_detail",[
             "title" => "Coins of ".$ruler["title"]." | Mintage World",
             "info_title" => "Coins : ".$ruler["title"],
             "coin" => $coin,
-            
+            "denomination" => $coin["denomination"],
+            "dynasty" => $dynasty,
+            "ruler" => $ruler,
+            "history" => substr($history[0]["history"],0,450),
             "breadCrumbsData" => json_encode([
                 "coins" => TRUE,
                 "country" => [

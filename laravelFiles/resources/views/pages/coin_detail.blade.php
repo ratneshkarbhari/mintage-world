@@ -11,44 +11,50 @@
             <div class="row info-item-grid-row">
 
                 <div class="col-lg-5 col-md-12 col-sm-12 product-detail-wrap order-lg-2">
-                    <h1 class="mb-3 heading-2">Tanka</h1>
-                    <p><b>Dynasty / Name of State :</b> <span>Malwa Sultan</span></p>
-                    <p><b>Ruler / Authority :</b> <span>Hisam Al Din Hushang Shah</span></p>
-                    <p><b>Denomination :</b> <span>Tanka</span></p>
-                    <p><b>Metal :</b> <span>Gold</span></p>
-                    <p><b>Shape :</b> <span>Round</span></p>
-                    <p><b>Weight :</b> <span>11 gms</span></p>
-                    <p><b>Type/Series :</b> <span>Shahada</span></p>
-                    <p><b>Minting Technique :</b> <span>Die Struck</span></p>
-                    <p><b>Calendar System :</b> <span>Anno Hijri (AH)</span></p>
-                    <p><b>Issued Year :</b> <span>837</span></p>
-                    <p><b>Remark :</b> <span>NA</span></p>
-                    <p><b>Rarity :</b> <span>R (Rare)</span></p>
-                    <p><b>Obverse Description :</b> <span>Al Sultan Al Azam Hisam Al Dunya Wa'l Din</span></p>
-                    <p><b>Reverse Description :</b> <span>Abu'l Mujahid Hushangshah Al Sultan, Shahda and
-                            Date.</span></p>
+                    <h1 class="mb-3 heading-2">{{$denomination["title"]}}</h1>
+                    <p><b>Dynasty / Name of State :</b> <span>{{$dynasty["title"]}}</span></p>
+                    <p><b>Ruler / Authority :</b> <span>{{ $ruler["title"] }}</span></p>
+                    <p><b>Denomination :</b> <span>{{$denomination["title"]}}</span></p>
+                    <p><b>Metal :</b> <span>{{$coin["metal"]["title"]}}</span></p>
+                    <p><b>Shape :</b> <span>{{$coin["shape"]["title"]}}</span></p>
+                    <p><b>Weight :</b> <span>{{$coin["weight"]}}</span></p>
+                    <p><b>Type/Series :</b> <span>{{$coin["type"]}}</span></p>
+                    <p><b>Minting Technique :</b> <span>{{$coin["minting_technique"]["title"]}}</span></p>
+
+                    <div id="members-info" class="d-none">
+
+                        <p><b>Calendar System :</b> <span>{{$coin["calendar_system"]["title"]}}</span></p>
+                        <p><b>Issued Year :</b> <span>{{$coin["issued_year"]}}</span></p>
+                        <p><b>Remark :</b> <span>{{$coin["remark"]}}</span></p>
+                        <p><b>Rarity :</b> <span>{{$coin["rarity"]["title"]}}</span></p>
+                        <p><b>Obverse Description :</b> <span>{{$coin["obverse_desc"]}}</span></p>
+                        <p><b>Reverse Description :</b> <span>{{$coin["reverse_desc"]}}</span></p>
+
+                    </div>
+                    
                     <p id="ProductLogBtn"><a href="#" class="btn btn-sm btn-explore"><i class="fa fa-eye"></i> View
                             more<span class="first"></span><span class="second"></span><span class="third"></span><span class="fourth"></span></a></p>
                 </div>
                 <div class="col-lg-5 col-md-12 col-sm-12 order-lg-1">
 
                   <div id="sync1" class="owl-carousel owl-theme tz-gallery">
-   <div class="item zoomable"> <a class="lightbox" href="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 O.jpg"> <img src="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 O.jpg" class="img-fluid zoomable__img" /> </a> </div>
-   <div class="item zoomable"> <a class="lightbox" href="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 R.jpg"> <img src="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 R.jpg" class="img-fluid zoomable__img" /> </a> </div>
-</div>
-<div id="sync2" class="owl-carousel owl-theme">
-   <div class="item"> <img src="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 O.jpg" class="img-fluid" /> </div>
-   <div class="item"> <img src="https://mintage1.s3.amazonaws.com/coin/GandharJP Rajgor Series 34 R.jpg" class="img-fluid" /> </div>
-</div>
+                    <div class="item zoomable"> 
+                        <a class="lightbox" href="{{getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"]}}"> 
+                        <img src="{{getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"]}}" class="img-fluid zoomable__img" /> </a> 
+                    </div>
+                    <div class="item zoomable">  
+                        <a class="lightbox" href="{{getenv("COIN_IMAGE_BASE_URL").$coin["reverse_image"]}}"> 
+                            <img src="{{getenv("COIN_IMAGE_BASE_URL").$coin["reverse_image"]}}" class="img-fluid zoomable__img" /> </a> 
+                    </div>
+                    </div>
+                    <div id="sync2" class="owl-carousel owl-theme">
+                        <div class="item"> <img src="{{getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"]}}" class="img-fluid" /> </div>
+                        <div class="item"> <img src="{{getenv("COIN_IMAGE_BASE_URL").$coin["reverse_image"]}}" class="img-fluid" /> </div>
+                    </div>
                 </div>
                 <div class="col-lg-2 col-md-12 col-sm-12 product-history-wrap mt-5 mt-lg-0 mt-md-5 order-lg-3">
                     <h5>History of Malwa Sultan</h5>
-                    <p class="history-short">The history of the Malwa Sultans is not known to many. An independent
-                        late-medieval kingdom in present-day region of Malwa by Dilawar Khan Ghuri, the Sultanate of
-                        Malwa was established in 1392 CE with its capital at Dhar. It was later shifted to Mandu,
-                        which was renamed Shadiabad by the Malwa Sultans. The founder Dilawar Khan Ghuri was
-                        succeeded by his son, Alp Khan who ruled under the name, Hoshang Shah. <br><br>
-                        The Ghuri Dynasty was overthrown by the Khilji Dynasty led by Mahmud S...</p>
+                    {{!!$history!!}}...
                     <p><a href="/history/detail/5/" class="btn btn-info btn-sm text-white" target="_blank">Read
                             more</a></p>
                 </div>
@@ -76,6 +82,9 @@
                 <div class="col-md-6 col-sm-12 mt-5 mt-md-0">
                     <div class="recent-comment-wrap">
                         <h6><b>Recent Comments</b></h6>
+                        @if($coin["feedback"]=="[]")
+                        <p>No Comments found </p>
+                        @else
                         <div class="comment-wrap">
                             <div class="UserDetail">
                                 <p class="d-flex justify-content-between"><span class="UserName" id="UserName">User
@@ -106,6 +115,7 @@
                                     totam. Aspernatur magni iusto omnis aliquid ea!</p>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

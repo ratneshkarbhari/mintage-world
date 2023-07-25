@@ -1613,9 +1613,7 @@ ul.sticky-footer-ul li a:hover {
 
 }
 .login-form-content .company__info{
-    background-color: #e19726;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    background-color: #e19726; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1629,10 +1627,7 @@ ul.sticky-footer-ul li a:hover {
     .login-form-content .company__info{
         display: none;
     }
-    .login-form-content .login_form{
-        border-top-left-radius:20px;
-        border-bottom-left-radius:20px;
-    }
+    
 }
 @media screen and (min-width: 642px) and (max-width:800px){
     .login-form-content{width: 70%;}
@@ -1641,9 +1636,7 @@ ul.sticky-footer-ul li a:hover {
     color:#e19726;
 }
 .login-form-content .login_form{
-    background-color: #fff;
-    border-top-right-radius:20px;
-    border-bottom-right-radius:20px;
+    background-color: #fff; 
     border-top:1px solid #ccc;
     border-right:1px solid #ccc;
 }
@@ -1677,6 +1670,37 @@ ul.sticky-footer-ul li a:hover {
 .login-form-content .btn:hover, .login-form-content .btn:focus{
     background-color: #e19726;
     color:#fff;
+}
+
+#LoginModal .login-form-content {
+  width: 100%;
+}
+#LoginModal .modal-body {
+  padding: 0px;
+  position: relative;
+}
+#LoginModal .modal-content {
+  background: transparent;
+  border: none;
+}
+#LoginModal button.btn-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  background: #f00;
+  color: #FFF;
+  z-index: 9;
+}
+#LoginModal button.btn-close::before {
+  position: absolute;
+  content: 'X';
+  background: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFF;
 }
 /* login form css end */
 
@@ -1948,6 +1972,7 @@ width: 80%;
     padding: 0;
 }
 /* category-menu css End */
+
 
 
 /* --------Responsive Media Css Start------------- */

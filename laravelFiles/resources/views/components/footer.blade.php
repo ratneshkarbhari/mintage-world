@@ -74,7 +74,28 @@
         <p id="searchCloseP" class="hide"></p>
     </div>
 
-
+    
+<div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content"> 
+         <div class="modal-body text-center">
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="login-form-content ">
+               <div class="col-md-4 text-center company__info">
+                  <span class="company__logo">
+                     <h2><i class="fas fa-sign-in-alt"></i></h2>
+                  </span>
+               </div>
+               <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+                  <h2 class="mt-3 mb-3 text-center">Sign In</h2>
+                  <form control="" class="form-group"><input type="text" id="username" class="form__input" placeholder="Username" name="username"><input type="password" id="password" class="form__input mb-1" placeholder="Password" name="password"><span class="small text-end d-block w-100"><a href="#"> ! Forgot password?</a> </span><input type="submit" class="btn" value="Submit"></form>
+                  <p class="mb-4">Don't have an account? <a href="#">Register Here</a></p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
     <div class="sticky-footer">
         <ul class="sticky-footer-ul">
             <li><a href="#" title="User"><i class="fa fa-user"></i></a></li>
@@ -89,12 +110,7 @@
 
 
     <!-- JavaScript Libraries -->
-<<<<<<< HEAD
-    <script src="{{url("assets/js/jquery-3.4.1.min.js")}}"></script>
-    <script src="{{url("assets/js/bootstrap.bundle.min.js")}}"></script>
-=======
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
->>>>>>> e72dc23d15edd5e4fb0d43ab721c73f009e2ff6a
     <script src="{{url("assets/lib/wow/wow.min.js")}}"></script>
     <script src="{{url("assets/lib/easing/easing.min.js")}}"></script>
     <script src="{{url("assets/lib/waypoints/waypoints.min.js")}}"></script>

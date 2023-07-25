@@ -108,7 +108,7 @@
         <!-- Navbar Start -->
         <nav
             class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-primary sticky-top py-0 px-lg-2 px-lg-5">
-            <a href="index.html" class="navbar-brand d-flex align-items-center main-logo">
+            <a href="/" class="navbar-brand d-flex align-items-center main-logo">
                 <img src="{{url("assets/img/logo.png")}}" alt="" class="img-fluid">
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
@@ -117,7 +117,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="/" class="nav-item nav-link active">Home</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Shopping </a>
                         <div class="dropdown-menu fade-up m-0 mega-menu">
@@ -179,7 +179,7 @@
                             <a href="{{url("stamps")}}" class="dropdown-item">Stamps</a>
                         </div>
                     </div>
-                    <a href="#" class="nav-item nav-link">History</a>
+                    <a href="history" class="nav-item nav-link">History</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Events</a>
                         <div class="dropdown-menu fade-up m-0">
@@ -200,7 +200,7 @@
         <div class="stellarnav">
             <span class="close-bg"><a href="javascript:void(0)" class="close-menu third">&nbsp;</a></span>
             <ul style="display: block !important;">
-                <li><a href="#">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="#">Shopping</a>
                     <ul>
                         <li><a href="#">Premium Products</a>

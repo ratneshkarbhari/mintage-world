@@ -32,8 +32,15 @@
 
                     </div>
                     
-                    <p id="ProductLogBtn"><a href="#" class="btn btn-sm btn-explore"><i class="fa fa-eye"></i> View
-                            more<span class="first"></span><span class="second"></span><span class="third"></span><span class="fourth"></span></a></p>
+                    <p id="ProductLogBtn">
+                        <button type="button" class="btn btn-sm btn-explore" data-bs-toggle="modal" data-bs-target="#LoginModal"> 
+                            <i class="fa fa-eye"></i> View more
+                            <span class="first"></span>
+                            <span class="second"></span>
+                            <span class="third"></span>
+                            <span class="fourth"></span>
+                        </button>
+                   </p>
                 </div>
                 <div class="col-lg-5 col-md-12 col-sm-12 order-lg-1">
 

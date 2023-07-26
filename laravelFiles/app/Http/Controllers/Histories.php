@@ -8,21 +8,29 @@ use Illuminate\Support\Facades\Cache;
 
 class Histories extends Controller
 {
-    private function page_loader($viewName,$data){
-        echo view("components.header",$data);
-        echo view("pages.".$viewName,$data);
-        echo view("components.footer",$data);
+    private function page_loader($viewName, $data)
+    {
+        echo view("components.header", $data);
+        echo view("pages." . $viewName, $data);
+        echo view("components.footer", $data);
     }
 
-    function history(){
+    function history()
+    {
 
 
-        $this->page_loader("history",[
+        $this->page_loader("history", [
             "title" => "History | History of Ancient India | Mintage World"
         ]);
-        
     }
 
-    
 
+    function history_detail()
+    {
+
+
+        $this->page_loader("history_detail", [
+            "title" => "History | History of Ancient India | Mintage World"
+        ]);
+    }
 }

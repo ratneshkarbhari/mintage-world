@@ -196,7 +196,7 @@
             </div>
         </div>
     </section>
-    <section class="common-padding page-footer-disc bg-light-wraper">
+    {{-- <section class="common-padding page-footer-disc bg-light-wraper">
         <div class="container-fluid  px-lg-2 px-lg-5">
             <h1>Biggest Online Encyclopaedia on Coins of the World</h1>
             <p>This is a real eye-candy for all those lovers of world coins out there! What more could you ask for?
@@ -220,5 +220,5 @@
                 that allows you to completely indulge in your favourite hobby. So, the moment you add to your
                 collection of world coins, remember to upgrade your knowledge from Mintage World!</p>
         </div>
-    </section>
+    </section> --}}
 </main>

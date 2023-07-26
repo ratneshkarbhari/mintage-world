@@ -85,14 +85,7 @@
                         <div class="item"> <img src="{{getenv("COIN_IMAGE_BASE_URL").$coin["reverse_image"]}}" class="img-fluid" /> </div>
                     </div>
                 </div>
-<<<<<<< HEAD
                 <div class="col-lg-3 col-md-12 col-sm-12 product-history-wrap mt-5 mt-lg-0 mt-md-5 order-lg-3">
-=======
-
-                @endif
-
-                <div class="col-lg-2 col-md-12 col-sm-12 product-history-wrap mt-5 mt-lg-0 mt-md-5 order-lg-3">
->>>>>>> 914fd6750153d9c702b715d23f45b0ca3a0d81c9
                     <h5>History of Malwa Sultan</h5>
                     {!!$history!!}...
                     <p><a href="{{url("history/detail/".$dynasty["id"])}}"  class="btn btn-info btn-sm text-white mt-3" target="_blank">Read more</a></p>

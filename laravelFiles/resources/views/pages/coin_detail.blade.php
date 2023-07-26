@@ -42,6 +42,31 @@
                         </button>
                    </p>
                 </div>
+
+                @if($coin["obverse_image"]==""||!is_file(getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"]))
+
+
+                <div class="col-lg-5 col-md-12 col-sm-12 order-lg-1">
+
+                    <div id="sync1" class="owl-carousel owl-theme tz-gallery">
+                      <div class="item zoomable"> 
+                          <a class="lightbox" href="{{getenv("API_DEFAULT_IMG_PATH")}}"> 
+                          <img src="{{getenv("API_DEFAULT_IMG_PATH")}}" class="img-fluid zoomable__img" /> </a> 
+                      </div>
+                      <div class="item zoomable">  
+                          <a class="lightbox" href="{{getenv("API_DEFAULT_IMG_PATH")}}"> 
+                              <img src="{{getenv("API_DEFAULT_IMG_PATH")}}" class="img-fluid zoomable__img" /> </a> 
+                      </div>
+                      </div>
+                      <div id="sync2" class="owl-carousel owl-theme">
+                          <div class="item"> <img src="{{getenv("API_DEFAULT_IMG_PATH")}}" class="img-fluid" /> </div>
+                          <div class="item"> <img src="{{getenv("API_DEFAULT_IMG_PATH")}}" class="img-fluid" /> </div>
+                      </div>
+                  </div>
+  
+
+                @else
+
                 <div class="col-lg-5 col-md-12 col-sm-12 order-lg-1">
 
                   <div id="sync1" class="owl-carousel owl-theme tz-gallery">
@@ -59,6 +84,9 @@
                         <div class="item"> <img src="{{getenv("COIN_IMAGE_BASE_URL").$coin["reverse_image"]}}" class="img-fluid" /> </div>
                     </div>
                 </div>
+
+                @endif
+
                 <div class="col-lg-2 col-md-12 col-sm-12 product-history-wrap mt-5 mt-lg-0 mt-md-5 order-lg-3">
                     <h5>History of Malwa Sultan</h5>
                     {{!!$history!!}}...

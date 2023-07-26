@@ -10,7 +10,7 @@
             </div> -->
             <div class="row info-item-grid-row">
 
-                <div class="col-lg-5 col-md-12 col-sm-12 product-detail-wrap order-lg-2">
+                <div class="col-lg-4 col-md-12 col-sm-12 product-detail-wrap order-lg-2">
                     <h1 class="mb-3 heading-2">{{$denomination["title"]}}</h1>
                     <p><b>Dynasty / Name of State :</b> <span>{{$dynasty["title"]}}</span></p>
                     <p><b>Ruler / Authority :</b> <span>{{ $ruler["title"] }}</span></p>
@@ -21,17 +21,16 @@
                     <p><b>Type/Series :</b> <span>{{$coin["type"]}}</span></p>
                     <p><b>Minting Technique :</b> <span>{{$coin["minting_technique"]["title"]}}</span></p>
 
-                    <div id="members-info" class="d-none">
-
+                    @if(session()->has('type'))
+                    <div id="members-info">
                         <p><b>Calendar System :</b> <span>{{$coin["calendar_system"]["title"]}}</span></p>
                         <p><b>Issued Year :</b> <span>{{$coin["issued_year"]}}</span></p>
                         <p><b>Remark :</b> <span>{{$coin["remark"]}}</span></p>
                         <p><b>Rarity :</b> <span>{{$coin["rarity"]["title"]}}</span></p>
                         <p><b>Obverse Description :</b> <span>{{$coin["obverse_desc"]}}</span></p>
                         <p><b>Reverse Description :</b> <span>{{$coin["reverse_desc"]}}</span></p>
-
                     </div>
-                    
+                    @else 
                     <p id="ProductLogBtn">
                         <button type="button" class="btn btn-sm btn-explore" data-bs-toggle="modal" data-bs-target="#LoginModal"> 
                             <i class="fa fa-eye"></i> View more
@@ -41,13 +40,20 @@
                             <span class="fourth"></span>
                         </button>
                    </p>
+                    @endif
+                    
+                    
+
+                   
+                    
+                   
                 </div>
                 <div class="col-lg-5 col-md-12 col-sm-12 order-lg-1">
 
                   <div id="sync1" class="owl-carousel owl-theme tz-gallery">
                     <div class="item zoomable"> 
                         <a class="lightbox" href="{{getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"]}}"> 
-                        <img src="{{getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"]}}" class="img-fluid zoomable__img" /> </a> 
+                        <img src="{{getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"]}}" class="img-fluid zoomable__img" /></a> 
                     </div>
                     <div class="item zoomable">  
                         <a class="lightbox" href="{{getenv("COIN_IMAGE_BASE_URL").$coin["reverse_image"]}}"> 
@@ -59,11 +65,10 @@
                         <div class="item"> <img src="{{getenv("COIN_IMAGE_BASE_URL").$coin["reverse_image"]}}" class="img-fluid" /> </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-12 col-sm-12 product-history-wrap mt-5 mt-lg-0 mt-md-5 order-lg-3">
+                <div class="col-lg-3 col-md-12 col-sm-12 product-history-wrap mt-5 mt-lg-0 mt-md-5 order-lg-3">
                     <h5>History of Malwa Sultan</h5>
-                    {{!!$history!!}}...
-                    <p><a href="/history/detail/5/" class="btn btn-info btn-sm text-white" target="_blank">Read
-                            more</a></p>
+                    {!!$history!!}...
+                    <p><a href="{{url("history/detail/".$dynasty["id"])}}"  class="btn btn-info btn-sm text-white mt-3" target="_blank">Read more</a></p>
                 </div>
             </div>
         </div>
@@ -83,8 +88,26 @@
         <div class="container-fluid  px-lg-2 px-lg-5">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h6><b>Add your Comments</b></h6>
-                    <p>Your Comments</p><textarea name="comment" class="form-control" placeholder="Enter your message" required="" rows="10"></textarea><button class="btn btn-sm btn-explore mt-3">Submit<span class="first"></span><span class="second"></span><span class="third"></span><span class="fourth"></span></button>
+                <h6><b>Add your Comments</b></h6>
+                <p>Your Comments</p>
+                <textarea name="comment" class="form-control" placeholder="Enter your message" required="" rows="10"></textarea>  
+                    @if(session()->has('type'))
+                    <button class="btn btn-sm btn-explore mt-3">Submit
+                        <span class="first"></span>
+                        <span class="second"></span>
+                        <span class="third"></span>
+                        <span class="fourth"></span>
+                    </button>
+                    @else 
+                    <button class="btn btn-sm btn-explore mt-3" data-bs-toggle="modal" data-bs-target="#LoginModal">Submit
+                        <span class="first"></span>
+                        <span class="second"></span>
+                        <span class="third"></span>
+                        <span class="fourth"></span>
+                    </button>
+                    @endif
+              
+              
                 </div>
                 <div class="col-md-6 col-sm-12 mt-5 mt-md-0">
                     <div class="recent-comment-wrap">
@@ -93,16 +116,12 @@
                         <p>No Comments found </p>
                         @else
                         <div class="comment-wrap">
-
                             @foreach($coin["feedback"] as $feedback)
-
                             <div class="UserDetail">
                                 <p class="d-flex justify-content-between"><span class="UserName" id="UserName">{{$feedback["member"]["name"]}}</span><span class="UserName" id="CommentDate">{{date("d/m/Y",strtotime($feedback["created"]))}}</span></p>
                                 <p>{{$feedback["comment"]}}</p>
                             </div>
-
-                            @endforeach
-                            
+                            @endforeach                            
                         </div>
                         @endif
                     </div>

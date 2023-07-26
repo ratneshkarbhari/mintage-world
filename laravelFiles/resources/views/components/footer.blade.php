@@ -88,7 +88,12 @@
                </div>
                <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
                   <h2 class="mt-3 mb-3 text-center">Sign In</h2>
-                  <form control="" class="form-group"><input type="text" id="username" class="form__input" placeholder="Username" name="username"><input type="password" id="password" class="form__input mb-1" placeholder="Password" name="password"><span class="small text-end d-block w-100"><a href="#"> ! Forgot password?</a> </span><input type="submit" class="btn" value="Submit"></form>
+                  <form class="form-group">
+                    <input type="text" id="username" class="form__input" placeholder="Username" name="username">
+                    <input type="password" id="password" class="form__input mb-1" placeholder="Password" name="password">
+                    <span class="small text-end d-block w-100">
+                    <a href="#"> Forgot password?</a> </span><input type="submit" class="btn" value="Submit">
+                 </form>
                   <p class="mb-4">Don't have an account? <a href="#">Register Here</a></p>
                </div>
             </div>

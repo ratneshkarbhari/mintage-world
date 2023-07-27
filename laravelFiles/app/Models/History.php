@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 
 class History extends Model {
@@ -17,4 +18,11 @@ class History extends Model {
     const UPDATED_AT = 'modified';
 
     protected $table = "history";
+
+    public function dynasty() : HasOne
+    {
+        return $this->hasOne(Dynasty::class,"id","dynasty_id");
+    }
+
+
 }

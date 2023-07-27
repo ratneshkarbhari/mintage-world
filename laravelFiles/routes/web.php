@@ -32,9 +32,8 @@ Route::get("coin/detail/{coinId}", [Coins::class, 'coin_detail']);
 
 
 //history routes
-Route::get('/history', [Histories::class,'history']);
 Route::get('/history', [Histories::class, 'history']);
-Route::get('/history/detail', [Histories::class, 'history_detail']);
+Route::get('/history/detail/{historyId}', [Histories::class, 'history_detail']);
 
 
 

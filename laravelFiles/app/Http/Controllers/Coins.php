@@ -328,4 +328,11 @@ class Coins extends Controller
 
     }
 
+
+    function filter() {
+
+        
+        
+    }
+
 }

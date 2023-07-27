@@ -1,4 +1,4 @@
- @import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"); 
 /* font-family: 'Berkshire Swash', cursive;
 font-family: 'Satisfy', cursive; 
@@ -481,18 +481,10 @@ section.home-page-carousel {
   background: var(--primary);
   border-color: var(--primary);
 }
-
-/* 
-.owl-dots .owl-dot {
-    width: 15px;
-    height: 15px;
-    background: #939598;
-    display: inline-block;
-    position: relative;
-    margin: 5px;
-    border-radius: 10px;
-    transition: 0.5s;
-} */
+  
+.owl-dots .owl-dot { 
+    display: inline-block; 
+}  
 
 .owl-dots {
   position: absolute;
@@ -500,17 +492,25 @@ section.home-page-carousel {
   text-align: center;
   width: 100%;
   transition: 0.5s;
+  z-index: 999;
 }
 
 .owl-theme .owl-dots .owl-dot span {
   width: 15px;
-  height: 15px;
-  margin: 10px 5px;
+  height: 15px; 
   transition: 0.5s;
 }
+.owl-dots .owl-dot span {
+    width: 12px;
+    height: 12px;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 10px 5px;
+    background: #cfcfcf;
+    transition: 0.5s;
+}
 
-.owl-dots .owl-dot.active span {
-  width: 40px;
+.owl-dots .owl-dot.active span { 
   transition: 0.5s;
   margin: 10px 5px;
   background: #e19726 !important;
@@ -671,7 +671,7 @@ section.home-page-carousel {
   position: relative;
   transition: all 0.4s ease-out;
   border: solid 1px #cfcfcf;
-  margin: 0px 5px;
+  margin: 0px;
 }
 
 /* .product-grid:hover{box-shadow: 0 0 0 10px #fff,0 0 20px rgba(0,0,0,0.5);} */
@@ -812,7 +812,7 @@ section.home-page-carousel {
   color: #e19726;
   font-size: 16px;
   font-weight: 600;
-  margin: 0 0 3px;
+  margin: 0 0 5px;
 }
 
 .product-grid .price span {
@@ -1832,7 +1832,7 @@ width: 80%;
 }
 
 .category-menu .nav label {
-	border-bottom: 1px solid #eee
+	border-bottom: 1px solid #c1c1c1
 }
 
 .category-menu .nav a, .category-menu .nav label {
@@ -1977,7 +1977,13 @@ width: 80%;
 }
 /* category-menu css End */
 
-
+.product-short-wrap{
+  min-width: 200px;
+}
+.price-box {
+  text-align: center;
+  padding: 10px;
+}
 
 /* --------Responsive Media Css Start------------- */
 

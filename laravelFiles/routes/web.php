@@ -3,6 +3,8 @@
 use App\Http\Controllers\Coins;
 use App\Http\Controllers\Notes;
 use App\Http\Controllers\Histories;
+use App\Http\Controllers\Shopping;
+use App\Http\Controllers\StaticPages;
 use App\Http\Controllers\PageLoader;
 use Illuminate\Support\Facades\Route;
 
@@ -29,12 +31,17 @@ Route::get("/coin/ruler/{dynastyId}", [Coins::class, 'coin_rulers']);
 Route::get("coin/list/{rulerId}", [Coins::class, 'coin_list']);
 Route::get("coin/detail/{coinId}", [Coins::class, 'coin_detail']);
 
-//history routes
-<<<<<<< HEAD
-Route::get('/history', [Histories::class,'history']);
+//notes routes 
+Route::get("/notes", [Notes::class, 'note_countries']);
 
-Route::get("/notes",[Notes::class,'note_countries']);
-=======
+
+//history routes 
 Route::get('/history', [Histories::class, 'history']);
 Route::get('/history/detail', [Histories::class, 'history_detail']);
->>>>>>> 1e206676e09ac896859bc09dcdc830d50617076e
+
+// Shopping routes
+Route::get('/shop', [Shopping::class, 'shop']);
+Route::get('/shop/list', [Shopping::class, 'shop_list']);
+
+//Product  routes
+Route::get('/view-product', [Shopping::class, 'view_product']);

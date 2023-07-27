@@ -16,7 +16,7 @@
 
   // Sticky Navbar
   $(window).scroll(function () {
-    if ($(this).scrollTop() > 300) {
+    if ($(this).scrollTop() > 50) {
       $(".sticky-top").css("top", "0px");
       $(".search-box-wrap").addClass("FixedSearchBox");
       $("#searchCloseP").addClass("fixed-search");
@@ -101,6 +101,36 @@
     ],
   });
 
+  // shop main page carousel
+  $(".shop-page-carousel").owlCarousel({
+    autoplay: true,
+    smartSpeed: 1500,
+    margin: 25,
+    dots: false,
+    loop: true,
+    nav: true,
+    navText: [
+      '<i class="bi bi-chevron-left"></i>',
+      '<i class="bi bi-chevron-right"></i>',
+    ],
+    responsive: {
+      0: {
+        items: 2,
+      },
+      600: {
+        items: 3,
+      },
+      1024: {
+        items: 3,
+      },
+      1200: {
+        items: 4,
+      },
+      1920: {
+        items: 5,
+      },
+    },
+  });
   // product carousel
   $(".product-carousel").owlCarousel({
     autoplay: true,

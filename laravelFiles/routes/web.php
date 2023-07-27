@@ -18,18 +18,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PageLoader::class,'home']);
+Route::get('/', [PageLoader::class, 'home']);
 
 
 // Coins info routes
-Route::get('/coins', [Coins::class,'coin_countries']);
-Route::get("/coin/{slug}", [Coins::class,'coin_country_periods']);
-Route::get("/coin/dynasty/{periodId}", [Coins::class,'coin_dynasties']);
-Route::get("/coin/ruler/{dynastyId}", [Coins::class,'coin_rulers']);
-Route::get("coin/list/{rulerId}",[Coins::class,'coin_list']);
-Route::get("coin/detail/{coinId}",[Coins::class,'coin_detail']);
+Route::get('/coins', [Coins::class, 'coin_countries']);
+Route::get("/coin/{slug}", [Coins::class, 'coin_country_periods']);
+Route::get("/coin/dynasty/{periodId}", [Coins::class, 'coin_dynasties']);
+Route::get("/coin/ruler/{dynastyId}", [Coins::class, 'coin_rulers']);
+Route::get("coin/list/{rulerId}", [Coins::class, 'coin_list']);
+Route::get("coin/detail/{coinId}", [Coins::class, 'coin_detail']);
 
 //history routes
+<<<<<<< HEAD
 Route::get('/history', [Histories::class,'history']);
 
 Route::get("/notes",[Notes::class,'note_countries']);
+=======
+Route::get('/history', [Histories::class, 'history']);
+Route::get('/history/detail', [Histories::class, 'history_detail']);
+>>>>>>> 1e206676e09ac896859bc09dcdc830d50617076e

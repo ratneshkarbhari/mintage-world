@@ -209,7 +209,10 @@ class Coins extends Controller
 
         }
 
+        
+
         $coins = Cache::get('coins-'.$rulerId);
+
 
         $ruler = Ruler::find($rulerId);
 
@@ -219,13 +222,33 @@ class Coins extends Controller
 
         $country = Country::find($period["country_id"]);
 
-        $dynastyRulers = Cache::get('coin-rulers-'.$dynasty["id"]);
+        $dynastyRulers = Ruler::where("dynasty_id",$dynasty["id"])->get();
+
+
+
+        $denominations = $metals = $rarities = $mints = [];
+
+        foreach ($coins as $coin) {
+            
+            $denominations[] = $coin["denomination"];
+            $metals[] = $coin["metal"];
+            $rarities[] = $coin["rarity"];
+            $mints[] = $coin["mint"];
+            $shapes[]  = $coin["shape"];
+            
+        }
+
 
         $this->page_loader("list",[
             "title" => "Coins of ".$ruler["title"]." | Mintage World",
             "info_title" => "Coins : ".$ruler["title"],
             "coins" => $coins,
             "dynastyRulers" => $dynastyRulers,
+            "denominations" => array_unique($denominations),
+            "metals" => array_unique($metals),
+            "rarities" => array_unique($rarities),
+            "mints" => array_unique($mints),
+            "shapes" => array_unique($shapes),
             "breadCrumbsData" => json_encode([
                 "coins" => TRUE,
                 "country" => [

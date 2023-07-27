@@ -178,18 +178,13 @@
                 <div class="col-lg-3 col-md-12 mt-md-5 mt-0 mt-lg-0">
                     <div class="heading-2">More Rulers</div>
                     <ul class="more-rulers">
-                        <li><a href="/coin/list/2095/">Trade Token issued by Lewis Abrahams</a></li>
-                        <li><a href="/coin/list/2097/">Trade Token issued by Adamson, Watts, McKechnie &amp; Co.</a>
-                        </li>
-                        <li><a href="/coin/list/2099/">Trade Token issued by John Allen</a></li>
-                        <li><a href="/coin/list/2101/">Trade Token issued by William Allen</a></li>
-                        <li><a href="/coin/list/2103/">Trade Token issued by John Andrew &amp; Co.</a></li>
-                        <li><a href="/coin/list/2105/">Trade Token issued by Jno Andrew &amp; Co.</a></li>
-                        <li><a href="/coin/list/2107/">Trade Token issued by Annand, Smith &amp; Co.</a></li>
-                        <li><a href="/coin/list/2109/">Trade Token issued by Barraclough</a></li>
-                        <li><a href="/coin/list/2111/">Trade Token issued by William Bateman Junr. &amp; Co.</a>
-                        </li>
-                        <li><a href="/coin/list/2113/">Trade Token issued by Bell &amp; Gardner</a></li>
+
+                        @foreach($dynastyRulers as $dynastyRuler)
+
+                        <li><a href="{{url('/coin/list/'.$dynastyRuler["id"])}}">{{$dynastyRuler["title"]}}</a></li>
+
+                        @endforeach
+
                     </ul>
                     <div class=""><a href="#" class="btn btn-sm btn-primary mt-3">View All</a></div>
                 </div>

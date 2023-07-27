@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\Coins;
-use App\Http\Controllers\PageLoader;
+use App\Http\Controllers\Notes;
 use App\Http\Controllers\Histories;
+use App\Http\Controllers\PageLoader;
 use Illuminate\Support\Facades\Route;
 
 
@@ -30,3 +31,5 @@ Route::get("coin/detail/{coinId}",[Coins::class,'coin_detail']);
 
 //history routes
 Route::get('/history', [Histories::class,'history']);
+
+Route::get("/notes",[Notes::class,'note_countries']);

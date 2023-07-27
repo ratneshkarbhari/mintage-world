@@ -6,7 +6,7 @@
            <ol class="breadcrumb">
                <li class="breadcrumb-item me-2"><a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a></li> 
                <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("/history")}}">History</a></li>
-               <li class="breadcrumb-item me-2" aria-current="page">Andhra Janapada</li>
+               <li class="breadcrumb-item me-2" aria-current="page">{{$dynasty["title"]}}</li>
            </ol>
        </nav>
    </div>
@@ -99,17 +99,13 @@
             <div class="col-lg-9 col-md-12 mt-md-5 mt-0 mt-lg-0">
                <div class="historycontent">
                   <div class="d-flex justify-content-between">
-                     <h2 class="mb-3 heading-1">Andhra Janapada</h2>
+                     <h2 class="mb-3 heading-1">{{$dynasty["title"]}}</h2>
                  </div> 
-                     <p>Janapadas were realms, republics, and kingdoms that prospered during the Vedic Period into the late Bronze and Iron Ages. 
-                        These Janapadas produced some the first coins in the history of India and the world. 
-                        They existed between the years, 1200 BCE and 6th century BCE and comprised of a total of 56 states spread across the Indian Subcontinent. 
-                        These Janapadas transformed into 16 Mahajanapadas when the states or kingdoms were annexed by their more powerful neighbours. 
-                        Some of the states remained independent.<br><br>
+                    {!!$history["history"]!!}
                         Read more about Janapada history at Mintage World.</p>
 
                   @if(session()->has('type'))
-                  <a class="btn btn-sm btn-explore" href="#"> 
+                  <a class="btn btn-sm btn-explore" href="{{url("login?return=history&id=".$history["id"])}}"> 
                      <i class="fa fa-download"></i> Click here to download the complete history</a>
                      <span class="first"></span>
                      <span class="second"></span>

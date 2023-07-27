@@ -1136,6 +1136,7 @@ ul.sticky-footer-ul li a:hover {
   margin-bottom: 10px;
   padding: 0px 10px;
   min-height: 65px;
+  font-family: 'Montserrat', sans-serif; 
 }
 
 .list-page .info-item-grid-title {

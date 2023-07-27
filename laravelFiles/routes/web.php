@@ -31,17 +31,20 @@ Route::get("/coin/ruler/{dynastyId}", [Coins::class, 'coin_rulers']);
 Route::get("coin/list/{rulerId}", [Coins::class, 'coin_list']);
 Route::get("coin/detail/{coinId}", [Coins::class, 'coin_detail']);
 
-//notes routes 
-Route::get("/notes", [Notes::class, 'note_countries']);
-
 
 //history routes 
 Route::get('/history', [Histories::class, 'history']);
 Route::get('/history/detail', [Histories::class, 'history_detail']);
 
+
 // Shopping routes
 Route::get('/shop', [Shopping::class, 'shop']);
 Route::get('/shop/list', [Shopping::class, 'shop_list']);
 
+
 //Product  routes
 Route::get('/view-product', [Shopping::class, 'view_product']);
+
+
+// Note info routes Routes
+Route::get("/notes", [Notes::class, 'note_countries']);

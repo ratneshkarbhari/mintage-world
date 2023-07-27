@@ -37,17 +37,12 @@
                                         aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushExample">
                                         <div class="accordion-body">
                                             <ul class="filter-item-list">
-                                                <li><input type="checkbox" id="dnm" value="235">1 Shatamana</li>
-                                                <li><input type="checkbox" id="dnm" value="245">1/16 Shatamana
-                                                    (1/2 Shana)</li>
-                                                <li><input type="checkbox" id="dnm" value="232">1/2 Shatamana (4
-                                                    Shanas)</li>
-                                                <li><input type="checkbox" id="dnm" value="246">1/32 Shatamana
-                                                    (1/4 Shana)</li>
-                                                <li><input type="checkbox" id="dnm" value="242">1/4 Shatamana (2
-                                                    Shanas)</li>
-                                                <li><input type="checkbox" id="dnm" value="243">1/8 Shatamana (1
-                                                    Shana)</li>
+                                                <li><input type="checkbox" id="ChkBox1" value="235"><label for="ChkBox1"> 1 Shatamana</label></li>
+                                                <li><input type="checkbox" id="ChkBox2" value="245"><label for="ChkBox2"> 1/16 Shatamana (1/2 Shana)</label></li>
+                                                <li><input type="checkbox" id="ChkBox3" value="232"><label for="ChkBox3"> 1/2 Shatamana (4 Shanas)</label></li>
+                                                <li><input type="checkbox" id="ChkBox4" value="246"><label for="ChkBox4"> 1/32 Shatamana (1/4 Shana)</label></li>
+                                                <li><input type="checkbox" id="ChkBox5" value="242"><label for="ChkBox5"> 1/4 Shatamana (2 Shanas)</label></li>
+                                                <li><input type="checkbox" id="ChkBox6" value="243"><label for="ChkBox6"> 1/8 Shatamana (1 Shana)</label></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -65,15 +60,12 @@
                                         aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample">
                                         <div class="accordion-body filter-item-body">
                                             <ul class="filter-item-list">
-                                                <li><input type="checkbox" id="metal" value="8">Billon</li>
-                                                <li><input type="checkbox" id="metal" value="192">Billon
-                                                    (debased silver)</li>
-                                                <li><input type="checkbox" id="metal" value="5">Copper</li>
-                                                <li><input type="checkbox" id="metal" value="4">Silver</li>
-                                                <li><input type="checkbox" id="metal" value="29">Silver and
-                                                    Debased Silver</li>
-                                                <li><input type="checkbox" id="metal" value="30">Silver Plated
-                                                    Copper and Copper</li>
+                                                <li><input type="checkbox" id="ChkBox7" value="8"><label for="ChkBox7">Billon</label></li>
+                                                <li><input type="checkbox" id="ChkBox8" value="1"><label for="ChkBox8">Billon (debased silver)</label></li>
+                                                <li><input type="checkbox" id="ChkBox9" value="5"><label for="ChkBox9">Copper</label></li>
+                                                <li><input type="checkbox" id="ChkBox10" value="4"><label for="ChkBox10">Silver</label></li>
+                                                <li><input type="checkbox" id="ChkBox11" value="2"><label for="ChkBox11">Silver and Debased Silver</label></li>
+                                                <li><input type="checkbox" id="ChkBox12" value="3"><label for="ChkBox12">Silver Plated Copper and Copper</label></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -91,16 +83,10 @@
                                         aria-labelledby="flush-heading3" data-bs-parent="#accordionFlushExample">
                                         <div class="accordion-body filter-item-body">
                                             <ul class="filter-item-list">
-                                                <li><input type="checkbox" id="rarity" value="11">R (Rare)
-                                                </li>
-                                                <li><input type="checkbox" id="rarity" value="12">S (Scarce)
-                                                </li>
-                                                <li><input type="checkbox" id="rarity" value="15">VR (Very
-                                                    Rare)
-                                                </li>
-                                                <li><input type="checkbox" id="rarity" value="13">XR
-                                                    (Extremely
-                                                    Rare)</li>
+                                                <li><input type="checkbox" id="ChkBox13" value="11"><label for="ChkBox13">R (Rare)</label></li>
+                                                <li><input type="checkbox" id="ChkBox14" value="12"><label for="ChkBox14">S (Scarce)</label></li>
+                                                <li><input type="checkbox" id="ChkBox15" value="15"><label for="ChkBox15">VR (Very Rare)</label></li>
+                                                <li><input type="checkbox" id="ChkBox16" value="13"><label for="ChkBox16">XR (Extremely Rare)</label></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -117,7 +103,7 @@
                                         aria-labelledby="flush-heading4" data-bs-parent="#accordionFlushExample">
                                         <div class="accordion-body filter-item-body">
                                             <ul class="filter-item-list">
-                                                <li><input type="checkbox" id="shape" value="2">Round</li>
+                                                <li><input type="checkbox" id="ChkBox17" value="2"><label for="ChkBox17">Round</label></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -134,8 +120,7 @@
                                         aria-labelledby="flush-heading5" data-bs-parent="#accordionFlushExample">
                                         <div class="accordion-body filter-item-body">
                                             <ul class="filter-item-list">
-                                                <li><input type="checkbox" id="mint"
-                                                        value="Taxila%2FGandhara">Taxila/Gandhara</li>
+                                                <li><input type="checkbox" id="ChkBox18" value="Taxila%2FGandhara"><label for="ChkBox18">Taxila/Gandhara</label></li>
                                             </ul>
                                         </div>
                                     </div>

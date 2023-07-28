@@ -51,5 +51,8 @@ Route::get('view-product', [Shopping::class, 'view_product']);
 
 // Note info routes Routes
 Route::get("notes", [Notes::class, 'note_countries']);
-
-
+Route::get("note/{slug}", [Notes::class, 'note_country_periods']);
+Route::get("note/dynasty/{periodId}", [Notes::class, 'note_dynasties']);
+Route::get("note/note/{dynastyId}", [Notes::class, 'note_denominations']);
+Route::get("note/list/{rulerId}", [Notes::class, 'note_list']);
+Route::get("note/detail/{noteId}", [Notes::class, 'note_detail']);

@@ -35,16 +35,22 @@
                                         Select by Periods
                                     </button>
                                 </h2>
-                                <div id="flush-collapse1" class="accordion-collapse collapse"
+                                <div id="flush-collapse1" class="accordion-collapse collapse show"
                                     aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
-                                        <select name="periods" class="form-control" id="periods" required="required"><option value="">Select Period</option>
-                                            <option value="150" selected="selected">All (150)</option>
-                                            <option value="17">Ancient  (25)</option>
-                                            <option value="4">Medieval  (19)</option>
-                                            <option value="401">Indian Princely States  (59)</option>
-                                            <option value="10">Colonial  (6)</option>
-                                            <option value="30">Modern  (2)</option></select>
+                                        <select name="periods" class="form-control" id="periods" required="required">
+                                          
+                                          @foreach($periods as $period)
+
+                                          <option value="{{$period["id"]}}" 
+                                          @if($period["id"]==17)
+                                          selected
+                                          @endif
+                                          >{{$period["title"]}}</option>
+
+                                          @endforeach
+                                       </select>
+
                                     </div>
                                 </div>
                             </div>
@@ -57,36 +63,14 @@
 
                                     </button>
                                 </h2>
-                                <div id="flush-collapse2" class="accordion-collapse collapse"
+                                <div id="flush-collapse2" class="accordion-collapse collapse show"
                                     aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body filter-item-body">
-                                        <select name="historyn" id="historyn" required="" class="form-control" onchange="detailHistory();"> 
+                                        <select name="historyn" id="historyn" required="" class="form-control" > 
                                             <option value="">Select History</option>
-                                            <option value="44">Andhra Janapada</option>
-                                            <option value="45">Ashmaka Janapada</option>
-                                            <option value="46">Avanti Janapada</option>
-                                            <option value="47">Ayodhya Janapada</option>
-                                            <option value="57">Gandhara Janapada</option>
-                                            <option value="91">Gupta</option>
-                                            <option value="266">Indo - Parthian</option>
-                                            <option value="125">Indo - Scythian</option>
-                                            <option value="124">Indo-Greeks</option>
-                                            <option value="169">Kadambas of Banavasi</option>
-                                            <option value="49">Kalinga Janapada</option>
-                                            <option value="59">Kashi Janapada</option>
-                                            <option value="58">Kosala Janapada</option>
-                                            <option value="51">Kuntala Janapada</option>
-                                            <option value="50">Kuru Janapada</option>
-                                            <option value="60">Magadha Janapada</option>
-                                            <option value="36">Magadha-Mauryan</option>
-                                            <option value="52">Malla Janapada</option>
-                                            <option value="132">Pallava</option>
-                                            option value="56">Panchala Janapada</option>
-                                            <option value="53">Saurashtra Janapada</option>
-                                            <option value="54">Vanga Janapada</option>
-                                            <option value="55">Vatsa Janapada</option>
-                                            <option value="23">Western Kshatrapas - Kardamaka </option>
-                                            <option value="22">Western Kshatrapas - Kshaharata</option>
+                                            @foreach($histories_options as $histories_option)
+                                            <option value="{{$histories_option["id"]."-".Str::slug(strtolower($histories_option["title"]))}}">{{$histories_option["title"]}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -129,3 +113,35 @@
     </div>
 </section>
 </main>
+<script>
+
+    $("select#periods").on("change",()=>{
+
+        let periodId = $("select#periods").val();
+
+        $.ajax({
+            type: "GET",
+            url: "<?php echo url("get-histories-dropdown-for-period"); ?>",
+            data: {
+                "period_id" : periodId
+            },
+            success: function(response){
+                $("select#historyn").html('');
+                $("select#historyn").html(response);
+            }
+        });
+
+        
+        
+
+    });
+
+    $("select#historyn").on("change",()=>{
+
+        let historyId = $("select#historyn").val();
+
+        window.location.replace("http://localhost/mintage-world/history/detail/"+historyId);
+
+    });
+
+</script>

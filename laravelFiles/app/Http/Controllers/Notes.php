@@ -6,6 +6,7 @@ use App\Models\Period;
 use App\Models\Country;
 use App\Models\Dynasty;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 
 class Notes extends Controller
@@ -137,8 +138,53 @@ class Notes extends Controller
 
     }
 
-    function note_denominations($rulerId){
-        
+    function note_denominations($dynastyId){
+
+
+
+        if(!Cache::get('note-denominations-'.$dynastyId)){
+
+                
+            $denominationQuery = 'SELECT note.denomination_unit as unit,denomination.id,note.obverse_image, note.denomination_unit, denomination.title FROM note JOIN dynasty dy ON note.dynasty_id=dy.id JOIN denomination on denomination.id = note.denomination_id WHERE note.dynasty_id = 135 GROUP BY note.denomination_unit';
+
+            $denominations = DB::select($denominationQuery);
+
+            $denominations = json_decode(json_encode($denominations),TRUE);
+
+            Cache::put('note-denominations-'.$dynastyId,$denominations);
+
+        }
+
+        $dynasty = Dynasty::find($dynastyId);
+
+        $denominations = Cache::get('note-denominations-'.$dynastyId);
+
+        $period = Period::find($dynasty["period_id"]);
+
+        $country = Country::find($period["country_id"]);
+
+        $this->page_loader("denominations_notes",[
+            "title" => $period["title"]." notes | notes of ".$period["title"]." ".$country["name"]." | ".$period["title"]." Period notes | Mintage World",
+            "info_title" => "Denominations : ".$period["title"],
+            "denominations" => $denominations,
+            "breadCrumbsData" => json_encode([
+                "notes" => TRUE,
+                "country" => [
+                    "id" => $country["id"],
+                    "name" => $country["name"]
+                ],
+                "period" => [
+                    "id" => $period["id"],
+                    "name" => $period["title"]
+                ],
+                "dynasty" => [
+                    "id" => $dynasty["id"],
+                    "name" => $dynasty["title"]
+                ]
+            ]),
+            "footer_content" =>$period["footer_content"]
+        ]);
+
     }
 
 }

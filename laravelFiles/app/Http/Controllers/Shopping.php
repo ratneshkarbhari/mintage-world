@@ -26,4 +26,10 @@ class Shopping extends Controller
             "title" => "Buy Amazing Old World Currency Notes Online | Mintage World"
         ]);
     }
+    function view_product()
+    {
+        $this->page_loader("view_product", [
+            "title" => "Buy Amazing Old World Currency Notes Online | Mintage World"
+        ]);
+    }
 }

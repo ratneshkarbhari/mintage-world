@@ -68,10 +68,10 @@
                                 <div id="flush-collapse2" class="accordion-collapse collapse show"
                                     aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body filter-item-body">
-                                        <select name="historyn" id="historyn" required="" class="form-control" onchange="detailHistory();"> 
+                                        <select name="historyn" id="historyn" required="" class="form-control" > 
                                             <option value="">Select History</option>
                                             @foreach($histories as $history)
-                                            <option value="">{{$history["title"]}}</option>
+                                            <option value="{{$history["id"]."-".Str::slug(strtolower($history["title"]))}}">{{$history["title"]}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -83,12 +83,12 @@
                 </div>
             </div>
             <div class="col-lg-9 col-md-12 mt-md-5 mt-0 mt-lg-0">
-               <div class="row">
+               <div class="row" id="historyGridContainer">
                     
                   @foreach($histories as $history)
 
                   <div class="col-lg-2 col-md-4 col-6 info-item-grid-outer-box">
-                     <a href="{{url("history/detail/".$history["id"])}}">
+                     <a href="{{url("history/detail/".$history["id"]."-".Str::slug(strtolower($history["title"])))}}">
                         <div class="info-item-grid-box">
                            <img src="{{getenv("DYNASTY_IMAGE_BASE_URL").$history["image"]}}" class="img-fluid" alt="{{$history["title"]}}">
                            <div class="info-meta text-center">
@@ -111,6 +111,43 @@
 
 <script>
 
-   
+    $("select#periods").on("change",()=>{
+
+        let periodId = $("select#periods").val();
+
+        $.ajax({
+            type: "GET",
+            url: "<?php echo url("get-histories-dropdown-for-period"); ?>",
+            data: {
+                "period_id" : periodId
+            },
+            success: function(response){
+                $("select#historyn").html('');
+                $("select#historyn").html(response);
+            }
+        });
+
+        $.ajax({
+            type: "GET",
+            url: "<?php echo url("get-histories-grid-for-period"); ?>",
+            data: {
+                "period_id" : periodId
+            },
+            success: function(response){
+                $("div#historyGridContainer").html('');
+                $("div#historyGridContainer").html(response);
+            }
+        });
+        
+
+    });
+
+    $("select#historyn").on("change",()=>{
+
+        let historyId = $("select#historyn").val();
+
+        window.location.replace("http://localhost/mintage-world/history/detail/"+historyId);
+
+    });
 
 </script>

@@ -1716,17 +1716,7 @@ text-align: center;
 width: 60%;
 margin: 0px auto;
 }
-#sync2 .item {
-background: #FFF;
-/* padding: 10px 0px; */
-margin: 5px;
-color: #fff;
--webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
-text-align: center;
-cursor: pointer;
-}
+#sync2 .item {background: #FFF;/* padding: 10px 0px; */margin: 0;color: #fff;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;text-align: center;cursor: pointer;}
 
 
 #sync1.owl-theme {
@@ -1771,17 +1761,8 @@ color: #FFF;
 #sync2.owl-carousel .owl-stage{
 width: 100% !important;
 }
-#sync2 .owl-item,#sync2 .owl-item.active.current{
-border: solid 1px #cfcfcf;
-opacity: 0.5;
-transition: 0.5s; 
-margin: 5px;
-}
-#sync2 .owl-item.active, #sync2 .owl-item:hover,#sync2 .owl-item.active.current:hover{
-border:solid 1px #e19726;
-opacity: 1;
-transition: 0.5s;
-} 
+#sync2 .owl-item,#sync2 .owl-item.active.current{border: solid 1px #ff7907;opacity: 1;transition: 0.5s;margin: 5px;}
+#sync2 .owl-item.active, #sync2 .owl-item:hover,#sync2 .owl-item.active.current:hover{border: solid 1px #cfcfcf;opacity: 0.5;transition: 0.5s;} 
 #sync2.owl-carousel .owl-item img {
 display: inline-block;
 width: 80%;
@@ -1985,7 +1966,37 @@ width: 80%;
   text-align: center;
   padding: 10px;
 }
-
+.info-item-grid-row .price {
+  font-size: 20px;
+  color: #e19726;
+  font-weight: 600;
+}
+.info-item-grid-row .price span {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+  margin: 0 5px 0 0;
+  font-weight: 400;
+}
+.birth-date-wraper img {
+  width: 150px;
+}
+.product-detail-wraper {
+  position: relative;
+}
+.out-of-stock-icon {
+  position: absolute;
+  bottom: 00;
+  right: 0%;
+  width: 120px;
+  opacity: 0.8;
+}
+.recent-comment-wrap .UserDetail p span:first-child {
+  color: #e19726;
+}
+.recent-comment-wrap .UserDetail p span {
+  font-weight: 600;
+}
 /* --------Responsive Media Css Start------------- */
 
 @media (max-width: 1400px) {
@@ -2414,11 +2425,14 @@ width: 80%;
     padding-bottom: 5px;
     border-bottom: 1px #e7e6e6 solid;
 }
-p#ProductLogBtn {
+#ProductLogBtn {
   border: none;
   margin-top: 20px;
 }
   .product-detail-wrap p b,.product-detail-wrap p span{
     width: 100%;
+  }
+  .out-of-stock-icon {
+    position: relative;
   }
 }

@@ -259,4 +259,58 @@ class Notes extends Controller
 
     }
 
+
+    function note_detail($noteId){
+
+        if(!Cache::get('note-'.$noteId)){
+
+            $note = Note::find($noteId);
+
+            Cache::put('note-'.$noteId,$note);
+            
+        }
+
+        $note = Cache::get("note-".$noteId);
+
+        $denomination = Denomination::find($note["denomination_id"]);
+
+        $dynasty = Dynasty::find($note["dynasty_id"]);
+
+        $period = Period::find($dynasty["period_id"]);
+
+        $country = Country::find($period["country_id"]);
+
+        $this->page_loader("note_detail",[
+            "title" => $note["denomination_unit"]." ".$denomination["title"],
+            "note" => $note,
+            "denomination" => $denomination,
+            "dynasty" => $dynasty,
+            "breadCrumbsData" => json_encode([
+                "notes" => TRUE,
+                "country" => [
+                    "id" => $country["id"],
+                    "name" => $country["name"]
+                ],
+                "period" => [
+                    "id" => $period["id"],
+                    "name" => $period["title"]
+                ],
+                "dynasty" => [
+                    "id" => $dynasty["id"],
+                    "name" => $dynasty["title"]
+                ],
+                "denomination" => [
+                    "id" => $denomination["id"],
+                    "unit" => $note["denomination_unit"],
+                    "name" => $denomination ["title"]
+                ]
+            ]),
+            "footer_content" => ""
+        ]);
+
+
+
+
+    }
+
 }

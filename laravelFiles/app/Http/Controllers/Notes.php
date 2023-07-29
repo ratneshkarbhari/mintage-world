@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Note;
 use App\Models\Period;
 use App\Models\Country;
+use App\Models\Denomination;
 use App\Models\Dynasty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -184,6 +186,76 @@ class Notes extends Controller
             ]),
             "footer_content" =>$period["footer_content"]
         ]);
+
+    }
+
+    function note_list($denominationUnit,$dynastyId){
+
+        if(!Cache::get('notes-'.$denominationUnit."-".$dynastyId)){
+
+            $query = 'SELECT note.denomination_id, note.id, note.obverse_image, note.reverse_image, note.denomination_unit, denomination.title as denomination_title , note.issued_year, note.catalogue_ref_no, note.size, note.signatory, note.color, note.prefix, note.inset, dynasty.title, denomination.title, shape.title 
+            FROM note 
+            JOIN dynasty ON note.dynasty_id = dynasty.id 
+            JOIN denomination ON note.denomination_id = denomination.id JOIN shape ON note.shape_id = shape.id WHERE note.denomination_unit = 10 AND note.dynasty_id = '.$dynastyId;
+            
+            $notes = DB::select($query);
+
+            $notes = json_decode(json_encode($notes),TRUE);
+
+            Cache::put('notes-'.$denominationUnit."-".$dynastyId,$notes);
+
+        }
+
+        
+
+        $notes = Cache::get('notes-'.$denominationUnit."-".$dynastyId);
+
+        $denominationId = $notes[0]["denomination_id"];
+
+        $dynasty = Dynasty::find($dynastyId);
+
+        $period = Period::find($dynasty["period_id"]);
+
+        $country = Country::find($period["country_id"]);
+
+        $denomination = Denomination::find($denominationId);
+        $denominations = $metals = $rarities = $mints = $shapes = [];
+
+
+        $this->page_loader("note_list",[
+            "title" => $denominationUnit." ".$denomination["title"],
+            "info_title" => "Notes : ".$denominationUnit." ".$denomination["title"],
+            "notes" => json_decode(json_encode($notes),TRUE),
+            "dynastyRulers" => [],
+            "denominations" => array_unique($denominations),
+            "metals" => array_unique($metals),
+            "rarities" => array_unique($rarities),
+            "mints" => array_unique($mints),
+            "shapes" => array_unique($shapes),
+
+            "breadCrumbsData" => json_encode([
+                "notes" => TRUE,
+                "country" => [
+                    "id" => $country["id"],
+                    "name" => $country["name"]
+                ],
+                "period" => [
+                    "id" => $period["id"],
+                    "name" => $period["title"]
+                ],
+                "dynasty" => [
+                    "id" => $dynasty["id"],
+                    "name" => $dynasty["title"]
+                ],
+                "denomination" => [
+                    "id" => $denomination["id"],
+                    "unit" => $denominationUnit,
+                    "name" => $denomination ["title"]
+                ]
+            ]),
+            "footer_content" => ""
+        ]);
+
 
     }
 

@@ -97,4 +97,21 @@ class Stamps extends Controller
 
     }
 
+
+    function stamp_detail($stampId){
+
+        $stamp = Stamp::find($stampId);
+
+        $dynasty = Dynasty::find($stamp["dynasty_id"]);
+
+        $this->page_loader("stamp_detail",[
+            "title" => $stamp["stamp_name"],
+            "stamp" => $stamp,
+            "dynasty" => $dynasty, 
+            "footer_content" => ""
+        ]);
+
+
+    }
+
 }

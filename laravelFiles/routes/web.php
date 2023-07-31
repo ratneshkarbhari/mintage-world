@@ -63,3 +63,4 @@ Route::get("note/detail/{noteId}", [Notes::class, 'note_detail']);
 Route::get("stamp", [Stamps::class, 'stamp_periods']);
 Route::get("stamp/dynasty/{periodId}", [Stamps::class, 'stamp_types']);
 Route::get("stamp/list/{dynastyId}",[Stamps::class,'stamp_list']);
+Route::get("stamp/detail/{stampDetail}",[Stamps::class,'stamp_detail']);

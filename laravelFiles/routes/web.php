@@ -6,6 +6,7 @@ use App\Http\Controllers\Histories;
 use App\Http\Controllers\Shopping;
 use App\Http\Controllers\StaticPages;
 use App\Http\Controllers\PageLoader;
+use App\Http\Controllers\Stamps;
 use Illuminate\Support\Facades\Route;
 
 
@@ -56,3 +57,9 @@ Route::get("note/dynasty/{periodId}", [Notes::class, 'note_dynasties']);
 Route::get("note/note/{dynastyId}", [Notes::class, 'note_denominations']);
 Route::get("note/list/{denominationUnit}/{dynastyId}", [Notes::class, 'note_list']);
 Route::get("note/detail/{noteId}", [Notes::class, 'note_detail']);
+
+
+// Stamp info routes Routes
+Route::get("stamp", [Stamps::class, 'stamp_periods']);
+Route::get("stamp/dynasty/{periodId}", [Stamps::class, 'stamp_types']);
+Route::get("stamp/list/{dynastyId}",[Stamps::class,'stamp_list']);

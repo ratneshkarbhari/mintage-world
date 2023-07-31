@@ -176,7 +176,7 @@
                         <div class="dropdown-menu fade-up m-0">
                             <a href="{{url("coins")}}" class="dropdown-item">Coins</a>
                             <a href="{{url("notes")}}" class="dropdown-item">Notes</a>
-                            <a href="{{url("stamps")}}" class="dropdown-item">Stamps</a>
+                            <a href="{{url("stamp")}}" class="dropdown-item">Stamps</a>
                         </div>
                     </div>
                     <a href="history" class="nav-item nav-link">History</a>

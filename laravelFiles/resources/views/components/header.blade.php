@@ -108,7 +108,7 @@
         <!-- Navbar Start -->
         <nav
             class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-primary sticky-top py-0 px-lg-2 px-lg-5">
-            <a href="/" class="navbar-brand d-flex align-items-center main-logo">
+            <a href="{{url("/")}}" class="navbar-brand d-flex align-items-center main-logo">
                 <img src="{{url("assets/img/logo.png")}}" alt="" class="img-fluid">
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
@@ -176,7 +176,7 @@
                         <div class="dropdown-menu fade-up m-0">
                             <a href="{{url("coins")}}" class="dropdown-item">Coins</a>
                             <a href="{{url("notes")}}" class="dropdown-item">Notes</a>
-                            <a href="{{url("stamps")}}" class="dropdown-item">Stamps</a>
+                            <a href="{{url("stamp")}}" class="dropdown-item">Stamps</a>
                         </div>
                     </div>
                     <a href="history" class="nav-item nav-link">History</a>

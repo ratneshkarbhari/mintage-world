@@ -6,6 +6,7 @@ use App\Http\Controllers\Histories;
 use App\Http\Controllers\Shopping;
 use App\Http\Controllers\StaticPages;
 use App\Http\Controllers\PageLoader;
+use App\Http\Controllers\Stamps;
 use Illuminate\Support\Facades\Route;
 
 
@@ -54,7 +55,7 @@ Route::get("notes", [Notes::class, 'note_countries']);
 Route::get("note/{slug}", [Notes::class, 'note_country_periods']);
 Route::get("note/dynasty/{periodId}", [Notes::class, 'note_dynasties']);
 Route::get("note/note/{dynastyId}", [Notes::class, 'note_denominations']);
-Route::get("note/list/{rulerId}", [Notes::class, 'note_list']);
+Route::get("note/list/{denominationUnit}/{dynastyId}", [Notes::class, 'note_list']);
 Route::get("note/detail/{noteId}", [Notes::class, 'note_detail']);
 
 
@@ -62,3 +63,10 @@ Route::get("note/detail/{noteId}", [Notes::class, 'note_detail']);
 Route::get('list-of-cart', [Cart::class, 'list_of_cart']);
 Route::get('checkout', [Cart::class, 'checkout']);
 Route::get('payment', [Cart::class, 'payment']);
+
+
+// Stamp info routes Routes
+Route::get("stamp", [Stamps::class, 'stamp_periods']);
+Route::get("stamp/dynasty/{periodId}", [Stamps::class, 'stamp_types']);
+Route::get("stamp/list/{dynastyId}",[Stamps::class,'stamp_list']);
+Route::get("stamp/detail/{stampDetail}",[Stamps::class,'stamp_detail']);

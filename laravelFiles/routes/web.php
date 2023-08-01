@@ -35,8 +35,8 @@ Route::get("coin/detail/{coinId}", [Coins::class, 'coin_detail']);
 
 //history routes 
 Route::get('history', [Histories::class, 'history']);
-Route::get("get-histories-dropdown-for-period",[Histories::class,'get_histories_dropdown_for_period']);
-Route::get("get-histories-grid-for-period",[Histories::class,'get_histories_grid_for_period']);
+Route::get("get-histories-dropdown-for-period", [Histories::class, 'get_histories_dropdown_for_period']);
+Route::get("get-histories-grid-for-period", [Histories::class, 'get_histories_grid_for_period']);
 Route::get('history/detail/{historySlug}', [Histories::class, 'history_detail']);
 
 
@@ -57,6 +57,12 @@ Route::get("note/dynasty/{periodId}", [Notes::class, 'note_dynasties']);
 Route::get("note/note/{dynastyId}", [Notes::class, 'note_denominations']);
 Route::get("note/list/{denominationUnit}/{dynastyId}", [Notes::class, 'note_list']);
 Route::get("note/detail/{noteId}", [Notes::class, 'note_detail']);
+
+
+// cart & checkout routes
+Route::get('list-of-cart', [Cart::class, 'list_of_cart']);
+Route::get('checkout', [Cart::class, 'checkout']);
+Route::get('payment', [Cart::class, 'payment']);
 
 
 // Stamp info routes Routes

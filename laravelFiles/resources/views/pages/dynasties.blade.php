@@ -6,32 +6,52 @@
 
     <section class="common-padding coing-list-wraper">
         <div class="container-fluid px-lg-2 px-lg-5">
-            <div class="d-flex justify-content-between"><h2 class="mb-3 heading-1">{{$info_title}}</h2></div>
-            <div class="row info-item-grid-row">
-                @foreach($dynasties as $dynasty)
-                <div class="col-lg-2 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="{{url("coin/ruler/".$dynasty["id"])}}">
-                    @if(isset($dynasty["image"]))
-                    <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="{{getenv("dynasty_IMAGE_BASE_URL")."/".$dynasty["image"]}}" alt="{{$dynasty["name"]}}">
-                        <div class="info-meta text-center">
-                            <h2 class="info-item-grid-title">{{$dynasty["title"]}}</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-12 left-filter-wrap ">
+                    <div id="InfoFilter" class="filter-wrap">
+                        <div class="filter-link"><i class="fa fa-filter" aria-hidden="true"></i> <b>Filters</b>
                         </div>
                     </div>
-                    @else
-                    <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="{{getenv("API_DEFAULT_IMG_PATH")}}" alt="{{$dynasty["name"]}}">
-                        <div class="info-meta text-center">
-                            <h2 class="info-item-grid-title">{{$dynasty["title"]}}</h2>
-                        </div>
+                    <h1>Data absent</h1>
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-12">
+                    <div class="d-flex justify-content-between"><h2 class="mb-3 heading-1">{{$info_title}}</h2></div>
+                    <div class="row info-item-grid-row">
+                        @foreach($dynasties as $dynasty)
+                        <div class="col-lg-2 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="{{url("coin/ruler/".$dynasty["id"])}}">
+                            @if(isset($dynasty["image"]))
+                            <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="{{getenv("dynasty_IMAGE_BASE_URL")."/".$dynasty["image"]}}" alt="{{$dynasty["name"]}}" alt="{{$dynasty["title"]}}">
+                                <div class="info-meta text-center">
+                                    <h2 class="info-item-grid-title">{{$dynasty["title"]}}</h2>
+                                    @if($dynasty["description"])
+                                    <b>{!!$dynasty["description"]!!}</b>
+                                    @endif
+                                </div>
+                            </div>
+                            @else
+                            <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="{{getenv("API_DEFAULT_IMG_PATH")}}" alt="{{$dynasty["title"]}}">
+                                <div class="info-meta text-center">
+                                    <h2 class="info-item-grid-title">{{$dynasty["title"]}}</h2>
+                                    @if($dynasty["description"])
+                                    <b>{!!$dynasty["description"]!!}</b>
+                                    @endif
+                                </div>
+                            </div>
+                            @endif
+                        </a></div>
+                        @endforeach
                     </div>
-                    @endif
-                </a></div>
-                @endforeach
+                </div>
             </div>
+            
         </div>
     </section>
     <!--Footer Content -->
+    @if($footer_content!="")
     <section class="common-padding page-footer-disc bg-light-wraper">
         <div class="container-fluid px-lg-2 px-lg-5">
             <?php echo $footer_content; ?>
         </div>
     </section>
+    @endif
 </main>

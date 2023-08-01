@@ -72,7 +72,7 @@ class Coins extends Controller
 
             $periodModel = new Period();
 
-            $periods = $periodModel->where("country_id",$countryId)->where("category_id",1)->get();
+            $periods = $periodModel->where("country_id",$countryId)->where("category_id",1)->orderBy('order_by', 'asc')->get();
 
 
             Cache::put('coin-'.$slugParts[1].'-periods',$periods);
@@ -111,7 +111,7 @@ class Coins extends Controller
 
             $dynastyModel = new Dynasty();
 
-            $dynasties = $dynastyModel->where("period_id",$periodId)->get();
+            $dynasties = $dynastyModel->where("period_id",$periodId)->orderBy("order_by","desc")->get();
 
 
             Cache::put('coin-dynasties-'.$periodId,$dynasties);
@@ -243,6 +243,7 @@ class Coins extends Controller
             "title" => "Coins of ".$ruler["title"]." | Mintage World",
             "info_title" => "Coins : ".$ruler["title"],
             "coins" => $coins,
+            "dynasty" => $dynasty,
             "dynastyRulers" => $dynastyRulers,
             "denominations" => array_unique($denominations),
             "metals" => array_unique($metals),

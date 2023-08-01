@@ -4,6 +4,7 @@ use App\Http\Controllers\Coins;
 use App\Http\Controllers\Notes;
 use App\Http\Controllers\Histories;
 use App\Http\Controllers\Shopping;
+use App\Http\Controllers\Cart;
 use App\Http\Controllers\StaticPages;
 use App\Http\Controllers\PageLoader;
 use App\Http\Controllers\Stamps;
@@ -61,12 +62,12 @@ Route::get("note/detail/{noteId}", [Notes::class, 'note_detail']);
 
 // cart & checkout routes
 Route::get('list-of-cart', [Cart::class, 'list_of_cart']);
-Route::get('checkout', [Cart::class, 'checkout']);
+Route::get('/checkout', [Cart::class, 'checkout']);
 Route::get('payment', [Cart::class, 'payment']);
 
 
 // Stamp info routes Routes
 Route::get("stamp", [Stamps::class, 'stamp_periods']);
 Route::get("stamp/dynasty/{periodId}", [Stamps::class, 'stamp_types']);
-Route::get("stamp/list/{dynastyId}",[Stamps::class,'stamp_list']);
-Route::get("stamp/detail/{stampDetail}",[Stamps::class,'stamp_detail']);
+Route::get("stamp/list/{dynastyId}", [Stamps::class, 'stamp_list']);
+Route::get("stamp/detail/{stampDetail}", [Stamps::class, 'stamp_detail']);

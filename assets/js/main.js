@@ -262,6 +262,24 @@
   // });
   // counter value end
 
+  // quantity plus minus js start
+  $(".qtyplus").click(function () {
+    if ($(this).prev().val() < 10000) {
+      $(this)
+        .prev()
+        .val(+$(this).prev().val() + 1);
+    }
+  });
+  $(".qtyminus").click(function () {
+    if ($(this).next().val() > 1) {
+      if ($(this).next().val() > 1)
+        $(this)
+          .next()
+          .val(+$(this).next().val() - 1);
+    }
+  });
+  // quantity plus minus js end
+
   //  filter js start
   let InfoFilter = document.getElementById("InfoFilter");
   let CategoryMenu = document.getElementById("CategoryMenu");

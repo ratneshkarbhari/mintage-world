@@ -14,6 +14,7 @@
                     <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="{{getenv("RULER_IMAGE_BASE_URL")."/".$ruler["image"]}}" alt="{{$ruler["name"]}}">
                         <div class="info-meta text-center">
                             <h2 class="info-item-grid-title">{{$ruler["title"]}}</h2>
+                            <b>{{$ruler["from"]." ".$ruler["abbreviation_from"]." to ".$ruler["to"]." ".$ruler["abbreviation_to"]}}</b>
                         </div>
                     </div>
                     @else
@@ -29,9 +30,11 @@
         </div>
     </section>
     <!--Footer Content -->
+    @if($footer_content!="")
     <section class="common-padding page-footer-disc bg-light-wraper">
         <div class="container-fluid px-lg-2 px-lg-5">
             <?php echo $footer_content; ?>
         </div>
     </section>
+@endif
 </main>

@@ -273,7 +273,10 @@
       CategoryMenu.className = "category-menu fixed-filter";
     }
   };
-  InfoFilter.addEventListener("click", Filter);
+  if(document.getElementById("InfoFilter")){
+    InfoFilter.addEventListener("click", Filter);
+  }
+  
   CatClose.addEventListener("click", Filter);
   //  filter js End
 })(jQuery);

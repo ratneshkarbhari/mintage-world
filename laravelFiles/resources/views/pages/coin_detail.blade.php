@@ -44,7 +44,7 @@
                    
                 </div>
 
-                @if($coin["obverse_image"]==""||!is_file(getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"]))
+                @if($coin["obverse_image"]==""))
 
 
                 <div class="col-lg-5 col-md-12 col-sm-12 order-lg-1">
@@ -63,7 +63,7 @@
                           <div class="item"> <img src="{{getenv("API_DEFAULT_IMG_PATH")}}" class="img-fluid" /> </div>
                           <div class="item"> <img src="{{getenv("API_DEFAULT_IMG_PATH")}}" class="img-fluid" /> </div>
                       </div>
-                  </div>
+                    </div>
   
 
                 @else

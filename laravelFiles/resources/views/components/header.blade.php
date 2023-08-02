@@ -80,22 +80,22 @@
                         </a>
                     </div>
                     <div class="h-100 d-inline-flex align-items-center  me-2 social-media-icon">
-                        <a class="btn btn-sm-square bg-white text-primary me-1  " href="#">
+                        <a class="btn btn-sm-square bg-white text-primary me-1  " href="https://www.youtube.com/channel/UCMx9KlQd0kYSU0UE0T9H5YQ" target="_blank">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a class="btn btn-sm-square bg-white text-primary me-1" href="#">
+                        <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.instagram.com/mintageworld/" target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a class="btn btn-sm-square bg-white text-primary me-1" href="#">
+                        <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.facebook.com/pages/Mintage-World/408430029349409" target="_blank">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a class="btn btn-sm-square bg-white text-primary me-1" href="#">
+                        <a class="btn btn-sm-square bg-white text-primary me-1" href="https://twitter.com/mintageworld" target="_blank">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a class="btn btn-sm-square bg-white text-primary me-1" href="#">
+                        <a class="btn btn-sm-square bg-white text-primary me-1" href="https://www.pinterest.com/mintageworld/" target="_blank">
                             <i class="fab fa-pinterest-p"></i>
                         </a>
-                        <a class="btn btn-sm-square bg-white text-primary me-0" href="#">
+                        <a class="btn btn-sm-square bg-white text-primary me-0" href="https://www.linkedin.com/company/ultra-mintage-world-limited/" target="_blank">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
 
@@ -179,16 +179,16 @@
                             <a href="{{url("stamp")}}" class="dropdown-item">Stamps</a>
                         </div>
                     </div>
-                    <a href="history" class="nav-item nav-link">History</a>
+                    <a href="{{url("history")}}" class="nav-item nav-link">History</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Events</a>
                         <div class="dropdown-menu fade-up m-0">
-                            <a href="#" class="dropdown-item">Fairs and Exhibitions</a>
+                            <a href="{{url("event/")}}" class="dropdown-item">Fairs and Exhibitions</a>
                         </div>
                     </div>
-                    <a href="#" class="nav-item nav-link">News</a>
-                    <a href="#" class="nav-item nav-link">Media</a>
-                    <a href="#" class="nav-item nav-link">Blog</a>
+                    <a href="{{url("media/")}}" class="nav-item nav-link">News</a> 
+                    <a href="{{url("media-coverage/")}}" class="nav-item nav-link">Media</a> 
+                    <a href="https://www.mintageworld.com/blog/" target="_blank" class="nav-item nav-link">Blog</a>
                 </div>
                 <div class="m-0   d-none d-lg-block search-box">
                     <a id="search" class="" href="#"> <i class="fa fa-fw fa-search text-white"></i> </a>
@@ -200,8 +200,8 @@
         <div class="stellarnav">
             <span class="close-bg"><a href="javascript:void(0)" class="close-menu third">&nbsp;</a></span>
             <ul style="display: block !important;">
-                <li><a href="/">Home</a></li>
-                <li><a href="#">Shopping</a>
+                <li><a href="{{url("/")}}">Home</a></li>
+                <li><a href="{{url("shop/")}}">Shopping</a>
                     <ul>
                         <li><a href="#">Premium Products</a>
                             <ul>
@@ -302,41 +302,41 @@
                 </li>
                 <li class="drop-left"><a href="#">Information</a>
                     <ul>
-                        <li><a href="#">Coins</a></li>
-                        <li><a href="#">Notes</a></li>
-                        <li><a href="#">Stamps</a></li>
+                        <li><a href="{{url("coins")}}">Coins</a></li>
+                        <li><a href="{{url("notes")}}">Notes</a></li>
+                        <li><a href="{{url("history")}}">Stamps</a></li>
                     </ul>
                 </li>
-                <li><a href="#">History</a></li>
+                <li><a href="{{url("history")}}">History</a></li>
                 <li class="drop-left"><a href="#">Events</a>
                     <ul>
-                        <li><a href="#">Fairs and Exhibitions</a></li>
-                        <li><a href="#">Key Events (Coming Soon)</a></li>
+                        <li><a href="{{url("event/")}}">Fairs and Exhibitions</a></li>
+                        {{-- <li><a href="#">Key Events (Coming Soon)</a></li> --}}
                     </ul>
                 </li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Media</a></li>
-                <li><a href="#">Knowledge Base</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="{{url("media/")}}">News</a></li>
+                <li><a href="{{url("media-coverage/")}}">Media</a></li>
+                <li><a href="{{url("knowledge-base/")}}">Knowledge Base</a></li>
+                <li><a href="{{url("content/about-us/")}}">About Us</a></li>
+                <li><a href="{{url("contact/")}}">Contact Us</a></li>
                 <li class="text-left mt-2">
                     <div class="h-100 d-inline-flex align-items-center ms-3">
-                        <a class="btn btn-sm-square bg-white text-primary me-1 p-1" href="#">
+                        <a class="btn btn-sm-square bg-white text-primary me-1 p-1" href="https://www.youtube.com/channel/UCMx9KlQd0kYSU0UE0T9H5YQ" target="_blank">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a class="btn btn-sm-square bg-white text-primary me-1 p-1" href="#">
+                        <a class="btn btn-sm-square bg-white text-primary me-1 p-1" href="https://www.instagram.com/mintageworld/" target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a class="btn btn-sm-square bg-white text-primary me-1 p-1" href="#">
+                        <a class="btn btn-sm-square bg-white text-primary me-1 p-1" href="https://www.facebook.com/pages/Mintage-World/408430029349409" target="_blank">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a class="btn btn-sm-square bg-white text-primary me-1 p-1" href="#">
+                        <a class="btn btn-sm-square bg-white text-primary me-1 p-1" href="https://twitter.com/mintageworld" target="_blank">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a class="btn btn-sm-square bg-white text-primary me-1 p-1" href="#">
+                        <a class="btn btn-sm-square bg-white text-primary me-1 p-1" href="https://www.pinterest.com/mintageworld/" target="_blank">
                             <i class="fab fa-pinterest-p"></i>
                         </a>
-                        <a class="btn btn-sm-square bg-white text-primary me-0 p-1" href="#">
+                        <a class="btn btn-sm-square bg-white text-primary me-0 p-1" href="https://www.linkedin.com/company/ultra-mintage-world-limited/" target="_blank">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
 

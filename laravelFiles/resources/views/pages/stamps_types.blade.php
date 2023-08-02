@@ -1,5 +1,5 @@
 <main class="page-content">
-    <section class="inside-banner"><img class="w-100 img-fluid" src="{{url("assets/images/stamps-banner.jpg")}}" /></section>
+    <section class="inside-banner"><img class="w-100 img-fluid" src="{{url("assets/images/inside-banner/stamps-banner.jpg")}}" /></section>
 
     
     {{-- <x-stamp-info-bread-crumbs :breadCrumbsData="$breadCrumbsData"/> --}}

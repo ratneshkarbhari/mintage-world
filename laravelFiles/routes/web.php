@@ -71,3 +71,39 @@ Route::get("stamp", [Stamps::class, 'stamp_periods']);
 Route::get("stamp/dynasty/{periodId}", [Stamps::class, 'stamp_types']);
 Route::get("stamp/list/{dynastyId}", [Stamps::class, 'stamp_list']);
 Route::get("stamp/detail/{stampDetail}", [Stamps::class, 'stamp_detail']);
+
+
+
+// Static Pages & other pages routes
+Route::get('content/about-us/', [StaticPages::class, 'about_us']);
+Route::get('content/disclaimer/', [StaticPages::class, 'disclaimer']);
+Route::get('content/privacy/', [StaticPages::class, 'privacy_policy']);
+Route::get('content/term/', [StaticPages::class, 'terms_of_use']);
+Route::get('content/return/', [StaticPages::class, 'return_policy']);
+Route::get('content/career/', [StaticPages::class, 'career']);
+Route::get('content/sitemap/', [StaticPages::class, 'sitemap']);
+Route::get('story/', [StaticPages::class, 'story']);
+Route::get('content/photopro/', [StaticPages::class, 'photopro']);
+Route::get('videos/', [StaticPages::class, 'videos']);
+Route::get('content/courtesy/', [StaticPages::class, 'courtesy']);
+Route::get('contact/', [StaticPages::class, 'contact_us']);
+Route::get('application/login', [StaticPages::class, 'login']);
+Route::get('member', [StaticPages::class, 'member']);
+Route::get('member/forgotpassword/', [StaticPages::class, 'forgotpassword']);
+Route::get('member/upgrademembership', [StaticPages::class, 'upgrademembership']);
+Route::get('member/dashboard/', [StaticPages::class, 'dashboard']);
+Route::get('member/change-password/', [StaticPages::class, 'change_password']);
+Route::get('member/myorders/', [StaticPages::class, 'myorders']);
+Route::get('event/', [StaticPages::class, 'event']);
+Route::get('media/', [StaticPages::class, 'media']);
+Route::get('media-coverage/', [StaticPages::class, 'media_coverage']);
+
+
+Route::get('knowledge-base/', [StaticPages::class, 'knowledge_base']);
+Route::get('knowledge-base/know-your-coins/', [StaticPages::class, 'know_your_coins']);
+Route::get('knowledge-base/governors-of-reserve-bank-of-india/', [StaticPages::class, 'governors_india']);
+Route::get('knowledge-base/signatory-of-finance-secretary/', [StaticPages::class, 'signatory_finance_secretary']);
+Route::get('knowledge-base/note-numbering-system/', [StaticPages::class, 'note_numbering_system']);
+Route::get('knowledge-base/security-features-on-current-banknotes/', [StaticPages::class, 'security_features_on_current_banknotes']);
+Route::get('knowledge-base/security-features-on-demonetized-banknotes/', [StaticPages::class, 'security_features_on_demonetized_banknotes']);
+Route::get('knowledge-base/know-your-stamps', [StaticPages::class, 'know_your_stamps']);

@@ -12,47 +12,47 @@
                     <p class="mb-2"><i class="fa fa-mobile-alt me-3"></i>8591908969</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@mintageworld.com</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
-                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-pinterest-p"></i></a>
-                        <a class="btn btn-outline-light btn-social" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/channel/UCMx9KlQd0kYSU0UE0T9H5YQ" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/mintageworld/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/pages/Mintage-World/408430029349409" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://twitter.com/mintageworld" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.pinterest.com/mintageworld/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.linkedin.com/company/ultra-mintage-world-limited/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col">
                     <h4 class="text-light mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="#">Home</a>
-                    <a class="btn btn-link" href="#">Coins</a>
-                    <a class="btn btn-link" href="#">Notes</a>
-                    <a class="btn btn-link" href="#">Stamps</a>
-                    <a class="btn btn-link" href="#">History</a>
-                    <a class="btn btn-link" href="#">Fairs and Exhibitions</a>
+                    <a class="btn btn-link" href="{{url("/")}}">Home</a>
+                    <a class="btn btn-link" href="{{url("coins")}}">Coins</a>
+                    <a class="btn btn-link" href="{{url("notes")}}">Notes</a>
+                    <a class="btn btn-link" href="{{url("stamp")}}">Stamps</a>
+                    <a class="btn btn-link" href="{{url("history")}}">History</a>
+                    <a class="btn btn-link" href="{{url("event/")}}">Fairs and Exhibitions</a>
                 </div>
                 <div class="col">
                     <h4 class="text-light mb-4 d-md-block">&nbsp;</h4>
-                    <a class="btn btn-link" href="#">News</a>
-                    <a class="btn btn-link" href="#">Blogs</a>
-                    <a class="btn btn-link" href="#">My Collection</a>
-                    <a class="btn btn-link" href="#">About Us</a>
-                    <a class="btn btn-link" href="#">Contact Us</a>
+                    <a class="btn btn-link" href="{{url("media/")}}">News</a>
+                    <a class="btn btn-link" href="https://www.mintageworld.com/blog/" target="_blank">Blogs</a>
+                    <a class="btn btn-link" href="{{url("history")}}">My Collection</a>
+                    <a class="btn btn-link" href="{{url("content/about-us/")}}">About Us</a>
+                    <a class="btn btn-link" href="{{url("contact")}}">Contact Us</a>
 
                 </div>
                 <div class="col">
                     <h4 class="text-light mb-4 d-none d-md-block">&nbsp;</h4>
-                    <a class="btn btn-link" href="#">Disclaimer</a>
-                    <a class="btn btn-link" href="#">Privacy Policy</a>
-                    <a class="btn btn-link" href="#">Terms of Use</a>
-                    <a class="btn btn-link" href="#">Return Policy</a>
-                    <a class="btn btn-link" href="#">Sitemap</a>
+                    <a class="btn btn-link" href="{{url("content/disclaimer/")}}">Disclaimer</a>
+                    <a class="btn btn-link" href="{{url("content/privacy/")}}">Privacy Policy</a>
+                    <a class="btn btn-link" href="{{url("content/term/")}}">Terms of Use</a>
+                    <a class="btn btn-link" href="{{url("content/return/")}}">Return Policy</a>
+                    <a class="btn btn-link" href="{{url("content/sitemap/")}}">Sitemap</a>
                 </div>
                 <div class="col">
                     <h4 class="text-light mb-4 d-none d-md-block">&nbsp;</h4>
-                    <a class="btn btn-link" href="#">Career</a>
-                    <a class="btn btn-link" href="#">Story of the Week</a>
-                    <a class="btn btn-link" href="#">PhotoPro</a>
-                    <a class="btn btn-link" href="#">Event Videos</a>
-                    <a class="btn btn-link" href="#">Contact Us</a>
+                    <a class="btn btn-link" href="{{url("content/career/")}}">Career</a>
+                    <a class="btn btn-link" href="{{url("story/")}}">Story of the Week</a>
+                    <a class="btn btn-link" href="{{url("content/photopro/")}}">PhotoPro</a>
+                    <a class="btn btn-link" href="{{url("videos/")}}">Event Videos</a> 
+                    <a class="btn btn-link" href="{{url("content/courtesy/")}}">Courtesy</a> 
                 </div>
             </div>
             <div class="row">
@@ -92,9 +92,9 @@
                     <input type="text" id="username" class="form__input" placeholder="Username" name="username">
                     <input type="password" id="password" class="form__input mb-1" placeholder="Password" name="password">
                     <span class="small text-end d-block w-100">
-                    <a href="#"> Forgot password?</a> </span><input type="submit" class="btn" value="Submit">
+                    <a href="{{url("member/forgotpassword/")}}"> Forgot password?</a> </span><input type="submit" class="btn" value="Submit">
                  </form>
-                  <p class="mb-4">Don't have an account? <a href="#">Register Here</a></p>
+                  <p class="mb-4">Don't have an account? <a href="{{url("member/")}}">Register Here</a></p>
                </div>
             </div>
          </div>
@@ -103,16 +103,39 @@
 </div>
     <div class="sticky-footer">
         <ul class="sticky-footer-ul">
-            <li><a href="#" title="User"><i class="fa fa-user"></i></a></li>
-            <li><a href="#" title="Add to Cart"><i class="fa fa-cart-plus"></i></a></li>
-            <li><a href="#" title="Login"><i class="fa fa-lock"></i></a></li>
+            <li><a href="{{url("list-of-cart/")}}" title="Add to Cart"><i class="fa fa-cart-plus"></i></a></li>
+            <li><a href="{{url("member/")}}" title="Sign in"><i class="fa fa-user"></i></a></li>            
+            <li><a href="{{url("application/login/")}}" title="Login"><i class="fa fa-lock"></i></a></li>
             <li><a href="#" title="search" id="footerSearch"><i class="fa fa-search"></i></a></li>
         </ul>
     </div>
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <div class="menu-container">
+        <div class="collapse-icon">
+           <span>Share On</span> <i class="fas fa-share-alt"></i>
+        </div>
+        <div class="menu-item">
+            <a href="" id="shareFB" target="_blank"><span class="fab fa-facebook-f"></span>
+            <div class="menu-item-text">Facebook</div>
+            </a>
+          </div>  
+        <div class="menu-item">
+            <a href="" id="shareTW" target="_blank">
+          <span class="fab fa-twitter" target="_blank"></span>
+          <div class="menu-item-text">Twitter</div>
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="" id="shareWH" target="_blank">
+          <span class="fab fa-whatsapp" target="_blank"></span>
+          <div class="menu-item-text">Whatsapp</div>
+            </a>
+        </div>
 
+      </div>
+      
 
     <!-- JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -131,6 +154,17 @@
     </script>
      <script src="{{url("assets/js/thumb-carousel.js")}}"></script>
      <script src="{{url("assets/js/image-zoom.js")}}"></script>
+
+    <script>
+function sethref()  
+ {
+  document.getElementById("shareFB").setAttribute("href","https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(document.URL));  
+  document.getElementById("shareTW").setAttribute("href","https://twitter.com/share?url=" + encodeURIComponent(document.URL)); 
+  document.getElementById("shareWH").setAttribute("href","https://wa.me/?text=" + encodeURIComponent(document.URL)); 
+  
+ }
+    window.onload = sethref;
+    </script>
 
 </body>
 

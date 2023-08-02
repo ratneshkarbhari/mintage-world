@@ -1,6 +1,6 @@
 
 <main class="page-content">
-    <section class="inside-banner"><img class="w-100 img-fluid" src="{{url("assets/images/note-banner.jpg")}}" /></section>
+    <section class="inside-banner"><img class="w-100 img-fluid" src="{{url("assets/images/inside-banner/note-banner.jpg")}}" /></section>
 
     
     <x-note-info-bread-crumbs :breadCrumbsData="$breadCrumbsData"/>

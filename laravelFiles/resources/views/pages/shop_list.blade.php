@@ -1,4 +1,5 @@
 <main class="page-content">
+   <section class="inside-banner"><img class="w-100 img-fluid" src="{{url("assets/images/inside-banner/default-banner.jpg")}}" /></section>
    <section class="breadcrumb-wraper">
       <div class="container-fluid px-lg-2 px-lg-5">
          <nav aria-label="breadcrumb" class="breadcrumb-title-box">

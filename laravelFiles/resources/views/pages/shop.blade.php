@@ -1,4 +1,4 @@
-<main class="page-content">
+<main class="page-content">   
    <!-- Carousel Start --> 
    <section class="home-page-carousel">
       <div class="owl-carousel header-carousel position-relative">

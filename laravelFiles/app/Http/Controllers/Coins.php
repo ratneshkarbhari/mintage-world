@@ -230,6 +230,7 @@ class Coins extends Controller
 
         $denominations = $metals = $rarities = $mints = [];
 
+
         foreach ($coins as $coin) {
             
             $denominations[] = $coin["denomination"];
@@ -337,33 +338,97 @@ class Coins extends Controller
 
         $denominations = $request->denominations;
         $metals = $request->metals;
-        $rarity = $request->rarity;
-        $shape = $request->shape;
-        $mint = $request->mint;
+        $rarities = $request->rarities;
+        $shapes = $request->shapes;
+        $mints = $request->mints;
+
+        $hasFilterParams = FALSE;
+
+        
 
         $rulerId = $request->ruler_id;
 
+        
         $query = 'SELECT coin.obverse_image,coin.id,denomination.title 
-        FROM coin 
-        JOIN denomination ON coin.denomination_id = denomination.id WHERE denomination.id IN ('.implode(",",$denominations).') AND coin.ruler_id ='.$rulerId;
+        FROM coin JOIN denomination ON coin.denomination_id = denomination.id   JOIN shape ON coin.shape_id = shape.id JOIN rarity ON coin.rarity_id = rarity.id JOIN metal ON coin.metal_id = metal.id WHERE 1 ';
 
-        $coins = json_decode(json_encode(DB::select($query)),TRUE);
+
+
+        if(!empty($denominations)){
+            $hasFilterParams = TRUE;
+            $query.=' AND denomination.id IN ('.implode(",",$denominations).')'; 
+        }
+
+        if(!empty($metals)){
+            $hasFilterParams = TRUE;
+            $query.=' AND metal.id IN ('.implode(",",$metals).')';
+        }
+
+        if(!empty($rarities)) {
+            $hasFilterParams = TRUE;
+            $query.=' AND rarity.id IN ('.implode(",",$rarities).')';
+
+        }
+
+        if(!empty($shapes)){
+            $hasFilterParams = TRUE;
+            $query.=' AND shape.id IN ('.implode(",",$shapes).')';
+
+        }
+
+        if(!empty($mints)){
+            $hasFilterParams = TRUE;
+            $query.='AND coin.mint IN ("'.implode(",",$mints).'")';
+
+        }
+
+        $query.=' AND coin.ruler_id ='.$rulerId;
+
+
+        if($hasFilterParams){
+
+    
+            $coins = json_decode(json_encode(DB::select($query)),TRUE);
+
+        }else {
+
+            if (!Cache::get('coins-'.$rulerId)) {
+
+                $coinModel = new Coin();
+
+                $coins = $coinModel->where("ruler_id",$rulerId)->with("denomination")->with("metal")->with("rarity")->with("shape")->get();
+    
+    
+                Cache::put('coins-'.$rulerId,$coins);    
+                
+            }
+
+
+            $coins = Cache::get("coins-".$rulerId);
+
+
+        }
+
 
         $coinHtml = '';
 
+        if (count($coins)>0) {
+            
+            foreach($coins as $coin){
 
-        foreach($coins as $coin){
 
-
-            $coinHtml.='<div class="col-lg-3 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="coin/'.$coin["id"].'">
-            <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="'.getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"].'" alt="Medieval">
-                <div class="info-meta text-center">
-                    <h2 class="info-item-grid-title">'.$coin["title"].'</h2>
-                </div>
-            </div>
-            </a></div>';   
-
+                $coinHtml.='<div class="col-lg-3 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="coin/'.$coin["id"].'">
+                <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="'.getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"].'" alt="Medieval"><div class="info-meta text-center"><h2 class="info-item-grid-title">'.$coin["title"].'</h2></div></div>
+                </a></div>';   
+    
+            }
+            
+        } else {
+            
+            $coinHtml = '<h4>No such coin found for this ruler</h4>';
+            
         }
+        
 
         return $coinHtml;
         

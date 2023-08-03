@@ -72,12 +72,12 @@
                                                     @foreach($metals as $metal)
                                                     @if($metal["title"]!="")
                                                     
-                                                    <div class="form-check">
+                                                    <li class="form-check">
                                                         <input class="form-check-input filter-option" type="checkbox" name="metals[]" value="{{$metal["id"]}}" id="metal-{{$metal["id"]}}" >
                                                         <label class="form-check-label" for="metal-{{$metal["id"]}}">
                                                         {{$metal["title"]}}
                                                         </label>
-                                                    </div>
+                                                    </li>
                                                     @endif
                                                     @endforeach
                                                 </ul>
@@ -98,7 +98,7 @@
                                                 <ul class="filter-item-list">
                                                     @foreach($rarities as $rarity)
                                                     @if($rarity["title"]!="")
-                                                    <li><input type="checkbox" id="{{$rarity["id"]}}" name="rarities[]" value="{{$rarity["id"]}}"><label for="{{$rarity["id"]}}">{{$rarity["title"]}}</label></li>
+                                                    <li><input class="filter-option" type="checkbox" id="{{$rarity["id"]}}" name="rarities[]" value="{{$rarity["id"]}}"><label for="{{$rarity["id"]}}">{{$rarity["title"]}}</label></li>
                                                     @endif
                                                     @endforeach
                                                 </ul>
@@ -119,7 +119,7 @@
                                                 <ul class="filter-item-list">
                                                     @foreach($shapes as $shape)
                                                     @if($shape["title"]!="")
-                                                    <li><input type="checkbox" id="{{$shape["id"]}}" name="shapes[]" value="{{$shape["id"]}}"><label for="{{$shape["id"]}}">{{$shape["title"]}}</label></li>
+                                                    <li><input type="checkbox" id="{{$shape["id"]}}" name="shapes[]" class="filter-option" value="{{$shape["id"]}}"><label for="{{$shape["id"]}}">{{$shape["title"]}}</label></li>
                                                     @endif
                                                     @endforeach
                                                 </ul>
@@ -140,7 +140,7 @@
                                                 <ul class="filter-item-list">
                                                     @foreach($mints as $mint)
                                                     @if($mint!="")
-                                                    <li><input type="checkbox" id="{{$mint}}" name="mints[]" value="{{$mint}}"><label for="{{$mint}}">{{$mint}}</label></li>
+                                                    <li><input type="checkbox" id="{{$mint}}" class="filter-option" name="mints[]" value="{{$mint}}"><label for="{{$mint}}">{{$mint}}</label></li>
                                                     @endif
                                                     @endforeach
                                                 </ul>

@@ -43,12 +43,12 @@
                                                     @foreach($denominations as $denomination)
                                                     @if($denomination["title"]!="")
                                                     
-                                                    <div class="form-check">
+                                                    <li class="form-check">
                                                         <input class="form-check-input filter-option" type="checkbox" name="denominations[]" value="{{$denomination["id"]}}" id="denomination-{{$denomination["id"]}}" >
                                                         <label class="form-check-label" for="denomination-{{$denomination["id"]}}">
                                                         {{$denomination["title"]}}
                                                         </label>
-                                                    </div>
+                                                    </li>
                                                     @endif
                                                     @endforeach
                                                     

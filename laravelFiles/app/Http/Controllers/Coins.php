@@ -6,10 +6,11 @@ use App\Models\Coin;
 use App\Models\Ruler;
 use App\Models\Period;
 use App\Models\Country;
-use App\Models\Denomination;
 use App\Models\Dynasty;
 use App\Models\History;
+use App\Models\Denomination;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 
 class Coins extends Controller
@@ -216,6 +217,7 @@ class Coins extends Controller
 
         $ruler = Ruler::find($rulerId);
 
+
         $dynasty = Dynasty::find($ruler["dynasty_id"]);
 
         $period = Period::find($dynasty["period_id"]);
@@ -244,6 +246,7 @@ class Coins extends Controller
             "info_title" => "Coins : ".$ruler["title"],
             "coins" => $coins,
             "dynasty" => $dynasty,
+            "ruler" => $ruler,
             "dynastyRulers" => $dynastyRulers,
             "denominations" => array_unique($denominations),
             "metals" => array_unique($metals),
@@ -269,7 +272,7 @@ class Coins extends Controller
                     "name" => $ruler["title"]
                 ]
             ]),
-            "footer_content" => ""
+            "footer_content" => $ruler["footer_content"]
         ]);
 
     }
@@ -330,9 +333,39 @@ class Coins extends Controller
     }
 
 
-    function filter() {
+    function info_filter_exe(Request $request){
 
-        
+        $denominations = $request->denominations;
+        $metals = $request->metals;
+        $rarity = $request->rarity;
+        $shape = $request->shape;
+        $mint = $request->mint;
+
+        $rulerId = $request->ruler_id;
+
+        $query = 'SELECT coin.obverse_image,coin.id,denomination.title 
+        FROM coin 
+        JOIN denomination ON coin.denomination_id = denomination.id WHERE denomination.id IN ('.implode(",",$denominations).') AND coin.ruler_id ='.$rulerId;
+
+        $coins = json_decode(json_encode(DB::select($query)),TRUE);
+
+        $coinHtml = '';
+
+
+        foreach($coins as $coin){
+
+
+            $coinHtml.='<div class="col-lg-3 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="coin/'.$coin["id"].'">
+            <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="'.getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"].'" alt="Medieval">
+                <div class="info-meta text-center">
+                    <h2 class="info-item-grid-title">'.$coin["title"].'</h2>
+                </div>
+            </div>
+            </a></div>';   
+
+        }
+
+        return $coinHtml;
         
     }
 

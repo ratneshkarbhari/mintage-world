@@ -117,9 +117,8 @@
                                         <td><b>Total :</b>
                                             <span class="d-block small">(Prices are inclusive of all taxes)</span>
                                         </td>
-                                        <td class="text-end"><i class="fa fa-inr" aria-hidden="true"></i><label for="" id="lblTotal"> 998</label></td>
+                                        <td class="text-end"><i class="fas fa-rupee-sign"></i><label for="" id="lblTotal"> 998</label></td>
                                     </tr>
-
                                 </tbody>
                             </table>
 

@@ -52,8 +52,8 @@ b, strong {
 ul,
 li {
   list-style: none;
-  margin: 0px !important;
-  padding: 0px !important;
+  margin: 0px ;
+  padding: 0px;
 }
 
 a {
@@ -1451,13 +1451,22 @@ ul.sticky-footer-ul li a:hover {
 
 .filter-item-list li {
   display: flex;
-  margin-bottom: 5px !important;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
   font-size: 14px;
   font-weight: 500;
+  border-bottom: solid 1px #cfcfcf;
 }
-
+.category-menu .filter-item-list li label {
+    border: none !important;
+    font-size: 16px;
+    line-height: 22px;
+    width: 100%;
+}
 .filter-item-list li:last-child {
   margin-bottom: 0px !important;
+  border-block: none;
 }
 
 .filter-item-list input {
@@ -1956,6 +1965,10 @@ width: 80%;
 .category-menu .nav .filter-item-list li label:hover {
   background: none;
   color: #e19726;
+}
+
+.category-menu .nav .filter-item-list li input[type=checkbox]:checked {
+  background: #000 !important;
 }
 /* category-menu css End */
 

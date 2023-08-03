@@ -68,13 +68,13 @@
                 </div>
                 <div class="col-xl-7 col-lg-7  text-end ">
                     <div class="h-100 d-inline-flex align-items-center  me-2">
-                        <a href="#">
+                        <a href="{{url("list-of-cart/")}}">
                             <small class="fa fa-shopping-cart text-primary me-2"></small>
                             <small>Shopping Cart</small>
                         </a>
                     </div>
                     <div class="h-100 d-inline-flex align-items-center  me-md-2 me-3">
-                        <a href="#">
+                        <a href="{{url("application/login")}}">
                             <small class="fa fa-sign-in-alt text-primary me-2"></small>
                             <small>Sign in</small>
                         </a>

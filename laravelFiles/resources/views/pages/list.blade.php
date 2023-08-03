@@ -40,7 +40,8 @@
                                                 
                                                 @foreach($denominations as $denomination)
                                                 @if($denomination["title"]!="")
-                                                <li><input class="filter-option" name="denominations[]" type="checkbox" id="{{$denomination["id"]}}"  value="{{$denomination["id"]}}"><label for="{{$denomination["id"]}}"> {{$denomination["title"]}}</label></li>
+                                                
+                                                <label><input class="filter-option" type="checkbox" value="{{$denomination["id"]}}" id="denomination-{{$denomination["id"]}}" value="{{$denomination["id"]}}"> {{$denomination["title"]}}</label>
                                                 @endif
                                                 @endforeach
                                                 
@@ -186,3 +187,12 @@
     </section>
     
 </main>
+
+<script>
+
+    $(".filter-option").click(function (e) { 
+        e.preventDefault();
+        console.log($(this).val());
+    });
+
+</script>

@@ -199,21 +199,25 @@ class Coins extends Controller
         
 
 
-        if(!Cache::get('coins-'.$rulerId)){
+        // if(!Cache::get('coins-'.$rulerId)){
 
-            $coinModel = new Coin();
+        //     $coinModel = new Coin();
 
-            $coins = $coinModel->where("ruler_id",$rulerId)->with("denomination")->with("metal")->with("rarity")->with("shape")->get();
+        //     $coins = $coinModel->where("ruler_id",$rulerId)->with("denomination")->with("metal")->with("rarity")->with("shape")->paginate(12);
 
 
-            Cache::put('coins-'.$rulerId,$coins);
+        //     Cache::put('coins-'.$rulerId,$coins);
 
-        }
+        // }
 
         
 
-        $coins = Cache::get('coins-'.$rulerId);
+        // $coins = Cache::get('coins-'.$rulerId);
 
+
+        $coinModel = new Coin();
+
+        $coins = $coinModel->where("ruler_id",$rulerId)->with("denomination")->with("metal")->with("rarity")->with("shape")->paginate(12);
 
         $ruler = Ruler::find($rulerId);
 

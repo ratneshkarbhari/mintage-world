@@ -183,6 +183,8 @@
                         @endforeach
                         
                     </div>
+                    {!! $coins->links() !!}
+
                 </div>
                 <div class="col-lg-3 col-md-12 mt-md-5 mt-0 mt-lg-0">
                     <div class="heading-2">More Rulers</div>

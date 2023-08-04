@@ -245,6 +245,15 @@ class Coins extends Controller
             
         }
 
+        $total = $coins->total();
+        $currentPage = $coins->currentPage();
+        $perPage = $coins->perPage();
+
+        $from = ($currentPage - 1) * $perPage + 1;
+        $to = min($currentPage * $perPage, $total);
+
+        $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
+
 
         $this->page_loader("list",[
             "title" => "Coins of ".$ruler["title"]." | Mintage World",
@@ -258,6 +267,7 @@ class Coins extends Controller
             "rarities" => array_unique($rarities),
             "mints" => array_unique($mints),
             "shapes" => array_unique($shapes),
+            "pagination_info_string" => $paginationInfoString,
             "breadCrumbsData" => json_encode([
                 "coins" => TRUE,
                 "country" => [
@@ -420,10 +430,19 @@ class Coins extends Controller
             
             foreach($coins as $coin){
 
+                if($coin["obverse_image"]!=""){
 
-                $coinHtml.='<div class="col-lg-3 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="coin/'.$coin["id"].'">
-                <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="'.getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"].'" alt="Medieval"><div class="info-meta text-center"><h2 class="info-item-grid-title">'.$coin["title"].'</h2></div></div>
-                </a></div>';   
+                    $coinHtml.='<div class="col-lg-3 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="coin/'.$coin["id"].'">
+                    <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="'.getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"].'" alt="Medieval"><div class="info-meta text-center"><h2 class="info-item-grid-title">'.$coin["title"].'</h2></div></div>
+                    </a></div>';
+
+                }else{
+
+                    $coinHtml.='<div class="col-lg-3 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="coin/'.$coin["id"].'">
+                    <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="'.getenv("API_DEFAULT_IMG_PATH").'" alt="Medieval"><div class="info-meta text-center"><h2 class="info-item-grid-title">'.$coin["title"].'</h2></div></div>
+                    </a></div>';
+
+                }
     
             }
             

@@ -183,7 +183,13 @@
                         @endforeach
                         
                     </div>
-                    {!! $coins->links() !!}
+                    <div class="pagination-container">
+
+                        <p>{{$pagination_info_string}}</p>
+                        {!! $coins->links() !!}
+
+                    </div>
+
 
                 </div>
                 <div class="col-lg-3 col-md-12 mt-md-5 mt-0 mt-lg-0">
@@ -216,7 +222,7 @@
             data: $("form#coinFilterForm").serialize(),
             success: function (response) {
                 $("div#coinBox").html(response);
-
+                $("div.pagination-container").hide();
             }
         });
     });

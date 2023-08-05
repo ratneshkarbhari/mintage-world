@@ -8,7 +8,7 @@
                     <li class="breadcrumb-item me-2">
                         <a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a>
                     </li>
-                    <li class="breadcrumb-item me-2">Page Name</li>                    
+                    <li class="breadcrumb-item me-2">Event Videos</li>                    
                 </ol>
             </nav>
         </div>
@@ -18,9 +18,77 @@
     <section class="common-padding coing-list-wraper">
         <div class="container-fluid  px-lg-2 px-lg-5">
             <div class="d-flex justify-content-between">
-                <h2 class="mb-3 heading-1">Page Name</h2>
+                <h2 class="mb-3 heading-1">Event Videos</h2>
             </div>
-             <p>Coming Soon...</p>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                   <div class="blog-div">
+                      <div class="BlogImgDiv blog-image ">                        
+                        <iframe class="iframevideo" height="220" width="100%" src="https://www.youtube.com/embed/zTmlyXawlAg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                      </div>                    
+                      <div class="blog-title"> 		
+                         <h2><a href="{{url("videos/detail/")}}"> Legendary Numismatist Dr. Prashant Kulkarni - Epis..</a></h2>
+                      </div>
+                      
+                   </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="blog-div">
+                       <div class="BlogImgDiv blog-image ">                        
+                         <iframe class="iframevideo" height="220" width="100%" src="https://www.youtube.com/embed/zTmlyXawlAg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                       </div>                    
+                       <div class="blog-title"> 		
+                          <h2><a href="{{url("videos/detail/")}}"> Legendary Numismatist Dr. Prashant Kulkarni - Epis..</a></h2>
+                       </div>
+                       
+                    </div>
+                 </div>
+                 <div class="col-md-3 mb-3">
+                    <div class="blog-div">
+                       <div class="BlogImgDiv blog-image ">                        
+                         <iframe class="iframevideo" height="220" width="100%" src="https://www.youtube.com/embed/zTmlyXawlAg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                       </div>                    
+                       <div class="blog-title"> 		
+                          <h2><a href="{{url("videos/detail/")}}"> Legendary Numismatist Dr. Prashant Kulkarni - Epis..</a></h2>
+                       </div>
+                       
+                    </div>
+                 </div>
+                 <div class="col-md-3 mb-3">
+                    <div class="blog-div">
+                       <div class="BlogImgDiv blog-image ">                        
+                         <iframe class="iframevideo" height="220" width="100%" src="https://www.youtube.com/embed/zTmlyXawlAg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                       </div>                    
+                       <div class="blog-title"> 		
+                          <h2><a href="{{url("videos/detail/")}}"> Legendary Numismatist Dr. Prashant Kulkarni - Epis..</a></h2>
+                       </div>
+                       
+                    </div>
+                 </div>
+                 <div class="col-md-3 mb-3">
+                    <div class="blog-div">
+                       <div class="BlogImgDiv blog-image ">                        
+                         <iframe class="iframevideo" height="220" width="100%" src="https://www.youtube.com/embed/zTmlyXawlAg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                       </div>                    
+                       <div class="blog-title"> 		
+                          <h2><a href="{{url("videos/detail/")}}"> Legendary Numismatist Dr. Prashant Kulkarni - Epis..</a></h2>
+                       </div>
+                       
+                    </div>
+                 </div>
+                 <div class="col-md-3 mb-3">
+                    <div class="blog-div">
+                       <div class="BlogImgDiv blog-image ">                        
+                         <iframe class="iframevideo" height="220" width="100%" src="https://www.youtube.com/embed/zTmlyXawlAg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                       </div>                    
+                       <div class="blog-title"> 		
+                          <h2><a href="{{url("videos/detail/")}}"> Legendary Numismatist Dr. Prashant Kulkarni - Epis..</a></h2>
+                       </div>
+                       
+                    </div>
+                 </div>
+            </div>
+       
         </div>
     </section>
     

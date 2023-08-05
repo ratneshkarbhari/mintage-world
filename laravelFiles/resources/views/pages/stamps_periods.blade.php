@@ -2,7 +2,7 @@
     <section class="inside-banner"><img class="w-100 img-fluid" src="{{url("assets/images/inside-banner/stamps-banner.jpg")}}" /></section>
     
 
-    {{-- <x-note-info-bread-crumbs :breadCrumbsData="$breadCrumbsData"/> --}}
+    <x-bread-crumb :breadCrumbData="$breadCrumbData"/>
 
     <section class="common-padding noteg-list-wraper">
         <div class="container-fluid px-lg-2 px-lg-5">

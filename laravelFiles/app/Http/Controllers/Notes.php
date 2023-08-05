@@ -47,9 +47,13 @@ class Notes extends Controller
             "title" => "Notes From Around the World, now at Your Fingertips",
             "info_title" => "Notes",
             "countries" => $data,
-            "breadCrumbsData" => json_encode([
-                "notes" => FALSE
-            ]),
+            "breadCrumbData" => [
+                [
+                    // "slug" => "notes/",
+                    "label" => "Notes"
+                ]
+                
+            ],
             "url_prefix" => "note/",
             "image_base_url" => getenv("COUNTRY_FLAG_IMAGE_BASE_URL"),
             "footer_content" => $footer_content
@@ -68,7 +72,7 @@ class Notes extends Controller
 
             $periodModel = new Period();
 
-            $periods = $periodModel->where("country_id",$countryId)->where("category_id",2)->get();
+            $periods = $periodModel->where("country_id",$countryId)->where("category_id",2)->orderBy("order_by","asc")->get();
 
 
             Cache::put('note-'.$slugParts[1].'-periods',$periods);
@@ -83,13 +87,16 @@ class Notes extends Controller
             "title" => "Notes of ".$countryName,
             "info_title" => "Periods : ".$countryName,
             "periods" => $periods,
-            "breadCrumbsData" => json_encode([
-                "notes" => TRUE,
-                "country" => [
-                    "id" => $country["id"],
-                    "name" => $country["name"]
+            "breadCrumbData" => [
+                [
+                    "slug" => "notes/",
+                    "label" => "Notes"
+                ],
+                [
+                    "label" => $country["name"]
                 ]
-            ]),
+                
+            ],
             "url_prefix" => "note/dynasty/",
             "image_base_url" => getenv("PERIOD_IMAGE_BASE_URL"),
             "parent" => $country,
@@ -122,18 +129,21 @@ class Notes extends Controller
             "title" => $period["title"]." notes | notes of ".$period["title"]." ".$country["name"]." | ".$period["title"]." Period notes | Mintage World",
             "info_title" => "Dynasties : ".$period["title"],
             "dynasties" => $dynasties,
-            "breadCrumbsData" => json_encode([
-                "notes" => TRUE,
-
-                "country" => [
-                    "id" => $country["id"],
-                    "name" => $country["name"]
+            "breadCrumbData" => [
+                [
+                    "slug" => "notes/",
+                    "label" => "Notes"
                 ],
-                "period" => [
-                    "id" => $period["id"],
-                    "name" => $period["title"]
+                [
+                    "slug" => "note/".$country["id"]."-".strtolower($country["name"]),
+                    "label" => $country["name"]
+                ],
+
+                [
+                    "label" => $period["title"]
                 ]
-            ]),
+                
+            ],
             "footer_content" =>$period["footer_content"]
         ]);
 
@@ -169,21 +179,25 @@ class Notes extends Controller
             "title" => $period["title"]." notes | notes of ".$period["title"]." ".$country["name"]." | ".$period["title"]." Period notes | Mintage World",
             "info_title" => "Denominations : ".$period["title"],
             "denominations" => $denominations,
-            "breadCrumbsData" => json_encode([
-                "notes" => TRUE,
-                "country" => [
-                    "id" => $country["id"],
-                    "name" => $country["name"]
+            "dynasty" => $dynasty,
+            "breadCrumbData" => [
+                [
+                    "slug" => "notes/",
+                    "label" => "Notes"
                 ],
-                "period" => [
-                    "id" => $period["id"],
-                    "name" => $period["title"]
+                [
+                    "slug" => "note/".$country["id"]."-".strtolower($country["name"]),
+                    "label" => $country["name"]
                 ],
-                "dynasty" => [
-                    "id" => $dynasty["id"],
-                    "name" => $dynasty["title"]
+
+                [
+                    "slug" => "note/dynasty/".$period["id"],
+                    "label" => $period["title"]
                 ]
-            ]),
+                ,[
+                    "label" => $dynasty["title"]
+                ]
+            ],
             "footer_content" =>$period["footer_content"]
         ]);
 
@@ -202,13 +216,17 @@ class Notes extends Controller
 
             $notes = json_decode(json_encode($notes),TRUE);
 
+
             Cache::put('notes-'.$denominationUnit."-".$dynastyId,$notes);
 
         }
 
+
         
 
         $notes = Cache::get('notes-'.$denominationUnit."-".$dynastyId);
+
+        $denominationUnit = $notes[0]["denomination_unit"];
 
         $denominationId = $notes[0]["denomination_id"];
 
@@ -232,27 +250,29 @@ class Notes extends Controller
             "rarities" => array_unique($rarities),
             "mints" => array_unique($mints),
             "shapes" => array_unique($shapes),
+            "breadCrumbData" => [
+                [
+                    "slug" => "notes/",
+                    "label" => "Notes"
+                ],
+                [
+                    "slug" => "note/".$country["id"]."-".strtolower($country["name"]),
+                    "label" => $country["name"]
+                ],
 
-            "breadCrumbsData" => json_encode([
-                "notes" => TRUE,
-                "country" => [
-                    "id" => $country["id"],
-                    "name" => $country["name"]
-                ],
-                "period" => [
-                    "id" => $period["id"],
-                    "name" => $period["title"]
-                ],
-                "dynasty" => [
-                    "id" => $dynasty["id"],
-                    "name" => $dynasty["title"]
-                ],
-                "denomination" => [
-                    "id" => $denomination["id"],
-                    "unit" => $denominationUnit,
-                    "name" => $denomination ["title"]
+                [
+                    "slug" => "note/dynasty/".$period["id"],
+                    "label" => $period["title"]
                 ]
-            ]),
+                ,[
+                    "slug" => "note/note/".$dynasty["id"],
+                    "label" => $dynasty["title"]
+                ],
+                [
+                    "label" => $denominationUnit." ".$denomination["title"]
+                ]
+            ],
+            
             "footer_content" => ""
         ]);
 
@@ -285,26 +305,52 @@ class Notes extends Controller
             "note" => $note,
             "denomination" => $denomination,
             "dynasty" => $dynasty,
-            "breadCrumbsData" => json_encode([
-                "notes" => TRUE,
-                "country" => [
-                    "id" => $country["id"],
-                    "name" => $country["name"]
+            // "breadCrumbsData" => json_encode([
+            //     "notes" => TRUE,
+            //     "country" => [
+            //         "id" => $country["id"],
+            //         "name" => $country["name"]
+            //     ],
+            //     "period" => [
+            //         "id" => $period["id"],
+            //         "name" => $period["title"]
+            //     ],
+            //     "dynasty" => [
+            //         "id" => $dynasty["id"],
+            //         "name" => $dynasty["title"]
+            //     ],
+            //     "denomination" => [
+            //         "id" => $denomination["id"],
+            //         "unit" => $note["denomination_unit"],
+            //         "name" => $denomination ["title"]
+            //     ]
+            // ]),
+            "breadCrumbData" => [
+                [
+                    "slug" => "notes/",
+                    "label" => "Notes"
                 ],
-                "period" => [
-                    "id" => $period["id"],
-                    "name" => $period["title"]
+                [
+                    "slug" => "note/".$country["id"]."-".strtolower($country["name"]),
+                    "label" => $country["name"]
                 ],
-                "dynasty" => [
-                    "id" => $dynasty["id"],
-                    "name" => $dynasty["title"]
-                ],
-                "denomination" => [
-                    "id" => $denomination["id"],
-                    "unit" => $note["denomination_unit"],
-                    "name" => $denomination ["title"]
+
+                [
+                    "slug" => "note/dynasty/".$period["id"],
+                    "label" => $period["title"]
                 ]
-            ]),
+                ,[
+                    "slug" => "note/note/".$dynasty["id"],
+                    "label" => $dynasty["title"]
+                ],
+                [
+                    "label" => $note["denomination_unit"]." ".$denomination["title"],
+                    "slug"=> "note/list/".$note["denomination_unit"]."/".$dynasty["id"]
+                ],
+                [
+                    "label" => $note["issued_year"]
+                ]
+            ],
             "footer_content" => ""
         ]);
 

@@ -38,6 +38,11 @@ class Stamps extends Controller
             "title" => "Stamps of India",
             "info_title" => "Periods",
             "periods" => $periods,
+            "breadCrumbData" => [
+                [
+                    "label" => "Periods"
+                ]
+            ],
             "footer_content" => ""
         ]);
 
@@ -57,12 +62,23 @@ class Stamps extends Controller
 
         }
 
+        $period = Period::find($periodId);
+
         $types = Cache::get('stamp-types-'.$periodId);
 
         $this->page_loader("stamps_types",[
             "title" => "Stamps of India",
-            "info_title" => "Types: ".Period::find($periodId)["title"],
+            "info_title" => "Types: ".$period["title"],
             "types" => $types,
+            "breadCrumbData" => [
+                [
+                    "slug" => "stamp/",
+                    "label" => "Periods"
+                ],
+                [
+                    "label" => $period["title"]
+                ]
+            ],
             "footer_content" => ""
         ]);
 
@@ -89,6 +105,20 @@ class Stamps extends Controller
             "title" => "Stamps of ".$dynasty["title"],
             "info_title" => "Stamps",
             "stamps" => $stamps,
+            "breadCrumbData" => [
+                [
+                    "slug" => "stamp/",
+                    "label" => "Periods"
+                ],
+                [
+                    "slug" => "stamp/dynasty/".$period["id"],
+                    "label" => $period["title"]
+                ],
+                [
+                    // "slug" => "stamp/dynasty/".$dynasty["id"],
+                    "label" => $dynasty["title"]
+                ]
+            ],
             "dynasties_in_period" => $dynastiesInPeriod, 
             "footer_content" => ""
         ]);
@@ -104,10 +134,29 @@ class Stamps extends Controller
 
         $dynasty = Dynasty::find($stamp["dynasty_id"]);
 
+        $period = Period::find($dynasty["period_id"]);
+
         $this->page_loader("stamp_detail",[
             "title" => $stamp["stamp_name"],
             "stamp" => $stamp,
             "dynasty" => $dynasty, 
+            "breadCrumbData" => [
+                [
+                    "slug" => "stamp/",
+                    "label" => "Periods"
+                ],
+                [
+                    "slug" => "stamp/dynasty/".$period["id"],
+                    "label" => $period["title"]
+                ],
+                [
+                    "slug" => "stamp/dynasty/".$dynasty["id"],
+                    "label" => $dynasty["title"]
+                ],
+                [
+                    "label" => $stamp["stamp_name"]
+                ]
+            ],
             "footer_content" => ""
         ]);
 

@@ -49,9 +49,11 @@ class Coins extends Controller
             "title" => "Coins From Around the World, now at Your Fingertips",
             "info_title" => "Coins",
             "countries" => $data,
-            "breadCrumbsData" => json_encode([
-                "coins" => FALSE
-            ]),
+            "breadCrumbData" => [
+                [
+                    "label" => "Coins"
+                ]
+            ],
             "url_prefix" => "coin/",
             "image_base_url" => getenv("COUNTRY_FLAG_IMAGE_BASE_URL"),
             "footer_content" => $footer_content 
@@ -88,13 +90,16 @@ class Coins extends Controller
             "title" => "Coins of ".$countryName,
             "info_title" => "Periods : ".$countryName,
             "periods" => $periods,
-            "breadCrumbsData" => json_encode([
-                "coins" => TRUE,
-                "country" => [
-                    "id" => $country["id"],
-                    "name" => $country["name"]
+            "breadCrumbData" => [
+                [
+                    "slug" => "coins/",
+                    "label" => "Coins"
+                ],
+                [
+                    // "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "label" => $country["name"]
                 ]
-            ]),
+            ],
             "url_prefix" => "coin/dynasty/",
             "image_base_url" => getenv("PERIOD_IMAGE_BASE_URL"),
             "parent" => $country,
@@ -129,18 +134,19 @@ class Coins extends Controller
             "title" => $period["title"]." Coins | Coins of ".$period["title"]." ".$country["name"]." | ".$period["title"]." Period Coins | Mintage World",
             "info_title" => "Dynasties : ".$period["title"],
             "dynasties" => $dynasties,
-            "breadCrumbsData" => json_encode([
-                "coins" => TRUE,
-
-                "country" => [
-                    "id" => $country["id"],
-                    "name" => $country["name"]
+            "breadCrumbData" => [
+                [
+                    "slug" => "coins/",
+                    "label" => "Coins"
                 ],
-                "period" => [
-                    "id" => $period["id"],
-                    "name" => $period["title"]
+                [
+                    "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "label" => $country["name"]
+                ],
+                [
+                    "label" => $period["title"]
                 ]
-            ]),
+            ],
             "footer_content" =>$period["footer_content"]
         ]);
 
@@ -173,22 +179,23 @@ class Coins extends Controller
             "title" => "Biggest Online Information Repository of ".$dynasty["title"]." Coins | Mintage World",
             "info_title" => "Rulers : ".$dynasty["title"],
             "rulers" => $rulers,
-            "breadCrumbsData" => json_encode([
-                "coins" => TRUE,
-
-                "country" => [
-                    "id" => $country["id"],
-                    "name" => $country["name"]
+            "breadCrumbData" => [
+                [
+                    "slug" => "coins/",
+                    "label" => "Coins"
                 ],
-                "period" => [
-                    "id" => $period["id"],
-                    "name" => $period["title"]
+                [
+                    "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "label" => $country["name"]
                 ],
-                "dynasty" => [
-                    "id" => $dynasty["id"],
-                    "name" => $dynasty["title"]
+                [
+                    "slug" => "coin/dynasty/".$period["id"],
+                    "label" => $period["title"]
                 ],
-            ]),
+                [
+                    "label" => $dynasty["title"]
+                ]
+            ],
             "footer_content" =>$dynasty["footer_content"]
         ]);
 
@@ -199,21 +206,25 @@ class Coins extends Controller
         
 
 
-        if(!Cache::get('coins-'.$rulerId)){
+        // if(!Cache::get('coins-'.$rulerId)){
 
-            $coinModel = new Coin();
+        //     $coinModel = new Coin();
 
-            $coins = $coinModel->where("ruler_id",$rulerId)->with("denomination")->with("metal")->with("rarity")->with("shape")->get();
+        //     $coins = $coinModel->where("ruler_id",$rulerId)->with("denomination")->with("metal")->with("rarity")->with("shape")->paginate(12);
 
 
-            Cache::put('coins-'.$rulerId,$coins);
+        //     Cache::put('coins-'.$rulerId,$coins);
 
-        }
+        // }
 
         
 
-        $coins = Cache::get('coins-'.$rulerId);
+        // $coins = Cache::get('coins-'.$rulerId);
 
+
+        $coinModel = new Coin();
+
+        $coins = $coinModel->where("ruler_id",$rulerId)->with("denomination")->with("metal")->with("rarity")->with("shape")->paginate(12);
 
         $ruler = Ruler::find($rulerId);
 
@@ -241,6 +252,15 @@ class Coins extends Controller
             
         }
 
+        $total = $coins->total();
+        $currentPage = $coins->currentPage();
+        $perPage = $coins->perPage();
+
+        $from = ($currentPage - 1) * $perPage + 1;
+        $to = min($currentPage * $perPage, $total);
+
+        $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
+
 
         $this->page_loader("list",[
             "title" => "Coins of ".$ruler["title"]." | Mintage World",
@@ -254,25 +274,28 @@ class Coins extends Controller
             "rarities" => array_unique($rarities),
             "mints" => array_unique($mints),
             "shapes" => array_unique($shapes),
-            "breadCrumbsData" => json_encode([
-                "coins" => TRUE,
-                "country" => [
-                    "id" => $country["id"],
-                    "name" => $country["name"]
+            "pagination_info_string" => $paginationInfoString,
+            "breadCrumbData" => [
+                [
+                    "slug" => "coins/",
+                    "label" => "Coins"
                 ],
-                "period" => [
-                    "id" => $period["id"],
-                    "name" => $period["title"]
+                [
+                    "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "label" => $country["name"]
                 ],
-                "dynasty" => [
-                    "id" => $dynasty["id"],
-                    "name" => $dynasty["title"]
+                [
+                    "slug" => "coin/dynasty/".$period["id"],
+                    "label" => $period["title"]
                 ],
-                "ruler" => [
-                    "id" => $ruler["id"],
-                    "name" => $ruler["title"]
+                [
+                    "slug" => "coin/ruler/".$dynasty["id"],
+                    "label" => $dynasty["title"]
+                ],
+                [
+                    "label" => $ruler["title"]
                 ]
-            ]),
+            ],
             "footer_content" => $ruler["footer_content"]
         ]);
 
@@ -305,29 +328,31 @@ class Coins extends Controller
             "dynasty" => $dynasty,
             "ruler" => $ruler,
             "history" => substr($history[0]["history"],0,450),
-            "breadCrumbsData" => json_encode([
-                "coins" => TRUE,
-                "country" => [
-                    "id" => $country["id"],
-                    "name" => $country["name"]
+            "breadCrumbData" => [
+                [
+                    "slug" => "coins/",
+                    "label" => "Coins"
                 ],
-                "period" => [
-                    "id" => $period["id"],
-                    "name" => $period["title"]
+                [
+                    "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "label" => $country["name"]
                 ],
-                "dynasty" => [
-                    "id" => $dynasty["id"],
-                    "name" => $dynasty["title"]
+                [
+                    "slug" => "coin/dynasty/".$period["id"],
+                    "label" => $period["title"]
                 ],
-                "ruler" => [
-                    "id" => $ruler["id"],
-                    "name" => $ruler["title"]
+                [
+                    "slug" => "coin/ruler/".$dynasty["id"],
+                    "label" => $dynasty["title"]
                 ],
-                "coin" => [
-                    "id" => $coin["id"],
-                    "name" => $coin["denomination"]["title"]
+                [
+                    "slug" => "coin/list/".$ruler["id"],
+                    "label" => $ruler["title"]
+                ],
+                [
+                    "label" => $coin["denomination"]["title"]
                 ]
-            ]),
+            ],
             "footer_content" => ""
         ]);
 
@@ -416,10 +441,19 @@ class Coins extends Controller
             
             foreach($coins as $coin){
 
+                if($coin["obverse_image"]!=""){
 
-                $coinHtml.='<div class="col-lg-3 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="coin/'.$coin["id"].'">
-                <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="'.getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"].'" alt="Medieval"><div class="info-meta text-center"><h2 class="info-item-grid-title">'.$coin["title"].'</h2></div></div>
-                </a></div>';   
+                    $coinHtml.='<div class="col-lg-3 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="coin/'.$coin["id"].'">
+                    <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="'.getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"].'" alt="Medieval"><div class="info-meta text-center"><h2 class="info-item-grid-title">'.$coin["title"].'</h2></div></div>
+                    </a></div>';
+
+                }else{
+
+                    $coinHtml.='<div class="col-lg-3 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="coin/'.$coin["id"].'">
+                    <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="'.getenv("API_DEFAULT_IMG_PATH").'" alt="Medieval"><div class="info-meta text-center"><h2 class="info-item-grid-title">'.$coin["title"].'</h2></div></div>
+                    </a></div>';
+
+                }
     
             }
             

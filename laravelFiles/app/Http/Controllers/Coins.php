@@ -49,9 +49,11 @@ class Coins extends Controller
             "title" => "Coins From Around the World, now at Your Fingertips",
             "info_title" => "Coins",
             "countries" => $data,
-            "breadCrumbsData" => json_encode([
-                "coins" => FALSE
-            ]),
+            "breadCrumbData" => [
+                [
+                    "label" => "Coins"
+                ]
+            ],
             "url_prefix" => "coin/",
             "image_base_url" => getenv("COUNTRY_FLAG_IMAGE_BASE_URL"),
             "footer_content" => $footer_content 
@@ -88,13 +90,16 @@ class Coins extends Controller
             "title" => "Coins of ".$countryName,
             "info_title" => "Periods : ".$countryName,
             "periods" => $periods,
-            "breadCrumbsData" => json_encode([
-                "coins" => TRUE,
-                "country" => [
-                    "id" => $country["id"],
-                    "name" => $country["name"]
+            "breadCrumbData" => [
+                [
+                    "slug" => "coins/",
+                    "label" => "Coins"
+                ],
+                [
+                    // "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "label" => $country["name"]
                 ]
-            ]),
+            ],
             "url_prefix" => "coin/dynasty/",
             "image_base_url" => getenv("PERIOD_IMAGE_BASE_URL"),
             "parent" => $country,
@@ -129,18 +134,19 @@ class Coins extends Controller
             "title" => $period["title"]." Coins | Coins of ".$period["title"]." ".$country["name"]." | ".$period["title"]." Period Coins | Mintage World",
             "info_title" => "Dynasties : ".$period["title"],
             "dynasties" => $dynasties,
-            "breadCrumbsData" => json_encode([
-                "coins" => TRUE,
-
-                "country" => [
-                    "id" => $country["id"],
-                    "name" => $country["name"]
+            "breadCrumbData" => [
+                [
+                    "slug" => "coins/",
+                    "label" => "Coins"
                 ],
-                "period" => [
-                    "id" => $period["id"],
-                    "name" => $period["title"]
+                [
+                    "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "label" => $country["name"]
+                ],
+                [
+                    "label" => $period["title"]
                 ]
-            ]),
+            ],
             "footer_content" =>$period["footer_content"]
         ]);
 
@@ -173,22 +179,23 @@ class Coins extends Controller
             "title" => "Biggest Online Information Repository of ".$dynasty["title"]." Coins | Mintage World",
             "info_title" => "Rulers : ".$dynasty["title"],
             "rulers" => $rulers,
-            "breadCrumbsData" => json_encode([
-                "coins" => TRUE,
-
-                "country" => [
-                    "id" => $country["id"],
-                    "name" => $country["name"]
+            "breadCrumbData" => [
+                [
+                    "slug" => "coins/",
+                    "label" => "Coins"
                 ],
-                "period" => [
-                    "id" => $period["id"],
-                    "name" => $period["title"]
+                [
+                    "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "label" => $country["name"]
                 ],
-                "dynasty" => [
-                    "id" => $dynasty["id"],
-                    "name" => $dynasty["title"]
+                [
+                    "slug" => "coin/dynasty/".$period["id"],
+                    "label" => $period["title"]
                 ],
-            ]),
+                [
+                    "label" => $dynasty["title"]
+                ]
+            ],
             "footer_content" =>$dynasty["footer_content"]
         ]);
 
@@ -268,25 +275,27 @@ class Coins extends Controller
             "mints" => array_unique($mints),
             "shapes" => array_unique($shapes),
             "pagination_info_string" => $paginationInfoString,
-            "breadCrumbsData" => json_encode([
-                "coins" => TRUE,
-                "country" => [
-                    "id" => $country["id"],
-                    "name" => $country["name"]
+            "breadCrumbData" => [
+                [
+                    "slug" => "coins/",
+                    "label" => "Coins"
                 ],
-                "period" => [
-                    "id" => $period["id"],
-                    "name" => $period["title"]
+                [
+                    "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "label" => $country["name"]
                 ],
-                "dynasty" => [
-                    "id" => $dynasty["id"],
-                    "name" => $dynasty["title"]
+                [
+                    "slug" => "coin/dynasty/".$period["id"],
+                    "label" => $period["title"]
                 ],
-                "ruler" => [
-                    "id" => $ruler["id"],
-                    "name" => $ruler["title"]
+                [
+                    "slug" => "coin/ruler/".$dynasty["id"],
+                    "label" => $dynasty["title"]
+                ],
+                [
+                    "label" => $ruler["title"]
                 ]
-            ]),
+            ],
             "footer_content" => $ruler["footer_content"]
         ]);
 
@@ -319,29 +328,31 @@ class Coins extends Controller
             "dynasty" => $dynasty,
             "ruler" => $ruler,
             "history" => substr($history[0]["history"],0,450),
-            "breadCrumbsData" => json_encode([
-                "coins" => TRUE,
-                "country" => [
-                    "id" => $country["id"],
-                    "name" => $country["name"]
+            "breadCrumbData" => [
+                [
+                    "slug" => "coins/",
+                    "label" => "Coins"
                 ],
-                "period" => [
-                    "id" => $period["id"],
-                    "name" => $period["title"]
+                [
+                    "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "label" => $country["name"]
                 ],
-                "dynasty" => [
-                    "id" => $dynasty["id"],
-                    "name" => $dynasty["title"]
+                [
+                    "slug" => "coin/dynasty/".$period["id"],
+                    "label" => $period["title"]
                 ],
-                "ruler" => [
-                    "id" => $ruler["id"],
-                    "name" => $ruler["title"]
+                [
+                    "slug" => "coin/ruler/".$dynasty["id"],
+                    "label" => $dynasty["title"]
                 ],
-                "coin" => [
-                    "id" => $coin["id"],
-                    "name" => $coin["denomination"]["title"]
+                [
+                    "slug" => "coin/list/".$ruler["id"],
+                    "label" => $ruler["title"]
+                ],
+                [
+                    "label" => $coin["denomination"]["title"]
                 ]
-            ]),
+            ],
             "footer_content" => ""
         ]);
 

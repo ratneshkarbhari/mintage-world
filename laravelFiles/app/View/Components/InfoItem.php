@@ -12,9 +12,7 @@ class InfoItem extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public  $infoItem,
-        public  string $url_prefix,
-
+        $infoItem
     )
     {
         //

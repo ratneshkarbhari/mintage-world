@@ -3,7 +3,7 @@
     <section class="inside-banner"><img class="w-100 img-fluid" src="{{url("assets/images/inside-banner/coin-banner.jpg")}}" /></section>
 
     
-    <x-coin-info-bread-crumbs :breadCrumbsData="$breadCrumbsData"/>
+    <x-bread-crumb :breadCrumbData="$breadCrumbData"/>
 
 
     <section class="common-padding coing-list-wraper">

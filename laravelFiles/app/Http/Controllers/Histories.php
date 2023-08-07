@@ -44,11 +44,28 @@ class Histories extends Controller
 
         $historySlugParts = explode("-",$historySlug);
 
+        
+
         $history = History::find($historySlugParts[0]);
+        
         $periods = Period::where("country_id",1)->where("category_id",1)->get();
 
+        if(!$history){
+            $history = History::find($historySlug);
+
+
+            if(!$history){
+
+                return redirect(url("history"));
+
+            }
+        }
 
         $dynasty = Dynasty::find($history["dynasty_id"]);
+
+        if(!$dynasty){
+            return redirect(url("history"));
+        }
 
         $histories = DB::select('SELECT history.id,dynasty.title, dynasty.image FROM dynasty JOIN history ON dynasty.id = history.dynasty_id JOIN period ON period.id = dynasty.period_id WHERE period.category_id = 1 AND period.country_id = 1 AND period.id='.$dynasty["period_id"].' AND history.history!="" AND history.download_file!=""');
 

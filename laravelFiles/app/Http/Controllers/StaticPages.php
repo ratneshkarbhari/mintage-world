@@ -74,6 +74,12 @@ class StaticPages extends Controller
             "title" => "videos | Mintage World"
         ]);
     }
+    function videos_detail()
+    {
+        $this->page_loader("videos_detail", [
+            "title" => "video Title | Mintage World"
+        ]);
+    }
     function courtesy()
     {
         $this->page_loader("courtesy", [

@@ -29,7 +29,8 @@
 
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{url("assets/css/bootstrap.min.css")}}" rel="stylesheet">
+    {{-- <link href="{{url("assets/css/bootstrap.min.css")}}" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css"  /> 
 
     
     <!-- image gallery on detail page Stylesheet -->

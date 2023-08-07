@@ -88,11 +88,16 @@
 
                 @endif
 
-                <div class="col-lg-2 col-md-12 col-sm-12 product-history-wrap mt-5 mt-lg-0 mt-md-5 order-lg-3">
-                    <h5>History of Malwa Sultan</h5>
-                    {!!$history!!}...
-                    <p><a href="{{url("history/detail/".$dynasty["id"])}}"  class="btn btn-info btn-sm text-white mt-3" target="_blank">Read more</a></p>
-                </div>
+                @if($history!="")
+
+                    <div class="col-lg-2 col-md-12 col-sm-12 product-history-wrap mt-5 mt-lg-0 mt-md-5 order-lg-3">
+                        <h5>History of {{$ruler["title"]}}</h5>
+                        {!!$history!!}...
+                        <p><a href="{{url("history/detail/".$dynasty["id"])}}"  class="btn btn-info btn-sm text-white mt-3" target="_blank">Read more</a></p>
+                    </div>
+
+                @endif
+
             </div>
         </div>
     </section>
@@ -112,10 +117,12 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                 <h6><b>Add your Comments</b></h6>
+                <p class="text-danger" id="commentPostError"></p>
+                <p class="text-success" id="commentPostSuccess"></p>
                 <p>Your Comments</p>
-                <textarea name="comment" class="form-control" placeholder="Enter your message" required="" rows="10"></textarea>  
+                <textarea id="comment-text" name="comment" class="form-control" placeholder="Enter your message" required="" rows="10"></textarea>  
                     @if(session()->has('type'))
-                    <button class="btn btn-sm btn-explore mt-3">Submit
+                    <button class="btn btn-sm btn-explore mt-3" id="commentSubmitButton">Submit
                         <span class="first"></span>
                         <span class="second"></span>
                         <span class="third"></span>
@@ -140,10 +147,12 @@
                         @else
                         <div class="comment-wrap">
                             @foreach($coin["feedback"] as $feedback)
+                            @if($feedback["status"]==0)
                             <div class="UserDetail">
                                 <p class="d-flex justify-content-between"><span class="UserName" id="UserName">{{$feedback["member"]["name"]}}</span><span class="UserName" id="CommentDate">{{date("d/m/Y",strtotime($feedback["created"]))}}</span></p>
                                 <p>{{$feedback["comment"]}}</p>
                             </div>
+                            @endif
                             @endforeach                            
                         </div>
                         @endif
@@ -154,3 +163,31 @@
     </section>
     
 </main>
+<script>
+    $("button#commentSubmitButton").click(function (e) { 
+        e.preventDefault();
+        let comment = $("textarea#comment-text").val();
+        $.ajax({
+            type: "POST",
+            url: "{{url('create-info-comment')}}",
+            data: {
+                "_token" : "{{ csrf_token() }}",
+                "feedback_id" : 1,
+                "note_id" : "",
+                "stamp_id" : "",
+                "coin_id" : "{{$coin['id']}}",
+                "comment" : comment,
+                "member_id" : <?php echo session('member_id'); ?>
+            },
+            success: function (response) {
+                if(response=="comment-posted"){
+                    $("p#commentPostSuccess").html("Comment Posted for approval");
+                }else if(response=="comment-not-posted"){
+                    $("p#commentPostError").html("Comment not posted");
+                }else{
+                    $("p#commentPostError").html("Comment already exists");
+                }
+            }
+        });
+    });
+</script>

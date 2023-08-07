@@ -75,32 +75,58 @@
     </div>
 
     
-<div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel" aria-hidden="true">
-   <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content"> 
-         <div class="modal-body text-center">
-         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            <div class="login-form-content ">
-               <div class="col-md-4 text-center company__info">
-                  <span class="company__logo">
-                     <h2><i class="fas fa-sign-in-alt"></i></h2>
-                  </span>
-               </div>
-               <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
-                  <h2 class="mt-3 mb-3 text-center">Sign In</h2>
-                  <form class="form-group">
-                    <input type="text" id="username" class="form__input" placeholder="Username" name="username">
-                    <input type="password" id="password" class="form__input mb-1" placeholder="Password" name="password">
-                    <span class="small text-end d-block w-100">
-                    <a href="{{url("member/forgotpassword/")}}"> Forgot password?</a> </span><input type="submit" class="btn" value="Submit">
-                 </form>
-                  <p class="mb-4">Don't have an account? <a href="{{url("member/")}}">Register Here</a></p>
-               </div>
+    <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content"> 
+            <div class="modal-body text-center">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="login-form-content ">
+                <div class="col-md-4 text-center company__info">
+                    <span class="company__logo">
+                        <h2><i class="fas fa-sign-in-alt"></i></h2>
+                    </span>
+                </div>
+                <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
+                    <h2 class="mt-3 mb-3 text-center">Sign In</h2>
+                    <p class="text-danger text-center" id="loginError"></p>
+                    <form action="{{url("coin-info-filter-exe")}}" id="memberLoginForm">                        
+                        @csrf
+                        <input type="text" name="username" id="login-username" class="form__input" placeholder="Username">
+                        <input type="password" name="password" id="login-password" class="form__input mb-1" placeholder="Password">
+                        <span class="small text-end d-block w-100">
+                        <a href="{{url("member/forgotpassword/")}}"> Forgot password?</a> </span>
+                        <button type="button" class="btn" id="loginButton">Login</button>
+                    </form>
+                    <script>
+                       $("button#loginButton").click(function (e) { 
+                            e.preventDefault();
+                            let username = $("input#login-username").val();
+                            let password = $("input#login-password").val();
+                            $.ajax({
+                                type: "POST",
+                                url: "{{url('member-login-exe')}}",
+                                data: {
+                                    "_token": "{{ csrf_token() }}",
+                                    "username" : username,
+                                    "password" : password
+                                },
+                                success: function (response) {
+                                    if (response=="login-success") {
+                                        location.reload();
+                                    }else{
+                                        $("p#loginError").html("Email or password is incorrect");
+                                    }
+                                }
+                            });
+                       });
+                    </script>
+                    <p class="mb-4">Don't have an account? <a href="{{url("member/")}}">Register Here</a></p>
+                </div>
+                </div>
             </div>
-         </div>
-      </div>
-   </div>
-</div>
+        </div>
+    </div>
+    </div>
     <div class="sticky-footer">
         <ul class="sticky-footer-ul">
             <li><a href="{{url("list-of-cart/")}}" title="Add to Cart"><i class="fa fa-cart-plus"></i></a></li>

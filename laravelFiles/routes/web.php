@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\Authentication;
 use App\Http\Controllers\Coins;
 use App\Http\Controllers\Notes;
 use App\Http\Controllers\Histories;
 use App\Http\Controllers\Shopping;
 use App\Http\Controllers\Cart;
+use App\Http\Controllers\InfoComments;
 use App\Http\Controllers\StaticPages;
 use App\Http\Controllers\PageLoader;
 use App\Http\Controllers\Stamps;
@@ -108,3 +110,12 @@ Route::get('knowledge-base/note-numbering-system/', [StaticPages::class, 'note_n
 Route::get('knowledge-base/security-features-on-current-banknotes/', [StaticPages::class, 'security_features_on_current_banknotes']);
 Route::get('knowledge-base/security-features-on-demonetized-banknotes/', [StaticPages::class, 'security_features_on_demonetized_banknotes']);
 Route::get('knowledge-base/know-your-stamps', [StaticPages::class, 'know_your_stamps']);
+
+
+
+// Auth routes
+Route::post("member-login-exe", [Authentication::class, 'member_login']);
+Route::get("logout", [Authentication::class, 'logout']);
+
+// Info comments
+Route::post("create-info-comment",[InfoComments::class,'create_exe']);

@@ -15,7 +15,7 @@
 
 
                         <div class="col-lg-2 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="{{url("note/list/".$denomination["unit"]."/".$dynasty["id"])}}">
-                            @if(isset($denomination["obverse_image"])&&$denomination["obverse_image"]!=""&&is_file(getenv("NOTE_BASE_URL").$denomination["obverse_image"]))
+                            @if(isset($denomination["obverse_image"])&&$denomination["obverse_image"]!="")
                             <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="{{getenv("NOTE_BASE_URL").$denomination["obverse_image"]}}" alt="{{$denomination["title"]}}">
                                 <div class="info-meta text-center">
                                     <h2 class="info-item-grid-title">{{$denomination["unit"]." ".$denomination["title"]}}</h2>
@@ -38,11 +38,13 @@
                     <div class="heading-2">More...</div>
                     <ul class="more-rulers">
 
+                        @if(isset($sibling_dyanasties))
                         @foreach($sibling_dyanasties as $sibling_dynasty)
 
                         <li><a href="{{url('/note/note/'.$sibling_dynasty["id"])}}">{{$sibling_dynasty["title"]}}</a></li>
 
                         @endforeach
+                        @endif
 
                     </ul>
 

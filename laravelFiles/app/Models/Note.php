@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
 class Note extends Model {
@@ -23,6 +24,11 @@ class Note extends Model {
     public function denomination() : HasOne
     {
         return $this->hasOne(Denomination::class,"id","denomination_id");
+    }
+
+    public function feedback() : HasMany
+    {
+        return $this->hasMany(Feedback::class,"note_id","id");
     }
 
 }

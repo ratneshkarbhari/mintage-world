@@ -98,31 +98,16 @@
                 <div class="col-md-12">
                     <h2 class="mb-3 heading-2">More Notes</h2>
                     <div class="owl-carousel Recommended-Slider position-relative">
-                        <div class="item text-center"><a href="#"><img class="img-fluid w-100" src="https://mintage2.s3.amazonaws.com/note/list/1A_1_3_4-O.jpg" alt="Rupees | 1A.1.3.4 | O">
-                                <div class="latest-title">1A.1.3.4</div>
-                            </a>
-                        </div>
-                        <div class="item text-center"><a href="#"><img class="img-fluid w-100" src="https://mintage2.s3.amazonaws.com/note/list/1A_1_3_4-O.jpg" alt="Rupees | 1A.1.3.4 | O">
-                                <div class="latest-title">1A.1.3.4</div>
-                            </a>
-                        </div>
-                        <div class="item text-center"><a href="#"><img class="img-fluid w-100" src="https://mintage2.s3.amazonaws.com/note/list/1A_1_3_4-O.jpg" alt="Rupees | 1A.1.3.4 | O">
-                                <div class="latest-title">1A.1.3.4</div>
-                            </a>
-                        </div>
-                        <div class="item text-center"><a href="#"><img class="img-fluid w-100" src="https://mintage2.s3.amazonaws.com/note/list/1A_1_3_4-O.jpg" alt="Rupees | 1A.1.3.4 | O">
-                                <div class="latest-title">1A.1.3.4</div>
-                            </a>
-                        </div>
-                        <div class="item text-center"><a href="#"><img class="img-fluid w-100" src="https://mintage2.s3.amazonaws.com/note/list/1A_1_3_4-O.jpg" alt="Rupees | 1A.1.3.4 | O">
-                                <div class="latest-title">1A.1.3.4</div>
-                            </a>
-                        </div>
-                        <div class="item text-center"><a href="#"><img class="img-fluid w-100" src="https://mintage2.s3.amazonaws.com/note/list/1A_1_3_4-O.jpg" alt="Rupees | 1A.1.3.4 | O">
-                                <div class="latest-title">1A.1.3.4</div>
+                        
+                        @foreach($more_notes as $note)
+                        
+                        <div class="item text-center"><a href="{{url('note/detail/'.$note["id"])}}"><img class="img-fluid w-100" src="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}" alt="{{ $denomination["unit"]."|".$note["catalogue_ref_no"] }}">
+                                <div class="latest-title">{{$note["catalogue_ref_no"]}}</div>
                             </a>
                         </div>
 
+                        @endforeach
+                        
                     </div>
                 </div>
             </div>
@@ -139,15 +124,17 @@
         </div>
     </section>
 
-    {{-- <section class="common-padding AddComment">
+    <section class="common-padding AddComment">
         <div class="container-fluid  px-lg-2 px-lg-5">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
                 <h6><b>Add your Comments</b></h6>
+                <p class="text-danger" id="commentPostError"></p>
+                <p class="text-success" id="commentPostSuccess"></p>
                 <p>Your Comments</p>
-                <textarea name="comment" class="form-control" placeholder="Enter your message" required="" rows="10"></textarea>  
+                <textarea id="comment-text" name="comment" class="form-control" placeholder="Enter your message" required="" rows="10"></textarea>  
                     @if(session()->has('type'))
-                    <button class="btn btn-sm btn-explore mt-3">Submit
+                    <button class="btn btn-sm btn-explore mt-3" id="commentSubmitButton">Submit
                         <span class="first"></span>
                         <span class="second"></span>
                         <span class="third"></span>
@@ -172,10 +159,12 @@
                         @else
                         <div class="comment-wrap">
                             @foreach($note["feedback"] as $feedback)
+                            @if($feedback["status"]==0)
                             <div class="UserDetail">
                                 <p class="d-flex justify-content-between"><span class="UserName" id="UserName">{{$feedback["member"]["name"]}}</span><span class="UserName" id="CommentDate">{{date("d/m/Y",strtotime($feedback["created"]))}}</span></p>
                                 <p>{{$feedback["comment"]}}</p>
                             </div>
+                            @endif
                             @endforeach                            
                         </div>
                         @endif
@@ -183,6 +172,38 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
     
 </main>
+@if(session('type')=="member")
+
+<script>
+    $("button#commentSubmitButton").click(function (e) { 
+        e.preventDefault();
+        let comment = $("textarea#comment-text").val();
+        $.ajax({
+            type: "POST",
+            url: "{{url('create-info-comment')}}",
+            data: {
+                "_token" : "{{ csrf_token() }}",
+                "feedback_id" : 2,
+                "note_id" : "{{$note['id']}}",
+                "stamp_id" : "",
+                "coin_id" : "",
+                "comment" : comment,
+                "member_id" : <?php echo session('member_id'); ?>
+            },
+            success: function (response) {
+                if(response=="comment-posted"){
+                    $("p#commentPostSuccess").html("Comment Posted for approval");
+                }else if(response=="comment-not-posted"){
+                    $("p#commentPostError").html("Comment not posted");
+                }else{
+                    $("p#commentPostError").html("Comment already exists");
+                }
+            }
+        });
+    });
+</script>
+
+@endif

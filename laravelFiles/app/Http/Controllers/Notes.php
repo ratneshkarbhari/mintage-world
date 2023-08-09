@@ -176,7 +176,10 @@ class Notes extends Controller
 
         $country = Country::find($period["country_id"]);
 
-        $siblingDynasties = Cache::get('note-dynasties-'.$dynasty["period_id"]);
+        $siblingDynasties = Dynasty::where("period_id",$dynasty["period_id"])->get();
+
+
+        
 
 
         $this->page_loader("denominations_notes",[      
@@ -215,7 +218,7 @@ class Notes extends Controller
             $query = 'SELECT note.denomination_id, note.id, note.obverse_image, note.reverse_image, note.denomination_unit, denomination.title as denomination_title , note.issued_year, note.catalogue_ref_no, note.size, note.signatory, note.color, note.prefix, note.inset, dynasty.title, denomination.title, shape.title 
             FROM note 
             JOIN dynasty ON note.dynasty_id = dynasty.id 
-            JOIN denomination ON note.denomination_id = denomination.id JOIN shape ON note.shape_id = shape.id WHERE note.denomination_unit = 10 AND note.dynasty_id = '.$dynastyId;
+            JOIN denomination ON note.denomination_id = denomination.id JOIN shape ON note.shape_id = shape.id WHERE note.denomination_unit = '.$denominationUnit.' AND note.dynasty_id = '.$dynastyId;
             
             $notes = DB::select($query);
 
@@ -251,6 +254,7 @@ class Notes extends Controller
             $issuedYears[]  = $note["issued_year"];
 
         }
+
 
 
         $this->page_loader("note_list",[
@@ -300,7 +304,9 @@ class Notes extends Controller
             
         }
 
-        $note = Cache::get("note-".$noteId);
+        $noteModel = new Note();
+
+        $note = $noteModel->with("denomination")->with("feedback.member")->find($noteId);
 
         $denomination = Denomination::find($note["denomination_id"]);
 
@@ -310,31 +316,18 @@ class Notes extends Controller
 
         $country = Country::find($period["country_id"]);
 
+        $more_notes = Note::where("dynasty_id",$dynasty["id"])->where("denomination_unit",$note["denomination_unit"])->get();
+
+        if($note["issued_year"]==""){
+            $note["issued_year"] = $note["catalogue_ref_no"];
+        }
+
         $this->page_loader("note_detail",[
             "title" => $note["denomination_unit"]." ".$denomination["title"],
             "note" => $note,
             "denomination" => $denomination,
             "dynasty" => $dynasty,
-            // "breadCrumbsData" => json_encode([
-            //     "notes" => TRUE,
-            //     "country" => [
-            //         "id" => $country["id"],
-            //         "name" => $country["name"]
-            //     ],
-            //     "period" => [
-            //         "id" => $period["id"],
-            //         "name" => $period["title"]
-            //     ],
-            //     "dynasty" => [
-            //         "id" => $dynasty["id"],
-            //         "name" => $dynasty["title"]
-            //     ],
-            //     "denomination" => [
-            //         "id" => $denomination["id"],
-            //         "unit" => $note["denomination_unit"],
-            //         "name" => $denomination ["title"]
-            //     ]
-            // ]),
+            "more_notes" => $more_notes,
             "breadCrumbData" => [
                 [
                     "slug" => "notes/",

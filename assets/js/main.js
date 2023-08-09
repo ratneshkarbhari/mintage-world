@@ -100,19 +100,19 @@
       '<i class="bi bi-chevron-right"></i>',
     ],
   });
- // Header carousel
- $(".photopro-carousel").owlCarousel({
-  autoplay: true,
-  smartSpeed: 1500,
-  items: 1,
-  dots: true,
-  loop: true,
-  nav: true,
-  navText: [
-    '<i class="bi bi-chevron-left"></i>',
-    '<i class="bi bi-chevron-right"></i>',
-  ],
-});
+  // Header carousel
+  $(".photopro-carousel").owlCarousel({
+    autoplay: true,
+    smartSpeed: 1500,
+    items: 1,
+    dots: true,
+    loop: true,
+    nav: true,
+    navText: [
+      '<i class="bi bi-chevron-left"></i>',
+      '<i class="bi bi-chevron-right"></i>',
+    ],
+  });
   // shop main page carousel
   $(".shop-page-carousel").owlCarousel({
     autoplay: true,
@@ -239,41 +239,6 @@
   searchCloseP.addEventListener("click", searchToggle);
   searchInput.addEventListener("keyup", searchEnter);
 
-  //searchToggle end();
-
-  // counter value
-
-  // var counted = 0;
-  // $(window).scroll(function () {
-  //   var oTop = $("#counter").offset().top - window.innerHeight;
-  //   if (counted == 0 && $(window).scrollTop() > oTop) {
-  //     $(".count").each(function () {
-  //       var $this = $(this),
-  //         countTo = $this.attr("data-count");
-  //       $({
-  //         countNum: $this.text(),
-  //       }).animate(
-  //         {
-  //           countNum: countTo,
-  //         },
-  //         {
-  //           duration: 2000,
-  //           easing: "swing",
-  //           step: function () {
-  //             $this.text(Math.floor(this.countNum));
-  //           },
-  //           complete: function () {
-  //             $this.text(this.countNum);
-  //             //alert('finished');
-  //           },
-  //         }
-  //       );
-  //     });
-  //     counted = 1;
-  //   }
-  // });
-  // counter value end
-
   // quantity plus minus js start
   $(".qtyplus").click(function () {
     if ($(this).prev().val() < 10000) {
@@ -303,10 +268,19 @@
       CategoryMenu.className = "category-menu fixed-filter";
     }
   };
-  if(document.getElementById("InfoFilter")){
+  if (document.getElementById("InfoFilter")) {
     InfoFilter.addEventListener("click", Filter);
   }
-  
   CatClose.addEventListener("click", Filter);
+
   //  filter js End
+
+  $(function () {
+    $(".view-pdf").on("click", function () {
+      var pdf_link = $(this).attr("href");
+      var pdf_viewer = document.getElementById("pdf_viewer");
+      $(pdf_viewer).attr("src", pdf_link);
+      return false;
+    });
+  });
 })(jQuery);

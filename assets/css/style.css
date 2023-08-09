@@ -125,7 +125,7 @@ p {
   letter-spacing: 1px;
   color: #933232;
   padding-bottom: 35px !important;
-  margin: 0px !important;
+  margin: 0px 0 20px 0px !important;
   position: relative;
   display: inline-block;
 }
@@ -160,6 +160,8 @@ p {
 .bg-light-wraper {
   background: #efefef;
 }
+
+
 .btn-explore {
   padding: 10px 30px;
   font-size: 14px;
@@ -171,7 +173,9 @@ p {
   cursor: pointer;
   transition: all 0.7s;
   overflow: hidden;
-  border-radius: 100px;
+  border-radius: 100px; 
+  z-index: 1;
+
 }
 
 .btn-explore:hover {
@@ -600,6 +604,9 @@ section.home-page-carousel {
   background: linear-gradient(rgba(6, 3, 21, 0.5), rgba(6, 3, 21, 0.5)),
     url(../images/map.png) center center no-repeat;
   background-size: cover;
+}
+.footer p {
+  color: #FFF;
 }
 
 .footer .btn.btn-social {
@@ -1646,7 +1653,7 @@ ul.sticky-footer-ul li a:hover {
     justify-content: center;
     color: #fff;
 }
-.login-form-content .fa-sign-in-alt{
+.login-form-content i{
     font-size:3em;
 }
 @media screen and (max-width: 640px) {
@@ -2565,6 +2572,73 @@ width: 80%;
   border-bottom: 0px;
 }
 
+.festival-content {
+  border: 1px solid #e19726;
+  padding: 15px;
+  background: #ffeaca; 
+  width: 100%;
+  color: #000; 
+}
+.festival-content h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+.festival-content .fest-content p {
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  line-height: 18px;
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+}
+.festival-content .fest-content p i {
+  background: rgb(225 151 38);
+  background: linear-gradient(0deg, rgb(167 101 1) 0%, rgb(225 151 38) 100%);
+  color: #fff;
+  padding: 7px;
+  font-size: 13px;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  line-height: 15px;
+}
+.festival-content .fest-content p span { 
+  width: calc(100% - 40px);
+  margin: 5px 0 0 0;
+}
+.festival-content .fest-content p:last-child {
+  margin: 0px;
+}
+
+.pdf-list li .view-pdf,.news-link-list li .news-link {
+  width: 100%;
+  text-align: left;
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  padding: 10px;
+  background: #ebebeb;
+  border-radius: 5px;
+  overflow: hidden;
+  border: solid 1px #cfcfcf;
+  transition: 0.5s;
+}
+
+.pdf-list li {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.pdf-list li .view-pdf:hover,.news-link-list li .news-link:hover {
+  background: #000000;
+  transition: 0.5s;
+}
+.news-link-list li {
+  margin-right: 15px;
+}
+ 
 /* --------Responsive Media Css Start------------- */
 
 @media (max-width: 1400px) {
@@ -3082,5 +3156,25 @@ width: 80%;
 }
 section.inside-banner{
   display: none;
+}
+.festival-content {
+  min-height: 0px;
+}
+ 
+.btn-group-wraper .btn {
+  width: 100%;
+}
+ul.pdf-list,.news-link-list{
+  text-align: left;
+}
+.pdf-list li,.news-link-list li {
+  display: inline-block;
+  margin: 0px 5px 5px 0px;
+}
+.pdf-list li .view-pdf, .news-link-list li .news-link{
+  display: block;
+  font-size: 13px; 
+  line-height: 20px;
+  padding: 5px;
 }
 }

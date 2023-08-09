@@ -94,9 +94,9 @@ class Stamps extends Controller
 
         $period = Period::find($dynasty["period_id"]);
 
-        $allStamps = Stamp::where("dynasty_id",$dynasty["id"])->with("theme_category")->get();
+        $allStamps = Stamp::where("dynasty_id",$dynasty["id"])->with("theme_category")->with("shape")->get();
 
-        $stamps = Stamp::where("dynasty_id",$dynasty["id"])->with("theme_category")->paginate(12);
+        $stamps = Stamp::where("dynasty_id",$dynasty["id"])->with("theme_category")->with("shape")->paginate(12);
 
         $dynastiesInPeriod = Dynasty::where("period_id",$period["id"])->get();
 
@@ -137,7 +137,9 @@ class Stamps extends Controller
 
     function stamp_detail($stampId){
 
-        $stamp = Stamp::find($stampId);
+        $stamp = Stamp::where("id",$stampId)->with("shape")->with("theme_category")->with("feedback")->get();
+
+        $stamp = $stamp[0];
 
         $dynasty = Dynasty::find($stamp["dynasty_id"]);
 

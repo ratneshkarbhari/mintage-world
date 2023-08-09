@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Shape;
+use App\Models\ThemeCategory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
 class Stamp extends Model {
@@ -22,6 +25,16 @@ class Stamp extends Model {
     public function theme_category() : HasOne
     {
         return $this->hasOne(ThemeCategory::class,"id","theme_category_id");
+    }
+
+    public function shape() : HasOne
+    {
+        return $this->hasOne(Shape::class,"id","shape_id");
+    }
+
+    public function feedback() : HasMany
+    {
+        return $this->hasMany(Feedback::class,"stamp_id","id");
     }
 
 }

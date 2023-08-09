@@ -21,12 +21,11 @@
 
                     @if(session()->has('type'))
                     <div id="members-info">
-                        <p><b>Calendar System :</b> <span>{{$stamp  ["calendar_system"]["title"]}}</span></p>
-                        <p><b>Issued Year :</b> <span>{{$stamp["issued_year"]}}</span></p>
-                        <p><b>Remark :</b> <span>{{$stamp["remark"]}}</span></p>
-                        <p><b>Rarity :</b> <span>{{$stamp["rarity"]["title"]}}</span></p>
-                        <p><b>Obverse Description :</b> <span>{{$stamp["obverse_desc"]}}</span></p>
-                        <p><b>Reverse Description :</b> <span>{{$stamp["reverse_desc"]}}</span></p>
+                        <p><b>Description :</b> <span>{{$stamp  ["description"]}}</span></p>
+                        <p><b>Perforation :</b> <span>{{$stamp["perforation"]}}</span></p>
+                        <p><b>Watermark :</b> <span>{{$stamp["watermark"]}}</span></p>
+                        <p><b>Shape :</b> <span>{{$stamp["shape"]["title"]}}</span></p>
+                        <p><b>Theme:</b> <span>{{$stamp["theme_category"]["title"]}}</span></p>
                     </div>
                     @else 
                     <p id="ProductLogBtn">
@@ -101,5 +100,88 @@
         </div>
     </section>
 
+    <section class="common-padding AddComment">
+        <div class="container-fluid  px-lg-2 px-lg-5">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                <h6><b>Add your Comments</b></h6>
+                <p class="text-danger" id="commentPostError"></p>
+                <p class="text-success" id="commentPostSuccess"></p>
+                <p>Your Comments</p>
+                <textarea id="comment-text" name="comment" class="form-control" placeholder="Enter your message" required="" rows="10"></textarea>  
+                    @if(session()->has('type'))
+                    <button class="btn btn-sm btn-explore mt-3" id="commentSubmitButton">Submit
+                        <span class="first"></span>
+                        <span class="second"></span>
+                        <span class="third"></span>
+                        <span class="fourth"></span>
+                    </button>
+                    @else 
+                    <button class="btn btn-sm btn-explore mt-3" data-bs-toggle="modal" data-bs-target="#LoginModal">Submit
+                        <span class="first"></span>
+                        <span class="second"></span>
+                        <span class="third"></span>
+                        <span class="fourth"></span>
+                    </button>
+                    @endif
+              
+              
+                </div>
+                <div class="col-md-6 col-sm-12 mt-5 mt-md-0">
+                    <div class="recent-comment-wrap">
+                        <h6><b>Recent Comments</b></h6>
+                        @if($stamp["feedback"]=="[]")
+                        <p>No Comments found </p>
+                        @else
+                        <div class="comment-wrap">
+                            @foreach($stamp["feedback"] as $feedback)
+                            @if($feedback["status"]==0)
+                            <div class="UserDetail">
+                                <p class="d-flex justify-content-between"><span class="UserName" id="UserName">{{$feedback["member"]["name"]}}</span><span class="UserName" id="CommentDate">{{date("d/m/Y",strtotime($feedback["created"]))}}</span></p>
+                                <p>{{$feedback["comment"]}}</p>
+                            </div>
+                            @endif
+                            @endforeach                            
+                        </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     
 </main>
+@if(session('type')=="member")
+
+<script>
+    $("button#commentSubmitButton").click(function (e) { 
+        e.preventDefault();
+        let comment = $("textarea#comment-text").val();
+        $.ajax({
+            type: "POST",
+            url: "{{url('create-info-comment')}}",
+            data: {
+                "_token" : "{{ csrf_token() }}",
+                "feedback_id" : 3,
+                "note_id" : "",
+                "stamp_id" : "{{$stamp["id"]}}",
+                "coin_id" : "",
+                "comment" : comment,
+                "member_id" : <?php echo session('member_id'); ?>
+            },
+            success: function (response) {
+                if(response=="comment-posted"){
+                    $("p#commentPostSuccess").html("Comment Posted for approval");
+                }else if(response=="comment-not-posted"){
+                    $("p#commentPostError").html("Comment not posted");
+                }else{
+                    $("p#commentPostError").html("Comment already exists");
+                }
+            }
+        });
+    });
+</script>
+
+@endif

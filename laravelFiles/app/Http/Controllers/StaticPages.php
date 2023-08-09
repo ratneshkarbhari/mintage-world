@@ -94,6 +94,11 @@ class StaticPages extends Controller
     }
     function login()
     {
+
+        if(session("type")){
+            return redirect(url("member/dashboard"));
+        }
+
         $this->page_loader("login", [
             "title" => "Login | Mintage World",
             "is_login" => TRUE

@@ -75,11 +75,26 @@
                             <small>Shopping Cart</small>
                         </a>
                     </div>
-                    <div class="h-100 d-inline-flex align-items-center  me-md-2 me-3">
-                        <a href="{{url("application/login")}}">
+                    <div class="h-100 d-inline-flex align-items-center  me-md-2 me-3">                       
+                        @if(session('type')=="member")
+                        <a href="{{url("member/dashboard/")}}"  class="me-2">
+                            <small class="fas fa-user-cog text-primary me-2"></small>
+                            <small>My Account</small>
+                        </a>
+                        <a href="{{url("/logout")}}"  class="me-2">
+                            <small class="fas fa-sign-out-alt text-primary me-2"></small>
+                            <small>Logout</small>
+                        </a>
+                        @else 
+                        <a href="{{url("application/login")}}" class="me-2">
                             <small class="fa fa-sign-in-alt text-primary me-2"></small>
                             <small>Sign in</small>
                         </a>
+                        <a href="{{url("member/")}}"> 
+                            <small class="fas fa-user-plus text-primary me-2"></small>
+                            <small>Sign up</small>
+                        </a>
+                        @endif
                     </div>
                     <div class="h-100 d-inline-flex align-items-center  me-2 social-media-icon">
                         <a class="btn btn-sm-square bg-white text-primary me-1  " href="https://www.youtube.com/channel/UCMx9KlQd0kYSU0UE0T9H5YQ" target="_blank">

@@ -95,7 +95,8 @@ class StaticPages extends Controller
     function login()
     {
         $this->page_loader("login", [
-            "title" => "Login | Mintage World"
+            "title" => "Login | Mintage World",
+            "is_login" => TRUE
         ]);
     }
     function member()

@@ -19,10 +19,10 @@
 
                     @if(session()->has('type'))
                     <div id="members-info">
-                        <p><b>Calendar System :</b> <span>{{$note["calendar_system"]["title"]}}</span></p>
-                        <p><b>Issued Year :</b> <span>{{$note["issued_year"]}}</span></p>
-                        <p><b>Remark :</b> <span>{{$note["remark"]}}</span></p>
-                        <p><b>Rarity :</b> <span>{{$note["rarity"]["title"]}}</span></p>
+                        <p><b>Language Panel :</b> <span>{{$note["language_panel"]}}</span></p>
+                        <p><b>Obverse Description :</b> <span>{{$note["obverse_description"]}}</span></p>
+                        <p><b>Watermark :</b> <span>{{$note["watermark"]}}</span></p>
+                        <p><b>Note :</b> <span>{{$note["note"]}}</span></p>
                     </div>
                     @else 
                     <p id="ProductLogBtn">
@@ -69,20 +69,62 @@
                         <a class="lightbox" href="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}"> 
                         <img src="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}" class="img-fluid zoomable__img" /></a> 
                     </div>
+                    @if($note["reverse_image"]!="")
                     <div class="item zoomable">  
                         <a class="lightbox" href="{{getenv("NOTE_BASE_URL").$note["reverse_image"]}}"> 
-                            <img src="{{getenv("NOTE_BASE_URL").$note["reverse_image"]}}" class="img-fluid zoomable__img" /> </a> 
+                        <img src="{{getenv("NOTE_BASE_URL").$note["reverse_image"]}}" class="img-fluid zoomable__img" /> </a> 
                     </div>
+                    @endif
                     </div>
                     <div id="sync2" class="owl-carousel owl-theme">
                         <div class="item"> <img src="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}" class="img-fluid" /> </div>
+                        @if($note["reverse_image"]!="")
+
                         <div class="item"> <img src="{{getenv("NOTE_BASE_URL").$note["reverse_image"]}}" class="img-fluid" /> </div>
+                        @endif
                     </div>
+
                 </div>
 
                 @endif
 
                 
+            </div>
+        </div>
+    </section>
+    <section class="common-padding  px-lg-2 px-lg-5 ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="mb-3 heading-2">More Notes</h2>
+                    <div class="owl-carousel Recommended-Slider position-relative">
+                        <div class="item text-center"><a href="#"><img class="img-fluid w-100" src="https://mintage2.s3.amazonaws.com/note/list/1A_1_3_4-O.jpg" alt="Rupees | 1A.1.3.4 | O">
+                                <div class="latest-title">1A.1.3.4</div>
+                            </a>
+                        </div>
+                        <div class="item text-center"><a href="#"><img class="img-fluid w-100" src="https://mintage2.s3.amazonaws.com/note/list/1A_1_3_4-O.jpg" alt="Rupees | 1A.1.3.4 | O">
+                                <div class="latest-title">1A.1.3.4</div>
+                            </a>
+                        </div>
+                        <div class="item text-center"><a href="#"><img class="img-fluid w-100" src="https://mintage2.s3.amazonaws.com/note/list/1A_1_3_4-O.jpg" alt="Rupees | 1A.1.3.4 | O">
+                                <div class="latest-title">1A.1.3.4</div>
+                            </a>
+                        </div>
+                        <div class="item text-center"><a href="#"><img class="img-fluid w-100" src="https://mintage2.s3.amazonaws.com/note/list/1A_1_3_4-O.jpg" alt="Rupees | 1A.1.3.4 | O">
+                                <div class="latest-title">1A.1.3.4</div>
+                            </a>
+                        </div>
+                        <div class="item text-center"><a href="#"><img class="img-fluid w-100" src="https://mintage2.s3.amazonaws.com/note/list/1A_1_3_4-O.jpg" alt="Rupees | 1A.1.3.4 | O">
+                                <div class="latest-title">1A.1.3.4</div>
+                            </a>
+                        </div>
+                        <div class="item text-center"><a href="#"><img class="img-fluid w-100" src="https://mintage2.s3.amazonaws.com/note/list/1A_1_3_4-O.jpg" alt="Rupees | 1A.1.3.4 | O">
+                                <div class="latest-title">1A.1.3.4</div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </section>

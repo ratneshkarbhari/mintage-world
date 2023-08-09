@@ -157,11 +157,12 @@ class Notes extends Controller
         if(!Cache::get('note-denominations-'.$dynastyId)){
 
                 
-            $denominationQuery = 'SELECT note.denomination_unit as unit,denomination.id,note.obverse_image, note.denomination_unit, denomination.title FROM note JOIN dynasty dy ON note.dynasty_id=dy.id JOIN denomination on denomination.id = note.denomination_id WHERE note.dynasty_id = 135 GROUP BY note.denomination_unit';
+            $denominationQuery = 'SELECT note.denomination_unit as unit,denomination.id,note.obverse_image, note.denomination_unit, denomination.title FROM note JOIN dynasty dy ON note.dynasty_id=dy.id JOIN denomination on denomination.id = note.denomination_id WHERE note.dynasty_id = '.$dynastyId.' GROUP BY note.denomination_unit';
 
             $denominations = DB::select($denominationQuery);
 
             $denominations = json_decode(json_encode($denominations),TRUE);
+
 
             Cache::put('note-denominations-'.$dynastyId,$denominations);
 
@@ -175,11 +176,15 @@ class Notes extends Controller
 
         $country = Country::find($period["country_id"]);
 
-        $this->page_loader("denominations_notes",[
+        $siblingDynasties = Cache::get('note-dynasties-'.$dynasty["period_id"]);
+
+
+        $this->page_loader("denominations_notes",[      
             "title" => $period["title"]." notes | notes of ".$period["title"]." ".$country["name"]." | ".$period["title"]." Period notes | Mintage World",
             "info_title" => "Denominations : ".$period["title"],
             "denominations" => $denominations,
             "dynasty" => $dynasty,
+            "sibling_dyanasties" => $siblingDynasties,
             "breadCrumbData" => [
                 [
                     "slug" => "notes/",
@@ -237,7 +242,15 @@ class Notes extends Controller
         $country = Country::find($period["country_id"]);
 
         $denomination = Denomination::find($denominationId);
-        $denominations = $metals = $rarities = $mints = $shapes = [];
+        $governors = $issuedYears = [];
+
+
+        foreach($notes as $note){
+
+            $governors[] = $note["signatory"];
+            $issuedYears[]  = $note["issued_year"];
+
+        }
 
 
         $this->page_loader("note_list",[
@@ -245,11 +258,8 @@ class Notes extends Controller
             "info_title" => "Notes : ".$denominationUnit." ".$denomination["title"],
             "notes" => json_decode(json_encode($notes),TRUE),
             "dynastyRulers" => [],
-            "denominations" => array_unique($denominations),
-            "metals" => array_unique($metals),
-            "rarities" => array_unique($rarities),
-            "mints" => array_unique($mints),
-            "shapes" => array_unique($shapes),
+            "governors" => array_unique($governors),
+            "issued_years" => array_unique($issuedYears),
             "breadCrumbData" => [
                 [
                     "slug" => "notes/",

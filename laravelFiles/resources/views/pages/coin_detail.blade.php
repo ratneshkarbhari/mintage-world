@@ -163,6 +163,8 @@
     </section>
     
 </main>
+@if(session('type')=="member")
+
 <script>
     $("button#commentSubmitButton").click(function (e) { 
         e.preventDefault();
@@ -191,3 +193,5 @@
         });
     });
 </script>
+
+@endif

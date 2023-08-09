@@ -30,7 +30,7 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#flush-collapse1"
                                             aria-expanded="false" aria-controls="flush-collapse1">
-                                            Denomination
+                                            Governors
                                         </button>
                                     </h2>
                                     <div id="flush-collapse1" class="accordion-collapse collapse"
@@ -38,9 +38,9 @@
                                         <div class="accordion-body">
                                             <ul class="filter-item-list">
                                                 
-                                                @foreach($denominations as $denomination)
-                                                @if($denomination["title"]!="")
-                                                <li><input class="filter-option" name="denominations[]" type="checkbox" id="{{$denomination["id"]}}"  value="{{$denomination["id"]}}"><label for="{{$denomination["id"]}}"> {{$denomination["title"]}}</label></li>
+                                                @foreach($governors as $governor)
+                                                @if($governor!="")
+                                                <li><input class="filter-option" name="governors[]" type="checkbox" id="{{$governor}}"  value="{{$governor}}"><label for="{{$governor}}"> {{$governor}}</label></li>
                                                 @endif
                                                 @endforeach
                                                 
@@ -53,7 +53,7 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#flush-collapse2"
                                             aria-expanded="false" aria-controls="flush-collapse2">
-                                            Metal
+                                            Issued Years
 
                                         </button>
                                     </h2>
@@ -61,78 +61,16 @@
                                         aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample">
                                         <div class="accordion-body filter-item-body">
                                             <ul class="filter-item-list">
-                                                @foreach($metals as $metal)
-                                                @if($metal["title"]!="")
-                                                <li><input type="checkbox" id="{{$metal["id"]}}" name="metals[]" value="{{$metal["id"]}}"><label for="{{$metal["id"]}}">{{$metal["title"]}}</label></li>
+                                                @foreach($issued_years as $issued_year)
+                                                @if($issued_year!="")
+                                                <li><input type="checkbox" id="{{$issued_year}}" name="issued_years[]" value="{{$issued_year}}"><label for="{{$issued_year}}">{{$issued_year}}</label></li>
                                                 @endif
                                                 @endforeach
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-heading3">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse3"
-                                            aria-expanded="false" aria-controls="flush-collapse3">
-                                            Rarity
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapse3" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-heading3" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body filter-item-body">
-                                            <ul class="filter-item-list">
-                                                @foreach($rarities as $rarity)
-                                                @if($rarity["title"]!="")
-                                                <li><input type="checkbox" id="{{$rarity["id"]}}" name="rarities[]" value="{{$rarity["id"]}}"><label for="{{$rarity["id"]}}">{{$rarity["title"]}}</label></li>
-                                                @endif
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-heading4">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse4"
-                                            aria-expanded="false" aria-controls="flush-collapse4">
-                                            Shape
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapse4" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-heading4" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body filter-item-body">
-                                            <ul class="filter-item-list">
-                                                @foreach($shapes as $shape)
-                                                @if($shape["title"]!="")
-                                                <li><input type="checkbox" id="{{$shape["id"]}}" name="shapes[]" value="{{$shape["id"]}}"><label for="{{$shape["id"]}}">{{$shape["title"]}}</label></li>
-                                                @endif
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-heading5">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse5"
-                                            aria-expanded="false" aria-controls="flush-collapse5">
-                                            Mint
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapse5" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-heading5" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body filter-item-body">
-                                            <ul class="filter-item-list">
-                                                @foreach($mints as $mint)
-                                                @if($mint!="")
-                                                <li><input type="checkbox" id="{{$mint}}" name="mints[]" value="{{$mint}}"><label for="{{$mint}}">{{$mint}}</label></li>
-                                                @endif
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </nav>
                     </div>
@@ -148,6 +86,7 @@
                                         class="img-fluid" >
                                     <div class="info-meta text-center">
                                         <h2 class="info-item-grid-title">{{$note["denomination_unit"]." ".$note["denomination_title"]}}</h2>
+                                        <span>{{$note["issued_year"]}}</span>
                                     </div>
                                 </div>
                             </a>

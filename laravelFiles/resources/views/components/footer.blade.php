@@ -89,6 +89,7 @@
                 <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
                     <h2 class="mt-3 mb-3 text-center">Sign In</h2>
                     <p class="text-danger text-center" id="loginError"></p>
+                    @if(!isset($is_login))
                     <form action="{{url("coin-info-filter-exe")}}" id="memberLoginForm">                        
                         @csrf
                         <input type="text" name="username" id="login-username" class="form__input" placeholder="Username">
@@ -97,6 +98,7 @@
                         <a href="{{url("member/forgotpassword/")}}"> Forgot password?</a> </span>
                         <button type="button" class="btn" id="loginButton">Login</button>
                     </form>
+                    @endif
                     <script>
                        $("button#loginButton").click(function (e) { 
                             e.preventDefault();

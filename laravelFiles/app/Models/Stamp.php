@@ -19,6 +19,9 @@ class Stamp extends Model {
 
     protected $table = "stamp";
 
-    
+    public function theme_category() : HasOne
+    {
+        return $this->hasOne(ThemeCategory::class,"id","theme_category_id");
+    }
 
 }

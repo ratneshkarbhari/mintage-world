@@ -37,6 +37,7 @@ Route::get("coin/detail/{coinId}", [Coins::class, 'coin_detail']);
 
 Route::get("coin-info-filter-exe",[Coins::class,"info_filter_exe"]);
 Route::get("note-info-filter-exe",[Notes::class,'note_info_filter_exe']);
+Route::get('stamp-info-filter-exe',[Stamps::class,'stamp_info_filter_exe']);
 
 //history routes 
 Route::get('history', [Histories::class, 'history']);

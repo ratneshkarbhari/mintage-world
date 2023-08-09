@@ -13,7 +13,8 @@
             </div>
             <div class="row info-item-grid-row min-h-0">
                 <div class="col-lg-3 col-md-12 left-filter-wrap ">
-                    {{-- <div id="InfoFilter" class="filter-wrap">
+
+                    <div id="InfoFilter" class="filter-wrap">
                         <div class="filter-link"><i class="fa fa-filter" aria-hidden="true"></i> <b>Filters</b>
                         </div>
                     </div>
@@ -22,15 +23,15 @@
                             <div class="cat-heading"><b><i class="fa fa-filter" aria-hidden="true"></i>Filters</b>
                                 <div id="CatClose" class="categories-close">X</div>
                             </div>
-
                             <div class="accordion accordion-flush w-100" id="accordionFlushExample">
-
+                                <form action="{{url("stamp-info-filter-exe")}}" id="stampFilterForm">
+                                <input type="hidden" name="dynasty_id" value="{{$dynastyId}}">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-heading1">
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#flush-collapse1"
                                             aria-expanded="false" aria-controls="flush-collapse1">
-                                            Denomination
+                                            Theme
                                         </button>
                                     </h2>
                                     <div id="flush-collapse1" class="accordion-collapse collapse"
@@ -38,9 +39,9 @@
                                         <div class="accordion-body">
                                             <ul class="filter-item-list">
                                                 
-                                                @foreach($denominations as $denomination)
-                                                @if($denomination["title"]!="")
-                                                <li><input class="filter-option" name="denominations[]" type="checkbox" id="{{$denomination["id"]}}"  value="{{$denomination["id"]}}"><label for="{{$denomination["id"]}}"> {{$denomination["title"]}}</label></li>
+                                                @foreach($theme_categories as $theme_category)
+                                                @if($theme_category!="")
+                                                <li><input class="filter-option" name="themeCategories[]" type="checkbox" id="{{$theme_category["id"]}}"  value="{{$theme_category["id"]}}"><label for="tc-{{$theme_category["id"]}}"> {{$theme_category["title"]}}</label></li>
                                                 @endif
                                                 @endforeach
                                                 
@@ -48,104 +49,29 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-heading2">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse2"
-                                            aria-expanded="false" aria-controls="flush-collapse2">
-                                            Metal
-
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapse2" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body filter-item-body">
-                                            <ul class="filter-item-list">
-                                                @foreach($metals as $metal)
-                                                @if($metal["title"]!="")
-                                                <li><input type="checkbox" id="{{$metal["id"]}}" name="metals[]" value="{{$metal["id"]}}"><label for="{{$metal["id"]}}">{{$metal["title"]}}</label></li>
-                                                @endif
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-heading3">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse3"
-                                            aria-expanded="false" aria-controls="flush-collapse3">
-                                            Rarity
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapse3" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-heading3" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body filter-item-body">
-                                            <ul class="filter-item-list">
-                                                @foreach($rarities as $rarity)
-                                                @if($rarity["title"]!="")
-                                                <li><input type="checkbox" id="{{$rarity["id"]}}" name="rarities[]" value="{{$rarity["id"]}}"><label for="{{$rarity["id"]}}">{{$rarity["title"]}}</label></li>
-                                                @endif
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-heading4">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse4"
-                                            aria-expanded="false" aria-controls="flush-collapse4">
-                                            Shape
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapse4" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-heading4" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body filter-item-body">
-                                            <ul class="filter-item-list">
-                                                @foreach($shapes as $shape)
-                                                @if($shape["title"]!="")
-                                                <li><input type="checkbox" id="{{$shape["id"]}}" name="shapes[]" value="{{$shape["id"]}}"><label for="{{$shape["id"]}}">{{$shape["title"]}}</label></li>
-                                                @endif
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-heading5">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapse5"
-                                            aria-expanded="false" aria-controls="flush-collapse5">
-                                            Mint
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapse5" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-heading5" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body filter-item-body">
-                                            <ul class="filter-item-list">
-                                                @foreach($mints as $mint)
-                                                @if($mint!="")
-                                                <li><input type="checkbox" id="{{$mint}}" name="mints[]" value="{{$mint}}"><label for="{{$mint}}">{{$mint}}</label></li>
-                                                @endif
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                
+                                </form>
                             </div>
                         </nav>
-                    </div> --}}
+                    </div>
+
                 </div>
                 <div class="col-lg-6 col-md-12 mt-md-5 mt-0 mt-lg-0">
-                    <div class="row">
+                    <div class="row" id="stampBox">
                         
                         @foreach($stamps as $stamp)
                         @if($stamp["obverse_image"]!=""||$stamp["obverse_image"]!="NA")
                         <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("stamp/detail/".$stamp["id"])}}">
-                                <div class="info-item-grid-box"><img
+                                <div class="info-item-grid-box">
+                                    @if(($stamp["obverse_image"]!=""))
+                                    <img
                                         src="{{getenv("STAMP_IMAGE_BASE_URL").$stamp["obverse_image"]}}"
-                                        class="img-fluid" alt="Tanka | G&amp;G M1 | O">
+                                        class="img-fluid">
+                                    @else
+                                    <img
+                                    src="{{getenv("API_DEFAULT_IMG_PATH")}}"
+                                    class="img-fluid">
+                                    @endif
                                     <div class="info-meta text-center">
                                         <h2 class="info-item-grid-title">{{$stamp["stamp_name"]}}</h2>
                                     </div>
@@ -165,11 +91,17 @@
                         </div>
                         @endif
                         @endforeach
+                        <div class="pagination-container">
+
+                            {{-- <p>{{$pagination_info_string}}</p> --}}
+                            {!! $stamps->links() !!}
+    
+                        </div>
                         
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-12 mt-md-5 mt-0 mt-lg-0">
-                    <div class="heading-2">Know your Stamps</div>
+                    <div class="heading-2">More</div>
                     <ul class="more-rulers">
 
                         @foreach($dynasties_in_period as $dip)
@@ -185,3 +117,21 @@
     </section>
     
 </main>
+
+<script>
+
+    $(".filter-option").on("change",function (e) { 
+        e.preventDefault();
+        $("div#stampBox").html("Loading")
+        $.ajax({
+            type: "GET",
+            url: "{{url("stamp-info-filter-exe")}}",
+            data: $("form#stampFilterForm").serialize(),
+            success: function (response) {
+                $("div#stampBox").html(response);
+                $("div.pagination-container").hide();
+            }
+        });
+    });
+
+</script>

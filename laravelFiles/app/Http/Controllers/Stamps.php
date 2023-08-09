@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Stamp;
 use App\Models\Period;
 use App\Models\Dynasty;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
-use App\Models\Stamp;
 
 class Stamps extends Controller
 {
@@ -93,18 +94,25 @@ class Stamps extends Controller
 
         $period = Period::find($dynasty["period_id"]);
 
-        $stamps = Stamp::where("dynasty_id",$dynasty["id"])->limit(12)->get();
+        $allStamps = Stamp::where("dynasty_id",$dynasty["id"])->with("theme_category")->get();
 
-
+        $stamps = Stamp::where("dynasty_id",$dynasty["id"])->with("theme_category")->paginate(12);
 
         $dynastiesInPeriod = Dynasty::where("period_id",$period["id"])->get();
 
 
+        $theme_categories = [];
+
+        foreach ($allStamps as $stamp) {
+            $theme_categories[] = $stamp["theme_category"];
+        }
 
         $this->page_loader("stamps_list",[
             "title" => "Stamps of ".$dynasty["title"],
             "info_title" => "Stamps",
             "stamps" => $stamps,
+            "dynastyId" => $dynastyId,
+            "theme_categories" => array_unique($theme_categories),
             "breadCrumbData" => [
                 [
                     "slug" => "stamp/",
@@ -115,7 +123,6 @@ class Stamps extends Controller
                     "label" => $period["title"]
                 ],
                 [
-                    // "slug" => "stamp/dynasty/".$dynasty["id"],
                     "label" => $dynasty["title"]
                 ]
             ],
@@ -160,6 +167,31 @@ class Stamps extends Controller
             "footer_content" => ""
         ]);
 
+
+    }
+
+    function stamp_info_filter_exe(Request $request){
+
+        $themeCategories = $request->themeCategories;
+
+        $stamps = DB::table('stamp')->where("dynasty_id",$request->dynasty_id)->whereIn('theme_category_id', $themeCategories)->get();
+
+        $stampsHtml = '';
+
+        $stamps = json_decode(json_encode($stamps),TRUE);
+
+        foreach ($stamps as $stamp) {
+
+            if(($stamp["obverse_image"]!="")){
+                $imageHtml = '<img src="'.getenv("STAMP_IMAGE_BASE_URL").$stamp["obverse_image"].'" class="img-fluid">';
+            }else{
+                $imageHtml = '<img src="'.getenv("API_DEFAULT_IMG_PATH").'" class="img-fluid">';
+            }
+            $stampsHtml.='<div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="'.url("stamp/detail/".$stamp["id"]).'"><div class="info-item-grid-box">'.$imageHtml.'<div class="info-meta text-center"><h2 class="info-item-grid-title">'.$stamp["stamp_name"].'</h2></div></div></a></div>';
+            
+        }
+
+        return $stampsHtml;
 
     }
 

@@ -22,9 +22,10 @@
                             <div class="cat-heading"><b><i class="fa fa-filter" aria-hidden="true"></i>Filters</b>
                                 <div id="CatClose" class="categories-close">X</div>
                             </div>
-
                             <div class="accordion accordion-flush w-100" id="accordionFlushExample">
-
+                                <form action="{{url("note-info-filter-exe")}}" id="noteFilterForm">
+                                <input type="hidden" name="dynasty_id" value="{{$dynasty["id"]}}">
+                                <input type="hidden" name="denomination_unit" value="{{$notes[0]["denomination_unit"]}}">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-heading1">
                                         <button class="accordion-button collapsed" type="button"
@@ -63,20 +64,20 @@
                                             <ul class="filter-item-list">
                                                 @foreach($issued_years as $issued_year)
                                                 @if($issued_year!="")
-                                                <li><input type="checkbox" id="{{$issued_year}}" name="issued_years[]" value="{{$issued_year}}"><label for="{{$issued_year}}">{{$issued_year}}</label></li>
+                                                <li><input type="checkbox" id="{{$issued_year}}" class="filter-option" name="issuedYears[]" value="{{$issued_year}}"><label for="{{$issued_year}}">{{$issued_year}}</label></li>
                                                 @endif
                                                 @endforeach
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                
+                                </form>
                             </div>
                         </nav>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 mt-md-5 mt-0 mt-lg-0">
-                    <div class="row">
+                    <div class="row" id="noteBox">
                         
                         @foreach($notes as $note)
                         @if($note["obverse_image"]!="")
@@ -98,12 +99,20 @@
                                         class="img-fluid" >
                                     <div class="info-meta text-center">
                                         <h2 class="info-item-grid-title">{{$note["denomination_unit"]." ".$note["denomination_title"]}}</h2>
+                                        <span>{{$note["issued_year"]}}</span>
                                     </div>
                                 </div>
                             </a>
                         </div>
                         @endif
                         @endforeach
+                      
+                        <div class="pagination-container">
+
+                            {{-- <p>{{$pagination_info_string}}</p> --}}
+                            {{-- {!! $notesObj->links() !!} --}}
+    
+                        </div>
                         
                     </div>
                 </div>
@@ -129,3 +138,22 @@
     </section>
     
 </main>
+
+<script>
+
+    $(".filter-option").on("change",function (e) { 
+        e.preventDefault();
+
+        $("div#noteBox").html("Loading")
+        $.ajax({
+            type: "GET",
+            url: "{{url("note-info-filter-exe")}}",
+            data: $("form#noteFilterForm").serialize(),
+            success: function (response) {
+                $("div#noteBox").html(response);
+                $("div.pagination-container").hide();
+            }
+        });
+    });
+
+</script>

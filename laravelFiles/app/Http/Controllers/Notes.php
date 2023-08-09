@@ -255,11 +255,10 @@ class Notes extends Controller
 
         }
 
-
-
         $this->page_loader("note_list",[
             "title" => $denominationUnit." ".$denomination["title"],
             "info_title" => "Notes : ".$denominationUnit." ".$denomination["title"],
+            "dynasty" => $dynasty,
             "notes" => json_decode(json_encode($notes),TRUE),
             "dynastyRulers" => [],
             "governors" => array_unique($governors),
@@ -323,7 +322,7 @@ class Notes extends Controller
         }
 
         $this->page_loader("note_detail",[
-            "title" => $note["denomination_unit"]." ".$denomination["title"],
+            "title" => $note["catalogue_ref_no"],
             "note" => $note,
             "denomination" => $denomination,
             "dynasty" => $dynasty,
@@ -361,5 +360,113 @@ class Notes extends Controller
 
 
     }
+
+    function note_info_filter_exe(Request $request){
+
+        $governors = $request->governors;
+        $issuedYears = $request->issuedYears;
+        $denominationUnit = $request->denomination_unit;
+
+        $hasFilterParams = FALSE;
+
+        
+
+        $dynastyId = $request->dynasty_id;
+
+        
+        $query = 'SELECT note.obverse_image,note.id,denomination.title , note.issued_year
+        FROM note JOIN denomination ON note.denomination_id = denomination.id   JOIN shape ON note.shape_id = shape.id WHERE 1';
+
+
+
+
+        if(!empty($governors)){
+
+            $hasFilterParams = TRUE;
+
+            $governorString = "'".implode("','", $governors)."'";
+
+
+            $query.=' AND note.signatory IN ('.$governorString.')';
+
+        }
+
+
+
+        if(!empty($issuedYears)){
+            $hasFilterParams = TRUE;
+            $query.=' AND note.issued_year IN ('.implode(",",$issuedYears).')';
+        }
+
+
+
+        if($hasFilterParams){
+
+    
+            $notes = json_decode(json_encode(DB::select($query)),TRUE);
+
+        }else {
+
+            if (!Cache::get('notes-'.$dynastyId)) {
+
+
+                $query = 'SELECT note.denomination_id, note.id, note.obverse_image, note.reverse_image, note.denomination_unit, denomination.title, note.issued_year as denomination_title , note.issued_year, note.catalogue_ref_no, note.size, note.signatory, note.color, note.prefix, note.inset, dynasty.title, denomination.title, shape.title 
+                FROM note 
+                JOIN dynasty ON note.dynasty_id = dynasty.id 
+                JOIN denomination ON note.denomination_id = denomination.id JOIN shape ON note.shape_id = shape.id WHERE note.denomination_unit = '.$denominationUnit.' AND note.dynasty_id = '.$dynastyId;
+                
+
+                $notes = DB::select($query);
+
+            
+    
+                $notes = json_decode(json_encode($notes),TRUE);
+    
+        
+    
+                Cache::put('notes-'.$dynastyId,$notes);    
+                
+            }
+
+
+            $notes = Cache::get("notes-".$dynastyId);
+
+
+        }
+
+
+        $noteHtml = '';
+
+        if (count($notes)>0) {
+            
+            foreach($notes as $note){
+
+                if($note["obverse_image"]!=""){
+
+                    $noteHtml.='<div class="col-lg-3 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="'.url("note/detail/".$note["id"]).'">
+                    <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="'.getenv("NOTE_BASE_URL").$note["obverse_image"].'" alt="Medieval"><div class="info-meta text-center"><h2 class="info-item-grid-title">'.$note["title"].'</h2><span>'.$note["issued_year"].'</span></div></div>
+                    </a></div>';
+
+                }else{
+
+                    $noteHtml.='<div class="col-lg-3 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="'.url("note/detail/".$note["id"]).'">
+                    <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="'.getenv("API_DEFAULT_IMG_PATH").'" alt="Medieval"><div class="info-meta text-center"><h2 class="info-item-grid-title">'.$note["title"].'</h2><span>'.$note["issued_year"].'</span></div></div>
+                    </a></div>';
+
+                }
+    
+            }
+            
+        } else {
+            
+            $noteHtml = '<h4>No such note found for these filters</h4>';
+            
+        }
+        
+
+        return $noteHtml;
+        
+    }
+
 
 }

@@ -119,6 +119,11 @@ Route::get('knowledge-base/know-your-stamps', [StaticPages::class, 'know_your_st
 // Auth routes
 Route::post("member-login-exe", [Authentication::class, 'member_login']);
 Route::get("logout", [Authentication::class, 'logout']);
+Route::post("admin-login-exe",[Authentication::class,'admin_login']);
 
 // Info comments
 Route::post("create-info-comment",[InfoComments::class,'create_exe']);
+
+
+// Admin Section
+Route::get("admin-login",[PageLoader::class, 'admin_login']);

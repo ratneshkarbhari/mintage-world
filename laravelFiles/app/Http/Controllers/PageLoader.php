@@ -26,6 +26,11 @@ class PageLoader extends Controller
         
     }
 
-    
+    function admin_login(){
+        $this->page_loader("admin_login",[
+            "title" => "Admin Login"
+        ]);
+
+    }
 
 }

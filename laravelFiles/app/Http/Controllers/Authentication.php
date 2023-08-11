@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Member;
 use Illuminate\Http\Request;
-
+use App\Models\Admin;
 class Authentication extends Controller
 {
 
@@ -46,4 +46,50 @@ class Authentication extends Controller
         session()->flush();
         return redirect(url("/application/login"));
     }
+
+
+    function admin_login(Request $request){
+
+        $emailEntered = $request->admin_username;
+
+        $passwordEntered = $request->admin_password;
+
+        $adminModel = new Admin();
+
+        $adminData = $adminModel->where("email",$emailEntered)->first();
+
+        
+        
+        if ($adminData) {
+
+            if (password_verify($passwordEntered,$adminData["password"])) {
+
+                session([
+
+                    "admin_id" => $adminData["id"],
+                    "first_name" => $adminData["first_name"],
+                    "last_name" => $adminData["last_name"],
+
+                ]);
+
+                return "login-success";
+                
+            } else {
+         
+                return "login-failed";
+                
+            }
+            
+
+
+            
+        } else {
+            
+            return "login-failed";
+
+        }
+        
+
+    }
+
 }

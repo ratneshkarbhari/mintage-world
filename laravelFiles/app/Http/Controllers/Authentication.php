@@ -69,6 +69,7 @@ class Authentication extends Controller
                     "admin_id" => $adminData["id"],
                     "first_name" => $adminData["first_name"],
                     "last_name" => $adminData["last_name"],
+                    "type" => "admin"
 
                 ]);
 

@@ -80,10 +80,7 @@ class Authentication extends Controller
                 return "login-failed";
                 
             }
-            
-
-
-            
+             
         } else {
             
             return "login-failed";

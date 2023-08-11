@@ -203,24 +203,6 @@ class Coins extends Controller
 
 
     function coin_list($rulerId){
-        
-
-
-        // if(!Cache::get('coins-'.$rulerId)){
-
-        //     $coinModel = new Coin();
-
-        //     $coins = $coinModel->where("ruler_id",$rulerId)->with("denomination")->with("metal")->with("rarity")->with("shape")->paginate(12);
-
-
-        //     Cache::put('coins-'.$rulerId,$coins);
-
-        // }
-
-        
-
-        // $coins = Cache::get('coins-'.$rulerId);
-
 
         $coinModel = new Coin();
 

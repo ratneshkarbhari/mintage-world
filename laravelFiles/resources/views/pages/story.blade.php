@@ -24,12 +24,12 @@
                 <div class="col-md-3 mb-3">
                    <div class="blog-div">
                       <div class="BlogImgDiv blog-image ">
-                         <a href="#"><img src="https://www.mintageworld.com/img/story/2-International-women's-week.jpg" class="img-fluid" alt="" decoding="async" ></a>
+                         <a href="{{url("/story/detail/")}}"><img src="https://www.mintageworld.com/img/story/2-International-women's-week.jpg" class="img-fluid" alt="" decoding="async" ></a>
                       </div>                    
                       <div class="blog-title">
                         <span class="blog-date">	
                             <i class="fas fa-calendar-alt"></i>  20 Jun 2016  Mon</span> 		
-                         <h2><a href="#" rel="bookmark">Stamps on International Refugee Day</a></h2>
+                         <h2><a href="{{url("/story/detail/")}}" rel="bookmark">Stamps on International Refugee Day</a></h2>
                       </div>
                       <div class="blog-disc">
                          <p>
@@ -42,11 +42,11 @@
                 <div class="col-md-3 mb-3">
                     <div class="blog-div">
                        <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://www.mintageworld.com/img/story/2-International-women's-week.jpg" class="img-fluid" alt="" decoding="async" ></a>
+                          <a href="story"><img src="https://www.mintageworld.com/img/story/2-International-women's-week.jpg" class="img-fluid" alt="" decoding="async" ></a>
                        </div>                    
                        <div class="blog-title">
                          <span class="blog-date">20 Jun 2016  Mon</span> 		
-                          <h2><a href="#" rel="bookmark">Stamps on International Refugee Day</a></h2>
+                          <h2><a href="{{url("/story/detail/")}}" rel="bookmark">Stamps on International Refugee Day </a></h2>
                        </div>
                        <div class="blog-disc">
                           <p>
@@ -56,14 +56,15 @@
                        </div>
                     </div>
                  </div>
+
                  <div class="col-md-3 mb-3">
                     <div class="blog-div" >
                        <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://www.mintageworld.com/img/story/2-International-women's-week.jpg" class="img-fluid" alt="" decoding="async" ></a>
+                          <a href="{{url("/story/detail/")}}"><img src="https://www.mintageworld.com/img/story/2-International-women's-week.jpg" class="img-fluid" alt="" decoding="async" ></a>
                        </div>                    
                        <div class="blog-title">
                          <span class="blog-date">20 Jun 2016  Mon</span> 		
-                          <h2><a href="#" rel="bookmark">Stamps on International Refugee Day</a></h2>
+                          <h2><a href="{{url("/story/detail/")}}" rel="bookmark">Stamps on International Refugee Day</a></h2>
                        </div>
                        <div class="blog-disc">
                           <p>
@@ -76,11 +77,11 @@
                  <div class="col-md-3 mb-3">
                     <div class="blog-div">
                        <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://www.mintageworld.com/img/story/2-International-women's-week.jpg" class="img-fluid" alt="" decoding="async" ></a>
+                          <a href="{{url("/story/detail/")}}"><img src="https://www.mintageworld.com/img/story/2-International-women's-week.jpg" class="img-fluid" alt="" decoding="async" ></a>
                        </div>                    
                        <div class="blog-title">
                          <span class="blog-date">20 Jun 2016  Mon</span> 		
-                          <h2><a href="#" rel="bookmark">Stamps on International Refugee Day</a></h2>
+                          <h2><a href="{{url("/story/detail/")}}" rel="bookmark">Stamps on International Refugee Day</a></h2>
                        </div>
                        <div class="blog-disc">
                           <p>
@@ -93,11 +94,11 @@
                  <div class="col-md-3 mb-3">
                     <div class="blog-div">
                        <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://www.mintageworld.com/img/story/2-International-women's-week.jpg" class="img-fluid" alt="" decoding="async" ></a>
+                          <a href="{{url("/story/detail/")}}"><img src="https://www.mintageworld.com/img/story/2-International-women's-week.jpg" class="img-fluid" alt="" decoding="async" ></a>
                        </div>                    
                        <div class="blog-title">
                          <span class="blog-date">20 Jun 2016  Mon</span> 		
-                          <h2><a href="#" rel="bookmark">Stamps on International Refugee Day</a></h2>
+                          <h2><a href="{{url("/story/detail/")}}" rel="bookmark">Stamps on International Refugee Day</a></h2>
                        </div>
                        <div class="blog-disc">
                           <p>
@@ -110,11 +111,11 @@
                  <div class="col-md-3 mb-3">
                     <div class="blog-div">
                        <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://www.mintageworld.com/img/story/2-International-women's-week.jpg" class="img-fluid" alt="" decoding="async" ></a>
+                          <a href="{{url("/story/detail/")}}"><img src="https://www.mintageworld.com/img/story/2-International-women's-week.jpg" class="img-fluid" alt="" decoding="async" ></a>
                        </div>                    
                        <div class="blog-title">
                          <span class="blog-date">20 Jun 2016  Mon</span> 		
-                          <h2><a href="#" rel="bookmark">Stamps on International Refugee Day</a></h2>
+                          <h2><a href="{{url("/story/detail/")}}" rel="bookmark">Stamps on International Refugee Day</a></h2>
                        </div>
                        <div class="blog-disc">
                           <p>
@@ -127,11 +128,11 @@
                  <div class="col-md-3 mb-3">
                     <div class="blog-div">
                        <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://www.mintageworld.com/img/story/2-International-women's-week.jpg" class="img-fluid" alt="" decoding="async" ></a>
+                          <a href="{{url("/story/detail/")}}"><img src="https://www.mintageworld.com/img/story/2-International-women's-week.jpg" class="img-fluid" alt="" decoding="async" ></a>
                        </div>                    
                        <div class="blog-title">
                          <span class="blog-date">20 Jun 2016  Mon</span> 		
-                          <h2><a href="#" rel="bookmark">Stamps on International Refugee Day</a></h2>
+                          <h2><a href="{{url("/story/detail/")}}" rel="bookmark">Stamps on International Refugee Day</a></h2>
                        </div>
                        <div class="blog-disc">
                           <p>
@@ -144,11 +145,11 @@
                  <div class="col-md-3 mb-3">
                     <div class="blog-div">
                        <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://www.mintageworld.com/img/story/2-International-women's-week.jpg" class="img-fluid" alt="" decoding="async" ></a>
+                          <a href="{{url("/story/detail/")}}"><img src="https://www.mintageworld.com/img/story/2-International-women's-week.jpg" class="img-fluid" alt="" decoding="async" ></a>
                        </div>                    
                        <div class="blog-title">
                          <span class="blog-date">20 Jun 2016  Mon</span> 		
-                          <h2><a href="#" rel="bookmark">Stamps on International Refugee Day</a></h2>
+                          <h2><a href="{{url("/story/detail/")}}" rel="bookmark">Stamps on International Refugee Day</a></h2>
                        </div>
                        <div class="blog-disc">
                           <p>

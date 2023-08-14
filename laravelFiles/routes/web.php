@@ -35,9 +35,9 @@ Route::get("coin/ruler/{dynastyId}", [Coins::class, 'coin_rulers']);
 Route::get("coin/list/{rulerId}", [Coins::class, 'coin_list']);
 Route::get("coin/detail/{coinId}", [Coins::class, 'coin_detail']);
 
-Route::get("coin-info-filter-exe",[Coins::class,"info_filter_exe"]);
-Route::get("note-info-filter-exe",[Notes::class,'note_info_filter_exe']);
-Route::get('stamp-info-filter-exe',[Stamps::class,'stamp_info_filter_exe']);
+Route::get("coin-info-filter-exe", [Coins::class, "info_filter_exe"]);
+Route::get("note-info-filter-exe", [Notes::class, 'note_info_filter_exe']);
+Route::get('stamp-info-filter-exe', [Stamps::class, 'stamp_info_filter_exe']);
 
 //history routes 
 Route::get('history', [Histories::class, 'history']);
@@ -88,6 +88,7 @@ Route::get('content/return/', [StaticPages::class, 'return_policy']);
 Route::get('content/career/', [StaticPages::class, 'career']);
 Route::get('content/sitemap/', [StaticPages::class, 'sitemap']);
 Route::get('story/', [StaticPages::class, 'story']);
+Route::get('story/detail', [StaticPages::class, 'story_detail']);
 Route::get('content/photopro/', [StaticPages::class, 'photopro']);
 Route::get('videos/', [StaticPages::class, 'videos']);
 Route::get('videos/detail/', [StaticPages::class, 'videos_detail']);
@@ -102,6 +103,7 @@ Route::get('member/change-password/', [StaticPages::class, 'change_password']);
 Route::get('member/myorders/', [StaticPages::class, 'myorders']);
 Route::get('event/', [StaticPages::class, 'event']);
 Route::get('media/', [StaticPages::class, 'media']);
+Route::get('media/detail', [StaticPages::class, 'media_detail']);
 Route::get('media-coverage/', [StaticPages::class, 'media_coverage']);
 
 
@@ -121,4 +123,4 @@ Route::post("member-login-exe", [Authentication::class, 'member_login']);
 Route::get("logout", [Authentication::class, 'logout']);
 
 // Info comments
-Route::post("create-info-comment",[InfoComments::class,'create_exe']);
+Route::post("create-info-comment", [InfoComments::class, 'create_exe']);

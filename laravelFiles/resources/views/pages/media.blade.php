@@ -24,12 +24,12 @@
                 <div class="col-md-3 mb-3">
                    <div class="blog-div">
                       <div class="BlogImgDiv blog-image ">
-                         <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
+                         <a href="{{url("media/detail/")}}"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
                       </div>                    
                       <div class="blog-title">
                         <span class="blog-date">	
                             <i class="fas fa-calendar-alt"></i> 07 Aug 2023  Mon   </span> 		
-                         <h2><a href="#" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
+                         <h2><a href="{{url("media/detail/")}}" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
                       </div>
                       <div class="blog-disc">
                          <p>
@@ -41,12 +41,12 @@
                 <div class="col-md-3 mb-3">
                     <div class="blog-div">
                        <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
+                          <a href="{{url("media/detail/")}}"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
                        </div>                    
                        <div class="blog-title">
                          <span class="blog-date">	
                              <i class="fas fa-calendar-alt"></i> 07 Aug 2023  Mon   </span> 		
-                          <h2><a href="#" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
+                          <h2><a href="{{url("media/detail/")}}" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
                        </div>
                        <div class="blog-disc">
                           <p>
@@ -58,12 +58,12 @@
                  <div class="col-md-3 mb-3">
                     <div class="blog-div">
                        <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
+                          <a href="{{url("media/detail/")}}"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
                        </div>                    
                        <div class="blog-title">
                          <span class="blog-date">	
                              <i class="fas fa-calendar-alt"></i> 07 Aug 2023  Mon   </span> 		
-                          <h2><a href="#" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
+                          <h2><a href="{{url("media/detail/")}}" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
                        </div>
                        <div class="blog-disc">
                           <p>
@@ -75,12 +75,12 @@
                  <div class="col-md-3 mb-3">
                     <div class="blog-div">
                        <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
+                          <a href="{{url("media/detail/")}}"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
                        </div>                    
                        <div class="blog-title">
                          <span class="blog-date">	
                              <i class="fas fa-calendar-alt"></i> 07 Aug 2023  Mon   </span> 		
-                          <h2><a href="#" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
+                          <h2><a href="{{url("media/detail/")}}" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
                        </div>
                        <div class="blog-disc">
                           <p>
@@ -92,12 +92,12 @@
                  <div class="col-md-3 mb-3">
                     <div class="blog-div">
                        <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
+                          <a href="{{url("media/detail/")}}"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
                        </div>                    
                        <div class="blog-title">
                          <span class="blog-date">	
                              <i class="fas fa-calendar-alt"></i> 07 Aug 2023  Mon   </span> 		
-                          <h2><a href="#" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
+                          <h2><a href="{{url("media/detail/")}}" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
                        </div>
                        <div class="blog-disc">
                           <p>
@@ -109,12 +109,12 @@
                  <div class="col-md-3 mb-3">
                     <div class="blog-div">
                        <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
+                          <a href="{{url("media/detail/")}}"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
                        </div>                    
                        <div class="blog-title">
                          <span class="blog-date">	
                              <i class="fas fa-calendar-alt"></i> 07 Aug 2023  Mon   </span> 		
-                          <h2><a href="#" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
+                          <h2><a href="{{url("media/detail/")}}" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
                        </div>
                        <div class="blog-disc">
                           <p>
@@ -126,12 +126,12 @@
                  <div class="col-md-3 mb-3">
                     <div class="blog-div">
                        <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
+                          <a href="{{url("media/detail/")}}"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
                        </div>                    
                        <div class="blog-title">
                          <span class="blog-date">	
                              <i class="fas fa-calendar-alt"></i> 07 Aug 2023  Mon   </span> 		
-                          <h2><a href="#" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
+                          <h2><a href="{{url("media/detail/")}}" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
                        </div>
                        <div class="blog-disc">
                           <p>

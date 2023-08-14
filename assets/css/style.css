@@ -163,12 +163,12 @@ p {
 
 
 .btn-explore {
-  padding: 10px 30px;
-  font-size: 14px;
+  padding: 7px 15px;
+  font-size: 13px;
   position: relative;
   background: transparent;
   color: #e19726 !important;
-  text-transform: uppercase;
+  text-transform: uppercase;  
   border: 1px solid #ffa500 !important;
   cursor: pointer;
   transition: all 0.7s;
@@ -1135,7 +1135,9 @@ ul.sticky-footer-ul li a:hover {
   background: #060315;
   color: #fff;
 }
-
+.info-item-grid-box {
+  text-align: center;
+}
 .info-item-grid-outer-box a {
   display: block;
   margin-bottom: 30px;
@@ -1153,10 +1155,11 @@ ul.sticky-footer-ul li a:hover {
   box-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
 }
 
-.info-item-grid-outer-box img {
-  margin-bottom: 10px;
-  width: 100%; 
+.info-item-grid-outer-box img { 
+  width: 80%;
   background: #FFF;
+  margin: 20px 0px 20px 0px;
+  border-radius: 5px;
 }
 
 .info-item-grid-title {
@@ -2639,6 +2642,35 @@ width: 80%;
   margin-right: 15px;
 }
  
+.latest-news-list h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #939598;
+}
+.latest-news-list a:hover h3 {
+  color: #e19726;
+}
+
+.latest-news-list li {
+  margin-top: 20px;
+  border-bottom: solid 1px #cfcfcf;
+}
+
+.latest-news-list li:last-child {
+  border-bottom: none;
+}
+
+.latest-news-list li a {
+  font-size: 14px;
+}
+
+.latest-news-list li a .date {
+  font-weight: 600;
+  color: #626262;
+  display: block;
+  margin-bottom: 5px;
+}
+
 /* --------Responsive Media Css Start------------- */
 
 @media (max-width: 1400px) {
@@ -2736,10 +2768,7 @@ width: 80%;
     top: 140px;
   }
 
-  .btn-explore {
-    padding: 10px 30px;
-    font-size: 14px;
-  }
+  
 
   .footer .btn.btn-link {
     font-size: 14px;
@@ -3160,11 +3189,7 @@ section.inside-banner{
 .festival-content {
   min-height: 0px;
 }
- 
-.btn-group-wraper .btn {
-  width: 100%;
-}
-ul.pdf-list,.news-link-list{
+  .pdf-list,.news-link-list{
   text-align: left;
 }
 .pdf-list li,.news-link-list li {

@@ -31,21 +31,21 @@
                             <span> Mar 2023</span>
                         </p>
                         <div class="btn-group-wraper">
-                        <a class="btn btn-explore me-md-2 mb-md-0 mb-2" href="https://www.youtube.com/watch?v=V9l2IZCIz4Q" target="_blank">	
+                        <a class="btn btn-explore me-md-2 mb-2" href="https://www.youtube.com/watch?v=V9l2IZCIz4Q" target="_blank">	
                             <i class="fas fa-video"></i> Play Video
                             <span class="first"></span>
                             <span class="second"></span>
                             <span class="third"></span>
                             <span class="fourth"></span>
                         </a>
-                        <a class="btn btn-explore me-md-2 mb-md-0 mb-2" data-bs-toggle="modal" data-bs-target="#PdfModal">	
+                        <a class="btn btn-explore me-md-2 mb-2" data-bs-toggle="modal" data-bs-target="#PdfModal">	
                             <i class="fas fa-file-pdf"></i> View PDF
                             <span class="first"></span>
                             <span class="second"></span>
                             <span class="third"></span>
                             <span class="fourth"></span>
                         </a>
-                        <a class="btn btn-explore me-md-2 mb-md-0 mb-2" data-bs-toggle="modal" data-bs-target="#NewsModalLink">	
+                        <a class="btn btn-explore me-md-2 mb-2" data-bs-toggle="modal" data-bs-target="#NewsModalLink">	
                             <i class="fas fa-paperclip"></i> View News 
                             <span class="first"></span>
                             <span class="second"></span>
@@ -70,21 +70,21 @@
                             </span>
                         </p>
                         <div class="btn-group-wraper">
-                            <a class="btn btn-explore me-md-2 mb-md-0 mb-2" href="https://www.youtube.com/watch?v=V9l2IZCIz4Q" target="_blank">	
+                            <a class="btn btn-explore me-md-2 mb-2" href="https://www.youtube.com/watch?v=V9l2IZCIz4Q" target="_blank">	
                                 <i class="fas fa-video"></i> Play Video
                                 <span class="first"></span>
                                 <span class="second"></span>
                                 <span class="third"></span>
                                 <span class="fourth"></span>
                             </a>
-                            <a class="btn btn-explore me-md-2 mb-md-0 mb-2" data-bs-toggle="modal" data-bs-target="#PdfModal">	
+                            <a class="btn btn-explore me-md-2 mb-2" data-bs-toggle="modal" data-bs-target="#PdfModal">	
                                 <i class="fas fa-file-pdf"></i> View PDF
                                 <span class="first"></span>
                                 <span class="second"></span>
                                 <span class="third"></span>
                                 <span class="fourth"></span>
                             </a>
-                            <a class="btn btn-explore me-md-2 mb-md-0 mb-2" data-bs-toggle="modal" data-bs-target="#NewsModalLink">	
+                            <a class="btn btn-explore me-md-2 mb-2" data-bs-toggle="modal" data-bs-target="#NewsModalLink">	
                                 <i class="fas fa-paperclip"></i> View News 
                                 <span class="first"></span>
                                 <span class="second"></span>
@@ -112,21 +112,21 @@
                             </span>
                         </p>
                         <div class="btn-group-wraper">
-                            <a class="btn btn-explore me-md-2 mb-md-0 mb-2" href="https://www.youtube.com/watch?v=V9l2IZCIz4Q" target="_blank">	
+                            <a class="btn btn-explore me-md-2 mb-2" href="https://www.youtube.com/watch?v=V9l2IZCIz4Q" target="_blank">	
                                 <i class="fas fa-video"></i> Play Video
                                 <span class="first"></span>
                                 <span class="second"></span>
                                 <span class="third"></span>
                                 <span class="fourth"></span>
                             </a>
-                            <a class="btn btn-explore me-md-2 mb-md-0 mb-2" data-bs-toggle="modal" data-bs-target="#PdfModal">	
+                            <a class="btn btn-explore me-md-2 mb-2" data-bs-toggle="modal" data-bs-target="#PdfModal">	
                                 <i class="fas fa-file-pdf"></i> View PDF
                                 <span class="first"></span>
                                 <span class="second"></span>
                                 <span class="third"></span>
                                 <span class="fourth"></span>
                             </a>
-                            <a class="btn btn-explore me-md-2 mb-md-0 mb-2" data-bs-toggle="modal" data-bs-target="#NewsModalLink">	
+                            <a class="btn btn-explore me-md-2 mb-2" data-bs-toggle="modal" data-bs-target="#NewsModalLink">	
                                 <i class="fas fa-paperclip"></i> View News 
                                 <span class="first"></span>
                                 <span class="second"></span>
@@ -210,4 +210,17 @@
             </div>
         </div>
         </div>
+
 </main>
+
+<script>
+    
+  $(function () {
+    $(".view-pdf").on("click", function () {
+      var pdf_link = $(this).attr("href");
+      var pdf_viewer = document.getElementById("pdf_viewer");
+      $(pdf_viewer).attr("src", pdf_link);
+      return false;
+    });
+  });
+</script>

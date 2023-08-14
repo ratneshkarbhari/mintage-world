@@ -362,7 +362,6 @@
             </ul>
 
         </div><!-- .stellarnav -->
-
-        <!-- Navbar End -->
+ 
 
     </section>

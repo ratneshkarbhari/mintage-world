@@ -274,13 +274,4 @@
   CatClose.addEventListener("click", Filter);
 
   //  filter js End
-
-  $(function () {
-    $(".view-pdf").on("click", function () {
-      var pdf_link = $(this).attr("href");
-      var pdf_viewer = document.getElementById("pdf_viewer");
-      $(pdf_viewer).attr("src", pdf_link);
-      return false;
-    });
-  });
 })(jQuery);

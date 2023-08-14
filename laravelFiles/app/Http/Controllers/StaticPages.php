@@ -62,6 +62,12 @@ class StaticPages extends Controller
             "title" => "Story | Mintage World"
         ]);
     }
+    function story_detail()
+    {
+        $this->page_loader("story_detail", [
+            "title" => "Story Detail | Mintage World"
+        ]);
+    }
     function photopro()
     {
         $this->page_loader("photopro", [
@@ -95,7 +101,7 @@ class StaticPages extends Controller
     function login()
     {
 
-        if(session("type")){
+        if (session("type")) {
             return redirect(url("member/dashboard"));
         }
 
@@ -131,6 +137,12 @@ class StaticPages extends Controller
     function media()
     {
         $this->page_loader("media", [
+            "title" => "News | Mintage World"
+        ]);
+    }
+    function media_detail()
+    {
+        $this->page_loader("media_detail", [
             "title" => "News | Mintage World"
         ]);
     }

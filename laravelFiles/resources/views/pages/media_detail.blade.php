@@ -8,7 +8,10 @@
                     <li class="breadcrumb-item me-2">
                         <a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a>
                     </li>
-                    <li class="breadcrumb-item me-2">News</li>                    
+                    <li class="breadcrumb-item me-2">
+                        <a href="{{url("/media")}}">News</a>
+                    </li>
+                    <li class="breadcrumb-item me-2"> Remembering Abanindranath Tagore on his Birth Anniversary</li>                    
                 </ol>
             </nav>
         </div>
@@ -16,131 +19,74 @@
 
 
     <section class="common-padding coing-list-wraper">
-        <div class="container-fluid  px-lg-2 px-lg-5">
-            <div class="d-flex justify-content-between">
-                <h2 class="mb-3 heading-1">News</h2>
-            </div>
+        <div class="container-fluid  px-lg-2 px-lg-5"> 
             <div class="row">
-                <div class="col-md-3 mb-3">
-                   <div class="blog-div">
-                      <div class="BlogImgDiv blog-image ">
-                         <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
-                      </div>                    
-                      <div class="blog-title">
-                        <span class="blog-date">	
-                            <i class="fas fa-calendar-alt"></i> 07 Aug 2023  Mon   </span> 		
-                         <h2><a href="#" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
-                      </div>
-                      <div class="blog-disc">
-                         <p>
-                            Abanindranath Tagore was one of the most prominent artists in India. He was born on 7 August 1871 in Jorasanko, Calcutta. He was a supporter of Swadeshi values in India; he created first created the ‘Indian Society of Orie...
-                         </p> 
-                      </div>
-                   </div>
-                </div> 
-                <div class="col-md-3 mb-3">
-                    <div class="blog-div">
-                       <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
-                       </div>                    
-                       <div class="blog-title">
-                         <span class="blog-date">	
-                             <i class="fas fa-calendar-alt"></i> 07 Aug 2023  Mon   </span> 		
-                          <h2><a href="#" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
+               <div class="col-lg-9 col-md-12">                  
+                  <div class="row">
+                     <div class="col-md-5">
+                        <div id="sync1" class="owl-carousel owl-theme tz-gallery">
+                           <div class="item zoomable">
+                               <a class="lightbox" href="https://s3-ap-southeast-1.amazonaws.com/mint-news/yamunotri-temple-commemorative-stamp.jpg">
+                                   <img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/yamunotri-temple-commemorative-stamp.jpg"
+                                       class="img-fluid zoomable__img w-100" />
+                               </a>
+                           </div>                     
                        </div>
-                       <div class="blog-disc">
-                          <p>
-                             Abanindranath Tagore was one of the most prominent artists in India. He was born on 7 August 1871 in Jorasanko, Calcutta. He was a supporter of Swadeshi values in India; he created first created the ‘Indian Society of Orie...
-                          </p> 
-                       </div>
-                    </div>
-                 </div> 
-                 <div class="col-md-3 mb-3">
-                    <div class="blog-div">
-                       <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
-                       </div>                    
-                       <div class="blog-title">
-                         <span class="blog-date">	
-                             <i class="fas fa-calendar-alt"></i> 07 Aug 2023  Mon   </span> 		
-                          <h2><a href="#" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
-                       </div>
-                       <div class="blog-disc">
-                          <p>
-                             Abanindranath Tagore was one of the most prominent artists in India. He was born on 7 August 1871 in Jorasanko, Calcutta. He was a supporter of Swadeshi values in India; he created first created the ‘Indian Society of Orie...
-                          </p> 
-                       </div>
-                    </div>
-                 </div> 
-                 <div class="col-md-3 mb-3">
-                    <div class="blog-div">
-                       <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
-                       </div>                    
-                       <div class="blog-title">
-                         <span class="blog-date">	
-                             <i class="fas fa-calendar-alt"></i> 07 Aug 2023  Mon   </span> 		
-                          <h2><a href="#" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
-                       </div>
-                       <div class="blog-disc">
-                          <p>
-                             Abanindranath Tagore was one of the most prominent artists in India. He was born on 7 August 1871 in Jorasanko, Calcutta. He was a supporter of Swadeshi values in India; he created first created the ‘Indian Society of Orie...
-                          </p> 
-                       </div>
-                    </div>
-                 </div> 
-                 <div class="col-md-3 mb-3">
-                    <div class="blog-div">
-                       <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
-                       </div>                    
-                       <div class="blog-title">
-                         <span class="blog-date">	
-                             <i class="fas fa-calendar-alt"></i> 07 Aug 2023  Mon   </span> 		
-                          <h2><a href="#" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
-                       </div>
-                       <div class="blog-disc">
-                          <p>
-                             Abanindranath Tagore was one of the most prominent artists in India. He was born on 7 August 1871 in Jorasanko, Calcutta. He was a supporter of Swadeshi values in India; he created first created the ‘Indian Society of Orie...
-                          </p> 
-                       </div>
-                    </div>
-                 </div> 
-                 <div class="col-md-3 mb-3">
-                    <div class="blog-div">
-                       <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
-                       </div>                    
-                       <div class="blog-title">
-                         <span class="blog-date">	
-                             <i class="fas fa-calendar-alt"></i> 07 Aug 2023  Mon   </span> 		
-                          <h2><a href="#" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
-                       </div>
-                       <div class="blog-disc">
-                          <p>
-                             Abanindranath Tagore was one of the most prominent artists in India. He was born on 7 August 1871 in Jorasanko, Calcutta. He was a supporter of Swadeshi values in India; he created first created the ‘Indian Society of Orie...
-                          </p> 
-                       </div>
-                    </div>
-                 </div> 
-                 <div class="col-md-3 mb-3">
-                    <div class="blog-div">
-                       <div class="BlogImgDiv blog-image ">
-                          <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
-                       </div>                    
-                       <div class="blog-title">
-                         <span class="blog-date">	
-                             <i class="fas fa-calendar-alt"></i> 07 Aug 2023  Mon   </span> 		
-                          <h2><a href="#" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
-                       </div>
-                       <div class="blog-disc">
-                          <p>
-                             Abanindranath Tagore was one of the most prominent artists in India. He was born on 7 August 1871 in Jorasanko, Calcutta. He was a supporter of Swadeshi values in India; he created first created the ‘Indian Society of Orie...
-                          </p> 
-                       </div>
-                    </div>
-                 </div> 
+                     </div>
+                     <div class="col-md-7">
+                        <div class="heading-2">Remembering Abanindranath Tagore on his Birth Anniversary </div>
+                           <p class="mt-3"><i class="fas fa-clock"></i> 09 Aug 2023  Wed</p>
+                           <p>Yamunotri Temple is located in the western region of Garhwal Himalaya region, in Uttarkashi district, Uttarakhand. The temple is devoted to the goddess Yamuna. Yamunotri temple is consdiered as one of the four sites in India's Chhota Char Dham pilgrimage. There is a hot water springs called 'Surya Kund' located close to the temple, near the Surya Kund there is a shila called 'Divya Shila' which is worshipped before puja is offered to the deity.</p>
+                           <p>India Post issued a commemorative stamp featuring Yamunotri Temple on November 29th, 2019.</p>
+                           <p>Image Courtesy: colnect.com</p>
+                     </div>
+                  </div>
+                 
 
+
+               </div>
+               <div class="col-lg-3 col-md-12 mt-md-5 mt-0 mt-lg-0">
+                  <div class="heading-2">Latest News</div>
+                  <ul class="latest-news-list"> 
+                     <li>
+                        <a href="{{url("media/detail/")}}">
+                           <h3>Yamunotri Temple Commemorative Stamp</h3>                     
+                           <div class="date"><i class="fas fa-clock"></i> 09 Aug 2023 Wed</div>
+                           <p>Yamunotri Temple is located in the western region of Garhwal Himalaya region, in Uttarkashi district...</p>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="{{url("media/detail/")}}">
+                           <h3>Yamunotri Temple Commemorative Stamp</h3>                     
+                           <div class="date"><i class="fas fa-clock"></i> 09 Aug 2023 Wed</div>
+                           <p>Yamunotri Temple is located in the western region of Garhwal Himalaya region, in Uttarkashi district...</p>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="{{url("media/detail/")}}">
+                           <h3>Yamunotri Temple Commemorative Stamp</h3>                     
+                           <div class="date"><i class="fas fa-clock"></i> 09 Aug 2023 Wed</div>
+                           <p>Yamunotri Temple is located in the western region of Garhwal Himalaya region, in Uttarkashi district...</p>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="{{url("media/detail/")}}">
+                           <h3>Yamunotri Temple Commemorative Stamp</h3>                     
+                           <div class="date"><i class="fas fa-clock"></i> 09 Aug 2023 Wed</div>
+                           <p>Yamunotri Temple is located in the western region of Garhwal Himalaya region, in Uttarkashi district...</p>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="{{url("media/detail/")}}">
+                           <h3>Yamunotri Temple Commemorative Stamp</h3>                     
+                           <div class="date"><i class="fas fa-clock"></i> 09 Aug 2023 Wed</div>
+                           <p>Yamunotri Temple is located in the western region of Garhwal Himalaya region, in Uttarkashi district...</p>
+                        </a>
+                     </li>
+                      
+                  </ul>
+                  <div class=""><a href="{{url("/media")}}" class="btn btn-sm btn-primary mt-3">View All</a></div>
+              </div>   
             </div>
       
         </div>

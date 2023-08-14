@@ -20,9 +20,12 @@
                         <label for="login-username">Username</label>
                         <input type="text" class="form-control form__input" name="username" id="admin-login-username" placeholder="Username">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="position: relative">
                         <label for="login-password">Password</label>
                         <input type="password" class="form__input mb-1 form-control" name="password" id="admin-login-password"  placeholder="Password">
+                        <button style="position: absolute;top: 35%; right: 0%;" id="showHidePassword" class="btn">
+                            <i class="fas fa-eye"></i>
+                        </button>
                     </div>
                     <span class="small text-end d-block w-100">
                     <a href="{{url('member/forgotpassword')}}"> Forgot password?</a> </span>
@@ -69,5 +72,19 @@
             }
         });
         
+    });
+    let showPasswordIcon = '<i class="fas fa-eye"></i>'
+    let hidePasswordIcon = '<i class="fas fa-eye-slash"></i>'
+    $("button#showHidePassword").click(function (e) { 
+        e.preventDefault();
+       if ($("input#admin-login-password").attr("type")=="password") {
+            $("input#admin-login-password").attr("type","text");
+            $(this).html('')
+            $(this).html(hidePasswordIcon)
+       } else {
+            $("input#admin-login-password").attr("type","password");
+            $(this).html('')
+            $(this).html(showPasswordIcon)
+       }
     });
 </script>

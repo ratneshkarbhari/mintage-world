@@ -132,3 +132,13 @@ Route::get("admin-login",[PageLoader::class, 'admin_login']);
 
 // Universal search
 Route::get("universal-search-exe",[Utils::class,'universal_search']);
+
+
+
+
+
+
+
+
+// admin routes
+Route::get("dashboard",[PageLoader::class,'dashboard']);

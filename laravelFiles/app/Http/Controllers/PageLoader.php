@@ -17,6 +17,12 @@ class PageLoader extends Controller
 
     }
 
+    function admin_page_loader($viewName,$data){
+        echo view("components.admin_header",$data);
+        echo view("admin_pages.".$viewName,$data);
+        echo view("components.admin_footer",$data);
+    }
+
     function home(){
 
 
@@ -29,6 +35,14 @@ class PageLoader extends Controller
     function admin_login(){
         $this->page_loader("admin_login",[
             "title" => "Admin Login"
+        ]);
+
+    }
+
+    function dashboard(){
+
+        $this->admin_page_loader("dashboard",[
+            "title" => "Dashboard"
         ]);
 
     }

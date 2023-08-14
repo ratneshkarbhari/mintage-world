@@ -468,3 +468,10 @@
       </div>
   </section>
 </main>
+<style>
+
+.sortable-handler {
+  touch-action: none;
+}
+
+</style>

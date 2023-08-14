@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\Authentication;
+use App\Http\Controllers\Cart;
 use App\Http\Controllers\Coins;
 use App\Http\Controllers\Notes;
-use App\Http\Controllers\Histories;
-use App\Http\Controllers\Shopping;
-use App\Http\Controllers\Cart;
-use App\Http\Controllers\InfoComments;
-use App\Http\Controllers\StaticPages;
-use App\Http\Controllers\PageLoader;
+use App\Http\Controllers\Utils;
 use App\Http\Controllers\Stamps;
+use App\Http\Controllers\Shopping;
+use App\Http\Controllers\Histories;
+use App\Http\Controllers\PageLoader;
+use App\Http\Controllers\StaticPages;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InfoComments;
+use App\Http\Controllers\Authentication;
 
 
 /*
@@ -121,6 +122,25 @@ Route::get('knowledge-base/know-your-stamps', [StaticPages::class, 'know_your_st
 // Auth routes
 Route::post("member-login-exe", [Authentication::class, 'member_login']);
 Route::get("logout", [Authentication::class, 'logout']);
+Route::post("admin-login-exe",[Authentication::class,'admin_login']);
 
 // Info comments
-Route::post("create-info-comment", [InfoComments::class, 'create_exe']);
+Route::post("create-info-comment",[InfoComments::class,'create_exe']);
+
+
+// Admin Section
+Route::get("admin-login",[PageLoader::class, 'admin_login']);
+
+
+// Universal search
+Route::get("universal-search-exe",[Utils::class,'universal_search']);
+
+
+
+
+
+
+
+
+// admin routes
+Route::get("dashboard",[PageLoader::class,'dashboard']);

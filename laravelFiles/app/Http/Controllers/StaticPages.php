@@ -17,7 +17,8 @@ class StaticPages extends Controller
     function about_us()
     {
         $this->page_loader("about_us", [
-            "title" => "About Us | Mintage World"
+            "title" => "About Us | Mintage World",
+            ""
         ]);
     }
     function disclaimer()

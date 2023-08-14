@@ -136,7 +136,7 @@
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
                     <a href="/" class="nav-item nav-link active">Home</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Shopping </a>
+                        <a href="{{url('shop/')}}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Shopping </a>
                         <div class="dropdown-menu fade-up m-0 mega-menu">
                             <div class="container">
                                 <div class="row">

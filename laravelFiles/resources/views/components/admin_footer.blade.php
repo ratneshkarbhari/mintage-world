@@ -11,6 +11,22 @@
 <!-- Template Javascript -->
 <script src="{{url('assets/admin/js/color-modes.js')}}"></script>
 <script src="{{url('assets/admin/js/dashboard.js')}}"></script>
+<script type="text/javascript" language="javascript"  src="{{url('assets/admin/js/jquery.dataTables.min.js')}}"></script>
+<script type="text/javascript" language="javascript"  src="{{url('assets/admin/js/dataTables.buttons.min.js')}}"></script>
+<script type="text/javascript" language="javascript"  src="{{url('assets/admin/js/jszip.min.js')}}"></script>
+<script type="text/javascript" language="javascript"  src="{{url('assets/admin/js/pdfmake.min.js')}}"></script>
+<script type="text/javascript" language="javascript"  src="{{url('assets/admin/js/vfs_fonts.js')}}"></script>
+<script type="text/javascript" language="javascript"  src="{{url('assets/admin/js/buttons.html5.min.js')}}"></script>
+<script type="text/javascript" language="javascript"  src="{{url('assets/admin/js/buttons.print.min.js')}}"></script>
+
+
+<script>
+    new DataTable('.DataTable', {
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+    });
+</script>
+
 
 </body>
 

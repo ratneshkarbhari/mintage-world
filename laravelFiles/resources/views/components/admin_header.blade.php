@@ -28,6 +28,9 @@
     <!-- for admin theam colour change  -->
 
 
+    <link rel="stylesheet" type="text/css"  href="{{url('assets/admin/css/jquery.dataTables.min.css')}}" >
+    <link rel="stylesheet" type="text/css"  href="{{url('assets/admin/css/buttons.dataTables.min.css')}}" >
+
 
 
     <!-- Customized Bootstrap Stylesheet -->
@@ -40,7 +43,7 @@
     <!--only for admin css  -->
 
     <link href="{{url('assets/admin/css/dashboard.css')}}" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{{url('assets/admin/js/jquery-3.4.1.min.js')}}></script>
 
 </head>
 

@@ -275,10 +275,6 @@
 
                   $imgParts = explode("/",$random_greeting_card["img"]);
 
-                  
-
-                  
-
                   @endphp
 
                   <div class="product-grid">

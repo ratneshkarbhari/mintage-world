@@ -7,5 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
+    
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $protected = [];
+
+    protected $table = "ultra_products";
+
+
+    protected $primaryKey = "id";
+
 }

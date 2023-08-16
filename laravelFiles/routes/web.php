@@ -54,7 +54,7 @@ Route::get('shop/list', [Shopping::class, 'shop_list']);
 
 
 //Product  routes
-Route::get('view-product', [Shopping::class, 'view_product']);
+Route::get('view-product/{productSlug}', [Shopping::class, 'view_product']);
 
 
 // Note info routes Routes

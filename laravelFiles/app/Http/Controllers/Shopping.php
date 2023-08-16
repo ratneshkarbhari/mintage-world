@@ -48,10 +48,18 @@ class Shopping extends Controller
             "title" => "Buy Amazing Old World Currency Notes Online | Mintage World"
         ]);
     }
-    function view_product()
+    function view_product($productSlug)
     {
+
+
+        $slugParts = explode("-",$productSlug);
+
+        $product = Product::find($slugParts[0]);
+
+
         $this->page_loader("view_product", [
-            "title" => "Buy Amazing Old World Currency Notes Online | Mintage World"
+            "title" => "Buy ".$product["name1"]." Online",
+            "product" => $product
         ]);
     }
 }

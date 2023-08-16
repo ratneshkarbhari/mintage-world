@@ -12,6 +12,10 @@
             </nav>
         </div>
     </section>
+    @php
+    $imgParts = explode("/",$product["img"]);
+    $productImage = $imgParts[2];
+    @endphp
     <section class="common-padding coing-list-wraper">
         <div class="container-fluid  px-lg-2 px-lg-5">
             <!-- <div class="d-flex justify-content-between">
@@ -24,8 +28,8 @@
 
                         <div class="item zoomable">
                             <a class="lightbox"
-                                href="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/MINBOK0001.jpg">
-                                <img src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/MINBOK0001.jpg"
+                                href="{{ getenv("PRODUCT_IMAGE_BASE_URL").$productImage }}">
+                                <img src="{{ getenv("PRODUCT_IMAGE_BASE_URL").$productImage }}"
                                     class="img-fluid zoomable__img" />
                             </a>
                         </div>

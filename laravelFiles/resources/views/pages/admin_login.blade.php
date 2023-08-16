@@ -62,7 +62,7 @@
 
                 if (response=="login-success") {
                     
-                    window.location.replace("{{url("dashboard")}}");
+                    window.location.replace("{{url("admin/dashboard")}}");
                     
                 } else {
                     

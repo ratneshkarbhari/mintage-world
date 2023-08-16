@@ -143,4 +143,5 @@ Route::get("universal-search-exe",[Utils::class,'universal_search']);
 
 
 // admin routes
-Route::get("dashboard",[PageLoader::class,'dashboard']);
+Route::get("admin/dashboard",[PageLoader::class,'dashboard']);
+Route::get("admin/manage-products",[PageLoader::class,'manage_products']);

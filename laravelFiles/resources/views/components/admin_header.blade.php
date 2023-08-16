@@ -227,7 +227,7 @@
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="list-unstyled ps-0">
                             <li class="">
-                                <a href="admin/dashboard/" class="">Dashboard</a>
+                                <a href="{{url('admin/dashboard')}}" class="">Dashboard</a>
                             </li>
 
                             <li class="">
@@ -266,7 +266,7 @@
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Categories
                                             </a>
                                         </li>
-                                        <li><a href="admin/manage-products/"
+                                        <li><a href="{{url('admin/manage-products/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Products
                                             </a>
                                         </li>

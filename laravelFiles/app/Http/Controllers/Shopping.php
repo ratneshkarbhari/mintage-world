@@ -54,8 +54,10 @@ class Shopping extends Controller
 
         $slugParts = explode("-",$productSlug);
 
-        $product = Product::find($slugParts[0]);
+        $product = Product::where("id",$slugParts[0])->with("product_category")->with("product_images")->first();
 
+
+        // print_r($product["product_category"]); exit;
 
         $this->page_loader("view_product", [
             "title" => "Buy ".$product["name1"]." Online",

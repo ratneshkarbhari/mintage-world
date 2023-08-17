@@ -46,12 +46,11 @@ class PageLoader extends Controller
         ]);
     }
 
-    function manage_products(){
+    function manage_products()
+    {
 
-        $this->admin_page_loader("manage_products",[
+        $this->admin_page_loader("manage_products", [
             "title" => "Manage Products"
         ]);
-
     }
-
 }

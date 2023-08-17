@@ -50,7 +50,7 @@ Route::get('history/detail/{historySlug}', [Histories::class, 'history_detail'])
 
 // Shopping routes
 Route::get('shop', [Shopping::class, 'shop']);
-Route::get('shop/list', [Shopping::class, 'shop_list']);
+Route::get('shop/list/{categorySlug}', [Shopping::class, 'shop_list']);
 
 
 //Product  routes

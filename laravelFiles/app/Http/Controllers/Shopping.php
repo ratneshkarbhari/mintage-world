@@ -42,8 +42,15 @@ class Shopping extends Controller
             "random_greeting_cards" => $randomGc
         ]);
     }
-    function shop_list()
+    function shop_list($categorySlug)
     {
+
+        $categorySlugParts = explode("-",$categorySlug);
+
+        $categoryProducts = Product::where("category",$categorySlugParts[0])->get();
+
+        print_r($categoryProducts); exit;
+
         $this->page_loader("shop_list", [
             "title" => "Buy Amazing Old World Currency Notes Online | Mintage World"
         ]);
@@ -55,6 +62,7 @@ class Shopping extends Controller
         $slugParts = explode("-",$productSlug);
 
         $product = Product::where("id",$slugParts[0])->with("product_category")->with("product_images")->first();
+
 
 
         // print_r($product["product_category"]); exit;

@@ -6,7 +6,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item me-2"><a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a></li>  
                     <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("/shop")}}">Shopping</a> </li>
-                    <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("shop/".$product["product_category"]["id"]."-".$product["product_category"]["custom_url"])}}">{{$product["product_category"]["cat_name"]}} </a> </li>
+                    <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("shop/list/".$product["product_category"]["id"]."-".$product["product_category"]["custom_url"])}}">{{$product["product_category"]["cat_name"]}} </a> </li>
                     <li class="breadcrumb-item me-2" aria-current="page">{{$product["name1"]}} </li>
                 </ol>
             </nav>
@@ -39,8 +39,8 @@
 
                         <div class="item zoomable">
                             <a class="lightbox"
-                                href="{{ getenv("PRODUCT_IMAGE_BASE_URL").$product_image["image_name"] }}">
-                                <img src="{{ getenv("PRODUCT_IMAGE_BASE_URL").$product_image["image_name"] }}"
+                                href="{{ getenv("PRODUCT_EXTRA_IMAGE_BASE_URL").$product_image["image_name"] }}">
+                                <img src="{{ getenv("PRODUCT_EXTRA_IMAGE_BASE_URL").$product_image["image_name"] }}"
                                     class="img-fluid zoomable__img" />
                             </a>
                         </div>
@@ -60,7 +60,7 @@
                         @foreach($product["product_images"] as $product_image)
 
                         <div class="item">
-                            <img src="{{ getenv("PRODUCT_IMAGE_BASE_URL").$product_image["image_name"] }}"
+                            <img src="{{ getenv("PRODUCT_EXTRA_IMAGE_BASE_URL").$product_image["image_name"] }}"
                                 class="img-fluid" />
                         </div>
                        
@@ -297,6 +297,11 @@
                             </div>
                         </div>                        
                     </div>
+                    <p> The value of Denomination is same as printed on the currency , additional cost is towards presentation and packaging.</p>
+
+
+                    <h5>Note  : <span>10 RS</span></h5>
+        
                     @endif
 
                     <div class="product-btn-group">
@@ -340,10 +345,7 @@
     </section> 
     <section class="common-padding bg-light-wraper">
         <div class="container-fluid  px-lg-2 px-lg-5">
-           <p><b>Disclaimer :</b> The value of Denomination is same as printed on the currency , additional cost is towards presentation and packaging.</p>
-
-
-            <h5>Note  : <span>10 RS</span></h5>
+            <b>Disclaimer :</b>
             <p>This product is developed and offered to notaphilists, numismatists and philatelists for collection purpose.<br/>
             <span class="text-danger">This image is for reference purpose only Condition may vary from Image.</span><br/>
              The product over 100 years. Not to be sold overseas.<br/>

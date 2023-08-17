@@ -27,8 +27,6 @@ class PageLoader extends Controller
 
     function home()
     {
-
-
         $this->page_loader("home", [
             "title" => "Online Museum of Coins, Stamps and Notes"
         ]);

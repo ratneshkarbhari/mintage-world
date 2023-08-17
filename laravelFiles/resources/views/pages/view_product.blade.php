@@ -6,13 +6,17 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item me-2"><a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a></li>  
                     <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("/shop")}}">Shopping</a> </li>
-                    <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("/shop/list")}}">Numismatic Books </a> </li>
-                    <li class="breadcrumb-item me-2" aria-current="page">Standard Guide to Paper Money of Republic India Book on Indian Currency Notes </li>
+                    <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("shop/".$product["product_category"]["id"]."-".$product["product_category"]["custom_url"])}}">{{$product["product_category"]["cat_name"]}} </a> </li>
+                    <li class="breadcrumb-item me-2" aria-current="page">{{$product["name1"]}} </li>
                 </ol>
             </nav>
         </div>
     </section>
-    <section class="common-padding coing-list-wraper">
+    @php
+    $imgParts = explode("/",$product["img"]);
+    $productImage = $imgParts[2];
+    @endphp
+    <section class="common-padding productg-list-wraper">
         <div class="container-fluid  px-lg-2 px-lg-5">
             <!-- <div class="d-flex justify-content-between">
                 <h2 class="mb-3 heading-1">Ruler : Malwa Sultan</h2>
@@ -24,49 +28,54 @@
 
                         <div class="item zoomable">
                             <a class="lightbox"
-                                href="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/MINBOK0001.jpg">
-                                <img src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/MINBOK0001.jpg"
+                                href="{{ getenv("PRODUCT_IMAGE_BASE_URL").$productImage }}">
+                                <img src="{{ getenv("PRODUCT_IMAGE_BASE_URL").$productImage }}"
                                     class="img-fluid zoomable__img" />
                             </a>
                         </div>
+                        
+                        @foreach($product["product_images"] as $product_image)
+
+
                         <div class="item zoomable">
                             <a class="lightbox"
-                                href="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/extra_images/MINBOK0001_1.jpg">
-                                <img src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/extra_images/MINBOK0001_1.jpg"
+                                href="{{ getenv("PRODUCT_IMAGE_BASE_URL").$product_image["image_name"] }}">
+                                <img src="{{ getenv("PRODUCT_IMAGE_BASE_URL").$product_image["image_name"] }}"
                                     class="img-fluid zoomable__img" />
                             </a>
                         </div>
-                        <div class="item zoomable">
-                            <a class="lightbox"
-                                href="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/extra_images/MINBOK0001_2.jpg">
-                                <img src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/extra_images/MINBOK0001_2.jpg"
-                                    class="img-fluid zoomable__img" />
-                            </a>
-                        </div>
+
+                        @endforeach
+
+
                     </div>
                     <div id="sync2" class="owl-carousel owl-theme">
+
+                        
                         <div class="item">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/MINBOK0001.jpg"
+                            <img src="{{ getenv("PRODUCT_IMAGE_BASE_URL").$productImage }}"
                                 class="img-fluid" />
                         </div>
+
+                        @foreach($product["product_images"] as $product_image)
+
                         <div class="item">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/extra_images/MINBOK0001_1.jpg"
+                            <img src="{{ getenv("PRODUCT_IMAGE_BASE_URL").$product_image["image_name"] }}"
                                 class="img-fluid" />
                         </div>
-                        <div class="item">
-                            <img src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/extra_images/MINBOK0001_2.jpg"
-                                class="img-fluid" />
-                        </div>
+                       
+
+                        @endforeach
                     </div>
 
 
                 </div>
 
                 <div class="col-lg-7 col-md-12 col-sm-12 mt-lg-0 mt-5 ">
-                    <h1 class="mb-3 heading-2">Standard Guide to Paper Money of Republic India Book on Indian Currency Notes</h1>
+                    <h1 class="mb-3 heading-2">{{$product["name1"]}}</h1>
                     <div class="w-100 d-flex justify-content-between">
                     <div class="price"><span><i class="fa fa-rupee-sign"></i> 400</span>
-                        <i class="fa fa-rupee-sign"></i> 299
+                        <i class="fa fa-rupee-sign"></i> {{$product["price"]}}
                     </div>
                     <div class="tab-review"><a href="#tab-review" class="btn btn-info btn-sm text-white"> 4 Reviews</a></div>
                     </div>
@@ -75,8 +84,25 @@
                     <div class="product-detail-wraper w-100">                    
                     <hr />
 
-                    <p><b>Description : </b> <br>   Standard Guide to Paper Money of Republic India 1947-2017 is a 240 page hard-cover book by Mr. Jayesh Gala. The book was released in 2017 and is a hidden gem of knowledge which shaped India’s currency after its independence. Its illustrative images with factual information capture the true essence of Indian paper money.</p>
-                    <p><b>Customize your card: </b> Send your photo to <a href="info@mintageworld.com ">info@mintageworld.com</a> alongwith order id.</p>
+                    <p><b>Description : </b>
+                        
+                    <p>
+                    {!!$product["desc1"]!!}
+                    </p>
+                    <p><b>Issue Year :</b> <span>{{$product["issue_year"]}}</span></p>
+
+                    <p><b>Denomination :</b> <span>{{$product["denomination"]}}</span></p>
+
+                    <p><b>Shape :</b> <span>{{$product["shape"]}}</span></p>
+                    <p><b>Metal :</b> <span>{{$product["metal"]}}</span></p>
+                    <p><b>Weight :</b> <span>{{$product["weight"]}}</span></p>
+                    <p><b>Mint :</b> <span>{{$product["mint"]}}</span></p>
+
+                    <p class="mt-3"><b>Product Code : </b> {{$product["sku"]}} </p> 
+
+
+                    <div class="d-none">   
+                    <b>Customize your card: </b> Send your photo to <a href="info@mintageworld.com ">info@mintageworld.com</a> alongwith order id.</p>
                     <p class="mb-0"><b>Features : </b></p>
                     <ul>
                         <li>• Inside knowledge about prefixes</li>
@@ -86,10 +112,13 @@
                         <li>• Collectible themes for collection</li>
                         <li>• Estimated market price</li>
                     </ul>
-                    <p class="mt-3"><b>Product Code : </b> MINBOK0001 </p> 
+                    </div>
+                    @if($product["instock"]<1)
                     <img src="{{url("/assets/images/out-of-stock.png")}}" class="img-fluid out-of-stock-icon" alt=""/>      
                     </div>
+                    @endif
                     
+                    @if($product["date_option"]=="Yes")
 
                     <div class="birth-date-wraper">   
                         <hr>
@@ -266,8 +295,9 @@
                                     <span class="fourth"></span>
                                 </button>
                             </div>
-                         </div>                        
+                        </div>                        
                     </div>
+                    @endif
 
                     <div class="product-btn-group">
                         <hr>
@@ -277,6 +307,9 @@
                         <span class="third"></span>
                         <span class="fourth"></span>
                     </button> 
+
+                    @if($product["instock"]<1)
+
                     <button class="btn btn-lg  btn-success text-white rounded-pill"><i class="fa fa-bell"></i>  Notify me 
                         <span class="first"></span>
                         <span class="second"></span>
@@ -298,6 +331,7 @@
                         
                     </div>
                    
+                    @endif
                 </div>
                
                 

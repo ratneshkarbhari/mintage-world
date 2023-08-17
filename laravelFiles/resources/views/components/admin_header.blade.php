@@ -43,7 +43,7 @@
     <!--only for admin css  -->
 
     <link href="{{url('assets/admin/css/dashboard.css')}}" rel="stylesheet">
-    <script src="{{url('assets/admin/js/jquery-3.4.1.min.js')}}></script>
+    <script src="{{url('assets/admin/js/jquery-3.4.1.min.js')}}"    ></script>
 
 </head>
 
@@ -185,7 +185,7 @@
     </svg>
 
     <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white bg-dark" href="admin/dashboard/">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white bg-dark" href="{{url('admin/dashboard/')}}">
             <img src="https://www.mintageworld.com/public/img/logo.png" alt="" class="img-fluid">
             <!-- <span>Mintage World</span> -->
         </a>
@@ -218,7 +218,7 @@
                     aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="sidebarMenuLabel">
-                            <a href="admin/dashboard/">
+                            <a href="{{url('admin/dashboard')}}">
                                 <img src="https://www.mintageworld.com/public/img/logo.png" alt="" class="img-fluid"
                                     style="width:100px">
                                 <!-- <span class="">Mintage World</span> -->
@@ -241,16 +241,16 @@
                                 <div class="collapse" id="home-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal small">
                                         <li>
-                                            <a href="admin/manage-coins/"
+                                            <a href="{{url('admin/manage-coins/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Coins</a>
                                         </li>
                                         <li>
-                                            <a href="admin/manage-notes/"
+                                            <a href="{{url('admin/manage-notes/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Notes
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="admin/manage-stamps/"
+                                            <a href="{{url('admin/manage-stamps/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Stamps
                                             </a>
                                         </li>
@@ -265,7 +265,7 @@
                                 </button>
                                 <div class="collapse" id="dashboard-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                        <li><a href="admin/manage-categories/"
+                                        <li><a href="{{url('admin/manage-categories/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Categories
                                             </a>
                                         </li>
@@ -273,7 +273,7 @@
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Products
                                             </a>
                                         </li>
-                                        <li><a href="admin/manage-orders/"
+                                        <li><a href="{{url('admin/manage-orders/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Orders
                                             </a>
                                         </li>
@@ -281,24 +281,19 @@
                                 </div>
                             </li>
                             <li class="">
-                                <a href="admin/manage-histories/" class="">Histories
-                                </a>
+                                <a href="{{url('admin/manage-histories/')}}" class="">Histories</a>
                             </li>
                             <li class="">
-                                <a href="admin/manage-enquiries/" class="">Enquiries
-                                </a>
+                                <a href="{{url('admin/manage-enquiries/')}}" class="">Enquiries</a>
                             </li>
                             <li class="">
-                                <a href="admin/manage-events/" class="">Events
-                                </a>
+                                <a href="{{url('admin/manage-events/')}}" class="">Events</a>
                             </li>
                             <li class="">
-                                <a href="admin/manage-news/" class="">News
-                                </a>
+                                <a href="{{url('admin/manage-news/')}}" class="">News</a>
                             </li>
                             <li class="">
-                                <a href="admin/manage-members/" class="">Members
-                                </a>
+                                <a href="{{url('admin/manage-members/')}}" class="">Members</a>
                             </li>
                             <li class="">
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"
@@ -307,29 +302,29 @@
                                 </button>
                                 <div class="collapse" id="orders-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li><a href="admin/manage-banner/"
+                                        <li><a href="{{url('admin/manage-banner/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Banner
                                             </a>
                                         </li>
-                                        <li><a href="admin/manage-video/"
+                                        <li><a href="{{url('admin/manage-video/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Video
                                             </a>
                                         </li>
-                                        <li><a href="admin/manage-story-week/"
+                                        <li><a href="{{url('admin/manage-story-week/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Story
                                                 of the week
                                             </a>
                                         </li>
-                                        <li><a href="admin/manage-media/"
+                                        <li><a href="{{url('admin/manage-media/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Media
                                             </a>
                                         </li>
-                                        <li><a href="admin/manage-exhibitions/"
+                                        <li><a href="{{url('admin/manage-exhibitions/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Fairs
                                                 and Exhibitions
                                             </a>
                                         </li>
-                                        <li><a href="admin/manage-career/"
+                                        <li><a href="{{url('admin/manage-career/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Career
                                             </a>
                                         </li>

@@ -21,10 +21,12 @@
 
 
 <script>
-    new DataTable('.DataTable', {
-        dom: 'Bfrtip',
-        buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+    new DataTable('.DataTable', {   
+        dom: 'lBfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf', 'print'], 
     });
+
+   
 </script>
 
 

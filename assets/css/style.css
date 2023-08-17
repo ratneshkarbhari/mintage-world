@@ -711,8 +711,10 @@ section.home-page-carousel {
 .product-grid .product-image {
   overflow: hidden;
   position: relative;
-  background: #e6e6e6;
+  background: #ffffff;
   text-align: center;
+  min-height: 225px;
+  border-bottom: solid 1px #efeded;
 }
 
 .product-grid .product-image a.image {

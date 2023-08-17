@@ -306,12 +306,16 @@
 
                     <div class="product-btn-group">
                         <hr>
+
+                    @if($product["instock"]>0)
+
                     <button class="btn btn-sm btn-explore"><i class="fa fa-shopping-cart"></i> ADD TO CART 
                         <span class="first"></span>
                         <span class="second"></span>
                         <span class="third"></span>
                         <span class="fourth"></span>
                     </button> 
+                    @endif
 
                     @if($product["instock"]<1)
 
@@ -372,36 +376,15 @@
                 </div>
                 <div class="col-md-6 col-sm-12 mt-5 mt-md-0">
                     <div class="recent-comment-wrap">
-                        <h6><b>Recent Review (4)</b></h6>
+                        <h6><b>Recent Review ({{count($product["product_ratings"])}})</b></h6>
                         <div class="comment-wrap">
+                            
+                            @foreach($product["product_ratings"] as $product_rating)
                             <div class="UserDetail">
-                                <p class="d-flex justify-content-between"><span class="UserName" id="UserName">User
-                                        Name</span><span class="UserName" id="CommentDate">05/07/2023</span></p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis sit quaerat
-                                    iusto, iure debitis eos eveniet libero ipsam animi ratione, explicabo odit dicta
-                                    totam. Aspernatur magni iusto omnis aliquid ea!</p>
+                                <p class="d-flex justify-content-between"><span class="UserName" id="UserName">{{$product_rating["user_name"]}}</span><span class="UserName" id="CommentDate">05/07/2023</span></p>
+                                <p>{{$product_rating["comments"]}}</p>
                             </div>
-                            <div class="UserDetail">
-                                <p class="d-flex justify-content-between"><span class="UserName" id="UserName">User
-                                        Name</span><span class="UserName" id="CommentDate">05/07/2023</span></p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis sit quaerat
-                                    iusto, iure debitis eos eveniet libero ipsam animi ratione, explicabo odit dicta
-                                    totam. Aspernatur magni iusto omnis aliquid ea!</p>
-                            </div>
-                            <div class="UserDetail">
-                                <p class="d-flex justify-content-between"><span class="UserName" id="UserName">User
-                                        Name</span><span class="UserName" id="CommentDate">05/07/2023</span></p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis sit quaerat
-                                    iusto, iure debitis eos eveniet libero ipsam animi ratione, explicabo odit dicta
-                                    totam. Aspernatur magni iusto omnis aliquid ea!</p>
-                            </div>
-                            <div class="UserDetail">
-                                <p class="d-flex justify-content-between"><span class="UserName" id="UserName">User
-                                        Name</span><span class="UserName" id="CommentDate">05/07/2023</span></p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis sit quaerat
-                                    iusto, iure debitis eos eveniet libero ipsam animi ratione, explicabo odit dicta
-                                    totam. Aspernatur magni iusto omnis aliquid ea!</p>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

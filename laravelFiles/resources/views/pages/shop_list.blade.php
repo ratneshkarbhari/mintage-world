@@ -142,7 +142,7 @@
             </div>
             <div class="col-lg-9 col-md-12 mt-md-5 mt-0 mt-lg-0">
                <div class="d-flex justify-content-between col-md-12">
-                  <h2 class="mb-3 heading-1">Premium Products (68)</h2>
+                  <h2 class="mb-3 heading-1">{{$category["cat_name"]}} ({{$product_count}})</h2>
                   <div class="row product-short-wrap  justify-content-end" >
                      <div class="col-md-4">
                         <select name="governor" class="form-control" id="governor" required="required" onchange="insertParam('governor',this.value);">
@@ -197,156 +197,35 @@
                   </div>
                </div>
                <div class="row info-item-grid-row">
+                  
+                  @foreach($category_products as $product)
+                  
+
+                  @php
+
+                  if($product["img"]!=""){
+
+                     $imgParts = explode("/",$product["img"]);
+
+                  }else{
+
+                     $imgParts[2] = "noimage.jpg";
+
+                  }
+
+                  @endphp
+
                   <div class="col-lg-2 col-md-6 col-sm-12 mb-3">
                      <div class="product-grid">
-                     <div class="product-image">
-                        <a href="#" class="image">
-                            <img class="pic-1" src="http://localhost/mintage-world/assets/img/img-4.jpg">
-                        </a>                            
-                    </div>
-                    <div class="product-content">
-                        <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
-                                of India</a></h2>
-                        <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                        <a href="#" class="add-to-cart">Add to Cart</a>
-                    </div>
-                     </div>
+                        <div class="product-image"> <a href="{{url("view-product/".$product["id"]."-".$product["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+                        <div class="product-content">
+                           <h2 class="title"><a href="{{url("view-product/".$product["custom_url"])}}">{{$product["name1"]}}</a> </h2>
+                           <div class="price"><i class="fa fa-rupee-sign"></i> {{$product["price"]}}</div>
+                           <a href="{{url("view-product/".$product["custom_url"])}}" class="add-to-cart">Add to Cart</a> 
+                        </div>                     </div>
                   </div> 
-                  <div class="col-lg-2 col-md-6 col-sm-12 mb-3">
-                     <div class="product-grid">
-                     <div class="product-image">
-                        <a href="#" class="image">
-                            <img class="pic-1" src="http://localhost/mintage-world/assets/img/img-4.jpg">
-                        </a>                            
-                    </div>
-                    <div class="product-content">
-                        <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
-                                of India</a></h2>
-                        <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                        <a href="#" class="add-to-cart">Add to Cart</a>
-                    </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-2 col-md-6 col-sm-12 mb-3">
-                     <div class="product-grid">
-                     <div class="product-image">
-                        <a href="#" class="image">
-                            <img class="pic-1" src="http://localhost/mintage-world/assets/img/img-4.jpg">
-                        </a>                            
-                    </div>
-                    <div class="product-content">
-                        <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
-                                of India</a></h2>
-                        <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                        <a href="#" class="add-to-cart">Add to Cart</a>
-                    </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-2 col-md-6 col-sm-12 mb-3">
-                     <div class="product-grid">
-                     <div class="product-image">
-                        <a href="#" class="image">
-                            <img class="pic-1" src="http://localhost/mintage-world/assets/img/img-4.jpg">
-                        </a>                            
-                    </div>
-                    <div class="product-content">
-                        <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
-                                of India</a></h2>
-                        <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                        <a href="#" class="add-to-cart">Add to Cart</a>
-                    </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-2 col-md-6 col-sm-12 mb-3">
-                     <div class="product-grid">
-                     <div class="product-image">
-                        <a href="#" class="image">
-                            <img class="pic-1" src="http://localhost/mintage-world/assets/img/img-4.jpg">
-                        </a>                            
-                    </div>
-                    <div class="product-content">
-                        <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
-                                of India</a></h2>
-                        <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                        <a href="#" class="add-to-cart">Add to Cart</a>
-                    </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-2 col-md-6 col-sm-12 mb-3">
-                     <div class="product-grid">
-                     <div class="product-image">
-                        <a href="#" class="image">
-                            <img class="pic-1" src="http://localhost/mintage-world/assets/img/img-4.jpg">
-                        </a>                            
-                    </div>
-                    <div class="product-content">
-                        <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
-                                of India</a></h2>
-                        <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                        <a href="#" class="add-to-cart">Add to Cart</a>
-                    </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-2 col-md-6 col-sm-12 mb-3">
-                     <div class="product-grid">
-                     <div class="product-image">
-                        <a href="#" class="image">
-                            <img class="pic-1" src="http://localhost/mintage-world/assets/img/img-4.jpg">
-                        </a>                            
-                    </div>
-                    <div class="product-content">
-                        <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
-                                of India</a></h2>
-                        <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                        <a href="#" class="add-to-cart">Add to Cart</a>
-                    </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-2 col-md-6 col-sm-12 mb-3">
-                     <div class="product-grid">
-                     <div class="product-image">
-                        <a href="#" class="image">
-                            <img class="pic-1" src="http://localhost/mintage-world/assets/img/img-4.jpg">
-                        </a>                            
-                    </div>
-                    <div class="product-content">
-                        <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
-                                of India</a></h2>
-                        <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                        <a href="#" class="add-to-cart">Add to Cart</a>
-                    </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-2 col-md-6 col-sm-12 mb-3">
-                     <div class="product-grid">
-                     <div class="product-image">
-                        <a href="#" class="image">
-                            <img class="pic-1" src="http://localhost/mintage-world/assets/img/img-4.jpg">
-                        </a>                            
-                    </div>
-                    <div class="product-content">
-                        <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
-                                of India</a></h2>
-                        <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                        <a href="#" class="add-to-cart">Add to Cart</a>
-                    </div>
-                     </div>
-                  </div>
-                  <div class="col-lg-2 col-md-6 col-sm-12 mb-3">
-                     <div class="product-grid">
-                     <div class="product-image">
-                        <a href="#" class="image">
-                            <img class="pic-1" src="http://localhost/mintage-world/assets/img/img-4.jpg">
-                        </a>                            
-                    </div>
-                    <div class="product-content">
-                        <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
-                                of India</a></h2>
-                        <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                        <a href="#" class="add-to-cart">Add to Cart</a>
-                    </div>
-                     </div>
-                  </div>
+                  
+                  @endforeach
                </div>
             </div>
          </div>

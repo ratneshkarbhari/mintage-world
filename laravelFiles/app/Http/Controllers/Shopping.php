@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Country;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
@@ -19,7 +20,7 @@ class Shopping extends Controller
 
     private function fetch_random_products($catIds){
 
-        return json_decode(json_encode(DB::table('ultra_products')->where('category', $catIds)->where("status","Active")->where("instock","!=",NULL)->inRandomOrder()->limit(7)->get()),TRUE);
+        return json_decode(json_encode(DB::table('ultra_products')->where('category', $catIds)->where("status","Active")->where("instock",">",0)->where("instock","!=",NULL)->inRandomOrder()->limit(7)->get()),TRUE);
 
 
     }
@@ -47,12 +48,14 @@ class Shopping extends Controller
 
         $categorySlugParts = explode("-",$categorySlug);
 
-        $categoryProducts = Product::where("category",$categorySlugParts[0])->get();
+        $categoryProducts = Product::where("category",$categorySlugParts[0])->with("product_category")->with("product_images")->get();
 
-        print_r($categoryProducts); exit;
-
+        
         $this->page_loader("shop_list", [
-            "title" => "Buy Amazing Old World Currency Notes Online | Mintage World"
+            "title" => "Buy Amazing Old World Currency Notes Online | Mintage World",
+            "category" => ProductCategory::find($categorySlugParts[0]),
+            "category_products" => $categoryProducts,
+            "product_count" => count($categoryProducts)
         ]);
     }
     function view_product($productSlug)
@@ -61,11 +64,7 @@ class Shopping extends Controller
 
         $slugParts = explode("-",$productSlug);
 
-        $product = Product::where("id",$slugParts[0])->with("product_category")->with("product_images")->first();
-
-
-
-        // print_r($product["product_category"]); exit;
+        $product = Product::where("id",$slugParts[0])->with("product_category")->with("product_images")->with("product_ratings")->first();
 
         $this->page_loader("view_product", [
             "title" => "Buy ".$product["name1"]." Online",

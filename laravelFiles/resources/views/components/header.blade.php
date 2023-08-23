@@ -70,14 +70,14 @@
                 </div>
                 <div class="col-xl-7 col-lg-7  text-end ">
                     <div class="h-100 d-inline-flex align-items-center  me-2">
-                        <a href="{{url("list-of-cart/")}}">
+                        <a href="{{url("cart")}}">
                             <small class="fa fa-shopping-cart text-primary me-2"></small>
                             <small>Shopping Cart</small>
                         </a>
                     </div>
                     <div class="h-100 d-inline-flex align-items-center  me-md-2 me-3">                       
                         @if(session('type')=="member")
-                        <a href="{{url("member/dashboard/")}}"  class="me-2">
+                        <a href="{{url("member/dashboard")}}"  class="me-2">
                             <small class="fas fa-user-cog text-primary me-2"></small>
                             <small>My Account</small>
                         </a>
@@ -90,7 +90,7 @@
                             <small class="fa fa-sign-in-alt text-primary me-2"></small>
                             <small>Sign in</small>
                         </a>
-                        <a href="{{url("member/")}}"> 
+                        <a href="{{url("member")}}"> 
                             <small class="fas fa-user-plus text-primary me-2"></small>
                             <small>Sign up</small>
                         </a>
@@ -125,7 +125,7 @@
         <!-- Navbar Start -->
         <nav
             class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-primary sticky-top py-0 px-lg-2 px-lg-5">
-            <a href="{{url("/")}}" class="navbar-brand d-flex align-items-center main-logo">
+            <a href="{{url("")}}" class="navbar-brand d-flex align-items-center main-logo">
                 <img src="{{url("assets/img/logo.png")}}" alt="" class="img-fluid">
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
@@ -134,9 +134,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="/" class="nav-item nav-link active">Home</a>
+                    <a href="{{url("")}}" class="nav-item nav-link active">Home</a>
                     <div class="nav-item dropdown">
-                        <a href="{{url('shop/')}}" class="nav-link dropdown-toggle">Shopping </a>
+                        <a href="{{url('shop')}}" class="nav-link dropdown-toggle">Shopping </a>
                         <div class="dropdown-menu fade-up m-0 mega-menu">
                             <div class="container">
                                 <div class="row">
@@ -200,11 +200,11 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Events</a>
                         <div class="dropdown-menu fade-up m-0">
-                            <a href="{{url("event/")}}" class="dropdown-item">Fairs and Exhibitions</a>
+                            <a href="{{url("event")}}" class="dropdown-item">Fairs and Exhibitions</a>
                         </div>
                     </div>
-                    <a href="{{url("media/")}}" class="nav-item nav-link">News</a> 
-                    <a href="{{url("media-coverage/")}}" class="nav-item nav-link">Media</a> 
+                    <a href="{{url("media")}}" class="nav-item nav-link">News</a> 
+                    <a href="{{url("media-coverage")}}" class="nav-item nav-link">Media</a> 
                     <a href="https://www.mintageworld.com/blog/" target="_blank" class="nav-item nav-link">Blog</a>
                 </div>
                 <div class="m-0   d-none d-lg-block search-box">
@@ -217,8 +217,8 @@
         <div class="stellarnav">
             <span class="close-bg"><a href="javascript:void(0)" class="close-menu third">&nbsp;</a></span>
             <ul style="display: block !important;">
-                <li><a href="{{url("/")}}">Home</a></li>
-                <li><a href="{{url("shop/")}}">Shopping</a>
+                <li><a href="{{url("")}}">Home</a></li>
+                <li><a href="{{url("shop")}}">Shopping</a>
                     <ul>
                         <li><a href="#">Premium Products</a>
                             <ul>
@@ -327,15 +327,15 @@
                 <li><a href="{{url("history")}}">History</a></li>
                 <li class="drop-left"><a href="#">Events</a>
                     <ul>
-                        <li><a href="{{url("event/")}}">Fairs and Exhibitions</a></li>
+                        <li><a href="{{url("event")}}">Fairs and Exhibitions</a></li>
                         {{-- <li><a href="#">Key Events (Coming Soon)</a></li> --}}
                     </ul>
                 </li>
-                <li><a href="{{url("media/")}}">News</a></li>
-                <li><a href="{{url("media-coverage/")}}">Media</a></li>
-                <li><a href="{{url("knowledge-base/")}}">Knowledge Base</a></li>
-                <li><a href="{{url("content/about-us/")}}">About Us</a></li>
-                <li><a href="{{url("contact/")}}">Contact Us</a></li>
+                <li><a href="{{url("media")}}">News</a></li>
+                <li><a href="{{url("media-coverage")}}">Media</a></li>
+                <li><a href="{{url("knowledge-base")}}">Knowledge Base</a></li>
+                <li><a href="{{url("content/about-us")}}">About Us</a></li>
+                <li><a href="{{url("contact")}}">Contact Us</a></li>
                 <li class="text-left mt-2">
                     <div class="h-100 d-inline-flex align-items-center ms-3">
                         <a class="btn btn-sm-square bg-white text-primary me-1 p-1" href="https://www.youtube.com/channel/UCMx9KlQd0kYSU0UE0T9H5YQ" target="_blank">

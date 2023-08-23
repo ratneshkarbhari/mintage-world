@@ -15,7 +15,7 @@ class ProductRating extends Model
      */
     protected $protected = [];
 
-    protected $table = "tbl_products_ratings";
+    protected $table = "products_ratings";
 
 
     protected $primaryKey = "id";

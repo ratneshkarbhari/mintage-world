@@ -15,7 +15,7 @@ class ProductCategory extends Model
      */
     protected $protected = [];
 
-    protected $table = "ultra_category";
+    protected $table = "shopping_category";
 
 
     protected $primaryKey = "id";

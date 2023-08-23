@@ -19,7 +19,7 @@ class Product extends Model
      */
     protected $protected = [];
 
-    protected $table = "ultra_products";
+    protected $table = "products";
 
 
     protected $primaryKey = "id";

@@ -20,7 +20,7 @@ class Shopping extends Controller
 
     private function fetch_random_products($catIds){
 
-        return json_decode(json_encode(DB::table('ultra_products')->where('category', $catIds)->where("status","Active")->where("instock",">",0)->where("instock","!=",NULL)->inRandomOrder()->limit(7)->get()),TRUE);
+        return json_decode(json_encode(DB::table('products')->where('category', $catIds)->where("status","Active")->where("instock",">",0)->where("instock","!=",NULL)->inRandomOrder()->limit(7)->get()),TRUE);
 
 
     }

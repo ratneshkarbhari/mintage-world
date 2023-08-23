@@ -21,7 +21,7 @@
                 <h2 class="mb-3 heading-1">Fairs and Exhibitions</h2>
             </div>
            <div class="row">
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3">                
+            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
                 <div class="festival-content">
                     <h3>TAIPEI 2023</h3>
                     <div class="fest-content">
@@ -34,13 +34,13 @@
                             <span>Taiwan</span>
                         </p>
                         <p class="maps-festival">
-                            
+                            <i class="fas fa-bullseye"></i>
                             <span>Taiwan</span>
                         </p>
                     </div> 
                 </div>
             </div>   
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3">                
+            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
                 <div class="festival-content">
                     <h3>15TH NATIONAL NUMISMATIC EXHIBITION
                     </h3>
@@ -62,7 +62,7 @@
                     </div> 
                 </div>
             </div>  
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3">                
+            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
                 <div class="festival-content">
                     <h3>MUDRA UTSAV 2023
                     </h3>
@@ -85,7 +85,7 @@
                     </div> 
                 </div>
             </div>  
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3">                
+            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
                 <div class="festival-content">
                     <h3>TAIPEI 2023</h3>
                     <div class="fest-content">
@@ -104,7 +104,7 @@
                     </div> 
                 </div>
             </div>  
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3">                
+            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
                 <div class="festival-content">
                     <h3>TAIPEI 2023</h3>
                     <div class="fest-content">
@@ -123,7 +123,7 @@
                     </div> 
                 </div>
             </div>  
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3">                
+            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
                 <div class="festival-content">
                     <h3>TAIPEI 2023</h3>
                     <div class="fest-content">
@@ -142,7 +142,7 @@
                     </div> 
                 </div>
             </div>  
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3">                
+            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
                 <div class="festival-content">
                     <h3>TAIPEI 2023</h3>
                     <div class="fest-content">
@@ -161,7 +161,7 @@
                     </div> 
                 </div>
             </div>  
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3">                
+            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
                 <div class="festival-content">
                     <h3>TAIPEI 2023</h3>
                     <div class="fest-content">

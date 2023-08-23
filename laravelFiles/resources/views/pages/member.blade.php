@@ -18,7 +18,7 @@
 
     <section class="common-padding coing-list-wraper ">
         <div class="container-fluid  px-lg-2 px-lg-5">
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-center">
                 <h2 class="mb-3 heading-1">New Member Registration</h2>
             </div>
             <div class="row login-form-content text-start">

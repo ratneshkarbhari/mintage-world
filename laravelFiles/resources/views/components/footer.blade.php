@@ -23,29 +23,24 @@
                 <div class="col">
                     <h4 class="text-light mb-4">Quick Links</h4>
                     <a class="btn btn-link" href="{{url("/")}}">Home</a>
+                    <a class="btn btn-link" href="{{url("content/about-us/")}}">About Us</a>
+                    <a class="btn btn-link" href="{{url("media/")}}">News</a>
+                    <a class="btn btn-link" href="https://www.mintageworld.com/blog/" target="_blank">Blogs</a>
+                    <a class="btn btn-link" href="{{url("contact")}}">Contact Us</a>
+
+                    
+                </div>
+                <div class="col">
+                    <h4 class="text-light mb-4 d-md-block">&nbsp;</h4>
+                    {{-- <a class="btn btn-link" href="{{url("history")}}">My Collection</a> --}}
                     <a class="btn btn-link" href="{{url("coins")}}">Coins</a>
                     <a class="btn btn-link" href="{{url("notes")}}">Notes</a>
                     <a class="btn btn-link" href="{{url("stamp")}}">Stamps</a>
                     <a class="btn btn-link" href="{{url("history")}}">History</a>
                     <a class="btn btn-link" href="{{url("event/")}}">Fairs and Exhibitions</a>
-                </div>
-                <div class="col">
-                    <h4 class="text-light mb-4 d-md-block">&nbsp;</h4>
-                    <a class="btn btn-link" href="{{url("media/")}}">News</a>
-                    <a class="btn btn-link" href="https://www.mintageworld.com/blog/" target="_blank">Blogs</a>
-                    <a class="btn btn-link" href="{{url("history")}}">My Collection</a>
-                    <a class="btn btn-link" href="{{url("content/about-us/")}}">About Us</a>
-                    <a class="btn btn-link" href="{{url("contact")}}">Contact Us</a>
+                    
 
-                </div>
-                <div class="col">
-                    <h4 class="text-light mb-4 d-none d-md-block">&nbsp;</h4>
-                    <a class="btn btn-link" href="{{url("content/disclaimer/")}}">Disclaimer</a>
-                    <a class="btn btn-link" href="{{url("content/privacy/")}}">Privacy Policy</a>
-                    <a class="btn btn-link" href="{{url("content/term/")}}">Terms of Use</a>
-                    <a class="btn btn-link" href="{{url("content/return/")}}">Return Policy</a>
-                    <a class="btn btn-link" href="{{url("content/sitemap/")}}">Sitemap</a>
-                </div>
+                </div>              
                 <div class="col">
                     <h4 class="text-light mb-4 d-none d-md-block">&nbsp;</h4>
                     <a class="btn btn-link" href="{{url("content/career/")}}">Career</a>
@@ -53,6 +48,16 @@
                     <a class="btn btn-link" href="{{url("content/photopro/")}}">PhotoPro</a>
                     <a class="btn btn-link" href="{{url("videos/")}}">Event Videos</a> 
                     <a class="btn btn-link" href="{{url("content/courtesy/")}}">Courtesy</a> 
+                    
+                </div>
+                <div class="col">
+                    <h4 class="text-light mb-4 d-none d-md-block">&nbsp;</h4>
+                    <a class="btn btn-link" href="{{url("knowledge-base/")}}">Knowledge Base</a> 
+                    <a class="btn btn-link" href="{{url("content/disclaimer/")}}">Disclaimer</a>
+                    <a class="btn btn-link" href="{{url("content/privacy/")}}">Privacy Policy</a>
+                    <a class="btn btn-link" href="{{url("content/term/")}}">Terms of Use</a>
+                    <a class="btn btn-link" href="{{url("content/return/")}}">Return Policy</a>
+                    <a class="btn btn-link" href="{{url("content/sitemap/")}}">Sitemap</a>
                 </div>
             </div>
             <div class="row">

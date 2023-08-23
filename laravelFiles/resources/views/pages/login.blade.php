@@ -16,8 +16,8 @@
 
 
     <section class="common-padding coing-list-wraper">
-        <div class="container-fluid  px-lg-2 px-lg-5">
-            <div class="d-flex justify-content-between">
+        <div class="container-fluid  px-lg-2 px-lg-5 text-center">
+            <div class="d-flex justify-content-center">
                 <h2 class="mb-3 heading-1">Sign In</h2>
             </div>
             <div class="login-form-content ">

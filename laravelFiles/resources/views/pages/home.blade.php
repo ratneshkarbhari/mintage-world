@@ -33,7 +33,7 @@
 
 
 <!-- About Start -->
-<section class="about-wraper overflow-hidden common-padding">
+{{-- <section class="about-wraper overflow-hidden common-padding">
     <div class="container-fluid about px-lg-2 px-lg-5">
         <div class="row mx-lg-0">
             <div class="col-lg-6 ps-lg-0 wow fadeInLeft about-img" data-wow-delay="0.1s">
@@ -68,7 +68,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- About End -->
 <section class="common-padding product-wraper bg-light-wraper">
     <div class="container-fluid overflow-hidden px-lg-2 px-lg-5">
@@ -682,113 +682,32 @@
 
 <!-- Service Start -->
 <section class="common-padding service-wraper">
-    <div class="container-fluid service  px-lg-2 px-lg-5">
-        <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="text-secondary text-uppercase mb-3">India | World</h6>
-            <h2 class="mb-4 heading-1">Information </h2>
-        </div>
-        <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="col-lg-3 col-md-4">
+    <div class="container-fluid service  px-lg-2 px-lg-5">       
+        <div class="row">           
+            <div class="col-lg-4 col-md-4">
+                <div class="wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="text-secondary text-uppercase mb-3">India | World</h6>
+                    <h2 class="mb-4 heading-1">Information </h2>
+                </div>
                 <div class="nav w-100 nav-pills me-4">
-                    <button class="nav-link w-100 d-flex align-items-center text-start active" data-bs-toggle="pill"
-                        data-bs-target="#tab-pane-1" type="button">
-                        <i class="fa fa-coins fa-2x me-3"></i>
+                    <a class="nav-link w-100 d-flex align-items-center text-start" href="{{url("coin/")}}"> 
                         <h4 class="m-0">Coins</h4>
-                    </button>
-                    <button class="nav-link w-100 d-flex align-items-center text-start" data-bs-toggle="pill"
-                        data-bs-target="#tab-pane-2" type="button">
-                        <i class="fa fa-money-bill fa-2x me-3"></i>
+                    </a>
+                    <a class="nav-link w-100 d-flex align-items-center text-start" href="{{url("notes/")}}"> 
                         <h4 class="m-0">Notes</h4>
-                    </button>
-                    <button class="nav-link w-100 d-flex align-items-center text-start mb-0" data-bs-toggle="pill"
-                        data-bs-target="#tab-pane-3" type="button">
-                        <i class="fa fa-ticket-alt fa-2x me-3"></i>
+                    </a>
+                    <a class="nav-link w-100 d-flex align-items-center text-start mb-0" href="{{url("notes/")}}"> 
                         <h4 class="m-0">Stamps</h4>
-                    </button>
+                    </a>
                 </div>
             </div>
-            <div class="col-lg-9 col-md-8">
-                <div class="tab-content w-100">
-                    <div class="tab-pane fade show active" id="tab-pane-1">
-                        <div class="row g-4">
-                            <div class="col-md-6 info-img">
-                                <div class="position-relative h-100">
-                                    <img class="position-absolute img-fluid w-100 h-100" src="{{url("assets/img/service-1.jpg")}}"
-                                        style="object-fit: cover;" alt="">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <h3 class="mb-3">Biggest Online Encyclopaedia on Coins of the World</h3>
-                                <p class="mb-4">This is a real eye-candy for all those lovers of world coins out
-                                    there! What more could you ask for? A well-categorised database of coins from
-                                    around the world with detailed descriptions and history is all that you need!
-                                    For someone who is researching about rare world coins, this online portal gives
-                                    you easy and simple access to all the information you need with just a few
-                                    clicks.</p>
-                                <a href="#" class="btn btn-explore">Explore More
-                                    <span class="first"></span>
-                                    <span class="second"></span>
-                                    <span class="third"></span>
-                                    <span class="fourth"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="tab-pane-2">
-                        <div class="row g-4">
-                            <div class="col-md-6 info-img">
-                                <div class="position-relative h-100">
-                                    <img class="position-absolute img-fluid w-100 h-100" src="{{url("assets/img/service-2.jpg")}}"
-                                        style="object-fit: cover;" alt="">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <h3 class="mb-3">Different Currencies of the World Countries</h3>
-                                <p class="mb-4">Mintage World is a unique online portal where you can access
-                                    information about world currency in a very systematic manner. Different
-                                    currencies of the world are classified on the website based on country name at
-                                    the first level. World banknotes are further classified based on various time
-                                    periods and governing bodies. You won't find many websites where you can deeply
-                                    research about rare banknotes of the world, category-wise. </p>
-                                <a href="#" class="btn btn-explore">Explore More
-                                    <span class="first"></span>
-                                    <span class="second"></span>
-                                    <span class="third"></span>
-                                    <span class="fourth"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="tab-pane-3">
-                        <div class="row g-4">
-                            <div class="col-md-6 info-img">
-                                <div class="position-relative h-100">
-                                    <img class="position-absolute img-fluid w-100 h-100" src="{{url("assets/img/service-3.jpg")}}"
-                                        style="object-fit: cover;" alt="">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <h3 class="mb-3">Stamps of India</h3>
-                                <p class="mb-4">The history of stamps of India begins with the Scinde Dawk, which is
-                                    the oldest in Asia. India has issued a variety of stamps covering many themes.
-                                    Stamps arose as a necessity for the sustenance of the postal service. As the
-                                    postage was originally paid by the receiver, there was no guarantee that the
-                                    addressee would accept the parcel. A stamp acts as a receipt of pre-payment to
-                                    the postal service.</p>
-                                <a href="#" class="btn btn-explore">Explore More
-                                    <span class="first"></span>
-                                    <span class="second"></span>
-                                    <span class="third"></span>
-                                    <span class="fourth"></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
+            <div class="col-lg-4 col-md-4">
+                <div class="wow fadeInUp" data-wow-delay="0.1s">
+                    <h6 class="text-secondary text-uppercase mb-3">India | World</h6>`
+                    <h2 class="mb-4 heading-1">News </h2>
                 </div>
-            </div>
+            </div>            
         </div>
-
     </div>
 </section>
 <!-- Service End -->

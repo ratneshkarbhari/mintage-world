@@ -149,7 +149,10 @@ p {
   bottom: 15px;
   left: 0;
 }
-
+.justify-content-center .heading-1::before, .justify-content-center .heading-1::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
 .heading-2 {
   font-size: 22px !important;
   border-bottom: solid 1px #933232;
@@ -1650,6 +1653,7 @@ ul.sticky-footer-ul li a:hover {
   display: flex;
   border: solid 1px #cfcfcf;
   overflow: hidden;
+  margin: 0px auto;
 }
 .login-form-content .company__info{
     background-color: #e19726; 
@@ -2779,6 +2783,55 @@ padding: 20px 15px 0;
 .google-map {
   width: 100%;
   min-height: 400px;
+}
+
+.career-listing.service-wraper .nav-pills .nav-link {
+  font-size: 14px;
+}
+
+.career-listing.service-wraper .nav-pills .nav-link h4 {
+  font-size: 18px;
+}
+
+.career-listing .tab-content h1 {
+  font-size: 20px;
+  color: #e19726;
+}
+
+.career-listing .tab-content .job-exp {
+  font-size: 14px;
+  display: block;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: solid 1px #933232;
+  color: #4e4e4e;
+}
+
+.career-listing .tab-content h5 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.career-listing .tab-content ul {
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.career-apply {
+  padding: 20px;
+  font-size: 18px;
+  background: #dbdbdb;
+  border-left: 5px solid #ab6802;
+  margin: 0px;
+}
+.back-to-top {
+  background: #ab6802;
+  border: solid 1px #744701;
+}
+.back-to-top:hover{
+  background: #ab6802;
+  border: solid 1px #744701;
 }
 
 /* --------Responsive Media Css Start------------- */

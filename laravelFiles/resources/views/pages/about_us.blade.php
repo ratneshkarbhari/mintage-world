@@ -19,8 +19,8 @@
         <div class="container-fluid about px-lg-2 px-lg-5">
             <div class="row mx-lg-0">
                 <div class="col-lg-4 ps-lg-0 wow fadeInLeft about-img" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInLeft;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="https://www.mintageworld.com/img/advertise1.png" style="object-fit: cover;" alt="">
+                    <div class="position-relative">
+                        <img class="img-fluid w-100 border rounded" src="https://www.mintageworld.com/img/advertise1.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-8 about-text wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">

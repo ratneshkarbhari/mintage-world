@@ -309,7 +309,7 @@
 
                     @if($product["instock"]>0)
 
-                    <button class="btn btn-sm btn-explore"><i class="fa fa-shopping-cart"></i> ADD TO CART 
+                    <button id="addToCart" class="btn btn-sm btn-explore"><i class="fa fa-shopping-cart"></i> ADD TO CART 
                         <span class="first"></span>
                         <span class="second"></span>
                         <span class="third"></span>
@@ -393,3 +393,21 @@
     </section>
 
 </main>
+<script>
+
+    $("button#addToCart").click(function (e) { 
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "url",
+            data: {
+                "pid" : {{$product["id"]}},
+                "quantity" : {{}}
+            },
+            success: function (response) {
+                
+            }
+        });
+    });
+
+</script>

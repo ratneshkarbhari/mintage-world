@@ -15,7 +15,7 @@ class ProductImage extends Model
      */
     protected $protected = [];
 
-    protected $table = "ultra_product_image";
+    protected $table = "product_image";
 
 
     protected $primaryKey = "id";

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Cart;
 use App\Http\Controllers\Coins;
 use App\Http\Controllers\Notes;
 use App\Http\Controllers\Utils;
@@ -8,10 +7,12 @@ use App\Http\Controllers\Stamps;
 use App\Http\Controllers\Shopping;
 use App\Http\Controllers\Histories;
 use App\Http\Controllers\PageLoader;
+use App\Http\Controllers\CartActions;
 use App\Http\Controllers\StaticPages;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfoComments;
 use App\Http\Controllers\Authentication;
+use App\Http\Controllers\CartActionsActions;
 
 
 /*
@@ -67,10 +68,10 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get("note/detail/{noteId}", [Notes::class, 'note_detail']);
 
 
-    // cart & checkout routes
-    Route::get('list-of-cart', [Cart::class, 'list_of_cart']);
-    Route::get('/checkout', [Cart::class, 'checkout']);
-    Route::get('payment', [Cart::class, 'payment']);
+    // CartActions & checkout routes
+    Route::get('cart', [CartActions::class, 'cart_page']);
+    Route::get('/checkout', [CartActions::class, 'checkout']);
+    Route::get('payment', [CartActions::class, 'payment']);
 
 
     // Stamp info routes Routes
@@ -103,7 +104,7 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get('member/change-password/', [StaticPages::class, 'change_password']);
     Route::get('member/myorders/', [StaticPages::class, 'myorders']);
     Route::get('event/', [StaticPages::class, 'event']);
-    Route::get('media/', [StaticPages::class, 'media']);
+    Route::get('media/', [StaticPages::class, 'media_list']);
     Route::get('media/detail', [StaticPages::class, 'media_detail']);
     Route::get('media-coverage/', [StaticPages::class, 'media_coverage']);
 
@@ -145,3 +146,6 @@ Route::get("stamp/list/{dynastyId}", [Stamps::class, 'stamp_list']);
 // admin routes
 Route::get("admin/dashboard", [PageLoader::class, 'dashboard']);
 Route::get("admin/manage-products", [PageLoader::class, 'manage_products']);
+
+
+// MEdia routes

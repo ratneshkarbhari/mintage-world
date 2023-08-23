@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
+use App\Models\Media;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -135,10 +136,12 @@ class StaticPages extends Controller
             "title" => "event | Mintage World"
         ]);
     }
-    function media()
+    function media_list()
     {
+        
         $this->page_loader("media", [
-            "title" => "News | Mintage World"
+            "title" => "News | Mintage World",
+            "media_entries" => Media::where("status","1")->orderBy("id","desc")->paginate(12)
         ]);
     }
     function media_detail()

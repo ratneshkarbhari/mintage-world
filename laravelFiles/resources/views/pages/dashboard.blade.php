@@ -117,7 +117,7 @@
                           </div>
                        </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 d-none" id="udate-profile-btn">
                         <button type="button" class="btn btn-sm btn-explore"> 
                             Update Profile
                             <span class="first"></span>

@@ -304,17 +304,26 @@
         
                     @endif
 
-                    <div class="product-btn-group">
-                        <hr>
+                    <div class="product-btn-group"> 
+                       
+                      
 
                     @if($product["instock"]>0)
-
+                    <div class="d-flex">
+                    <div class="product-count me-3 m-0">
+                        <div action="#" class="d-flex">
+                            <div class="qtyminus">-</div>
+                            <input type="text" name="quantity" value="1" class="qty" min="1" max="5">
+                            <div class="qtyplus">+</div>
+                        </div>
+                    </div>     
                     <button id="addToCart" class="btn btn-sm btn-explore"><i class="fa fa-shopping-cart"></i> ADD TO CART 
                         <span class="first"></span>
                         <span class="second"></span>
                         <span class="third"></span>
                         <span class="fourth"></span>
-                    </button> 
+                    </button>
+                </div> 
                     @endif
 
                     @if($product["instock"]<1)

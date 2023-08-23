@@ -8,7 +8,7 @@
             <div class="d-flex justify-content-between"><h2 class="mb-3 heading-1">{{$info_title}}</h2></div>
             <div class="row info-item-grid-row">
                 @foreach($countries as $country)
-                <div class="col-lg-2 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="{{"coin/".$country["id"]."-".Str::slug(strtolower($country["name"]))}}">
+                <div class="col-lg-2 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="{{url("coin/".$country["id"]."-".Str::slug(strtolower($country["name"])))}}">
                     <div class="info-item-grid-box min-h-0">
                         @if($country["flag"]!="")
                         <img class="img-fluid" src="{{getenv("COUNTRY_FLAG_IMAGE_BASE_URL")."/".$country["flag"]}}" alt="{{$country["name"]}}">

@@ -89,7 +89,7 @@
                         Read more about Janapada history at Mintage World.</p>
 
                   @if(session()->has('type'))
-                  <a class="btn btn-sm btn-explore" href="{{url("login?return=history&id=".$history["id"])}}"> 
+                  <a class="btn btn-sm btn-explore" href="{{url("upgrade-membership")}}"> 
                      <i class="fa fa-download"></i> Click here to download the complete history</a>
                      <span class="first"></span>
                      <span class="second"></span>
@@ -140,7 +140,7 @@
 
         let historyId = $("select#historyn").val();
 
-        window.location.replace("http://localhost/mintage-world/history/detail/"+historyId);
+        window.location.replace("http://localhost/mintageworld/history/detail/"+historyId);
 
     });
 

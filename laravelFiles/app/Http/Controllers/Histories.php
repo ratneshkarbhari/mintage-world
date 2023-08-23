@@ -42,6 +42,8 @@ class Histories extends Controller
     function history_detail($historySlug)
     {
 
+
+
         $historySlugParts = explode("-",$historySlug);
 
         

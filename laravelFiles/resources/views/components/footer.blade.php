@@ -33,10 +33,10 @@
                 <div class="col">
                     <h4 class="text-light mb-4 d-md-block">&nbsp;</h4>
                     {{-- <a class="btn btn-link" href="{{url("history")}}">My Collection</a> --}}
-                    <a class="btn btn-link" href="{{url("coins")}}">Coins</a>
-                    <a class="btn btn-link" href="{{url("notes")}}">Notes</a>
-                    <a class="btn btn-link" href="{{url("stamp")}}">Stamps</a>
-                    <a class="btn btn-link" href="{{url("history")}}">History</a>
+                    <a class="btn btn-link" href="{{url("coins/")}}">Coins</a>
+                    <a class="btn btn-link" href="{{url("notes/")}}">Notes</a>
+                    <a class="btn btn-link" href="{{url("stamp/")}}">Stamps</a>
+                    <a class="btn btn-link" href="{{url("history/")}}">History</a>
                     <a class="btn btn-link" href="{{url("event/")}}">Fairs and Exhibitions</a>
                     
 

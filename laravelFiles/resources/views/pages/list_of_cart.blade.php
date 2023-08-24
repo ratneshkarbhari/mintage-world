@@ -1,3 +1,8 @@
+<?php
+
+use App\Models\Product;
+?>
+
 <main class="page-content">
     <section class="inside-banner"><img class="w-100 img-fluid" src="{{url("assets/images/inside-banner/default-banner.jpg")}}" /></section>
 
@@ -30,12 +35,14 @@
 
                         @foreach ($cart_items as $cart_item)
                         @php
-                        $imgParts = explode("/",$random_coin["img"]);
+                        $imgParts = explode("/",Product::find($cart_item["product_id"])["img"]);
+
+
                         @endphp
                         <div class="shopping-cart-wrap">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <a href=""><img src="{{getenv("PRODUCT_IMAGE_BASE_URL").$imgParts[2]}} MINMALA00029-malaysia-note.jpg" class="img-fluid cart-img" alt=""></a>
+                                    <a href=""><img src="{{getenv("PRODUCT_IMAGE_BASE_URL").$imgParts[2]}}" class="img-fluid cart-img" alt=""></a>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="shopping-cart-title">
@@ -43,7 +50,7 @@
                                         <div class="product-count">
                                             <div action="#" class="d-flex">
                                                 <div class="qtyminus">-</div>
-                                                <input type="text" name="quantity" value="1" class="qty">
+                                                <input type="text" name="quantity" value="{{$cart_item["quantity"]}}" class="qty">
                                                 <div class="qtyplus">+</div>
                                             </div>
                                         </div>

@@ -12,7 +12,6 @@ use App\Http\Controllers\StaticPages;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfoComments;
 use App\Http\Controllers\Authentication;
-use App\Http\Controllers\CartActionsActions;
 
 
 /*
@@ -74,6 +73,7 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get('payment', [CartActions::class, 'payment']);
 
 
+
     // Stamp info routes Routes
     Route::get("stamp", [Stamps::class, 'stamp_periods']);
     Route::get("stamp/dynasty/{periodId}", [Stamps::class, 'stamp_types']);
@@ -126,7 +126,6 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::post("admin-login-exe", [Authentication::class, 'admin_login']);
 
     // Info comments
-    Route::post("create-info-comment", [InfoComments::class, 'create_exe']);
 
 
     // Admin Section
@@ -148,4 +147,8 @@ Route::get("admin/dashboard", [PageLoader::class, 'dashboard']);
 Route::get("admin/manage-products", [PageLoader::class, 'manage_products']);
 
 
-// MEdia routes
+Route::post("create-info-comment", [InfoComments::class, 'create_exe']);
+
+// Checkout
+Route::post('atc-exe', [CartActions::class, 'add_to_cart_exe']);
+

@@ -309,20 +309,23 @@
                       
 
                     @if($product["instock"]>0)
+                    <form action="{{url('add-to-cart')}}" id="addToCartForm" method="POST">
+                    @csrf
                     <div class="d-flex">
                     <div class="product-count me-3 m-0">
                         <div action="#" class="d-flex">
                             <div class="qtyminus">-</div>
-                            <input type="text" name="quantity" value="1" class="qty" min="1" max="5">
+                            <input type="text" name="quantity" id="productQty" value="1" class="qty" min="1" max="5">
                             <div class="qtyplus">+</div>
                         </div>
                     </div>     
-                    <button id="addToCart" class="btn btn-sm btn-explore"><i class="fa fa-shopping-cart"></i> ADD TO CART 
+                    <button id="addToCart" type="submit" class="btn btn-sm btn-explore"><i class="fa fa-shopping-cart"></i> ADD TO CART 
                         <span class="first"></span>
                         <span class="second"></span>
                         <span class="third"></span>
                         <span class="fourth"></span>
                     </button>
+                    </form>
                 </div> 
                     @endif
 
@@ -406,17 +409,22 @@
 
     $("button#addToCart").click(function (e) { 
         e.preventDefault();
+    
         $.ajax({
             type: "POST",
-            url: "url",
+            url: "{{url('atc-exe')}}",
             data: {
+                "_token" : "{{ csrf_token() }}",
                 "pid" : {{$product["id"]}},
-                "quantity" : {{}}
+                "quantity" : $("input#productQty").val()
             },
             success: function (response) {
-                
+                console.log(response)
             }
         });
+        
     });
+
+
 
 </script>

@@ -2894,6 +2894,28 @@ padding: 20px 15px 0;
  box-shadow: inset 0 0 0 0.2em white, inset 0 0 0 1em #4CAF50;
 }
 
+#liveToast {
+  position: relative;
+}
+
+.toast-timeline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.2rem;
+  background-color: black;
+  transform-origin: left;
+}
+
+@keyframes countdown {
+  to {
+    transform: scaleX(0);
+  }
+}
+
+.animate { animation: countdown 5s linear forwards; }
+
 
 /* --------Responsive Media Css Start------------- */
 

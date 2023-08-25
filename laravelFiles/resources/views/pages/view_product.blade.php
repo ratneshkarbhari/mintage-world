@@ -393,12 +393,26 @@
         </div>
     </section>
 
+   
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
+      <div id="liveToast" class="toast hide bg-success text-white" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-success text-white">         
+          <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
+          <small>Just Now</small>
+          {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
+        </div>
+        <div class="toast-body">
+          "Your Product" is added to cart.
+        </div>
+        <div class='toast-timeline animate'></div>
+      </div>
+    </div>
 </main>
 <script>
 
-    $("button#addToCart").click(function (e) { 
-        e.preventDefault();
-    
+    $("button#addToCart").click(function (e) {
+        e.preventDefault();    
         $.ajax({
             type: "POST",
             url: "{{url('atc-exe')}}",
@@ -408,12 +422,12 @@
                 "quantity" : $("input#productQty").val()
             },
             success: function (response) {
-                console.log(response)
+                $('.toast').toast('show');               
             }
         });
         
-    });
+    }); 
 
-
+ 
 
 </script>

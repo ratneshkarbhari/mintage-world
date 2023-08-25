@@ -271,7 +271,12 @@
   if (document.getElementById("InfoFilter")) {
     InfoFilter.addEventListener("click", Filter);
   }
-  CatClose.addEventListener("click", Filter);
+  if(CatClose){
+
+    CatClose.addEventListener("click", Filter);
+
+
+  }
 
   //  filter js End
 

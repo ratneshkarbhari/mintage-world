@@ -16,10 +16,10 @@ class CartActions extends Controller
         echo view("components.footer", $data);
     }
 
-    function add_to_cart(Request $request){
+    function add_to_cart_exe(Request $request){
 
 
-        if(Product::find($request->productId)["instock"]>=$request->quantity){
+        if(Product::find($request->pid)["instock"]>=$request->quantity){
 
             if(session("member_id")){
 
@@ -29,13 +29,31 @@ class CartActions extends Controller
     
                 $cartObj = session("cart");
     
-                $cartObj[$request->productId] = [
-                    "member_id" => "NA",
-                    "product_id" => $request->productId,
-                    "quantity" => $cartObj[$request->productId]["quantity"]+$request->quantity,
-                    "date_added" => date("d/m/y")
-                ];
-        
+
+                if(isset($cartObj[$request->pid]["quantity"])){
+
+                    $cartObj[$request->pid] = [
+                        "member_id" => "NA",
+                        "product_id" => $request->pid,
+                        "quantity" => $cartObj[$request->pid]["quantity"]+$request->quantity,
+                        "date_added" => date("d/m/y")
+                    ];
+            
+    
+
+                }else{
+
+                    $cartObj[$request->pid] = [
+                        "member_id" => "NA",
+                        "product_id" => $request->pid,
+                        "quantity" => $request->quantity,
+                        "date_added" => date("d/m/y")
+                    ];
+            
+    
+
+                }
+
                 session([
                     "cart" => $cartObj
                 ]);

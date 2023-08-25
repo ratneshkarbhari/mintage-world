@@ -298,16 +298,9 @@
                         </div>                        
                     </div>
                     <p> The value of Denomination is same as printed on the currency , additional cost is towards presentation and packaging.</p>
-
-
                     <h5>Note  : <span>10 RS</span></h5>
-        
                     @endif
-
                     <div class="product-btn-group"> 
-                       
-                      
-
                     @if($product["instock"]>0)
                     <div class="d-flex">
                     <div class="product-count me-3 m-0">
@@ -325,20 +318,16 @@
                     </button>
                 </div> 
                     @endif
-
                     @if($product["instock"]<1)
-
                     <button class="btn btn-lg  btn-success text-white rounded-pill"><i class="fa fa-bell"></i>  Notify me 
                         <span class="first"></span>
                         <span class="second"></span>
                         <span class="third"></span>
                         <span class="fourth"></span>
                     </button>
-                   
                     </div>
                     <div class="notify-me-wraper"> 
                         <hr>            
-                           
                         <input name="nemail" value="" id="nemail" size="100" placeholder="Please enter your email address to get notified" class="form-control" type="text">
                         <button class="btn btn-sm btn-explore mt-3"><i class="fa fa-thumbs-up"></i> Submit
                             <span class="first"></span>

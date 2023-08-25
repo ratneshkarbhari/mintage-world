@@ -274,4 +274,8 @@
   CatClose.addEventListener("click", Filter);
 
   //  filter js End
+
+  // edit profile js start
+  // let edit_profile = document.getElementById("edit_profile");
+  // edit_profile.addEventListener("click", editprofile);
 })(jQuery);

@@ -298,16 +298,9 @@
                         </div>                        
                     </div>
                     <p> The value of Denomination is same as printed on the currency , additional cost is towards presentation and packaging.</p>
-
-
                     <h5>Note  : <span>10 RS</span></h5>
-        
                     @endif
-
                     <div class="product-btn-group"> 
-                       
-                      
-
                     @if($product["instock"]>0)
                     <form action="{{url('add-to-cart')}}" id="addToCartForm" method="POST">
                     @csrf
@@ -328,20 +321,16 @@
                     </form>
                 </div> 
                     @endif
-
                     @if($product["instock"]<1)
-
                     <button class="btn btn-lg  btn-success text-white rounded-pill"><i class="fa fa-bell"></i>  Notify me 
                         <span class="first"></span>
                         <span class="second"></span>
                         <span class="third"></span>
                         <span class="fourth"></span>
                     </button>
-                   
                     </div>
                     <div class="notify-me-wraper"> 
                         <hr>            
-                           
                         <input name="nemail" value="" id="nemail" size="100" placeholder="Please enter your email address to get notified" class="form-control" type="text">
                         <button class="btn btn-sm btn-explore mt-3"><i class="fa fa-thumbs-up"></i> Submit
                             <span class="first"></span>
@@ -404,12 +393,26 @@
         </div>
     </section>
 
+   
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
+      <div id="liveToast" class="toast hide bg-success text-white" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-success text-white">         
+          <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
+          <small>Just Now</small>
+          {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
+        </div>
+        <div class="toast-body">
+          "Your Product" is added to cart.
+        </div>
+        <div class='toast-timeline animate'></div>
+      </div>
+    </div>
 </main>
 <script>
 
-    $("button#addToCart").click(function (e) { 
-        e.preventDefault();
-    
+    $("button#addToCart").click(function (e) {
+        e.preventDefault();    
         $.ajax({
             type: "POST",
             url: "{{url('atc-exe')}}",
@@ -419,12 +422,12 @@
                 "quantity" : $("input#productQty").val()
             },
             success: function (response) {
-                console.log(response)
+                $('.toast').toast('show');               
             }
         });
         
-    });
+    }); 
 
-
+ 
 
 </script>

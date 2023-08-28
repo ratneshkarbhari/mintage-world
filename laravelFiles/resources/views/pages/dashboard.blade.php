@@ -27,7 +27,7 @@
                          <div id="CatClose" class="categories-close">X</div>
                       </div>
                       <ul class="nav__list">                          
-                         <li><input type="checkbox" hidden=""><label><a href="{{url("member/dashboard/")}}"><i class="fa fa-user"> </i> Profile</a></label></li>
+                         <li class="active-li"><input type="checkbox" hidden=""><label><a href="{{url("member/dashboard/")}}"><i class="fa fa-user"> </i> Profile</a></label></li>
                          <li><input type="checkbox" hidden=""><label><a href="{{url("member/change-password/")}}"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></label></li>
                          <li><input type="checkbox" hidden=""><label><a href="{{url("member/myorders/")}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> My Orders</a></label></li>
                          <li><input type="checkbox" hidden=""><label><a href="{{url("/")}}"><i class="fa fa-power-off"></i> Logout</a></label></li> 
@@ -38,36 +38,37 @@
              <div class="col-lg-9 col-md-12 mt-md-5 mt-0 mt-lg-0">
                 <div class="d-flex justify-content-between">
                     <h2 class="mb-3 heading-1">My Profile</h2>
+                    <span class="d-inline-block"><a href="javascript:void(0)" class="btn btn-primary btn-sm" id="edit_profile"  onclick="removeattr()"><i class="fa fa-edit"></i> Edit Profile</a></span>
                 </div>
-                <div class="row">
+                <div class="row my-profile-wrap">
                     <div class="col-md-4 mb-3">
                        <label for="" class="w-100 mb-2">Name</label>
-                       <input type="text" name="" id="TxtName" value="User Name" class="form-control" disabled >
+                       <input type="text" name="" id="TxtName" value="User Name" class="form-control inp-dis" disabled>
                        <div class="divider w-100 mb-3"></div>
                        <label for="" class="w-100 mb-2">Member Type</label>                        
                        <div class="d-inline-block alert alert-success p-0 mb-0 px-2">Regular</div>                    
                        <div class="divider w-100 mb-3"></div>
                        <label for="" class="w-100 mb-2">Email ID</label>
-                       <input type="text" name="" id="TxtEmailID" value="arekars@gmail.com" class="form-control" disabled >
+                       <input type="text" name="" id="TxtEmailID" value="arekars@gmail.com" class="form-control inp-dis" disabled >
                        <div class="divider w-100 mb-3"></div>
                        <label for="" class="w-100 mb-2">Mobile No</label>
-                       <input type="text" name="" id="TxtMobileNo" value="98000 98000" class="form-control" disabled > 
+                       <input type="text" name="" id="TxtMobileNo" value="98000 98000" class="form-control inp-dis" disabled > 
                     </div>
                     <div class="col-md-8 mb-3">
                        <div class="row">
                           <div class="col-md-12 mb-3">
                              <label for="" class="w-100 mb-2">Address</label>
-                             <textarea name="address" class="form-control" placeholder="Enter address" rows="4"  disabled>1/3 shivsagar rahiwashi sangh, ,bhatwadi, ghatkopar west</textarea>
+                             <textarea name="address" class="form-control inp-dis" placeholder="Enter address" rows="4"  disabled>1/3 shivsagar rahiwashi sangh, ,bhatwadi, ghatkopar west</textarea>
                           </div>
                           <div class="col-md-6 mb-3">
                              <label for="" class="w-100 mb-2">Country</label>
-                             <select name="country_id" class="form-control" required="required" disabled>
+                             <select name="country_id" class="form-control inp-dis" required="required" disabled>
                                 <option value="113" selected="selected">India</option>
                              </select>
                           </div>
                           <div class="col-md-6 mb-3">
                              <label for="" class="w-100 mb-2">State</label>
-                             <select name="state_id" class="form-control" required="required" disabled>
+                             <select name="state_id" class="form-control inp-dis" required="required" disabled>
                                 <option value="">--- Select your state ---</option>
                                 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -109,11 +110,11 @@
                           </div>
                           <div class="col-md-6 mb-3">
                              <label for="" class="w-100 mb-2">City</label>
-                             <input type="text" name="city" class="form-control" value="mumbai" disabled>
+                             <input type="text" name="city" class="form-control inp-dis" value="mumbai" disabled>
                           </div>
                           <div class="col-md-6 mb-3">
                              <label for="" class="w-100 mb-2">Pin Code</label>
-                             <input type="text" name="pincode" class="form-control " placeholder="Enter pin code" required="required" value="400084" disabled>
+                             <input type="text" name="pincode" class="form-control inp-dis" placeholder="Enter pin code" required="required" value="400084" disabled>
                           </div>
                        </div>
                     </div>
@@ -125,11 +126,29 @@
                             <span class="third"></span>
                             <span class="fourth"></span>
                         </button>
+                        <button type="button" class="btn btn-sm btn-danger rounded-pill" onclick="removeattr()"> 
+                           CANCEL 
+                       </button>
                     </div>
                  </div>
              </div>
             </div>
         </div>
     </section>
-    
+    <script>
+      function removeattr() {
+      let edit_profile = document.getElementById("edit_profile");
+      let udate_profile_btn = document.getElementById("udate-profile-btn");
+      if (edit_profile.className === "btn btn-primary btn-sm") {        
+         edit_profile.className = "btn btn-primary btn-sm d-none";
+         document.querySelectorAll('.inp-dis').forEach(b=>b.removeAttribute('disabled'));
+         udate_profile_btn.className = "col-md-12";
+      } 
+      else {
+         edit_profile.className = "btn btn-primary btn-sm";
+         document.querySelectorAll('.inp-dis').forEach(b=>b.setAttribute('disabled', 'true'));         
+         udate_profile_btn.className = "col-md-12 d-none";
+      }
+      } 
+    </script>
 </main>

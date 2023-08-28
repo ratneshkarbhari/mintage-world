@@ -149,6 +149,8 @@ Route::get("admin/manage-products", [PageLoader::class, 'manage_products']);
 
 Route::post("create-info-comment", [InfoComments::class, 'create_exe']);
 
-// Checkout
+// Cart items
 Route::post('atc-exe', [CartActions::class, 'add_to_cart_exe']);
-
+Route::post("increase-cart-item-quantity",[CartActions::class,'increase_cart_item']);
+Route::post("decrease-cart-item-quantity",[CartActions::class,'decrease_cart_item']);
+Route::post("delete-cart-item",[CartActions::class,'delete_cart_item']);

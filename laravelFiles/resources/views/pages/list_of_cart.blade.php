@@ -50,7 +50,7 @@ use App\Models\Product;
 
 
                         @endphp
-                        <div class="shopping-cart-wrap">
+                        <div class="shopping-cart-wrap" id="cart-item-{{$cart_item["product_id"]}}">
                             <div class="row">
                                 <div class="col-md-3">
                                     <a href=""><img src="{{getenv("PRODUCT_IMAGE_BASE_URL").$imgParts[2]}}" class="img-fluid cart-img" alt=""></a>
@@ -60,17 +60,17 @@ use App\Models\Product;
                                         <a href="#">{{$product["name1"]}}</a>
                                         <div class="product-count">
                                             <div action="#" class="d-flex">
-                                                <div class="qtyminus">-</div>
-                                                <input type="text" name="quantity" value="{{$cart_item["quantity"]}}" class="qty">
-                                                <div class="qtyplus">+</div>
+                                                <button class="qtyminus" productId="{{$product["id"]}}">-</button>
+                                                <input type="text" name="quantity" value="{{$cart_item["quantity"]}}" class="qty" id="quantity-{{$product["id"]}}">
+                                                <button class="qtyplus" productId="{{$product["id"]}}">+</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-3 text-md-end mt-md-0 mt-3">
-                                    <div class="price "><span class="me-2 d-inline-block"> </span> <i class="fas fa-rupee-sign"></i> {{$product["price"]}}</div>
+                                    <div class="price "><span class="me-2 d-inline-block"> </span> <i class="fas fa-rupee-sign"></i> {{$itemCost}}</div>
                                     <div class="shopping-cart-remove">
-                                        <button onclick="deleteFromCart({{$cart_item['product_id']}})" class="btn btn-danger btn-sm" ><i class="fa fa-trash"></i></button>
+                                        <button pid="{{$product["id"]}}" class="deleteFromCart btn btn-danger btn-sm" ><i class="fa fa-trash"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -143,9 +143,60 @@ use App\Models\Product;
 
 <script>
 
-    function deleteFromCart(cartItemId) { 
+
+    $(".qtyminus").click(function (e) { 
         e.preventDefault();
-        console.log(cartItemId);
-    };
+        let pid = $(this).attr("productId");
+        let currentQuantity = $("input#quantity-"+pid).val();
+        if(parseInt(currentQuantity)!=1){
+
+            $.ajax({
+            type: "POST",
+                url: "{{url('decrease-cart-item-quantity')}}",
+                data: {
+                    "_token" : "{{ csrf_token() }}",
+                    "pid" : pid,
+                },
+                success: function (response) {
+                    
+                }
+            });
+
+        }
+    });
+
+    $(".qtyplus").click(function (e) { 
+        e.preventDefault();
+        let pid = $(this).attr("productId");
+
+        $.ajax({
+            type: "POST",
+            url: "{{url('increase-cart-item-quantity')}}",
+            data: {
+                "_token" : "{{ csrf_token() }}",
+                "pid" : pid,
+            },
+            success: function (response) {
+                
+            }
+        });
+    });
+
+
+    $(".deleteFromCart").click(function (e) { 
+        e.preventDefault();
+        let pid = $(this).attr("pid");
+        $.ajax({
+            type: "POST",
+            url: "{{url('delete-cart-item')}}",
+            data: {
+                "_token" : "{{ csrf_token() }}",
+                "pid" : pid,
+            },
+            success: function (response) {
+                $("div#cart-item-"+pid).addClass("d-none");
+            }
+        });
+    });
 
 </script>

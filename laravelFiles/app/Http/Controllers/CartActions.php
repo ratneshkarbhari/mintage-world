@@ -76,7 +76,6 @@ class CartActions extends Controller
     function cart_page()
     {
 
-        
 
         if(session("cart")){
 
@@ -98,6 +97,71 @@ class CartActions extends Controller
             "discount" => $discount
         ]);
     }
+
+    function increase_cart_item(Request $request){
+
+
+
+        $pid = $request->pid;
+        
+        $cartItems = session("cart");
+
+
+        $cartItems[$pid]["quantity"]+= 1;
+
+
+        if (session(["cart"=>$cartItems])) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+        
+
+        
+        
+    }
+
+    function decrease_cart_item(Request $request){
+
+
+
+        $pid = $request->pid;
+        
+        $cartItems = session("cart");
+
+
+        $cartItems[$pid]["quantity"]-= 1;
+
+
+        if (session(["cart"=>$cartItems])) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+        
+
+        
+        
+    }
+
+
+    function delete_cart_item(Request $request){
+
+        $pid = $request->pid;
+
+        $cartItems = session("cart");
+
+        unset($cartItems[$pid]);
+
+        if (session(["cart"=>$cartItems])) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+
+
+    }
+
     function checkout()
     {
         $this->page_loader("Checkout", [

@@ -76,6 +76,8 @@ class CartActions extends Controller
     function cart_page()
     {
 
+        
+
         if(session("cart")){
 
             $cartItems = session("cart");
@@ -83,14 +85,22 @@ class CartActions extends Controller
         }else{
             $cartItems = [];
         }
+        if(isset($_COOKIE["discount"])){
+            $discount = $_COOKIE["discount"];
+        }else{
+            $discount = 0.00;
+        }
+
+
         $this->page_loader("list_of_cart", [
             "title" => "Cart | Mintage World",
-            "cart_items" => $cartItems
+            "cart_items" => $cartItems,
+            "discount" => $discount
         ]);
     }
     function checkout()
     {
-        $this->page_loader("checkout", [
+        $this->page_loader("Checkout", [
             "title" => "checkout | Mintage World"
         ]);
     }

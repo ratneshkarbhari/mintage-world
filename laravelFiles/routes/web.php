@@ -123,7 +123,6 @@ Route::group(['middleware' => ['slashes']], function () {
     // Auth routes
     Route::post("member-login-exe", [Authentication::class, 'member_login']);
     Route::get("logout", [Authentication::class, 'logout']);
-    Route::post("admin-login-exe", [Authentication::class, 'admin_login']);
 
     // Info comments
 
@@ -141,6 +140,7 @@ Route::get("coin/list/{rulerId}", [Coins::class, 'coin_list']);
 Route::get("note/list/{denominationUnit}/{dynastyId}", [Notes::class, 'note_list']);
 Route::get("stamp/list/{dynastyId}", [Stamps::class, 'stamp_list']);
 
+Route::post("admin-login-exe", [Authentication::class, 'admin_login']);
 
 // admin routes
 Route::get("admin/dashboard", [PageLoader::class, 'dashboard']);

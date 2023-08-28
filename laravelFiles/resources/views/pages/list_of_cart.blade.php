@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Product;
+
 ?>
 
 <main class="page-content">
@@ -33,8 +34,18 @@ use App\Models\Product;
 
                     @else
 
+                        @php
+
+                        $subTotal = 0.00;
+
+                        @endphp
+
                         @foreach ($cart_items as $cart_item)
                         @php
+                        $product = Product::find($cart_item["product_id"]);
+                        $itemCost = $product["price"]*$cart_item["quantity"];
+                        $subTotal += $itemCost;
+
                         $imgParts = explode("/",Product::find($cart_item["product_id"])["img"]);
 
 
@@ -46,7 +57,7 @@ use App\Models\Product;
                                 </div>
                                 <div class="col-md-6">
                                     <div class="shopping-cart-title">
-                                        <a href="#">Malaysia Currency Note 1 Ringgit</a>
+                                        <a href="#">{{$product["name1"]}}</a>
                                         <div class="product-count">
                                             <div action="#" class="d-flex">
                                                 <div class="qtyminus">-</div>
@@ -57,9 +68,9 @@ use App\Models\Product;
                                     </div>
                                 </div>
                                 <div class="col-md-3 text-md-end mt-md-0 mt-3">
-                                    <div class="price "><span class="me-2 d-inline-block"><i class="fas fa-rupee-sign"></i> 299 </span> <i class="fas fa-rupee-sign"></i> 175</div>
+                                    <div class="price "><span class="me-2 d-inline-block"> </span> <i class="fas fa-rupee-sign"></i> {{$product["price"]}}</div>
                                     <div class="shopping-cart-remove">
-                                        <button class="btn btn-danger btn-sm" href="#"><i class="fa fa-trash"></i></button>
+                                        <button onclick="deleteFromCart({{$cart_item['product_id']}})" class="btn btn-danger btn-sm" ><i class="fa fa-trash"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +97,7 @@ use App\Models\Product;
                                 <tbody>
                                     <tr>
                                         <td><b>Sub-Total:</b></td>
-                                        <td class="text-end"><label for="" id="lblSubTotal"> 998</label></td>
+                                        <td class="text-end"><label for="" id="lblSubTotal"> {{$subTotal}}</label></td>
                                     </tr>
                                     <tr class="discount-row">
                                         <td><b>Coupon Discount</b></td>
@@ -96,7 +107,7 @@ use App\Models\Product;
                                         <td><b>Total :</b>
                                             <span class="d-block small">(Prices are inclusive of all taxes)</span>
                                         </td>
-                                        <td class="text-end"><i class="fas fa-rupee-sign"></i><label for="" id="lblTotal"> 998</label></td>
+                                        <td class="text-end"><i class="fas fa-rupee-sign"></i><label for="" id="lblTotal"> {{$subTotal - $discount}}</label></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -129,3 +140,12 @@ use App\Models\Product;
     </section>
 
 </main>
+
+<script>
+
+    function deleteFromCart(cartItemId) { 
+        e.preventDefault();
+        console.log(cartItemId);
+    };
+
+</script>

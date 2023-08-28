@@ -18,24 +18,53 @@ class CartActions extends Controller
 
     function add_to_cart_exe(Request $request){
 
-
-        if(Product::find($request->pid)["instock"]>=$request->quantity){
+        $product = Product::find($request->pid);
+        if($product["instock"]>=$request->quantity){
 
             if(session("member_id")){
 
-                
+                $cartObj = session("cart");
+    
+                if(isset($cartObj[$request->pid]["quantity"])){
+
+                    $qty = $cartObj[$request->pid]["quantity"]+$request->quantity;
+
+                    $cartObj[$request->pid] = [
+                        "member_id" => session("member_id"),
+                        "product_id" => $request->pid,
+                        "product_price" => $product["price"],
+                        "quantity" => $qty,
+                        "amount" => $product["price"]*$qty,
+                        "date_added" => date("d/m/y")
+                    ];
+
+                }else{
+
+                    $cartObj[$request->pid] = [
+                        "member_id" => session("member_id"),
+                        "product_id" => $request->pid,
+                        "product_price" => $product["price"],
+                        "quantity" => $request->quantity,
+                        "amount" => $product["price"]*$request->quantity,
+                        "date_added" => date("d/m/y")
+                    ];
+                    
+                }
 
             }else{
     
                 $cartObj = session("cart");
     
-
                 if(isset($cartObj[$request->pid]["quantity"])){
+
+                    $qty = $cartObj[$request->pid]["quantity"]+$request->quantity;
 
                     $cartObj[$request->pid] = [
                         "member_id" => "NA",
                         "product_id" => $request->pid,
-                        "quantity" => $cartObj[$request->pid]["quantity"]+$request->quantity,
+                        "product_price" => $product["price"],
+                        "quantity" => $qty,
+                        "amount" => $product["price"]*$qty,
                         "date_added" => date("d/m/y")
                     ];
             
@@ -46,7 +75,9 @@ class CartActions extends Controller
                     $cartObj[$request->pid] = [
                         "member_id" => "NA",
                         "product_id" => $request->pid,
+                        "product_price" => $product["price"],
                         "quantity" => $request->quantity,
+                        "amount" => $product["price"]*$request->quantity,
                         "date_added" => date("d/m/y")
                     ];
             
@@ -54,12 +85,13 @@ class CartActions extends Controller
 
                 }
 
-                session([
-                    "cart" => $cartObj
-                ]);
     
             }
     
+            
+            session([
+                "cart" => $cartObj
+            ]);
 
             return "added-to-cart";
 
@@ -174,4 +206,17 @@ class CartActions extends Controller
             "title" => "Payment | Mintage World"
         ]);
     }
+
+    function recalculate_subtotal(){
+        $subtotal = 0.00;
+
+
+        foreach(session("cart") as $cartItem){
+
+            $subtotal+=$cartItem["amount"];
+
+        }
+        return $subtotal;
+    }
+
 }

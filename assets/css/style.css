@@ -3452,3 +3452,12 @@ section.inside-banner{
   min-height: 0px;
 }
 }
+
+
+span.cart-item-amount{
+  color: #e19726 !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    margin: 0px 0px 12px !important;
+    text-decoration: none !important;
+}

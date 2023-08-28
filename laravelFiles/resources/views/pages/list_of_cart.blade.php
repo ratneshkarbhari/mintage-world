@@ -58,6 +58,7 @@ use App\Models\Product;
                                 <div class="col-md-6">
                                     <div class="shopping-cart-title">
                                         <a href="#">{{$product["name1"]}}</a>
+                                        <small class="d-none" id="product-price-{{$product["id"]}}">{{$product["price"]}}</small>
                                         <div class="product-count">
                                             <div action="#" class="d-flex">
                                                 <button class="qtyminus" productId="{{$product["id"]}}">-</button>
@@ -68,7 +69,7 @@ use App\Models\Product;
                                     </div>
                                 </div>
                                 <div class="col-md-3 text-md-end mt-md-0 mt-3">
-                                    <div class="price "><span class="me-2 d-inline-block"> </span> <i class="fas fa-rupee-sign"></i> {{$itemCost}}</div>
+                                    <div class="price "><span class="me-2 d-inline-block"> </span> <i class="fas fa-rupee-sign"></i> <span class="cart-item-amount" id="cart-item-amount-{{$product["id"]}}">{{$itemCost}}</span></div>
                                     <div class="shopping-cart-remove">
                                         <button pid="{{$product["id"]}}" class="deleteFromCart btn btn-danger btn-sm" ><i class="fa fa-trash"></i></button>
                                     </div>
@@ -143,6 +144,11 @@ use App\Models\Product;
 
 <script>
 
+    function recalculateSubTotal() {
+        let subTotal = 0.00;
+        
+    }
+
 
     $(".qtyminus").click(function (e) { 
         e.preventDefault();
@@ -158,7 +164,10 @@ use App\Models\Product;
                     "pid" : pid,
                 },
                 success: function (response) {
-                    
+                    let productPrice = $("small#product-price-"+pid).html();
+                    let productQty = $("input#quantity-"+pid).val();
+                    cartItemAmount = parseInt(productPrice)*parseInt(productQty);
+                    $("span#cart-item-amount-"+pid).html(cartItemAmount)
                 }
             });
 
@@ -168,7 +177,7 @@ use App\Models\Product;
     $(".qtyplus").click(function (e) { 
         e.preventDefault();
         let pid = $(this).attr("productId");
-
+        let cartItemAmount = 0.00;
         $.ajax({
             type: "POST",
             url: "{{url('increase-cart-item-quantity')}}",
@@ -177,7 +186,10 @@ use App\Models\Product;
                 "pid" : pid,
             },
             success: function (response) {
-                
+                let productPrice = $("small#product-price-"+pid).html();
+                let productQty = $("input#quantity-"+pid).val();
+                cartItemAmount = parseInt(productPrice)*parseInt(productQty);
+                $("span#cart-item-amount-"+pid).html(cartItemAmount)
             }
         });
     });

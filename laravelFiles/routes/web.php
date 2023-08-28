@@ -154,3 +154,4 @@ Route::post('atc-exe', [CartActions::class, 'add_to_cart_exe']);
 Route::post("increase-cart-item-quantity",[CartActions::class,'increase_cart_item']);
 Route::post("decrease-cart-item-quantity",[CartActions::class,'decrease_cart_item']);
 Route::post("delete-cart-item",[CartActions::class,'delete_cart_item']);
+Route::post("recalculate-subtotal",[CartActions::class,'recalculate_subtotal']);

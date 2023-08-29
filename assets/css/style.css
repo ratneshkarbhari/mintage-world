@@ -1147,7 +1147,7 @@ ul.sticky-footer-ul li a:hover {
   display: block;
   margin-bottom: 30px;
   border: solid 1px #cfcfcf;
-  background: #ebebeb;
+  background: #ffffff;
   transition: 0.5s;
   box-shadow: none;
   border-radius: 10px;
@@ -2915,7 +2915,10 @@ padding: 20px 15px 0;
 }
 
 .animate { animation: countdown 5s linear forwards; }
-
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+}
 
 /* --------Responsive Media Css Start------------- */
 
@@ -3450,5 +3453,12 @@ section.inside-banner{
 }
 .contact-info-item{
   min-height: 0px;
+}
+.pagination-container {
+  display: block;
+  justify-content: space-between;
+}
+.pagination-container p {
+  margin-bottom: 6px;
 }
 }

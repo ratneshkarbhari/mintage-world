@@ -45,10 +45,7 @@ use App\Models\Product;
                         $product = Product::find($cart_item["product_id"]);
                         $itemCost = $product["price"]*$cart_item["quantity"];
                         $subTotal += $itemCost;
-
                         $imgParts = explode("/",Product::find($cart_item["product_id"])["img"]);
-
-
                         @endphp
                         <div class="shopping-cart-wrap" id="cart-item-{{$cart_item["product_id"]}}">
                             <div class="row">
@@ -139,23 +136,50 @@ use App\Models\Product;
 
         </div>
     </section>
-
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
+        <div id="liveToast " class="toast hide bg-danger text-white add-to-cart-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header bg-danger text-white">         
+            <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
+            <small>Just Now</small>
+            {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
+          </div>
+          <div class="toast-body">
+            "Your Product" has been deleted from cart.
+          </div>
+          <div class='toast-timeline animate'></div>
+        </div>
+      </div>
 </main>
 
 <script>
 
-    function recalculateSubTotal() {
-        let subTotal = 0.00;
-        
-    }
+    // function recalculateSubTotal() {
+    //     let subTotal = 0.00;
 
 
-    $(".qtyminus").click(function (e) { 
+    // }
+
+ let recalculateSubTotal = () => {
+    // console.log("enter")
+    let subTotal = 0.00;
+    let listItems1 = document.querySelectorAll(".cart-item-amount");  
+    let lblSubTotal =   document.getElementById("lblSubTotal");
+    let lblCouponDisc =   document.getElementById("lblCouponDisc");
+    let lblTotal =   document.getElementById("lblTotal");
+    listItems1.forEach(function (item) {
+        subTotal = subTotal + parseInt(item.innerText);
+    });
+    // console.log(parseInt(lblCouponDisc.innerText));
+    lblSubTotal.innerText = subTotal;
+    lblTotal.innerText = parseInt(lblSubTotal.innerText) + parseInt(lblCouponDisc.innerText);
+
+
+ }
+    $(".qtyminus").click(function (e) {
         e.preventDefault();
         let pid = $(this).attr("productId");
         let currentQuantity = $("input#quantity-"+pid).val();
         if(parseInt(currentQuantity)!=1){
-
             $.ajax({
             type: "POST",
                 url: "{{url('decrease-cart-item-quantity')}}",
@@ -167,10 +191,10 @@ use App\Models\Product;
                     let productPrice = $("small#product-price-"+pid).html();
                     let productQty = $("input#quantity-"+pid).val();
                     cartItemAmount = parseInt(productPrice)*parseInt(productQty);
-                    $("span#cart-item-amount-"+pid).html(cartItemAmount)
+                    $("span#cart-item-amount-"+pid).html(cartItemAmount)     
+                    recalculateSubTotal();                                
                 }
             });
-
         }
     });
 
@@ -190,7 +214,8 @@ use App\Models\Product;
                 let productQty = $("input#quantity-"+pid).val();
                 cartItemAmount = parseInt(productPrice)*parseInt(productQty);
                 $("span#cart-item-amount-"+pid).html(cartItemAmount)
-            }
+                recalculateSubTotal();
+             }
         });
     });
 
@@ -198,6 +223,7 @@ use App\Models\Product;
     $(".deleteFromCart").click(function (e) { 
         e.preventDefault();
         let pid = $(this).attr("pid");
+       
         $.ajax({
             type: "POST",
             url: "{{url('delete-cart-item')}}",
@@ -205,10 +231,13 @@ use App\Models\Product;
                 "_token" : "{{ csrf_token() }}",
                 "pid" : pid,
             },
-            success: function (response) {
-                $("div#cart-item-"+pid).addClass("d-none");
-            }
+            success: function (response) {                
+                $("div#cart-item-"+pid).remove();
+                $('.add-to-cart-success').toast('show');
+                recalculateSubTotal();                 
+            } 
         });
+        
     });
 
 </script>

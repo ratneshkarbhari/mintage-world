@@ -396,7 +396,7 @@
    
 
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
-      <div id="liveToast " class="toast hide bg-success text-white add-to-cart-success" role="alert" aria-live="assertive" aria-atomic="true">
+      <div id="liveToast " class="toast hide bg-success text-white add-to-cart-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-success text-white">         
           <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
           <small>Just Now</small>
@@ -410,7 +410,7 @@
     </div>
 
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
-        <div id="liveToast " class="toast hide bg-danger text-white add-to-cart-failure" role="alert" aria-live="assertive" aria-atomic="true">
+        <div id="liveToast " class="toast hide bg-danger text-white add-to-cart-failure position-relative" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header bg-danger text-white">         
             <strong class="me-auto"><i class="fas fa-check-circle"></i> Failure</strong>
             <small>Just Now</small>

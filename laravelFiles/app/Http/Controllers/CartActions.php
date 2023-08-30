@@ -19,87 +19,176 @@ class CartActions extends Controller
     function add_to_cart_exe(Request $request){
 
         $product = Product::find($request->pid);
-        if($product["instock"]>=$request->quantity){
+        if(isset(session("cart")[$product["id"]])){
 
-            if(session("member_id")){
+            if($product["instock"]>=(session("cart")[$product["id"]]["quantity"]+$request->quantity)){
 
-                $cartObj = session("cart");
+                if(session("member_id")){
     
-                if(isset($cartObj[$request->pid]["quantity"])){
-
-                    $qty = $cartObj[$request->pid]["quantity"]+$request->quantity;
-
-                    $cartObj[$request->pid] = [
-                        "member_id" => session("member_id"),
-                        "product_id" => $request->pid,
-                        "product_price" => $product["price"],
-                        "quantity" => $qty,
-                        "amount" => $product["price"]*$qty,
-                        "date_added" => date("d/m/y")
-                    ];
-
+                    $cartObj = session("cart");
+        
+                    if(isset($cartObj[$request->pid]["quantity"])){
+    
+                        $qty = $cartObj[$request->pid]["quantity"]+$request->quantity;
+    
+                        $cartObj[$request->pid] = [
+                            "member_id" => session("member_id"),
+                            "product_id" => $request->pid,
+                            "product_price" => $product["price"],
+                            "quantity" => $qty,
+                            "amount" => $product["price"]*$qty,
+                            "date_added" => date("d/m/y")
+                        ];
+    
+                    }else{
+    
+                        $cartObj[$request->pid] = [
+                            "member_id" => session("member_id"),
+                            "product_id" => $request->pid,
+                            "product_price" => $product["price"],
+                            "quantity" => $request->quantity,
+                            "amount" => $product["price"]*$request->quantity,
+                            "date_added" => date("d/m/y")
+                        ];
+                        
+                    }
+    
                 }else{
-
-                    $cartObj[$request->pid] = [
-                        "member_id" => session("member_id"),
-                        "product_id" => $request->pid,
-                        "product_price" => $product["price"],
-                        "quantity" => $request->quantity,
-                        "amount" => $product["price"]*$request->quantity,
-                        "date_added" => date("d/m/y")
-                    ];
-                    
+        
+                    $cartObj = session("cart");
+        
+                    if(isset($cartObj[$request->pid]["quantity"])){
+    
+                        $qty = $cartObj[$request->pid]["quantity"]+$request->quantity;
+    
+                        $cartObj[$request->pid] = [
+                            "member_id" => "NA",
+                            "product_id" => $request->pid,
+                            "product_price" => $product["price"],
+                            "quantity" => $qty,
+                            "amount" => $product["price"]*$qty,
+                            "date_added" => date("d/m/y")
+                        ];
+                
+        
+    
+                    }else{
+    
+                        $cartObj[$request->pid] = [
+                            "member_id" => "NA",
+                            "product_id" => $request->pid,
+                            "product_price" => $product["price"],
+                            "quantity" => $request->quantity,
+                            "amount" => $product["price"]*$request->quantity,
+                            "date_added" => date("d/m/y")
+                        ];
+                
+        
+    
+                    }
+    
+        
                 }
-
+        
+                
+                session([
+                    "cart" => $cartObj
+                ]);
+    
+                return "added-to-cart";
+    
             }else{
     
-                $cartObj = session("cart");
-    
-                if(isset($cartObj[$request->pid]["quantity"])){
-
-                    $qty = $cartObj[$request->pid]["quantity"]+$request->quantity;
-
-                    $cartObj[$request->pid] = [
-                        "member_id" => "NA",
-                        "product_id" => $request->pid,
-                        "product_price" => $product["price"],
-                        "quantity" => $qty,
-                        "amount" => $product["price"]*$qty,
-                        "date_added" => date("d/m/y")
-                    ];
-            
-    
-
-                }else{
-
-                    $cartObj[$request->pid] = [
-                        "member_id" => "NA",
-                        "product_id" => $request->pid,
-                        "product_price" => $product["price"],
-                        "quantity" => $request->quantity,
-                        "amount" => $product["price"]*$request->quantity,
-                        "date_added" => date("d/m/y")
-                    ];
-            
-    
-
-                }
-
+                return "out-of-stock";
     
             }
-    
-            
-            session([
-                "cart" => $cartObj
-            ]);
-
-            return "added-to-cart";
 
         }else{
 
-            return "out-of-stock";
+            if($product["instock"]>=$request->quantity){
+
+                if(session("member_id")){
+    
+                    $cartObj = session("cart");
+        
+                    if(isset($cartObj[$request->pid]["quantity"])){
+    
+                        $qty = $cartObj[$request->pid]["quantity"]+$request->quantity;
+    
+                        $cartObj[$request->pid] = [
+                            "member_id" => session("member_id"),
+                            "product_id" => $request->pid,
+                            "product_price" => $product["price"],
+                            "quantity" => $qty,
+                            "amount" => $product["price"]*$qty,
+                            "date_added" => date("d/m/y")
+                        ];
+    
+                    }else{
+    
+                        $cartObj[$request->pid] = [
+                            "member_id" => session("member_id"),
+                            "product_id" => $request->pid,
+                            "product_price" => $product["price"],
+                            "quantity" => $request->quantity,
+                            "amount" => $product["price"]*$request->quantity,
+                            "date_added" => date("d/m/y")
+                        ];
+                        
+                    }
+    
+                }else{
+        
+                    $cartObj = session("cart");
+        
+                    if(isset($cartObj[$request->pid]["quantity"])){
+    
+                        $qty = $cartObj[$request->pid]["quantity"]+$request->quantity;
+    
+                        $cartObj[$request->pid] = [
+                            "member_id" => "NA",
+                            "product_id" => $request->pid,
+                            "product_price" => $product["price"],
+                            "quantity" => $qty,
+                            "amount" => $product["price"]*$qty,
+                            "date_added" => date("d/m/y")
+                        ];
+                
+        
+    
+                    }else{
+    
+                        $cartObj[$request->pid] = [
+                            "member_id" => "NA",
+                            "product_id" => $request->pid,
+                            "product_price" => $product["price"],
+                            "quantity" => $request->quantity,
+                            "amount" => $product["price"]*$request->quantity,
+                            "date_added" => date("d/m/y")
+                        ];
+                
+        
+    
+                    }
+    
+        
+                }
+        
+                
+                session([
+                    "cart" => $cartObj
+                ]);
+    
+                return "added-to-cart";
+    
+            }else{
+    
+                return "out-of-stock";
+    
+            }
 
         }
+
 
 
 

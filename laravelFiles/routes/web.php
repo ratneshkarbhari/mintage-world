@@ -4,6 +4,7 @@ use App\Http\Controllers\Coins;
 use App\Http\Controllers\Notes;
 use App\Http\Controllers\Utils;
 use App\Http\Controllers\Stamps;
+use App\Http\Controllers\Coupons;
 use App\Http\Controllers\Shopping;
 use App\Http\Controllers\Histories;
 use App\Http\Controllers\PageLoader;
@@ -155,3 +156,5 @@ Route::post("increase-cart-item-quantity",[CartActions::class,'increase_cart_ite
 Route::post("decrease-cart-item-quantity",[CartActions::class,'decrease_cart_item']);
 Route::post("delete-cart-item",[CartActions::class,'delete_cart_item']);
 Route::post("recalculate-subtotal",[CartActions::class,'recalculate_subtotal']);
+
+Route::post("apply-coupon-exe",[Coupons::class,'apply_exe']);

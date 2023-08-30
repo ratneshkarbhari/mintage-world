@@ -20,27 +20,62 @@ class Shopping extends Controller
 
     private function fetch_random_products($catIds){
 
-        return json_decode(json_encode(DB::table('products')->where('category', $catIds)->where("status","Active")->where("instock",">",0)->where("instock","!=",NULL)->inRandomOrder()->limit(7)->get()),TRUE);
-
+        return json_decode(json_encode(DB::table('products')->where('category', $catIds)->where("status","Active")->where("instock",">",0)->where("featured",1)->limit(7)->get()),TRUE);
 
     }
 
     function shop()
     {
 
-        $randomCoins  = $this->fetch_random_products([18,24,25,26,27,28]);
-        $randomNotes  = $this->fetch_random_products([35,36,37,38,39,40,41,42,43]);
-        $randomAccessories = $this->fetch_random_products([11,12,13,14]);
-        $randomGc = $this->fetch_random_products([6]);
+        if (!$featuredCoins = Cache::get("featured_coins")) {
+            
+            $coinsQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (18,24,25,26,27,28) LIMIT 7';
 
+            $featuredCoins = json_decode(json_encode(DB::select($coinsQuery)),TRUE);
+
+            Cache::set("featured_coins",$featuredCoins);
+            
+        }
+
+        if (!$featuredNotes = Cache::get("featured_notes")) {
+            
+            $notesQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (35,36,37,38,39,40,41,42,43) LIMIT 7';
+
+            $featuredNotes = json_decode(json_encode(DB::select($notesQuery)),TRUE);
+
+            Cache::set("featured_notes",$featuredNotes);
+            
+        }
+        
+        if (!$featuredAccessories = Cache::get("featured_accessories")) {
+
+            $accessoryQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (11,12,13,14) LIMIT 7';
+
+            $featuredAccessories = json_decode(json_encode(DB::select($accessoryQuery)),TRUE);
+            Cache::set("featured_accessories",$featuredNotes);
+
+
+        }
+
+
+        if (!$featuredGiftCards = Cache::get("featured_gift_cards")) {
+
+
+            $giftCardQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (6) LIMIT 7';
+
+            $featuredGiftCards = json_decode(json_encode(DB::select($giftCardQuery)),TRUE);
+
+            Cache::get("featured_gift_cards",$featuredGiftCards);
+
+        }
 
 
         $this->page_loader("shop", [
             "title" => "Shopping | Buy Coins, Banknotes, Stamp, Accessories and Greeting Cards Online | Mintage World",
-            "random_coins" => $randomCoins,
-            "random_notes" => $randomNotes,
-            "random_accessories" => $randomAccessories,
-            "random_greeting_cards" => $randomGc
+            "random_coins" => $featuredCoins,
+            "random_notes" => $featuredNotes,
+            "random_accessories" => $featuredAccessories,
+            "random_greeting_cards" => $featuredGiftCards
         ]);
     }
     function shop_list($categorySlug)

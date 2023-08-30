@@ -43,7 +43,7 @@
             </div>
             <div class="col-md-12 mt-5">
                 <div class="search-wrap">
-                    <div class="pagination-container mb-3">
+                    <div class="pagination-container">
                         <p > TOTAL 15601 RESULTS FOUND</p>
                         <div class="result-per-page d-flex align-items-center">
                             <p class="me-2 mb-0">Results per page</p>
@@ -54,6 +54,98 @@
                                 <option>100</option>
                                 <option>200</option>
                             </select>
+                        </div>
+
+                    </div>
+
+                    <div class="row search-result-wrap mb-4">
+                        <div class="col-lg-2 col-md-3 col-6 mt-4">
+                            <div class="search-item">
+                                <div class="product-grid">
+                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
+                                    <div class="product-content">
+                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
+                                       <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
+                                    </div>
+                                 </div>
+                            </div>
+                        </div> 
+                        <div class="col-lg-2 col-md-3 col-6 mt-4">
+                            <div class="search-item">
+                                <div class="product-grid">
+                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
+                                    <div class="product-content">
+                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
+                                       <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-6 mt-4">
+                            <div class="search-item">
+                                <div class="product-grid">
+                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
+                                    <div class="product-content">
+                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
+                                       <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-6 mt-4">
+                            <div class="search-item">
+                                <div class="product-grid">
+                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
+                                    <div class="product-content">
+                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
+                                       <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-6 mt-4">
+                            <div class="search-item">
+                                <div class="product-grid">
+                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
+                                    <div class="product-content">
+                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
+                                       <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-6 mt-4">
+                            <div class="search-item">
+                                <div class="product-grid">
+                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
+                                    <div class="product-content">
+                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
+                                       <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-6 mt-4">
+                            <div class="search-item">
+                                <div class="product-grid">
+                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
+                                    <div class="product-content">
+                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
+                                       <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3 col-6 mt-4">
+                            <div class="search-item">
+                                <div class="product-grid">
+                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
+                                    <div class="product-content">
+                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
+                                       <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
+                                    </div>
+                                 </div>
+                            </div>
                         </div>
 
                     </div>

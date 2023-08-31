@@ -205,8 +205,9 @@ class CartActions extends Controller
         }else{
             $cartItems = [];
         }
-        if(isset($_COOKIE["discount"])){
-            $discount = $_COOKIE["discount"];
+        $discountSet = session("discount");
+        if(isset($discountSet)){
+            $discount = session("discount");
         }else{
             $discount = 0.00;
         }

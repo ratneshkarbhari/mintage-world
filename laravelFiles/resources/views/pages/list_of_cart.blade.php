@@ -91,6 +91,11 @@ use App\Models\Product;
                             Shopping Summary
                         </div>
                         <div class="table-responsive mb-3">
+                            @php
+                            session([
+                                "subtotal" => $subTotal
+                            ])
+                            @endphp
                             <table class="table table-bordered">
                                 <tbody>
                                     <tr>
@@ -99,7 +104,7 @@ use App\Models\Product;
                                     </tr>
                                     <tr class="discount-row">
                                         <td><b>Coupon Discount</b></td>
-                                        <td class="text-end"><label for="" id="lblCouponDisc"> 00</label></td>
+                                        <td class="text-end"><label for="" id="lblCouponDisc"> {{$discount}}</label></td>
                                     </tr>
                                     <tr class="total-row">
                                         <td><b>Total :</b>
@@ -117,8 +122,8 @@ use App\Models\Product;
                             </div>
                             <label for="">Enter your coupon here</label>
                             <div class="d-flex">
-                                <input type="text" name="" id="txtCouponCode" class="form-control">
-                                <button class="btn btn-sm btn-info text-white ">Apply</button>
+                                <input type="text" name="" value="{{session("code")}}" id="txtCouponCode" class="form-control">
+                                <button id="apply-coupon" class="btn btn-sm btn-info text-white ">Apply</button>
                             </div>
 
                         </div>
@@ -145,6 +150,33 @@ use App\Models\Product;
           </div>
           <div class="toast-body">
             "Your Product" has been deleted from cart.
+          </div>
+          <div class='toast-timeline animate'></div>
+        </div>
+      </div>
+
+      <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
+        <div id="liveToast " class="toast hide bg-success text-white coupon-apply-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header bg-success text-white">         
+            <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
+            <small>Just Now</small>
+            {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
+          </div>
+          <div class="toast-body">
+            Coupon successfully applied
+          </div>
+          <div class='toast-timeline animate'></div>
+        </div>
+      </div>
+      <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
+        <div id="liveToast " class="toast hide bg-danger text-white coupon-apply-failure position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header bg-danger text-white">         
+            <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
+            <small>Just Now</small>
+            {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
+          </div>
+          <div class="toast-body">
+            Coupon not applied
           </div>
           <div class='toast-timeline animate'></div>
         </div>
@@ -238,6 +270,28 @@ use App\Models\Product;
             } 
         });
         
+    });
+
+    $("button#apply-coupon").click(function (e) { 
+        e.preventDefault();
+        let codeEntered = $("#txtCouponCode").val();
+        $.ajax({
+            type: "POST",
+            url: "{{url('apply-coupon-exe')}}",
+            data: {
+                "_token" : "{{ csrf_token() }}",
+
+                "code" : codeEntered
+            },
+            success: function (response) {
+                if(response.message=="coupon-applied"){
+                    $(".coupon-apply-success").toast("show");
+                    location.reload();
+                }else{
+                    $(".coupon-apply-failure").toast("show");
+                }
+            }
+        });
     });
 
 </script>

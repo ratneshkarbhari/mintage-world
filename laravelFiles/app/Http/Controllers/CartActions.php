@@ -222,20 +222,29 @@ class CartActions extends Controller
     function increase_cart_item(Request $request){
 
 
-
-        $pid = $request->pid;
         
+        $product = Product::find($request->pid);
+
+
         $cartItems = session("cart");
 
+        $finalQty= $cartItems[$request->pid]["quantity"] =$cartItems[$request->pid]["quantity"] + 1;
 
-        $cartItems[$pid]["quantity"]+= 1;
+        if($product["instock"]>=$finalQty){
 
+            if (session(["cart"=>$cartItems])) {
 
-        if (session(["cart"=>$cartItems])) {
-            return TRUE;
-        } else {
-            return FALSE;
+                return 'increased-from-cart';
+                
+            } else {
+
+                return 'not-increased-from-cart';
+                
+            }
+
         }
+
+
         
 
         
@@ -246,18 +255,23 @@ class CartActions extends Controller
 
 
 
-        $pid = $request->pid;
-        
+        $product = Product::find($request->pid);
+
+
         $cartItems = session("cart");
 
+        $finalQty= $cartItems[$request->pid]["quantity"] = $cartItems[$request->pid]["quantity"] - 1;
 
-        $cartItems[$pid]["quantity"]-= 1;
+        if($product["instock"]>=$finalQty){
 
+            if (session(["cart"=>$cartItems])) {
+                return 'decreased-from-cart';
+            } else {
 
-        if (session(["cart"=>$cartItems])) {
-            return TRUE;
-        } else {
-            return FALSE;
+                return 'not-decreased-from-cart';
+                
+            }
+
         }
         
 

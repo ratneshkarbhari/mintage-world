@@ -185,7 +185,7 @@
                     </div>
                     <div class="pagination-container">
 
-                        <p>{{$pagination_info_string}}</p>
+                        <p>{{$pagination_string}}</p>
                         {!! $coins->links() !!}
 
                     </div>

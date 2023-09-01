@@ -227,6 +227,12 @@
                   
                   @endforeach
                </div>
+               <div class="pagination-container">
+
+                  <p>{{$pagination_string}}</p>
+                  {!! $category_products->links() !!}
+
+              </div>
             </div>
          </div>
       </div>

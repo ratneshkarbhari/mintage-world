@@ -83,14 +83,24 @@ class Shopping extends Controller
 
         $categorySlugParts = explode("-",$categorySlug);
 
-        $categoryProducts = Product::where("category",$categorySlugParts[0])->with("product_category")->with("product_images")->get();
+        $categoryProducts = Product::where("category",$categorySlugParts[0])->with("product_category")->with("product_images")->paginate(12);
+
+        $total = $categoryProducts->total();
+        $currentPage = $categoryProducts->currentPage();
+        $perPage = $categoryProducts->perPage();
+
+        $from = ($currentPage - 1) * $perPage + 1;
+        $to = min($currentPage * $perPage, $total);
+
+        $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
 
         
         $this->page_loader("shop_list", [
             "title" => "Buy Amazing Old World Currency Notes Online | Mintage World",
             "category" => ProductCategory::find($categorySlugParts[0]),
             "category_products" => $categoryProducts,
-            "product_count" => count($categoryProducts)
+            "product_count" => count($categoryProducts),
+            "pagination_string" => $paginationInfoString
         ]);
     }
     function view_product($productSlug)

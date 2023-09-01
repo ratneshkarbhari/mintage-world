@@ -54,7 +54,6 @@ Route::group(['middleware' => ['slashes']], function () {
 
     // Shopping routes
     Route::get('shop', [Shopping::class, 'shop']);
-    Route::get('shop/list/{categorySlug}', [Shopping::class, 'shop_list']);
 
 
     //Product  routes
@@ -167,3 +166,4 @@ Route::get('upgrade-membership', [StaticPages::class,'upgrademembership']);
 Route::post("upgrade-membership-to-premium",[Members::class,'upgrade_to_premium']);
 
 Route::get("history-download/{historyId}",[Histories::class,'download_exe']);
+Route::get('shop/list/{categorySlug}', [Shopping::class, 'shop_list']);

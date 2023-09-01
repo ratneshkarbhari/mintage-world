@@ -53,4 +53,5 @@ class PageLoader extends Controller
             "title" => "Manage Products"
         ]);
     }
+    
 }

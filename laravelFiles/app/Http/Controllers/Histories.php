@@ -146,4 +146,17 @@ class Histories extends Controller
     }
 
 
+    function download_exe($historyId){
+        
+        $historyData = History::find($historyId);
+
+        $data = file_get_contents(url('assets/history-pdfs/'.$historyData["download_file"]));
+        header("Content-type: application/octet-stream");
+        header("Content-disposition: attachment;filename=".$historyData["download_file"]);
+      
+        echo $data;
+      
+        
+    }
+
 }

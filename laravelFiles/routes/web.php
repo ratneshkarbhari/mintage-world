@@ -5,6 +5,7 @@ use App\Http\Controllers\Notes;
 use App\Http\Controllers\Utils;
 use App\Http\Controllers\Stamps;
 use App\Http\Controllers\Coupons;
+use App\Http\Controllers\Members;
 use App\Http\Controllers\Shopping;
 use App\Http\Controllers\Histories;
 use App\Http\Controllers\PageLoader;
@@ -122,7 +123,6 @@ Route::group(['middleware' => ['slashes']], function () {
 
 
     // Auth routes
-    Route::post("member-login-exe", [Authentication::class, 'member_login']);
     Route::get("logout", [Authentication::class, 'logout']);
 
     // Info comments
@@ -135,6 +135,10 @@ Route::group(['middleware' => ['slashes']], function () {
     // Universal search
     Route::get("universal-search-exe", [Utils::class, 'universal_search']);
 });
+
+
+Route::post("member-login-exe", [Authentication::class, 'member_login']);
+
 
 
 Route::get("coin/list/{rulerId}", [Coins::class, 'coin_list']);
@@ -158,3 +162,8 @@ Route::post("delete-cart-item",[CartActions::class,'delete_cart_item']);
 Route::post("recalculate-subtotal",[CartActions::class,'recalculate_subtotal']);
 
 Route::post("apply-coupon-exe",[Coupons::class,'apply_exe']);
+
+Route::get('upgrade-membership', [StaticPages::class,'upgrademembership']);
+Route::post("upgrade-membership-to-premium",[Members::class,'upgrade_to_premium']);
+
+Route::get("history-download/{historyId}",[Histories::class,'download_exe']);

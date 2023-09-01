@@ -7,6 +7,9 @@ use App\Models\Media;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
+use Razorpay\Api\Api;
+
+
 class StaticPages extends Controller
 {
     private function page_loader($viewName, $data)
@@ -126,8 +129,15 @@ class StaticPages extends Controller
     }
     function upgrademembership()
     {
+
+        $api = new Api(getenv("RAZOR_KEY"), getenv("RAZOR_SECRET"));
+
+        $order = $api->order->create(array('receipt' => uniqid(), 'amount' => 100, 'currency' => 'INR'));
+
+
         $this->page_loader("upgrademembership", [
-            "title" => "Upgrade Membership | Mintage World"
+            "title" => "Upgrade Membership | Mintage World",
+            "order" => $order
         ]);
     }
     function event()

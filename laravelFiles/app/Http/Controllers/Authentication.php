@@ -30,6 +30,7 @@ class Authentication extends Controller
                     "first_name" => $nameArray[0],
                     "last_name" => $nameArray[1],
                     "email" => $memberData["email"],
+                    "level" => $memberData["type"],
                     "type" => "member"
                 ]);
                 return "login-success";

@@ -89,13 +89,23 @@
                         Read more about Janapada history at Mintage World.</p>
 
                   @if(session()->has('type'))
-                  <a class="btn btn-sm btn-explore" href="{{url("upgrade-membership")}}"> 
-                     <i class="fa fa-download"></i> Click here to download the complete history</a>
-                     <span class="first"></span>
-                     <span class="second"></span>
-                     <span class="third"></span>
-                     <span class="fourth"></span>
-                  </a>
+                  @if(session("level")=="Regular")
+                    <a class="btn btn-sm btn-explore" href="{{url("upgrade-membership?history=".$history["id"])}}"> 
+                        <i class="fa fa-download"></i> Click here to download the complete history</a>
+                        <span class="first"></span>
+                        <span class="second"></span>
+                        <span class="third"></span>
+                        <span class="fourth"></span>
+                    </a>
+                  @else
+                    <a class="btn btn-sm btn-explore" download href="{{url("history-download/".$history["id"])}}"> 
+                        <i class="fa fa-download"></i> Click here to download the complete history</a>
+                        <span class="first"></span>
+                        <span class="second"></span>
+                        <span class="third"></span>
+                        <span class="fourth"></span>
+                    </a>
+                  @endif
                   @else 
                   <p id="ProductLogBtn">
                      <button type="button" class="btn btn-sm btn-explore" data-bs-toggle="modal" data-bs-target="#LoginModal"> 

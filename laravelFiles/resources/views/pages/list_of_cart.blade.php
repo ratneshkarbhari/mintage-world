@@ -97,7 +97,8 @@ use App\Models\Product;
                                     </tr>
                                     <tr class="discount-row">
                                         <td><b>Coupon Discount</b></td>
-                                        <td class="text-end"><label for="" id="lblCouponDisc"> {{$discount}}</label></td>
+                                        <td class="text-end"><label for=""  id="lblCouponDisc"> {{$discount}}</label> 
+                                        </td>
                                     </tr>
                                     <tr class="total-row">
                                         <td><b>Total :</b>
@@ -190,13 +191,45 @@ use App\Models\Product;
     let listItems1 = document.querySelectorAll(".cart-item-amount");  
     let lblSubTotal =   document.getElementById("lblSubTotal");
     let lblCouponDisc =   document.getElementById("lblCouponDisc");
-    let lblTotal =   document.getElementById("lblTotal");
+    let lblTotal =   document.getElementById("lblTotal"); 
+    let i = 0.00;
+    // lblCouponDisc.innerText = 0.00;
     listItems1.forEach(function (item) {
         subTotal = subTotal + parseInt(item.innerText);
+        i++;
     });
-    // console.log(parseInt(lblCouponDisc.innerText));
+
     lblSubTotal.innerText = subTotal;
-    lblTotal.innerText = parseInt(lblSubTotal.innerText) - parseInt(lblCouponDisc.innerText);
+    lblTotal.innerText = subTotal;
+    console.log(lblTotal);
+
+    @if(session("value"))
+
+    let CouponVal = {{session("value")}};
+    let CouponType = '{{session("type")}}';
+
+    
+    if(CouponType == 'PERCENTAGE'){ 
+        let lblCouponDiscTotal = (subTotal * CouponVal / 100);
+        lblTotal.innerText = subTotal - lblCouponDiscTotal;      
+        lblCouponDisc.innerText = lblCouponDiscTotal;  
+       
+    }
+    else if(CouponType == 'FLAT'){          
+        console.log('enter in flat');     
+        console.log(CouponVal);     
+        lblTotal.innerText = subTotal - CouponVal; 
+        lblCouponDisc.innerText = CouponVal;
+        console.log(lblCouponDisc);
+    }
+    else{
+        lblTotal.innerText = subTotal;
+    }
+    @endif
+   
+    
+  
+
  }
     $(".qtyminus").click(function (e) {
         e.preventDefault();

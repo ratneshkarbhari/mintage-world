@@ -7,45 +7,42 @@ use Illuminate\Http\Request;
 
 class Coupons extends Controller
 {
-    
-    function apply_exe(Request $request){
+
+    function apply_exe(Request $request)
+    {
 
         if (isset($request->code)) {
-            
+
             $code = $request->code;
-            
         } else {
-            
+
             $code = session("code");
-        
         }
-        
-        $couponData = Coupon::where("code",$code)->first();
+
+        $couponData = Coupon::where("code", $code)->first();
 
         if ($couponData) {
-            
-            if ($couponData["type"]=="PERCENTAGE") {
-                $discount = ($couponData["value"]/100)*session("subtotal");
+
+            if ($couponData["type"] == "PERCENTAGE") {
+                $discount = ($couponData["value"] / 100) * session("subtotal");
             } else {
-                if($couponData["value"]>session("subtotal")){
-                    return ["message"=>"subtotal-low"];
-                }else{
-                    $discount = session("subtotal")-$couponData["value"];
+                if ($couponData["value"] > session("subtotal")) {
+                    return ["message" => "subtotal-low"];
+                } else {
+                    $discount = $couponData["value"];
                 }
             }
 
-            session(["discount"=>$discount,"code"=>$code,"type"=>$couponData["type"],"value"=>$couponData["value"]]);
-            
+            // print_r(["discount" => $discount, "code" => $code, "type" => $couponData["type"], "value" => $couponData["value"]]);
+            // exit;
 
-            return ["message"=>"coupon-applied", "discount" => $discount];
-            
+            session(["discount" => $discount, "code" => $code, "type" => $couponData["type"], "value" => $couponData["value"]]);
+
+
+            return ["message" => "coupon-applied", "discount" => $discount];
         } else {
-            
-            return ["message"=>"invalid-coupon"];
 
+            return ["message" => "invalid-coupon"];
         }
-        
-
     }
-
 }

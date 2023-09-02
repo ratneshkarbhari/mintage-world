@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Country;
 use App\Models\Media;
+use App\Models\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -169,7 +170,8 @@ class StaticPages extends Controller
     function dashboard()
     {
         $this->page_loader("dashboard", [
-            "title" => "Dashboard | Mintage World"
+            "title" => "Dashboard | Mintage World",
+            "user" => Member::find(session("member_id"))
         ]);
     }
     function change_password()

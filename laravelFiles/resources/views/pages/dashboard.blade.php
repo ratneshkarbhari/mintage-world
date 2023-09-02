@@ -43,22 +43,22 @@
                 <div class="row my-profile-wrap">
                     <div class="col-md-4 mb-3">
                        <label for="" class="w-100 mb-2">Name</label>
-                       <input type="text" name="" id="TxtName" value="User Name" class="form-control inp-dis" disabled>
+                       <input type="text" name="" id="TxtName" value="{{session("first_name")}} {{session("last_name")}}" class="form-control inp-dis" disabled>
                        <div class="divider w-100 mb-3"></div>
                        <label for="" class="w-100 mb-2">Member Type</label>                        
-                       <div class="d-inline-block alert alert-success p-0 mb-0 px-2">Regular</div>                    
+                       <div class="d-inline-block alert alert-success p-0 mb-0 px-2">{{session("level")}}</div>                    
                        <div class="divider w-100 mb-3"></div>
                        <label for="" class="w-100 mb-2">Email ID</label>
-                       <input type="text" name="" id="TxtEmailID" value="arekars@gmail.com" class="form-control inp-dis" disabled >
+                       <input type="text" name="" id="TxtEmailID" value="{{session("email")}}" class="form-control inp-dis" disabled >
                        <div class="divider w-100 mb-3"></div>
                        <label for="" class="w-100 mb-2">Mobile No</label>
-                       <input type="text" name="" id="TxtMobileNo" value="98000 98000" class="form-control inp-dis" disabled > 
+                       <input type="text" name="" id="TxtMobileNo" value="{{$user["mobile"]}}" class="form-control inp-dis" disabled > 
                     </div>
                     <div class="col-md-8 mb-3">
                        <div class="row">
                           <div class="col-md-12 mb-3">
                              <label for="" class="w-100 mb-2">Address</label>
-                             <textarea name="address" class="form-control inp-dis" placeholder="Enter address" rows="4"  disabled>1/3 shivsagar rahiwashi sangh, ,bhatwadi, ghatkopar west</textarea>
+                             <textarea name="address" class="form-control inp-dis" placeholder="Enter address" rows="4"  disabled>{{$user["address"]}}</textarea>
                           </div>
                           <div class="col-md-6 mb-3">
                              <label for="" class="w-100 mb-2">Country</label>
@@ -110,22 +110,23 @@
                           </div>
                           <div class="col-md-6 mb-3">
                              <label for="" class="w-100 mb-2">City</label>
-                             <input type="text" name="city" class="form-control inp-dis" value="mumbai" disabled>
+                             <input type="text" name="city" class="form-control inp-dis" value="{{$user["city"]}}" disabled>
                           </div>
                           <div class="col-md-6 mb-3">
                              <label for="" class="w-100 mb-2">Pin Code</label>
-                             <input type="text" name="pincode" class="form-control inp-dis" placeholder="Enter pin code" required="required" value="400084" disabled>
+                             <input type="text" name="pincode" class="form-control inp-dis" placeholder="Enter pin code" required="required" value="{{$user["pincode"]}}" disabled>
                           </div>
                        </div>
                     </div>
                     <div class="col-md-12 d-none" id="udate-profile-btn">
-                        <button type="button" class="btn btn-sm btn-explore"> 
+                        <button type="button" id="updateProfile" class="btn btn-sm btn-explore"> 
                             Update Profile
                             <span class="first"></span>
                             <span class="second"></span>
                             <span class="third"></span>
                             <span class="fourth"></span>
                         </button>
+                        
                         <button type="button" class="btn btn-sm btn-danger rounded-pill" onclick="removeattr()"> 
                            CANCEL 
                        </button>

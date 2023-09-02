@@ -256,7 +256,7 @@ class Coins extends Controller
             "rarities" => array_unique($rarities),
             "mints" => array_unique($mints),
             "shapes" => array_unique($shapes),
-            "pagination_info_string" => $paginationInfoString,
+            "pagination_string" => $paginationInfoString,
             "breadCrumbData" => [
                 [
                     "slug" => "coins/",

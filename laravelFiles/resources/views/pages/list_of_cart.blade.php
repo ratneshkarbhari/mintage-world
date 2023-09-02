@@ -27,19 +27,12 @@ use App\Models\Product;
 
             <div class="cart row">
                 <div class="basket col-lg-8 col-md-7 col-12">
-
-                    @if (empty($cart_items))
-                    
+                    @if (empty($cart_items))                    
                         <h1>No Items in Cart</h1>
-
                     @else
-
                         @php
-
                         $subTotal = 0.00;
-
                         @endphp
-
                         @foreach ($cart_items as $cart_item)
                         @php
                         $product = Product::find($cart_item["product_id"]);
@@ -203,9 +196,7 @@ use App\Models\Product;
     });
     // console.log(parseInt(lblCouponDisc.innerText));
     lblSubTotal.innerText = subTotal;
-    lblTotal.innerText = parseInt(lblSubTotal.innerText) + parseInt(lblCouponDisc.innerText);
-
-
+    lblTotal.innerText = parseInt(lblSubTotal.innerText) - parseInt(lblCouponDisc.innerText);
  }
     $(".qtyminus").click(function (e) {
         e.preventDefault();

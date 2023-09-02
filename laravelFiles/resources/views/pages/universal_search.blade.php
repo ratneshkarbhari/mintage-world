@@ -149,6 +149,100 @@
                         </div>
 
                     </div>
+
+                    <div class="row search-result-wrap news-search mb-4">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-12 mt-4">
+                            <div class="search-item">
+                                <div class="product-grid d-md-flex d-block  text-start">
+                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1 img-fluid" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
+                                    <div class="product-content">                                     
+                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
+                                       <p class="product-date mb-0"><small><i class="fas fa-calendar-alt"></i> 21 Aug 2023 Mon</small></p>
+                                       <p class="product-disc mb-2">Pandit Vishnu Digambar Paluskar was an renowned Indian musician best known for his bhajan Raghupati Raghava Raja Ram and also for arranging India's national song, Vande M?taram, as it is heard today. He founded Gandharva Maha...</p>
+                                       <a class="mb-0 btn btn-sm btn-primary">Read More</a>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>  
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-12 mt-4">
+                            <div class="search-item">
+                                <div class="product-grid d-md-flex d-block  text-start">
+                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1 img-fluid" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
+                                    <div class="product-content">                                     
+                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
+                                       <p class="product-date mb-0"><small><i class="fas fa-calendar-alt"></i> 21 Aug 2023 Mon</small></p>
+                                       <p class="product-disc mb-2">Pandit Vishnu Digambar Paluskar was an renowned Indian musician best known for his bhajan Raghupati Raghava Raja Ram and also for arranging India's national song, Vande M?taram, as it is heard today. He founded Gandharva Maha...</p>
+                                       <a class="mb-0 btn btn-sm btn-primary">Read More</a>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div> 
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-12 mt-4">
+                            <div class="search-item">
+                                <div class="product-grid d-md-flex d-block  text-start">
+                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1 img-fluid" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
+                                    <div class="product-content">                                     
+                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
+                                       <p class="product-date mb-0"><small><i class="fas fa-calendar-alt"></i> 21 Aug 2023 Mon</small></p>
+                                       <p class="product-disc mb-2">Pandit Vishnu Digambar Paluskar was an renowned Indian musician best known for his bhajan Raghupati Raghava Raja Ram and also for arranging India's national song, Vande M?taram, as it is heard today. He founded Gandharva Maha...</p>
+                                       <a class="mb-0 btn btn-sm btn-primary">Read More</a>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div> 
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-12 mt-4">
+                            <div class="search-item">
+                                <div class="product-grid d-md-flex d-block  text-start">
+                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1 img-fluid" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
+                                    <div class="product-content">                                     
+                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
+                                       <p class="product-date mb-0"><small><i class="fas fa-calendar-alt"></i> 21 Aug 2023 Mon</small></p>
+                                       <p class="product-disc mb-2">Pandit Vishnu Digambar Paluskar was an renowned Indian musician best known for his bhajan Raghupati Raghava Raja Ram and also for arranging India's national song, Vande M?taram, as it is heard today. He founded Gandharva Maha...</p>
+                                       <a class="mb-0 btn btn-sm btn-primary">Read More</a>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div> 
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-12 mt-4">
+                            <div class="search-item">
+                                <div class="product-grid d-md-flex d-block  text-start">
+                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1 img-fluid" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
+                                    <div class="product-content">                                     
+                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
+                                       <p class="product-date mb-0"><small><i class="fas fa-calendar-alt"></i> 21 Aug 2023 Mon</small></p>
+                                       <p class="product-disc mb-2">Pandit Vishnu Digambar Paluskar was an renowned Indian musician best known for his bhajan Raghupati Raghava Raja Ram and also for arranging India's national song, Vande M?taram, as it is heard today. He founded Gandharva Maha...</p>
+                                       <a class="mb-0 btn btn-sm btn-primary">Read More</a>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div> 
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-12 mt-4">
+                            <div class="search-item">
+                                <div class="product-grid d-md-flex d-block  text-start">
+                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1 img-fluid" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
+                                    <div class="product-content">                                     
+                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
+                                       <p class="product-date mb-0"><small><i class="fas fa-calendar-alt"></i> 21 Aug 2023 Mon</small></p>
+                                       <p class="product-disc mb-2">Pandit Vishnu Digambar Paluskar was an renowned Indian musician best known for his bhajan Raghupati Raghava Raja Ram and also for arranging India's national song, Vande M?taram, as it is heard today. He founded Gandharva Maha...</p>
+                                       <a class="mb-0 btn btn-sm btn-primary">Read More</a>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div> 
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-12 mt-4">
+                            <div class="search-item">
+                                <div class="product-grid d-md-flex d-block  text-start">
+                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1 img-fluid" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
+                                    <div class="product-content">                                     
+                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
+                                       <p class="product-date mb-0"><small><i class="fas fa-calendar-alt"></i> 21 Aug 2023 Mon</small></p>
+                                       <p class="product-disc mb-2">Pandit Vishnu Digambar Paluskar was an renowned Indian musician best known for his bhajan Raghupati Raghava Raja Ram and also for arranging India's national song, Vande M?taram, as it is heard today. He founded Gandharva Maha...</p>
+                                       <a class="mb-0 btn btn-sm btn-primary">Read More</a>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div> 
+                    </div>
                     <div class="pagination-container">
                         <p>Showing 1 to 12 of 118 entries</p>
                         <nav>

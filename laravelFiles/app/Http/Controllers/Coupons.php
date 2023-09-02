@@ -34,7 +34,7 @@ class Coupons extends Controller
                 }
             }
 
-            session(["discount"=>$discount,"code"=>$code]);
+            session(["discount"=>$discount,"code"=>$code,"type"=>$couponData["type"],"value"=>$couponData["value"]]);
             
 
             return ["message"=>"coupon-applied", "discount" => $discount];

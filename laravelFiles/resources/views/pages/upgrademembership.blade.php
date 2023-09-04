@@ -29,7 +29,6 @@
 
                     </h1>
                     <h1 id="failureMessage" class="text-center text-danger">
-
                     </h1>
 
                     <button  class="btn btn-success" id="rzp-button1" type="button">

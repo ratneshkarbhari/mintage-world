@@ -3059,6 +3059,250 @@ span.cart-item-amount{
 }
 /* knowledge-base css end  */
 
+/* my-order-list css start */
+.my-order-table td, .my-order-table th {
+  font-size: 14px;
+}
+
+.my-order-table .order-list .order-img img {
+  width: 60px;
+  margin-right: 10px;
+  max-height: 60px;
+  border: solid 1px #cfcfcf;
+}
+.my-order-table .order-list .order-name a {
+  font-weight: 600;
+  color: #e19726;
+}
+
+.my-order-table .order-list .order-name span {
+  font-size: 14px;
+  display: block;
+  color: #939598;
+  font-weight: 600;
+}
+.my-order-table .alert {
+  font-weight: 600;
+  padding: 5px;
+  text-align: center;
+}
+.order-list li {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #cfcfcf;
+}
+
+.order-list li:last-child {
+  border-bottom: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+.order-detail-popup.modal button.btn-close {
+  position: relative;
+  top: 0;
+}
+
+#invoiceholder {
+  width: 100%;
+  height: 100%;
+  padding: 50px 0;
+}
+#invoice {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  background: #fff;
+}
+[id*='invoice-'] {
+ /* Targets all id with 'col-' */
+ /* border-bottom: 1px solid #EEE;
+ */
+ padding: 10px;
+ padding-bottom: 0px;
+}
+#invoice .address-line {
+  border-top: 1px solid #e19726;
+  margin-top: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #e19726;
+}
+#invoice #invoice-bot {
+  min-height: 240px;
+}
+#invoice .logo {
+  display: inline-block;
+  vertical-align: middle;
+  width: 150px;
+  overflow: hidden;
+}
+#invoice .info {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+#invoice .logo img, #invoice .clientlogo img {
+  width: 100%;
+}
+#invoice .clientlogo {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50px;
+}
+#invoice .clientinfo {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+#invoice .title {
+  float: right;
+}
+#invoice .title p {
+  text-align: right;
+  margin: 0;
+}
+#invoice #message {
+  margin-bottom: 30px;
+  display: block;
+}
+#invoice h2 {
+  margin-bottom: 5px;
+  color: #444;
+}
+#invoice .col-right td {
+  color: #666;
+  padding: 5px 8px;
+  border: 0;
+  font-size: 0.75em;
+  border-bottom: 1px solid #eee;
+}
+#invoice .col-right td label {
+  margin-left: 5px;
+  font-weight: 600;
+  color: #444;
+}
+#invoice .cta-group a {
+  display: inline-block;
+  padding: 7px;
+  border-radius: 4px;
+  background: #c4390a;
+  margin-right: 10px;
+  min-width: 100px;
+  text-align: center;
+  color: #fff;
+  font-size: 0.75em;
+}
+#invoice .cta-group .btn-primary {
+  background: #00a63f;
+}
+#invoice .cta-group.mobile-btn-group {
+  display: none;
+}
+#invoice table {
+  width: 100%;
+  border-collapse: collapse;
+}
+#invoice td {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+ 
+#invoice th {
+  font-size: 14px;
+  padding: 10px;
+}
+#invoice .item {
+  width: 50%;
+} 
+#invoice .total-row th, #invoice .total-row td { 
+  font-size: 14px;
+  border: 0 none;
+  vertical-align: middle;
+}
+#invoice footer {
+  border-top: 1px solid #eee;
+  padding: 10px;
+}
+#invoice .effect2 {
+  position: relative;
+}
+#invoice .effect2:before, #invoice .effect2:after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width: 300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+#invoice .effect2:after {
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+#invoice footer p {
+  font-size: 13px;
+  line-height: 18px;
+}
+@media print {
+  #invoice .logo {
+    display: inline-block;
+    vertical-align: middle;
+    width: 150px;
+    overflow: hidden;
+}
+  #invoice .title {
+    float: right;
+}
+  .address-line {
+    border-top: 1px solid #e19726;
+    margin-top: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #e19726;
+    print-color-adjust: exact;
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+}
+.col-md-6 {
+  flex: 0 0 auto;
+  width: 50%;
+}
+#invoice .title {
+  float: right;
+  text-align: right;
+}
+#invoice .title p {
+  text-align: right;
+  margin: 0;
+}
+.table-primary{
+  background: #cfe2ff;
+  print-color-adjust: exact;
+}
+}
+
+ 
+
+/* my-order-list css end */
+
 /* --------Responsive Media Css Start------------- */
 
 @media (max-width: 1400px) {
@@ -3627,6 +3871,106 @@ section.inside-banner{
 nav .pagination {
   display: flex;
   flex-wrap: wrap;
+}
+
+/*==================== Table ====================*/
+#invoice h1 {
+  font-size: 0.9em;
+}
+#invoice {
+  width: 100%;
+}
+#invoice #message {
+  margin-bottom: 20px;
+}
+[id*='invoice-'] {
+  padding: 20px 10px;
+}
+#invoice .logo {
+  width: 140px;
+}
+#invoice .title {
+  float: none;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 40px;
+}
+#invoice .title p {
+  text-align: left;
+}
+#invoice .col-left, #invoice .col-right {
+  width: 100%;
+}
+#invoice .table {
+  margin-top: 20px;
+}
+#invoice #table {
+  white-space: nowrap;
+  overflow: auto;
+}
+#invoice td {
+  white-space: normal;
+}
+#invoice .cta-group {
+  text-align: center;
+}
+#invoice .cta-group.mobile-btn-group {
+  display: block;
+  margin-bottom: 20px;
+}
+#invoice .table-main {
+  border: 0 none;
+}
+#invoice  .table-main thead {
+  border: none;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+#invoice .table-main tr {
+  border-bottom: 2px solid #eee;
+  display: block;
+  margin-bottom: 20px;
+}
+#invoice .table-main td {
+  font-weight: 700;
+  display: block;
+  padding-left: 40%;
+  max-width: none;
+  position: relative;
+  border: 1px solid #cccaca;
+  text-align: left;
+}
+#invoice .table-main td:before {
+ /* * aria-label has no advantage, it won't be read inside a table content: attr(aria-label);
+  */
+  content: attr(data-label);
+  position: absolute;
+  left: 10px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+#invoice .total-row th {
+  display: none;
+}
+#invoice .total-row td {
+  text-align: left;
+}
+#invoice footer {
+  text-align: center;
+}
+.my-order-table {
+width: 700px;
+}
+.order-detail-th {
+  width: 300px;
+}
+.my-order-table td, .my-order-table th {
+  font-size: 12px;
 }
 }
 

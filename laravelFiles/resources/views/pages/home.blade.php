@@ -685,8 +685,7 @@
     <div class="container-fluid service  px-lg-2 px-lg-5">       
         <div class="row">           
             <div class="col-lg-4 col-md-4">
-                <div class="wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="text-secondary text-uppercase mb-3">India | World</h6>
+                <div class="wow fadeInUp" data-wow-delay="0.1s"> 
                     <h2 class="mb-4 heading-1">Information </h2>
                 </div>
                 <div class="nav w-100 nav-pills me-4">
@@ -702,9 +701,13 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-4">
-                <div class="wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="text-secondary text-uppercase mb-3">India | World</h6>`
+                <div class="wow fadeInUp" data-wow-delay="0.1s"> 
                     <h2 class="mb-4 heading-1">News </h2>
+                </div>
+            </div>  
+            <div class="col-lg-4 col-md-4">
+                <div class="wow fadeInUp" data-wow-delay="0.1s"> 
+                    <h2 class="mb-4 heading-1">Event Videos</h2>
                 </div>
             </div>            
         </div>

@@ -248,7 +248,8 @@ use App\Models\Product;
                     let productQty = $("input#quantity-"+pid).val();
                     cartItemAmount = parseInt(productPrice)*parseInt(productQty);
                     $("span#cart-item-amount-"+pid).html(cartItemAmount)     
-                    recalculateSubTotal();                                
+                    recalculateSubTotal();    
+                    applyCoupon()                            
                 }
             });
         }
@@ -271,6 +272,7 @@ use App\Models\Product;
                 cartItemAmount = parseInt(productPrice)*parseInt(productQty);
                 $("span#cart-item-amount-"+pid).html(cartItemAmount)
                 recalculateSubTotal();
+                applyCoupon();
              }
         });
     });
@@ -290,11 +292,32 @@ use App\Models\Product;
             success: function (response) {                
                 $("div#cart-item-"+pid).remove();
                 $('.add-to-cart-success').toast('show');
-                recalculateSubTotal();                 
+                recalculateSubTotal();    
+                applyCoupon();             
             } 
         });
         
     });
+
+    function applyCoupon() { 
+        let codeEntered = $("#txtCouponCode").val();
+        $.ajax({
+            type: "POST",
+            url: "{{url('apply-coupon-recalculate-discount-exe')}}",
+            data: {
+                "_token" : "{{ csrf_token() }}",
+                "subtotal" : $("label#lblSubTotal").html(),
+                "code" : codeEntered
+            },
+            success: function (response) {
+                if(response.message=="coupon-applied"){
+                    return response.discount;
+                }else{
+                    $(".coupon-apply-failure").toast("show");
+                }
+            }
+        });
+    }
 
     $("button#apply-coupon").click(function (e) { 
         e.preventDefault();

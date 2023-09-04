@@ -167,3 +167,6 @@ Route::post("upgrade-membership-to-premium",[Members::class,'upgrade_to_premium'
 
 Route::get("history-download/{historyId}",[Histories::class,'download_exe']);
 Route::get('shop/list/{categorySlug}', [Shopping::class, 'shop_list']);
+
+
+Route::post("apply-coupon-recalculate-discount-exe",[Coupons::class,'apply_coupon_recalculate']);

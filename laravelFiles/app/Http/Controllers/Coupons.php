@@ -45,4 +45,42 @@ class Coupons extends Controller
             return ["message" => "invalid-coupon"];
         }
     }
+
+    function apply_coupon_recalculate(Request $request){
+
+        if (isset($request->code)) {
+
+            $code = $request->code;
+        } else {
+
+            $code = session("code");
+        }
+
+        $subtotal = $request->subtotal;
+
+        $couponData = Coupon::where("code", $code)->first();
+
+        if ($couponData) {
+
+            if ($couponData["type"] == "PERCENTAGE") {
+                $discount = ($couponData["value"] / 100) * $subtotal;
+            } else {
+                if ($couponData["value"] > $subtotal) {
+                    return ["message" => "subtotal-low"];
+                } else {
+                    $discount = $couponData["value"];
+                }
+            }
+
+            session(["discount" => $discount, "code" => $code, "type" => $couponData["type"], "value" => $couponData["value"]]);
+
+
+            return ["message" => "coupon-applied", "discount" => $discount];
+        } else {
+
+            return ["message" => "invalid-coupon"];
+        }
+
+    }
+
 }

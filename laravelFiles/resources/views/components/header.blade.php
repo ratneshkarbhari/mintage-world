@@ -76,7 +76,7 @@
                         </a>
                     </div>
                     <div class="h-100 d-inline-flex align-items-center  me-md-2 me-3">                       
-                        @if(session('type')=="member")
+                        @if(session("member_id"))
                         <a href="{{url("member/dashboard")}}"  class="me-2">
                             <small class="fas fa-user-cog text-primary me-2"></small>
                             <small>My Account</small>

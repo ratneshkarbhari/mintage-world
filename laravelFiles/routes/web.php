@@ -14,7 +14,7 @@ use App\Http\Controllers\StaticPages;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfoComments;
 use App\Http\Controllers\Authentication;
-
+use App\Http\Controllers\Orders;
 
 /*
 |--------------------------------------------------------------------------
@@ -170,3 +170,4 @@ Route::get('shop/list/{categorySlug}', [Shopping::class, 'shop_list']);
 
 
 Route::post("apply-coupon-recalculate-discount-exe",[Coupons::class,'apply_coupon_recalculate']);
+Route::post("create-order-exe",[Orders::class,'create_exe']);

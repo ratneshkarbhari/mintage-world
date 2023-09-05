@@ -35,12 +35,12 @@ use App\Models\Product;
                         @endphp
                         @foreach ($cart_items as $cart_item)
                         @php
-                        $product = Product::find($cart_item["product_id"]);
+                        $product = $cart_item["product"];
                         $itemCost = $product["price"]*$cart_item["quantity"];
                         $subTotal += $itemCost;
-                        $imgParts = explode("/",Product::find($cart_item["product_id"])["img"]);
+                        $imgParts = explode("/",$product["img"]);
                         @endphp
-                        <div class="shopping-cart-wrap" id="cart-item-{{$cart_item["product_id"]}}">
+                        <div class="shopping-cart-wrap" id="cart-item-{{$cart_item["product"]["id"]}}">
                             <div class="row">
                                 <div class="col-md-3">
                                     <a href=""><img src="{{getenv("PRODUCT_IMAGE_BASE_URL").$imgParts[2]}}" class="img-fluid cart-img" alt=""></a>

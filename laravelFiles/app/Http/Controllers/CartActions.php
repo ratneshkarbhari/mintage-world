@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Razorpay\Api\Api;
+use App\Models\Member;
 use App\Models\Country;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -33,8 +35,7 @@ class CartActions extends Controller
     
                         $cartObj[$request->pid] = [
                             "member_id" => session("member_id"),
-                            "product_id" => $request->pid,
-                            "product_price" => $product["price"],
+                            "product" => $product,
                             "quantity" => $qty,
                             "amount" => $product["price"]*$qty,
                             "date_added" => date("d/m/y")
@@ -44,8 +45,7 @@ class CartActions extends Controller
     
                         $cartObj[$request->pid] = [
                             "member_id" => session("member_id"),
-                            "product_id" => $request->pid,
-                            "product_price" => $product["price"],
+                            "product" => $product,
                             "quantity" => $request->quantity,
                             "amount" => $product["price"]*$request->quantity,
                             "date_added" => date("d/m/y")
@@ -63,8 +63,7 @@ class CartActions extends Controller
     
                         $cartObj[$request->pid] = [
                             "member_id" => "NA",
-                            "product_id" => $request->pid,
-                            "product_price" => $product["price"],
+                            "product" => $product,
                             "quantity" => $qty,
                             "amount" => $product["price"]*$qty,
                             "date_added" => date("d/m/y")
@@ -76,8 +75,7 @@ class CartActions extends Controller
     
                         $cartObj[$request->pid] = [
                             "member_id" => "NA",
-                            "product_id" => $request->pid,
-                            "product_price" => $product["price"],
+                            "product" => $product,
                             "quantity" => $request->quantity,
                             "amount" => $product["price"]*$request->quantity,
                             "date_added" => date("d/m/y")
@@ -117,8 +115,7 @@ class CartActions extends Controller
     
                         $cartObj[$request->pid] = [
                             "member_id" => session("member_id"),
-                            "product_id" => $request->pid,
-                            "product_price" => $product["price"],
+                            "product" => $product,
                             "quantity" => $qty,
                             "amount" => $product["price"]*$qty,
                             "date_added" => date("d/m/y")
@@ -128,8 +125,7 @@ class CartActions extends Controller
     
                         $cartObj[$request->pid] = [
                             "member_id" => session("member_id"),
-                            "product_id" => $request->pid,
-                            "product_price" => $product["price"],
+                            "product" => $product,
                             "quantity" => $request->quantity,
                             "amount" => $product["price"]*$request->quantity,
                             "date_added" => date("d/m/y")
@@ -147,8 +143,7 @@ class CartActions extends Controller
     
                         $cartObj[$request->pid] = [
                             "member_id" => "NA",
-                            "product_id" => $request->pid,
-                            "product_price" => $product["price"],
+                            "product"=> $product,
                             "quantity" => $qty,
                             "amount" => $product["price"]*$qty,
                             "date_added" => date("d/m/y")
@@ -160,8 +155,7 @@ class CartActions extends Controller
     
                         $cartObj[$request->pid] = [
                             "member_id" => "NA",
-                            "product_id" => $request->pid,
-                            "product_price" => $product["price"],
+                            "product" => $product,
                             "quantity" => $request->quantity,
                             "amount" => $product["price"]*$request->quantity,
                             "date_added" => date("d/m/y")
@@ -197,27 +191,35 @@ class CartActions extends Controller
     function cart_page()
     {
 
+        $cart_items = session("cart");  
 
-        if(session("cart")){
-
-            $cartItems = session("cart");
-
+        if(empty($cart_items)||(!isset($cart_items))){
+            return redirect(url("shop"));
         }else{
-            $cartItems = [];
-        }
-        $discountSet = session("discount");
-        if(isset($discountSet)){
-            $discount = session("discount");
-        }else{
-            $discount = 0.00;
+
+            if(session("cart")){
+
+                $cartItems = session("cart");
+    
+            }else{
+                $cartItems = [];
+            }
+            $discountSet = session("discount");
+            if(isset($discountSet)){
+                $discount = session("discount");
+            }else{
+                $discount = 0.00;
+            }
+    
+    
+            $this->page_loader("list_of_cart", [
+                "title" => "Cart ",
+                "cart_items" => $cartItems,
+                "discount" => $discount
+            ]);
         }
 
 
-        $this->page_loader("list_of_cart", [
-            "title" => "Cart | Mintage World",
-            "cart_items" => $cartItems,
-            "discount" => $discount
-        ]);
     }
 
     function increase_cart_item(Request $request){
@@ -300,14 +302,50 @@ class CartActions extends Controller
 
     function checkout()
     {
-        $this->page_loader("Checkout", [
-            "title" => "checkout | Mintage World"
-        ]);
+
+        $cart_items = session("cart");
+
+        if(empty($cart_items)||(!isset($cart_items))){
+            
+            return redirect(url("shop"));
+
+        }else{
+
+            if (session("subtotal")<499) {
+                $shipping = 100;
+            } else {
+                $shipping = 0;
+            }
+            
+
+            $payable = session("subtotal")-session('discount')+$shipping;
+
+            $payable = 1.00;
+
+            session(["payable" => $payable]);
+
+            $api = new Api(getenv("RAZOR_KEY"), getenv("RAZOR_SECRET"));
+
+            $order = $api->order->create(array('receipt' => uniqid(), 'amount' => $payable*100, 'currency' => 'INR'));
+    
+    
+
+            $this->page_loader("Checkout", [
+                "title" => "Checkout ",
+                "member" => Member::find(session("member_id")),
+                "cart_items" => session("cart"),
+                "payable" => $payable,
+                "order" => $order
+            ]);
+
+        }
+
+
     }
     function payment()
     {
         $this->page_loader("payment", [
-            "title" => "Payment | Mintage World"
+            "title" => "Payment "
         ]);
     }
 

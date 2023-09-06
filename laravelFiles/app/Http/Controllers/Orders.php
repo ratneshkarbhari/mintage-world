@@ -49,10 +49,10 @@ class Orders extends Controller
             "Location" => "India",
             "shplocation" => "India",
             "shpcountry_name" => "India",
-            "ordered" => date("d-m-Y"),
+            "ordered" => date("Y-m-d H:i:s"),
             "confirmed" => 0,
             "status" => "Not Confirmed",
-            "subtotal" => session("subtotal"),
+            "subtotal" => session("subtotal")-session("discount"),
             "shipping" => $shipping,
             "items" => count(session("cart")),
             "orderid" => uniqid(),
@@ -64,7 +64,7 @@ class Orders extends Controller
             "payableamount" => session("payable"),
             "order_ip" => $_SERVER["REMOTE_ADDR"],
             "order_agent" => $_SERVER['HTTP_USER_AGENT'],
-            "modified_date" => date("d-m-Y"),
+            "modified_date" => date("Y-m-d H:i:s"),
             "mode_of_purchase" => "Web",
             "app_paymentid" => NULL,
             "couriers" => "",
@@ -94,6 +94,8 @@ class Orders extends Controller
             }
 
         }
+
+        return "order-created";
 
     }
     

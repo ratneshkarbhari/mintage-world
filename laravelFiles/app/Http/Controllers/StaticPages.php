@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Country;
 use App\Models\Media;
 use App\Models\Member;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -182,8 +183,15 @@ class StaticPages extends Controller
     }
     function myorders()
     {
+
+        $orderModel = new Order();
+
+        $orders = $orderModel->where("member_id",session("member_id"))->with("order_products")->orderBy("id","desc")->get();
+
+
         $this->page_loader("myorders", [
-            "title" => "Media Coverage | Mintage World"
+            "title" => "My Orders | Mintage World",
+            "orders"=> $orders
         ]);
     }
     function knowledge_base()

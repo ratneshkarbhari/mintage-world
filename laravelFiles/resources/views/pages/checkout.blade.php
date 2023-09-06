@@ -129,13 +129,13 @@
                             </tr>
                             <tr>
                                <td class="border-bottom ps-0 pe-0">
-                                  Coupon
+                                 - Coupon Applied
                                </td>
-                               <td class="couponAmount border-bottom text-end ps-0 pe-0"> ₹ {{session("discount")}} </td>
+                               <td class="couponAmount border-bottom text-end ps-0 pe-0">  ₹ {{session("discount")}} </td>
                             </tr>
                             <tr>
                                <td class="border-bottom ps-0 pe-0">
-                                  Shipping
+                                  + Shipping
                                </td>
                                <td class="border-bottom text-end ps-0 pe-0">
                                   <span class="shipping_charges">₹ 
@@ -397,7 +397,10 @@ var options = {
                 
                 if (response=="order-created") {
                     
-                    $("#successMessage").html("Your order is placed successfully");
+                  $("#successMessage").html("Your order is placed successfully");
+
+                  window.location = "{{url('member/myorders?message=Order successfully placed')}}";
+
 
                 } else {
                     

@@ -55,106 +55,47 @@
                             <th>Status</th>
                         </tr>
                         </thead>
-                        <tr>
-                            <td><a class="order-popup" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#InvoiceModal"><b>Sept-04-23/01</b></a></td>
-                            <td>                          
-                                <ul class="order-list">
-                                    <li class="d-flex justify-content">
-                                        <div class="order-img">
-                                            <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/MICMGUS30601-5.jpg" alt="" class="img-fluid"></a>
-                                        </div>
-                                        <div class="order-name">
-                                            <a href="#">Gujarat Sultanate Coin of Nasir Al Din Mahmud Shah I - Copper Half Falus</a>
-                                            <span>
-                                                Quantity : 1 
-                                           </span>
-                                            <span>
-                                                <i class="fa fa-rupee-sign "></i> 650 
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <li class="d-flex justify-content">
-                                        <div class="order-img">
-                                            <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/MICMGUS30601-5.jpg" alt="" class="img-fluid"></a>
-                                        </div>
-                                        <div class="order-name">
-                                            <a href="#">Gujarat Sultanate Coin of Nasir Al Din Mahmud Shah I - Copper Half Falus</a>
-                                            <span>
-                                                Quantity : 1 
-                                           </span>
-                                            <span>
-                                                <i class="fa fa-rupee-sign "></i> 650 
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <li class="d-flex justify-content">
-                                        <div class="order-img">
-                                            <a href="#"> <img src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/MICMGUS30601-5.jpg" alt="" class="img-fluid"></a>
-                                        </div>
-                                        <div class="order-name">
-                                            <a href="#">Gujarat Sultanate Coin of Nasir Al Din Mahmud Shah I - Copper Half Falus</a>
-                                            <span>
-                                                Quantity : 1 
-                                           </span>
-                                            <span>
-                                                <i class="fa fa-rupee-sign "></i> 650 
-                                            </span>
-                                        </div>
-                                    </li>
-                                </ul> 
-                            </td>
-                            <td>04-09-2023</td>
-                            <td> <i class="fa fa-rupee-sign "></i> 1950</td>
-                            <td><div class="alert alert-warning">Pending</div></td>
-                        </tr>
-                        <tr>
-                            <td><a class="order-popup" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#InvoiceModal"><b>Sept-04-23/01</b></a></td>
-                            <td>                          
-                                <ul class="order-list">
-                                    <li class="d-flex justify-content">
-                                        <div class="order-img">
-                                            <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/MICMGUS30601-5.jpg" alt="" class="img-fluid"></a>
-                                        </div>
-                                        <div class="order-name">
-                                            <a href="#"> Gujarat Sultanate Coin of Nasir Al Din Mahmud Shah I - Copper Half Falus</a>
-                                            <span>
-                                                 Quantity : 2 
-                                            </span>
-                                            <span>
-                                                <i class="fa fa-rupee-sign "></i> 650 
-                                            </span>
-                                        </div>
-                                    </li>
-                                </ul> 
-                            </td>
-                            <td>04-09-2023</td>
-                            <td><i class="fa fa-rupee-sign "></i>  650</td>
-                            <td><div class="alert alert-danger">Cancel</div></td>
-                        </tr>
-                        <tr>
-                            <td><a class="order-popup" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#InvoiceModal"><b>Sept-04-23/01</b></a></td>
-                            <td>                          
-                                <ul class="order-list">
-                                    <li class="d-flex justify-content">
-                                        <div class="order-img">
-                                            <a href="#"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/MICMGUS30601-5.jpg" alt="" class="img-fluid"></a>
-                                        </div>
-                                        <div class="order-name">
-                                            <a href="#">Gujarat Sultanate Coin of Nasir Al Din Mahmud Shah I - Copper Half Falus</a>
-                                            <span>
-                                                Quantity : 1 
-                                           </span>
-                                            <span>
-                                                <i class="fa fa-rupee-sign "></i> 650 
-                                            </span>
-                                        </div>
-                                    </li>
-                                </ul> 
-                            </td>
-                            <td>04-09-2023</td>
-                            <td><i class="fa fa-rupee-sign "></i>  650</td>
-                            <td><div class="alert alert-success">Success</div></td>
-                        </tr>
+                        <tbody>
+
+                            @foreach ($orders as $order)
+
+                            <tr>
+                                <td><a class="order-popup" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#InvoiceModal"><b>{{$order["orderid"]}}</b></a></td>
+                                <td>                          
+                                    <ul class="order-list">
+                                        @foreach ($order["order_products"] as $product)
+                                            
+
+                                        <li class="d-flex justify-content">
+                                            <div class="order-img">
+                                                {{-- <a href="#"><img src="{{$}}" alt="" class="img-fluid"></a> --}}
+                                            </div>
+                                            <div class="order-name">
+                                                <a href="#">{{$product["productname"]}}</a>
+                                                <span>
+                                                    Quantity : {{$product["quantity"]}} 
+                                               </span>
+                                                <span>
+                                                    <i class="fa fa-rupee-sign "></i> {{$product["price"]}} 
+                                                </span>
+                                            </div>
+                                        </li>
+                                        
+                                        @endforeach
+
+                                    </ul> 
+                                </td>
+                                <td>{{$order["ordered"]}}</td>
+                                <td> <i class="fa fa-rupee-sign "></i> {{$order["payableamount"]}}</td>
+                                <td><div class="alert alert-warning">{{$order["status"]}}</div></td>
+                            </tr>
+                            
+                            
+                            @endforeach
+
+
+
+                        </tbody>
 
 
                     </table>

@@ -209,6 +209,7 @@ class CartActions extends Controller
                 $discount = session("discount");
             }else{
                 $discount = 0.00;
+                session(["discount"=>0.00]);
             }
     
     

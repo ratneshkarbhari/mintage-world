@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
+use App\Models\Event;
 use App\Models\Media;
 use App\Models\Member;
 use App\Models\Order;
@@ -144,16 +145,51 @@ class StaticPages extends Controller
     }
     function event()
     {
+
+        $eventModel = new Event();
+
+        $events = $eventModel->where("status",1)->orderBy("id","desc")->paginate(16);
+
+
+        $total = $events->total();
+        $currentPage = $events->currentPage();
+        $perPage = $events->perPage();
+
+        $from = ($currentPage - 1) * $perPage + 1;
+        $to = min($currentPage * $perPage, $total);
+
+        $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
+
+
+
+
         $this->page_loader("event", [
-            "title" => "event | Mintage World"
+            "title" => "Events | Mintage World",
+            "events" => $events,
+            "pagination_info_string" => $paginationInfoString
         ]);
     }
     function media_list()
     {
+
+        $entries = Media::where("status","1")->orderBy("id","desc")->paginate(12);
+
+        
+        $total = $entries->total();
+        $currentPage = $entries->currentPage();
+        $perPage = $entries->perPage();
+
+        $from = ($currentPage - 1) * $perPage + 1;
+        $to = min($currentPage * $perPage, $total);
+
+        $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
+
+
         
         $this->page_loader("media", [
             "title" => "News | Mintage World",
-            "media_entries" => Media::where("status","1")->orderBy("id","desc")->paginate(12)
+            "media_entries" => $entries,
+            "pagination_info_string" => $paginationInfoString
         ]);
     }
     function media_detail()

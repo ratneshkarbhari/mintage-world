@@ -21,166 +21,39 @@
                 <h2 class="mb-3 heading-1">Fairs and Exhibitions</h2>
             </div>
            <div class="row">
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
-                <div class="festival-content">
-                    <h3>TAIPEI 2023</h3>
-                    <div class="fest-content">
-                        <p class="duration">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>11 Aug 2023 - 15 Aug 2023</span>
-                        </p>
-                        <p class="maps-festival">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Taiwan</span>
-                        </p>
-                        <p class="maps-festival">
-                            <i class="fas fa-bullseye"></i>
-                            <span>Taiwan</span>
-                        </p>
-                    </div> 
-                </div>
-            </div>   
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
-                <div class="festival-content">
-                    <h3>15TH NATIONAL NUMISMATIC EXHIBITION
-                    </h3>
-                    <div class="fest-content">
-                        <p class="duration">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>3 Feb 2024 - 25 Feb 2024</span>
-                        </p>
-                        <p class="maps-festival">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span> Shikshak Sadan, Kempe Gowda Road (Opp. to Kaveri Bhavan), Nagarathpete, Bengaluru, Karnataka 560002
-                            </span>
-                        </p>
-                        <p class="maps-festival">
-                            <i class="fas fa-bullseye"></i>
-                            <span>Organised by Marudhar Arts, Bangalore
-                            </span>
-                        </p>
-                    </div> 
-                </div>
-            </div>  
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
-                <div class="festival-content">
-                    <h3>MUDRA UTSAV 2023
-                    </h3>
-                    <div class="fest-content">
-                        <p class="duration">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span> 22 Dec 2023 - 24 Dec 2023
-                            </span>
-                        </p>
-                        <p class="maps-festival">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span> Haldiram Banquet Hall, Ashutosh Chowdary Ave, Ballygunge Park, Ballygunge, Kolkata, WB – 700019
-                            </span>
-                        </p>
-                        <p class="maps-festival">
-                            <i class="fas fa-bullseye"></i>
-                            <span>Haldiram Banquet Hall, Ashutosh Chowdary Ave, Ballygunge Park, Ballygunge, Kolkata, WB – 700019
-                            </span>
-                        </p>
-                    </div> 
-                </div>
-            </div>  
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
-                <div class="festival-content">
-                    <h3>TAIPEI 2023</h3>
-                    <div class="fest-content">
-                        <p class="duration">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>11 Aug 2023 - 15 Aug 2023</span>
-                        </p>
-                        <p class="maps-festival">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Taiwan</span>
-                        </p>
-                        <p class="maps-festival">
-                            <i class="fas fa-bullseye"></i>
-                            <span>Taiwan</span>
-                        </p>
-                    </div> 
-                </div>
-            </div>  
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
-                <div class="festival-content">
-                    <h3>TAIPEI 2023</h3>
-                    <div class="fest-content">
-                        <p class="duration">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>11 Aug 2023 - 15 Aug 2023</span>
-                        </p>
-                        <p class="maps-festival">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Taiwan</span>
-                        </p>
-                        <p class="maps-festival">
-                            <i class="fas fa-bullseye"></i>
-                            <span>Taiwan</span>
-                        </p>
-                    </div> 
-                </div>
-            </div>  
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
-                <div class="festival-content">
-                    <h3>TAIPEI 2023</h3>
-                    <div class="fest-content">
-                        <p class="duration">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>11 Aug 2023 - 15 Aug 2023</span>
-                        </p>
-                        <p class="maps-festival">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Taiwan</span>
-                        </p>
-                        <p class="maps-festival">
-                            <i class="fas fa-bullseye"></i>
-                            <span>Taiwan</span>
-                        </p>
-                    </div> 
-                </div>
-            </div>  
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
-                <div class="festival-content">
-                    <h3>TAIPEI 2023</h3>
-                    <div class="fest-content">
-                        <p class="duration">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>11 Aug 2023 - 15 Aug 2023</span>
-                        </p>
-                        <p class="maps-festival">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Taiwan</span>
-                        </p>
-                        <p class="maps-festival">
-                            <i class="fas fa-bullseye"></i>
-                            <span>Taiwan</span>
-                        </p>
-                    </div> 
-                </div>
-            </div>  
-            <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
-                <div class="festival-content">
-                    <h3>TAIPEI 2023</h3>
-                    <div class="fest-content">
-                        <p class="duration">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>11 Aug 2023 - 15 Aug 2023</span>
-                        </p>
-                        <p class="maps-festival">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Taiwan</span>
-                        </p>
-                        <p class="maps-festival">
-                            <i class="fas fa-bullseye"></i>
-                            <span>Taiwan</span>
-                        </p>
-                    </div> 
-                </div>
-            </div>   
-        </div> 
+
+            @foreach($events as $event)
+
+                <div class="col-xl-3 col-lg-4 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
+                    <div class="festival-content">
+                        <h3>{{$event["title"]}}</h3>
+                        <div class="fest-content">
+                            <p class="duration">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>{{$event["start"]}} - {{$event["end"]}}</span>
+                            </p>
+                            <p class="maps-festival">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>{{$event["address"]}}</span>
+                            </p>
+                            <p class="maps-festival">
+                                <i class="fas fa-bullseye"></i>
+                                <span>{{$event["description"]}}</span>
+                            </p>
+                        </div> 
+                    </div>
+                </div>   
+
+            @endforeach
+                
+            </div> 
+            <div class="pagination-container">
+
+                <p>{{$pagination_info_string}}</p>
+                {!! $events->links() !!}
+
+            </div>
+
         </div>
     </section>
     

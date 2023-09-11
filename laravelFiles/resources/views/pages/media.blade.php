@@ -21,24 +21,52 @@
                 <h2 class="mb-3 heading-1">News</h2>
             </div>
             <div class="row">
+
+            @foreach($media_entries as $media_entry)
+
+                @php
+
+                $days = [
+
+                    "Sun","Mon","Tue","Wed","Thu","Fri","Sat"
+
+                ];
+
+                $day = date("w", strtotime($media_entry["media_date"]));  
+
+                $day = $days[$day];
+
+                @endphp
+
                <div class="col-md-3 mb-3">
                   <div class="blog-div">
                      <div class="BlogImgDiv blog-image ">
-                        <a href="{{url('media/detail/'.)}}"><img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/remembering-abanindranath-tagore-on-his-birth-anniversary.jpg" class="img-fluid" alt="" decoding="async" ></a>
+                        <a href="{{url('media/detail/'.$media_entry["id"]."-".$media_entry["custom_url"])}}"><img src="{{getenv('NEWS_IMAGE_BASE_URL').$media_entry["image"]}}" class="img-fluid" alt="" decoding="async" ></a>
                      </div>                    
                      <div class="blog-title">
                      <span class="blog-date">	
-                           <i class="fas fa-calendar-alt"></i> 07 Aug 2023  Mon   </span> 		
-                        <h2><a href="{{url("media/detail/")}}" rel="bookmark"> Remembering Abanindranath Tagore on his Birth Anniversary</a></h2>
+                           <i class="fas fa-calendar-alt"></i> 
+
+                           {{$media_entry["media_date"]." ".$day}}    </span> 		
+                        <h2><a href="{{url("media/detail/")}}" rel="bookmark"> {{$media_entry["title"]}}</a></h2>
                      </div>
                      <div class="blog-disc">
                         <p>
-                           Abanindranath Tagore was one of the most prominent artists in India. He was born on 7 August 1871 in Jorasanko, Calcutta. He was a supporter of Swadeshi values in India; he created first created the ‘Indian Society of Orie...
+                           {!!substr($media_entry["description"],0,100)."..."!!}
                         </p> 
                      </div>
                   </div>
                </div> 
+
+            @endforeach
                 
+
+            </div>
+
+            <div class="pagination-container">
+
+                <p>{{$pagination_info_string}}</p>
+                {!! $media_entries->links() !!}
 
             </div>
       

@@ -198,10 +198,22 @@ class StaticPages extends Controller
             "pagination_info_string" => $paginationInfoString
         ]);
     }
-    function media_detail()
+
+    function media_detail($slug)
     {
+
+        $slugParts = explode("-",$slug);
+
+        $mediaEntry = Media::find($slugParts[0]);
+
+        $mediaModel = new Media();
+
+        $otherMediaEntries = $mediaModel->where("id",'!=',$mediaEntry["id"])->orderBy("id","desc")->limit(5,0)->get();
+
         $this->page_loader("media_detail", [
-            "title" => "News | Mintage World"
+            "title" => "News | Mintage World",
+            "media_entry" => $mediaEntry,
+            "other_media_entries" => $otherMediaEntries
         ]);
     }
     function media_coverage()

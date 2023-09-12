@@ -104,7 +104,7 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get('member/dashboard/', [StaticPages::class, 'dashboard']);
     Route::get('member/change-password/', [StaticPages::class, 'change_password']);
     Route::get('member/myorders/', [StaticPages::class, 'myorders']);
-    Route::get('media/detail', [StaticPages::class, 'media_detail']);
+    Route::get('media/detail/{slug}', [StaticPages::class, 'media_detail']);
     Route::get('media-coverage/', [StaticPages::class, 'media_coverage']);
 
 

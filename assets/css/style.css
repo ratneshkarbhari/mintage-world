@@ -3303,6 +3303,197 @@ span.cart-item-amount{
 
 /* my-order-list css end */
 
+
+/* upgrade membership plan css start  */
+
+/* CARD SECTION */
+:root {
+  --div-price-height: 60px;
+}
+
+#card-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#card-section * {
+  margin: 0;
+  padding: 0;
+}
+
+#card-section .card {
+  max-width: 330px;
+  width: 90%;
+  border-radius: 15px;
+  text-align: center; 
+  overflow: hidden;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+#card-section .card .card-part {
+  position: relative;
+}
+
+#card-section .card .card-top,
+#card-section .card .card-bottom {
+  transition: all 0.4s ease-in;
+  z-index: 10;
+}
+
+#card-section .card .card-top::before,
+#card-section .card .card-bottom::before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  width: 100%;
+  left: 0;
+  box-sizing: border-box;
+}
+
+/* CARD TOP */
+#card-section .card .card-top {
+  background-color: #e19726;
+  border-radius: 15px 15px 0 0;
+  padding: 2.5rem 1.5rem 0 1.3rem;
+}
+
+#card-section .card:hover .card-top {
+  transform: translateY(calc(var(--div-price-height) * -1));
+}
+
+#card-section .card .card-top::before {
+  border-color: transparent transparent transparent #e19726;
+  border-top-width: 0;
+  border-right-width: 0;
+  border-bottom-width: calc(var(--div-price-height));
+  border-left-width: 330px;
+  bottom: calc(var(--div-price-height) * -1);
+}
+
+#card-section .card .card-top .card-icon {
+  font-size: 25px;
+  color: #fff;
+  height: 70px;
+  width: 70px;
+  display: inline-block;
+  line-height: 70px;
+  border-radius: 50%;
+  background-color: #737475;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+#card-section .card .card-top .card-title {
+  font-size: 32px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+/* CARD CENTER */
+#card-section .card .card-center {
+  height: var(--div-price-height);
+  line-height: var(--div-price-height);
+  color: #9e3232;
+}
+
+#card-section .card .card-center .price {
+  font-size: 60px;
+}
+
+/* CARD BOTTOM */
+#card-section .card .card-bottom {
+  padding: 0 1.3rem 2.5rem 1.3rem;
+  background-color: #737475;
+  border-radius: 0 0 15px 15px;
+}
+
+#card-section .card:hover .card-bottom {
+  transform: translateY(var(--div-price-height));
+}
+
+#card-section .card .card-bottom::before {
+  border-color: transparent #737475 transparent transparent;
+  border-top-width: calc(var(--div-price-height) + 1px);
+  border-right-width: 330px;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  top: calc(var(--div-price-height) * -1 - 1px);
+}
+
+#card-section .card .card-bottom .list-options {
+  list-style: none;
+  margin-top: 20px;
+}
+
+#card-section .card .card-bottom .list-options li {
+  font-size: 14px;
+  color: #FFF;
+  font-weight: 500;
+  text-align: left;
+  padding-left: 20px;
+  position: relative;
+}
+#card-section .card .card-bottom .list-options li::before {
+    position: absolute;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border: solid #FFF;
+    border-width: 0px 2px 2px 0px;
+    left: 0;
+    top: 6px;
+    transform: rotate(-45deg);
+}
+
+#card-section .card .card-bottom .list-options li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+#card-section .card .card-bottom .btn-signup {
+  margin-top: 35px;
+  width: 85%;
+  max-width: 190px;
+  padding: 0.8rem 1rem;
+  border-radius: 50px;
+  border: none;
+  font-size: 16px;
+  background-color: #e19726;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  z-index: 15;
+  transition: all 0.4s ease-in;
+}
+
+#card-section .card:hover .card-bottom .btn-signup {
+  transform: translateY(calc(var(--div-price-height) * -1));
+}
+.success-card {
+  background: white;
+  padding: 60px;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px #C8D0D8;
+  display: inline-block;
+  margin: 0 auto;
+}
+.success-card i {
+  color: #9ABC66;
+  font-size: 100px;
+  line-height: 200px;
+  margin-left:-15px;
+}
+
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* upgrade membership plan css end  */
+
+
 /* --------Responsive Media Css Start------------- */
 
 @media (max-width: 1400px) {

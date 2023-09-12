@@ -86,12 +86,12 @@
                      <h2 class="mb-3 heading-1">{{$dynasty["title"]}}</h2>
                  </div> 
                     {!!$history["history"]!!}
-                        Read more about Janapada history at Mintage World.</p>
-
+                        {{-- <p>Read more about Janapada history at Mintage World.</p> --}}
+                 <div class="mb-3 d-block"></div>
                   @if(session()->has('type'))
                   @if(session("level")=="Regular")
                     <a class="btn btn-sm btn-explore" href="{{url("upgrade-membership?history=".$history["id"])}}"> 
-                        <i class="fa fa-download"></i> Click here to download the complete history</a>
+                        <i class="fa fa-download"> Click here to download the complete  </i>
                         <span class="first"></span>
                         <span class="second"></span>
                         <span class="third"></span>
@@ -99,7 +99,7 @@
                     </a>
                   @else
                     <a class="btn btn-sm btn-explore" download href="{{url("history-download/".$history["id"])}}"> 
-                        <i class="fa fa-download"></i> Click here to download the complete history</a>
+                        <i class="fa fa-download"> Click here to download the complete history</i>
                         <span class="first"></span>
                         <span class="second"></span>
                         <span class="third"></span>
@@ -108,13 +108,13 @@
                   @endif
                   @else 
                   <p id="ProductLogBtn">
-                     <button type="button" class="btn btn-sm btn-explore" data-bs-toggle="modal" data-bs-target="#LoginModal"> 
-                        <i class="fa fa-download"></i> Click here to download the complete history</a>
+                     <a type="button" class="btn btn-sm btn-explore" data-bs-toggle="modal" data-bs-target="#LoginModal"> 
+                        <i class="fa fa-download"> Click here to download the complete history</i>
                         <span class="first"></span>
                         <span class="second"></span>
                         <span class="third"></span>
                         <span class="fourth"></span>
-                     </button>
+                     </a>
                   </p>
                   @endif
                </div>   

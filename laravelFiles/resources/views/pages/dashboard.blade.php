@@ -28,6 +28,7 @@
                       </div>
                       <ul class="nav__list">                          
                          <li class="active-li"><input type="checkbox" hidden=""><label><a href="{{url("member/dashboard/")}}"><i class="fa fa-user"> </i> Profile</a></label></li>
+                         <li class=""><input type="checkbox" hidden=""><label><a href="{{url("member/membership-detail/")}}"><i class="fa fa-user"> </i> Membership Detail</a></label></li>
                          <li><input type="checkbox" hidden=""><label><a href="{{url("member/change-password/")}}"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></label></li>
                          <li><input type="checkbox" hidden=""><label><a href="{{url("member/myorders/")}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> My Orders</a></label></li>
                          <li><input type="checkbox" hidden=""><label><a href="{{url("/")}}"><i class="fa fa-power-off"></i> Logout</a></label></li> 
@@ -45,8 +46,18 @@
                        <label for="" class="w-100 mb-2">Name</label>
                        <input type="text" name="" id="TxtName" value="{{session("first_name")}} {{session("last_name")}}" class="form-control inp-dis" disabled>
                        <div class="divider w-100 mb-3"></div>
-                       <label for="" class="w-100 mb-2">Member Type</label>                        
-                       <div class="d-inline-block alert alert-success p-0 mb-0 px-2">{{session("level")}}</div>                    
+                       <label for="" class="w-100 mb-2">Member Type</label> 
+                        @if(session("level")=="Regular")
+                        <div class="d-flex justify-content-between">
+                           <div class="d-inline-block alert alert-success p-0 mb-0 px-2">{{session("level")}}</div>  
+                           <a class="btn btn-sm btn-primary p-0 mb-0 px-2" href="{{url("upgrade-membership")}}">Update Membership</a>  
+                        </div>
+                        @else
+                        <div class="d-inline-block alert alert-success p-0 mb-0 px-2">{{session("level")}}</div>  
+                        @endif
+ 
+
+                       
                        <div class="divider w-100 mb-3"></div>
                        <label for="" class="w-100 mb-2">Email ID</label>
                        <input type="text" name="" id="TxtEmailID" value="{{session("email")}}" class="form-control inp-dis" disabled >

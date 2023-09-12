@@ -130,6 +130,12 @@ class StaticPages extends Controller
             "title" => "Forgot Password | Mintage World"
         ]);
     }
+    function membership_detail()
+    {
+        $this->page_loader("membership_detail", [
+            "title" => "Membership Detail | Mintage World"
+        ]);
+    }
     function upgrademembership()
     {
 
@@ -148,7 +154,7 @@ class StaticPages extends Controller
 
         $eventModel = new Event();
 
-        $events = $eventModel->where("status",1)->orderBy("id","desc")->paginate(16);
+        $events = $eventModel->where("status", 1)->orderBy("id", "desc")->paginate(16);
 
 
         $total = $events->total();
@@ -172,9 +178,9 @@ class StaticPages extends Controller
     function media_list()
     {
 
-        $entries = Media::where("status","1")->orderBy("id","desc")->paginate(12);
+        $entries = Media::where("status", "1")->orderBy("id", "desc")->paginate(12);
 
-        
+
         $total = $entries->total();
         $currentPage = $entries->currentPage();
         $perPage = $entries->perPage();
@@ -185,7 +191,7 @@ class StaticPages extends Controller
         $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
 
 
-        
+
         $this->page_loader("media", [
             "title" => "News | Mintage World",
             "media_entries" => $entries,
@@ -222,12 +228,12 @@ class StaticPages extends Controller
 
         $orderModel = new Order();
 
-        $orders = $orderModel->where("member_id",session("member_id"))->with("order_products")->orderBy("id","desc")->get();
+        $orders = $orderModel->where("member_id", session("member_id"))->with("order_products")->orderBy("id", "desc")->get();
 
 
         $this->page_loader("myorders", [
             "title" => "My Orders | Mintage World",
-            "orders"=> $orders
+            "orders" => $orders
         ]);
     }
     function knowledge_base()

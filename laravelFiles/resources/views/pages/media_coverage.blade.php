@@ -40,9 +40,8 @@
                             <i class="fas fa-calendar-alt"></i>
                             <span> {{$date}}</span>
                         </p>
-                        <div class="btn-group-wraper">                           
-
-                        <a class="btn btn-explore me-md-2 mb-2 video-btn" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/Jfrjeg26Cwk" data-bs-target="#myVideo" href="#" target="_blank">	
+                        <div class="btn-group-wraper">    
+                        <a class="btn btn-explore me-md-2 mb-2 video-btn" href="https://www.youtube.com/watch?v=yAoLSRbwxL8" data-lity>	
                             <i class="fas fa-video"></i> Play Video
                             <span class="first"></span>
                             <span class="second"></span>
@@ -293,3 +292,5 @@ $(document).ready(function () {
 //   video popup js end
 
 </script>
+<link href="{{url("assets/css/lity.min.css")}}" rel="stylesheet">
+<script src="{{url("assets/js/lity.min.js")}}"></script>

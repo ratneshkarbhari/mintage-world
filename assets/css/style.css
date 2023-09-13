@@ -3493,6 +3493,30 @@ span.cart-item-amount{
 
 /* upgrade membership plan css end  */
 
+/* knowledge base css start */
+.knowledge-img-list {
+  justify-content: space-between;
+}
+
+.knowledge-img-list img {
+  max-height: 200px;
+  text-align: center;
+  margin: 0px auto;
+  margin-bottom: 20px;
+}
+
+.knowledge-img-list h5 {
+  text-align: center;
+  font-size: 16px;
+  color: #e19726;
+  font-weight: 600;
+}
+
+.knowledge-img-list {
+  text-align: center;
+}
+/* knowledge base css end */
+
 
 /* --------Responsive Media Css Start------------- */
 

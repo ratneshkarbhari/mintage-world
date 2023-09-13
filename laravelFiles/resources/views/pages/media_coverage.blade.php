@@ -30,8 +30,9 @@
                             <i class="fas fa-calendar-alt"></i>
                             <span> Mar 2023</span>
                         </p>
-                        <div class="btn-group-wraper">
-                        <a class="btn btn-explore me-md-2 mb-2" href="https://www.youtube.com/watch?v=V9l2IZCIz4Q" target="_blank">	
+                        <div class="btn-group-wraper">                           
+
+                        <a class="btn btn-explore me-md-2 mb-2 video-btn" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/Jfrjeg26Cwk" data-bs-target="#myVideo" href="#" target="_blank">	
                             <i class="fas fa-video"></i> Play Video
                             <span class="first"></span>
                             <span class="second"></span>
@@ -211,6 +212,29 @@
         </div>
         </div>
 
+        
+<!-- Modal -->
+<div class="modal fade" id="myVideo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg p-0 modal-dialog-centered" role="document">
+      <div class="modal-content">
+  
+        
+        <div class="modal-body p-0">
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="top: -40px;"></span>
+          </button>        
+          <!-- 16:9 aspect ratio -->
+  <div class="ratio ratio-16x9">
+    <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+  </div>
+          
+          
+        </div>
+  
+      </div>
+    </div>
+  </div> 
+    
+
 </main>
 
 <script>
@@ -223,4 +247,36 @@
       return false;
     });
   });
+
+
+//   video popup js start
+
+$(document).ready(function () {
+    // Gets the video src from the data-src on each button
+
+    var $videoSrc;
+    $(".video-btn").click(function () {
+      $videoSrc = $(this).data("src");
+    });
+    console.log($videoSrc);
+
+    // when the modal is opened autoplay it
+    $("#myVideo").on("shown.bs.modal", function (e) {
+      // set the video src to autoplay and not to show related video. Youtube related video is like a box of chocolates... you never know what you're gonna get
+      $("#video").attr(
+        "src",
+        $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0"
+      );
+    });
+
+    // stop playing the youtube video when I close the modal
+    $("#myVideo").on("hide.bs.modal", function (e) {
+      // a poor man's stop video
+      $("#video").attr("src", $videoSrc);
+    });
+
+    // document ready
+  });
+//   video popup js end
+
 </script>

@@ -131,8 +131,6 @@ Route::group(['middleware' => ['slashes']], function () {
 
     // Universal search
     Route::get("universal-search-exe", [Utils::class, 'universal_search']);
-
-
 });
 
 
@@ -155,22 +153,23 @@ Route::post("create-info-comment", [InfoComments::class, 'create_exe']);
 
 // Cart items
 Route::post('atc-exe', [CartActions::class, 'add_to_cart_exe']);
-Route::post("increase-cart-item-quantity",[CartActions::class,'increase_cart_item']);
-Route::post("decrease-cart-item-quantity",[CartActions::class,'decrease_cart_item']);
-Route::post("delete-cart-item",[CartActions::class,'delete_cart_item']);
-Route::post("recalculate-subtotal",[CartActions::class,'recalculate_subtotal']);
+Route::post("increase-cart-item-quantity", [CartActions::class, 'increase_cart_item']);
+Route::post("decrease-cart-item-quantity", [CartActions::class, 'decrease_cart_item']);
+Route::post("delete-cart-item", [CartActions::class, 'delete_cart_item']);
+Route::post("recalculate-subtotal", [CartActions::class, 'recalculate_subtotal']);
 
-Route::post("apply-coupon-exe",[Coupons::class,'apply_exe']);
+Route::post("apply-coupon-exe", [Coupons::class, 'apply_exe']);
 
-Route::get('upgrade-membership', [StaticPages::class,'upgrademembership']);
-Route::post("upgrade-membership-to-premium",[Members::class,'upgrade_to_premium']);
+Route::get('upgrade-membership', [StaticPages::class, 'upgrademembership']);
+Route::get('member/membership-detail', [StaticPages::class, 'membership_detail']);
+Route::post("upgrade-membership-to-premium", [Members::class, 'upgrade_to_premium']);
 
-Route::get("history-download/{historyId}",[Histories::class,'download_exe']);
+Route::get("history-download/{historyId}", [Histories::class, 'download_exe']);
 Route::get('shop/list/{categorySlug}', [Shopping::class, 'shop_list']);
 
 
-Route::post("apply-coupon-recalculate-discount-exe",[Coupons::class,'apply_coupon_recalculate']);
-Route::post("create-order-exe",[Orders::class,'create_exe']);
+Route::post("apply-coupon-recalculate-discount-exe", [Coupons::class, 'apply_coupon_recalculate']);
+Route::post("create-order-exe", [Orders::class, 'create_exe']);
 
 Route::get('event/', [StaticPages::class, 'event']);
 Route::get('media/', [StaticPages::class, 'media_list']);

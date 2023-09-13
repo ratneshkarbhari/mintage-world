@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Country;
 use App\Models\Event;
 use App\Models\Media;
-use App\Models\Member;
 use App\Models\Order;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
-
 use Razorpay\Api\Api;
+use App\Models\Member;
+use App\Models\Country;
+use Illuminate\Http\Request;
+
+use App\Models\MediaCoverage;
+use Illuminate\Support\Facades\Cache;
 
 
 class StaticPages extends Controller
@@ -218,8 +219,27 @@ class StaticPages extends Controller
     }
     function media_coverage()
     {
+
+        $mediaCoverageModel = new MediaCoverage();
+
+        $media_coverage_items = $mediaCoverageModel->where("active",1)->with("pdf")->orderBy("id","desc")->paginate(12);
+
+        
+        $total = $media_coverage_items->total();
+        $currentPage = $media_coverage_items->currentPage();
+        $perPage = $media_coverage_items->perPage();
+
+        $from = ($currentPage - 1) * $perPage + 1;
+        $to = min($currentPage * $perPage, $total);
+
+        $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
+
+
+
         $this->page_loader("media_coverage", [
-            "title" => "Media Coverage | Mintage World"
+            "title" => "Media Coverage | Mintage World",
+            "media_coverage_items" => $media_coverage_items,
+            "pagination_info_string" => $paginationInfoString
         ]);
     }
     function dashboard()

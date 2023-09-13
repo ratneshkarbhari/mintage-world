@@ -22,13 +22,23 @@
                 <h2 class="mb-3 heading-1">Media Coverage</h2>
             </div>
            <div class="row">
+            
+            @foreach($media_coverage_items as $media_coverage_item)
+
+            @php
+
+                $date = date("M Y", strtotime($media_coverage_item["datetime"]));  
+
+
+            @endphp
+
             <div class="col-xl-4 col-lg-6 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
                 <div class="festival-content ">
-                    <h3>Our new Gandhi book featuring in Good News Maharashtra | Doordarshan Sahyadri | Mintage World</h3>
+                    <h3>{{$media_coverage_item["title"]}} | Mintage World</h3>
                     <div class="fest-content">
                         <p class="duration">
                             <i class="fas fa-calendar-alt"></i>
-                            <span> Mar 2023</span>
+                            <span> {{$date}}</span>
                         </p>
                         <div class="btn-group-wraper">                           
 
@@ -56,8 +66,11 @@
                     </div>
                     </div> 
                 </div>
-            </div>   
-            <div class="col-xl-4 col-lg-6 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
+            </div>
+
+            @endforeach
+
+            {{-- <div class="col-xl-4 col-lg-6 col-md-6 col-12 mb-3 d-flex align-items-stretch">                
                 <div class="festival-content">
                     <h3>Launched - Global Collectibles of Mahatma Gandhi through Bank Notes, Coins & Stamps </h3>
                     <div class="fest-content">
@@ -155,7 +168,7 @@
                         </p>
                     </div> 
                 </div>
-            </div>  
+            </div>   --}}
         </div>      
         </div>
     </section>

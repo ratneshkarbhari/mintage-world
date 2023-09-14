@@ -224,7 +224,7 @@ class StaticPages extends Controller
 
         $media_coverage_items = $mediaCoverageModel->where("active",1)->with("pdf")->orderBy("id","desc")->paginate(12);
 
-        
+
         $total = $media_coverage_items->total();
         $currentPage = $media_coverage_items->currentPage();
         $perPage = $media_coverage_items->perPage();
@@ -233,8 +233,6 @@ class StaticPages extends Controller
         $to = min($currentPage * $perPage, $total);
 
         $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
-
-
 
         $this->page_loader("media_coverage", [
             "title" => "Media Coverage | Mintage World",

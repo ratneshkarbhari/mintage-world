@@ -105,7 +105,6 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get('member/change-password/', [StaticPages::class, 'change_password']);
     Route::get('member/myorders/', [StaticPages::class, 'myorders']);
     Route::get('media/detail/{slug}', [StaticPages::class, 'media_detail']);
-    Route::get('media-coverage/', [StaticPages::class, 'media_coverage']);
 
 
     Route::get('knowledge-base/', [StaticPages::class, 'knowledge_base']);
@@ -173,3 +172,4 @@ Route::post("create-order-exe", [Orders::class, 'create_exe']);
 
 Route::get('event/', [StaticPages::class, 'event']);
 Route::get('media/', [StaticPages::class, 'media_list']);
+Route::get('media-coverage/', [StaticPages::class, 'media_coverage']);

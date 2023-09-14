@@ -20,16 +20,26 @@
 
     <section class="common-padding coing-list-wraper">
         <div class="container-fluid  px-lg-2 px-lg-5">
-            <div class="d-flex justify-content-between">
-                <h2 class="mb-3 heading-1">Know Your Coins</h2>
-            </div> 
+           
 
             <div class="row">
-                <div class="col-md-3">
-
+                <div class="col-lg-3 col-md-12 mt-md-5 mt-0 mt-lg-0">
+                    <div class="heading-2">Know Your Coins</div>
+                    <ul class="more-rulers">                        
+                        <li><a href="#">What is a coin?</a></li>                        
+                        <li><a href="#">What to look for in a coin?</a></li>                        
+                        <li><a href="#">How are coins minted?</a></li>                        
+                        <li><a href="#">Weight</a></li>                        
+                        <li><a href="#">Rarity</a></li>                        
+                        <li><a href="#">Collections and Auctions</a></li>                        
+                    </ul>                     
                 </div>
-                <div class="col-md-9">
+                <div class="col-lg-9 col-md-12 mt-md-5 mt-0 mt-lg-0">
                     <div class="knowledge-base-contetnt">
+                        {{-- <div class="d-flex justify-content-between">
+                            <h2 class="mb-3 heading-1">Know Your Coins</h2>
+                        </div>  --}}
+                        <h4 class="heading-2 pb-3"><b>Coins Overview</b></h4>
                         <p>Few countries display a large variety of coinage like India when it comes to minting techniques, motifs, shapes, sizes or metal. A coin is essentially a piece of metal that has been inscribed and issued under the order of the ruling authority. It serves as legal tender in the region where it was issued. It is primarily used as a medium of exchange. But coins meant for collecting or kept as a token are also found, although these coins may not have been legal tender.</p>
                         <h5><b>What is a coin?</b></h5>
                         <p>A coin is a piece of metal stamped with an official design and/or inscription issued by the ruling authority of the region. It serves as legal tender for the country, kingdom or region. Coins have standardized weight and are issued in a mint in large quantities. They are usually round in shape but have been known to be minted in many different shapes in the past. They used for daily transactions and are being circulated in addition to banknotes.</p>

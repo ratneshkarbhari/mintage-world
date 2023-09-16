@@ -143,14 +143,18 @@
             
          </div>
       </div>
-      <div class="pagination-container container">
-
-
-         <p>{{$pagination_info_string}}</p>
-         {!! $media_coverage_items->links() !!}
-   
-
+      <div class="container-fluid  px-lg-2 px-lg-5">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="pagination-container">
+                  <p>{{$pagination_info_string}}</p>
+                  {!! $media_coverage_items->links() !!}
+               </div>
+            </div>
+         </div>
       </div>
+     
+     
     </section>
     
 

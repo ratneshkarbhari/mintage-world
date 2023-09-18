@@ -3518,6 +3518,14 @@ span.cart-item-amount{
 }
 /* knowledge base css end */
 
+#showHidePassword.member-btn {
+  position: absolute;
+  top: 18px;
+  right: 5px;
+  font-size: 7px;
+  border: none;
+}
+
 
 /* --------Responsive Media Css Start------------- */
 

@@ -33,10 +33,16 @@
                       <input type="text" id="EmailID" class="form__input mb-2 mt-2" placeholder="Email ID" name="EmailID">
                       <input type="text" id="MobileNo" class="form__input mb-2 mt-2" placeholder="Mobile No" name="MobileNo">
                       <input type="password" id="password" class="form__input mb-2 mt-2" placeholder="Password" name="password">
-                      <input type="password" id="ConfPassword" class="form__input mb-2 mt-2" placeholder="Confirm Password" name="ConfPassword">
-                      <select name="country_id" class="form-control" required="">
+                      <div class="d-block position-relative">
+                        <input type="password" id="ConfPassword" class="form__input mb-2 mt-2" placeholder="Confirm Password" name="ConfPassword">
+                        <button id="showHidePassword" class="member-btn">
+                          <i class="fas fa-eye"></i>
+                      </button>
+                      </div>
+                     
+                      <select name="country_id" class="form-control" required="" disabled>
                          <option value="">--- Select your country ---</option>
-                         <option value="1">Afghanistan</option>
+                         {{-- <option value="1">Afghanistan</option>
                          <option value="2">Albania</option>
                          <option value="3">Algeria</option>
                          <option value="4">American Samoa</option>
@@ -145,9 +151,9 @@
                          <option value="109">Hong Kong (SAR)</option>
                          <option value="110">Howland Island</option>
                          <option value="111">Hungary</option>
-                         <option value="112">Iceland</option>
+                         <option value="112">Iceland</option> --}}
                          <option value="113" selected="">India</option>
-                         <option value="114">Indonesia</option>
+                         {{-- <option value="114">Indonesia</option>
                          <option value="115">Iran</option>
                          <option value="116">Iraq</option>
                          <option value="117">Ireland</option>
@@ -309,7 +315,7 @@
                          <option value="271">Yugoslavia</option>
                          <option value="272">Zaire</option>
                          <option value="273">Zambia</option>
-                         <option value="274">Zimbabwe</option>
+                         <option value="274">Zimbabwe</option> --}}
                       </select>
                       <hr>
                       <p class="mb-2 text-start"><b>Select Category</b></p>
@@ -342,5 +348,20 @@
             
             </div>
     </section>
-    
+    <script>
+        let showPasswordIcon = '<i class="fas fa-eye"></i>'
+    let hidePasswordIcon = '<i class="fas fa-eye-slash"></i>'
+    $("button#showHidePassword").click(function (e) { 
+        e.preventDefault();
+       if ($("input#ConfPassword").attr("type")=="password") {
+            $("input#ConfPassword").attr("type","text");
+            $(this).html('')
+            $(this).html(hidePasswordIcon)
+       } else {
+            $("input#ConfPassword").attr("type","password");
+            $(this).html('')
+            $(this).html(showPasswordIcon)
+       }
+    });
+    </script>
 </main>

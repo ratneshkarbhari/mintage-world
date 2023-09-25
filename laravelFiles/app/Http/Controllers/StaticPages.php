@@ -203,13 +203,13 @@ class StaticPages extends Controller
     function media_detail($slug)
     {
 
-        $slugParts = explode("-",$slug);
+        $slugParts = explode("-", $slug);
 
         $mediaEntry = Media::find($slugParts[0]);
 
         $mediaModel = new Media();
 
-        $otherMediaEntries = $mediaModel->where("id",'!=',$mediaEntry["id"])->orderBy("id","desc")->limit(5,0)->get();
+        $otherMediaEntries = $mediaModel->where("id", '!=', $mediaEntry["id"])->orderBy("id", "desc")->limit(5, 0)->get();
 
         $this->page_loader("media_detail", [
             "title" => "News | Mintage World",
@@ -222,7 +222,7 @@ class StaticPages extends Controller
 
         $mediaCoverageModel = new MediaCoverage();
 
-        $media_coverage_items = $mediaCoverageModel->where("active",1)->with("pdf")->orderBy("id","desc")->paginate(12);
+        $media_coverage_items = $mediaCoverageModel->where("active", 1)->with("pdf")->orderBy("id", "desc")->paginate(12);
 
 
         $total = $media_coverage_items->total();
@@ -269,7 +269,7 @@ class StaticPages extends Controller
     function knowledge_base()
     {
         $this->page_loader("knowledge_base", [
-            "title" => "kKowledge Base | Mintage World"
+            "title" => "Kowledge Base | Mintage World"
         ]);
     }
 

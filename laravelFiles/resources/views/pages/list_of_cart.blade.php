@@ -165,7 +165,7 @@ use App\Models\Product;
       <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
         <div id="liveToast " class="toast hide bg-danger text-white coupon-apply-failure position-relative" role="alert" aria-live="assertive" aria-atomic="true">
           <div class="toast-header bg-danger text-white">         
-            <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
+            <strong class="me-auto"><i class="fas fa-check-circle"></i> Failure</strong>
             <small>Just Now</small>
             {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
           </div>
@@ -235,6 +235,7 @@ use App\Models\Product;
         e.preventDefault();
         let pid = $(this).attr("productId");
         let currentQuantity = $("input#quantity-"+pid).val();
+        
         if(parseInt(currentQuantity)!=1){
             $.ajax({
             type: "POST",
@@ -249,7 +250,9 @@ use App\Models\Product;
                     cartItemAmount = parseInt(productPrice)*parseInt(productQty);
                     $("span#cart-item-amount-"+pid).html(cartItemAmount)     
                     recalculateSubTotal();    
-                    applyCoupon()                            
+                    @if(session("value"))
+                        applyCoupon()
+                    @endif
                 }
             });
         }
@@ -272,7 +275,9 @@ use App\Models\Product;
                 cartItemAmount = parseInt(productPrice)*parseInt(productQty);
                 $("span#cart-item-amount-"+pid).html(cartItemAmount)
                 recalculateSubTotal();
-                applyCoupon();
+                @if(session("value"))
+                        applyCoupon()
+                @endif
              }
         });
     });
@@ -293,7 +298,9 @@ use App\Models\Product;
                 $("div#cart-item-"+pid).remove();
                 $('.add-to-cart-success').toast('show');
                 recalculateSubTotal();    
-                applyCoupon();             
+                @if(session("value"))
+                        applyCoupon()
+                @endif            
             } 
         });
         

@@ -143,44 +143,44 @@
                                     <div class="col-md-3">
                                         <h2>Notes</h2>
                                         <div class="sub-menu-list">
-                                            <a href="#" class="black sub-menu">Bank Notes</a>
-                                            <a href="#" class="black sub-menu">Notes Greeting Cards</a>
-                                            <a href="#" class="black sub-menu">Notes Table Photo Frame</a>
-                                            <a href="#" class="black sub-menu">Notes Wall Frame</a>
-                                            <a href="#" class="black sub-menu">Premium Notes</a>
+                                            <a href="{{url("shop/list/19-buy-banknotes/")}}">Bank Notes</a>
+                                            <a href="{{url("shop/list/6-greeting-cards/")}}">Notes Greeting Cards</a>
+                                            <a href="{{url("shop/list/7-table-photo-frame/")}}">Notes Table Photo Frame</a>
+                                            <a href="{{url("shop/list/9-wall-photo-frame/")}}">Notes Wall Frame</a>
+                                            <a href="{{url("shop/list/57-premium-notes/")}}">Premium Notes</a>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <h2>Coins</h2>
                                         <div class="sub-menu-list">
-                                            <a href="#">Indian Coins</a>
-                                            <a href="#">US Coins</a>
-                                            <a href="#">German Coins</a>
-                                            <a href="#">Premium Coins</a>
+                                            <a href="{{url("shop/list/24-indian-coins/")}}">Indian Coins</a> 
+                                            <a href="{{url("shop/list/25-us-coins/")}}">US Coins</a> 
+                                            <a href="{{url("shop/list/26-german-coins/")}}">German Coins</a> 
+                                            <a href="{{url("shop/list/56-premium-coins/")}}">Premium Coins</a>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <h2>Accessories</h2>
                                         <div class="sub-menu-list">
-                                            <a href="#">Coin Accessories</a>
-                                            <a href="#">Banknote Accessories</a>
-                                            <a href="#">Stamp Accessories</a>
-                                            <a href="#">Postcard Accessories</a>
+                                            <a href="{{url("shop/list/11-coin-accessories/")}}">Coin Accessories</a> 
+                                            <a href="{{url("shop/list/12-banknote-accessories/")}}">Banknote Accessories</a> 
+                                            <a href="{{url("shop/list/14-stamp-accessories/")}}">Stamp Accessories</a> 
+                                            <a href="{{url("shop/list/13-postcard-accessories/")}}">Postcard Accessories</a> 
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <h2>Stamps</h2>
                                         <div class="sub-menu-list">
-                                            <a href="#">Indian Stamps</a>
-                                            <a href="#">Australia Stamp</a>
+                                            <a href="{{url("shop/list/20-indian-stamps/")}}">Indian Stamps</a> 
+					                        <a href="{{url("shop/list/17-australia-stamps/")}}">Australia Stamp</a>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <h2>Other Products</h2>
                                         <div class="sub-menu-list">
-                                            <a href="#" class="black sub-menu">3D Puzzles</a>
-                                            <a href="#" class="black sub-menu">Envelope First Day Cover</a>
-                                            <a href="#" class="black sub-menu">Numismatics Books</a>
+                                            <a href="{{url("shop/list/1-3d-puzzles/")}}">3D Puzzles</a> 
+                                            <a href="{{url("shop/list/10-first-day-cover/")}}">Envelope First Day Cover</a> 
+                                            <a href="{{url("shop/list/23-books/")}}">Numismatics Books</a> 
                                         </div>
                                     </div>
                                 </div>
@@ -220,101 +220,101 @@
                 <li><a href="{{url("")}}">Home</a></li>
                 <li><a href="{{url("shop")}}">Shopping</a>
                     <ul>
-                        <li><a href="#">Premium Products</a>
+                        <li><a href="{{url("#")}}">Premium Products</a>
                             <ul>
-                                <li><a href="#">Premium Coins</a></li>
-                                <li><a href="#">Premium Notes</a></li>
+                                <li><a href="{{url("shop/list/56-premium-coins/")}}">Premium Coins</a></li>
+                                <li><a href="{{url("shop/list/57-premium-notes/")}}">Premium Notes</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Bank Notes</a>
+                        <li><a href="{{url("#")}}">Bank Notes</a>
                             <ul>
-                                <li><a href="#">Republic India Banknotes</a></li>
-                                <li><a href="#">World Banknotes</a>
+                                <li><a href="{{url("shop/list/35-indian-banknotes/")}}">Republic India Banknotes</a></li>
+                                <li><a href="{{url("shop/list/36-world-banknotes/")}}">World Banknotes</a>
                                     <ul>
-                                        <li><a href="#">Asian Banknotes</a></li>
-                                        <li><a href="#">African Banknotes</a></li>
-                                        <li><a href="#">European Banknotes</a></li>
-                                        <li><a href="#">North American Banknotes</a></li>
-                                        <li><a href="#">South American Banknotes</a></li>
+                                        <li><a href="{{url("shop/list/37-asia/")}}">Asian Banknotes</a></li>
+                                        <li><a href="{{url("shop/list/38-africa/")}}">African Banknotes</a></li>
+                                        <li><a href="{{url("shop/list/39-europe/")}}">European Banknotes</a></li>
+                                        <li><a href="{{url("shop/list/40-north-america/")}}">North American Banknotes</a></li>
+                                        <li><a href="{{url("shop/list/41-south-america/")}}">South American Banknotes</a></li>
 
                                     </ul>
                                 </li>
-                                <li><a href="#">All Bank Notes</a></li>
+                                <li><a href="{{url("shop/list/19-buy-banknotes/")}}">All Bank Notes</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Coins</a>
+                        <li><a href="{{url("#")}}">Coins</a>
                             <ul>
-                                <li><a href="#">Indian Coins</a>
+                                <li><a href="{{url("shop/list/24-indian-coins/")}}">Indian Coins</a>
                                     <ul>
-                                        <li><a href="#">Ancient Coins</a></li>
-                                        <li><a href="#">Medieval Coins</a></li>
-                                        <li><a href="#">Indian Princely State Coins</a></li>
-                                        <li><a href="#">Colonial Coins</a></li>
-                                        <li><a href="#">Republic India Coins</a></li>
+                                        <li><a href="{{url("shop/list/29-ancient/")}}">Ancient Coins</a></li>
+                                        <li><a href="{{url("shop/list/30-medieval/")}}">Medieval Coins</a></li>
+                                        <li><a href="{{url("shop/list/31-indian-princely-state/")}}">Indian Princely State Coins</a></li>
+                                        <li><a href="{{url("shop/list/32-colonial/")}}">Colonial Coins</a></li>
+                                        <li><a href="{{url("shop/list/33-republic/")}}">Republic India Coins</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">US Coins</a></li>
-                                <li><a href="#">German Coins</a></li>
-                                <li><a href="#">Roman Era Coins</a></li>
-                                <li><a href="#">Assorted Foreign Coins</a></li>
-                                <li><a href="#">Mint Coin Rolls</a></li>
-                                <li><a href="#">All Coins</a></li>
+                                <li><a href="{{url("shop/list/25-us-coins/")}}">US Coins</a></li>
+                                <li><a href="{{url("shop/list/26-german-coins/")}}">German Coins</a></li>
+                                <li><a href="{{url("shop/list/34-roman-era-coins/")}}">Roman Era Coins</a></li>
+                                <li><a href="{{url("shop/list/27-assorted-foreign-coins/")}}">Assorted Foreign Coins</a></li>
+                                <li><a href="{{url("shop/list/28-mint-rolls/")}}">Mint Coin Rolls</a></li>
+                                <li><a href="{{url("shop/list/18-buy-coins/")}}">All Coins</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="#">Stamps</a>
+                        <li><a href="{{url("#")}}">Stamps</a>
                             <ul>
-                                <li><a href="#">Indian Stamps</a>
+                                <li><a href="{{url("shop/list/20-indian-stamps/")}}">Indian Stamps</a>
                                     <ul>
-                                        <li><a href="#">Miniature Sheet Stamps</a></li>
-                                        <li><a href="#">Postal Stamps</a></li>
-                                        <li><a href="#">Block of Stamps</a></li>
-                                        <li><a href="#">Full Sheet Stamps</a></li>
-                                        <li><a href="#">Collectors Pack</a></li>
+                                        <li><a href="{{url("shop/list/21-miniature-sheet-stamps/")}}">Miniature Sheet Stamps</a></li>
+                                        <li><a href="{{url("shop/list/22-stamps/")}}">Postal Stamps</a></li>
+                                        <li><a href="{{url("shop/list/58-block-of-stamps/")}}">Block of Stamps</a></li>
+                                        <li><a href="{{url("shop/list/59-full-stamp-sheet/")}}">Full Sheet Stamps</a></li>
+                                        <li><a href="{{url("shop/list/60-collectors-pack/")}}">Collectors Pack</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Australia Stamps</a></li>
-                                <li><a href="#">England Stamps</a></li>
-                                <li><a href="#">All Stamps</a></li>
+                                <li><a href="{{url("shop/list/17-australia-stamps/")}}">Australia Stamps</a></li>
+                                <li><a href="{{url("shop/list/45-england-stamps/")}}">England Stamps</a></li>
+                                <li><a href="{{url("shop/list/16-buy-stamps/")}}">All Stamps</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="#">Accessories</a>
+                        <li><a href="{{url("#")}}">Accessories</a>
                             <ul>
-                                <li><a href="#">Coin Accessories</a>
+                                <li><a href="{{url("shop/list/11-coin-accessories/")}}">Coin Accessories</a>
                                     <ul>
-                                        <li><a href="#">Coin Albums</a></li>
-                                        <li><a href="#">Coin Pages</a></li>
-                                        <li><a href="#">Coin Capsules</a></li>
-                                        <li><a href="#">Coin Cleaners</a></li>
-                                        <li><a href="#">Coin Holders</a></li>
-                                        <li><a href="#">Coin Storage Box</a></li>
+                                        <li><a href="{{url("shop/list/46-coin-albums/")}}">Coin Albums</a></li>
+                                        <li><a href="{{url("shop/list/47-coin-pages/")}}">Coin Pages</a></li>
+                                        <li><a href="{{url("shop/list/48-coin-capsules/")}}">Coin Capsules</a></li>
+                                        <li><a href="{{url("shop/list/49-coin-cleaners/")}}">Coin Cleaners</a></li>
+                                        <li><a href="{{url("shop/list/50-coin-holders/")}}">Coin Holders</a></li>
+                                        <li><a href="{{url("shop/list/51-coin-storage-box/")}}">Coin Storage Box</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Banknote Accessories</a>
+                                <li><a href="{{url("shop/list/12-banknote-accessories/")}}">Banknote Accessories</a>
                                     <ul>
-                                        <li><a href="#">Banknote Albums</a> </li>
-                                        <li><a href="#">Banknote Sleeves</a></li>
+                                        <li><a href="{{url("shop/list/54-banknote-albums/")}}">Banknote Albums</a> </li>
+                                        <li><a href="{{url("shop/list/55-banknote-sleeves/")}}">Banknote Sleeves</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Stamp Accessories</a>
+                                <li><a href="{{url("shop/list/14-stamp-accessories/")}}">Stamp Accessories</a>
                                     <ul>
-                                        <li><a href="#">Stamp Album Stockbooks</a> </li>
-                                        <li><a href="#">Stamp Stock Pages</a></li>
+                                        <li><a href="{{url("shop/list/52-stamp-album-stockbooks/")}}">Stamp Album Stockbooks</a> </li>
+                                        <li><a href="{{url("shop/list/53-stamp-stock-pages/")}}">Stamp Stock Pages</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Postcard Accessories</a></li>
-                                <li><a href="#">General</a></li>
-                                <li><a href="#">All Accessories</a></li>
+                                <li><a href="{{url("shop/list/13-postcard-accessories/")}}">Postcard Accessories</a></li>
+                                <li><a href="{{url("shop/list/15-general/")}}">General</a></li>
+                                <li><a href="{{url("shop/list/2-collectibles-accessories/")}}">All Accessories</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="#">Notes Greeting Cards</a></li>
-                        <li><a href="#">Notes Table Photo Frame </a></li>
-                        <li><a href="#">Notes Wall Photo Frame</a></li>
-                        <li><a href="#">3D Puzzles</a></li>
-                        <li><a href="#">Envelopes First Day Cover</a></li>
-                        <li><a href="#">Numismatic Books</a></li>
+                        <li><a href="{{url("shop/list/6-greeting-cards/")}}">Notes Greeting Cards</a></li>
+                        <li><a href="{{url("shop/list/7-table-photo-frame/")}}">Notes Table Photo Frame </a></li>
+                        <li><a href="{{url("shop/list/9-wall-photo-frame/")}}">Notes Wall Photo Frame</a></li>
+                        <li><a href="{{url("shop/list/1-3d-puzzles/")}}">3D Puzzles</a></li>
+                        <li><a href="{{url("shop/list/10-first-day-cover/")}}">Envelopes First Day Cover</a></li>
+                        <li><a href="{{url("shop/list/23-books/")}}">Numismatic Books</a></li>
                     </ul>
                 </li>
                 <li class="drop-left"><a href="#">Information</a>
@@ -328,7 +328,7 @@
                 <li class="drop-left"><a href="#">Events</a>
                     <ul>
                         <li><a href="{{url("event")}}">Fairs and Exhibitions</a></li>
-                        {{-- <li><a href="#">Key Events (Coming Soon)</a></li> --}}
+                        {{-- <li><a href="{{url("")}}">Key Events (Coming Soon)</a></li> --}}
                     </ul>
                 </li>
                 <li><a href="{{url("media")}}">News</a></li>

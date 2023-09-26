@@ -2,27 +2,7 @@
 <section class="home-page-carousel">
     <div class="owl-carousel header-carousel position-relative">
         <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{{url("assets/img/carousel-1.jpg")}}" alt="">
-            <!-- <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                style="background: rgba(6, 3, 21, .5);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-10 col-lg-8">
-                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Transport & Logistics
-                                Solution</h5>
-                            <h1 class="display-3 text-white animated slideInDown mb-4">#1 Place For Your <span
-                                    class="text-primary">Logistics</span> Solution</h1>
-                            <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor
-                                at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea
-                                elitr.</p>
-                            <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read
-                                More</a>
-                            <a href="#" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Free
-                                Quote</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+            <img class="img-fluid" src="{{url("assets/img/carousel-1.jpg")}}" alt="">           
         </div>
         <div class="owl-carousel-item position-relative">
             <img class="img-fluid" src="{{url("assets/img/carousel-2.jpg")}}" alt="">
@@ -89,7 +69,7 @@
                     <h2 class="title"><a href="#">Dr.Rajendra Prasad 5 Rupees Commemorative Coin - Republic
                             India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -106,7 +86,7 @@
                     <div class="price"><span><i class="fa fa-rupee-sign"></i> 400</span>
                         <i class="fa fa-rupee-sign"></i> 299
                     </div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -122,7 +102,7 @@
                     <h2 class="title"><a href="#">Perarignar Anna Birth Centenary 5 Rupees Commemorative Coin -
                             Republic of India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -137,7 +117,7 @@
                     <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
                             of India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -152,7 +132,7 @@
                     <h2 class="title"><a href="#">Dr.Rajendra Prasad 5 Rupees Commemorative Coin - Republic
                             India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -169,7 +149,7 @@
                     <div class="price"><span><i class="fa fa-rupee-sign"></i> 400</span>
                         <i class="fa fa-rupee-sign"></i> 299
                     </div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -185,7 +165,7 @@
                     <h2 class="title"><a href="#">Perarignar Anna Birth Centenary 5 Rupees Commemorative Coin -
                             Republic of India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -200,7 +180,7 @@
                     <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
                             of India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -226,7 +206,7 @@
                     <h2 class="title"><a href="#">Dr.Rajendra Prasad 5 Rupees Commemorative Coin - Republic
                             India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -243,7 +223,7 @@
                     <div class="price"><span><i class="fa fa-rupee-sign"></i> 400</span>
                         <i class="fa fa-rupee-sign"></i> 299
                     </div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -259,7 +239,7 @@
                     <h2 class="title"><a href="#">Perarignar Anna Birth Centenary 5 Rupees Commemorative Coin -
                             Republic of India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -274,7 +254,7 @@
                     <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
                             of India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -289,7 +269,7 @@
                     <h2 class="title"><a href="#">Dr.Rajendra Prasad 5 Rupees Commemorative Coin - Republic
                             India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -306,7 +286,7 @@
                     <div class="price"><span><i class="fa fa-rupee-sign"></i> 400</span>
                         <i class="fa fa-rupee-sign"></i> 299
                     </div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -322,7 +302,7 @@
                     <h2 class="title"><a href="#">Perarignar Anna Birth Centenary 5 Rupees Commemorative Coin -
                             Republic of India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -337,7 +317,7 @@
                     <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
                             of India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -363,7 +343,7 @@
                     <h2 class="title"><a href="#">Dr.Rajendra Prasad 5 Rupees Commemorative Coin - Republic
                             India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -380,7 +360,7 @@
                     <div class="price"><span><i class="fa fa-rupee-sign"></i> 400</span>
                         <i class="fa fa-rupee-sign"></i> 299
                     </div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -396,7 +376,7 @@
                     <h2 class="title"><a href="#">Perarignar Anna Birth Centenary 5 Rupees Commemorative Coin -
                             Republic of India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -411,7 +391,7 @@
                     <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
                             of India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -426,7 +406,7 @@
                     <h2 class="title"><a href="#">Dr.Rajendra Prasad 5 Rupees Commemorative Coin - Republic
                             India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -443,7 +423,7 @@
                     <div class="price"><span><i class="fa fa-rupee-sign"></i> 400</span>
                         <i class="fa fa-rupee-sign"></i> 299
                     </div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -459,7 +439,7 @@
                     <h2 class="title"><a href="#">Perarignar Anna Birth Centenary 5 Rupees Commemorative Coin -
                             Republic of India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -474,7 +454,7 @@
                     <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
                             of India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -500,7 +480,7 @@
                     <h2 class="title"><a href="#">Dr.Rajendra Prasad 5 Rupees Commemorative Coin - Republic
                             India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -517,7 +497,7 @@
                     <div class="price"><span><i class="fa fa-rupee-sign"></i> 400</span>
                         <i class="fa fa-rupee-sign"></i> 299
                     </div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -533,7 +513,7 @@
                     <h2 class="title"><a href="#">Perarignar Anna Birth Centenary 5 Rupees Commemorative Coin -
                             Republic of India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -548,7 +528,7 @@
                     <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
                             of India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -563,7 +543,7 @@
                     <h2 class="title"><a href="#">Dr.Rajendra Prasad 5 Rupees Commemorative Coin - Republic
                             India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -580,7 +560,7 @@
                     <div class="price"><span><i class="fa fa-rupee-sign"></i> 400</span>
                         <i class="fa fa-rupee-sign"></i> 299
                     </div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -596,7 +576,7 @@
                     <h2 class="title"><a href="#">Perarignar Anna Birth Centenary 5 Rupees Commemorative Coin -
                             Republic of India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -611,7 +591,7 @@
                     <h2 class="title"><a href="#">Chhatrapati Shivaji Maharaj 2 Rupees Commemorative Coin - Republic
                             of India</a></h2>
                     <div class="price"><i class="fa fa-rupee-sign"></i> 300</div>
-                    <a href="#" class="add-to-cart">Add to Cart</a>
+                    
                 </div>
             </div>
 
@@ -636,7 +616,7 @@
                 <div class="d-flex align-items-center">
                     <i class="fa fa-headphones fa-2x flex-shrink-0 bg-primary p-3 text-white"></i>
                     <div class="ps-4">
-                        <h6>Call for any query!</h6>
+                        <h6>Call for Enquiry!</h6>
                         <h3 class="text-primary m-0"><a href="tel:02240190400">022 - 40190400</a></h3>
                     </div>
                 </div>
@@ -684,31 +664,79 @@
 <section class="common-padding service-wraper">
     <div class="container-fluid service  px-lg-2 px-lg-5">       
         <div class="row">           
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-4 col-md-6 mb-md-0 mb-3">
                 <div class="wow fadeInUp" data-wow-delay="0.1s"> 
                     <h2 class="mb-4 heading-1">Information </h2>
                 </div>
-                <div class="nav w-100 nav-pills me-4">
+                <div class="nav w-100 nav-pills">
                     <a class="nav-link w-100 d-flex align-items-center text-start" href="{{url("coin/")}}"> 
                         <h4 class="m-0">Coins</h4>
                     </a>
                     <a class="nav-link w-100 d-flex align-items-center text-start" href="{{url("notes/")}}"> 
                         <h4 class="m-0">Notes</h4>
                     </a>
-                    <a class="nav-link w-100 d-flex align-items-center text-start mb-0" href="{{url("notes/")}}"> 
+                    <a class="nav-link w-100 d-flex align-items-center text-start" href="{{url("notes/")}}"> 
                         <h4 class="m-0">Stamps</h4>
                     </a>
+                    <a class="nav-link w-100 d-flex align-items-center text-start mb-0 p-0 img-info overflow-hidden" href="{{url("history/")}}"><img src="{{url("assets/img/info-img.jpg")}}" class="img-fluid" alt=""> </a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4">
-                <div class="wow fadeInUp" data-wow-delay="0.1s"> 
-                    <h2 class="mb-4 heading-1">News </h2>
+            <div class="col-lg-4 col-md-6 mb-md-0 mb-3">
+                <div class="d-flex justify-content-between">
+                    <h2 class="mb-3 heading-1">Latest News</h2>                   
+                </div>               
+                <div class=" news-container latest-news position-relative">
+                    <ul class="slick">
+                        <li>
+                            <a href="{{url("media/detail/16221/")}}">
+                                <div class="news-title">Jerdon's Courser Commemorative Stamp</div>
+                                <div class="news-date"><i class="fas fa-calendar-alt"></i> 22&nbsp;Sep&nbsp;2023</div>
+                                <div class="news-info">Jerdon's courser is a nocturnal bird belonging to the pratincole and courser family Glareolidae. It ...</div>
+                             </a> 
+                        </li>
+                        <li>
+                            <a href="{{url("media/detail/16222/")}}">
+                                <div class="news-title">The New Age of Philately - NFT Stamps</div>
+                                <div class="news-date"><i class="fas fa-calendar-alt"></i> 22&nbsp;Sep&nbsp;2023</div>
+                                <div class="news-info">The latest trend among Post Offices worldwide is the release of Non-Fungible tokens (NFT) stamps for...</div>
+                             </a> 
+                        </li>
+                        <li>
+                            <a href="{{url("media/detail/16221/")}}">
+                                <div class="news-title"> Silver Rupee of Independent Kingdom Sikh Empire</div>
+                                <div class="news-date"><i class="fas fa-calendar-alt"></i> 22&nbsp;Sep&nbsp;2023</div>
+                                <div class="news-info">The latest trend among Post Offices worldwide is the release of Non-Fungible tokens (NFT) stamps for...</div>
+                             </a> 
+                        </li>
+                        <li>
+                            <a href="/media/detail/16222/">
+                                <div class="news-title">International Peace Day 2023</div>
+                                <div class="news-date"><i class="fas fa-calendar-alt"></i> 22&nbsp;Sep&nbsp;2023</div>
+                                <div class="news-info">The latest trend among Post Offices worldwide is the release of Non-Fungible tokens (NFT) stamps for...</div>
+                             </a> 
+                        </li>
+                    </ul>                   
                 </div>
+                <div class="text-end d-block" ><a href="{{url("media/")}}" class="view-all">View All <i class="fa fa-angle-right"></i></a></div>
+                
+
             </div>  
-            <div class="col-lg-4 col-md-4">
+            <div class="col-lg-4 col-md-12">
                 <div class="wow fadeInUp" data-wow-delay="0.1s"> 
                     <h2 class="mb-4 heading-1">Event Videos</h2>
                 </div>
+                <div class="news-container position-relative">
+                    <ul>
+                        <li> 
+                                <div class="news-title">Legendary Numismatist Dr. Prashant Kulkarni - Episode 3 | Unheard Stories of Coins</div> 
+                                <div class="news-date"><i class="fas fa-calendar-alt"></i> 22&nbsp;Sep&nbsp;2023</div>
+                                <div class="news-info">
+                                    <iframe src="https://www.youtube.com/embed/zTmlyXawlAg?rel=0" allowfullscreen class="you-tube-video"></iframe>
+                                </div> 
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-end d-block" ><a href="{{url("videos/")}}" class="view-all">View All <i class="fa fa-angle-right"></i></a></div>
             </div>            
         </div>
     </div>
@@ -759,9 +787,7 @@
         </div>
     </div>
 </section>
-<script>
-    // counter value
-
+<script> 
 var counted = 0;
 $(window).scroll(function() {
 
@@ -785,7 +811,7 @@ $(window).scroll(function() {
           },
           complete: function() {
             $this.text(this.countNum);
-            //alert('finished');
+           
           }
 
         });
@@ -794,4 +820,21 @@ $(window).scroll(function() {
   }
 
 });
+</script>
+
+<script src="{{url("assets/js/slick.min.js")}}"></script>
+
+<script>
+    let slickOptions = {
+  centerMode: true,
+  centerPadding: '0px',
+  vertical: true,
+  infinite: true,
+  slidesToShow: 2,
+  autoplay: true,
+  arrows: false,
+  pauseOnHover: true 
+}
+
+$('.slick').slick(slickOptions)
 </script>

@@ -60,7 +60,7 @@
                        <p>The first postage stamps issued were almost identical with a standard shape, size and subject. The first stamps were rectangular in shape and early stamps had no perforated edges which meant they had to be cut or torn off. The perforations made it easier to separate a stamp from its sheet. The most common shape for stamps is the rectangle but other geometric shapes like circular, triangular ad pentagonal stamps have been issued in addition to irregularly shaped ones.</p>
                     </div>
                  </div>
-                 <span id="Stamps-of-British-India"></span>
+                 
                  <div class="row" id="">
                     <div class="col-md-12">
                         <h5><b>Stamps in India</b></h5>   
@@ -71,6 +71,7 @@
                        <p>All variants of the Scinde Dawk stamps display a face of half Anna but are extremely rare. Less than 100 of these rare philatelic classics exist.</p>
                     </div>
                  </div>
+                 <span id="Stamps-of-British-India"></span>
                  <div class="row knowledge-img-list align-items-center">
                     <div class="col-md-4 col-6">
                         <img src="https://www.mintageworld.com/img/Bombay-Sappers.jpg" class="img-fluid" alt=""> 
@@ -84,6 +85,7 @@
                         <img src="https://www.mintageworld.com/img/louisbraille.jpg" class="img-fluid" alt=""> 
                         <h5>Loius Braille Birth Bicentenary Stamp - 2009</h5>
                     </div>  
+                    
                 </div>                  
                  <div class="row mt-3" id="Stamps-of-Independent-India">
                     <div class="col-md-12">

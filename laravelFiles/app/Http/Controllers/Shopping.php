@@ -136,9 +136,19 @@ class Shopping extends Controller
 
         $product = Product::where("id",$slugParts[0])->with("product_category")->with("product_images")->with("product_ratings")->first();
 
-        $this->page_loader("view_product", [
-            "title" => "Buy ".$product["name1"]." Online",
-            "product" => $product
-        ]);
+        if($product){
+
+            $this->page_loader("view_product", [
+                "title" => "Buy ".$product["name1"]." Online",
+                "product" => $product
+            ]);
+
+        }else{
+
+            return redirect()->to(url("shop"));
+
+        }
+
+
     }
 }

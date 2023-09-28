@@ -22,7 +22,11 @@ use App\Models\Product;
     <section class="common-padding coing-list-wraper">
         <div class="container-fluid  px-lg-2 px-lg-5">
             <div class="d-flex justify-content-between">
-                <h2 class="mb-3 heading-1">SHOPPING CART ({{count($cart_items)}})</h2>
+                <h2 class="mb-3 heading-1" id="cartCount">SHOPPING CART (<span id="cartCountFigure">{{count($cart_items)}}</span>)</h2>
+            </div>
+
+            <div id="emptyCartDiv" class="container d-none">
+                <h1>Your cart is empty. <a href="{{url('shop')}}">Find what you love</a>
             </div>
 
             <div class="cart row">
@@ -296,6 +300,14 @@ use App\Models\Product;
             },
             success: function (response) {                
                 $("div#cart-item-"+pid).remove();
+                let currentCartCount = $("span#cartCountFigure").html();
+                let newCartCount = parseInt(currentCartCount)-1;
+                $("span#cartCountFigure").html(newCartCount);
+                if(newCartCount==0)
+                {
+                    $("div#emptyCartDiv").removeClass("d-none");
+
+                }
                 $('.add-to-cart-success').toast('show');
                 recalculateSubTotal();    
                 @if(session("value"))

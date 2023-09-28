@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 
+
 class Shopping extends Controller
 {
     private function page_loader($viewName, $data)
@@ -85,7 +86,31 @@ class Shopping extends Controller
 
         $categoryProducts = Product::where("category",$categorySlugParts[0])->with("product_category")->with("product_images")->paginate(12);
 
+
+        $maincatdata = ProductCategory::find($categorySlugParts[0]);
+
         $total = $categoryProducts->total();
+
+        if ($total==0) {
+            
+            $productCategory = new ProductCategory();
+
+            $childCategories = $productCategory->where("parent",$categorySlugParts[0])->get();
+
+            $childCatIds = [];
+
+            foreach($childCategories as $childCategory){
+
+                $childCatIds[] = $childCategory["id"];
+
+            }
+
+            $categoryProducts = Product::where("category",$childCatIds)->with("product_category")->with("product_images")->paginate(12);
+
+            $total = $categoryProducts->total();
+            
+        }
+
         $currentPage = $categoryProducts->currentPage();
         $perPage = $categoryProducts->perPage();
 
@@ -96,7 +121,7 @@ class Shopping extends Controller
 
         
         $this->page_loader("shop_list", [
-            "title" => "Buy Amazing Old World Currency Notes Online | Mintage World",
+            "title" => "Buy Coins of ". $maincatdata["cat_name"] ." Online | Mintage World",
             "category" => ProductCategory::find($categorySlugParts[0]),
             "category_products" => $categoryProducts,
             "product_count" => count($categoryProducts),

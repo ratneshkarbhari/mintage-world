@@ -15,7 +15,7 @@
     </section>    
 
 
-    <section class="common-padding coing-list-wraper">
+    <section class="common-padding coing-list-wraper media-page">
         <div class="container-fluid  px-lg-2 px-lg-5">
             <div class="d-flex justify-content-between">
                 <h2 class="mb-3 heading-1">News</h2>
@@ -38,7 +38,7 @@
 
                 @endphp
 
-               <div class="col-md-3 mb-3">
+               <div class="col-md-3 mb-3 d-flex align-items-stretch">
                   <div class="blog-div">
                      <div class="BlogImgDiv blog-image ">
                         <a href="{{url('media/detail/'.$media_entry["id"]."-".$media_entry["custom_url"])}}"><img src="{{getenv('NEWS_IMAGE_BASE_URL').$media_entry["image"]}}" class="img-fluid" alt="" decoding="async" ></a>
@@ -50,7 +50,7 @@
                            {{$media_entry["media_date"]." ".$day}}    </span> 		
                         <h2><a href="{{url("media/detail/")}}" rel="bookmark"> {{$media_entry["title"]}}</a></h2>
                      </div>
-                     <div class="blog-disc">
+                     <div class="blog-disc mb-0">
                         <p>
                            {!!substr($media_entry["description"],0,100)."..."!!}
                         </p> 

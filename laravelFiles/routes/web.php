@@ -171,5 +171,5 @@ Route::get('shop/list/{categorySlug}', [Shopping::class, 'shop_list']);
 
 Route::post("apply-coupon-recalculate-discount-exe", [Coupons::class, 'apply_coupon_recalculate']);
 Route::post("create-order-exe", [Orders::class, 'create_exe']);
+
 Route::get('media/', [StaticPages::class, 'media_list']);
-     

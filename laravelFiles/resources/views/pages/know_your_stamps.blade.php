@@ -13,7 +13,7 @@
        </div>
     </section>
     <span id="History"></span>
-    <section class="common-padding coing-list-wraper">
+<section class="common-padding coing-list-wraper">
        <div class="container-fluid  px-lg-2 px-lg-5">
           <div class="row">
              <div class="col-lg-3 col-md-12 mt-md-5 mt-0 mt-lg-0">
@@ -59,11 +59,10 @@
                         <h5><b>Design</b></h5>  
                        <p>The first postage stamps issued were almost identical with a standard shape, size and subject. The first stamps were rectangular in shape and early stamps had no perforated edges which meant they had to be cut or torn off. The perforations made it easier to separate a stamp from its sheet. The most common shape for stamps is the rectangle but other geometric shapes like circular, triangular ad pentagonal stamps have been issued in addition to irregularly shaped ones.</p>
                     </div>
-                 </div>
-                 
+                 </div>                 
                  <div class="row" id="">
                     <div class="col-md-12">
-                        <h5><b>Stamps in India</b></h5>   
+                       <h5><b>Stamps in India</b></h5>   
                        <p>India has long and varied philatelic history. The postal authorities have issued a large number of stamps. A variety of techniques have been used to print the design including line engraving, typography, lithography, photogravure and web-offset.</p>
                        <p>Stamps are produced for postage as well as service or revenue. Postal authorities have also issued definitive and commemorative stamps along with perforated, non-perforated and miniature stamp sheets. Many cases of overprinting also exists.</p>
                        <p>The Scinde Dawk issued by postal authorities in India was round in shape while the Bombay Sappers stamp was triangular.  The Scinde Dawk was the first postage stamp to be issued in India.</p>
@@ -84,34 +83,31 @@
                     <div class="col-md-4 col-6">
                         <img src="https://www.mintageworld.com/img/louisbraille.jpg" class="img-fluid" alt=""> 
                         <h5>Loius Braille Birth Bicentenary Stamp - 2009</h5>
-                    </div>  
-                    
+                    </div>                    
                 </div>                  
                  <div class="row mt-3" id="Stamps-of-Independent-India">
                     <div class="col-md-12">
-                        <h5><b>Stamps of British India</b></h5>    
-                       <p>The first adhesive stamp in India, the Scinde Dawk, was issued in 1852 CE, 12 years after the first Penny Black was issued in England followed by East India Company lithographed issues and a long series of engraved stamps portraying Queen Victoria, King Edward Vii, King George V and King George VI.</p>
+                     <h5><b>Stamps of British India</b></h5>    
+                     <p>The first adhesive stamp in India, the Scinde Dawk, was issued in 1852 CE, 12 years after the first Penny Black was issued in England followed by East India Company lithographed issues and a long series of engraved stamps portraying Queen Victoria, King Edward Vii, King George V and King George VI.</p>
                     </div>
                  </div>
                  <div class="row" id="Stamps-of-Independent-India">
                     <div class="col-md-12">
-                        <h5><b>Stamps of Independent India</b></h5>   
-                       <div class="row knowledge-img-list ">
-                          <div class="col-md-9 text-start">
-                             <p>The first postal stamp issued by independent India depicted the Indian Flag and was released on November 21st, 1947. The Dominion of India issued stamps from 1947 to 1949 with the caption ‘Indian Postage’. In 1950, the first stamps in a series of four were issued by Republic India on January 26th. The stamp was issued in Annas (abbreviated as As.) till 1957 when the Indian Rupee was decimalised. The change in denomination was reflected on the stamps issued at the time.</p>
-                          </div>
-                          <div class="col-md-3" name="#link6">
-                             <img src="https://www.mintageworld.com/img/1947_India_Flag.jpg" class="img-fluid" alt="" style="margin-top:5px;"> 
-                             <h5>The First Postal Stamp of Independent India</h5>
-                          </div>
-                       </div>
-                    </div>
-                 </div>
-              
-                   
-                </div>
-             </div>
-          </div>
-       </div>
-    </section>
+                     <h5><b>Stamps of Independent India</b></h5>   
+                     <div class="row knowledge-img-list ">
+                        <div class="col-md-9 text-start">
+                           <p>The first postal stamp issued by independent India depicted the Indian Flag and was released on November 21st, 1947. The Dominion of India issued stamps from 1947 to 1949 with the caption ‘Indian Postage’. In 1950, the first stamps in a series of four were issued by Republic India on January 26th. The stamp was issued in Annas (abbreviated as As.) till 1957 when the Indian Rupee was decimalised. The change in denomination was reflected on the stamps issued at the time.</p>
+                        </div>
+                        <div class="col-md-3" name="#link6">
+                        <img src="https://www.mintageworld.com/img/1947_India_Flag.jpg" class="img-fluid" alt="" style="margin-top:5px;"> 
+                           <h5>The First Postal Stamp of Independent India</h5>
+                        </div>
+                     </div>
+                  </div>
+               </div>             
+            </div>
+         </div>
+      </div>
+    </div>
+   </section>
  </main>

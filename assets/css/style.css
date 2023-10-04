@@ -665,6 +665,8 @@ section.home-page-carousel {
 
 /* product carousel css start */
 
+.product-carousel-home .owl-prev,
+.product-carousel-home .owl-next,
 .product-carousel .owl-prev,
 .product-carousel .owl-next,
 .photopro-carousel .owl-prev,
@@ -685,6 +687,8 @@ section.home-page-carousel {
   transition: 0.5s;
 }
 
+.product-carousel-home:hover .owl-prev,
+.product-carousel-home:hover .owl-next,
 .product-carousel:hover .owl-prev,
 .product-carousel:hover .owl-next,
 .photopro-carousel:hover .owl-prev,
@@ -693,6 +697,8 @@ section.home-page-carousel {
   transition: 0.5s;
 }
 
+.product-carousel-home .owl-next,
+.photopro-carousel-home .owl-next,
 .product-carousel .owl-next,
 .photopro-carousel .owl-next {
   left: auto;

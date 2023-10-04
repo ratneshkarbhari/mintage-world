@@ -32,7 +32,7 @@ class PageLoader extends Controller
 
         if (!$featuredBooks = Cache::get("featured_books")) {
             
-            $booksQuery = 'SELECT * FROM products WHERE status = "Active" AND instock > 0 AND category = 23 LIMIT 7';
+            $booksQuery = 'SELECT * FROM products WHERE status = "Active" AND instock > 0 AND category = 23 LIMIT 10';
 
             $featuredBooks = json_decode(json_encode(DB::select($booksQuery)),TRUE);
 
@@ -44,7 +44,7 @@ class PageLoader extends Controller
 
         if (!$featuredCoins = Cache::get("featured_coins")) {
             
-            $coinsQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (18,24,25,26,27,28) LIMIT 7';
+            $coinsQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (18,24,25,26,27,28) LIMIT 10';
 
             $featuredCoins = json_decode(json_encode(DB::select($coinsQuery)),TRUE);
 
@@ -54,7 +54,7 @@ class PageLoader extends Controller
 
         if (!$featuredNotes = Cache::get("featured_notes")) {
             
-            $notesQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (35,36,37,38,39,40,41,42,43) LIMIT 7';
+            $notesQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (35,36,37,38,39,40,41,42,43) LIMIT 10';
 
             $featuredNotes = json_decode(json_encode(DB::select($notesQuery)),TRUE);
 
@@ -65,7 +65,7 @@ class PageLoader extends Controller
 
         if (!$featuredAccessories = Cache::get("featured_accessories")) {
 
-            $accessoryQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (11,12,13,14) LIMIT 7';
+            $accessoryQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (11,12,13,14) LIMIT 10';
 
             $featuredAccessories = json_decode(json_encode(DB::select($accessoryQuery)),TRUE);
 
@@ -82,7 +82,7 @@ class PageLoader extends Controller
         if (!$featuredStamps = Cache::get("featured_stamps")) {
 
 
-            $stampQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (20,21,22,58,59,17,45,60) LIMIT 7';
+            $stampQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (20,21,22,58,59,17,45,60) LIMIT 10';
 
 
             $featuredStamps = json_decode(json_encode(DB::select($stampQuery)),TRUE);

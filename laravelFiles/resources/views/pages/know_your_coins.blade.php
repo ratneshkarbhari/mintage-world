@@ -15,6 +15,7 @@
                 </ol>
             </nav>
         </div>
+        <span id="What-is-a-coin"></span>
     </section>    
 
 
@@ -26,21 +27,23 @@
                 <div class="col-lg-3 col-md-12 mt-md-5 mt-0 mt-lg-0">
                     <div class="heading-2">Know Your Coins</div>
                     <ul class="more-rulers">                        
-                        <li><a href="#">What is a coin?</a></li>                        
-                        <li><a href="#">What to look for in a coin?</a></li>                        
-                        <li><a href="#">How are coins minted?</a></li>                        
-                        <li><a href="#">Weight</a></li>                        
-                        <li><a href="#">Rarity</a></li>                        
-                        <li><a href="#">Collections and Auctions</a></li>                        
+                        <li><a href="#What-is-a-coin">What is a coin?</a></li>                        
+                        <li><a href="#What-to-look-for-in-a-coin">What to look for in a coin?</a></li>                        
+                        <li><a href="#How-are-coins-minted">How are coins minted?</a></li>                        
+                        <li><a href="#Weight">Weight</a></li>                        
+                        <li><a href="#Rarity">Rarity</a></li>                        
+                        <li><a href="#Collections-and-Auctions">Collections and Auctions</a></li>                        
                     </ul>                     
                 </div>
                 <div class="col-lg-9 col-md-12 mt-md-5 mt-0 mt-lg-0">
+                   
                     <div class="knowledge-base-contetnt">
                         {{-- <div class="d-flex justify-content-between">
                             <h2 class="mb-3 heading-1">Know Your Coins</h2>
                         </div>  --}}
                         <h4 class="heading-2 pb-3"><b>Coins Overview</b></h4>
                         <p>Few countries display a large variety of coinage like India when it comes to minting techniques, motifs, shapes, sizes or metal. A coin is essentially a piece of metal that has been inscribed and issued under the order of the ruling authority. It serves as legal tender in the region where it was issued. It is primarily used as a medium of exchange. But coins meant for collecting or kept as a token are also found, although these coins may not have been legal tender.</p>
+                        <span id="What-to-look-for-in-a-coin"></span>
                         <h5><b>What is a coin?</b></h5>
                         <p>A coin is a piece of metal stamped with an official design and/or inscription issued by the ruling authority of the region. It serves as legal tender for the country, kingdom or region. Coins have standardized weight and are issued in a mint in large quantities. They are usually round in shape but have been known to be minted in many different shapes in the past. They used for daily transactions and are being circulated in addition to banknotes.</p>
                         <h5><b>What to look for in a coin?</b></h5> 
@@ -63,6 +66,7 @@
                                 <h5>Modern Coins of India</h5>
                             </div> 
                         </div> 
+                        <span id="How-are-coins-minted"></span>
                         <p>We don't know for sure, but coins are known to have been minted since before 5th Century CE. The earliest known coins are Punch-Marked coins and were issued in Silver and Copper. They bore devices of animal and plant symbols.</p>
                         <p>The Indo-Greek coins were the first in India to bear the ruler's portrait on the obverse and a deity's figure on the reverse. The entire history of the Indo-Greek rule was discovered and constructed with the help of their coins.</p>
                         <p>Medieval Indian coins minted by the Delhi Sultanate and Mughals lack image motifs, except for a few coins issued by Akbar and Jehangir. Tipu Sultan is also known to have issued coins bearing the image of an elephant.</p>
@@ -76,16 +80,20 @@
                             <li>Die-Struck Technique</li>
                             <li>Repoussé Technique</li>
                          </ul>
+                         <span id="Weight"></span>
                          <p>Coins have played a vital role in a kingdom, state or a country's economy. Historic coins reveal political and economic information of the region it belonged to at the time. E.g. Indo-Greek presence in north-western India was confirmed through coins discovered in the area. Each ruler from the numerous dynasties in India over the ages, have issued a variety of coins. Many display excellent artistic merit. Coins were minted in Gold, Silver, Copper and Lead. Today, alloys like Cupro-Nickel and Stainless Steel are used to mint coins. Bronze and Aluminium-Magnesium were also used.</p>
                          <p>Ancient Punch-Mark coins bear punches of various designs. Die-struck coins bore a design that was carved fully on the mould, unlike Punch-Mark coins which were punched. Die-Struck coins bore designs depicting motifs of kings and goddesses. Coins issued during the medieval era display Islamic influence. Ancient, Medieval and Pre-Colonial era foreign coin hoards reveal trade patterns of India over time.</p>                 
                          <h5><b>Weight</b></h5> 
                          <div class="row knowledge-img-list align-items-center">
                             <div class="col-md-12 col-12">
-                                <img src="{{url("assets/img/Jehangiri.jpg")}}" class="img-fluid">   
+                                <span id="Rarity"></span>
+                                <img src="{{url("assets/img/Jehangiri.jpg")}}" class="img-fluid">                                   
                                 <h5>Jehangiri issued by Jehangir from Ahmedabad Mint</h5>
                             </div>                    
                         </div>  
+                        
                         <p>For example, Akbar had issued a gold mohur that weighed much more than the usual standard. Jehangir issued a Silver coin that also weighed more than the standard weight. This coin was known as Jehangiri.</p>                
+                        <span id="Collections-and-Auctions"></span>
                         <h5><b>Rarity</b></h5> 
                         <p>Rarity of a coin depends on the number of the type in circulation. If the number of coins belonging to a type is more, then the coin's rarity is common. If the coin is of a unique type or has limited pieces belonging to that type, then the coin is termed as rare. Rare coins are difficult to come across and are rarely photographed, but their value remains high in the market.</p>
                      

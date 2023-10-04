@@ -244,4 +244,6 @@
          <p>You can also buy <a href="https://www.mintageworld.com/shop/list/11-coin-accessories/">world class coin collecting accessories</a>, philatelic supplies, banknote accessories and postcard collecting accessories from our website to treasure and nurture your collection like never before! Last but not the least; Mintage World also has unique <a href="https://www.mintageworld.com/shop/list/6-greeting-cards/">gifting options for you</a>! From greeting cards to table photo frames, all these products will definitely make your special occasions even more memorable. These items come along with a banknote that features a special date of your choice as its serial number. So get going and enjoy shopping! We are only an email or a call away to resolve any of your doubts or queries.</p>
       </div>
    </section>
+    
 </main>
+

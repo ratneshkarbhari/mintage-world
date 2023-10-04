@@ -134,7 +134,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="{{url("")}}" class="nav-item nav-link active">Home</a>
+                    <a href="{{url("/")}}" class="nav-item nav-link active">Home</a>
                     <div class="nav-item dropdown">
                         <a href="{{url('shop')}}" class="nav-link dropdown-toggle">Shopping </a>
                         <div class="dropdown-menu fade-up m-0 mega-menu">

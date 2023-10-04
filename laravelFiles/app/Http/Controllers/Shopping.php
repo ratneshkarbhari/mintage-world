@@ -48,11 +48,14 @@ class Shopping extends Controller
             
         }
         
+
         if (!$featuredAccessories = Cache::get("featured_accessories")) {
 
             $accessoryQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (11,12,13,14) LIMIT 7';
 
             $featuredAccessories = json_decode(json_encode(DB::select($accessoryQuery)),TRUE);
+
+
             Cache::set("featured_accessories",$featuredNotes);
 
 

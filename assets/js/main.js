@@ -173,6 +173,35 @@
       },
     },
   });
+  $(".product-carousel-home").owlCarousel({
+    autoplay: true,
+    smartSpeed: 1500,
+    margin: 25,
+    dots: false,
+    loop: true,
+    nav: true,
+    navText: [
+      '<i class="bi bi-chevron-left"></i>',
+      '<i class="bi bi-chevron-right"></i>',
+    ],
+    responsive: {
+      0: {
+        items: 2,
+      },
+      600: {
+        items: 3,
+      },
+      1024: {
+        items: 6,
+      },
+      1200: {
+        items: 6,
+      },
+      1920: {
+        items: 7,
+      },
+    },
+  });
 
   // Recommended product carousel
   $(".Recommended-Slider").owlCarousel({

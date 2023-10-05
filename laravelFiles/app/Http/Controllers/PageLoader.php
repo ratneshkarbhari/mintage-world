@@ -94,7 +94,6 @@ class PageLoader extends Controller
 
         $entries = Media::where("status", "1")->orderBy("id", "desc")->limit(7)->get();
 
-        
 
         $this->page_loader("home", [
             "title" => "Online Museum of Coins, Stamps and Notes",

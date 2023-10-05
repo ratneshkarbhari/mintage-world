@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Media;
 use App\Models\Country;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -91,6 +92,8 @@ class PageLoader extends Controller
 
         }
 
+        $entries = Media::where("status", "1")->orderBy("id", "desc")->limit(7)->get();
+
         
 
         $this->page_loader("home", [
@@ -99,7 +102,8 @@ class PageLoader extends Controller
             "random_coins" => $featuredCoins,
             "random_notes" => $featuredNotes,
             "random_accessories" => $featuredAccessories,
-            "random_stamps" => $featuredStamps
+            "random_stamps" => $featuredStamps,
+            "news_items" => $entries
         ]);
     }
 

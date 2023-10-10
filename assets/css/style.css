@@ -2025,7 +2025,7 @@ margin: 5px;
 /* category-menu css End */
 
 .product-short-wrap {
-  min-width: 200px;
+  min-width: 670px;
 }
 .price-box {
   text-align: center;
@@ -4361,4 +4361,7 @@ iframe.you-tube-video {
     font-size: 11px;
     font-weight: 600;
   }
+  .product-short-wrap {
+    min-width: 0px;
+}
 }

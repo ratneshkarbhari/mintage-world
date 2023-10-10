@@ -86,10 +86,7 @@ class PageLoader extends Controller
             Cache::get("featured_stamps", $featuredStamps);
         }
 
-<<<<<<< HEAD
-=======
         $entries = Media::where("status", "1")->orderBy("id", "desc")->limit(7)->get();
->>>>>>> e0be61026b2f2238a708fc4e6620f2aa9ff82f15
 
 
         $this->page_loader("home", [

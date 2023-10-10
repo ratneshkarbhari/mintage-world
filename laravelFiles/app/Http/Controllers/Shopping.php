@@ -134,6 +134,9 @@ class Shopping extends Controller
 
         $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
 
+        if(!isset($grand_parent_category)){
+            $grand_parent_category = NULL;
+        }
         
         $this->page_loader("shop_list", [
             "title" => "Buy Coins of ". $maincatdata["cat_name"] ." Online | Mintage World",

@@ -19,7 +19,7 @@
    </section>
    <section class="common-padding coing-list-wraper">
       <div class="container-fluid  px-lg-2 px-lg-5">
-         <div class="row info-item-grid-row">
+         <div class="row info-item-grid-row" id="info-item-grid-row">
             <div class="col-lg-3 col-md-12 left-filter-wrap ">
                <div id="InfoFilter" class="filter-wrap">
                   <div class="filter-link"><i class="fa fa-filter" aria-hidden="true"></i> <b>SHOP BY CATEGORIES</b> </div>
@@ -151,7 +151,8 @@
                   <h2 class="mb-3 heading-1">{{$category["cat_name"]}} </h2>
                   <div class="row product-short-wrap  justify-content-end" >
                      <div class="col-md-4">
-                        <select name="governor" class="form-control" id="governor" required="required" onchange="insertParam('governor',this.value);">
+                        @if($category["id"]==35)
+                        <select name="governor" class="form-control product-filter-select-input" filter-attr="governor" required="required">
                            <option value="" selected="">Filter:Signatory </option>
                            <option value="H. M. Patel">H. M. Patel</option>
                            <option value="A.K. Roy">A.K. Roy</option>
@@ -181,9 +182,11 @@
                            <option value="Urijit Patel">Urijit Patel</option>
                            <option value="Shaktikanta Das">Shaktikanta Das</option>
                         </select>
+                        @endif
                      </div>
                      <div class="col-md-4">
-                        <select name="bankdnm" class="form-control" id="bankdnm" required="required" onchange="insertParam('bnkdnm',this.value);">
+                        @if($category["id"]==35)
+                        <select name="bankdnm" class="form-control product-filter-select-input" filter-attr="denomination" required="required" >
                            <option value="">Filter:Denominations</option>
                            <option value="1 Rupee">1 Rupee</option>
                            <option value="2 Rupees">2 Rupees</option>
@@ -192,9 +195,10 @@
                            <option value="50 Rupees">50 Rupees</option>
                            <option value="20 Rupees">20 Rupees</option>
                         </select>
+                        @endif
                      </div>
                      <div class="col-md-4">
-                        <select name="sort" class="form-control" id="sort" required="required" onchange="insertParam('sort',this.value);">
+                        <select name="sort" class="form-control product-filter-select-input w-100" filter-attr="price" required="required" >
                            <option value="">Sort By </option>
                            <option value="ASC">Price:Low to High </option>
                            <option value="DESC">Price:High to Low </option>
@@ -253,3 +257,13 @@
     
 </main>
 
+<script>
+
+   $(".product-filter-select-input").change(function (e) { 
+      e.preventDefault();
+
+      if
+      
+   });
+
+</script>

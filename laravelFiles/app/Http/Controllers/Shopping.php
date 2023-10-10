@@ -92,6 +92,18 @@ class Shopping extends Controller
 
         $maincatdata = ProductCategory::find($categorySlugParts[0]);
 
+        if($maincatdata["parent"]!=0){
+            $parent_category = ProductCategory::find($maincatdata["parent"]);            
+            if($parent_category["parent"]!=0){
+                $grand_parent_category = ProductCategory::find($parent_category["parent"]);            
+            }else{
+                $grand_parent_category = NULL;
+            }
+        }else{
+            $parent_category = NULL;
+        }
+
+
         $total = $categoryProducts->total();
 
         if ($total==0) {
@@ -125,7 +137,9 @@ class Shopping extends Controller
         
         $this->page_loader("shop_list", [
             "title" => "Buy Coins of ". $maincatdata["cat_name"] ." Online | Mintage World",
-            "category" => ProductCategory::find($categorySlugParts[0]),
+            "grand_parent_category" => $grand_parent_category,
+            "parent_category" => $parent_category,
+            "category" => $maincatdata,
             "category_products" => $categoryProducts,
             "product_count" => count($categoryProducts),
             "pagination_string" => $paginationInfoString

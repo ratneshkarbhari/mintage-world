@@ -6,7 +6,13 @@
             <ol class="breadcrumb">
                <li class="breadcrumb-item me-2"><a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a></li>
                <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("/shop")}}">Shop</a></li>
-               <li class="breadcrumb-item me-2" aria-current="page">Premium Products</li>
+               @isset($grand_parent_category)
+               <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("/shop/list/".$grand_parent_category["id"]."-".Str::slug($grand_parent_category["cat_name"]))}}">{{$grand_parent_category["cat_name"]}}</a></li>
+               @endisset
+               @isset($parent_category)
+               <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("/shop/list/".$parent_category["id"]."-".Str::slug($parent_category["cat_name"]))}}">{{$parent_category["cat_name"]}}</a></li>
+               @endisset
+               <li class="breadcrumb-item me-2" aria-current="page">{{$category["cat_name"]}}</li>
             </ol>
          </nav>
       </div>
@@ -142,7 +148,7 @@
             </div>
             <div class="col-lg-9 col-md-12 mt-md-5 mt-0 mt-lg-0">
                <div class="d-flex justify-content-between col-md-12">
-                  <h2 class="mb-3 heading-1">{{$category["cat_name"]}} ({{$product_count}})</h2>
+                  <h2 class="mb-3 heading-1">{{$category["cat_name"]}} </h2>
                   <div class="row product-short-wrap  justify-content-end" >
                      <div class="col-md-4">
                         <select name="governor" class="form-control" id="governor" required="required" onchange="insertParam('governor',this.value);">

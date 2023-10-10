@@ -56,7 +56,7 @@
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
             <h2 class="mb-3 heading-1">Buy Numistatic Books</h2>
-            <a href="#" class="view-all">More <i class="fa fa-angle-right"></i></a>
+            <a href="{{url("/shop/list/23-books/")}}" class="view-all">More <i class="fa fa-angle-right"></i></a>
         </div>
         <div class="owl-carousel product-carousel-home  position-relative">
                   
@@ -87,7 +87,7 @@
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
             <h2 class="mb-3 heading-1">Buy Coins</h2>
-            <a href="#" class="view-all">More <i class="fa fa-angle-right"></i></a>
+            <a href="{{url("/shop/list/18-buy-coins/")}}" class="view-all">More <i class="fa fa-angle-right"></i></a>
         </div>
         <div class="owl-carousel product-carousel-home  position-relative">
                   
@@ -118,7 +118,7 @@
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
             <h2 class="mb-3 heading-1">Buy Notes</h2>
-            <a href="#" class="view-all">More <i class="fa fa-angle-right"></i></a>
+            <a href="{{url("/shop/list/19-buy-banknotes/")}}" class="view-all">More <i class="fa fa-angle-right"></i></a>
         </div>
         <div class="owl-carousel product-carousel-home  position-relative">
             @foreach($random_notes as $random_note)
@@ -148,7 +148,7 @@
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
             <h2 class="mb-3 heading-1">Buy Accessories</h2>
-            <a href="#" class="view-all">More <i class="fa fa-angle-right"></i></a>
+            <a href="{{url("/shop/list/2-collectibles-accessories/")}}" class="view-all">More <i class="fa fa-angle-right"></i></a>
         </div>
         <div class="owl-carousel product-carousel-home  position-relative">
                   
@@ -181,7 +181,7 @@
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
             <h2 class="mb-3 heading-1">Buy Stamp</h2>
-            <a href="#" class="view-all">More <i class="fa fa-angle-right"></i></a>
+            <a href="{{url("/shop/list/16-buy-stamps/")}}" class="view-all">More <i class="fa fa-angle-right"></i></a>
         </div>
         
         <div class="owl-carousel product-carousel-home  position-relative">

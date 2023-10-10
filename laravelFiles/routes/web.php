@@ -148,6 +148,7 @@ Route::post("admin-login-exe", [Authentication::class, 'admin_login']);
 // admin routes
 Route::get("admin/dashboard", [PageLoader::class, 'dashboard']);
 Route::get("admin/manage-products", [PageLoader::class, 'manage_products']);
+Route::get("admin/manage-coins", [PageLoader::class, 'manage_coins']);
 
 
 Route::post("create-info-comment", [InfoComments::class, 'create_exe']);

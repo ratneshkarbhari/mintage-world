@@ -299,14 +299,20 @@
                 </div>               
                 <div class=" news-container latest-news position-relative">
                     <ul class="slick">
+                        
+                        @foreach($news_items as $news_item)
+
                         <li>
-                            <a href="{{url("media/detail/16221/")}}">
-                                <div class="news-title">Jerdon's Courser Commemorative Stamp</div>
-                                <div class="news-date"><i class="fas fa-calendar-alt"></i> 22&nbsp;Sep&nbsp;2023</div>
-                                <div class="news-info">Jerdon's courser is a nocturnal bird belonging to the pratincole and courser family Glareolidae. It ...</div>
+                            <a href="{{url("media/detail/".$news_item["id"])}}">
+                                <div class="news-title">{{$news_item["title"]}}</div>
+                                <div class="news-date"><i class="fas fa-calendar-alt"></i> {{$news_item["media_date"]}}</div>
+                                <div class="news-info">{{substr($news_item["description"],0,40)}} ...</div>
                              </a> 
                         </li>
-                        <li>
+
+                        @endforeach
+
+                        {{-- <li>
                             <a href="{{url("media/detail/16222/")}}">
                                 <div class="news-title">The New Age of Philately - NFT Stamps</div>
                                 <div class="news-date"><i class="fas fa-calendar-alt"></i> 22&nbsp;Sep&nbsp;2023</div>
@@ -326,7 +332,7 @@
                                 <div class="news-date"><i class="fas fa-calendar-alt"></i> 22&nbsp;Sep&nbsp;2023</div>
                                 <div class="news-info">The latest trend among Post Offices worldwide is the release of Non-Fungible tokens (NFT) stamps for...</div>
                              </a> 
-                        </li>
+                        </li> --}}
                     </ul>                   
                 </div>
                 <div class="text-end d-block" ><a href="{{url("media/")}}" class="view-all">View All <i class="fa fa-angle-right"></i></a></div>

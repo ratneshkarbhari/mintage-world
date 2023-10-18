@@ -131,8 +131,10 @@ Route::group(['middleware' => ['slashes']], function () {
 
 
     // Universal search
-    Route::get("universal-search-exe", [Utils::class, 'universal_search']);
 });
+
+
+Route::get("universal-search-exe", [Utils::class, 'universal_search']);
 
 
 Route::post("member-login-exe", [Authentication::class, 'member_login']);

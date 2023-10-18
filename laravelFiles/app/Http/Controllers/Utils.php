@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Coin;
 use App\Models\Note;
+use App\Models\Product;
 use App\Models\Stamp;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Echo_;
@@ -22,9 +23,53 @@ class Utils extends Controller
 
     function universal_search()
     {
-        $this->page_loader("universal_search", [
-            "title" => "Universal Search"
-        ]);
+
+        if(empty($_GET)){
+            return redirect()->to(url("/"));
+        }else{
+
+            $query = str_replace("/","",$_GET["q"]);
+
+            $productModel = new Product();
+
+            $searchResults = $productModel
+            ->where ( 'name1', 'LIKE', '%' . $query . '%' )
+            ->orWhere ( 'dynasty_ruler', 'LIKE', '%' . $query . '%' )
+            ->orWhere ( 'keywords', 'LIKE', '%' . $query . '%' )
+            ->orWhere ( 'denomination', 'LIKE', '%' . $query . '%' )
+            ->orWhere ( 'metal', 'LIKE', '%' . $query . '%' )
+            ->orWhere ( 'condition', 'LIKE', '%' . $query . '%' )
+            ->orWhere ( 'meta_keywords', 'LIKE', '%' . $query . '%' )
+            ->orWhere ( 'dynasty_ruler', 'LIKE', '%' . $query . '%' )
+            ->paginate(12)->appends([
+                "q" => $query
+            ]);
+
+            $total = $searchResults->total();
+
+            $currentPage = $searchResults->currentPage();
+            $perPage = $searchResults->perPage();
+    
+            $from = ($currentPage - 1) * $perPage + 1;
+            $to = min($currentPage * $perPage, $total);
+    
+            $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
+    
+            if(!isset($grand_parent_category)){
+                $grand_parent_category = NULL;
+            }
+            
+    
+
+            $this->page_loader("universal_search", [
+                "title" => "Universal Search",
+                "results" => $searchResults,
+                "total" => $total,
+                "pagination_string" => $paginationInfoString
+            ]);
+
+        }
+
     }
 
 

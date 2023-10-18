@@ -242,7 +242,7 @@
                   <p>{{$pagination_string}}</p>
                   {!! $category_products->links() !!}
 
-              </div>
+               </div>
             </div>
          </div>
       </div>
@@ -259,11 +259,5 @@
 
 <script>
 
-   $(".product-filter-select-input").change(function (e) { 
-      e.preventDefault();
-
-      if
-      
-   });
 
 </script>

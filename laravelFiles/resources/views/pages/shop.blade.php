@@ -227,31 +227,7 @@
 
                   @endforeach
                </div>
-               <hr class="my-md-4">
-               <div class="d-flex justify-content-between">
-                  <h2 class="mb-3 heading-1">Buy Notes</h2>
-                  <a href="#" class="view-all">More <i class="fa fa-angle-right"></i></a> 
-               </div>
-               <div class="owl-carousel product-carousel shop-page-carousel position-relative">
-                  @foreach($random_notes as $random_note)
-
-                  @php
-
-                  $imgParts = explode("/",$random_note["img"]);
-
-                  @endphp
-
-                  <div class="product-grid">
-                     <div class="product-image"> <a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
-                     <div class="product-content">
-                        <h2 class="title"><a href="{{url("view-product/".$random_note["custom_url"])}}">{{$random_note["name1"]}}</a> </h2>
-                        <div class="price"><i class="fa fa-rupee-sign"></i> {{$random_note["price"]}}</div>
-                        <a href="{{url("view-product/".$random_note["custom_url"])}}" class="add-to-cart">Add to Cart</a> 
-                     </div>
-                  </div>
-
-                  @endforeach
-               </div>
+               
                <hr class="my-md-4">
                <div class="d-flex justify-content-between">
                   <h2 class="mb-3 heading-1">Buy Accessories</h2>
@@ -259,7 +235,6 @@
                </div>
                <div class="owl-carousel product-carousel shop-page-carousel position-relative">
                   
-
                   @foreach($random_accessories as $random_accessory)
 
                   @php

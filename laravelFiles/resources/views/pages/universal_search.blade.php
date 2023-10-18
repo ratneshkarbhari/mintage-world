@@ -44,8 +44,8 @@
             <div class="col-md-12 mt-5">
                 <div class="search-wrap">
                     <div class="pagination-container">
-                        <p > TOTAL 15601 RESULTS FOUND</p>
-                        <div class="result-per-page d-flex align-items-center">
+                        <p > TOTAL {{$total}} PRODUCTS FOUND</p>
+                        {{-- <div class="result-per-page d-flex align-items-center">
                             <p class="me-2 mb-0">Results per page</p>
                             <select id="ddlPageSize" class="TextBox form-control" style="width: 100px">
                                 <option selected="selected">15</option>
@@ -54,103 +54,38 @@
                                 <option>100</option>
                                 <option>200</option>
                             </select>
-                        </div>
+                        </div> --}}
 
                     </div>
 
                     <div class="row search-result-wrap mb-4">
+
+                        @foreach($results as $result)
+
+                        @php
+
+                        $imgParts = explode("/",$result["img"]);
+      
+                        @endphp
+
                         <div class="col-lg-2 col-md-3 col-6 mt-4">
                             <div class="search-item">
                                 <div class="product-grid">
-                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
+                                    <div class="product-image"> <a href="{{url("view-product/".$result["id"].$result["custom_url"])}}" class="image"> <img class="pic-1" src="{{env("PRODUCT_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                                     <div class="product-content">
-                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
+                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">{{$result["name1"]}}</a> </h2>
                                        <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
                                     </div>
                                  </div>
                             </div>
                         </div> 
-                        <div class="col-lg-2 col-md-3 col-6 mt-4">
-                            <div class="search-item">
-                                <div class="product-grid">
-                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
-                                    <div class="product-content">
-                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
-                                       <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
-                                    </div>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-6 mt-4">
-                            <div class="search-item">
-                                <div class="product-grid">
-                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
-                                    <div class="product-content">
-                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
-                                       <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
-                                    </div>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-6 mt-4">
-                            <div class="search-item">
-                                <div class="product-grid">
-                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
-                                    <div class="product-content">
-                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
-                                       <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
-                                    </div>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-6 mt-4">
-                            <div class="search-item">
-                                <div class="product-grid">
-                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
-                                    <div class="product-content">
-                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
-                                       <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
-                                    </div>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-6 mt-4">
-                            <div class="search-item">
-                                <div class="product-grid">
-                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
-                                    <div class="product-content">
-                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
-                                       <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
-                                    </div>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-6 mt-4">
-                            <div class="search-item">
-                                <div class="product-grid">
-                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
-                                    <div class="product-content">
-                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
-                                       <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
-                                    </div>
-                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-3 col-6 mt-4">
-                            <div class="search-item">
-                                <div class="product-grid">
-                                    <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3130-spain-1-euro-cent-2010-coin" class="image"> <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MICSCFC00042.jpg"> </a> </div>
-                                    <div class="product-content">
-                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">Spain 1 Euro Cent 2010 Coin</a> </h2>
-                                       <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
-                                    </div>
-                                 </div>
-                            </div>
-                        </div>
+                        
+                        @endforeach
 
                     </div>
 
-                    <div class="row search-result-wrap news-search mb-4">
+
+                    <div class="row search-result-wrap news-search mb-4 d-none">
                         <div class="col-xl-6 col-lg-6 col-md-12 col-12 mt-4">
                             <div class="search-item">
                                 <div class="product-grid d-md-flex d-block  text-start">
@@ -243,24 +178,12 @@
                             </div>
                         </div> 
                     </div>
+
                     <div class="pagination-container">
-                        <p>Showing 1 to 12 of 118 entries</p>
-                        <nav>
-                            <ul class="pagination">            
-                                <li class="page-item disabled" aria-disabled="true" aria-label="« Previous"><span class="page-link" aria-hidden="true">‹</span></li>
-                                <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                <li class="page-item"><a class="page-link" href="#">8</a></li>
-                                <li class="page-item"><a class="page-link" href="#">9</a></li>
-                                <li class="page-item"><a class="page-link" href="#">10</a></li>
-                                <li class="page-item"><a class="page-link" href="#" rel="next" aria-label="Next »">›</a></li>
-                            </ul>
-                        </nav>
+
+                        <p>{{$pagination_string}}</p>
+                        {!! $results->links() !!}
+      
                     </div>
 
                 </div>

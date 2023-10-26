@@ -177,4 +177,4 @@ Route::post("create-order-exe", [Orders::class, 'create_exe']);
 
 Route::get('media/', [StaticPages::class, 'media_list']);
 
-Route::post('detailed-search',[Utils::class,'detailed_search']);
+Route::get('detailed-search',[Utils::class,'detailed_search']);

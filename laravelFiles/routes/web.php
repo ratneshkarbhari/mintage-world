@@ -176,3 +176,5 @@ Route::post("apply-coupon-recalculate-discount-exe", [Coupons::class, 'apply_cou
 Route::post("create-order-exe", [Orders::class, 'create_exe']);
 
 Route::get('media/', [StaticPages::class, 'media_list']);
+
+Route::post('detailed-search',[Utils::class,'detailed_search']);

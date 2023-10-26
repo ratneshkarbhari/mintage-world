@@ -51,7 +51,7 @@
 </section> --}}
 <!-- About End -->
 
-<section class="common-padding product-wraper bg-light-wraper">
+<section class="common-padding product-wraper ">
     <div class="container-fluid overflow-hidden px-lg-2 px-lg-5">
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
@@ -281,7 +281,7 @@
                     <h2 class="mb-4 heading-1">Information </h2>
                 </div>
                 <div class="nav w-100 nav-pills">
-                    <a class="nav-link w-100 d-flex align-items-center text-start" href="{{url("coin/")}}"> 
+                    <a class="nav-link w-100 d-flex align-items-center text-start" href="{{url("coins/")}}"> 
                         <h4 class="m-0">Coins</h4>
                     </a>
                     <a class="nav-link w-100 d-flex align-items-center text-start" href="{{url("notes/")}}"> 

@@ -63,26 +63,42 @@
 
                     <div class="row search-result-wrap mb-4">
 
-                        @foreach($results as $result)
+                        @foreach($results as $media_entry)
 
                         @php
 
-                        $imgParts = explode("/",$result["img"]);
-      
+                        $days = [
+
+                            "Sun","Mon","Tue","Wed","Thu","Fri","Sat"
+
+                        ];
+
+                        $day = date("w", strtotime($media_entry["media_date"]));  
+
+                        $day = $days[$day];
+
                         @endphp
 
-                        <div class="col-lg-2 col-md-3 col-6 mt-4">
-                            <div class="search-item">
-                                <div class="product-grid">
-                                    <div class="product-image"> <a href="{{url("view-product/".$result["id"].$result["custom_url"])}}" class="image"> <img class="pic-1" src="{{env("PRODUCT_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
-                                    <div class="product-content">
-                                       <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">{{$result["name1"]}}</a> </h2>
-                                       <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 
-                                    </div>
-                                 </div>
+                        <div class="col-md-3 mb-3 d-flex align-items-stretch">
+                            <div class="blog-div">
+                                <div class="BlogImgDiv blog-image ">
+                                    <a href="{{url('media/detail/'.$media_entry["id"]."-".$media_entry["custom_url"])}}"><img src="{{getenv('NEWS_IMAGE_BASE_URL').$media_entry["image"]}}" class="img-fluid" alt="" decoding="async" ></a>
+                                </div>                    
+                                <div class="blog-title">
+                                <span class="blog-date">	
+                                    <i class="fas fa-calendar-alt"></i> 
+
+                                    {{$media_entry["media_date"]." ".$day}}    </span> 		
+                                    <h2><a href="{{url("media/detail/".$media_entry["id"]."-".$media_entry["custom_url"])}}" rel="bookmark"> {{$media_entry["title"]}}</a></h2>
+                                </div>
+                                <div class="blog-disc mb-0">
+                                    <p>
+                                    {!!substr($media_entry["description"],0,100)."..."!!}
+                                    </p> 
+                                </div>
                             </div>
                         </div> 
-                        
+
                         @endforeach
 
                     </div>

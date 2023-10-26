@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Coin;
+use App\Models\Media;
 use App\Models\Note;
 use App\Models\Product;
 use App\Models\Stamp;
@@ -73,23 +74,133 @@ class Utils extends Controller
     }
 
 
-    // public function universal_search()
-    // {
-
-    //         $searchQuery = $_GET["q"];
-
-    //         $coinModel = new Coin();
-    //         $noteModel = new Note();
-    //         $stampModel = new Stamp();
+    function detailed_search(Request $request)  {
 
 
-    //         $coinQuery = 'SELECT denomination.title, coin.obverse_image, coin.id FROM `coin` JOIN denomination ON denomination.id = coin.denomination_id JOIN ruler ON coin.ruler_id = ruler.id JOIN dynasty on ruler.dynasty_id = dynasty.id JOIN period ON dynasty.period_id = period.id  WHERE denomination.title LIKE "%' . $searchQuery . '%" OR coin.obverse_desc LIKE "%' . $searchQuery . '%"  OR coin.reverse_desc LIKE "%' . $searchQuery . '%" OR dynasty.title LIKE "%' . $searchQuery . '%" OR period.title LIKE "%' . $searchQuery . '%"';
+        $searchType = $request->product_type;
 
-    //         $coins = DB::select($coinQuery);
+        $itemTables = [
 
-    //         $coins = json_decode(json_encode($coins), TRUE);
+            1 => "coin",
+            2 => "note",
+            3 => "stamp",
+            4 => "media",
+            5 => "products"
+   
+        ];
+        
+        $searchTerm = $request->term;
+
+        if(in_array($searchType,[1,2,3])){
+
+            $searchItem = $itemTables[$searchType];
+            
+            if($searchType==1){
+
+                $coinModel = new Coin();
+                $searchItem = $itemTables[$searchType];
+            
+
+                $searchResults = $coinModel
+                ->where ( 'denomination', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'denomination_unit', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'obverse_desc', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'reverse_desc', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'metal', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'shape', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'dynasty', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'ruler', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'period', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'country', 'LIKE', '%' . $searchTerm . '%' )
+                ->paginate(12)->appends([
+                    "q" => $searchTerm
+                ]);
+    
+
+            }elseif ($searchType==2) {
+                
+
+                
+            }elseif ($searchType==3) {
+                
+
+                
+            }
+
+            $templateName = "detail_search.".$searchItem;
 
 
-    //         echo $noteQuery = 'SELECT note.id, note.obverse_image, denomination.title FROM `note` JOIN denomination ON denomination.id = note.denomination_id WHERE note.obverse_description LIKE "%' . $searchQuery . '%" AND denomination.title LIKE "%' . $searchQuery . '%" AND note.reverse_description LIKE "%' . $searchQuery . '%"';
-    // }
+        }elseif($searchType==4){
+
+            $mediaModel = new Media();
+
+            
+
+            $searchResults = $mediaModel
+            ->where("status",1)
+            ->where ( 'title', 'LIKE', '%' . $searchTerm . '%' )
+            ->orWhere ( 'description', 'LIKE', '%' . $searchTerm . '%' )
+            ->orWhere ( 'custom_url', 'LIKE', '%' . $searchTerm . '%' )
+            ->orderBy("id", "desc")
+            ->paginate(12)->appends([
+                "q" => $searchTerm
+            ]);
+
+            $searchItem = "media";
+
+            $templateName = "detail_search.".$searchItem;
+
+        }elseif ($searchType==5) {
+
+            $productModel = new Product();
+
+            $searchResults = $productModel
+            ->where ( 'name1', 'LIKE', '%' . $searchTerm . '%' )
+            ->orWhere ( 'dynasty_ruler', 'LIKE', '%' . $searchTerm . '%' )
+            ->orWhere ( 'keywords', 'LIKE', '%' . $searchTerm . '%' )
+            ->orWhere ( 'denomination', 'LIKE', '%' . $searchTerm . '%' )
+            ->orWhere ( 'metal', 'LIKE', '%' . $searchTerm . '%' )
+            ->orWhere ( 'condition', 'LIKE', '%' . $searchTerm . '%' )
+            ->orWhere ( 'meta_keywords', 'LIKE', '%' . $searchTerm . '%' )
+            ->orWhere ( 'dynasty_ruler', 'LIKE', '%' . $searchTerm . '%' )
+            ->paginate(12)->appends([
+                "q" => $searchTerm
+            ]);
+
+            
+            $searchItem = "shopping";
+
+            $templateName = "detail_search.".$searchItem;
+            
+        }
+
+        // dd($searchResults);
+
+        $total = $searchResults->total();
+
+        $currentPage = $searchResults->currentPage();
+        $perPage = $searchResults->perPage();
+
+        $from = ($currentPage - 1) * $perPage + 1;
+        $to = min($currentPage * $perPage, $total);
+
+        $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
+
+        if(!isset($grand_parent_category)){
+            $grand_parent_category = NULL;
+        }
+
+
+        $this->page_loader($templateName, [
+            "type" => "products",
+            "title" => "Detailed Search",
+            "results" => $searchResults,
+            "total" => count($searchResults),
+            "search_item" => $searchItem,
+            "pagination_string" => $paginationInfoString
+        ]);
+
+    }
+
+
 }

@@ -44,7 +44,7 @@
                    
                 </div>
 
-                @if($coin["obverse_image"]==""))
+                @if($coin["obverse_image"]=="")
 
 
                 <div class="col-lg-5 col-md-12 col-sm-12 order-lg-1">

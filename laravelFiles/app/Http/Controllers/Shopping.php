@@ -87,7 +87,16 @@ class Shopping extends Controller
 
         $categorySlugParts = explode("-",$categorySlug);
 
-        $categoryProducts = Product::where("category",$categorySlugParts[0])->with("product_category")->with("product_images")->paginate(12);
+        if(isset($_GET["price_sort"])){
+
+            $categoryProducts = Product::where("category",$categorySlugParts[0])->orderBy("price",strtolower($_GET["price_sort"]))->with("product_category")->with("product_images")->paginate(12);
+            
+        }else{
+
+            $categoryProducts = Product::where("category",$categorySlugParts[0])->with("product_category")->with("product_images")->paginate(12);
+
+        }
+
 
 
         $maincatdata = ProductCategory::find($categorySlugParts[0]);
@@ -120,7 +129,20 @@ class Shopping extends Controller
 
             }
 
-            $categoryProducts = Product::where("category",$childCatIds)->with("product_category")->with("product_images")->paginate(12);
+
+            if(isset($_GET["price_sort"])){
+
+                $categoryProducts = Product::where("category",$childCatIds)->orderBy("price",strtolower($_GET["price_sort"]))->with("product_category")->with("product_images")->paginate(12);
+
+
+                // $categoryProducts = Product::where("category",$categorySlugParts[0])->orderBy("price",strtolower($_GET["price_sort"]))->with("product_category")->with("product_images")->paginate(12);
+                
+            }else{
+    
+                $categoryProducts = Product::where("category",$childCatIds)->with("product_category")->with("product_images")->paginate(12);
+    
+            }
+
 
             $total = $categoryProducts->total();
             

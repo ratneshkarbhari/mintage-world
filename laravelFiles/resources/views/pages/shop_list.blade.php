@@ -198,7 +198,7 @@
                         @endif
                      </div>
                      <div class="col-md-4">
-                        <select name="sort" class="form-control product-filter-select-input w-100" filter-attr="price" required="required" >
+                        <select name="sort" id="price-filter" class="form-control product-filter-select-input w-100" filter-attr="price" required="required" >
                            <option value="">Sort By </option>
                            <option value="ASC">Price:Low to High </option>
                            <option value="DESC">Price:High to Low </option>
@@ -259,5 +259,15 @@
 
 <script>
 
+   $("select#price-filter").change(function (e) { 
+      e.preventDefault();
+      
+      let priceFilterSelected = $("select#price-filter").val();
 
+      let priceFilterUrl = window.location.href.split('?')[0]+"?price_sort="+priceFilterSelected
+
+
+      window.location = priceFilterUrl
+      
+   });
 </script>

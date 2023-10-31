@@ -21,7 +21,7 @@ class Shopping extends Controller
 
     private function fetch_random_products($catIds){
 
-        return json_decode(json_encode(DB::table('products')->where('category', $catIds)->where("status","Active")->where("instock",">",0)->where("featured",1)->limit(7)->get()),TRUE);
+        return json_decode(json_encode(DB::table('products')->where('category', $catIds)->where("status","Active")->where("instock",">",0)->where("featured",1)->limit(7)->paginate(12)),TRUE);
 
     }
 
@@ -82,23 +82,40 @@ class Shopping extends Controller
             "random_greeting_cards" => $featuredGiftCards
         ]);
     }
-    function shop_list($categorySlug)
+    function shop_list($categorySlug,Request $request)
     {
 
+
+        
         $categorySlugParts = explode("-",$categorySlug);
 
-        if(isset($_GET["price_sort"])){
+        $categoryProducts = Product::select('*');
 
-            $categoryProducts = Product::where("category",$categorySlugParts[0])->orderBy("price",strtolower($_GET["price_sort"]))->with("product_category")->with("product_images")->paginate(12);
-            
-        }else{
 
-            $categoryProducts = Product::where("category",$categorySlugParts[0])->with("product_category")->with("product_images")->paginate(12);
+        $categoryProducts = $categoryProducts->where("category",$categorySlugParts[0]);
+
+        if ($request->has('price_sort')) {
+
+            $categoryProducts = $categoryProducts->orderBy("price",$request->price_sort);
+
+        }
+
+        if($request->has("denomination")){
+
+            $categoryProducts = $categoryProducts->where("denomination",$request->denomination);
 
         }
 
 
+        
+        if($request->has("governor")){
 
+            $categoryProducts = $categoryProducts->where("governor",$request->governor);
+
+        }
+
+        $categoryProducts  = $categoryProducts->paginate(12);  
+        
         $maincatdata = ProductCategory::find($categorySlugParts[0]);
 
         if($maincatdata["parent"]!=0){
@@ -113,13 +130,13 @@ class Shopping extends Controller
         }
 
 
-        $total = $categoryProducts->total();
+        $total = count($categoryProducts);
 
         if ($total==0) {
-            
+
             $productCategory = new ProductCategory();
 
-            $childCategories = $productCategory->where("parent",$categorySlugParts[0])->get();
+            $childCategories = $productCategory->where("parent",$categorySlugParts[0])->paginate(12);
 
             $childCatIds = [];
 
@@ -130,22 +147,39 @@ class Shopping extends Controller
             }
 
 
-            if(isset($_GET["price_sort"])){
 
-                $categoryProducts = Product::where("category",$childCatIds)->orderBy("price",strtolower($_GET["price_sort"]))->with("product_category")->with("product_images")->paginate(12);
+            $categoryProducts = Product::select('*');
 
 
-                // $categoryProducts = Product::where("category",$categorySlugParts[0])->orderBy("price",strtolower($_GET["price_sort"]))->with("product_category")->with("product_images")->paginate(12);
-                
-            }else{
+            $categoryProducts = $categoryProducts->where("category",$childCatIds);
     
-                $categoryProducts = Product::where("category",$childCatIds)->with("product_category")->with("product_images")->paginate(12);
+            if ($request->has('price_sort')) {
+    
+                $categoryProducts = $categoryProducts->orderBy("price",$request->price_sort);
     
             }
-
-
-            $total = $categoryProducts->total();
+    
+            if($request->has("denomination")){
+    
+                $categoryProducts = $categoryProducts->where("denomination",$request->denomination);
+    
+            }
+    
+    
             
+            if($request->has("governor")){
+    
+                $categoryProducts = $categoryProducts->where("governor",$request->governor);
+    
+            }
+    
+            $categoryProducts  = $categoryProducts->paginate(12);  
+    
+
+
+            $total = count($categoryProducts);
+
+
         }
 
         $currentPage = $categoryProducts->currentPage();

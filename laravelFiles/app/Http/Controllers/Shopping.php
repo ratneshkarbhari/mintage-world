@@ -94,13 +94,13 @@ class Shopping extends Controller
 
         $categoryProducts = $categoryProducts->where("category",$categorySlugParts[0]);
 
-        if ($request->has('price_sort')) {
+        if ($request->has('price_sort')&&$request->price_sort!="") {
 
             $categoryProducts = $categoryProducts->orderBy("price",$request->price_sort);
 
         }
 
-        if($request->has("denomination")){
+        if($request->has("denomination")&&$request->denomination!=""){
 
             $categoryProducts = $categoryProducts->where("denomination",$request->denomination);
 
@@ -108,7 +108,7 @@ class Shopping extends Controller
 
 
         
-        if($request->has("governor")){
+        if($request->has("governor")&&$request->governor!=""){
 
             $categoryProducts = $categoryProducts->where("governor",$request->governor);
 
@@ -152,14 +152,14 @@ class Shopping extends Controller
 
 
             $categoryProducts = $categoryProducts->where("category",$childCatIds);
-    
-            if ($request->has('price_sort')) {
+
+            if ($request->has('price_sort')&&$request->price_sort!="") {
     
                 $categoryProducts = $categoryProducts->orderBy("price",$request->price_sort);
     
             }
     
-            if($request->has("denomination")){
+            if($request->has("denomination")&&$request->denomination!=""){
     
                 $categoryProducts = $categoryProducts->where("denomination",$request->denomination);
     
@@ -167,7 +167,7 @@ class Shopping extends Controller
     
     
             
-            if($request->has("governor")){
+            if($request->has("governor")&&$request->governor!=""){
     
                 $categoryProducts = $categoryProducts->where("governor",$request->governor);
     

@@ -149,62 +149,136 @@
             <div class="col-lg-9 col-md-12 mt-md-5 mt-0 mt-lg-0">
                <div class="d-flex justify-content-between col-md-12">
                   <h2 class="mb-3 heading-1">{{$category["cat_name"]}} </h2>
-                  <div class="row product-short-wrap  justify-content-end" >
-                     <div class="col-md-4">
-                        @if($category["id"]==35)
-                        <select name="governor" class="form-control product-filter-select-input" filter-attr="governor" required="required">
-                           <option value="" selected="">Filter:Signatory </option>
-                           <option value="H. M. Patel">H. M. Patel</option>
-                           <option value="A.K. Roy">A.K. Roy</option>
-                           <option value="L. K. Jha">L. K. Jha</option>
-                           <option value="S. Jagannathan">S. Jagannathan</option>
-                           <option value="I. G. Patel">I. G. Patel</option>
-                           <option value="M.G. Kaul">M.G. Kaul</option>
-                           <option value="Manmohan Singh">Manmohan Singh</option>
-                           <option value="R. N. Malhotra">R. N. Malhotra</option>
-                           <option value="M. Narasimham">M. Narasimham</option>
-                           <option value="Pratap Kisan Kaul">Pratap Kisan Kaul</option>
-                           <option value="S.Venkitaramanan">S.Venkitaramanan</option>
-                           <option value="Gopi K. Arora">Gopi K. Arora</option>
-                           <option value="Bimal Jalan">Bimal Jalan</option>
-                           <option value="S. P. Shukla">S. P. Shukla</option>
-                           <option value="Montek Singh Ahluwalia">Montek Singh Ahluwalia</option>
-                           <option value="B. Rama Rau">B. Rama Rau</option>
-                           <option value="H. V. R. Iyengar">H. V. R. Iyengar</option>
-                           <option value="P. C. Bhattacharya">P. C. Bhattacharya</option>
-                           <option value="B. N. Adarkar">B. N. Adarkar</option>
-                           <option value="K. R. Puri">K. R. Puri</option>
-                           <option value="Amitabh Ghosh">Amitabh Ghosh</option>
-                           <option value="C. Rangarajan">C. Rangarajan</option>
-                           <option value="Y. V.  Reddy">Y. V. Reddy</option>
-                           <option value="D. Subbarao">D. Subbarao</option>
-                           <option value="Raghuram Rajan">Raghuram Rajan</option>
-                           <option value="Urijit Patel">Urijit Patel</option>
-                           <option value="Shaktikanta Das">Shaktikanta Das</option>
-                        </select>
-                        @endif
+                  <form id="filterForm" action="{{url("shop/list/".$category["id"]."-".$category["custom_url"])}}" method="GET">
+
+                     <div class="row product-short-wrap  justify-content-end" >
+                        <div class="col-md-4">
+                           @if($category["id"]==35)
+                           <select name="governor" class="form-control product-filter-select-input" filter-attr="governor" required="required">
+                              <option value="" selected="">Filter:Signatory </option>
+                              <option value="H. M. Patel" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="H. M. Patel") selected @endif
+                              @endisset>H. M. Patel</option>
+                              <option value="A.K. Roy" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="A.K. Roy") selected @endif
+                              @endisset>A.K. Roy</option>
+                              <option value="L. K. Jha" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="L. K. Jha") selected @endif
+                              @endisset>L. K. Jha</option>
+                              <option value="S. Jagannathan" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="S. Jagannathan") selected @endif
+                              @endisset>S. Jagannathan</option>
+                              <option value="I. G. Patel" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="I. G. Patel") selected @endif
+                              @endisset>I. G. Patel</option>
+                              <option value="M.G. Kaul" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="M.G. Kaul") selected @endif
+                              @endisset>M.G. Kaul</option>
+                              <option value="Manmohan Singh" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="Manmohan Singh") selected @endif
+                              @endisset>Manmohan Singh</option>
+                              <option value="R. N. Malhotra" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="R. N. Malhotra") selected @endif
+                              @endisset>R. N. Malhotra</option>
+                              <option value="M. Narasimham" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="M. Narasimham") selected @endif
+                              @endisset>M. Narasimham</option>
+                              <option value="Pratap Kisan Kaul" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="Pratap Kisan Kaul") selected @endif
+                              @endisset>Pratap Kisan Kaul</option>
+                              <option value="S.Venkitaramanan" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="S.Venkitaramanan") selected @endif
+                              @endisset>S.Venkitaramanan</option>
+                              <option value="Gopi K. Arora" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="Gopi K. Arora") selected @endif
+                              @endisset>Gopi K. Arora</option>
+                              <option value="Bimal Jalan" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="Bimal Jalan") selected @endif
+                              @endisset>Bimal Jalan</option>
+                              <option value="S. P. Shukla" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="S. P. Shukla") selected @endif
+                              @endisset>S. P. Shukla</option>
+                              <option value="Montek Singh Ahluwalia" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="Montek Singh Ahluwalia") selected @endif
+                              @endisset>Montek Singh Ahluwalia</option>
+                              <option value="B. Rama Rau" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="B. Rama Rau") selected @endif
+                              @endisset>B. Rama Rau</option>
+                              <option value="H. V. R. Iyengar" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="H. V. R. Iyengar") selected @endif
+                              @endisset>H. V. R. Iyengar</option>
+                              <option value="P. C. Bhattacharya" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="P. C. Bhattacharya") selected @endif
+                              @endisset>P. C. Bhattacharya</option>
+                              <option value="B. N. Adarkar" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="B. N. Adarkar") selected @endif
+                              @endisset>B. N. Adarkar</option>
+                              <option value="K. R. Puri" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="K. R. Puri") selected @endif
+                              @endisset>K. R. Puri</option>
+                              <option value="Amitabh Ghosh" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="Amitabh Ghosh") selected @endif
+                              @endisset>Amitabh Ghosh</option>
+                              <option value="C. Rangarajan" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="C. Rangarajan") selected @endif
+                              @endisset>C. Rangarajan</option>
+                              <option value="Y. V.  Reddy" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="Y. V.  Reddy") selected @endif
+                              @endisset>Y. V. Reddy</option>
+                              <option value="D. Subbarao" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="D. Subbarao") selected @endif
+                              @endisset>D. Subbarao</option>
+                              <option value="Raghuram Rajan" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="Raghuram Rajan") selected @endif
+                              @endisset>Raghuram Rajan</option>
+                              <option value="Urijit Patel" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="Urijit Patel") selected @endif
+                              @endisset>Urijit Patel</option>
+                              <option value="Shaktikanta Das" @isset($_GET["governor"])
+                              @if($_GET["governor"]=="Shaktikanta Das") selected @endif
+                              @endisset>Shaktikanta Das</option>
+                           </select>
+                           @endif
+                        </div>
+                        <div class="col-md-4">
+                           @if($category["id"]==35)
+                           <select name="denomination" class="form-control product-filter-select-input" filter-attr="denomination" required="required" >
+                              <option value="">Filter:Denominations</option>
+                              <option value="1 Rupee" @isset($_GET["denomination"])
+                              @if($_GET["denomination"]=="1 Rupee") selected @endif
+                              @endisset>1 Rupee</option>
+                              <option value="2 Rupees" @isset($_GET["denomination"])
+                              @if($_GET["denomination"]=="2 Rupees") selected @endif
+                              @endisset>2 Rupees</option>
+                              <option value="5 Rupees" @isset($_GET["denomination"])
+                              @if($_GET["denomination"]=="5 Rupees") selected @endif
+                              @endisset>5 Rupees</option>
+                              <option value="10 Rupees" @isset($_GET["denomination"])
+                              @if($_GET["denomination"]=="10 Rupees") selected @endif
+                              @endisset>10 Rupees</option>
+                              <option value="50 Rupees" @isset($_GET["denomination"])
+                              @if($_GET["denomination"]=="50 Rupees") selected @endif
+                              @endisset>50 Rupees</option>
+                              <option value="20 Rupees" @isset($_GET["denomination"])
+                              @if($_GET["denomination"]=="20 Rupees") selected @endif
+                              @endisset>20 Rupees</option>
+                           </select>
+                           @endif
+                        </div>
+                        <div class="col-md-4">
+                           <select name="price_sort" id="price-filter" class="form-control product-filter-select-input w-100" filter-attr="price" required="required" >
+                              <option value="">Sort By </option>
+                              <option value="ASC" @isset($_GET["price_sort"])
+                              @if($_GET["price_sort"]=="ASC") selected @endif
+                              @endisset >Price:Low to High </option>
+                              <option value="DESC" @isset($_GET["price_sort"])
+                              @if($_GET["price_sort"]=="DESC") selected @endif
+                              @endisset  >Price:High to Low </option>
+                           </select>
+                        </div>
                      </div>
-                     <div class="col-md-4">
-                        @if($category["id"]==35)
-                        <select name="bankdnm" class="form-control product-filter-select-input" filter-attr="denomination" required="required" >
-                           <option value="">Filter:Denominations</option>
-                           <option value="1 Rupee">1 Rupee</option>
-                           <option value="2 Rupees">2 Rupees</option>
-                           <option value="5 Rupees">5 Rupees</option>
-                           <option value="10 Rupees">10 Rupees</option>
-                           <option value="50 Rupees">50 Rupees</option>
-                           <option value="20 Rupees">20 Rupees</option>
-                        </select>
-                        @endif
-                     </div>
-                     <div class="col-md-4">
-                        <select name="sort" id="price-filter" class="form-control product-filter-select-input w-100" filter-attr="price" required="required" >
-                           <option value="">Sort By </option>
-                           <option value="ASC">Price:Low to High </option>
-                           <option value="DESC">Price:High to Low </option>
-                        </select>
-                     </div>
-                  </div>
+                  </form>
+
                </div>
                <div class="row info-item-grid-row">
                   
@@ -259,15 +333,10 @@
 
 <script>
 
-   $("select#price-filter").change(function (e) { 
+   $(".product-filter-select-input").change(function (e) { 
       e.preventDefault();
       
-      let priceFilterSelected = $("select#price-filter").val();
-
-      let priceFilterUrl = window.location.href.split('?')[0]+"?price_sort="+priceFilterSelected
-
-
-      window.location = priceFilterUrl
+      $("form#filterForm").submit();
       
    });
 </script>

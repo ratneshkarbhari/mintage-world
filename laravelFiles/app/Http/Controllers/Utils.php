@@ -134,11 +134,55 @@ class Utils extends Controller
 
             }elseif ($searchType==2) {
                 
+                $noteModel = new Note();
+                $searchItem = $itemTables[$searchType];
+            
 
+                $searchResults = $noteModel
+                ->whereHas('denomination', function ($query)  use ($searchTerm) {
+                    return $query->where('title', 'LIKE', '%' . $searchTerm);
+                })                
+                // ->orWhere ( 'obverse_desc', 'LIKE', '%' . $searchTerm . '%' )
+                // ->orWhere ( 'reverse_desc', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'language_panel', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'vignette', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'color', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'signatory', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'underprint', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'meta_title', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'meta_desc', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'meta_key', 'LIKE', '%' . $searchTerm . '%' )
+
+
+                ->paginate(12)->appends([
+                    "q" => $searchTerm
+                ]);
+    
                 
             }elseif ($searchType==3) {
                 
+                $stampModel = new Stamp();
+                $searchItem = $itemTables[$searchType];
+            
 
+                $searchResults = $stampModel
+                 
+                ->where ( 'stamp_name', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'issued_date', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'theme', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'printed_at', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'type', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'color', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'printing_process', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'description', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'meta_title', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'meta_desc', 'LIKE', '%' . $searchTerm . '%' )
+                ->orWhere ( 'meta_key', 'LIKE', '%' . $searchTerm . '%' )
+
+
+                ->paginate(12)->appends([
+                    "q" => $searchTerm
+                ]);
                 
             }
 

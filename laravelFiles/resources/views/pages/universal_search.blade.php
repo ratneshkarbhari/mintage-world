@@ -21,7 +21,7 @@
            <div class="row">
             <div class="col-md-3">
                 <label for=""  class="d-block mb-2">Search Keywords</label>
-                <input type="text" id="TxtSearch" name="term" class="form-control" required>
+                <input type="text" id="TxtSearch" name="term" value="{{$query}}" class="form-control" required>
             </div>
             <div class="col-md-3">
                 <label for="" class="d-block mb-2">Select Category</label>

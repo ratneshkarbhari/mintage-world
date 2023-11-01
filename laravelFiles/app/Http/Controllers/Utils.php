@@ -66,6 +66,7 @@ class Utils extends Controller
                 "title" => "Universal Search",
                 "results" => $searchResults,
                 "total" => $total,
+                "query" => $_GET["q"],
                 "pagination_string" => $paginationInfoString
             ]);
 
@@ -102,16 +103,30 @@ class Utils extends Controller
             
 
                 $searchResults = $coinModel
-                ->where ( 'denomination', 'LIKE', '%' . $searchTerm . '%' )
-                ->orWhere ( 'denomination_unit', 'LIKE', '%' . $searchTerm . '%' )
+                ->whereHas('denomination', function ($query)  use ($searchTerm) {
+                    return $query->where('title', 'LIKE', '%' . $searchTerm);
+                })                
                 ->orWhere ( 'obverse_desc', 'LIKE', '%' . $searchTerm . '%' )
                 ->orWhere ( 'reverse_desc', 'LIKE', '%' . $searchTerm . '%' )
-                ->orWhere ( 'metal', 'LIKE', '%' . $searchTerm . '%' )
-                ->orWhere ( 'shape', 'LIKE', '%' . $searchTerm . '%' )
-                ->orWhere ( 'dynasty', 'LIKE', '%' . $searchTerm . '%' )
-                ->orWhere ( 'ruler', 'LIKE', '%' . $searchTerm . '%' )
-                ->orWhere ( 'period', 'LIKE', '%' . $searchTerm . '%' )
-                ->orWhere ( 'country', 'LIKE', '%' . $searchTerm . '%' )
+
+                ->whereHas('metal', function ($query)  use ($searchTerm) {
+                    return $query->where('title', 'LIKE', '%' . $searchTerm);
+                })               
+                
+
+                ->whereHas('shape', function ($query)  use ($searchTerm) {
+                    return $query->where('title', 'LIKE', '%' .$searchTerm);
+                })               
+                
+
+                
+                // ->whereHas('dynasty', function ($query)  use ($searchTerm) {
+                //     return $query->where('title', 'LIKE', '%' .$searchTerm);
+                // })      
+                
+                // ->orWhere ( 'ruler', 'LIKE', '%' . $searchTerm . '%' )
+                // ->orWhere ( 'period', 'LIKE', '%' . $searchTerm . '%' )
+                // ->orWhere ( 'country', 'LIKE', '%' . $searchTerm . '%' )
                 ->paginate(12)->appends([
                     "q" => $searchTerm
                 ]);

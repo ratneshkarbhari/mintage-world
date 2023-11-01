@@ -16,12 +16,12 @@
     <section class="common-padding coing-list-wraper">
         <div class="container-fluid  px-lg-2 px-lg-5">
             <div class="d-flex justify-content-between"><h2 class="mb-3 heading-1">Advance Search</h2></div>
-            <form id="detailed-search-form" action="{{url("detailed-search/")}}" method="POST" >
+            <form id="detailed-search-form" action="{{url("detailed-search/")}}" method="GET" >
                 @csrf
            <div class="row">
             <div class="col-md-3">
                 <label for=""  class="d-block mb-2">Search Keywords</label>
-                <input type="text" id="TxtSearch" name="term" class="form-control" required>
+                <input type="text" id="TxtSearch" name="term" value="{{$_GET["term"]}}" class="form-control" required>
             </div>
             <div class="col-md-3">
                 <label for="" class="d-block mb-2">Select Category</label>

@@ -30,7 +30,7 @@ class Shopping extends Controller
 
         if (!$featuredCoins = Cache::get("featured_coins")) {
             
-            $coinsQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (18,24,25,26,27,28) LIMIT 7';
+            $coinsQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock != 0 AND category IN (18,24,25,26,27,28) LIMIT 7';
 
             $featuredCoins = json_decode(json_encode(DB::select($coinsQuery)),TRUE);
 
@@ -40,7 +40,7 @@ class Shopping extends Controller
 
         if (!$featuredNotes = Cache::get("featured_notes")) {
             
-            $notesQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (35,36,37,38,39,40,41,42,43) LIMIT 7';
+            $notesQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock != 0 AND category IN (35,36,37,38,39,40,41,42,43) LIMIT 7';
 
             $featuredNotes = json_decode(json_encode(DB::select($notesQuery)),TRUE);
 
@@ -51,7 +51,7 @@ class Shopping extends Controller
 
         if (!$featuredAccessories = Cache::get("featured_accessories")) {
 
-            $accessoryQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (11,12,13,14) LIMIT 7';
+            $accessoryQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock != 0 AND category IN (11,12,13,14) LIMIT 7';
 
             $featuredAccessories = json_decode(json_encode(DB::select($accessoryQuery)),TRUE);
 
@@ -65,7 +65,7 @@ class Shopping extends Controller
         if (!$featuredGiftCards = Cache::get("featured_gift_cards")) {
 
 
-            $giftCardQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (6) LIMIT 7';
+            $giftCardQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock != 0 AND category IN (6) LIMIT 7';
 
             $featuredGiftCards = json_decode(json_encode(DB::select($giftCardQuery)),TRUE);
 
@@ -90,6 +90,9 @@ class Shopping extends Controller
         $categorySlugParts = explode("-",$categorySlug);
 
         $categoryProducts = Product::select('*');
+
+
+        $categoryProducts = $categoryProducts->where("instock","!=",0);
 
 
         $categoryProducts = $categoryProducts->where("category",$categorySlugParts[0]);
@@ -152,6 +155,9 @@ class Shopping extends Controller
 
 
             $categoryProducts = $categoryProducts->where("category",$childCatIds);
+
+            $categoryProducts = $categoryProducts->where("instock","!=",0);
+
 
             if ($request->has('price_sort')&&$request->price_sort!="") {
     

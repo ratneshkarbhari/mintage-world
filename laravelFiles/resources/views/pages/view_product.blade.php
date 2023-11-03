@@ -89,16 +89,86 @@
                     <p>
                     {!!$product["desc1"]!!}
                     </p>
-                    <p><b>Issue Year :</b> <span>{{$product["issue_year"]}}</span></p>
-
-                    <p><b>Denomination :</b> <span>{{$product["denomination"]}}</span></p>
-
-                    <p><b>Shape :</b> <span>{{$product["shape"]}}</span></p>
-                    <p><b>Metal :</b> <span>{{$product["metal"]}}</span></p>
-                    <p><b>Weight :</b> <span>{{$product["weight"]}}</span></p>
-                    <p><b>Mint :</b> <span>{{$product["mint"]}}</span></p>
-
-                    <p class="mt-3"><b>Product Code : </b> {{$product["sku"]}} </p> 
+                    <?php if($product['issue_year']){?>
+                        <div class="short-describe">
+                          <p><strong>Issue Year: </strong>
+                            <?php 
+                                          echo $product['issue_year'];?>
+                          </p>
+                        </div>
+                        <?php } ?>
+                        <?php if($product['condition']){?>
+                        <div class="short-describe">
+                          <p><strong>Condition: </strong>
+                            <?php 
+                                          echo $product['condition'];?>
+                          </p>
+                        </div>
+                        <?php } ?>
+                        <?php if($product['type_series']){?>
+                        <div class="short-describe">
+                          <p><strong>Type/Series: </strong>
+                            <?php 
+                                          echo $product['type_series'];?>
+                          </p>
+                        </div>
+                        <?php } ?>
+                        <?php if($product['denomination']){?>
+                        <div class="short-describe">
+                          <p><strong>Denomination: </strong>
+                            <?php 
+                                          echo $product['denomination'];?>
+                          </p>
+                        </div>
+                        <?php } ?>
+                        <?php if($product['dynasty_ruler']){?>
+                        <div class="short-describe">
+                          <p><strong>Dynasty/Ruler: </strong><?php echo $product['dynasty_ruler'];?> </p>
+                        </div>
+                        <?php } ?>
+                        <?php if($product['shape']){?>
+                        <div class="short-describe">
+                          <p><strong>Shape: </strong><?php echo $product['shape'];?> </p>
+                        </div>
+                        <?php } ?>
+                        <?php if($product['metal']){?>
+                        <div class="short-describe">
+                          <p><strong>Metal: </strong><?php echo $product['metal'];?> </p>
+                        </div>
+                        <?php } ?>
+                 
+                    
+                    
+                        <?php if($product['weight']){?>
+                        <div class="short-describe">
+                          <p><strong>Weight: </strong><?php echo $product['weight'];?> </p>
+                        </div>
+                        <?php } ?>
+                        <?php if($product['mint']){?>
+                        <div class="short-describe">
+                          <p><strong>Mint: </strong><?php echo $product['mint'];?> </p>
+                        </div>
+                        <?php } ?>
+                        <?php if($product['color']){?>
+                        <div class="short-describe">
+                          <p><strong>Color: </strong>
+                            <?php 
+                                          echo $product['color'];?>
+                          </p>
+                        </div>
+                        <?php } ?>
+                        <?php if($product['sku']){?>
+                        <div class="short-describe">
+                          <div class="available1"><!--Available:--> 
+                            <!--                              <span class="check"><i class="fa fa-check-circle"></i> Available</span>
+            --> <span class="product-id"><!--&nbsp; &nbsp; | &nbsp; &nbsp;--> <b>Product Code:</b>
+                            <?php 
+                                          echo $product['sku'];?>
+                            </span> </div>
+                        </div>
+                        <?php } ?>
+            
+                    {{-- <p class="mt-3"><b>Product Code : </b> {{$product["sku"]}} </p>  --}}
 
 
                     <div class="d-none">   

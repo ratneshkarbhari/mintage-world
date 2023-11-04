@@ -193,7 +193,7 @@
                   <div class="product-grid">
                      <div class="product-image"> <a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                      <div class="product-content">
-                        <h2 class="title"><a href="{{url("view-product/".$random_coin["custom_url"])}}">{{$random_coin["name1"]}}</a> </h2>
+                        <h2 class="title"><a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}">{{$random_coin["name1"]}}</a> </h2>
                         <div class="price"><i class="fa fa-rupee-sign"></i> {{$random_coin["price"]}}</div>
                         <a href="{{url("view-product/".$random_coin["custom_url"])}}" class="add-to-cart">Add to Cart</a> 
                      </div>
@@ -219,7 +219,7 @@
                   <div class="product-grid">
                      <div class="product-image"> <a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                      <div class="product-content">
-                        <h2 class="title"><a href="{{url("view-product/".$random_note["custom_url"])}}">{{$random_note["name1"]}}</a> </h2>
+                        <h2 class="title"><a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}">{{$random_note["name1"]}}</a> </h2>
                         <div class="price"><i class="fa fa-rupee-sign"></i> {{$random_note["price"]}}</div>
                         <a href="{{url("view-product/".$random_note["custom_url"])}}" class="add-to-cart">Add to Cart</a> 
                      </div>
@@ -246,7 +246,7 @@
                   <div class="product-grid">
                      <div class="product-image"> <a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                      <div class="product-content">
-                        <h2 class="title"><a href="{{url("view-product/".$random_accessory["custom_url"])}}">{{$random_accessory["name1"]}}</a> </h2>
+                        <h2 class="title"><a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}">{{$random_accessory["name1"]}}</a> </h2>
                         <div class="price"><i class="fa fa-rupee-sign"></i> {{$random_accessory["price"]}}</div>
                         <a href="{{url("view-product/".$random_accessory["custom_url"])}}" class="add-to-cart">Add to Cart</a> 
                      </div>
@@ -272,7 +272,7 @@
                   <div class="product-grid">
                      <div class="product-image"> <a href="{{url("view-product/".$random_greeting_card["id"]."-".$random_greeting_card["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                      <div class="product-content">
-                        <h2 class="title"><a href="{{url("view-product/".$random_greeting_card["custom_url"])}}">{{$random_greeting_card["name1"]}}</a> </h2>
+                        <h2 class="title"><a href="{{url("view-product/".$random_greeting_card["id"]."-".$random_greeting_card["custom_url"])}}">{{$random_greeting_card["name1"]}}</a> </h2>
                         <div class="price"><i class="fa fa-rupee-sign"></i> {{$random_greeting_card["price"]}}</div>
                         <a href="{{url("view-product/".$random_greeting_card["custom_url"])}}" class="add-to-cart">Add to Cart</a> 
                      </div>

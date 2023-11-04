@@ -42,6 +42,12 @@ class Authentication extends Controller
         }
     }
 
+    function member_registration(Request $request){
+
+        print_r($request);
+
+    }
+
     function logout()
     {
         session()->flush();

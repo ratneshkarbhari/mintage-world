@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfoComments;
 use App\Http\Controllers\Authentication;
 use App\Http\Controllers\Orders;
+use Dflydev\DotAccessData\Util;
 
 /*
 |--------------------------------------------------------------------------
@@ -178,3 +179,7 @@ Route::post("create-order-exe", [Orders::class, 'create_exe']);
 Route::get('media/', [StaticPages::class, 'media_list']);
 
 Route::get('detailed-search',[Utils::class,'detailed_search']);
+
+Route::post("registration-exe",[Authentication::class,'registration']); 
+
+Route::post("verify-email-exe",[Authentication::class,'verify_email']);

@@ -77,7 +77,7 @@
                     <div class="price"><span><i class="fa fa-rupee-sign"></i> 400</span>
                         <i class="fa fa-rupee-sign"></i> {{$product["price"]}}
                     </div>
-                    <div class="tab-review"><a href="#tab-review" class="btn btn-info btn-sm text-white"> 4 Reviews</a></div>
+                    <div class="tab-review"><a href="#tab-review" class="btn btn-info btn-sm text-white"> {{count($product["product_ratings"])}} Reviews</a></div>
                     </div>
                     <hr />
                     <p><b>FREE Delivery</b> on orders over Rs.499.</p>

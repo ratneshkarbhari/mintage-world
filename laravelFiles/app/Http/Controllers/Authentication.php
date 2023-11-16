@@ -97,4 +97,110 @@ class Authentication extends Controller
 
     }
 
+    private function send_verif_email(){
+        
+        $verifCode = rand(1000,9999);
+
+        session(["email_verification_code"=>$verifCode]);
+
+        return $verifCode;
+
+    }
+
+    function registration(Request $request){
+        
+        $memberModel = new Member();
+
+        $userWithEmail = $memberModel->where("email",$request->EmailID)->first();
+
+
+        $staticPageLoader = new StaticPages();
+
+        if ($userWithEmail) {
+
+            $staticPageLoader->member("A member with this email already exists");
+
+        } else {
+
+            if($request->password!=$request->confPassword){
+                
+                $staticPageLoader->member("Passwords dont match");
+
+                exit;
+
+            }
+
+            $collectingArray = json_decode(json_encode($request->collecting),TRUE);
+
+            $encryptedPassword = md5($this->salt . $request->password);
+
+
+            $memberObj = [
+
+
+                "first_name" => $request->first_name,
+                "last_name" => $request->last_name,
+                "name" => $request->first_name." ".$request->last_name,
+                "email" => $request->EmailID,
+                "password" => $encryptedPassword,
+                "mobile" => $request->MobileNo,
+                "country_id" => 113,
+                "type" => "Regular",
+                "email_verified" => 0,
+                "listing" => $request->listing,
+                "collecting" => json_encode($collectingArray)
+                
+
+            ];
+
+            $memberCreated = $memberModel->create($memberObj);
+
+            if ($memberCreated) {
+                $code = $this->send_verif_email();
+
+                $memberObj["user_type"] = "member";
+                
+                $memberObj["verif_code"] = $code;
+
+                $memberObj["member_id"] = $memberCreated->id;
+
+                session($memberObj);
+                $staticPageLoader->verify_email($code,"");        
+
+            } else {
+                
+                $staticPageLoader->member("Registration failed please try after some time");
+
+
+            }
+            
+
+           
+
+        }
+        
+
+    }
+
+    function verify_email (Request $request){
+
+        $enteredVerifCode = $request->verif_code;
+
+        $staticPageLoader = new StaticPages();
+
+        if(session("verif_code")==$enteredVerifCode){
+
+            
+            return redirect(url("member/dashboard/"));
+
+
+        }else{
+
+            $staticPageLoader->verify_email("","Incorrect verification code");        
+
+
+        }
+
+    }
+
 }

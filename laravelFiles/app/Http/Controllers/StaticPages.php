@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Event;
@@ -7,11 +6,7 @@ use App\Models\Media;
 use App\Models\Order;
 use Razorpay\Api\Api;
 use App\Models\Member;
-use App\Models\Country;
-use Illuminate\Http\Request;
-
 use App\Models\MediaCoverage;
-use Illuminate\Support\Facades\Cache;
 
 
 class StaticPages extends Controller
@@ -119,10 +114,11 @@ class StaticPages extends Controller
             "is_login" => TRUE
         ]);
     }
-    function member()
+    function member($registrationErrorMessage="")
     {
         $this->page_loader("member", [
-            "title" => "Member | Mintage World"
+            "title" => "Member | Mintage World",
+            "registrationErrorMessage" => $registrationErrorMessage
         ]);
     }
     function forgotpassword()
@@ -242,6 +238,13 @@ class StaticPages extends Controller
     }
     function dashboard()
     {
+
+        $memberId = session("member_id");
+
+        if(!isset($memberId)){
+            return redirect(url("application/login"));
+        }
+
         $this->page_loader("dashboard", [
             "title" => "Dashboard | Mintage World",
             "user" => Member::find(session("member_id"))
@@ -318,5 +321,15 @@ class StaticPages extends Controller
         $this->page_loader("know_your_stamps", [
             "title" => "Know Your Stamps | Mintage World"
         ]);
+    }
+
+    function verify_email($verifCode = "",$registrationErrorMessage=""){
+
+        $this->page_loader("verify_email", [
+            "title" => "Know Your Stamps | Mintage World",
+            "verif_code" => $verifCode,
+            "registrationErrorMessage" => $registrationErrorMessage
+        ]);
+
     }
 }

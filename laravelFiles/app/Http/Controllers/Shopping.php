@@ -8,7 +8,7 @@ use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
-
+use App\Models\ProductSpecial;
 
 class Shopping extends Controller
 {
@@ -218,11 +218,14 @@ class Shopping extends Controller
 
         $product = Product::where("id",$slugParts[0])->with("product_category")->with("product_images")->with("product_ratings")->first();
 
+
+
         if($product){
 
             $this->page_loader("view_product", [
                 "title" => "Buy ".$product["name1"]." Online",
-                "product" => $product
+                "product" => $product,
+                "category" => $product["product_category"]
             ]);
 
         }else{
@@ -233,4 +236,40 @@ class Shopping extends Controller
 
 
     }
+
+    function check_note_availability (Request $request){
+
+        $productSpecial = new ProductSpecial();
+
+        $productId = $request->pid;
+        $quantity = $request->quantity;
+        $catId = $request->cat_id;
+        $price = $request->price;
+        $date = $request->date;
+
+
+        if ($productSpecial->where("product_id",$productId)->where("date_start",$date)->where("status","Yes")) {
+            
+            return json_encode([
+                "message" => "Available at premium price"
+            ]);
+            
+        }
+
+        if ($productSpecial->where("product_id",$productId)->where("date_start",$date)->where("status","No")) {
+            return json_encode([
+                "message" => "Not Available"
+            ]);
+        }
+
+        if (!$productSpecial->where("product_id",$productId)->where("date_start",$date)) {
+
+            return json_encode([
+                "message" => "Product Available"
+            ]);
+
+        }
+
+    }
+
 }

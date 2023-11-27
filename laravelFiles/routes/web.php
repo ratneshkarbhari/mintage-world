@@ -183,3 +183,6 @@ Route::get('detailed-search',[Utils::class,'detailed_search']);
 Route::post("registration-exe",[Authentication::class,'registration']); 
 
 Route::post("verify-email-exe",[Authentication::class,'verify_email']);
+
+
+Route::post("check-note-availability",[Shopping::class,'check_note_availability']);

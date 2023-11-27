@@ -13,7 +13,6 @@ class Authentication extends Controller
     function member_login(Request $request)
     {
 
-
         $memberModel = new Member();
 
         $memberData = $memberModel->where("email", $request->username)->first();
@@ -42,11 +41,11 @@ class Authentication extends Controller
         }
     }
 
-    function member_registration(Request $request){
+    // function member_registration(Request $request){
 
-        print_r($request);
+    //     print_r($request);
 
-    }
+    // }
 
     function logout()
     {
@@ -197,7 +196,7 @@ class Authentication extends Controller
         }else{
 
             $staticPageLoader->verify_email("","Incorrect verification code");        
-
+            exit;
 
         }
 

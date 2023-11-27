@@ -6,11 +6,8 @@
         $dt = $dtarray[0].'-'.$dtarray[1].'-'.$year;
         
         
-        // $adapter=$this->tableGateway->getAdapter(); 
-        // $searchTable = new TableGateway('ultra_product_special', $adapter);
         $sqlSelect = $searchTable->getSql()->select();
         $sqlSelect->columns(array('*'));
-        // $sqlSelect->where->equalTo('ultra_product_special.product_id',$id);
         $sqlSelect->where->equalTo('ultra_product_special.date_start',$dt);
         $resultSet = $searchTable->selectWith($sqlSelect);
         

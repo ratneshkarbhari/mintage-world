@@ -91,8 +91,6 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get('content/return/', [StaticPages::class, 'return_policy']);
     Route::get('content/career/', [StaticPages::class, 'career']);
     Route::get('content/sitemap/', [StaticPages::class, 'sitemap']);
-    Route::get('story/', [StaticPages::class, 'story']);
-    Route::get('story/detail', [StaticPages::class, 'story_detail']);
     Route::get('content/photopro/', [StaticPages::class, 'photopro']);
     Route::get('videos/', [StaticPages::class, 'videos']);
     Route::get('videos/detail/', [StaticPages::class, 'videos_detail']);
@@ -186,3 +184,5 @@ Route::post("verify-email-exe",[Authentication::class,'verify_email']);
 
 
 Route::post("check-note-availability",[Shopping::class,'check_note_availability']);
+Route::get('story/', [StaticPages::class, 'story']);
+Route::get('story/detail/{id}', [StaticPages::class, 'story_detail']);

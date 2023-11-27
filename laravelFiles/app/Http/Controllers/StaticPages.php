@@ -7,7 +7,7 @@ use App\Models\Order;
 use Razorpay\Api\Api;
 use App\Models\Member;
 use App\Models\MediaCoverage;
-
+use App\Models\Story;
 
 class StaticPages extends Controller
 {
@@ -62,14 +62,34 @@ class StaticPages extends Controller
     }
     function story()
     {
+
+        $storyModel = new Story();
+
+        $stories = $storyModel->orderBy("id","desc")->paginate(20);
+        
         $this->page_loader("story", [
-            "title" => "Story | Mintage World"
+            "title" => "Story | Mintage World",
+            "stories" => $stories
         ]);
     }
-    function story_detail()
+    function story_detail($id)
     {
+
+        $storyModel = new Story();
+
+        $slugParts = explode("-",$id);
+
+        $id = $slugParts[0];
+
+        $focus_story = $storyModel->find($id);
+
+
+        $latestTenStories = $storyModel->orderBy("id","desc")->limit(10,0)->get();
+
         $this->page_loader("story_detail", [
-            "title" => "Story Detail | Mintage World"
+            "title" => $focus_story['title']." | Mintage World",
+            "focus_story" => $focus_story,
+            "ten_stories" => $latestTenStories
         ]);
     }
     function photopro()

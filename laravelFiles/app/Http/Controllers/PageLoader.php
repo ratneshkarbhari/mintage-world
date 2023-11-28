@@ -120,6 +120,7 @@ class PageLoader extends Controller
             "title" => "Manage Coins"
         ]);
     }
+
     function add_coins()
     {
         $this->admin_page_loader("add_coins", [
@@ -139,6 +140,7 @@ class PageLoader extends Controller
             "title" => "Manage Notes"
         ]);
     }
+
     function add_notes()
     {
         $this->admin_page_loader("add_notes", [
@@ -209,16 +211,16 @@ class PageLoader extends Controller
         ]);
     }
 
-    function manage_order()
+    function manage_orders()
     {
-        $this->admin_page_loader("manage_order", [
-            "title" => "Manage Order"
+        $this->admin_page_loader("manage_orders", [
+            "title" => "Manage Orders"
         ]);
     }
     function view_order()
     {
         $this->admin_page_loader("view_order", [
-            "title" => "view order"
+            "title" => "View order"
         ]);
     }
 
@@ -244,26 +246,26 @@ class PageLoader extends Controller
     function manage_enquiry()
     {
         $this->admin_page_loader("manage_enquiry", [
-            "title" => "Manage enquiry"
+            "title" => "Manage Enquiry"
         ]);
     }
     function view_enquiry()
     {
         $this->admin_page_loader("view_enquiry", [
-            "title" => "view enquiry"
+            "title" => "view Enquiry"
         ]);
     }
 
     function manage_event()
     {
         $this->admin_page_loader("manage_event", [
-            "title" => "Manage event"
+            "title" => "Manage Event"
         ]);
     }
     function add_event()
     {
         $this->admin_page_loader("add_event", [
-            "title" => "Add event"
+            "title" => "Add Event"
         ]);
     }
     function edit_event()
@@ -325,9 +327,9 @@ class PageLoader extends Controller
         ]);
     }
 
-    function manage_story_of_week()
+    function manage_story_week()
     {
-        $this->admin_page_loader("manage_story_of_week", [
+        $this->admin_page_loader("manage_story_week", [
             "title" => "Manage Story of Week"
         ]);
     }
@@ -381,4 +383,65 @@ class PageLoader extends Controller
             "title" => "Edit Career"
         ]);
     }
+    function manage_period()
+    {
+        $this->admin_page_loader("manage_period", [
+            "title" => "Manage Period"
+        ]);
+    }
+    function manage_dynasty()
+    {
+        $this->admin_page_loader("manage_dynasty", [
+            "title" => "Manage Dynasty"
+        ]);
+    }
+    function manage_ruler()
+    {
+        $this->admin_page_loader("manage_ruler", [
+            "title" => "Manage Ruler"
+        ]);
+    }
+
+    function manage_stamps()
+    {
+        $this->admin_page_loader("manage_stamps", [
+            "title" => "Manage Stamps"
+        ]);
+    }
+
+    function manage_events()
+    {
+        $this->admin_page_loader("manage_events", [
+            "title" => "Manage Events"
+        ]);
+    }
+
+    function manage_feedback()
+    {
+        $this->admin_page_loader("manage_feedback", [
+            "title" => "Manage Feedback"
+        ]);
+    }
+
+    function manage_review()
+    {
+        $this->admin_page_loader("manage_review", [
+            "title" => "Manage Review"
+        ]);
+    }
+
+    function manage_members()
+    {
+        $this->admin_page_loader("manage_members", [
+            "title" => "Manage Members"
+        ]);
+    }
+
+    function manage_watermark()
+    {
+        $this->admin_page_loader("manage_watermark", [
+            "title" => "Manage Watermark"
+        ]);
+    }
+    
 }

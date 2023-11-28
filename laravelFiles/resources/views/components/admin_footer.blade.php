@@ -9,6 +9,7 @@
 
 <script src="{{url('assets/admin/js/bootstrap.bundle.min.js')}}"></script>
 <!-- Template Javascript -->
+
 <script src="{{url('assets/admin/js/color-modes.js')}}"></script>
 <script src="{{url('assets/admin/js/dashboard.js')}}"></script>
 <script type="text/javascript" language="javascript"  src="{{url('assets/admin/js/jquery.dataTables.min.js')}}"></script>

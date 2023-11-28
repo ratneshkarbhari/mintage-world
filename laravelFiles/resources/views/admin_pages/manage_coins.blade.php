@@ -1,10 +1,10 @@
 
 <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 mt-4">    
     <div class="container-fluid">
-        <div class="mb-5">
+        <div class="mb-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
                   <li class="breadcrumb-item">Information</li>
                   <li class="breadcrumb-item active" aria-current="page">Manage Coins</li>
                 </ol>

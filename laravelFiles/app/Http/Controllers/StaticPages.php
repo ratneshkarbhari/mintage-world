@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Event;
@@ -114,7 +115,7 @@ class StaticPages extends Controller
             "is_login" => TRUE
         ]);
     }
-    function member($registrationErrorMessage="")
+    function member($registrationErrorMessage = "")
     {
         $this->page_loader("member", [
             "title" => "Member | Mintage World",
@@ -238,18 +239,16 @@ class StaticPages extends Controller
     }
     function dashboard()
     {
-
         $memberId = session("member_id");
-
-        if(!isset($memberId)){
+        if (!isset($memberId)) {
             return redirect(url("application/login"));
         }
-
         $this->page_loader("dashboard", [
             "title" => "Dashboard | Mintage World",
             "user" => Member::find(session("member_id"))
         ]);
     }
+    
     function change_password()
     {
         $this->page_loader("change_password", [
@@ -323,13 +322,13 @@ class StaticPages extends Controller
         ]);
     }
 
-    function verify_email($verifCode = "",$registrationErrorMessage=""){
+    function verify_email($verifCode = "", $registrationErrorMessage = "")
+    {
 
         $this->page_loader("verify_email", [
             "title" => "Know Your Stamps | Mintage World",
             "verif_code" => $verifCode,
             "registrationErrorMessage" => $registrationErrorMessage
         ]);
-
     }
 }

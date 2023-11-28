@@ -36,13 +36,13 @@
     <!-- Customized Bootstrap Stylesheet -->
     <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
-    <link rel="stylesheet" href="{{url('assets/admin/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{url('assets/admin/css/bootstrap.min.css')}}" /> 
 
 
 
     <!--only for admin css  -->
-
     <link href="{{url('assets/admin/css/dashboard.css')}}" rel="stylesheet">
+  
     <script src="{{url('assets/admin/js/jquery-3.4.1.min.js')}}"    ></script>
 
 </head>
@@ -310,14 +310,14 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class=""><a href="{{url('admin/manage-histories/')}}" class="">Histories</a></li>
-                            <li class=""><a href="{{url('admin/manage-enquiries/')}}" class="">Enquiries</a></li>
+                            <li class=""><a href="{{url('admin/manage-history/')}}" class="">History</a></li>
+                            <li class=""><a href="{{url('admin/manage-enquiry/')}}" class="">Enquiry</a></li>
                            
                             <li class="">
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">Content Management</button>
                                 <div class="collapse" id="orders-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li><a href="{{url('admin/manage-banner/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Banner</a></li>
+                                        <li><a href="{{url('admin/manage-banners/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Banner</a></li>
                                         <li><a href="{{url('admin/manage-video/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Video</a></li>
                                         <li><a href="{{url('admin/manage-story-week/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Story of the week</a></li>
                                         <li><a href="{{url('admin/manage-media/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Media</a></li>
@@ -329,7 +329,7 @@
                             </li>
                              <li>
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#feedback-collapse" aria-expanded="false">Feedback & Review</button>
-                                <div class="collapse" id="setting-collapse">
+                                <div class="collapse" id="feedback-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                         <li><a href="{{url('admin/manage-feedback/')}}">Manage Feedback</a></li> 
                                         <li><a href="{{url('admin/manage-review/')}}">Manage Review</a></li>  

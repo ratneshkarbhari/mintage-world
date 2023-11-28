@@ -76,6 +76,7 @@
                       </div>
                       <button type="submit" id="registerButton" class="btn btn-explore disabled">Register <span class="first"></span><span class="second"></span><span class="third"></span><span class="fourth"></span>
                       </button>
+                      <p class="text-center">Aleady a member? <a href="{{url('application/login')}}">Login here</a> </p>
                    </form>
                 </div>
              </div>

@@ -570,6 +570,8 @@
                     }
                 }else{
                     $("img#not-available-icon").removeClass("d-none");
+                    $("div#atcBox").addClass("d-none")
+
                 }
             }
         });

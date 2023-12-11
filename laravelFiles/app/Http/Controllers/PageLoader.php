@@ -179,16 +179,16 @@ class PageLoader extends Controller
             "title" => "Manage Products"
         ]);
     }
-    function add_products()
+    function add_product()
     {
-        $this->admin_page_loader("add_products", [
-            "title" => "Add Products"
+        $this->admin_page_loader("add_product", [
+            "title" => "Add New Product"
         ]);
     }
-    function edit_products()
+    function edit_product()
     {
-        $this->admin_page_loader("edit_products", [
-            "title" => "Edit Products"
+        $this->admin_page_loader("edit_product", [
+            "title" => "Edit Product"
         ]);
     }
 
@@ -443,5 +443,4 @@ class PageLoader extends Controller
             "title" => "Manage Watermark"
         ]);
     }
-    
 }

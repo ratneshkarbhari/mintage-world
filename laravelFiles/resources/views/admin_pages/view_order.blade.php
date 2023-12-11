@@ -3,8 +3,8 @@
      <div class="mb-3">
         <nav aria-label="breadcrumb">
            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-              <li class="breadcrumb-item"><a href="manage-order">Orders</a></li>
+              <li class="breadcrumb-item"><a href="{{url("admin/dashboard")}}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{url("admin/manage-orders")}}">Orders</a></li>
               <li class="breadcrumb-item active" aria-current="page">View Order</li>
            </ol>
         </nav>
@@ -14,7 +14,7 @@
         <a class="btn btn-primary btn-sm align-self-baseline" title="Print Invoice" onclick="printDiv('printableArea')"> <i class="fa fa-print"></i> Print </a> 
      </div>
      <div class="col-md-12 admin-card mt-3">
-        <div id="printableArea" class="card-body p-0 ">
+        <div id="printableArea" class="card-body p-0 ">  
            <div class="print-header">
               <div class="row">
                  <div class="col-md-4"> <img src="https://www.mintageworld.com/public/img/logo.png" class="img-fluid print-logo mb-2" alt=""/> </div>
@@ -119,9 +119,9 @@
         <div class="card-body p-0">
            <div class="card-body p-0">
               <ul class="nav nav-tabs d-none d-lg-flex" id="myTab" role="tablist">
-                 <li class="nav-item" role="presentation"> <button class="nav-link active" id="tab-onw" data-bs-toggle="tab" data-bs-target="#tab-pane-one" type="button" role="tab" aria-controls="tab-pane-one" aria-selected="true">Update Payment</button> </li>
-                 <li class="nav-item" role="presentation"> <button class="nav-link" id="tab-two" data-bs-toggle="tab" data-bs-target="#tab-pane-two" type="button" role="tab" aria-controls="tab-pane-two" aria-selected="false">History</button> </li>
-                 <li class="nav-item" role="presentation"> <button class="nav-link" id="tab-two" data-bs-toggle="tab" data-bs-target="#tab-pane-three" type="button" role="tab" aria-controls="tab-pane-three" aria-selected="false">Additional</button> </li>
+                 <li class="nav-item" role="presentation"> <button class="nav-link active" id="tab-onw" data-bs-toggle="tab" data-bs-target="#tab-pane-one" type="button" role="tab" aria-controls="tab-pane-one" aria-selected="true">History</button> </li>
+                 <li class="nav-item" role="presentation"> <button class="nav-link" id="tab-two" data-bs-toggle="tab" data-bs-target="#tab-pane-two" type="button" role="tab" aria-controls="tab-pane-two" aria-selected="false">Additional</button> </li>
+                 <li class="nav-item" role="presentation"> <button class="nav-link" id="tab-two" data-bs-toggle="tab" data-bs-target="#tab-pane-three" type="button" role="tab" aria-controls="tab-pane-three" aria-selected="false">Update Payment</button> </li>
               </ul>
               <div class="tab-content accordion" id="myTabContent">
                <div class="tab-pane fade show active accordion-item border-top-0 rounded-0" id="tab-pane-one" role="tabpanel" aria-labelledby="tab-one" tabindex="0">
@@ -129,97 +129,61 @@
                   <div id="collapseOne" class="accordion-collapse collapse show  d-lg-block border-0" aria-labelledby="headingOne" data-bs-parent="#myTabContent">
                      <div class="accordion-body">                          
                         <div class="d-block">
-                           <h4 class="border-bottom pb-2 text-primary mb-4">Update Payment Status</h4>
+                           <h4 class="border-bottom pb-2 text-primary mb-4">Add Order History</h4>
                            <div class="row mb-3">
-                              <div class="col-md-2 mb-2"> 
-                                 <label for="payment_status" class="control-label">Payment Status</label> 
-                              </div>
+                            <div class="col-md-2 mb-2"> <label class="control-label" for="status">Order Status</label> </div>
                              
                               <div class="col-md-10 mb-2">
-                                 <select class="form-control" id="payment_status" name="payment_status">
-                                    <option value="Success">Success</option>
-                                    <option value="Failed">Failed</option>
-                                    <option value="Refund">Refund</option>
-                                    <option value="Partial Refund">Partial Refund</option>
-                                </select>
+                                 <select class="form-control" id="status" name="status">
+                                    <option value="Canceled">Canceled</option>
+                                    <option value="Order Pending">Order Pending</option>
+                                    <option value="Not Confirmed" selected="selected">Not Confirmed</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Under Processing">Under Processing</option>
+                                    <option value="Dispatched">Dispatched</option>
+                                    <option value="Delivered">Delivered</option>
+                                 </select>
                               </div>
-                              <div class="col-md-2 mb-2"><label for="payment_note" class="control-label">Payment Note</label> </div>
+                              <div class="col-md-2 mb-2"><label class="control-label" for="courier_name">Courier Name</label> </div>
                               
                               <div class="col-md-10 mb-2">
-                                 <textarea class="form-control" id="payment_note" placeholder="Enter Note" rows="2" name="payment_note"></textarea>
-                              </div>    
-                              <div class="col-md-2 d-none d-md-block">
+                                 <select class="form-control" id="courier_name" name="courier_name" onchange="changeFunc();">
+                                    <option value="">Select courier name</option>
+                                    <option value="Anjani">Anjani</option>
+                                    <option value="Blue Dart">Blue Dart</option>
+                                    <option value="DTDC">DTDC</option>
+                                    <option value="Fed Ex">Fed Ex</option>
+                                    <option value="Post">Post</option>
+                                    <option value="Professional">Professional</option>
+                                    <option value="Aramex">Aramex</option>
+                                    <option value="Delhivery">Delhivery</option>
+                                    <option value="Tirupati Courier">Tirupati Courier</option>
+                                    <option value="Other">Other</option>
+                                 </select>
+                              </div>
+                              <div class="col-md-2 mb-2"><label for="courier_number" class="control-label">Tracking Number</label></div>
+                               
+                              <div class="col-md-10 mb-2"> <input type="textbox" id="courier_number" placeholder="Enter Courier Number" class="form-control" name="courier_number"> </div>
+                              <div class="col-md-2 mb-2"><label for="courier_date" class="control-label">Courier Date</label> </div>
                               
+                              <div class="col-sm-10 mb-2"> <input name="courier_date" id="courier_date" class="form-control form_datetime" placeholder="Select Date" readonly="readonly" required="required" value="" type="text"> </div>
+                              <div class="col-md-2 mb-2"><label for="dispatch" class="control-label">Details</label> </div>
+                              
+                              <div class="col-sm-10 mb-2"> <textarea class="form-control" id="dispatch" placeholder="Enter Description" rows="2" name="dispatch"></textarea> </div>
+                              <div class="col-md-2 d-none d-md-block">
+                            
                               </div>
                               <div class="col-md-10">
-                                 <button class="btn btn-primary btn-sm" data-loading-text="Loading..." id="button-payment"><i class="fa fa-plus-circle"></i> Update Payment</button>
-                              </div>                          
-                           </div>
-                           
+                               <button id="AddHistory" data-loading-text="Loading..." class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Add History</button>
+                              </div>   
+                           </div> 
                         </div>
                      </div>
                   </div>
                </div>
                  <div class="tab-pane fade show accordion-item border-top-0 rounded-0" id="tab-pane-two" role="tabpanel" aria-labelledby="tab-two" tabindex="0">
-                    <h2 class="accordion-header d-lg-none" id="headingOne"> <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">History</button> </h2>
+                    <h2 class="accordion-header d-lg-none" id="headingOne"> <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> Additional</button></h2>
                     <div id="collapseTwo" class="accordion-collapse collapse show  d-lg-block border-0" aria-labelledby="headingTwo" data-bs-parent="#myTabContent">
-                       <div class="accordion-body">                          
-                          <div class="d-block">
-                             <h4 class="border-bottom pb-2 text-primary mb-4">Add Order History</h4>
-                             <div class="row mb-3">
-                              <div class="col-md-2 mb-2"> <label class="control-label" for="status">Order Status</label> </div>
-                               
-                                <div class="col-md-10 mb-2">
-                                   <select class="form-control" id="status" name="status">
-                                      <option value="Canceled">Canceled</option>
-                                      <option value="Order Pending">Order Pending</option>
-                                      <option value="Not Confirmed" selected="selected">Not Confirmed</option>
-                                      <option value="Pending">Pending</option>
-                                      <option value="Under Processing">Under Processing</option>
-                                      <option value="Dispatched">Dispatched</option>
-                                      <option value="Delivered">Delivered</option>
-                                   </select>
-                                </div>
-                                <div class="col-md-2 mb-2"><label class="control-label" for="courier_name">Courier Name</label> </div>
-                                
-                                <div class="col-md-10 mb-2">
-                                   <select class="form-control" id="courier_name" name="courier_name" onchange="changeFunc();">
-                                      <option value="">Select courier name</option>
-                                      <option value="Anjani">Anjani</option>
-                                      <option value="Blue Dart">Blue Dart</option>
-                                      <option value="DTDC">DTDC</option>
-                                      <option value="Fed Ex">Fed Ex</option>
-                                      <option value="Post">Post</option>
-                                      <option value="Professional">Professional</option>
-                                      <option value="Aramex">Aramex</option>
-                                      <option value="Delhivery">Delhivery</option>
-                                      <option value="Tirupati Courier">Tirupati Courier</option>
-                                      <option value="Other">Other</option>
-                                   </select>
-                                </div>
-                                <div class="col-md-2 mb-2"><label for="courier_number" class="control-label">Tracking Number</label></div>
-                                 
-                                <div class="col-md-10 mb-2"> <input type="textbox" id="courier_number" placeholder="Enter Courier Number" class="form-control" name="courier_number"> </div>
-                                <div class="col-md-2 mb-2"><label for="courier_date" class="control-label">Courier Date</label> </div>
-                                
-                                <div class="col-sm-10 mb-2"> <input name="courier_date" id="courier_date" class="form-control form_datetime" placeholder="Select Date" readonly="readonly" required="required" value="" type="text"> </div>
-                                <div class="col-md-2 mb-2"><label for="dispatch" class="control-label">Details</label> </div>
-                                
-                                <div class="col-sm-10 mb-2"> <textarea class="form-control" id="dispatch" placeholder="Enter Description" rows="2" name="dispatch"></textarea> </div>
-                                <div class="col-md-2 d-none d-md-block">
-                              
-                                </div>
-                                <div class="col-md-10">
-                                 <button id="AddHistory" data-loading-text="Loading..." class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Add History</button>
-                                </div>   
-                             </div> 
-                          </div>
-                       </div>
-                    </div>
-                 </div>
-                 <div class="tab-pane fade accordion-item border-top-0 rounded-0" id="tab-pane-three" role="tabpanel" aria-labelledby="tab-three" tabindex="0">
-                    <h2 class="accordion-header d-lg-none" id="headingThree"> <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> Additional </button> </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse d-lg-block border-0" aria-labelledby="headingThree" data-bs-parent="#myTabContent">
                        <div class="accordion-body">
                         <div class="table-responsive">
                           <table class="table table-bordered">
@@ -260,6 +224,42 @@
                           </table>
                         </div>
                        </div>
+                    </div>
+                 </div>
+                 <div class="tab-pane fade accordion-item border-top-0 rounded-0" id="tab-pane-three" role="tabpanel" aria-labelledby="tab-three" tabindex="0">
+                    <h2 class="accordion-header d-lg-none" id="headingThree"> <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Update Payment</button> </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse d-lg-block border-0" aria-labelledby="headingThree" data-bs-parent="#myTabContent">
+                       <div class="accordion-body">                          
+                        <div class="d-block">
+                           <h4 class="border-bottom pb-2 text-primary mb-4">Update Payment Status</h4>
+                           <div class="row mb-3">
+                              <div class="col-md-2 mb-2"> 
+                                 <label for="payment_status" class="control-label">Payment Status</label> 
+                              </div>
+                             
+                              <div class="col-md-10 mb-2">
+                                 <select class="form-control" id="payment_status" name="payment_status">
+                                    <option value="Success">Success</option>
+                                    <option value="Failed">Failed</option>
+                                    <option value="Refund">Refund</option>
+                                    <option value="Partial Refund">Partial Refund</option>
+                                </select>
+                              </div>
+                              <div class="col-md-2 mb-2"><label for="payment_note" class="control-label">Payment Note</label> </div>
+                              
+                              <div class="col-md-10 mb-2">
+                                 <textarea class="form-control" id="payment_note" placeholder="Enter Note" rows="2" name="payment_note"></textarea>
+                              </div>    
+                              <div class="col-md-2 d-none d-md-block">
+                              
+                              </div>
+                              <div class="col-md-10">
+                                 <button class="btn btn-primary btn-sm" data-loading-text="Loading..." id="button-payment"><i class="fa fa-plus-circle"></i> Update Payment</button>
+                              </div>                          
+                           </div>
+                           
+                        </div>
+                     </div>
                     </div>
                  </div>
               </div>

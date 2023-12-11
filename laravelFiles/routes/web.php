@@ -153,8 +153,8 @@ Route::get("admin/manage-orders", [PageLoader::class, 'manage_orders']);
 Route::get("admin/view-order", [PageLoader::class, 'view_order']);
 
 Route::get("admin/manage-products", [PageLoader::class, 'manage_products']);
-Route::get("admin/edit-products", [PageLoader::class, 'edit_products']);
-Route::get("admin/add-products", [PageLoader::class, 'add_products']);
+Route::get("admin/edit-product", [PageLoader::class, 'edit_product']);
+Route::get("admin/add-product", [PageLoader::class, 'add_product']);
 
 Route::get("admin/manage-period", [PageLoader::class, 'manage_period']);
 Route::get("admin/manage-dynasty", [PageLoader::class, 'manage_dynasty']);
@@ -215,9 +215,9 @@ Route::get('detailed-search', [Utils::class, 'detailed_search']);
 
 Route::post("registration-exe", [Authentication::class, 'registration']);
 
-Route::post("verify-email-exe",[Authentication::class,'verify_email']);
+Route::post("verify-email-exe", [Authentication::class, 'verify_email']);
 
 
-Route::post("check-note-availability",[Shopping::class,'check_note_availability']);
+Route::post("check-note-availability", [Shopping::class, 'check_note_availability']);
 Route::get('story/', [StaticPages::class, 'story']);
 Route::get('story/detail/{id}', [StaticPages::class, 'story_detail']);

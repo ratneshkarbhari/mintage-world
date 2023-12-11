@@ -22,6 +22,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
+
+    <link href="{{url('assets/admin/css/select2.min.css')}}" rel="stylesheet" />
+
+    
     <!-- for admin theam colour change  -->
 
     <meta name="theme-color" content="#712cf9">
@@ -29,7 +33,7 @@
 
 
     <link rel="stylesheet" type="text/css"  href="{{url('assets/admin/css/jquery.dataTables.min.css')}}" >
-    <link rel="stylesheet" type="text/css"  href="{{url('assets/admin/css/buttons.dataTables.min.css')}}" >
+    <link rel="stylesheet" type="text/css"  href="{{url('assets/admin/css/buttons.dataTables.min.css')}}" > 
 
 
 

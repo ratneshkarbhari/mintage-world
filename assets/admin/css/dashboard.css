@@ -1082,7 +1082,29 @@ div.dataTables_wrapper div.dataTables_paginate {
 .navbar-dark .navbar-text a:focus {
   color: #fff;
 }
+ 
+.ck.ck-content{
+  min-height: 400px;
+  color: #000;
+}
 
+.select2 {
+  width: 100% !important;
+}
+.select2-dropdown{
+  color: #000;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered, .select2-container--default .select2-selection--single {
+  line-height: 46px;
+  min-height: 46px; 
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+  top: 50%;
+  transform: translateY(-50%);
+}
+tbody:last-child tr .addProduct {
+  display: inline-block;
+}
 /* responsive media start */
 
 @media (max-width: 991px) {

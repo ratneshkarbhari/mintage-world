@@ -290,7 +290,7 @@ class CartActions extends Controller
 
 
 
-            $this->page_loader("Checkout", [
+            $this->page_loader("checkout", [
                 "title" => "Checkout ",
                 "member" => Member::find(session("member_id")),
                 "cart_items" => session("cart"),

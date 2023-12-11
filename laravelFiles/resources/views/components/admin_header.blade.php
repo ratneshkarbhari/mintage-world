@@ -22,6 +22,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
+
+    <link href="{{url('assets/admin/css/select2.min.css')}}" rel="stylesheet" />
+
+    
     <!-- for admin theam colour change  -->
 
     <meta name="theme-color" content="#712cf9">
@@ -29,20 +33,20 @@
 
 
     <link rel="stylesheet" type="text/css"  href="{{url('assets/admin/css/jquery.dataTables.min.css')}}" >
-    <link rel="stylesheet" type="text/css"  href="{{url('assets/admin/css/buttons.dataTables.min.css')}}" >
+    <link rel="stylesheet" type="text/css"  href="{{url('assets/admin/css/buttons.dataTables.min.css')}}" > 
 
 
 
     <!-- Customized Bootstrap Stylesheet -->
     <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
-    <link rel="stylesheet" href="{{url('assets/admin/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{url('assets/admin/css/bootstrap.min.css')}}" /> 
 
 
 
     <!--only for admin css  -->
-
     <link href="{{url('assets/admin/css/dashboard.css')}}" rel="stylesheet">
+  
     <script src="{{url('assets/admin/js/jquery-3.4.1.min.js')}}"    ></script>
 
 </head>
@@ -310,14 +314,14 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class=""><a href="{{url('admin/manage-histories/')}}" class="">Histories</a></li>
-                            <li class=""><a href="{{url('admin/manage-enquiries/')}}" class="">Enquiries</a></li>
+                            <li class=""><a href="{{url('admin/manage-history/')}}" class="">History</a></li>
+                            <li class=""><a href="{{url('admin/manage-enquiry/')}}" class="">Enquiry</a></li>
                            
                             <li class="">
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">Content Management</button>
                                 <div class="collapse" id="orders-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li><a href="{{url('admin/manage-banner/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Banner</a></li>
+                                        <li><a href="{{url('admin/manage-banners/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Banner</a></li>
                                         <li><a href="{{url('admin/manage-video/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Video</a></li>
                                         <li><a href="{{url('admin/manage-story-week/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Story of the week</a></li>
                                         <li><a href="{{url('admin/manage-media/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Media</a></li>
@@ -329,7 +333,7 @@
                             </li>
                              <li>
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#feedback-collapse" aria-expanded="false">Feedback & Review</button>
-                                <div class="collapse" id="setting-collapse">
+                                <div class="collapse" id="feedback-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                         <li><a href="{{url('admin/manage-feedback/')}}">Manage Feedback</a></li> 
                                         <li><a href="{{url('admin/manage-review/')}}">Manage Review</a></li>  

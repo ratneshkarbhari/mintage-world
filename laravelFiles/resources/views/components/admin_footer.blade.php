@@ -9,15 +9,19 @@
 
 <script src="{{url('assets/admin/js/bootstrap.bundle.min.js')}}"></script>
 <!-- Template Javascript -->
+
 <script src="{{url('assets/admin/js/color-modes.js')}}"></script>
-<script src="{{url('assets/admin/js/dashboard.js')}}"></script>
-<script type="text/javascript" language="javascript"  src="{{url('assets/admin/js/jquery.dataTables.min.js')}}"></script>
-<script type="text/javascript" language="javascript"  src="{{url('assets/admin/js/dataTables.buttons.min.js')}}"></script>
-<script type="text/javascript" language="javascript"  src="{{url('assets/admin/js/jszip.min.js')}}"></script>
-<script type="text/javascript" language="javascript"  src="{{url('assets/admin/js/pdfmake.min.js')}}"></script>
-<script type="text/javascript" language="javascript"  src="{{url('assets/admin/js/vfs_fonts.js')}}"></script>
-<script type="text/javascript" language="javascript"  src="{{url('assets/admin/js/buttons.html5.min.js')}}"></script>
-<script type="text/javascript" language="javascript"  src="{{url('assets/admin/js/buttons.print.min.js')}}"></script>
+<script type="text/javascript" language="javascript" src="{{url('assets/admin/js/ckeditor.js')}}"></script>
+<script type="text/javascript" language="javascript" src="{{url('assets/admin/js/dashboard.js')}}"></script>
+<script type="text/javascript" language="javascript" src="{{url('assets/admin/js/jquery.dataTables.min.js')}}"></script>
+<script type="text/javascript" language="javascript" src="{{url('assets/admin/js/dataTables.buttons.min.js')}}"></script>
+<script type="text/javascript" language="javascript" src="{{url('assets/admin/js/jszip.min.js')}}"></script>
+<script type="text/javascript" language="javascript" src="{{url('assets/admin/js/pdfmake.min.js')}}"></script>
+<script type="text/javascript" language="javascript" src="{{url('assets/admin/js/vfs_fonts.js')}}"></script>
+<script type="text/javascript" language="javascript" src="{{url('assets/admin/js/buttons.html5.min.js')}}"></script>
+<script type="text/javascript" language="javascript" src="{{url('assets/admin/js/buttons.print.min.js')}}"></script>
+
+
 
 
 <script>
@@ -25,10 +29,16 @@
         dom: 'lBfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf', 'print'], 
     });
-
-   
 </script>
 
+
+<script src="{{url('assets/admin/js/select2.min.js')}}"></script>
+<script>
+    $(".js-example-basic-single").select2({
+        placeholder: "Select Here",
+        allowClear: true
+    }); 
+  </script>
 
 </body>
 

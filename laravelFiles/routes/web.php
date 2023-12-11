@@ -148,8 +148,43 @@ Route::post("admin-login-exe", [Authentication::class, 'admin_login']);
 
 // admin routes
 Route::get("admin/dashboard", [PageLoader::class, 'dashboard']);
+
+Route::get("admin/manage-orders", [PageLoader::class, 'manage_orders']);
+Route::get("admin/view-order", [PageLoader::class, 'view_order']);
+
 Route::get("admin/manage-products", [PageLoader::class, 'manage_products']);
+Route::get("admin/edit-product", [PageLoader::class, 'edit_product']);
+Route::get("admin/add-product", [PageLoader::class, 'add_product']);
+
+Route::get("admin/manage-period", [PageLoader::class, 'manage_period']);
+Route::get("admin/manage-dynasty", [PageLoader::class, 'manage_dynasty']);
+Route::get("admin/manage-ruler", [PageLoader::class, 'manage_ruler']);
+
+Route::get("admin/manage-stamps", [PageLoader::class, 'manage_stamps']);
+
+
 Route::get("admin/manage-coins", [PageLoader::class, 'manage_coins']);
+Route::get("admin/manage-notes", [PageLoader::class, 'manage_notes']);
+
+Route::get("admin/manage-categories", [PageLoader::class, 'manage_categories']);
+
+Route::get("admin/manage-history", [PageLoader::class, 'manage_history']);
+
+Route::get("admin/manage-enquiry", [PageLoader::class, 'manage_enquiry']);
+
+Route::get("admin/manage-banners", [PageLoader::class, 'manage_banners']);
+Route::get("admin/manage-video", [PageLoader::class, 'manage_video']);
+Route::get("admin/manage-story-week", [PageLoader::class, 'manage_story_week']);
+Route::get("admin/manage-media", [PageLoader::class, 'manage_media']);
+Route::get("admin/manage-events", [PageLoader::class, 'manage_events']);
+Route::get("admin/manage-news", [PageLoader::class, 'manage_news']);
+Route::get("admin/manage-career", [PageLoader::class, 'manage_career']);
+
+Route::get("admin/manage-feedback", [PageLoader::class, 'manage_feedback']);
+Route::get("admin/manage-review", [PageLoader::class, 'manage_review']);
+
+Route::get("admin/manage-members", [PageLoader::class, 'manage_members']);
+Route::get("admin/manage-watermark", [PageLoader::class, 'manage_watermark']);
 
 
 Route::post("create-info-comment", [InfoComments::class, 'create_exe']);
@@ -176,13 +211,13 @@ Route::post("create-order-exe", [Orders::class, 'create_exe']);
 
 Route::get('media/', [StaticPages::class, 'media_list']);
 
-Route::get('detailed-search',[Utils::class,'detailed_search']);
+Route::get('detailed-search', [Utils::class, 'detailed_search']);
 
-Route::post("registration-exe",[Authentication::class,'registration']); 
+Route::post("registration-exe", [Authentication::class, 'registration']);
 
-Route::post("verify-email-exe",[Authentication::class,'verify_email']);
+Route::post("verify-email-exe", [Authentication::class, 'verify_email']);
 
 
-Route::post("check-note-availability",[Shopping::class,'check_note_availability']);
+Route::post("check-note-availability", [Shopping::class, 'check_note_availability']);
 Route::get('story/', [StaticPages::class, 'story']);
 Route::get('story/detail/{id}', [StaticPages::class, 'story_detail']);

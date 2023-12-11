@@ -16,4 +16,5 @@ class ProductSpecial extends Model
     protected $guarded = [];  
     protected $table = "product_special";
 
+
 }

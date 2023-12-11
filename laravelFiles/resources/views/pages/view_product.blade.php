@@ -191,6 +191,9 @@
                             <img src="https://www.mintageworld.com/img/note.png" class="img-fluid" alt="">
                             <img src="{{url('/assets/images/available-icon.png')}}" class="img-fluid available-icon d-none" id="available-icon"  alt="">
                             <img src="{{url('/assets/images/not-available-icon.png')}}" class="img-fluid available-icon d-none" id="not-available-icon" alt="">
+                            <img src="{{url('/assets/images/available-premium-price-icon.png')}}" class="img-fluid available-icon d-none" id="available-premium-icon" alt="">
+
+                            
 
                         </p>
                         <p>Check availability of your auspicious date note </p>
@@ -370,7 +373,7 @@
                         @if($product["instock"]>0)
                         <form action="{{url('add-to-cart')}}" id="addToCartForm" method="POST">
                             @csrf
-                            <div class="d-flex @if($category['id']==6) 
+                            <div id="atcBox" class="d-flex @if($category['id']==6) 
                     d-none
                     @endif ">
                                 <div class="product-count me-3 m-0">
@@ -494,13 +497,30 @@
 <script>
     $("button#addToCart").click(function(e) {
         e.preventDefault();
+
+
+        @if($product["date_option"]=="Yes")
+        
+        let dateSelected = $("select#date-check-dd").val();
+        let monthSelected = $("select#date-check-mm").val();
+        let yearSelected = $("select#date-check-yy").val();
+
+        @else
+
+
+        let dateSelected = monthSelected = yearSelected = "NA";
+
+
+        @endif
+
         $.ajax({
             type: "POST",
             url: "{{url('atc-exe')}}",
             data: {
                 "_token": "{{ csrf_token() }}",
                 "pid": {{$product["id"]}},
-                "quantity": $("input#productQty").val()
+                "quantity": $("input#productQty").val(),
+                "date" : dateSelected+"-"+monthSelected+"-"+yearSelected
             },
             success: function(response) {
                 if (response == "added-to-cart") {
@@ -517,9 +537,14 @@
 
     $("button#checkAvlButton").click(function (e) { 
         e.preventDefault();
+
+        @if($product["date_option"]=="Yes")
+
         let dateSelected = $("select#date-check-dd").val();
         let monthSelected = $("select#date-check-mm").val();
         let yearSelected = $("select#date-check-yy").val();
+
+
         $.ajax({
             type: "POST",
             url: "{{url('check-note-availability')}}",
@@ -531,10 +556,29 @@
                 "product_id" : {{$product["id"]}}
             },
             success: function (response) {
+                response = JSON.parse(response)
                 let message = response.message
-                
+                // console.log(message)
+                $(".available-icon").addClass("d-none")
+                if(message!="Not Available"){
+                    $("div#atcBox").removeClass("d-none")
+                    if (message=="Product Available") {
+                        $("img#available-icon").removeClass("d-none");
+
+                    } else {
+                        $("img#available-premium-icon").removeClass("d-none");
+                    }
+                }else{
+                    $("img#not-available-icon").removeClass("d-none");
+                    $("div#atcBox").addClass("d-none")
+
+                }
             }
         });
+
+
+        @endif
+
     });
 
 </script>

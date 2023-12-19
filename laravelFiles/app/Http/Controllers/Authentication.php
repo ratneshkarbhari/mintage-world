@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Member;
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use App\Models\User;
+
 class Authentication extends Controller
 {
 
@@ -96,11 +98,18 @@ class Authentication extends Controller
 
     }
 
-    private function send_verif_email(){
+    private function send_verif_email($email,$name){
         
         $verifCode = rand(1000,9999);
 
-        session(["email_verification_code"=>$verifCode]);
+        $emailVerifyMessage = '
+            Enter this verification code on mintageworld.com : '.$verifCode.' to verify your email.<br>
+        ';
+
+        $this->send_email($email,$name,"Email Verification",$emailVerifyMessage);
+        
+        session(["email_verification_code"=>$verifCode,"email_to_verify"=>$email]);
+
 
         return $verifCode;
 
@@ -154,8 +163,12 @@ class Authentication extends Controller
 
             $memberCreated = $memberModel->create($memberObj);
 
+            
+
             if ($memberCreated) {
-                $code = $this->send_verif_email();
+                $code = $this->send_verif_email($request->EmailID,$request->first_name." ".$request->last_name);
+
+                
 
                 $memberObj["user_type"] = "member";
                 
@@ -164,7 +177,7 @@ class Authentication extends Controller
                 $memberObj["member_id"] = $memberCreated->id;
 
                 session($memberObj);
-                $staticPageLoader->verify_email($code,"");        
+                $staticPageLoader->verify_email();        
 
             } else {
                 
@@ -189,7 +202,13 @@ class Authentication extends Controller
 
         if(session("verif_code")==$enteredVerifCode){
 
-            
+
+            $memberModel = new Member();
+
+            $memberModel->where("email", session("email_to_verify"))->update([
+                "email_verified" => 1
+            ]);            
+
             return redirect(url("member/dashboard/"));
 
 

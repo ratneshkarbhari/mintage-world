@@ -277,7 +277,6 @@ class CartActions extends Controller
                 $shipping = 0;
             }
 
-
             $payable = session("subtotal") - session('discount') + $shipping;
 
             $payable = 1.00;
@@ -287,8 +286,6 @@ class CartActions extends Controller
             $api = new Api(getenv("RAZOR_KEY"), getenv("RAZOR_SECRET"));
 
             $order = $api->order->create(array('receipt' => uniqid(), 'amount' => $payable * 100, 'currency' => 'INR'));
-
-
 
             $this->page_loader("checkout", [
                 "title" => "Checkout ",

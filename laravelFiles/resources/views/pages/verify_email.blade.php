@@ -32,6 +32,8 @@
                 <div class="col-md-8 col-xs-12 col-sm-12 login_form "> 
                    <form action="{{url('verify-email-exe')}}" class="registrationForm" method="POST" class="form-group">
                         @csrf    
+
+                        
                         <input type="text" id="first_name" class="form__input mb-2 mt-2" placeholder="Enter Verification code from Email" name="verif_code">
                         <small>{{$verif_code}}</small>
                         <button type="submit" id="registerButton" class="btn btn-explore ">Verify Email <span class="first"></span><span class="second"></span><span class="third"></span><span class="fourth"></span>

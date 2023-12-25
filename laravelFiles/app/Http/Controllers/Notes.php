@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Note;
 use App\Models\Period;
 use App\Models\Country;
-use App\Models\Denomination;
 use App\Models\Dynasty;
+use Illuminate\Support\Str;
+use App\Models\Denomination;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
@@ -136,7 +137,7 @@ class Notes extends Controller
                     "label" => "Notes"
                 ],
                 [
-                    "slug" => "note/".$country["id"]."-".strtolower($country["name"]),
+                    "slug" => "note/".$country["id"]."-".Str::slug($country["name"]),
                     "label" => $country["name"]
                 ],
 
@@ -153,7 +154,9 @@ class Notes extends Controller
 
     function note_denominations($dynastyId){
 
+        $dynastyIdParts = explode("-",$dynastyId);
 
+        $dynastyId = $dynastyIdParts[0];
 
         if(!Cache::get('note-denominations-'.$dynastyId)){
 
@@ -200,7 +203,7 @@ class Notes extends Controller
                 ],
 
                 [
-                    "slug" => "note/dynasty/".$period["id"],
+                    "slug" => "note/dynasty/".$period["id"].Str::slug($period["title"]),
                     "label" => $period["title"]
                 ]
                 ,[
@@ -213,6 +216,11 @@ class Notes extends Controller
     }
 
     function note_list($denominationUnit,$dynastyId){
+
+        $dynastyIdParts = explode("-",$dynastyId);
+
+        $dynastyId = $dynastyIdParts[0];
+
 
         if(!Cache::get('notes-'.$denominationUnit."-".$dynastyId)){
 
@@ -270,16 +278,16 @@ class Notes extends Controller
                     "label" => "Notes"
                 ],
                 [
-                    "slug" => "note/".$country["id"]."-".strtolower($country["name"]),
+                    "slug" => "note/".$country["id"]."-".Str::slug($country["name"]),
                     "label" => $country["name"]
                 ],
 
                 [
-                    "slug" => "note/dynasty/".$period["id"],
+                    "slug" => "note/dynasty/".$period["id"]."-".Str::slug($period["title"]),
                     "label" => $period["title"]
                 ]
                 ,[
-                    "slug" => "note/note/".$dynasty["id"],
+                    "slug" => "note/note/".$dynasty["id"]."-".Str::slug($dynasty["title"]),
                     "label" => $dynasty["title"]
                 ],
                 [
@@ -334,16 +342,16 @@ class Notes extends Controller
                     "label" => "Notes"
                 ],
                 [
-                    "slug" => "note/".$country["id"]."-".strtolower($country["name"]),
+                    "slug" => "note/".$country["id"]."-".Str::slug($country["name"]),
                     "label" => $country["name"]
                 ],
 
                 [
-                    "slug" => "note/dynasty/".$period["id"],
+                    "slug" => "note/dynasty/".$period["id"]."-".Str::slug($period["title"]),
                     "label" => $period["title"]
                 ]
                 ,[
-                    "slug" => "note/note/".$dynasty["id"],
+                    "slug" => "note/note/".$dynasty["id"]."-".Str::slug($dynasty["title"]),
                     "label" => $dynasty["title"]
                 ],
                 [

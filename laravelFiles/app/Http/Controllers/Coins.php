@@ -70,7 +70,22 @@ class Coins extends Controller
 
         $countryId = $slugParts[0];
 
-        $countryName = ucfirst($slugParts[1]);
+        $countryNameString = '';
+
+        if(count($slugParts)==2){
+
+            $countryName = ucwords($slugParts[1]);
+
+
+        }else{
+
+            unset($slugParts[0]);
+
+            $countryName = ucwords(implode(" ",$slugParts));
+
+
+        }
+
 
         if(!Cache::get('coin-'.$slugParts[1].'-periods')){
 
@@ -97,7 +112,7 @@ class Coins extends Controller
                     "label" => "Coins"
                 ],
                 [
-                    // "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    // "slug" => "coin/".$country["id"]."-".Str::slug($country["name"]),
                     "label" => $country["name"]
                 ]
             ],
@@ -141,7 +156,7 @@ class Coins extends Controller
                     "label" => "Coins"
                 ],
                 [
-                    "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "slug" => "coin/".$country["id"]."-".Str::slug($country["name"]),
                     "label" => $country["name"]
                 ],
                 [
@@ -186,7 +201,7 @@ class Coins extends Controller
                     "label" => "Coins"
                 ],
                 [
-                    "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "slug" => "coin/".$country["id"]."-".Str::slug($country["name"]),
                     "label" => $country["name"]
                 ],
                 [
@@ -264,7 +279,7 @@ class Coins extends Controller
                     "label" => "Coins"
                 ],
                 [
-                    "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "slug" => "coin/".$country["id"]."-".Str::slug($country["name"]),
                     "label" => $country["name"]
                 ],
                 [
@@ -317,7 +332,7 @@ class Coins extends Controller
                     "label" => "Coins"
                 ],
                 [
-                    "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "slug" => "coin/".$country["id"]."-".Str::slug($country["name"]),
                     "label" => $country["name"]
                 ],
                 [

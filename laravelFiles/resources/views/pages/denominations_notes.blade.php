@@ -14,7 +14,7 @@
                         @foreach($denominations as $denomination)
 
 
-                        <div class="col-lg-2 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="{{url("note/list/".$denomination["unit"]."/".$dynasty["id"])}}">
+                        <div class="col-lg-2 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="{{url("note/list/".$denomination["unit"]."/".$dynasty["id"]."-".Str::slug(str_replace("/"," ",$denomination["title"])))}}">
                             @if(isset($denomination["obverse_image"])&&$denomination["obverse_image"]!="")
                             <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="{{getenv("NOTE_BASE_URL").$denomination["obverse_image"]}}" alt="{{$denomination["title"]}}">
                                 <div class="info-meta text-center">

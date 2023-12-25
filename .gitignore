@@ -1,1 +1,2 @@
 assets/history-pdfs/
+laravelFiles/app/Http/Middleware/slashesMiddleware.php

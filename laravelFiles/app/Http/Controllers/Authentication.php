@@ -6,6 +6,7 @@ use App\Models\Member;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 use PDO;
 
 class Authentication extends Controller
@@ -247,11 +248,19 @@ class Authentication extends Controller
 
             $memberCreated = $memberModel->create($memberObj);
 
+            $email = $request->EmailID;
             
 
             if ($memberCreated) {
-                $code = $this->send_verif_email($request->EmailID,$request->first_name." ".$request->last_name);
+                
+                $code = rand(1000,9999);
 
+                $mailSent = Mail::send("emails.email_verification",[
+                    "first_name" => $request->first_name,
+                    "code" => $code
+                ],function($message) use($email){
+                    $message->to($email)->subject('Welcome to MintageWorld Verify your Email!');
+                });
                 
 
                 $memberObj["user_type"] = "member";

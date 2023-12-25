@@ -1,8 +1,8 @@
 <main class="page-content">
     <section class="inside-banner"><img class="w-100 img-fluid" src="{{url("assets/images/inside-banner/note-banner.jpg")}}" /></section>
     
+    <x-bread-crumb :breadCrumbData="$breadCrumbData"/>
 
-    <x-breadcrumb :breadCrumbData="$breadCrumbData"/>
 
     <section class="common-padding noteg-list-wraper">
         <div class="container-fluid px-lg-2 px-lg-5">

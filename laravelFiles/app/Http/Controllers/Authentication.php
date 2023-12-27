@@ -183,23 +183,6 @@ class Authentication extends Controller
 
     }
 
-    private function send_verif_email($email,$name){
-        
-        $verifCode = rand(1000,9999);
-
-        $emailVerifyMessage = '
-            Enter this verification code on mintageworld.com : '.$verifCode.' to verify your email.<br>
-        ';
-
-        $this->send_email($email,$name,"Email Verification",$emailVerifyMessage);
-        
-        session(["email_verification_code"=>$verifCode,"email_to_verify"=>$email]);
-
-
-        return $verifCode;
-
-    }
-
     function registration(Request $request){
         
         $memberModel = new Member();
@@ -255,13 +238,18 @@ class Authentication extends Controller
                 
                 $code = rand(1000,9999);
 
-                $mailSent = Mail::send("emails.email_verification",[
-                    "first_name" => $request->first_name,
-                    "code" => $code
-                ],function($message) use($email){
-                    $message->to($email)->subject('Welcome to MintageWorld Verify your Email!');
-                });
-                
+                $message = '<p>This is your email verification code : '.$code.'</p>
+                <p>Enter it on Mintage World to verify your account.</p>';
+
+                $emailSendingResult = $this->send_email($email,"Email Verification",$message);
+
+                if(!$emailSendingResult){
+
+                    echo "Email not sent";
+
+                    exit;
+                    
+                }
 
                 $memberObj["user_type"] = "member";
                 

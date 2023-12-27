@@ -6,14 +6,14 @@
                 
 
                 <li class="breadcrumb-item me-2">
-                    <a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a>
+                    <a href="{{url('/')}}"><i class="fa fa-home"></i> Home</a>
                 </li>
                 
                 @foreach ($breadCrumbData as $breadCrumbItem)
                 
                     <li class="breadcrumb-item me-2">
                         @if(isset($breadCrumbItem["slug"]))
-                        <a href="{{ url($breadCrumbItem["slug"]) }}">
+                        <a href="{{ url($breadCrumbItem['slug']) }}">
                             {{$breadCrumbItem["label"]}} 
                         </a>
                         @else

@@ -30,7 +30,7 @@
                         <td><span class="badge bg-success">Success</span></td>
                         <td>
                             <a href="view-order/" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                            <a href="#" title="Cancel Order" class="btn btn-danger  btn-sm"><i class="fa fa-times"></i></a>                        
+                                                    
                         </td>
                     </tr>
                     <tr>
@@ -45,7 +45,7 @@
                         </td>
                         <td>
                             <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                            <a href="#" title="Cancel Order" class="btn btn-danger  btn-sm"><i class="fa fa-times"></i></a>                        
+                                                    
                         </td>
                     </tr>
                     <tr>
@@ -58,7 +58,7 @@
                         <td><span class="badge bg-success">Success</span></td>
                         <td>
                             <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                            <a href="#" title="Cancel Order" class="btn btn-danger  btn-sm"><i class="fa fa-times"></i></a>                        
+                                                    
                         </td>
                     </tr>
                     <tr>
@@ -76,7 +76,7 @@
                         </td>
                         <td>
                             <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                            <a href="#" title="Cancel Order" class="btn btn-danger  btn-sm"><i class="fa fa-times"></i></a>                        
+                                                    
                         </td>
                     </tr>
                     <tr>
@@ -89,7 +89,7 @@
                         <td><span class="badge bg-success">Success</span></td>
                         <td>
                             <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                            <a href="#" title="Cancel Order" class="btn btn-danger  btn-sm"><i class="fa fa-times"></i></a>                        
+                                                    
                         </td>
                     </tr>
                     <tr>
@@ -102,7 +102,7 @@
                         <td><span class="badge bg-success">Success</span></td>
                         <td>
                             <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                            <a href="#" title="Cancel Order" class="btn btn-danger  btn-sm"><i class="fa fa-times"></i></a>                        
+                                                    
                         </td>
                     </tr>
                     <tr>
@@ -115,7 +115,7 @@
                         <td><span class="badge bg-success">Success</span></td>
                         <td>
                             <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                            <a href="#" title="Cancel Order" class="btn btn-danger  btn-sm"><i class="fa fa-times"></i></a>                        
+                                                    
                         </td>
                     </tr>
                     <tr>
@@ -128,7 +128,7 @@
                         <td><span class="badge bg-success">Success</span></td>
                         <td>
                             <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                            <a href="#" title="Cancel Order" class="btn btn-danger  btn-sm"><i class="fa fa-times"></i></a>                        
+                                                    
                         </td>
                     </tr>
                      
@@ -170,7 +170,7 @@
                         <td>
                             <a href="#" class="btn btn-info btn-sm" title="View Product"><i class="fa fa-eye"></i></a>
                             <a href="#" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-                            <a href="#"  class="btn btn-danger  btn-sm" title="Delete Product"><i class="fa fa-trash"></i></a>                        
+                                                    
                         </td>
                     </tr>
                     <tr>
@@ -190,7 +190,7 @@
                         <td>
                             <a href="#" class="btn btn-info btn-sm" title="View Product"><i class="fa fa-eye"></i></a>
                             <a href="#" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-                            <a href="#"  class="btn btn-danger  btn-sm" title="Delete Product"><i class="fa fa-trash"></i></a>                        
+                                                    
                         </td>
                     </tr>
                     <tr>
@@ -210,7 +210,7 @@
                         <td>
                             <a href="#" class="btn btn-info btn-sm" title="View Product"><i class="fa fa-eye"></i></a>
                             <a href="#" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-                            <a href="#"  class="btn btn-danger  btn-sm" title="Delete Product"><i class="fa fa-trash"></i></a>                        
+                                                    
                         </td>
                     </tr>
                     <tr>
@@ -230,7 +230,7 @@
                         <td>
                             <a href="#" class="btn btn-info btn-sm" title="View Product"><i class="fa fa-eye"></i></a>
                             <a href="#" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-                            <a href="#"  class="btn btn-danger  btn-sm" title="Delete Product"><i class="fa fa-trash"></i></a>                        
+                                                    
                         </td>
                     </tr>
                     

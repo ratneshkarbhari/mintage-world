@@ -35,8 +35,7 @@
                      <td><span class="badge bg-info text-dark">Processing</span></td>
                      <td><span class="badge bg-success">Success</span></td>
                      <td>
-                         <a href="view-order/" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                         <a href="#" title="Cancel Order" class="btn btn-danger  btn-sm"><i class="fa fa-times"></i></a>                        
+                         <a href="view-order/" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>                                                 
                      </td>
                  </tr>
                  <tr>
@@ -51,7 +50,7 @@
                      </td>
                      <td>
                          <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                         <a href="#" title="Cancel Order" class="btn btn-danger  btn-sm"><i class="fa fa-times"></i></a>                        
+                                                 
                      </td>
                  </tr>
                  <tr>
@@ -64,7 +63,7 @@
                      <td><span class="badge bg-success">Success</span></td>
                      <td>
                          <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                         <a href="#" title="Cancel Order" class="btn btn-danger  btn-sm"><i class="fa fa-times"></i></a>                        
+                                                 
                      </td>
                  </tr>
                  <tr>
@@ -82,7 +81,7 @@
                      </td>
                      <td>
                          <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                         <a href="#" title="Cancel Order" class="btn btn-danger  btn-sm"><i class="fa fa-times"></i></a>                        
+                                                 
                      </td>
                  </tr>
                  <tr>
@@ -95,7 +94,7 @@
                      <td><span class="badge bg-success">Success</span></td>
                      <td>
                          <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                         <a href="#" title="Cancel Order" class="btn btn-danger  btn-sm"><i class="fa fa-times"></i></a>                        
+                                                 
                      </td>
                  </tr>
                  <tr>
@@ -108,7 +107,7 @@
                      <td><span class="badge bg-success">Success</span></td>
                      <td>
                          <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                         <a href="#" title="Cancel Order" class="btn btn-danger  btn-sm"><i class="fa fa-times"></i></a>                        
+                                                 
                      </td>
                  </tr>
                  <tr>
@@ -121,7 +120,7 @@
                      <td><span class="badge bg-success">Success</span></td>
                      <td>
                          <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                         <a href="#" title="Cancel Order" class="btn btn-danger  btn-sm"><i class="fa fa-times"></i></a>                        
+                                                 
                      </td>
                  </tr>
                  <tr>
@@ -134,7 +133,7 @@
                      <td><span class="badge bg-success">Success</span></td>
                      <td>
                          <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                         <a href="#" title="Cancel Order" class="btn btn-danger  btn-sm"><i class="fa fa-times"></i></a>                        
+                                                 
                      </td>
                  </tr>
                   

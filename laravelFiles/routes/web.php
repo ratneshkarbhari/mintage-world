@@ -167,6 +167,8 @@ Route::get("admin/manage-coins", [PageLoader::class, 'manage_coins']);
 Route::get("admin/manage-notes", [PageLoader::class, 'manage_notes']);
 
 Route::get("admin/manage-categories", [PageLoader::class, 'manage_categories']);
+Route::get("admin/add-category", [PageLoader::class, 'add_category']);
+Route::get("admin/edit-category", [PageLoader::class, 'edit_category']);
 
 Route::get("admin/manage-history", [PageLoader::class, 'manage_history']);
 

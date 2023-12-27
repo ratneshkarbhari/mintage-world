@@ -254,7 +254,7 @@
                               
                               </div>
                               <div class="col-md-10">
-                                 <button class="btn btn-primary btn-sm" data-loading-text="Loading..." id="button-payment"><i class="fa fa-plus-circle"></i> Update Payment</button>
+                                 <button class="btn btn-primary btn-sm" data-loading-text="Loading..." id="UpdatePayment"><i class="fa fa-plus-circle"></i> Update Payment</button>
                               </div>                          
                            </div>
                            
@@ -268,3 +268,37 @@
      </div>
   </div>
 </div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+   <div id="liveToast " class="toast hide bg-success text-white update-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+       <div class="toast-header bg-success text-white">
+           <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
+           <small>Just Now</small>
+           {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
+       </div>
+       <div class="toast-body">
+           Saved Successfully
+       </div>
+       <div class='toast-timeline animate'></div>
+   </div>
+</div>
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+   <div id="liveToast " class="toast hide bg-danger text-white edit-failure position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+       <div class="toast-header bg-danger text-white">
+           <strong class="me-auto"><i class="fas fa-check-circle"></i> Error</strong>
+           <small>Just Now</small>
+           {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
+       </div>
+       <div class="toast-body">
+         Something went wrong. Please contact to Administration
+       </div>
+       <div class='toast-timeline animate'></div>
+   </div>
+</div>
+
+<script>
+    $("#AddHistory,#UpdatePayment").click(function(e) {
+     $('.update-success').toast('show'); 
+    });  
+
+</script>

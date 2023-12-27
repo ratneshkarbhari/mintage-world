@@ -168,7 +168,7 @@
             </div> 
        </div>
        <div class="modal-footer">
-         <input type="submit" name="submit" id="submitbutton" class="btn btn-warning btn-sm" value="Submit">
+         <input type="submit" name="submit" id="SubmitButton" class="btn btn-warning btn-sm" value="Submit">
          <input type="reset" value="Reset" class="btn btn-warning btn-sm">
        </div>
      </div>
@@ -216,9 +216,50 @@
             </div>           
        </div>
        <div class="modal-footer">
-         <input type="submit" name="submit" id="submitbutton" class="btn btn-warning btn-sm" value="Submit">
+         <input type="submit" name="submit" id="EditButton" class="btn btn-warning btn-sm" value="Submit">
          <input type="reset" value="Reset" class="btn btn-warning btn-sm">
        </div>
      </div>
    </div>
  </div>
+
+ <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+   <div id="liveToast " class="toast hide bg-success text-white update-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+       <div class="toast-header bg-success text-white">
+           <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
+           <small>Just Now</small>
+           {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
+       </div>
+       <div class="toast-body">
+           Saved Successfully
+       </div>
+       <div class='toast-timeline animate'></div>
+   </div>
+</div>
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+   <div id="liveToast " class="toast hide bg-danger text-white edit-failure position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+       <div class="toast-header bg-danger text-white">
+           <strong class="me-auto"><i class="fas fa-check-circle"></i> Error</strong>
+           <small>Just Now</small>
+           {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
+       </div>
+       <div class="toast-body">
+         Something went wrong. Please contact to Administration
+       </div>
+       <div class='toast-timeline animate'></div>
+   </div>
+</div>
+
+<script>
+    $("#SubmitButton").click(function(e) {
+     $('.update-success').toast('show');
+     $('#EditPeriod').modal('hide');
+     $('#AddPeriod').modal('hide');
+    }); 
+    $("#EditButton").click(function(e) {
+     $('.update-success').toast('show');
+     $('#EditPeriod').modal('hide');
+     $('#AddPeriod').modal('hide');
+    }); 
+
+</script>

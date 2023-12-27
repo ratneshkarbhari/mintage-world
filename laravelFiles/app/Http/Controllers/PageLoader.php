@@ -198,16 +198,16 @@ class PageLoader extends Controller
             "title" => "Manage Categories"
         ]);
     }
-    function add_categories()
+    function add_category()
     {
-        $this->admin_page_loader("add_categories", [
-            "title" => "Add Categories"
+        $this->admin_page_loader("add_category", [
+            "title" => "Add Category"
         ]);
     }
-    function edit_categories()
+    function edit_category()
     {
-        $this->admin_page_loader("edit_categories", [
-            "title" => "edit Categories"
+        $this->admin_page_loader("edit_category", [
+            "title" => "Edit Category"
         ]);
     }
 

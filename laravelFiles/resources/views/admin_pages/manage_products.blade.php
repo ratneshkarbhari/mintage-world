@@ -41,9 +41,9 @@
                         </label>
                      </td> 
                     <td>
-                        <a href="#" class="btn btn-info btn-sm" title="View on Live"><i class="fa fa-eye"></i></a>
+                        
                         <a href="edit-product/" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-                        <a href="#" class="btn btn-danger btn-sm" title="Delet Product" ><i class="fa fa-trash"></i></a>                        
+                        <a href="#" class="btn btn-danger btn-sm" id="DeleteProduct" title="Delet Product" ><i class="fa fa-trash"></i></a>                        
                     </td>
                 </tr>
                 <tr>
@@ -60,9 +60,9 @@
                       </label>
                    </td> 
                   <td>
-                    <a href="#" class="btn btn-info btn-sm" title="View on Live"><i class="fa fa-eye"></i></a>
+                    
                     <a href="edit-product/" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-                    <a href="#" class="btn btn-danger btn-sm" title="Delet Product" ><i class="fa fa-trash"></i></a>   
+                    <a href="#" class="btn btn-danger btn-sm" id="DeleteProduct" title="Delet Product" ><i class="fa fa-trash"></i></a>   
                   </td>
               </tr>
               <tr>
@@ -79,9 +79,9 @@
                    </label>
                 </td> 
                <td>
-                <a href="#" class="btn btn-info btn-sm" title="View on Live"><i class="fa fa-eye"></i></a>
+                
                 <a href="edit-product/" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-                <a href="#" class="btn btn-danger btn-sm" title="Delet Product" ><i class="fa fa-trash"></i></a>                           
+                <a href="#" class="btn btn-danger btn-sm" id="DeleteProduct" title="Delet Product" ><i class="fa fa-trash"></i></a>                           
                </td>
            </tr>
            <tr>
@@ -98,9 +98,9 @@
                 </label>
              </td> 
             <td>
-                <a href="#" class="btn btn-info btn-sm" title="View on Live"><i class="fa fa-eye"></i></a>
+                
                 <a href="edit-product/" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-                <a href="#" class="btn btn-danger btn-sm" title="Delet Product" ><i class="fa fa-trash"></i></a>                    
+                <a href="#" class="btn btn-danger btn-sm" id="DeleteProduct" title="Delet Product" ><i class="fa fa-trash"></i></a>                    
             </td>
         </tr>
         <tr>
@@ -117,9 +117,9 @@
              </label>
           </td> 
          <td>
-            <a href="#" class="btn btn-info btn-sm" title="View on Live"><i class="fa fa-eye"></i></a>
+            
             <a href="edit-product/" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-            <a href="#" class="btn btn-danger btn-sm" title="Delet Product" ><i class="fa fa-trash"></i></a>                          
+            <a href="#" class="btn btn-danger btn-sm" id="DeleteProduct" title="Delet Product" ><i class="fa fa-trash"></i></a>                          
          </td>
      </tr>
      <tr>
@@ -136,9 +136,9 @@
           </label>
        </td> 
       <td>
-        <a href="#" class="btn btn-info btn-sm" title="View on Live"><i class="fa fa-eye"></i></a>
+        
         <a href="edit-product/" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-        <a href="#" class="btn btn-danger btn-sm" title="Delet Product" ><i class="fa fa-trash"></i></a>                        
+        <a href="#" class="btn btn-danger btn-sm" id="DeleteProduct" title="Delet Product" ><i class="fa fa-trash"></i></a>                        
       </td>
   </tr>
   <tr>
@@ -155,9 +155,9 @@
        </label>
     </td> 
    <td>
-    <a href="#" class="btn btn-info btn-sm" title="View on Live"><i class="fa fa-eye"></i></a>
+    
     <a href="edit-product/" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-    <a href="#" class="btn btn-danger btn-sm" title="Delet Product" ><i class="fa fa-trash"></i></a>                        
+    <a href="#" class="btn btn-danger btn-sm" id="DeleteProduct" title="Delet Product" ><i class="fa fa-trash"></i></a>                        
    </td>
 </tr>
 <tr>
@@ -174,9 +174,9 @@
        </label>
     </td> 
    <td>
-    <a href="#" class="btn btn-info btn-sm" title="View on Live"><i class="fa fa-eye"></i></a>
+    
     <a href="edit-product/" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-    <a href="#" class="btn btn-danger btn-sm" title="Delet Product" ><i class="fa fa-trash"></i></a>                        
+    <a href="#" class="btn btn-danger btn-sm" id="DeleteProduct" title="Delet Product" ><i class="fa fa-trash"></i></a>                        
    </td>
 </tr>
               
@@ -186,3 +186,28 @@
      
    </div>
  </div>
+ 
+
+ <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+   <div id="liveToast " class="toast hide bg-danger text-white edit-failure position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+       <div class="toast-header bg-danger text-white">
+           <strong class="me-auto"><i class="fas fa-check-circle"></i> Delete Product</strong>
+           <small>Just Now</small>
+           {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
+       </div>
+       <div class="toast-body">
+           Delete Product Successfully
+       </div>
+       <div class='toast-timeline animate'></div>
+   </div>
+</div>
+
+<script> 
+ 
+    $("#DeleteProduct").click(function(e) {
+       if (confirm("Do you really want to delete this Product?")) {
+       $('.edit-failure').toast('show'); 
+   }
+    }); 
+
+</script>

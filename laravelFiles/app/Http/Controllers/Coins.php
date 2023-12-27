@@ -8,6 +8,7 @@ use App\Models\Period;
 use App\Models\Country;
 use App\Models\Dynasty;
 use App\Models\History;
+use Illuminate\Support\Str;
 use App\Models\Denomination;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -69,7 +70,22 @@ class Coins extends Controller
 
         $countryId = $slugParts[0];
 
-        $countryName = ucfirst($slugParts[1]);
+        $countryNameString = '';
+
+        if(count($slugParts)==2){
+
+            $countryName = ucwords($slugParts[1]);
+
+
+        }else{
+
+            unset($slugParts[0]);
+
+            $countryName = ucwords(implode(" ",$slugParts));
+
+
+        }
+
 
         if(!Cache::get('coin-'.$slugParts[1].'-periods')){
 
@@ -96,7 +112,7 @@ class Coins extends Controller
                     "label" => "Coins"
                 ],
                 [
-                    // "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    // "slug" => "coin/".$country["id"]."-".Str::slug($country["name"]),
                     "label" => $country["name"]
                 ]
             ],
@@ -140,7 +156,7 @@ class Coins extends Controller
                     "label" => "Coins"
                 ],
                 [
-                    "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "slug" => "coin/".$country["id"]."-".Str::slug($country["name"]),
                     "label" => $country["name"]
                 ],
                 [
@@ -185,11 +201,11 @@ class Coins extends Controller
                     "label" => "Coins"
                 ],
                 [
-                    "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "slug" => "coin/".$country["id"]."-".Str::slug($country["name"]),
                     "label" => $country["name"]
                 ],
                 [
-                    "slug" => "coin/dynasty/".$period["id"],
+                    "slug" => "coin/dynasty/".$period["id"]."-".Str::slug($period["title"]),
                     "label" => $period["title"]
                 ],
                 [
@@ -263,15 +279,15 @@ class Coins extends Controller
                     "label" => "Coins"
                 ],
                 [
-                    "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "slug" => "coin/".$country["id"]."-".Str::slug($country["name"]),
                     "label" => $country["name"]
                 ],
                 [
-                    "slug" => "coin/dynasty/".$period["id"],
+                    "slug" => "coin/dynasty/".$period["id"]."-".Str::slug($period["title"]),
                     "label" => $period["title"]
                 ],
                 [
-                    "slug" => "coin/ruler/".$dynasty["id"],
+                    "slug" => "coin/ruler/".$dynasty["id"]."-".Str::slug($dynasty["title"]),
                     "label" => $dynasty["title"]
                 ],
                 [
@@ -316,19 +332,19 @@ class Coins extends Controller
                     "label" => "Coins"
                 ],
                 [
-                    "slug" => "coin/".$country["id"]."-".strtolower($country["name"]),
+                    "slug" => "coin/".$country["id"]."-".Str::slug($country["name"]),
                     "label" => $country["name"]
                 ],
                 [
-                    "slug" => "coin/dynasty/".$period["id"],
+                    "slug" => "coin/dynasty/".$period["id"]."-".Str::slug($period["title"]),
                     "label" => $period["title"]
                 ],
                 [
-                    "slug" => "coin/ruler/".$dynasty["id"],
+                    "slug" => "coin/ruler/".$dynasty["id"]."-".Str::slug($dynasty["title"]),
                     "label" => $dynasty["title"]
                 ],
                 [
-                    "slug" => "coin/list/".$ruler["id"],
+                    "slug" => "coin/list/".$ruler["id"]."-".Str::slug($ruler["title"]),
                     "label" => $ruler["title"]
                 ],
                 [

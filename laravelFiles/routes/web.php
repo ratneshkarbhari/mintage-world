@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfoComments;
 use App\Http\Controllers\Authentication;
 use App\Http\Controllers\Orders;
+use App\Models\ProductRating;
 use Dflydev\DotAccessData\Util;
 
 /*
@@ -132,6 +133,7 @@ Route::group(['middleware' => ['slashes']], function () {
     // Universal search
 });
 
+Route::post("add-product-rating",[Shopping::class,'add_product_rating']);
 
 Route::get("universal-search-exe", [Utils::class, 'universal_search']);
 
@@ -223,3 +225,5 @@ Route::post("verify-email-exe", [Authentication::class, 'verify_email']);
 Route::post("check-note-availability", [Shopping::class, 'check_note_availability']);
 Route::get('story/', [StaticPages::class, 'story']);
 Route::get('story/detail/{id}', [StaticPages::class, 'story_detail']);
+Route::post('forgot-password-exe',[Authentication::class,'forgot_password']);
+Route::post('forgot-password-email-verif-exe',[Authentication::class,'forgot_password_code_verify_set_password']);

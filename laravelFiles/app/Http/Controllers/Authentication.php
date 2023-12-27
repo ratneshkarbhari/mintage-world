@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Member;
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use App\Models\User;
+use Illuminate\Support\Facades\Mail;
+use PDO;
+
 class Authentication extends Controller
 {
 
@@ -41,11 +45,94 @@ class Authentication extends Controller
         }
     }
 
-    // function member_registration(Request $request){
+    function forgot_password_code_verify_set_password(Request $request){
 
-    //     print_r($request);
+        $verify_code = $request->verify_code;
+        $new_password = $request->new_password;
+        $new_password_conf = $request->new_password_conf;
 
-    // }
+        $sessionSavedCode = session('password_reset_code');
+
+        $staticPageLoader = new StaticPages();
+
+        if ($sessionSavedCode==$verify_code) {
+            if($memberData = Member::where("email",session("pwd_reset_email"))->first()){
+
+                if($new_password!=$new_password_conf){
+
+                    $staticPageLoader->forgotpassword("Passwords dont match");
+
+
+                }else{
+
+                    if(preg_match("/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\W_]).{8,}$/",$new_password)){
+
+                        $encryptedPassword = md5($this->salt . $new_password);
+
+
+                        Member::where("email",session("pwd_reset_email"))->update([
+                            "password" => $encryptedPassword
+                        ]);
+
+                        $staticPageLoader->login("Password reset, login again to access account");
+
+                    }else{
+
+                        $staticPageLoader->forgotpassword("Password strength not enough");
+
+
+                    }
+
+
+
+                }
+
+            }else{
+                $staticPageLoader->forgotpassword("Invalid Email");
+
+            }
+        } else {
+            $staticPageLoader->forgotpassword("Verification code incorrect");
+        }
+
+        exit;
+
+    }
+
+    function forgot_password(Request $request){
+
+        $enteredEmail = $request->username;
+
+        $memberModel = new Member();
+
+        $memberExists = $memberModel->where("email",$enteredEmail)->first();
+
+        $staticPageLoader = new StaticPages();
+
+        if ($memberExists) {
+
+            $code = rand(1000,9999);
+            
+            session(["password_reset_code"=>$code,"pwd_reset_email"=>$memberExists["email"]]);
+
+            $passwordResetEmailBody = '
+                Enter this code : '.$code.' on Mintage World to reset password
+            ';
+
+            $pwdResetEmailSent = $this->send_email($memberExists["email"],$memberExists["name"],"Password Reset code",$passwordResetEmailBody);
+
+            if ($pwdResetEmailSent) {
+                
+                $staticPageLoader->pwd_reset_code_verify();
+                
+            } 
+            
+
+        }else{
+            $staticPageLoader->forgotpassword("A user with this email does not exist");
+        }
+
+    }
 
     function logout()
     {
@@ -93,16 +180,6 @@ class Authentication extends Controller
 
         }
         
-
-    }
-
-    private function send_verif_email(){
-        
-        $verifCode = rand(1000,9999);
-
-        session(["email_verification_code"=>$verifCode]);
-
-        return $verifCode;
 
     }
 
@@ -154,8 +231,25 @@ class Authentication extends Controller
 
             $memberCreated = $memberModel->create($memberObj);
 
+            $email = $request->EmailID;
+            
+
             if ($memberCreated) {
-                $code = $this->send_verif_email();
+                
+                $code = rand(1000,9999);
+
+                $message = '<p>This is your email verification code : '.$code.'</p>
+                <p>Enter it on Mintage World to verify your account.</p>';
+
+                $emailSendingResult = $this->send_email($email,"Email Verification",$message);
+
+                if(!$emailSendingResult){
+
+                    echo "Email not sent";
+
+                    exit;
+                    
+                }
 
                 $memberObj["user_type"] = "member";
                 
@@ -164,7 +258,7 @@ class Authentication extends Controller
                 $memberObj["member_id"] = $memberCreated->id;
 
                 session($memberObj);
-                $staticPageLoader->verify_email($code,"");        
+                $staticPageLoader->verify_email();        
 
             } else {
                 
@@ -189,7 +283,13 @@ class Authentication extends Controller
 
         if(session("verif_code")==$enteredVerifCode){
 
-            
+
+            $memberModel = new Member();
+
+            $memberModel->where("email", session("email_to_verify"))->update([
+                "email_verified" => 1
+            ]);            
+
             return redirect(url("member/dashboard/"));
 
 

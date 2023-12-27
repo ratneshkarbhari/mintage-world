@@ -123,16 +123,17 @@ class StaticPages extends Controller
             "title" => "Contact Us | Mintage World"
         ]);
     }
-    function login()
+    function login($success="")
     {
 
-        if (session("type")) {
+        if (session()->has("type")) {
             return redirect(url("member/dashboard"));
         }
 
         $this->page_loader("login", [
             "title" => "Login | Mintage World",
-            "is_login" => TRUE
+            "is_login" => TRUE,
+            "success" => $success
         ]);
     }
     function member($registrationErrorMessage = "")
@@ -142,10 +143,21 @@ class StaticPages extends Controller
             "registrationErrorMessage" => $registrationErrorMessage
         ]);
     }
-    function forgotpassword()
+
+    function pwd_reset_code_verify($error=""){
+
+        $this->page_loader("pwd_reset_code_verify", [
+            "title" => "Password Reset Code verify | Mintage World",
+            "error" => $error
+        ]);
+
+    }
+
+    function forgotpassword($error='')
     {
         $this->page_loader("forgotpassword", [
-            "title" => "Forgot Password | Mintage World"
+            "title" => "Forgot Password | Mintage World",
+            "error" => $error
         ]);
     }
     function membership_detail()
@@ -257,7 +269,7 @@ class StaticPages extends Controller
             "pagination_info_string" => $paginationInfoString
         ]);
     }
-    function dashboard()
+    function dashboard($success="")
     {
         $memberId = session("member_id");
         if (!isset($memberId)) {
@@ -265,7 +277,8 @@ class StaticPages extends Controller
         }
         $this->page_loader("dashboard", [
             "title" => "Dashboard | Mintage World",
-            "user" => Member::find(session("member_id"))
+            "user" => Member::find(session("member_id")),
+            "success" => $success
         ]);
     }
     

@@ -37,7 +37,7 @@
                     <div class="d-flex justify-content-between"><h2 class="mb-3 heading-1">{{$info_title}}</h2></div>
                     <div class="row info-item-grid-row">
                         @foreach($dynasties as $dynasty)
-                        <div class="col-lg-2 col-md-6 col-sm-12 info-item-grid-outer-box d-flex align-items-stretch"><a href="{{url("coin/ruler/".$dynasty["id"])}}">
+                        <div class="col-lg-2 col-md-6 col-sm-12 info-item-grid-outer-box d-flex align-items-stretch"><a href="{{url("coin/ruler/".$dynasty["id"]."-".Str::slug($dynasty["title"]))}}">
                             @if(isset($dynasty["image"]))
                             <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="{{getenv("dynasty_IMAGE_BASE_URL")."/".$dynasty["image"]}}" alt="{{$dynasty["name"]}}" alt="{{$dynasty["title"]}}">
                                 <div class="info-meta text-center">

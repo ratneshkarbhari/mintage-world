@@ -430,14 +430,46 @@
         <div id="tab-review" class="hidden"></div>
     </section>
 
-    <section class="common-padding AddComment">
+    <section class="common-padding AddComment 
+    @if(session('type')!='member')
+    d-none
+    @endif
+    ">
         <div class="container-fluid  px-lg-2 px-lg-5">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h6><b>Write a Review for <span>Standard Guide to Paper Money of Republic India Book on Indian Currency Notes</span></b></h6>
+                    @isset($_GET["review_post_success"])
+                    <p class="text-success">Review Posted successfully</p>
+                    @endif
+                    <h6><b>Write a Review for <span>{{$product["name1"]}}</span></b></h6>
                     <p>Your Comments</p>
+                    <form action="{{url('add-product-rating')}}" method="POST">
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{$product['id']}}">
                     <input name="UserName" class="form-control" placeholder="User Name" required="" />
                     <textarea name="comment" class="form-control mt-3" placeholder="Enter your message" required="" rows="10"></textarea>
+                    <fieldset id="demo2" class="rating">
+                        <input class="stars" type="radio" id="star5" name="rating" value="5">
+                        <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                        <input class="stars" type="radio" id="star4half" name="rating" value="4.5">
+                        <label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                        <input class="stars" type="radio" id="star4" name="rating" value="4">
+                        <label class="full" for="star4" title="Pretty good - 4 stars"></label>
+                        <input class="stars" type="radio" id="star3half" name="rating" value="3.5">
+                        <label class="half" for="star3half" title="3.5 stars"></label>
+                        <input class="stars" type="radio" id="star3" name="rating" value="3" data-gtm-form-interact-field-id="2">
+                        <label class="full" for="star3" title="3 stars"></label>
+                        <input class="stars" type="radio" id="star2half" name="rating" value="2.5">
+                        <label class="half" for="star2half" title="2.5 stars"></label>
+                        <input class="stars" type="radio" id="star2" name="rating" value="2">
+                        <label class="full" for="star2" title="2 stars"></label>
+                        <input class="stars" type="radio" id="star1half" name="rating" value="1.5">
+                        <label class="half" for="star1half" title="1.5 stars"></label>
+                        <input class="stars" type="radio" id="star1" name="rating" value="1">
+                        <label class="full" for="star1" title="1 star"></label>
+                        <input class="stars" type="radio" id="starhalf" name="rating" value="0.5">
+                        <label class="half" for="starhalf" title="0.5 stars"></label>
+                    </fieldset>
                     <span class="small">Note: HTML is not translated!</span><br>
                     <button class="btn btn-sm btn-explore mt-3">Submit
                         <span class="first"></span>
@@ -445,6 +477,7 @@
                         <span class="third"></span>
                         <span class="fourth"></span>
                     </button>
+                    </form>
                 </div>
                 <div class="col-md-6 col-sm-12 mt-5 mt-md-0">
                     <div class="recent-comment-wrap">

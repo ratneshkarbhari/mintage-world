@@ -15,6 +15,9 @@ class ProductRating extends Model
      */
     protected $protected = [];
 
+    protected $guarded = [];  
+
+
     protected $table = "products_ratings";
 
 

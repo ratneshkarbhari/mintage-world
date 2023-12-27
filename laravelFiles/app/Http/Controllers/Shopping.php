@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Country;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ProductRating;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
@@ -217,6 +218,36 @@ class Shopping extends Controller
 
             return redirect()->to(url("shop"));
         }
+    }
+
+    function add_product_rating(Request $request){
+
+        $name = $request->UserName;
+        $comment = $request->comment;
+        $rating = $request->rating;
+        $productId = $request->product_id;
+
+        $productData = Product::find($productId);
+
+        $productRatingModel = new ProductRating();
+
+        $created = $productRatingModel->create([
+            "member_id" => session("member_id"),
+            "product_id" => $productId,
+            "user_name" => $name,
+            "review_headline" => NULL,
+            "rating_score" => $rating,
+            "comments" => $comment,
+            "delivery_comment" => NULL,
+            "approval" => NULL,
+            "user_ip"=>$_SERVER["REMOTE_ADDR"],
+            "user_agent" => $_SERVER['HTTP_USER_AGENT']
+        ]);
+
+        if ($created) {
+            return redirect()->to(url("view-product/".$productId."-".$productData["custom_url"]."?review_post_success=TRUE"));
+        }
+
     }
 
     function check_note_availability(Request $request)

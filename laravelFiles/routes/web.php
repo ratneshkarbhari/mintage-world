@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfoComments;
 use App\Http\Controllers\Authentication;
 use App\Http\Controllers\Orders;
+use App\Models\ProductRating;
 use Dflydev\DotAccessData\Util;
 
 /*
@@ -132,6 +133,7 @@ Route::group(['middleware' => ['slashes']], function () {
     // Universal search
 });
 
+Route::post("add-product-rating",[Shopping::class,'add_product_rating']);
 
 Route::get("universal-search-exe", [Utils::class, 'universal_search']);
 

@@ -1,2 +1,3 @@
 assets/history-pdfs/
 laravelFiles/app/Http/Middleware/slashesMiddleware.php
+product_listing_query.txt

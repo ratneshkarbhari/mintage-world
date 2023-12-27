@@ -81,100 +81,36 @@ class Shopping extends Controller
     function shop_list($categorySlug, Request $request)
     {
 
-
-
-        $categorySlugParts = explode("-", $categorySlug);
-
-        $categoryProducts = Product::select('*');
-
-
-        $categoryProducts = $categoryProducts->where("instock", "!=", 0);
-
-
-        $categoryProducts = $categoryProducts->where("category", $categorySlugParts[0]);
-
-        if ($request->has('price_sort') && $request->price_sort != "") {
-
-            $categoryProducts = $categoryProducts->orderBy("price", $request->price_sort);
-        }
-
-        if ($request->has("denomination") && $request->denomination != "") {
-
-            $categoryProducts = $categoryProducts->where("denomination", $request->denomination);
-        }
-
-
-
-        if ($request->has("governor") && $request->governor != "") {
-
-            $categoryProducts = $categoryProducts->where("governor", $request->governor);
-        }
-
-        $categoryProducts  = $categoryProducts->paginate(12);
+        $categorySlugParts = explode("-",$categorySlug);
+                
+        $products = Product::select('products.*', 'shopping_category.parent AS parent')
+        ->join('shopping_category', 'shopping_category.id', '=', 'products.category')
+        ->where('products.status', 'Active')
+        ->where('products.instock', '>=', 1)
+        ->where('products.special_status', 2)
+        ->where(function ($query) use ($categorySlugParts) {
+            $query->where('products.category', $categorySlugParts[0])
+                ->orWhere('shopping_category.parent', $categorySlugParts[0]);
+        })
+        ->where(function ($query) use ($categorySlugParts){
+            $query->where('shopping_category.main_parent', $categorySlugParts[0])
+                ->orWhere(function ($query) {
+                    $query->where('products.instock', '>=', 1)
+                        ->where('products.special_status', 2);
+                });
+        })
+        ->orderByDesc('products.instock')
+        ->orderByDesc('products.id')
+        ->paginate(12);
 
         $maincatdata = ProductCategory::find($categorySlugParts[0]);
 
-        if ($maincatdata["parent"] != 0) {
-            $parent_category = ProductCategory::find($maincatdata["parent"]);
-            if ($parent_category["parent"] != 0) {
-                $grand_parent_category = ProductCategory::find($parent_category["parent"]);
-            } else {
-                $grand_parent_category = NULL;
-            }
-        } else {
-            $parent_category = NULL;
-        }
+        $parent_category = ProductCategory::find($maincatdata["parent"]);
 
+        $categoryProducts = $products;
 
-        $total = count($categoryProducts);
-
-        if ($total == 0) {
-
-            $productCategory = new ProductCategory();
-
-            $childCategories = $productCategory->where("parent", $categorySlugParts[0])->paginate(12);
-
-            $childCatIds = [];
-
-            foreach ($childCategories as $childCategory) {
-
-                $childCatIds[] = $childCategory["id"];
-            }
-
-
-
-            $categoryProducts = Product::select('*');
-
-
-            $categoryProducts = $categoryProducts->where("category", $childCatIds);
-
-            $categoryProducts = $categoryProducts->where("instock", "!=", 0);
-
-
-            if ($request->has('price_sort') && $request->price_sort != "") {
-
-                $categoryProducts = $categoryProducts->orderBy("price", $request->price_sort);
-            }
-
-            if ($request->has("denomination") && $request->denomination != "") {
-
-                $categoryProducts = $categoryProducts->where("denomination", $request->denomination);
-            }
-
-
-
-            if ($request->has("governor") && $request->governor != "") {
-
-                $categoryProducts = $categoryProducts->where("governor", $request->governor);
-            }
-
-            $categoryProducts  = $categoryProducts->paginate(12);
-
-
-
-            $total = count($categoryProducts);
-        }
-
+        $total = $categoryProducts->total();
+        
         $currentPage = $categoryProducts->currentPage();
         $perPage = $categoryProducts->perPage();
 
@@ -194,7 +130,8 @@ class Shopping extends Controller
             "category" => $maincatdata,
             "category_products" => $categoryProducts,
             "product_count" => count($categoryProducts),
-            "pagination_string" => $paginationInfoString
+            "pagination_string" => $paginationInfoString,
+            "totalRecords" => $total
         ]);
     }
     function view_product($productSlug)

@@ -148,7 +148,7 @@
             </div>
             <div class="col-lg-9 col-md-12 mt-md-5 mt-0 mt-lg-0">
                <div class="d-flex justify-content-between col-md-12">
-                  <h2 class="mb-3 heading-1">{{$category["cat_name"]}} </h2>
+                  <h2 class="mb-3 heading-1">{{$category["cat_name"]}} ({{$totalRecords}}) </h2>
                   <form id="filterForm" action="{{url("shop/list/".$category["id"]."-".$category["custom_url"])}}" method="GET">
 
                      <div class="row product-short-wrap  justify-content-end" >

@@ -18,19 +18,35 @@ class Controller extends BaseController
     use AuthorizesRequests, ValidatesRequests;
 
 
-    function send_email($to,$subject,$message){
+    function send_email($to,$toName,$subject,$message){
 
-        $headers = [
-            'From' => 'Mintage World <mintmail@mintageworld.com>',
-            'X-Sender' => 'testsite <mintmail@mintageworld.com>',
-            'X-Mailer' => 'PHP/' . phpversion(),
-            'X-Priority' => '1',
-            'Return-Path' => 'mintmail@mintageworld.com',
-            'MIME-Version' => '1.0',
-            'Content-Type' => 'text/html; charset=iso-8859-1'
-        ];
         
-        return mail($to, $subject, $message, $headers);
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL,"https://www.ultrasofttoys.com/public/mintage-email-api/send_email.php");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        // curl_setopt($ch, CURLOPT_POSTFIELDS,
+        //             "postvar1=value1&postvar2=value2&postvar3=value3");
+
+        // In real life you should use something like:
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 
+                    http_build_query([
+                    'recipient_email' => $to,
+                    'recipient_name' => $toName,
+                    'subject' => $subject,
+                    'message' => $message                    
+                ]));
+
+        // Receive server response ...
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $server_output = curl_exec($ch);
+
+
+        curl_close($ch);
+        
+        
+        return TRUE;
+
 
     }
 

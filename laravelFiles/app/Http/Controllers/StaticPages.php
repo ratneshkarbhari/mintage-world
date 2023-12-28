@@ -359,7 +359,7 @@ class StaticPages extends Controller
     {
 
         $this->page_loader("verify_email", [
-            "title" => "Know Your Stamps | Mintage World",
+            "title" => "Verify Email | Mintage World",
             "verif_code" => $verifCode,
             "registrationErrorMessage" => $registrationErrorMessage
         ]);

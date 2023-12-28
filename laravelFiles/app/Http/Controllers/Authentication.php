@@ -241,7 +241,8 @@ class Authentication extends Controller
                 $message = '<p>This is your email verification code : '.$code.'</p>
                 <p>Enter it on Mintage World to verify your account.</p>';
 
-                $emailSendingResult = $this->send_email($email,"Email Verification",$message);
+                $emailSendingResult = $this->send_email($email,$request->first_name,"Email Verification",$message);
+
 
                 if(!$emailSendingResult){
 
@@ -256,6 +257,8 @@ class Authentication extends Controller
                 $memberObj["verif_code"] = $code;
 
                 $memberObj["member_id"] = $memberCreated->id;
+
+                $memberObj["level"] = "Regular";
 
                 session($memberObj);
                 $staticPageLoader->verify_email();        

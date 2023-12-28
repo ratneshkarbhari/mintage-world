@@ -509,6 +509,9 @@
                                 {{$newDate}}</span></p>
                                 <p>{{$product_rating["comments"]}}</p> 
 
+                                <i data-star="{{$product_rating["rating_score"]}}"></i> 
+                                  
+                                  
                             </div>
                             @endforeach
                         </div>
@@ -640,7 +643,7 @@
 
 {{-- Modal start -- Countries and Denominations  --}}
 <!-- id 930 & 937 --> 
-<div class="modal fade" id="table1" tabindex="-1" aria-labelledby="Table1ModalLabel" aria-hidden="true">
+<div class="modal fade country-modal" id="table1" tabindex="-1" aria-labelledby="Table1ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content"> 
             <div class="modal-body text-center">
@@ -1130,7 +1133,7 @@
     </div>
 </div>
  <!-- id 800 --> 
-<div class="modal fade" id="table800" tabindex="-1" aria-labelledby="Table800ModalLabel" aria-hidden="true">
+<div class="modal fade country-modal" id="table800" tabindex="-1" aria-labelledby="Table800ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content"> 
             <div class="modal-body text-center">
@@ -1415,7 +1418,7 @@
     </div>
 </div>
  <!-- id 929 --> 
-<div class="modal fade" id="table929" tabindex="-1" aria-labelledby="Table929ModalLabel" aria-hidden="true">
+<div class="modal fade country-modal" id="table929" tabindex="-1" aria-labelledby="Table929ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content"> 
             <div class="modal-body text-center">
@@ -1701,7 +1704,7 @@
     </div>
 </div>
  <!-- id 1731 --> 
-<div class="modal fade" id="table1731" tabindex="-1" aria-labelledby="Table1731ModalLabel" aria-hidden="true">
+<div class="modal fade country-modal" id="table1731" tabindex="-1" aria-labelledby="Table1731ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
        <div class="modal-content">
           <div class="modal-body text-center">
@@ -1959,7 +1962,7 @@
     </div>
 </div>
  <!-- id 1627 --> 
-<div class="modal fade" id="table1627" tabindex="-1" aria-labelledby="table1627ModalLabel" aria-hidden="true">
+<div class="modal fade country-modal" id="table1627" tabindex="-1" aria-labelledby="table1627ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
        <div class="modal-content">
           <div class="modal-body text-center">
@@ -2209,7 +2212,7 @@
     </div>
 </div>
  <!-- id 1628 --> 
- <div class="modal fade" id="table1628" tabindex="-1" aria-labelledby="table1628ModalLabel" aria-hidden="true">
+ <div class="modal fade country-modal" id="table1628" tabindex="-1" aria-labelledby="table1628ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
        <div class="modal-content">
           <div class="modal-body text-center">
@@ -2359,7 +2362,7 @@
     </div>
 </div>
  <!-- id 1973 --> 
- <div class="modal fade" id="table1973" tabindex="-1" aria-labelledby="table1973ModalLabel" aria-hidden="true">
+ <div class="modal fade country-modal" id="table1973" tabindex="-1" aria-labelledby="table1973ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
        <div class="modal-content">
           <div class="modal-body text-center">
@@ -2456,6 +2459,56 @@
                                <td>1 penny</td>
                                <td>Bronze</td>
                             </tr>
+                            <tr>
+                                <td>Finland</td>
+                                <td>1 Euro Cent</td>
+                                <td>Copper Plated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Germany</td>
+                                <td>1 Euro Cent</td>
+                                <td>Copper Plated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Greece</td>
+                                <td>1 Euro Cent</td>
+                                <td>Copper Plated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Guatemala </td>
+                                <td>5 Centavos</td>
+                                <td>Nickel Plated Steel/ Copper- Nickel</td>
+                             </tr>
+                             <tr>
+                                <td>Iceland</td>
+                                <td>25 Aurar</td>
+                                <td>Copper-Nickel</td>
+                             </tr>
+                             <tr>
+                                <td>Iraq</td>
+                                <td>25 Dinars</td>
+                                <td>Copper Plated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Ireland</td>
+                                <td>1 Euro Cent</td>
+                                <td>Copper Plated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Italy</td>
+                                <td>1 Euro Cent</td>
+                                <td>Copper Plated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Jamaica</td>
+                                <td>10 Cents</td>
+                                <td>Copper Plated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Jersey</td>
+                                <td>1 Penny</td>
+                                <td>Bronze</td>
+                             </tr>
                          </tbody>
                       </table>
                    </div>
@@ -2469,56 +2522,7 @@
                             </tr>
                          </thead>
                          <tbody>
-                            <tr>
-                               <td>Finland</td>
-                               <td>1 Euro Cent</td>
-                               <td>Copper Plated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Germany</td>
-                               <td>1 Euro Cent</td>
-                               <td>Copper Plated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Greece</td>
-                               <td>1 Euro Cent</td>
-                               <td>Copper Plated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Guatemala </td>
-                               <td>5 Centavos</td>
-                               <td>Nickel Plated Steel/ Copper- Nickel</td>
-                            </tr>
-                            <tr>
-                               <td>Iceland</td>
-                               <td>25 Aurar</td>
-                               <td>Copper-Nickel</td>
-                            </tr>
-                            <tr>
-                               <td>Iraq</td>
-                               <td>25 Dinars</td>
-                               <td>Copper Plated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Ireland</td>
-                               <td>1 Euro Cent</td>
-                               <td>Copper Plated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Italy</td>
-                               <td>1 Euro Cent</td>
-                               <td>Copper Plated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Jamaica</td>
-                               <td>10 Cents</td>
-                               <td>Copper Plated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Jersey</td>
-                               <td>1 Penny</td>
-                               <td>Bronze</td>
-                            </tr>
+                            
                             <tr>
                                <td>Latvia</td>
                                <td>1 Santims</td>
@@ -2549,140 +2553,114 @@
                                <td>1 Cent</td>
                                <td>Copper Plated Steel</td>
                             </tr>
+                            <tr>
+                                <td>Mozambique</td>
+                                <td>5 Centavos</td>
+                                <td>Copper Plated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Nepal</td>
+                                <td>25 Paisa</td>
+                                <td>Alunimium</td>
+                             </tr>
+                             <tr>
+                                <td>Poland</td>
+                                <td>1 Grosz</td>
+                                <td>Brass Plated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Portugal </td>
+                                <td>1 Euro Cent</td>
+                                <td>Copper Coated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Romania</td>
+                                <td>1000 Lei</td>
+                                <td>Aluminium-Magnesium</td>
+                             </tr>
+                             <tr>
+                                <td>Russia</td>
+                                <td>10 Kopecks</td>
+                                <td>Brass Clad Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Rwanda</td>
+                                <td>5 Francs</td>
+                                <td>Brass Plated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Serbia</td>
+                                <td>1 Dinar</td>
+                                <td>Nickel-Brass</td>
+                             </tr>
+                             <tr>
+                                <td>Singapore</td>
+                                <td>5 Cents</td>
+                                <td>Brass Plated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Slovakia</td>
+                                <td>1 Cent</td>
+                                <td>Copper Plated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Slovenia</td>
+                                <td>1 Tolar</td>
+                                <td>Brass</td>
+                             </tr>
+                             <tr>
+                                <td>Spain	</td>
+                                <td>1 Euro Cent</td>
+                                <td>Copper Plated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Sri Lanka</td>
+                                <td>25 Cents</td>
+                                <td>Copper Plated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Tajikistan</td>
+                                <td>1 Diram</td>
+                                <td>Brass Plated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>The Netherlands</td>
+                                <td>1 Euro Cent</td>
+                                <td>Copper Plated Steel</td>
+                             </tr>
+                             <tr>
+                                <td>Turkey	</td>
+                                <td>1 Kurus</td>
+                                <td>Brass</td>
+                             </tr>
+                             <tr>
+                                <td>U.S.A</td>
+                                <td>1 Cent</td>
+                                <td>Bronze</td>
+                             </tr>
+                             <tr>
+                                <td>Ukraine</td>
+                                <td>1 Kopiyka</td>
+                                <td>Stainless Steel</td>
+                             </tr>
+                             <tr>
+                                <td>United Kingdom</td>
+                                <td>Half Penny</td>
+                                <td>Bronze</td>
+                             </tr>
+                             <tr>
+                                <td>Zambia	 </td>
+                                <td>1 Ngwee</td>
+                                <td>Copper Clad Steel</td>
+                             </tr>
+                             <tr>
+                                <td>India</td>
+                                <td>1 Rupee</td>
+                                <td>Stainless Steel</td>
+                             </tr>
                          </tbody>
                       </table>
-                   </div>
-                   <div class="col-md-6">
-                      <table class= "table table-striped">
-                         <thead>
-                            <tr>
-                               <th>Country</th>
-                               <th>Denomination</th>
-                               <th>Metal</th>
-                            </tr>
-                         </thead>
-                         <tbody>
-                            <tr>
-                               <td>Mozambique</td>
-                               <td>5 Centavos</td>
-                               <td>Copper Plated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Nepal</td>
-                               <td>25 Paisa</td>
-                               <td>Alunimium</td>
-                            </tr>
-                            <tr>
-                               <td>Poland</td>
-                               <td>1 Grosz</td>
-                               <td>Brass Plated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Portugal </td>
-                               <td>1 Euro Cent</td>
-                               <td>Copper Coated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Romania</td>
-                               <td>1000 Lei</td>
-                               <td>Aluminium-Magnesium</td>
-                            </tr>
-                            <tr>
-                               <td>Russia</td>
-                               <td>10 Kopecks</td>
-                               <td>Brass Clad Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Rwanda</td>
-                               <td>5 Francs</td>
-                               <td>Brass Plated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Serbia</td>
-                               <td>1 Dinar</td>
-                               <td>Nickel-Brass</td>
-                            </tr>
-                            <tr>
-                               <td>Singapore</td>
-                               <td>5 Cents</td>
-                               <td>Brass Plated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Slovakia</td>
-                               <td>1 Cent</td>
-                               <td>Copper Plated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Slovenia</td>
-                               <td>1 Tolar</td>
-                               <td>Brass</td>
-                            </tr>
-                            <tr>
-                               <td>Spain	</td>
-                               <td>1 Euro Cent</td>
-                               <td>Copper Plated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Sri Lanka</td>
-                               <td>25 Cents</td>
-                               <td>Copper Plated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Tajikistan</td>
-                               <td>1 Diram</td>
-                               <td>Brass Plated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>The Netherlands</td>
-                               <td>1 Euro Cent</td>
-                               <td>Copper Plated Steel</td>
-                            </tr>
-                            <tr>
-                               <td>Turkey	</td>
-                               <td>1 Kurus</td>
-                               <td>Brass</td>
-                            </tr>
-                         </tbody>
-                      </table>
-                   </div>
-                   <div class="col-md-6">
-                      <table class="table table-striped table-bordered">
-                         <thead>
-                            <tr>
-                               <th>Country</th>
-                               <th>Denomination</th>
-                               <th>Metal</th>
-                            </tr>
-                         </thead>
-                         <tbody>
-                            <tr>
-                               <td>U.S.A</td>
-                               <td>1 Cent</td>
-                               <td>Bronze</td>
-                            </tr>
-                            <tr>
-                               <td>Ukraine</td>
-                               <td>1 Kopiyka</td>
-                               <td>Stainless Steel</td>
-                            </tr>
-                            <tr>
-                               <td>United Kingdom</td>
-                               <td>Half Penny</td>
-                               <td>Bronze</td>
-                            </tr>
-                            <tr>
-                               <td>Zambia	 </td>
-                               <td>1 Ngwee</td>
-                               <td>Copper Clad Steel</td>
-                            </tr>
-                            <tr>
-                               <td>India</td>
-                               <td>1 Rupee</td>
-                               <td>Stainless Steel</td>
-                            </tr>
-                         </tbody>
-                      </table>
-                   </div>
+                   </div>                    
                 </div>
              </div>
           </div>
@@ -2691,7 +2669,7 @@
 </div>
 
 <!-- id 2845 --> 
-<div class="modal fade" id="table2845" tabindex="-1" aria-labelledby="table2845ModalLabel" aria-hidden="true">
+<div class="modal fade country-modal" id="table2845" tabindex="-1" aria-labelledby="table2845ModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
        <div class="modal-content">
           <div class="modal-body text-center">
@@ -2711,127 +2689,127 @@
                             <tr>
                                 <td>Afghanistan</td>
                                 <td>South and Central Asian country</td>
-                                <td>Afghani</td>
+                                <td>1 Afghani</td>
                              </tr>
                              <tr>
                                 <td>Bangladesh</td>
                                 <td>South Asian Country</td>
-                                <td>Taka</td>
+                                <td>2 Taka</td>
                              </tr>
                              <tr>
                                 <td>Bhutan</td>
                                 <td>South Asian Country</td>
-                                <td>Ngultrum</td>
+                                <td>1 Ngultrum</td>
                              </tr>
                              <tr>
                                 <td>Cambodia</td>
                                 <td>Southeast Asian country</td>
-                                <td>Riel</td>
+                                <td>1 Riel</td>
                              </tr>
                              <tr>
                                 <td>China</td>
                                 <td>East Asian country</td>
-                                <td>Fen</td>
+                                <td>1 Fen</td>
                              </tr>
                              <tr>
                                 <td>India</td>
                                 <td>South Asian country</td>
-                                <td>Rupee</td>
+                                <td>1 Rupee</td>
                              </tr>
                              <tr>
                                 <td>Indonesia</td>
                                 <td>Southeast Asian country</td>
-                                <td>Sen</td>
+                                <td>5 Sen</td>
                              </tr>
                              <tr>
                                 <td>Iran</td>
                                 <td>West Asian country</td>
-                                <td>Riel</td>
+                                <td>100 Riel</td>
                              </tr>
                              <tr>
                                 <td>Iraq</td>
                                 <td>West Asian country</td>
-                                <td>Dinar</td>
+                                <td>1 Dinar</td>
                              </tr>
                              <tr>
                                 <td>Kyrgyzstan</td>
                                 <td>Central Asian country</td>
-                                <td>Tyiyn</td>
+                                <td>1 Tyiyn</td>
                              </tr>
                              <tr>
                                 <td>Lebanon</td>
                                 <td>West Asian country</td>
-                                <td>Livre</td>
+                                <td>10 Livre</td>
                              </tr>
                              <tr>
                                 <td>Malaysia</td>
                                 <td>Southeast Asian country</td>
-                                <td>Ringgit</td>
+                                <td>1 Ringgit</td>
                              </tr>
                              <tr>
                                 <td>Mongolia</td>
                                 <td>East Asian country</td>
-                                <td>Mongo</td>
+                                <td>10 Mongo</td>
                              </tr>
                              <tr>
                                 <td>Myanmar</td>
                                 <td>South Asian Country</td>
-                                <td>Pya</td>
+                                <td>50 Pya</td>
                              </tr>
                              <tr>
                                 <td>Nepal</td>
                                 <td>South Asian Country</td>
-                                <td>Rupee</td>
+                                <td>2 Rupee</td>
                              </tr>
                              <tr>
                                 <td>Oman</td>
                                 <td>West Asian country</td>
-                                <td>Baisa</td>
+                                <td>100 Baisa</td>
                              </tr>
                              <tr>
                                 <td>Laos</td>
                                 <td>South Asian country</td>
-                                <td>Kip</td>
+                                <td>1 Kip</td>
                              </tr>
                              <tr>
                                 <td>Philippines</td>
                                 <td>South Asian Country</td>
-                                <td>Piso</td>
+                                <td>20 Piso</td>
                              </tr>
                              <tr>
                                 <td>Russia</td>
                                 <td>North Asian country</td>
-                                <td>Ruble</td>
+                                <td>1 Ruble</td>
                              </tr>
                              <tr>
                                 <td>Sri Lanka</td>
                                 <td>South Asian country</td>
-                                <td>Rupee</td>
+                                <td>10 Rupee</td>
                              </tr>
                              <tr>
                                 <td>Syria</td>
                                 <td>West Asian country</td>
-                                <td>Pound</td>
+                                <td>50 Pound</td>
                              </tr>
                              <tr>
                                 <td>Tajikistan</td>
                                 <td>Central Asian country</td>
-                                <td>Ruble</td>
+                                <td>1 Ruble</td>
                              </tr>
                              <tr>
                                 <td>Uzbekistan</td>
                                 <td>Central Asian country</td>
-                                <td>Som</td>
+                                <td>200 Som</td>
                              </tr>
                              <tr>
                                 <td>Vietnam</td>
                                 <td>Southeast Asian country</td>
-                                <td>Dong</td>
+                                <td>100 Dong</td>
                              </tr>
                              <tr>
                                 <td>Yemen</td>
                                 <td>West Asian country</td>
-                                <td>Rial</td>
+                                <td>20 Rial</td>
                              </tr>   
                          </tbody>
                       </table>

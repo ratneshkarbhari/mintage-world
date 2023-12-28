@@ -203,9 +203,7 @@ class Shopping extends Controller
 
         $slugParts = explode("-", $productSlug);
 
-        $product = Product::where("id", $slugParts[0])->with("product_category")->with("product_images")->with('product_ratings', function($query) {
-            return $query->where('approval', 1);
-        })->first();
+        $product = Product::where("id", $slugParts[0])->with("product_category")->with("product_images")->with("product_ratings")->first();
 
 
 

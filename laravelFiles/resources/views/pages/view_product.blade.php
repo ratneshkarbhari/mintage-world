@@ -37,7 +37,13 @@
 
                         <div class="item zoomable">
                             <a class="lightbox" href="{{ getenv('PRODUCT_EXTRA_IMAGE_BASE_URL').$product_image['image_name'] }}">
-                                <img src="{{ getenv('PRODUCT_EXTRA_IMAGE_BASE_URL').$product_image['image_name'] }}" class="img-fluid zoomable__img" />
+                                @if(getenv('PRODUCT_EXTRA_IMAGE_BASE_URL').$product_image['image_name'])
+                                <img src="{{getenv('PRODUCT_EXTRA_IMAGE_BASE_URL').$product_image['image_name']}}" class="img-fluid zoomable__img" 
+                                />
+                                @else
+                                <img src="{{getenv('API_DEFAULT_IMG_PATH')}}" class="img-fluid zoomable__img" 
+                                />
+                                @endif
                             </a>
                         </div>
 
@@ -55,7 +61,11 @@
                         @foreach($product["product_images"] as $product_image)
 
                         <div class="item">
+                            @if(is_file(getenv('PRODUCT_EXTRA_IMAGE_BASE_URL').$product_image['image_name']))
                             <img src="{{ getenv('PRODUCT_EXTRA_IMAGE_BASE_URL').$product_image['image_name'] }}" class="img-fluid" />
+                            @else
+                            <img src="{{ getenv('API_DEFAULT_IMG_PATH')}}" class="img-fluid" />
+                            @endif
                         </div>
 
 
@@ -392,15 +402,12 @@
                         </form>
                     </div>
                     @endif
-                    @if($product["instock"]<1) <button class="btn btn-lg  btn-success text-white rounded-pill"><i class="fa fa-bell"></i> Notify me
-                        <span class="first"></span>
-                        <span class="second"></span>
-                        <span class="third"></span>
-                        <span class="fourth"></span>
-                        </button>
                 </div>
+              
+                    @if($product["instock"]<1)   <hr>                   
+                
                 <div class="notify-me-wraper">
-                    <hr>
+                   <p class="text-success"> <b><i class="fa fa-bell"></i>  Notify Me</b></p>
                     <input name="nemail" value="" id="nemail" size="100" placeholder="Please enter your email address to get notified" class="form-control" type="text">
                     <button class="btn btn-sm btn-explore mt-3"><i class="fa fa-thumbs-up"></i> Submit
                         <span class="first"></span>
@@ -430,11 +437,7 @@
         <div id="tab-review" class="hidden"></div>
     </section>
 
-    <section class="common-padding AddComment 
-    @if(session('type')!='member')
-    d-none
-    @endif
-    ">
+    <section class="common-padding AddComment  ">
         <div class="container-fluid  px-lg-2 px-lg-5">
             <div class="row">
                 <div class="col-md-6 col-sm-12">
@@ -448,6 +451,7 @@
                     <input type="hidden" name="product_id" value="{{$product['id']}}">
                     <input name="UserName" class="form-control" placeholder="User Name" required="" />
                     <textarea name="comment" class="form-control mt-3" placeholder="Enter your message" required="" rows="10"></textarea>
+					   <div class="d-flex w-100 mb-3">
                     <fieldset id="demo2" class="rating">
                         <input class="stars" type="radio" id="star5" name="rating" value="5">
                         <label class="full" for="star5" title="Awesome - 5 stars"></label>
@@ -470,24 +474,41 @@
                         <input class="stars" type="radio" id="starhalf" name="rating" value="0.5">
                         <label class="half" for="starhalf" title="0.5 stars"></label>
                     </fieldset>
-                    <span class="small">Note: HTML is not translated!</span><br>
-                    <button class="btn btn-sm btn-explore mt-3">Submit
+					</div>
+                    <span class="small">Note: HTML is not translated!</span><br> 
+                    <button class="btn btn-sm btn-explore mt-3  @if(session('type')!='member') d-none @endif">Submit
                         <span class="first"></span>
                         <span class="second"></span>
                         <span class="third"></span>
                         <span class="fourth"></span>
                     </button>
+                    
+                    <p id="ProductLogBtn">
+                        <a type="button" class="btn btn-sm btn-explore mt-3  @if(session('type') =='member') d-none @endif" data-bs-toggle="modal" data-bs-target="#LoginModal"> 
+                           <i class="fa fa-download"> Login for comment</i>
+                           <span class="first"></span>
+                           <span class="second"></span>
+                           <span class="third"></span>
+                           <span class="fourth"></span>
+                        </a>
+                     </p> 
+                  
                     </form>
                 </div>
                 <div class="col-md-6 col-sm-12 mt-5 mt-md-0">
                     <div class="recent-comment-wrap">
                         <h6><b>Recent Review ({{count($product["product_ratings"])}})</b></h6>
                         <div class="comment-wrap">
-
                             @foreach($product["product_ratings"] as $product_rating)
                             <div class="UserDetail">
-                                <p class="d-flex justify-content-between"><span class="UserName" id="UserName">{{$product_rating["user_name"]}}</span><span class="UserName" id="CommentDate">05/07/2023</span></p>
-                                <p>{{$product_rating["comments"]}}</p>
+                                <p class="d-flex justify-content-between"><span class="UserName" id="UserName">{{$product_rating["user_name"]}}</span><span class="UserName" id="CommentDate">
+                                @php
+                                $originalDate = $product_rating["date_time"];
+                                $newDate = date("d/m/Y", strtotime($originalDate));                                
+                                @endphp
+                                {{$newDate}}</span></p>
+                                <p>{{$product_rating["comments"]}}</p> 
+
                             </div>
                             @endforeach
                         </div>
@@ -615,3 +636,2213 @@
     });
 
 </script>
+
+
+{{-- Modal start -- Countries and Denominations  --}}
+<!-- id 930 & 937 --> 
+<div class="modal fade" id="table1" tabindex="-1" aria-labelledby="Table1ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content"> 
+            <div class="modal-body text-center">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="table-responsive">
+                <div class="row">
+                    <div class="col-md-4">
+                        <table class = "table table-striped table-bordered">
+                           <thead>
+                              <tr>
+                                 <th>Country</th>
+                                 <th>Denomination</th>
+                              </tr>
+                           </thead>
+                           
+                           <tbody>
+                              <tr>
+                                 <td>Afghanistan</td>
+                                 <td>1 Afghanis</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Afghanistan</td>
+                                 <td>2 Afghanis</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Afghanistan</td>
+                                 <td>100 Afghanis</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Afghanistan</td>
+                                 <td>500 Afghanis</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Afghanistan</td>
+                                 <td>1000 Afghanis</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Argentina</td>
+                                 <td>1 Austral</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Belarus</td>
+                                 <td>1 Ruble</td>
+                              </tr>
+                               <tr>
+                                 <td>Belarus</td>
+                                 <td>5 Ruble</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Belarus</td>
+                                 <td>10 Ruble</td>
+                              </tr>
+                              <tr>
+                                 <td>Belarus</td>
+                                 <td>10 Ruble</td>
+                              </tr>
+                               <tr>
+                                 <td>Belarus</td>
+                                 <td>25 Ruble</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Belarus</td>
+                                 <td>50 Ruble</td>
+                              </tr>
+                               <tr>
+                                 <td>Belarus</td>
+                                 <td>1000 Ruble</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Belarus</td>
+                                 <td>100 Ruble</td>
+                              </tr>
+                              
+                               <tr>
+                                 <td>Bosnia</td>
+                                 <td>10 Dinara</td>
+                              </tr>
+                               <tr>
+                                 <td>Bosnia</td>
+                                 <td>25 Dinara</td>
+                              </tr>
+                               <tr>
+                                 <td>Bosnia</td>
+                                 <td>50 Dinara</td>
+                              </tr>
+                              <tr>
+                                 <td>Bangladesh</td>
+                                 <td>1 Taka</td>
+                              </tr>
+                              <tr>
+                                 <td>Bangladesh</td>
+                                 <td>2 Taka</td>
+                              </tr>
+                               <tr>
+                                 <td>Bangladesh</td>
+                                 <td>5 Taka</td>
+                              </tr>
+                              <tr>
+                                 <td>Burma</td>
+                                 <td>1 Kyat</td>
+                              </tr>
+                              <tr>
+                                 <td>Bhutan</td>
+                                 <td>1 Rupee</td>
+                              </tr>
+                              <tr>
+                                 <td>Cambodia</td>
+                                 <td>0.2 Riel (2 Kak)</td>
+                              </tr>
+                              <tr>
+                                 <td>Cambodia</td>
+                                 <td>Half Riel (5 Kak)</td>
+                              </tr>
+                              <tr>
+                                 <td>Cambodia</td>
+                                 <td>1 Riel </td>
+                              </tr>
+                              <tr>
+                                 <td>Cambodia</td>
+                                 <td>50 Riel</td>
+                              </tr>
+                              <tr>
+                                 <td>Cambodia</td>
+                                 <td>100 Riel - 1998 series</td>
+                              </tr>
+                              <tr>
+                                 <td>Cambodia</td>
+                                 <td>100 Riel - 2001 series</td>
+                              </tr>
+                              <tr>
+                                 <td>Cambodia</td>
+                                 <td>1000 Riel</td>
+                              </tr>
+                              <tr>
+                                 <td>China</td>
+                                 <td>2 Fen</td>
+                              </tr>
+                              <tr>
+                                 <td>China</td>
+                                 <td>1 Fen</td>
+                              </tr>
+                              <tr>
+                                 <td>China</td>
+                                 <td>1 Yi Jiao</td>
+                              </tr>
+                              <tr>
+                                 <td>China</td>
+                                 <td>2 Er Jiao</td>
+                              </tr>
+                              
+                           </tbody>
+                           
+                        </table>
+                    </div>                    
+                    <div class="col-md-4">
+                        <table class = "table table-striped table-bordered">
+                           <thead>
+                              <tr>
+                                 <th>Country</th>
+                                 <th>Denomination</th>
+                              </tr>
+                           </thead>
+                           
+                           <tbody>
+                              <tr>
+                                 <td>Croatia</td>
+                                 <td>1 Dinara</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Croatia</td>
+                                 <td>5 Dinara</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Croatia</td>
+                                 <td>10 Dinara</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Croatia</td>
+                                 <td>50000 dinara</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Croatia</td>
+                                 <td>1,00,000 dinara</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Egypt</td>
+                                 <td>5 Piastres</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Egypt</td>
+                                 <td>10 Piastres</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Indonesia</td>
+                                 <td>5 Sen</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Indonesia</td>
+                                 <td>10 Sen</td>
+                              </tr>
+                              <tr>
+                                 <td>Indonesia</td>
+                                 <td>25 Sen</td>
+                              </tr>
+                              <tr>
+                                 <td>Indonesia</td>
+                                 <td>100 Rupiah</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Iran</td>
+                                 <td>100 Rials</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Iraq</td>
+                                 <td>Quarter Dinar</td>
+                              </tr>
+                               <tr>
+                                 <td>Iraq</td>
+                                 <td>Half Dinar</td>
+                              </tr>
+                              <tr>
+                                 <td>Iraq</td>
+                                 <td>1 Dinar</td>
+                              </tr>
+                              <tr>
+                                 <td>Iraq</td>
+                                 <td>25 Dinar - sadam</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Kyrgyzstan</td>
+                                 <td>1 Som</td>
+                              </tr>
+                              <tr>
+                                 <td>Kyrgyzstan</td>
+                                 <td>10 Som</td>
+                              </tr>
+                              <tr>
+                                 <td>Kyrgyzstan</td>
+                                 <td>50 Som</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Laos</td>
+                                 <td>5 Kip</td>
+                              </tr>
+                              <tr>
+                                 <td>Laos</td>
+                                 <td>10 Kip</td>
+                              </tr>
+                              <tr>
+                                 <td>Laos</td>
+                                 <td>20 Kip</td>
+                              </tr>
+                              <tr>
+                                 <td>Laos</td>
+                                 <td>50 Kip</td>
+                              </tr>
+                              <tr>
+                                 <td>Laos</td>
+                                 <td>100 Kip </td>
+                              </tr>
+                              <tr>
+                                 <td>Laos</td>
+                                 <td>500 Kip</td>
+                              </tr>
+                              
+                               <tr>
+                                 <td>Mongolia</td>
+                                 <td>1 Togrog</td>
+                              </tr>
+                              <tr>
+                                 <td>Mongolia</td>
+                                 <td>5 Togrog</td>
+                              </tr>
+                              <tr>
+                                 <td>Mongolia</td>
+                                 <td>10 Mongo</td>
+                              </tr>
+                              <tr>
+                                 <td>Mongolia</td>
+                                 <td>10 Togrog - 2007 series</td>
+                              </tr>
+                              <tr>
+                                 <td>Mongolia</td>
+                                 <td>20 Mongo</td>
+                              </tr>
+                              <tr>
+                                 <td>Mongolia</td>
+                                 <td>20 Togrog  - 2009 series</td>
+                              </tr>
+                              <tr>
+                                 <td>Mongolia</td>
+                                 <td>50 Mongo</td>
+                              </tr>
+                              
+                           </tbody>
+                           
+                        </table>
+                    </div>                    
+                    <div class="col-md-4">
+                        <table class = "table table-striped table-bordered">
+                           <thead>
+                              <tr>
+                                 <th>Country</th>
+                                 <th>Denomination</th>
+                              </tr>
+                           </thead>
+                           
+                           <tbody>
+                              <tr>
+                                 <td>Myanmar</td>
+                                 <td>50Pyas</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Myanmar</td>
+                                 <td>1 Kyat</td>
+                              </tr>
+                              <tr>
+                                 <td>Myanmar</td>
+                                 <td>1 Kyat - 1972 series</td>
+                              </tr>
+                              <tr>
+                                 <td>Myanmar</td>
+                                 <td>5 Kyat </td>
+                              </tr>
+                              <tr>
+                                 <td>Myanmar</td>
+                                 <td>10 Kyat </td>
+                              </tr>
+                               <tr>
+                                 <td>Nepal</td>
+                                 <td>1 Rupee</td>
+                              </tr>
+                              <tr>
+                                 <td>Nepal</td>
+                                 <td>1 Rupee - 1974 series</td>
+                              </tr>
+                               <tr>
+                                 <td>Nepal</td>
+                                 <td>2 Rupee</td>
+                              </tr>
+                              <tr>
+                                 <td>Nepal</td>
+                                 <td>5 Rupee</td>
+                              </tr>
+                              <tr>
+                                 <td>Nicaragua</td>
+                                 <td>1 centavo</td>
+                              </tr>
+                              <tr>
+                                 <td>Nicaragua</td>
+                                 <td>5 centavos</td>
+                              </tr>
+                              <tr>
+                                 <td>Nicaragua</td>
+                                 <td>10 centavos</td>
+                              </tr>
+                              <tr>
+                                 <td>Nicaragua</td>
+                                 <td>25 centavos</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Eritrea</td>
+                                 <td>1 nafka</td>
+                              </tr>
+                              <tr>
+                                 <td>Poland</td>
+                                 <td>20 Zloty</td>
+                              </tr>
+                              <tr>
+                                 <td>Poland</td>
+                                 <td>50 Zloty</td>
+                              </tr>
+                              <tr>
+                                 <td>Srilanka</td>
+                                 <td>10 Rupees</td>
+                              </tr>
+                              <tr>
+                                 <td>Sudan</td>
+                                 <td>5 Sudanese Pounds</td>
+                              </tr>
+                              <tr>
+                                 <td>Sudan</td>
+                                 <td>10 Sudanese Pounds</td>
+                              </tr>
+                              <tr>
+                                 <td>Sudan</td>
+                                 <td>25 Piastres</td>
+                              </tr>
+                               <tr>
+                                 <td>Slovenia</td>
+                                 <td>1 Tolar</td>
+                              </tr>
+                              <tr>
+                                 <td>Tajikistan</td>
+                                 <td>1 Ruble</td>
+                              </tr>
+                               <tr>
+                                 <td>Tajikistan</td>
+                                 <td>5 Ruble</td>
+                              </tr>
+                                  <tr>
+                                 <td>Transnitria</td>
+                                 <td>1 kupon ruble</td>
+                              </tr>
+        
+                               <tr>
+                                 <td>Transnitria</td>
+                                 <td>5 kupon ruble</td>
+                              </tr>
+                               <tr>
+                                 <td>Transnitria</td>
+                                 <td>10 kupon ruble</td>
+                              </tr>
+                               <tr>
+                                 <td>Ukraine</td>
+                                 <td>1 Hryvnia</td>
+                              </tr>
+                               <tr>
+                                 <td>Vietnam</td>
+                                 <td>100 Dong</td>
+                              </tr>
+                               <tr>
+                                 <td>Vietnam</td>
+                                 <td>200 Dong</td>
+                              </tr>
+                              <tr>
+                                 <td>Vietnam</td>
+                                 <td>500 Dong</td>
+                              </tr>
+                               <tr>
+                                 <td>Zambia</td>
+                                 <td>2 Kwacha</td>
+                              </tr>
+                              <tr>
+                                 <td>Zambia</td>
+                                 <td>10 Kwacha</td>
+                              </tr>
+                              <tr>
+                                 <td>Zambia</td>
+                                 <td>100 Kwacha</td>
+                              </tr>
+                              <tr>
+                                 <td>British Armed Forces</td>
+                                 <td>5 New Pence</td>
+                              </tr>
+                              <tr>
+                                 <td>British Armed Forces</td>
+                                 <td>10 New Pence</td>
+                              </tr>
+                              
+                              
+        
+                              
+                           </tbody>
+                           
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- id 800 --> 
+<div class="modal fade" id="table800" tabindex="-1" aria-labelledby="Table800ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content"> 
+            <div class="modal-body text-center">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="table-responsive">
+                <div class="row">
+                    <div class="col-md-4">
+                        <table class="table table-striped table-bordered">
+                           <thead>
+                              <tr>
+                                 <th>Country</th>
+                                 <th>Denomination</th>
+                              </tr>
+                           </thead>
+                           
+                           <tbody>
+                              <tr>
+                                 <td>Afghanistan</td>
+                                 <td>2 Afghanis</td>
+                              </tr>
+                              <tr>
+                                 <td>Afghanistan</td>
+                                 <td>100 Afghanis</td>
+                              </tr>
+                              <tr>
+                                 <td>Argentina</td>
+                                 <td>1 Austral</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Bangladesh</td>
+                                 <td>2 Taka</td>
+                              </tr>
+                              
+                               <tr>
+                                 <td>Belarus</td>
+                                 <td>50 Ruble</td>
+                              </tr>
+                              <tr>
+                                 <td>Belarus</td>
+                                 <td>100 Ruble</td>
+                              </tr>
+                              <tr>
+                                 <td>Bhutan</td>
+                                 <td>1 Rupee</td>
+                              </tr>
+                              <tr>
+                                 <td>Bosnia</td>
+                                 <td>10 Dinara</td>
+                              </tr>
+                              <tr>
+                                 <td>Bosnia</td>
+                                 <td>25 Dinara</td>
+                              </tr>
+                              <tr>
+                                 <td>Bosnia</td>
+                                 <td>50 Dinara</td>
+                              </tr>
+                              <tr>
+                                 <td>British Armed Forces</td>
+                                 <td>5 New Pence</td>
+                              </tr>
+                              <tr>
+                                 <td>Burma</td>
+                                 <td>1 Kyat</td>
+                              </tr>
+                               <tr>
+                                 <td>Cambodia</td>
+                                 <td>50 Riel</td>
+                              </tr>
+                               <tr>
+                                 <td>Cambodia</td>
+                                 <td>100 Riel - 2001 series</td>
+                              </tr>
+                               <tr>
+                                 <td>China</td>
+                                 <td>1 Yi Jiao</td>
+                              </tr>
+                              <tr>
+                                 <td>China</td>
+                                 <td>2 Er Jiao</td>
+                              </tr>
+                              
+                              
+                              
+                           </tbody>
+                           
+                        </table>
+                    </div>                    
+                    <div class="col-md-4">
+                        <table class="table table-striped table-bordered">
+                           <thead>
+                              <tr>
+                                 <th>Country</th>
+                                 <th>Denomination</th>
+                              </tr>
+                           </thead>
+                           
+                           <tbody>
+                              <tr>
+                                 <td>Croatia</td>
+                                 <td>1 Dinara</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Croatia</td>
+                                 <td>5 Dinara</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Croatia</td>
+                                 <td>10 Dinara</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Egypt</td>
+                                 <td>5 Piastres</td>
+                              </tr>
+                             
+                              <tr>
+                                 <td>Indonesia</td>
+                                 <td>5 Sen</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Indonesia</td>
+                                 <td>10 Sen</td>
+                              </tr>
+                              <tr>
+                                 <td>Indonesia</td>
+                                 <td>25 Sen</td>
+                              </tr>
+                              
+                              
+                              <tr>
+                                 <td>Kyrgyzstan</td>
+                                 <td>1 Som</td>
+                              </tr>
+                              <tr>
+                                 <td>Kyrgyzstan</td>
+                                 <td>10 Som</td>
+                              </tr>
+                              <tr>
+                                 <td>Kyrgyzstan</td>
+                                 <td>50 Som</td>
+                              </tr>
+                             
+                              
+                               <tr>
+                                 <td>Mongolia</td>
+                                 <td>10 Mongo</td>
+                              </tr>
+                              <tr>
+                                 <td>Mongolia</td>
+                                 <td>20 Mongo</td>
+                              </tr>
+                              <tr>
+                                 <td>Mongolia</td>
+                                 <td>50 Mongo</td>
+                              </tr>
+                              <tr>
+                                 <td>Mongolia</td>
+                                 <td>20 Togrog - 2009 series</td>
+                              </tr>
+                              <tr>
+                                 <td>Myanmar</td>
+                                 <td>50Pyas</td>
+                              </tr>
+                              <tr>
+                                 <td>Myanmar</td>
+                                 <td>1 Kyat - 1972 series</td>
+                              </tr>
+                              <tr>
+                                 <td>Myanmar</td>
+                                 <td>10 Kyat</td>
+                              </tr>
+                              
+                           </tbody>
+                           
+                        </table>
+                    </div>                    
+                    <div class="col-md-4">
+                        <table class="table table-striped table-bordered">
+                           <thead>
+                              <tr>
+                                 <th>Country</th>
+                                 <th>Denomination</th>
+                              </tr>
+                           </thead>
+                           
+                           <tbody>					 
+                               <tr>
+                                 <td>Nepal</td>
+                                 <td>1 Rupee</td>
+                              </tr>
+                               <tr>
+                                 <td>Nepal</td>
+                                 <td>2 Rupee</td>
+                              </tr>
+                              <tr>
+                                 <td>Nepal</td>
+                                 <td>1 Rupee - 1974 series</td>
+                              </tr>
+                             
+                              <tr>
+                                 <td>Nicaragua</td>
+                                 <td>1 centavo</td>
+                              </tr>
+                              <tr>
+                                 <td>Nicaragua</td>
+                                 <td>5 centavos</td>
+                              </tr>
+                              <tr>
+                                 <td>Nicaragua</td>
+                                 <td>10 centavos</td>
+                              </tr>
+                             
+                              <tr>
+                                 <td>Eritrea</td>
+                                 <td>1 nafka</td>
+                              </tr>
+                              
+                               <tr>
+                                 <td>Slovenia</td>
+                                 <td>1 Tolar</td>
+                              </tr>
+                              
+                               <tr>
+                                 <td>Srilanka</td>
+                                 <td>10 Rupees</td>
+                              </tr>
+                              
+                               <tr>
+                                 <td>Sudan</td>
+                                 <td>10 Sudanese Pounds</td>
+                              </tr>
+                              <tr>
+                                 <td>Sudan</td>
+                                 <td>25 Piastres</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Tajikistan</td>
+                                 <td>1 Ruble</td>
+                              </tr>					   
+                               <tr>
+                                 <td>Ukraine</td>
+                                 <td>1 Hryvnia</td>
+                              </tr>
+                               <tr>
+                                 <td>Vietnam</td>
+                                 <td>200 Dong</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Vietnam</td>
+                                 <td>500 Dong</td>
+                              </tr>
+                               <tr>
+                                 <td>Zambia</td>
+                                 <td>2 Kwacha</td>
+                              </tr>
+                              <tr>
+                                 <td>Zambia</td>
+                                 <td>10 Kwacha</td>
+                              </tr>
+                             
+                              
+                              
+        
+                              
+                           </tbody>
+                           
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- id 929 --> 
+<div class="modal fade" id="table929" tabindex="-1" aria-labelledby="Table929ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content"> 
+            <div class="modal-body text-center">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="table-responsive">
+                <div class="row">
+                    <div class="col-md-4">
+                        <table class = "table table-striped">
+                           <thead>
+                              <tr>
+                                 <th>Country</th>
+                                 <th>Denomination</th>
+                              </tr>
+                           </thead>
+                           
+                           <tbody>
+                              <tr>
+                                 <td>Afghanistan</td>
+                                 <td>1 Afghanis</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Afghanistan</td>
+                                 <td>500 Afghanis</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Afghanistan</td>
+                                 <td>1000 Afghanis</td>
+                              </tr>					  
+                              
+                              <tr>
+                                 <td>Bangladesh</td>
+                                 <td>1 Taka</td>
+                              </tr>
+                              <tr>
+                                 <td>Bangladesh</td>
+                                 <td>5 Taka</td>
+                              </tr>					 
+                              
+                              <tr>
+                                 <td>Belarus</td>
+                                 <td>1 Ruble</td>
+                              </tr>
+                               <tr>
+                                 <td>Belarus</td>
+                                 <td>5 Ruble</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Belarus</td>
+                                 <td>10 Ruble - 1992</td>
+                              </tr>
+                              <tr>
+                                 <td>Belarus</td>
+                                 <td>10 Ruble - 2000</td>
+                              </tr>
+                               <tr>
+                                 <td>Belarus</td>
+                                 <td>25 Ruble</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Belarus</td>
+                                 <td>1000 Ruble</td>
+                              </tr>
+                             
+                              
+                              <tr>
+                                 <td>British Armed Forces</td>
+                                 <td>10 New Pence</td>
+                              </tr>
+                             
+                              <tr>
+                                 <td>Cambodia</td>
+                                 <td>0.2 Riel</td>
+                              </tr>
+                              <tr>
+                                 <td>Cambodia</td>
+                                 <td>Half Riel</td>
+                              </tr>
+                              <tr>
+                                 <td>Cambodia</td>
+                                 <td>1 Riel </td>
+                              </tr>
+                              <tr>
+                                 <td>Cambodia</td>
+                                 <td>100 Riel - 1998 series</td>
+                              </tr>					  
+                           </tbody>
+                           
+                        </table>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <table class = "table table-striped">
+                           <thead>
+                              <tr>
+                                 <th>Country</th>
+                                 <th>Denomination</th>
+                              </tr>
+                           </thead>
+                           
+                           <tbody>
+                              <tr>
+                                 <td>China</td>
+                                 <td>2 Fen</td>
+                              </tr>
+                              <tr>
+                                 <td>China</td>
+                                 <td>1 Fen</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Croatia</td>
+                                 <td>50000 dinara</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Croatia</td>
+                                 <td>1,00,000 dinara</td>
+                              </tr>					 
+                              <tr>
+                                 <td>Egypt</td>
+                                 <td>10 Piastres</td>
+                              </tr>					  
+                              <tr>
+                                 <td>Indonesia</td>
+                                 <td>100 Rupiah</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Iran</td>
+                                 <td>100 Rials</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Iraq</td>
+                                 <td>Quarter Dinar</td>
+                              </tr>
+                               <tr>
+                                 <td>Iraq</td>
+                                 <td>Half Dinar</td>
+                              </tr>
+                              <tr>
+                                 <td>Iraq</td>
+                                 <td>1 Dinar</td>
+                              </tr>
+                              <tr>
+                                 <td>Iraq</td>
+                                 <td>25 Dinar - sadam</td>
+                              </tr>
+                              
+                              
+                              <tr>
+                                 <td>Laos</td>
+                                 <td>5 Kip</td>
+                              </tr>
+                              <tr>
+                                 <td>Laos</td>
+                                 <td>10 Kip</td>
+                              </tr>
+                              <tr>
+                                 <td>Laos</td>
+                                 <td>20 Kip</td>
+                              </tr>
+                              <tr>
+                                 <td>Laos</td>
+                                 <td>50 Kip</td>
+                              </tr>
+                              <tr>
+                                 <td>Laos</td>
+                                 <td>100 Kip </td>
+                              </tr>
+                              <tr>
+                                 <td>Laos</td>
+                                 <td>500 Kip</td>
+                              </tr>
+                              
+                               
+                              
+                           </tbody>
+                           
+                        </table>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <table class = "table table-striped">
+                           <thead>
+                              <tr>
+                                 <th>Country</th>
+                                 <th>Denomination</th>
+                              </tr>
+                           </thead>
+                           
+                           <tbody>
+                              <tr>
+                                 <td>Mongolia</td>
+                                 <td>1 Togrog</td>
+                              </tr>
+                              <tr>
+                                 <td>Mongolia</td>
+                                 <td>5 Togrog</td>
+                              </tr>
+                              <tr>
+                                 <td>Mongolia</td>
+                                 <td>10 Togrog - 2007</td>
+                              </tr>	
+                              <tr>
+                                 <td>Myanmar</td>
+                                 <td>1 Kyat</td>
+                              </tr>
+                             
+                              <tr>
+                                 <td>Myanmar</td>
+                                 <td>5 Kyat </td>
+                              </tr>
+                             
+                              <tr>
+                                 <td>Nepal</td>
+                                 <td>5 Rupee</td>
+                              </tr>					 
+                              <tr>
+                                 <td>Nicaragua</td>
+                                 <td>25 centavos</td>
+                              </tr>
+                             
+                              <tr>
+                                 <td>Cambodia</td>
+                                 <td>1000 Rial</td>
+                              </tr>
+                              <tr>
+                                 <td>Transistria</td>
+                                 <td>1 ruble</td>
+                              </tr>
+                              <tr>
+                                 <td>Poland</td>
+                                 <td>20 Zloty</td>
+                              </tr>
+                              <tr>
+                                 <td>Poland</td>
+                                 <td>50 Zloty</td>
+                              </tr>
+                              <tr>
+                                 <td>Sudan</td>
+                                 <td>5 Sudanese Pounds</td>
+                              </tr>
+                              
+                              <tr>
+                                 <td>Tajikistan</td>
+                                 <td>5 Ruble</td>
+                              </tr>
+                              
+                               <tr>
+                                 <td>Ukraine</td>
+                                 <td>5 kynoh</td>
+                              </tr>
+                               <tr>
+                                 <td>Ukraine</td>
+                                 <td>10 kynoh</td>
+                              </tr>
+                              
+                               <tr>
+                                 <td>Vietnam</td>
+                                 <td>100 Dong</td>
+                              </tr>
+                               
+                              
+                              <tr>
+                                 <td>Zambia</td>
+                                 <td>100 Kwacha</td>
+                              </tr>
+                           </tbody>
+                           
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- id 1731 --> 
+<div class="modal fade" id="table1731" tabindex="-1" aria-labelledby="Table1731ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+       <div class="modal-content">
+          <div class="modal-body text-center">
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> 
+             <div class="table-responsive">
+                <div class="row">
+                   <div class="col-md-4">
+                      <table class="table table-striped table-bordered">
+                         <thead>
+                            <tr>
+                               <th>Country</th>
+                               <th>Denomination</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr>
+                               <td>Bahrain</td>
+                               <td>50 Fils</td>
+                            </tr>
+                            <tr>
+                               <td>Bahrain</td>
+                               <td>25 Fils</td>
+                            </tr>
+                            <tr>
+                               <td>Afghanistan</td>
+                               <td>1 Afghani</td>
+                            </tr>
+                            <tr>
+                               <td>Bhutan </td>
+                               <td>25 Chhertum</td>
+                            </tr>
+                            <tr>
+                               <td>Cayman Islands</td>
+                               <td>1 Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Portugal</td>
+                               <td>1 Euro Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Falkland Islands</td>
+                               <td>1 Penny</td>
+                            </tr>
+                            <tr>
+                               <td>Greece</td>
+                               <td>1 Euro Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Belgium</td>
+                               <td>1 Euro Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Austria</td>
+                               <td>1 Euro Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Romania</td>
+                               <td>1000 Lei</td>
+                            </tr>
+                            <tr>
+                               <td>Ukraine</td>
+                               <td>1 Kopiyka</td>
+                            </tr>
+                            <tr>
+                               <td>The Netherlands</td>
+                               <td>1 Euro Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Moldova</td>
+                               <td>5 Bani</td>
+                            </tr>
+                            <tr>
+                               <td>East Caribbean States</td>
+                               <td>1 Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Malaysia</td>
+                               <td>5 Sen</td>
+                            </tr>
+                         </tbody>
+                      </table>
+                   </div>
+                   <div class="col-md-4">
+                      <table class="table table-striped table-bordered">
+                         <thead>
+                            <tr>
+                               <th>Country</th>
+                               <th>Denomination</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr>
+                               <td>Denmark</td>
+                               <td>25 Ore</td>
+                            </tr>
+                            <tr>
+                               <td>U.S.A</td>
+                               <td>1 Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Burundi</td>
+                               <td>1 Franc</td>
+                            </tr>
+                            <tr>
+                               <td>Zambia</td>
+                               <td>1 Ngwee</td>
+                            </tr>
+                            <tr>
+                               <td>Poland</td>
+                               <td>1 Grosz</td>
+                            </tr>
+                            <tr>
+                               <td>Guatemala</td>
+                               <td>5 Centavos</td>
+                            </tr>
+                            <tr>
+                               <td>Iraq</td>
+                               <td>25 Dinars</td>
+                            </tr>
+                            <tr>
+                               <td>Jamaica</td>
+                               <td>10 Cents</td>
+                            </tr>
+                            <tr>
+                               <td>Cape Verde</td>
+                               <td>1 Escudo</td>
+                            </tr>
+                            <tr>
+                               <td>Egypt</td>
+                               <td>5 Qirsh</td>
+                            </tr>
+                            <tr>
+                               <td>Nepal</td>
+                               <td>25 Paisa</td>
+                            </tr>
+                            <tr>
+                               <td>Malta</td>
+                               <td>1 Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Ireland</td>
+                               <td>1 Euro Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Rwanda</td>
+                               <td>5 Francs</td>
+                            </tr>
+                            <tr>
+                               <td>Sri Lanka</td>
+                               <td>25 Cents</td>
+                            </tr>
+                            <tr>
+                               <td>Iceland</td>
+                               <td>25 Aurar</td>
+                            </tr>
+                         </tbody>
+                      </table>
+                   </div>
+                   <div class="col-md-4">
+                      <table class="table table-striped table-bordered">
+                         <thead>
+                            <tr>
+                               <th>Country</th>
+                               <th>Denomination</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr>
+                               <td>Turkey</td>
+                               <td>1 Kurus</td>
+                            </tr>
+                            <tr>
+                               <td>Spain</td>
+                               <td>1 Euro Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Mozambique</td>
+                               <td>1 Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Mozambique</td>
+                               <td>5 Centavos</td>
+                            </tr>
+                            <tr>
+                               <td>Slovakia</td>
+                               <td>1 Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Tajikistan</td>
+                               <td>1 Diram</td>
+                            </tr>
+                            <tr>
+                               <td>Lithuania</td>
+                               <td>5 Centai</td>
+                            </tr>
+                            <tr>
+                               <td>Latvia</td>
+                               <td>1 Santims</td>
+                            </tr>
+                            <tr>
+                               <td>United Kingdom</td>
+                               <td>Half Penny</td>
+                            </tr>
+                            <tr>
+                               <td>Jersey</td>
+                               <td>1 Penny</td>
+                            </tr>
+                            <tr>
+                               <td>Slovenia</td>
+                               <td>1 Tolar</td>
+                            </tr>
+                            <tr>
+                               <td>Germany</td>
+                               <td>1 Euro Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Serbia</td>
+                               <td>1 Dinar</td>
+                            </tr>
+                            <tr>
+                               <td>Italy</td>
+                               <td>1 Euro Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Finland</td>
+                               <td>1 Euro Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Singapore</td>
+                               <td>5 Cents</td>
+                            </tr>
+                            <tr>
+                               <td>Cyprus </td>
+                               <td>1 Cent</td>
+                            </tr>
+                            <tr>
+                               <td>Russia</td>
+                               <td>10 Kopecks</td>
+                            </tr>
+                            <tr>
+                               <td>Costa Rica</td>
+                               <td>5 Colones</td>
+                            </tr>
+                            <tr>
+                               <td>Estonia</td>
+                               <td>10 Senti</td>
+                            </tr>
+                         </tbody>
+                      </table>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+</div>
+ <!-- id 1627 --> 
+<div class="modal fade" id="table1627" tabindex="-1" aria-labelledby="table1627ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+       <div class="modal-content">
+          <div class="modal-body text-center">
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> 
+             <div class="table-responsive">
+                <div class="row">
+                   <div class="col-md-4">
+                      <table class="table table-striped table-bordered">
+                         <thead>
+                            <tr>
+                               <th>Country</th>
+                               <th>Denomination</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr>
+                               <td>Afghanistan</td>
+                               <td>1 Afghani</td>
+                            </tr>
+                            <tr>
+                               <td>Argentina</td>
+                               <td>1 Austral</td>
+                            </tr>
+                            <tr>
+                               <td>Belarus</td>
+                               <td>1 Ruble</td>
+                            </tr>
+                            <tr>
+                               <td>Bosnia and Herzegovina </td>
+                               <td>10 Dinara</td>
+                            </tr>
+                            <tr>
+                               <td>Bangladesh</td>
+                               <td>2 Taka</td>
+                            </tr>
+                            <tr>
+                               <td>Burma</td>
+                               <td>1 Kyat</td>
+                            </tr>
+                            <tr>
+                               <td>Myanmar</td>
+                               <td>50 Pyas</td>
+                            </tr>
+                            <tr>
+                               <td>Bhutan</td>
+                               <td>1 Ngultrum</td>
+                            </tr>
+                            <tr>
+                               <td>Cambodia</td>
+                               <td>1 Riel</td>
+                            </tr>
+                            <tr>
+                               <td>China</td>
+                               <td>1 Fen</td>
+                            </tr>
+                            <tr>
+                               <td>Croatia</td>
+                               <td>1 Dinara</td>
+                            </tr>
+                            <tr>
+                               <td>Egypt</td>
+                               <td>5 Piastres</td>
+                            </tr>
+                            <tr>
+                               <td>Indonesia</td>
+                               <td>5 Sen</td>
+                            </tr>
+                            <tr>
+                               <td>Iran</td>
+                               <td>100 Rial</td>
+                            </tr>
+                            <tr>
+                               <td>Iraq</td>
+                               <td>1 Dinar</td>
+                            </tr>
+                            <tr>
+                               <td>Kyrgyzstan</td>
+                               <td>1 Tyiyn</td>
+                            </tr>
+                         </tbody>
+                      </table>
+                   </div>
+                   <div class="col-md-4">
+                      <table class="table table-striped table-bordered">
+                         <thead>
+                            <tr>
+                               <th>Country</th>
+                               <th>Denomination</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr>
+                               <td>Laos</td>
+                               <td>5 Kip</td>
+                            </tr>
+                            <tr>
+                               <td>Mongolia</td>
+                               <td>10 Mongo</td>
+                            </tr>
+                            <tr>
+                               <td>Nepal</td>
+                               <td>2 Rupees</td>
+                            </tr>
+                            <tr>
+                               <td>Nicaragua</td>
+                               <td>1 Centavo</td>
+                            </tr>
+                            <tr>
+                               <td>Eritrea</td>
+                               <td>1 nafka</td>
+                            </tr>
+                            <tr>
+                               <td>Poland</td>
+                               <td>20 Polish Zloty</td>
+                            </tr>
+                            <tr>
+                               <td>Sri Lanka</td>
+                               <td>10 Rupee</td>
+                            </tr>
+                            <tr>
+                               <td>Sudan</td>
+                               <td>50 Pound</td>
+                            </tr>
+                            <tr>
+                               <td>Slovenia</td>
+                               <td>1 Tolar</td>
+                            </tr>
+                            <tr>
+                               <td>Tajikistan</td>
+                               <td>1 Ruble</td>
+                            </tr>
+                            <tr>
+                               <td>Ukraine</td>
+                               <td>1 Hryvnia</td>
+                            </tr>
+                            <tr>
+                               <td>Vietnam</td>
+                               <td>100 Dong</td>
+                            </tr>
+                            <tr>
+                               <td>Zambia</td>
+                               <td>2 Kwacha</td>
+                            </tr>
+                            <tr>
+                               <td>British Armed Forces</td>
+                               <td>5 New Pence</td>
+                            </tr>
+                            <tr>
+                               <td>Gambia</td>
+                               <td>5 Dalasi</td>
+                            </tr>
+                            <tr>
+                               <td>Honduras</td>
+                               <td>1 Lempira</td>
+                            </tr>
+                         </tbody>
+                      </table>
+                   </div>
+                   <div class="col-md-4">
+                      <table class="table table-striped table-bordered">
+                         <thead>
+                            <tr>
+                               <th>Country</th>
+                               <th>Denomination</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr>
+                               <td>Haiti</td>
+                               <td>10 Gourde</td>
+                            </tr>
+                            <tr>
+                               <td>Uzbekistan</td>
+                               <td>200 Som</td>
+                            </tr>
+                            <tr>
+                               <td>Lebanon</td>
+                               <td>10 Livres</td>
+                            </tr>
+                            <tr>
+                               <td>Madagascar</td>
+                               <td>100 Malagasy Ariary</td>
+                            </tr>
+                            <tr>
+                               <td>Malawi</td>
+                               <td>20 Kwacha</td>
+                            </tr>
+                            <tr>
+                               <td>Malaysia</td>
+                               <td>1 Ringgit</td>
+                            </tr>
+                            <tr>
+                               <td>Oman</td>
+                               <td>100 Baisa</td>
+                            </tr>
+                            <tr>
+                               <td>Peru</td>
+                               <td>100 intis</td>
+                            </tr>
+                            <tr>
+                               <td>Russia</td>
+                               <td>10 Ruble</td>
+                            </tr>
+                            <tr>
+                               <td>Singapore</td>
+                               <td>1 Dollar</td>
+                            </tr>
+                            <tr>
+                               <td>Somalia</td>
+                               <td>50 Shilling</td>
+                            </tr>
+                            <tr>
+                               <td>Sao Tome and Principe</td>
+                               <td>5000 Dobra</td>
+                            </tr>
+                            <tr>
+                               <td>Yemen</td>
+                               <td>20 Rial</td>
+                            </tr>
+                            <tr>
+                               <td>Mozambique</td>
+                               <td>50000 Metical</td>
+                            </tr>
+                            <tr>
+                               <td>Philippines</td>
+                               <td>20 Peso</td>
+                            </tr>
+                            <tr>
+                               <td>Syria</td>
+                               <td>50 Pound</td>
+                            </tr>
+                            <tr>
+                               <td>Democratic Republic of the Congo </td>
+                               <td>50 Franc</td>
+                            </tr>
+                            <tr>
+                               <td>Venezuela</td>
+                               <td>5 Bolivar</td>
+                            </tr>
+                         </tbody>
+                      </table>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+</div>
+ <!-- id 1628 --> 
+ <div class="modal fade" id="table1628" tabindex="-1" aria-labelledby="table1628ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+       <div class="modal-content">
+          <div class="modal-body text-center">
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> 
+             <div class="table-responsive">
+                <div class="row">
+                   <div class="col-md-4">
+                      <table class="table table-striped table-bordered">
+                         <thead>
+                            <tr>
+                               <th>Country</th>
+                               <th>Denomination</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr>
+                               <td>Bangladesh</td>
+                               <td>2 Taka</td>
+                            </tr>
+                            <tr>
+                               <td>Bhutan </td>
+                               <td>1 Ngultrum</td>
+                            </tr>
+                            <tr>
+                               <td>China</td>
+                               <td>1 Fen</td>
+                            </tr>
+                            <tr>
+                               <td>Indonesia</td>
+                               <td>5 Sen</td>
+                            </tr>
+                            <tr>
+                               <td>Iraq</td>
+                               <td>1 Dinar</td>
+                            </tr>
+                            <tr>
+                               <td>Cambodia</td>
+                               <td>1 Riel</td>
+                            </tr>
+                            <tr>
+                               <td>Lebanon</td>
+                               <td>10 Livre</td>
+                            </tr>
+                            <tr>
+                               <td>Myanmar</td>
+                               <td>50 Pya</td>
+                            </tr>
+                         </tbody>
+                      </table>
+                   </div>
+                   <div class="col-md-4">
+                      <table class="table table-striped table-bordered">
+                         <thead>
+                            <tr>
+                               <th>Country</th>
+                               <th>Denomination</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr>
+                               <td>Mongolia</td>
+                               <td>10 Mongo</td>
+                            </tr>
+                            <tr>
+                               <td>Malaysia</td>
+                               <td>1 Ringgit</td>
+                            </tr>
+                            <tr>
+                               <td>Nepal</td>
+                               <td>2 Rupee</td>
+                            </tr>
+                            <tr>
+                               <td>Oman</td>
+                               <td>1 Baisa</td>
+                            </tr>
+                            <tr>
+                               <td>Philippines</td>
+                               <td>20 Piso</td>
+                            </tr>
+                            <tr>
+                               <td>Russia</td>
+                               <td>10 Ruble</td>
+                            </tr>
+                            <tr>
+                               <td>Syria</td>
+                               <td>50 Pound</td>
+                            </tr>
+                            <tr>
+                               <td>Vietnam</td>
+                               <td>100 Dong</td>
+                            </tr>
+                         </tbody>
+                      </table>
+                   </div>
+                   <div class="col-md-4">
+                      <table class="table table-striped table-bordered">
+                         <thead>
+                            <tr>
+                               <th>Country</th>
+                               <th>Denomination</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr>
+                               <td>Yemen</td>
+                               <td>20 Rial</td>
+                            </tr>
+                            <tr>
+                               <td>Afghanistan</td>
+                               <td>1 Afghani</td>
+                            </tr>
+                            <tr>
+                               <td>Iran</td>
+                               <td>100 Riel</td>
+                            </tr>
+                            <tr>
+                               <td>Kyrgyzstan</td>
+                               <td>1 Tyiyn</td>
+                            </tr>
+                            <tr>
+                               <td>Laos</td>
+                               <td>5 Kip</td>
+                            </tr>
+                            <tr>
+                               <td>Sri Lanka</td>
+                               <td>10 Rupee</td>
+                            </tr>
+                            <tr>
+                               <td>Tajikistan</td>
+                               <td>1 Ruble</td>
+                            </tr>
+                            <tr>
+                               <td>India</td>
+                               <td>1 Rupee</td>
+                            </tr>
+                            <tr>
+                               <td>Uzbekistan</td>
+                               <td>200 Som</td>
+                            </tr>
+                         </tbody>
+                      </table>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+</div>
+ <!-- id 1973 --> 
+ <div class="modal fade" id="table1973" tabindex="-1" aria-labelledby="table1973ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+       <div class="modal-content">
+          <div class="modal-body text-center">
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> 
+             <div class="table-responsive">
+                <div class="row">
+                   <div class="col-md-6">
+                      <table class="table table-striped table-bordered">
+                         <thead>
+                            <tr>
+                               <th>Country</th>
+                               <th>Denomination</th>
+                               <th>Metal</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr>
+                               <td>Afghanistan</td>
+                               <td>1 Afghani</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Austria</td>
+                               <td>1 Euro Cent</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Bahrain</td>
+                               <td>50 Fils</td>
+                               <td>Copper-Nickel</td>
+                            </tr>
+                            <tr>
+                               <td>Bahrain </td>
+                               <td>25  Fils</td>
+                               <td>Copper-Nickel</td>
+                            </tr>
+                            <tr>
+                               <td>Belgium</td>
+                               <td>1 Euro Cent</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Bhutan</td>
+                               <td>25 Chhertum</td>
+                               <td>Aluminium-Bronze</td>
+                            </tr>
+                            <tr>
+                               <td>Burundi</td>
+                               <td>1 Franc</td>
+                               <td>Aluminium</td>
+                            </tr>
+                            <tr>
+                               <td>Cape Verde</td>
+                               <td>1 Escudo</td>
+                               <td>Brass Clad Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Cayman Islands</td>
+                               <td>1 Cent</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Costa Rica</td>
+                               <td>5 Colones</td>
+                               <td>Aluminium</td>
+                            </tr>
+                            <tr>
+                               <td>Cyprus</td>
+                               <td>1 Cent</td>
+                               <td>Nickel-Brass</td>
+                            </tr>
+                            <tr>
+                               <td>Denmark</td>
+                               <td>25 Ore</td>
+                               <td>Bronze</td>
+                            </tr>
+                            <tr>
+                               <td>East Caribbean States</td>
+                               <td>1 Cent</td>
+                               <td>Aluminium</td>
+                            </tr>
+                            <tr>
+                               <td>Egypt</td>
+                               <td>5 Qirsh</td>
+                               <td>Aluminium-Bronze</td>
+                            </tr>
+                            <tr>
+                               <td>Estonia</td>
+                               <td>1 Senti</td>
+                               <td>Brass</td>
+                            </tr>
+                            <tr>
+                               <td>Falkland Islands	</td>
+                               <td>1 penny</td>
+                               <td>Bronze</td>
+                            </tr>
+                         </tbody>
+                      </table>
+                   </div>
+                   <div class="col-md-6">
+                      <table class="table table-striped table-bordered">
+                         <thead>
+                            <tr>
+                               <th>Country</th>
+                               <th>Denomination</th>
+                               <th>Metal</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr>
+                               <td>Finland</td>
+                               <td>1 Euro Cent</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Germany</td>
+                               <td>1 Euro Cent</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Greece</td>
+                               <td>1 Euro Cent</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Guatemala </td>
+                               <td>5 Centavos</td>
+                               <td>Nickel Plated Steel/ Copper- Nickel</td>
+                            </tr>
+                            <tr>
+                               <td>Iceland</td>
+                               <td>25 Aurar</td>
+                               <td>Copper-Nickel</td>
+                            </tr>
+                            <tr>
+                               <td>Iraq</td>
+                               <td>25 Dinars</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Ireland</td>
+                               <td>1 Euro Cent</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Italy</td>
+                               <td>1 Euro Cent</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Jamaica</td>
+                               <td>10 Cents</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Jersey</td>
+                               <td>1 Penny</td>
+                               <td>Bronze</td>
+                            </tr>
+                            <tr>
+                               <td>Latvia</td>
+                               <td>1 Santims</td>
+                               <td>Copper clad steel</td>
+                            </tr>
+                            <tr>
+                               <td>Lithuania	</td>
+                               <td>5 Centai</td>
+                               <td>Aluminium</td>
+                            </tr>
+                            <tr>
+                               <td>Malaysia</td>
+                               <td>5 Sen</td>
+                               <td>Copper-Nickel</td>
+                            </tr>
+                            <tr>
+                               <td>Malta</td>
+                               <td>1 Cent</td>
+                               <td>Nickel-Brass</td>
+                            </tr>
+                            <tr>
+                               <td>Moldova</td>
+                               <td>5 Bani</td>
+                               <td>Alunimium</td>
+                            </tr>
+                            <tr>
+                               <td>Mozambique	</td>
+                               <td>1 Cent</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                         </tbody>
+                      </table>
+                   </div>
+                   <div class="col-md-6">
+                      <table class= "table table-striped">
+                         <thead>
+                            <tr>
+                               <th>Country</th>
+                               <th>Denomination</th>
+                               <th>Metal</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr>
+                               <td>Mozambique</td>
+                               <td>5 Centavos</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Nepal</td>
+                               <td>25 Paisa</td>
+                               <td>Alunimium</td>
+                            </tr>
+                            <tr>
+                               <td>Poland</td>
+                               <td>1 Grosz</td>
+                               <td>Brass Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Portugal </td>
+                               <td>1 Euro Cent</td>
+                               <td>Copper Coated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Romania</td>
+                               <td>1000 Lei</td>
+                               <td>Aluminium-Magnesium</td>
+                            </tr>
+                            <tr>
+                               <td>Russia</td>
+                               <td>10 Kopecks</td>
+                               <td>Brass Clad Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Rwanda</td>
+                               <td>5 Francs</td>
+                               <td>Brass Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Serbia</td>
+                               <td>1 Dinar</td>
+                               <td>Nickel-Brass</td>
+                            </tr>
+                            <tr>
+                               <td>Singapore</td>
+                               <td>5 Cents</td>
+                               <td>Brass Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Slovakia</td>
+                               <td>1 Cent</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Slovenia</td>
+                               <td>1 Tolar</td>
+                               <td>Brass</td>
+                            </tr>
+                            <tr>
+                               <td>Spain	</td>
+                               <td>1 Euro Cent</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Sri Lanka</td>
+                               <td>25 Cents</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Tajikistan</td>
+                               <td>1 Diram</td>
+                               <td>Brass Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>The Netherlands</td>
+                               <td>1 Euro Cent</td>
+                               <td>Copper Plated Steel</td>
+                            </tr>
+                            <tr>
+                               <td>Turkey	</td>
+                               <td>1 Kurus</td>
+                               <td>Brass</td>
+                            </tr>
+                         </tbody>
+                      </table>
+                   </div>
+                   <div class="col-md-6">
+                      <table class="table table-striped table-bordered">
+                         <thead>
+                            <tr>
+                               <th>Country</th>
+                               <th>Denomination</th>
+                               <th>Metal</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr>
+                               <td>U.S.A</td>
+                               <td>1 Cent</td>
+                               <td>Bronze</td>
+                            </tr>
+                            <tr>
+                               <td>Ukraine</td>
+                               <td>1 Kopiyka</td>
+                               <td>Stainless Steel</td>
+                            </tr>
+                            <tr>
+                               <td>United Kingdom</td>
+                               <td>Half Penny</td>
+                               <td>Bronze</td>
+                            </tr>
+                            <tr>
+                               <td>Zambia	 </td>
+                               <td>1 Ngwee</td>
+                               <td>Copper Clad Steel</td>
+                            </tr>
+                            <tr>
+                               <td>India</td>
+                               <td>1 Rupee</td>
+                               <td>Stainless Steel</td>
+                            </tr>
+                         </tbody>
+                      </table>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+</div>
+
+<!-- id 2845 --> 
+<div class="modal fade" id="table2845" tabindex="-1" aria-labelledby="table2845ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+       <div class="modal-content">
+          <div class="modal-body text-center">
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> 
+             <div class="table-responsive">
+                <div class="row">
+                   <div class="col-md-12">
+                      <table class="table table-striped table-bordered">
+                         <thead>
+                            <tr>
+                                <th>Name of Country</th>
+                                <th>Location</th>
+                                <th>Denomination</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr>
+                                <td>Afghanistan</td>
+                                <td>South and Central Asian country</td>
+                                <td>Afghani</td>
+                             </tr>
+                             <tr>
+                                <td>Bangladesh</td>
+                                <td>South Asian Country</td>
+                                <td>Taka</td>
+                             </tr>
+                             <tr>
+                                <td>Bhutan</td>
+                                <td>South Asian Country</td>
+                                <td>Ngultrum</td>
+                             </tr>
+                             <tr>
+                                <td>Cambodia</td>
+                                <td>Southeast Asian country</td>
+                                <td>Riel</td>
+                             </tr>
+                             <tr>
+                                <td>China</td>
+                                <td>East Asian country</td>
+                                <td>Fen</td>
+                             </tr>
+                             <tr>
+                                <td>India</td>
+                                <td>South Asian country</td>
+                                <td>Rupee</td>
+                             </tr>
+                             <tr>
+                                <td>Indonesia</td>
+                                <td>Southeast Asian country</td>
+                                <td>Sen</td>
+                             </tr>
+                             <tr>
+                                <td>Iran</td>
+                                <td>West Asian country</td>
+                                <td>Riel</td>
+                             </tr>
+                             <tr>
+                                <td>Iraq</td>
+                                <td>West Asian country</td>
+                                <td>Dinar</td>
+                             </tr>
+                             <tr>
+                                <td>Kyrgyzstan</td>
+                                <td>Central Asian country</td>
+                                <td>Tyiyn</td>
+                             </tr>
+                             <tr>
+                                <td>Lebanon</td>
+                                <td>West Asian country</td>
+                                <td>Livre</td>
+                             </tr>
+                             <tr>
+                                <td>Malaysia</td>
+                                <td>Southeast Asian country</td>
+                                <td>Ringgit</td>
+                             </tr>
+                             <tr>
+                                <td>Mongolia</td>
+                                <td>East Asian country</td>
+                                <td>Mongo</td>
+                             </tr>
+                             <tr>
+                                <td>Myanmar</td>
+                                <td>South Asian Country</td>
+                                <td>Pya</td>
+                             </tr>
+                             <tr>
+                                <td>Nepal</td>
+                                <td>South Asian Country</td>
+                                <td>Rupee</td>
+                             </tr>
+                             <tr>
+                                <td>Oman</td>
+                                <td>West Asian country</td>
+                                <td>Baisa</td>
+                             </tr>
+                             <tr>
+                                <td>Laos</td>
+                                <td>South Asian country</td>
+                                <td>Kip</td>
+                             </tr>
+                             <tr>
+                                <td>Philippines</td>
+                                <td>South Asian Country</td>
+                                <td>Piso</td>
+                             </tr>
+                             <tr>
+                                <td>Russia</td>
+                                <td>North Asian country</td>
+                                <td>Ruble</td>
+                             </tr>
+                             <tr>
+                                <td>Sri Lanka</td>
+                                <td>South Asian country</td>
+                                <td>Rupee</td>
+                             </tr>
+                             <tr>
+                                <td>Syria</td>
+                                <td>West Asian country</td>
+                                <td>Pound</td>
+                             </tr>
+                             <tr>
+                                <td>Tajikistan</td>
+                                <td>Central Asian country</td>
+                                <td>Ruble</td>
+                             </tr>
+                             <tr>
+                                <td>Uzbekistan</td>
+                                <td>Central Asian country</td>
+                                <td>Som</td>
+                             </tr>
+                             <tr>
+                                <td>Vietnam</td>
+                                <td>Southeast Asian country</td>
+                                <td>Dong</td>
+                             </tr>
+                             <tr>
+                                <td>Yemen</td>
+                                <td>West Asian country</td>
+                                <td>Rial</td>
+                             </tr>   
+                         </tbody>
+                      </table>
+                   </div>
+                   
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+</div>
+
+ {{-- Modal End -- Countries and Denominations  --}}
+ 

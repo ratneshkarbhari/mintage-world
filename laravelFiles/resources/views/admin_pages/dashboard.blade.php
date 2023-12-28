@@ -20,117 +20,35 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                    @php 
+                    
+                    $orderCounter = 1;
+                    @endphp
+                    @foreach($latest_orders as $order)
+
                     <tr>
-                        <td>1</td>
-                        <td><a href="view-order/">ORD-12558</a></td>
-                        <td><a href="#">Sudnyaa Kataria</a></td>
+                        <td>{{$orderCounter}}</td>
+                        <td><a href="view-order/">{{$order["orderid"]}}</a></td>
+                        <td><a href="#">{{$order["Shipping_Name1"]}}</a></td>
                         <td>17/08/2023	</td>
                         <td>535.00</td>
-                        <td><span class="badge bg-info text-dark">Processing</span></td>
+                        <td><span class="badge bg-info text-dark">{{$order["status"]}}</span></td>
+                        @if($order["payment_status"]=="Success")
                         <td><span class="badge bg-success">Success</span></td>
+                        @else
+                        <td><span class="badge bg-danger">Failure</span></td>
+                        @endif
                         <td>
-                            <a href="view-order/" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
+                            <a href="view-order/{{$order['orderid']}}" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
                                                     
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="#">ORD-12558</a></td>
-                        <td><a href="#">Sudnyaa Kataria</a></td>
-                        <td>17/08/2023	</td>
-                        <td>535.00</td>
-                        <td><span class="badge bg-warning text-dark">Not Confirmed</span></td>
-                        <td><span class="badge bg-danger">Failed</span>                        
-                            <i class="fas fa-info-circle ms-2"  data-bs-toggle="tooltip" data-bs-placement="top" title="Payment processing cancelled by user"></i>
-                        </td>
-                        <td>
-                            <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                                                    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><a href="#">ORD-12558</a></td>
-                        <td><a href="#">Sudnyaa Kataria</a></td>
-                        <td>17/08/2023	</td>
-                        <td>535.00</td>
-                        <td><span class="badge bg-info text-dark">Processing</span></td>
-                        <td><span class="badge bg-success">Success</span></td>
-                        <td>
-                            <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                                                    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td><a href="#">ORD-12558</a></td>
-                        <td><a href="#">Sudnyaa Kataria</a></td>
-                        <td>17/08/2023	</td>
-                        <td>535.00</td>
-                        <td><span class="badge bg-warning text-dark">Not Confirmed</span></td>
-                        <td>
-                            <span class="badge bg-danger">Cancelled</span> 
-                            <i class="fas fa-info-circle ms-2"  data-bs-toggle="tooltip" data-bs-placement="top" title="Payment processing cancelled by user"></i>
-                                 
-                                 
-                        </td>
-                        <td>
-                            <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                                                    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td><a href="#">ORD-12558</a></td>
-                        <td><a href="#">Sudnyaa Kataria</a></td>
-                        <td>17/08/2023	</td>
-                        <td>535.00</td>
-                        <td><span class="badge bg-info text-dark">Processing</span></td>
-                        <td><span class="badge bg-success">Success</span></td>
-                        <td>
-                            <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                                                    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td><a href="#">ORD-12558</a></td>
-                        <td><a href="#">Sudnyaa Kataria</a></td>
-                        <td>17/08/2023	</td>
-                        <td>535.00</td>
-                        <td><span class="badge bg-success">Dispatched</span></td>
-                        <td><span class="badge bg-success">Success</span></td>
-                        <td>
-                            <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                                                    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td><a href="#">ORD-12558</a></td>
-                        <td><a href="#">Sudnyaa Kataria</a></td>
-                        <td>17/08/2023	</td>
-                        <td>535.00</td>
-                        <td><span class="badge bg-info text-dark">Processing</span></td>
-                        <td><span class="badge bg-success">Success</span></td>
-                        <td>
-                            <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                                                    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td><a href="#">ORD-12558</a></td>
-                        <td><a href="#">Sudnyaa Kataria</a></td>
-                        <td>17/08/2023</td> 
-                        <td>535.00</td>
-                        <td><span class="badge bg-secondary text-dark">Delivered</span></td>
-                        <td><span class="badge bg-success">Success</span></td>
-                        <td>
-                            <a href="#" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
-                                                    
-                        </td>
-                    </tr>
+                    
+                    @php 
+                    $orderCounter++;
+                    @endphp
+                    @endforeach
                      
                 </tbody> 
             </table>
@@ -144,7 +62,6 @@
                         <th>Sr. No.</th>                       
                         <th>Product Id	</th>
                         <th>Image</th>
-                        <th>Cat. Ref. No</th>
                         <th>Product Name</th>
                         <th>Qty.</th>
                         <th>Amount (RS)	</th>
@@ -153,86 +70,50 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
+                    @php 
+                    
+                    $productCounter = 1;
+                    @endphp
+                    @foreach($latest_products as $product)
+
+
+                    
+                    @php
+
+                    $imgParts = explode("/",$product["img"]);
+
+                    @endphp
                     <tr>
-                        <td>1</td>
-                        <td>1282</td>
-                        <td><img src="https://mintage2.s3.amazonaws.com/note/list/A-1-f.jpg" class="img-fluid" width="100" height="100"></td>
-                        <td>G & G M1</td>
-                        <td>Afghanistan Currency Note 500 Afghani</td>
-                        <td>100</td>
-                        <td>Rs. 250</td>
+                        <td>{{$productCounter}}</td>
+                        <td>{{$product["id"]}}</td>
+                        <td><img src="{{env('PRODUCT_IMAGE_BASE_URL').$imgParts[2]}}" class="img-fluid" width="100" height="100"></td>
+                        <td>{{$product["name1"]}}</td>
+                        <td>{{$product["instock"]}}</td>
+                        <td>{{$product["price"]}}</td>
                         <td>  
+                            @if($product["status"]=="Active")
                             <label class="switch switch-success" for="chk1">
                               <input type="checkbox" checked id="chk1">
                               <span class="slider round"></span> 
                             </label> 
+                            @else
+                            <label class="switch switch-success" for="chk1">
+                              <input type="checkbox"  id="chk1">
+                              <span class="slider round"></span> 
+                            </label> 
+                            @endif
                         </td>
                         <td>
-                            <a href="#" class="btn btn-info btn-sm" title="View Product"><i class="fa fa-eye"></i></a>
-                            <a href="#" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
+                            <a href="{{url('edit-product/'.$product['id'])}}" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
                                                     
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>1282</td>
-                        <td><img src="https://mintage2.s3.amazonaws.com/note/list/A-1-f.jpg" class="img-fluid" width="100" height="100"></td>
-                        <td>G & G M1</td>
-                        <td>Afghanistan Currency Note 500 Afghani</td>
-                        <td>100</td>
-                        <td>Rs. 250</td>
-                        <td>
-                            <label class="switch switch-success" for="chk2">
-                                <input type="checkbox" checked id="chk2">
-                                <span class="slider round"></span> 
-                              </label> 
-                        </td>
-                        <td>
-                            <a href="#" class="btn btn-info btn-sm" title="View Product"><i class="fa fa-eye"></i></a>
-                            <a href="#" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-                                                    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>1282</td>
-                        <td><img src="https://mintage2.s3.amazonaws.com/note/list/A-1-f.jpg" class="img-fluid" width="100" height="100"></td>
-                        <td>G & G M1</td>
-                        <td>Afghanistan Currency Note 500 Afghani</td>
-                        <td>100</td>
-                        <td>Rs. 250</td>
-                        <td>
-                            <label class="switch switch-success" for="chk3">
-                                <input type="checkbox" checked id="chk3">
-                                <span class="slider round"></span> 
-                              </label> 
-                        </td>
-                        <td>
-                            <a href="#" class="btn btn-info btn-sm" title="View Product"><i class="fa fa-eye"></i></a>
-                            <a href="#" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-                                                    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>1282</td>
-                        <td><img src="https://mintage2.s3.amazonaws.com/note/list/A-1-f.jpg" class="img-fluid" width="100" height="100"></td>
-                        <td>G & G M1</td>
-                        <td>Afghanistan Currency Note 500 Afghani</td>
-                        <td>100</td>
-                        <td>Rs. 250</td>
-                        <td>
-                            <label class="switch switch-success" for="chk4">
-                                <input type="checkbox" checked id="chk4">
-                                <span class="slider round"></span> 
-                              </label> 
-                        </td>
-                        <td>
-                            <a href="#" class="btn btn-info btn-sm" title="View Product"><i class="fa fa-eye"></i></a>
-                            <a href="#" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-                                                    
-                        </td>
-                    </tr>
+                    
+                    @php
+                    $productCounter++;
+                    @endphp
+                    @endforeach
                     
                      
                 </tbody> 

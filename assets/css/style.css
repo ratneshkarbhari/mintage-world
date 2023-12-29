@@ -752,6 +752,7 @@ section.home-page-carousel {
   height: auto;
   transition: all 0.7s ease 0s;
   margin: 0px auto;
+  max-height: 224px;
 }
 
 .product-grid:hover .product-image img {
@@ -4665,5 +4666,8 @@ small.icon-text {
   }
   .product-short-wrap {
     min-width: 0px;
+}
+.product-grid .product-image img{
+  max-height: 120px;
 }
 }

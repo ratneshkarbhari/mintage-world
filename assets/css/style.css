@@ -3938,8 +3938,11 @@ iframe.you-tube-video {
   letter-spacing: 1px;
   transition: 0.5s;
 }
-
 .product-video {
+  padding: 5px;
+}
+
+.product-video iframe {
   width: 100%;
   height:350px;
 }

@@ -65,9 +65,9 @@
                         </div>
                         @endforeach
                     </div>
-
-                    <iframe src="https://www.youtube.com/embed/xFwYL6xWDIQ?si=D2qviZyICrSA_3pC" class="product-video mt-3" title="" frameborder="0" allowfullscreen></iframe>
-
+                    <div class="product-video mt-3">
+                    <iframe src="https://www.youtube.com/embed/xFwYL6xWDIQ?si=D2qviZyICrSA_3pC" class="" title="" frameborder="0" allowfullscreen></iframe>
+                  </div>
 
                 </div>
                 <div class="col-lg-7 col-md-12 col-sm-12 mt-lg-0 mt-5 ">

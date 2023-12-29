@@ -3939,6 +3939,11 @@ iframe.you-tube-video {
   transition: 0.5s;
 }
 
+.product-video {
+  width: 100%;
+  height:350px;
+}
+
 /* --------Responsive Media Css Start------------- */
 
 @media (max-width: 1400px) {

@@ -155,7 +155,7 @@ Route::get("admin/manage-orders", [PageLoader::class, 'manage_orders']);
 Route::get("admin/view-order", [PageLoader::class, 'view_order']);
 
 Route::get("admin/manage-products", [PageLoader::class, 'manage_products']);
-Route::get("admin/edit-product", [PageLoader::class, 'edit_product']);
+Route::get("admin/edit-product/{id}", [PageLoader::class, 'edit_product']);
 Route::get("admin/add-product", [PageLoader::class, 'add_product']);
 
 Route::get("admin/manage-period", [PageLoader::class, 'manage_period']);

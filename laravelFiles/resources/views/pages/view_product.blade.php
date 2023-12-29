@@ -376,9 +376,10 @@
                         @if($product["instock"]>0)
                         <form action="{{url('add-to-cart')}}" id="addToCartForm" method="POST">
                             @csrf
-                            <div id="atcBox" class="d-flex @if($category['id']==6) 
-                    d-none
-                    @endif ">
+                            <div id="atcBox" class="d-flex 
+                            @if($product["date_option"]=="Yes")
+                              d-none
+                              @endif ">
                                 <div class="product-count me-3 m-0">
                                     <div action="#" class="d-flex">
                                         <div class="qtyminus">-</div>

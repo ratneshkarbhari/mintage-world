@@ -508,10 +508,7 @@
                                 @endphp
                                 {{$newDate}}</span></p>
                                 <p>{{$product_rating["comments"]}}</p> 
-
                                 <i data-star="{{$product_rating["rating_score"]}}"></i> 
-                                  
-                                  
                             </div>
                             @endforeach
                         </div>

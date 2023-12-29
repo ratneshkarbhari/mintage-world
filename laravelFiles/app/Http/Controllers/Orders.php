@@ -29,6 +29,15 @@ class Orders extends Controller
 
         $orderModel = new Order();
 
+        
+        $latestOrder = $orderModel->orderBy("id","desc")->first();
+
+        $orderId = $latestOrder["orderid"];
+
+        $orderIdDigits = explode("-",$orderId)[1];
+
+        $orderIdDigits=$orderIdDigits+1;
+
 
         $orderId = $orderModel->insertGetId([
 
@@ -55,7 +64,7 @@ class Orders extends Controller
             "subtotal" => session("subtotal")-session("discount"),
             "shipping" => $shipping,
             "items" => count(session("cart")),
-            "orderid" => uniqid(),
+            "orderid" => "ORDER-".$orderIdDigits,
             "payment_status" => "Success",
             "payment_note" => NULL,
             "dispatch" => NULL,
@@ -79,6 +88,7 @@ class Orders extends Controller
             foreach ($cart_items as $cart_item) {
             
                 $orderProductsModel = new OrderProduct();
+
     
                 $orderProductsModel->insert([
     

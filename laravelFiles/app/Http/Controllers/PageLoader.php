@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Media;
 use App\Models\Country;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -109,8 +110,19 @@ class PageLoader extends Controller
 
     function dashboard()
     {
+
+        $orderModel  = new Order();
+
+        $productModel = new Product();
+
+        $latestEightOrders = $orderModel->orderBy("id","desc")->limit(10,0)->get();
+
+        $latestEightProducts = $productModel->orderBy("id","desc")->limit(10,0)->get();
+
         $this->admin_page_loader("dashboard", [
-            "title" => "Dashboard"
+            "title" => "Dashboard",
+            "latest_orders" => $latestEightOrders,
+            "latest_products" => $latestEightProducts
         ]);
     }
 

@@ -187,8 +187,13 @@ class PageLoader extends Controller
 
     function manage_products()
     {
+
+        $latestTwentyFiveProducts = Product::orderBy("id","desc")->with("product_category")->get();
+
+
         $this->admin_page_loader("manage_products", [
-            "title" => "Manage Products"
+            "title" => "Manage Products",
+            "latest_twenty_five_products" => $latestTwentyFiveProducts
         ]);
     }
     function add_product()

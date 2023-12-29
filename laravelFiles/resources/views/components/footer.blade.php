@@ -8,9 +8,9 @@
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>2-C, Thackar Indl. Estate <br />N. M.
                         Joshi
                         Marg, Lower Parel (E), <br />Mumbai - 400 011.</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>022 - 40190400</p>
-                    <p class="mb-2"><i class="fa fa-mobile-alt me-3"></i>8591908969</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@mintageworld.com</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href="tel:02240190400">022 - 40190400</a></p>
+                    <p class="mb-2"><i class="fa fa-mobile-alt me-3"></i><a href="tel:8591908969">85919 08969</a></p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="mailto:info@mintageworld.com">info@mintageworld.com</a></p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/channel/UCMx9KlQd0kYSU0UE0T9H5YQ" target="_blank"><i class="fab fa-youtube"></i></a>
                         <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/mintageworld/" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -138,9 +138,15 @@
     </div>
     <div class="sticky-footer">
         <ul class="sticky-footer-ul">
-            <li><a href="{{url("list-of-cart/")}}" title="Add to Cart"><i class="fa fa-cart-plus"></i></a></li>
+            <li><a href="{{url("cart/")}}" class="position-relative" title="Add to Cart"><i class="fa fa-cart-plus"></i><span class="cart-item">5</span> </a></li>
+            @if(session("member_id"))
+            <li><a href="{{url("member/dashboard")}}" title="Sign in"><i class="fas fa-user-cog"></i></a></li>            
+            <li><a href="{{url("/logout")}}" title="Login"><i class="fas fa-sign-out-alt"></i></a></li>
+            @else 
             <li><a href="{{url("member/")}}" title="Sign in"><i class="fa fa-user"></i></a></li>            
             <li><a href="{{url("application/login/")}}" title="Login"><i class="fa fa-lock"></i></a></li>
+            @endif
+           
             <li><a href="#" title="search" id="footerSearch"><i class="fa fa-search"></i></a></li>
         </ul>
     </div>

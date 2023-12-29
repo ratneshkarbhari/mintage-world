@@ -651,6 +651,7 @@ section.home-page-carousel {
 .footer .btn.btn-link:hover {
   letter-spacing: 1px;
   box-shadow: none;
+  color: #e19726;
 }
 
 .footer .copyright {
@@ -3913,8 +3914,30 @@ iframe.you-tube-video {
 [data-star^="4.9"]::after{width:98%}
 [data-star^="5"]::after{width:100%}
 
- 
+.cart-item {
+  position: absolute;
+  top: -12px;
+  right: -14px;
+  width: 18px;
+  height: 18px;
+  line-height: 16px;
+  border: 1px solid #e19726;
+  background: #fff;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 40px;
+  font-size: 13px;
+}
+.footer-wraper  a {
+  color: #fff;
+  transition: 0.5s;
+}
 
+.footer-wraper a:hover {
+  color: #e19726;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
 
 /* --------Responsive Media Css Start------------- */
 
@@ -4017,9 +4040,7 @@ iframe.you-tube-video {
     font-size: 14px;
   }
 }
-@media screen {
-}
-
+ 
 @media (max-width: 1024px) {
   .dropdown-menu.mega-menu {
     width: 1000px;
@@ -4062,6 +4083,14 @@ iframe.you-tube-video {
 }
 
 @media (max-width: 991px) {
+  .top-line{display: none;}
+  .top-line {
+    position: fixed;
+    z-index: 99999;
+    width: 270px;
+    right: 0;
+    top: 10px;
+}
   .navbar-light.sticky-top {
     top: 0px !important;
   }
@@ -4077,10 +4106,7 @@ iframe.you-tube-video {
   .stellarnav {
     display: block;
   }
-
-  .top-line {
-    display: none;
-  }
+ 
 
   .menu-toggle {
     position: fixed;
@@ -4232,12 +4258,26 @@ iframe.you-tube-video {
     width: 7px !important;
     color: #fff;
   }
+  .cart-item {
+    position: relative;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 27px;
+    border: 1px solid #939598;
+    background: #fff;
+    color: #e19726;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 40px;
+    font-size: 14px;
+    margin-left: 5px;
+    top: -10px;
+}
 }
 
 @media (max-width: 768px) {
-  .top-line {
-    display: none;
-  }
+  
 
   .navbar-light.sticky-top {
     padding-left: 15px;
@@ -4286,9 +4326,12 @@ iframe.you-tube-video {
 }
 
 @media (max-width: 767px) {
-  .top-line {
-    display: none;
-  }
+  .top-line a {
+    margin-left: 10px;
+}
+small.icon-text {
+  display: none;
+}
 
   .navbar-light.sticky-top {
     top: 0 !important;

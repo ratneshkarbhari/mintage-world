@@ -70,29 +70,29 @@
                 </div>
                 <div class="col-xl-7 col-lg-7  text-end ">
                     <div class="h-100 d-inline-flex align-items-center  me-2">
-                        <a href="{{url("cart")}}">
-                            <small class="fa fa-shopping-cart text-primary me-2"></small>
-                            <small>Shopping Cart</small>
+                        <a href="{{url("cart")}}" title="Cart">
+                            <small class="fa fa-shopping-cart text-primary me-2 position-relative"><span class="cart-item">5</span></small>
+                            <small class="icon-text">Cart</small>
                         </a>
                     </div>
                     <div class="h-100 d-inline-flex align-items-center  me-md-2 me-3">                       
                         @if(session("member_id"))
-                        <a href="{{url("member/dashboard")}}"  class="me-2">
+                        <a href="{{url("member/dashboard")}}"  class="me-2" title="My Account">
                             <small class="fas fa-user-cog text-primary me-2"></small>
-                            <small>My Account</small>
+                            <small class="icon-text">My Account</small>
                         </a>
-                        <a href="{{url("/logout")}}"  class="me-2">
+                        <a href="{{url("/logout")}}"  class="me-2" title="Logout">
                             <small class="fas fa-sign-out-alt text-primary me-2"></small>
-                            <small>Logout</small>
+                            <small class="icon-text">Logout</small>
                         </a>
                         @else 
-                        <a href="{{url("application/login")}}" class="me-2">
+                        <a href="{{url("application/login")}}" class="me-2" title="Sign in">
                             <small class="fa fa-sign-in-alt text-primary me-2"></small>
-                            <small>Sign in</small>
+                            <small class="icon-text">Sign in</small>
                         </a>
-                        <a href="{{url("member")}}"> 
+                        <a href="{{url("member")}}" title="Sign up"> 
                             <small class="fas fa-user-plus text-primary me-2"></small>
-                            <small>Sign up</small>
+                            <small class="icon-text">Sign up</small>
                         </a>
                         @endif
                     </div>
@@ -336,24 +336,29 @@
                 <li><a href="{{url("knowledge-base")}}">Knowledge Base</a></li>
                 <li><a href="{{url("content/about-us")}}">About Us</a></li>
                 <li><a href="{{url("contact")}}">Contact Us</a></li>
-                <li class="text-left mt-2">
+                @if(session("member_id"))
+                <li><a href="{{url("member/dashboard")}}">My Account</a></li>
+                <li><a href="{{url("/logout")}}">Log Out</a></li>
+                @endif
+
+                <li class="text-left mt-2 social-media-menu">
                     <div class="h-100 d-inline-flex align-items-center ms-3">
-                        <a class="btn btn-sm-square bg-white text-primary me-1 p-1" href="https://www.youtube.com/channel/UCMx9KlQd0kYSU0UE0T9H5YQ" target="_blank">
+                        <a class="btn btn-sm-square bg-white me-1 p-1" href="https://www.youtube.com/channel/UCMx9KlQd0kYSU0UE0T9H5YQ" target="_blank">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a class="btn btn-sm-square bg-white text-primary me-1 p-1" href="https://www.instagram.com/mintageworld/" target="_blank">
+                        <a class="btn btn-sm-square bg-white me-1 p-1" href="https://www.instagram.com/mintageworld/" target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a class="btn btn-sm-square bg-white text-primary me-1 p-1" href="https://www.facebook.com/pages/Mintage-World/408430029349409" target="_blank">
+                        <a class="btn btn-sm-square bg-white me-1 p-1" href="https://www.facebook.com/pages/Mintage-World/408430029349409" target="_blank">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a class="btn btn-sm-square bg-white text-primary me-1 p-1" href="https://twitter.com/mintageworld" target="_blank">
+                        <a class="btn btn-sm-square bg-white me-1 p-1" href="https://twitter.com/mintageworld" target="_blank">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a class="btn btn-sm-square bg-white text-primary me-1 p-1" href="https://www.pinterest.com/mintageworld/" target="_blank">
+                        <a class="btn btn-sm-square bg-white me-1 p-1" href="https://www.pinterest.com/mintageworld/" target="_blank">
                             <i class="fab fa-pinterest-p"></i>
                         </a>
-                        <a class="btn btn-sm-square bg-white text-primary me-0 p-1" href="https://www.linkedin.com/company/ultra-mintage-world-limited/" target="_blank">
+                        <a class="btn btn-sm-square bg-white me-0 p-1" href="https://www.linkedin.com/company/ultra-mintage-world-limited/" target="_blank">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
 

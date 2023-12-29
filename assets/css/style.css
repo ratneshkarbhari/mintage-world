@@ -1804,9 +1804,7 @@ ul.sticky-footer-ul li a:hover {
   width: 12px !important;
   color: #fff;
 }
-#sync2.owl-carousel .owl-stage {
-  width: 100% !important;
-}
+ 
 #sync2 .owl-item .item{
 opacity: 1;
 transition: 0.5s;
@@ -3914,6 +3912,9 @@ iframe.you-tube-video {
 [data-star^="4.8"]::after{width:96%}
 [data-star^="4.9"]::after{width:98%}
 [data-star^="5"]::after{width:100%}
+
+ 
+
 
 /* --------Responsive Media Css Start------------- */
 

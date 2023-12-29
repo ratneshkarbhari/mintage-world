@@ -35,7 +35,7 @@
                @foreach($latest_twenty_five_products as $product)
                <tr>
                   <td>{{$productCounter}}</td>
-                  <td><a href="edit-product/">{{$product["name1"]}}</a></td>
+                  <td><a href="{{url('admin/edit-product/'.$product['id'])}}">{{$product["name1"]}}</a></td>
                   <td>{{$product["product_category"]["cat_name"]}}</td>
                   <td>{{$product["sku"]}}</td>
                   <td>{{$product["instock"]}}</td>
@@ -54,7 +54,7 @@
                   </td>
                   <td>
 
-                     <a href="edit-product/" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
+                     <a href="{{url('admin/edit-product/'.$product['id'])}}" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
                      <a href="#" class="btn btn-danger btn-sm" id="DeleteProduct" title="Delet Product"><i class="fa fa-trash"></i></a>
                   </td>
                </tr>

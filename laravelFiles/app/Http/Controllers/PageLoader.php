@@ -6,6 +6,7 @@ use App\Models\Media;
 use App\Models\Country;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
@@ -187,9 +188,7 @@ class PageLoader extends Controller
 
     function manage_products()
     {
-
         $latestTwentyFiveProducts = Product::orderBy("id","desc")->with("product_category")->get();
-
 
         $this->admin_page_loader("manage_products", [
             "title" => "Manage Products",
@@ -202,10 +201,14 @@ class PageLoader extends Controller
             "title" => "Add New Product"
         ]);
     }
-    function edit_product()
+    function edit_product($id)
     {
+        $productToEdit = Product::find($id);
+        $allProductCats = ProductCategory::all();
         $this->admin_page_loader("edit_product", [
-            "title" => "Edit Product"
+            "title" => "Edit Product",
+            "productToEdit" => $productToEdit,
+            "product_categories" => $allProductCats
         ]);
     }
 

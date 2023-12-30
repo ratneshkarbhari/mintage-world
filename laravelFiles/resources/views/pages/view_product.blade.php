@@ -70,9 +70,19 @@
                 <div class="col-lg-7 col-md-12 col-sm-12 mt-lg-0 mt-5 ">
                     <h1 class="mb-3 heading-2">{{$product["name1"]}}</h1>
                     <div class="w-100 d-flex justify-content-between">
-                        <div class="price"><span><i class="fa fa-rupee-sign"></i> 400</span>
-                            <i class="fa fa-rupee-sign"></i> {{$product["price"]}}
+                        @if($product["discount"]!=NULL&&$product["discount"]!=0)
+                        <div class="price"><span><i class="fa fa-rupee-sign"></i> {{$product['price']}}</span>
+                           @php
+                           $discountAmount = ($product["discount"]/100)*$product["price"];
+                           $discountedPrice = $product["price"]-$discountAmount;
+                           @endphp
+                           <i class="fa fa-rupee-sign"></i> {{$discountedPrice}}
                         </div>
+                        @else
+                        <div class="price">
+                           <i class="fa fa-rupee-sign"></i> {{$product["price"]}}
+                        </div>
+                        @endif
                         <div class="tab-review"><a href="#tab-review" class="btn btn-info btn-sm text-white"> {{count($product["product_ratings"])}} Reviews</a></div>
                     </div>
                     <hr />

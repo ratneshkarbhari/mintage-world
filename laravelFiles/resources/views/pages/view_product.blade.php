@@ -77,6 +77,7 @@
                            $discountedPrice = $product["price"]-$discountAmount;
                            @endphp
                            <i class="fa fa-rupee-sign"></i> {{$discountedPrice}}
+                           <small class="text-success"><b>{{$product['discount']}}%</b></small>
                         </div>
                         @else
                         <div class="price">

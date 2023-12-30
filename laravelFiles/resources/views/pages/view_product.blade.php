@@ -65,10 +65,11 @@
                         </div>
                         @endforeach
                     </div>
+                    @if($product["video_id"]==NULL)
                     <div class="product-video mt-3">
-                    <iframe src="https://www.youtube.com/embed/xFwYL6xWDIQ?si=D2qviZyICrSA_3pC" class="" title="" frameborder="0" allowfullscreen></iframe>
-                  </div>
-
+                    <iframe src="https://www.youtube.com/embed/{{$product['video_id']}}" class="" title="" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    @endif
                 </div>
                 <div class="col-lg-7 col-md-12 col-sm-12 mt-lg-0 mt-5 ">
                     <h1 class="mb-3 heading-2">{{$product["name1"]}}</h1>

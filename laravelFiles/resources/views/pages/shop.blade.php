@@ -174,7 +174,7 @@
             <div class="col-lg-9 col-md-12 mt-md-5 mt-0 mt-lg-0">
                <div class="d-flex justify-content-between">
                   <h2 class="mb-3 heading-1">Buy Coins</h2>
-                  <a href="#" class="view-all">More <i class="fa fa-angle-right"></i></a> 
+                  <a href="{{url('shop/list/18-buy-coins/')}}" class="view-all">More <i class="fa fa-angle-right"></i></a> 
                </div>
                <div class="owl-carousel product-carousel shop-page-carousel position-relative">
                   
@@ -183,10 +183,6 @@
                   @php
 
                   $imgParts = explode("/",$random_coin["img"]);
-
-                  
-
-                  
 
                   @endphp
 
@@ -205,7 +201,7 @@
                <hr class="my-md-4">
                <div class="d-flex justify-content-between">
                   <h2 class="mb-3 heading-1">Buy Notes</h2>
-                  <a href="#" class="view-all">More <i class="fa fa-angle-right"></i></a> 
+                  <a href="{{url('shop/list/19-buy-banknotes/')}}" class="view-all">More <i class="fa fa-angle-right"></i></a> 
                </div>
                <div class="owl-carousel product-carousel shop-page-carousel position-relative">
                   @foreach($random_notes as $random_note)
@@ -231,7 +227,7 @@
                <hr class="my-md-4">
                <div class="d-flex justify-content-between">
                   <h2 class="mb-3 heading-1">Buy Accessories</h2>
-                  <a href="#" class="view-all">More <i class="fa fa-angle-right"></i></a> 
+                  <a href="{{url('shop/list/2-collectibles-accessories/')}}" class="view-all">More <i class="fa fa-angle-right"></i></a> 
                </div>
                <div class="owl-carousel product-carousel shop-page-carousel position-relative">
                   
@@ -258,7 +254,7 @@
                <hr class="my-md-4">
                <div class="d-flex justify-content-between">
                   <h2 class="mb-3 heading-1"> Buy Greeting Cards </h2>
-                  <a href="#" class="view-all">More <i class="fa fa-angle-right"></i></a> 
+                  <a href="{{url('shop/list/6-greeting-cards/')}}" class="view-all">More <i class="fa fa-angle-right"></i></a> 
                </div>
                <div class="owl-carousel product-carousel shop-page-carousel position-relative">
                   @foreach($random_greeting_cards as $random_greeting_card)

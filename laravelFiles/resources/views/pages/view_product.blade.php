@@ -65,7 +65,7 @@
                         </div>
                         @endforeach
                     </div>
-                    @if($product["video_id"]==NULL)
+                    @if($product["video_id"]!=NULL)
                     <div class="product-video mt-3">
                     <iframe src="https://www.youtube.com/embed/{{$product['video_id']}}" class="" title="" frameborder="0" allowfullscreen></iframe>
                     </div>

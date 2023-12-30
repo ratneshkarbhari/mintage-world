@@ -195,11 +195,10 @@
                             <img src="https://www.mintageworld.com/img/note.png" class="img-fluid" alt="">
                             <img src="{{url('/assets/images/available-icon.png')}}" class="img-fluid available-icon d-none" id="available-icon"  alt="">
                             <img src="{{url('/assets/images/not-available-icon.png')}}" class="img-fluid available-icon d-none" id="not-available-icon" alt="">
-                            <img src="{{url('/assets/images/available-premium-price-icon.png')}}" class="img-fluid available-icon d-none" id="available-premium-icon" alt="">
-
-                            
+                            <img src="{{url('/assets/images/available-premium-price-icon.png')}}" class="img-fluid available-icon d-none" id="available-premium-icon" alt="">                           
 
                         </p>
+                        @if($product["instock"]>0)
                         <p>Check availability of your auspicious date note </p>
                         <div class="row justify-content-start">
                             <div class="col-md-2 col-4">
@@ -369,6 +368,7 @@
                                 </button>
                             </div>
                         </div>
+                        @endif
                     </div>
                     <p> The value of Denomination is same as printed on the currency , additional cost is towards presentation and packaging.</p>
                     <h5>Note : <span>10 RS</span></h5>

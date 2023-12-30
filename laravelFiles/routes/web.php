@@ -142,6 +142,8 @@ Route::post("member-login-exe", [Authentication::class, 'member_login']);
 
 
 
+Route::get("fetch-current-cart-count",[CartActions::class,'fetch_current_cart_count']);
+
 Route::get("coin/list/{rulerId}", [Coins::class, 'coin_list']);
 Route::get("note/list/{denominationUnit}/{dynastyId}", [Notes::class, 'note_list']);
 Route::get("stamp/list/{dynastyId}", [Stamps::class, 'stamp_list']);

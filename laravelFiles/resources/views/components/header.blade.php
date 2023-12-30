@@ -71,7 +71,15 @@
                 <div class="col-xl-7 col-lg-7  text-end ">
                     <div class="h-100 d-inline-flex align-items-center  me-2">
                         <a href="{{url("cart")}}" title="Cart">
-                            <small class="fa fa-shopping-cart text-primary me-2 position-relative"><span class="cart-item">5</span></small>
+                            <small class="fa fa-shopping-cart text-primary me-2 position-relative"><span id="cart-item-count" class="cart-item">@php 
+
+                                $cartCount = session("cart_count");
+                                @endphp
+                                @if(isset($cartCount))
+                                    {{session("cart_count")}}
+                                @else
+                                    0
+                                @endif</span></small>
                             <small class="icon-text">Cart</small>
                         </a>
                     </div>

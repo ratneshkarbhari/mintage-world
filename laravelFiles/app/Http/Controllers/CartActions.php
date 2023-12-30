@@ -84,7 +84,8 @@ class CartActions extends Controller
 
 
                 session([
-                    "cart" => $cartObj
+                    "cart" => $cartObj,
+                    "cart_count" => count($cartObj)
                 ]);
 
                 return "added-to-cart";
@@ -154,7 +155,8 @@ class CartActions extends Controller
 
 
                 session([
-                    "cart" => $cartObj
+                    "cart" => $cartObj,
+                    "cart_count" => count($cartObj)
                 ]);
 
                 return "added-to-cart";
@@ -313,5 +315,9 @@ class CartActions extends Controller
             $subtotal += $cartItem["amount"];
         }
         return $subtotal;
+    }
+
+    function fetch_current_cart_count(){
+        return session("cart_count");
     }
 }

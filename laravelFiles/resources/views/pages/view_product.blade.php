@@ -712,6 +712,20 @@
             },
             success: function(response) {
                 if (response == "added-to-cart") {
+
+                     $.ajax({
+                        type: "GET",
+                        url: "{{url('fetch-current-cart-count')}}",
+                        
+                        success: function (response) {
+
+                           console.log(response);
+                           $("span#cart-item-count").html(response);
+
+                           
+                        }
+                     });
+                  
                     $('.add-to-cart-success').toast('show');
                 } else {
                     $('.add-to-cart-failure').toast('show');

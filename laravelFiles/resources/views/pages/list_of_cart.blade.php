@@ -300,6 +300,18 @@ use App\Models\Product;
             },
             success: function (response) {                
                 $("div#cart-item-"+pid).remove();
+                $.ajax({
+                type: "GET",
+                url: "{{url('fetch-current-cart-count')}}",
+                
+                success: function (response) {
+
+                    console.log(response);
+                    $("span#cart-item-count").html(response);
+
+                    
+                }
+                });
                 let currentCartCount = $("span#cartCountFigure").html();
                 let newCartCount = parseInt(currentCartCount)-1;
                 $("span#cartCountFigure").html(newCartCount);

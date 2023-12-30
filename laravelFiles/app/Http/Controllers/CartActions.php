@@ -256,7 +256,11 @@ class CartActions extends Controller
 
         unset($cartItems[$pid]);
 
-        if (session(["cart" => $cartItems])) {
+        $cartCount = session("cart_count");
+
+        $newCartCount = $cartCount-1; 
+
+        if (session(["cart" => $cartItems,"cart_count"=>$newCartCount])) {
             return TRUE;
         } else {
             return FALSE;

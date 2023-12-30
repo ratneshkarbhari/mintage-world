@@ -57,11 +57,7 @@
                         </div>
                         @foreach($product["product_images"] as $product_image)
                         <div class="item">
-                            @if(is_file(getenv('PRODUCT_EXTRA_IMAGE_BASE_URL').$product_image['image_name']))
                             <img src="{{ getenv('PRODUCT_EXTRA_IMAGE_BASE_URL').$product_image['image_name'] }}" class="img-fluid" />
-                            @else
-                            <img src="{{ getenv('API_DEFAULT_IMG_PATH')}}" class="img-fluid" />
-                            @endif
                         </div>
                         @endforeach
                     </div>

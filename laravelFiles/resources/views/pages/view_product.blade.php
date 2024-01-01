@@ -788,7 +788,7 @@
                   if(message=="Available at premium price"){
                      let premium_price = response.premium_price
                      $("#product-price-usual").addClass("d-none");
-                     $("#product-price-premium").html("<b><i class='fa fa-rupee-sign'> "+premium_price+"</b>")
+                     $("#product-price-premium").html("<b><i class='fa fa-rupee-sign'> "+premium_price+"")
 
                   }
                   // console.log(message)

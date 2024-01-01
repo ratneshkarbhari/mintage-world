@@ -209,7 +209,8 @@ class Shopping extends Controller
         if ($res) {
 
             return json_encode([
-                "message" => "Available at premium price"
+                "message" => "Available at premium price",
+                "premium_price" => $res["price"]
             ]);
         } else {
 

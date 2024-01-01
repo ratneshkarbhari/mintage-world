@@ -71,17 +71,26 @@
                     <h1 class="mb-3 heading-2">{{$product["name1"]}}</h1>
                     <div class="w-100 d-flex justify-content-between">
                         @if($product["discount"]!=NULL&&$product["discount"]!=0)
-                        <div class="price"><span><i class="fa fa-rupee-sign"></i> {{$product['price']}}</span>
+                        <span id="product-price-usual"><i class="fa fa-rupee-sign"></i> {{$product['price']}}</span>
+                        <div class="price">
                            @php
                            $discountAmount = ($product["discount"]/100)*$product["price"];
                            $discountedPrice = $product["price"]-$discountAmount;
                            @endphp
-                           <i class="fa fa-rupee-sign"></i> {{$discountedPrice}}
-                           <small class="text-success"><b>{{$product['discount']}}%</b></small>
+                           <i class="fa fa-rupee-sign"></i> <span id="discounted-price">{{$discountedPrice}}</span>
+                           <small class="text-success"><span id="discount-percentage">{{$product['discount']}}%</span></small>
+                           <span  id="product-price-premium" >
+                            
+                           </span>
                         </div>
                         @else
                         <div class="price">
-                           <i class="fa fa-rupee-sign"></i> {{$product["price"]}}
+                           
+                            <span id="product-price-usual" style="text-decoration: none;"><i class="fa fa-rupee-sign"></i>{{$product["price"]}}
+                           </span>
+                            <span  id="product-price-premium" >
+                            
+                           </span>
                         </div>
                         @endif
                         <div class="tab-review"><a href="#tab-review" class="btn btn-info btn-sm text-white"> {{count($product["product_ratings"])}} Reviews</a></div>
@@ -193,7 +202,6 @@
                         @endif
                     </div>
                     
-
                     @if($product["date_option"]=="Yes")
 
                     <div class="birth-date-wraper">
@@ -205,7 +213,10 @@
                             <img src="{{url('/assets/images/available-premium-price-icon.png')}}" class="img-fluid available-icon d-none" id="available-premium-icon" alt="">                           
 
                         </p>
+                        
                         @if($product["instock"]>0)
+                        <p class="text-danger" id="date-selection-error"></p>
+
                         <p>Check availability of your auspicious date note </p>
                         <div class="row justify-content-start">
                             <div class="col-md-2 col-4">
@@ -754,38 +765,55 @@
         let monthSelected = $("select#date-check-mm").val();
         let yearSelected = $("select#date-check-yy").val();
 
+        console.log(dateSelected)
 
-        $.ajax({
-            type: "POST",
-            url: "{{url('check-note-availability')}}",
-            data: {
-                "_token": "{{ csrf_token() }}",
-                "date" : dateSelected,
-                "month" : monthSelected,
-                "year" : yearSelected,
-                "product_id" : {{$product["id"]}}
-            },
-            success: function (response) {
-                response = JSON.parse(response)
-                let message = response.message
-                // console.log(message)
-                $(".available-icon").addClass("d-none")
-                if(message!="Not Available"){
-                    $("div#atcBox").removeClass("d-none")
-                    if (message=="Product Available") {
-                        $("img#available-icon").removeClass("d-none");
+        if(dateSelected==""||monthSelected=='',yearSelected==''){
+            $("p#date-selection-error").html("Please select a valid date");
+        }else{
+           $("p#date-selection-error").html("");
 
-                    } else {
-                        $("img#available-premium-icon").removeClass("d-none");
-                    }
-                }else{
-                    $("img#not-available-icon").removeClass("d-none");
-                    $("div#atcBox").addClass("d-none")
 
-                }
-            }
-        });
+            $.ajax({
+               type: "POST",
+               url: "{{url('check-note-availability')}}",
+               data: {
+                  "_token": "{{ csrf_token() }}",
+                  "date" : dateSelected,
+                  "month" : monthSelected,
+                  "year" : yearSelected,
+                  "product_id" : {{$product["id"]}}
+               },
+               success: function (response) {
+                  response = JSON.parse(response)
+                  let message = response.message
+                  if(message=="Available at premium price"){
+                     let premium_price = response.premium_price
+                     $("span#product-price-usual").addClass("d-none");
+                     $("span#product-price-premium").html("<i class='fa fa-rupee-sign'> "+premium_price)
 
+                  }
+                  // console.log(message)
+                  $(".available-icon").addClass("d-none")
+                  if(message!="Not Available"){
+                     $("div#atcBox").removeClass("d-none")
+                     if (message=="Product Available") {
+                           $("img#available-icon").removeClass("d-none");
+
+                     } else {
+                           $("img#available-premium-icon").removeClass("d-none");
+                     }
+                  }else{
+                     $("img#not-available-icon").removeClass("d-none");
+                     $("div#atcBox").addClass("d-none")
+
+                  }
+               }
+         });
+
+
+        }
+
+        
 
         @endif
 

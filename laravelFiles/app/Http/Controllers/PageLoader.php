@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Media;
-use App\Models\Country;
 use App\Models\Order;
+use App\Models\Country;
 use App\Models\Product;
-use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+use App\Models\ProductCategory;
+use App\Http\Controllers\Orders;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 
@@ -236,8 +237,11 @@ class PageLoader extends Controller
 
     function manage_orders()
     {
+        $orderModel = new Order();
+        $orders = $orderModel->orderBy("id","desc")->get();
         $this->admin_page_loader("manage_orders", [
-            "title" => "Manage Orders"
+            "title" => "Manage Orders",
+            "orders" => $orders
         ]);
     }
     function view_order()

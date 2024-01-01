@@ -71,26 +71,25 @@
                     <h1 class="mb-3 heading-2">{{$product["name1"]}}</h1>
                     <div class="w-100 d-flex justify-content-between">
                         @if($product["discount"]!=NULL&&$product["discount"]!=0)
-                        <span id="product-price-usual"><i class="fa fa-rupee-sign"></i> {{$product['price']}}</span>
-                        <div class="price">
-                           @php
-                           $discountAmount = ($product["discount"]/100)*$product["price"];
-                           $discountedPrice = $product["price"]-$discountAmount;
-                           @endphp
-                           <i class="fa fa-rupee-sign"></i> <span id="discounted-price">{{$discountedPrice}}</span>
-                           <small class="text-success"><span id="discount-percentage">{{$product['discount']}}%</span></small>
-                           <span  id="product-price-premium" >
-                            
-                           </span>
-                        </div>
+                        <div class="price-group d-flex">
+                           <div id="product-price-usual" class="me-2 text-danger"><small><del><i class="fa fa-rupee-sign"></i> {{$product['price']}}</del></small></div>   
+                           <div class="price me-2">
+                              @php
+                              $discountAmount = ($product["discount"]/100)*$product["price"];
+                              $discountedPrice = $product["price"]-$discountAmount;
+                              @endphp
+                              <span id="discounted-price" class="me-4"><b><i class="fa fa-rupee-sign"></i> {{$discountedPrice}}</b></span>
+                              <span id="discount-percentage" class="text-success"><small>{{$product['discount']}}%</small></span>                        
+                           </div> 
+                        </div> 
+                        
+                        
                         @else
+                        <div class="price-group d-flex">
                         <div class="price">
-                           
-                            <span id="product-price-usual" style="text-decoration: none;"><i class="fa fa-rupee-sign"></i>{{$product["price"]}}
-                           </span>
-                            <span  id="product-price-premium" >
-                            
-                           </span>
+                           <div id="product-price-usual" class="me-4" style="text-decoration: none;"><b><i class="fa fa-rupee-sign"></i> {{$product["price"]}}</b></div>
+                           <div  id="product-price-premium" class="text-warning" ></div>
+                        </div>
                         </div>
                         @endif
                         <div class="tab-review"><a href="#tab-review" class="btn btn-info btn-sm text-white"> {{count($product["product_ratings"])}} Reviews</a></div>
@@ -788,8 +787,8 @@
                   let message = response.message
                   if(message=="Available at premium price"){
                      let premium_price = response.premium_price
-                     $("span#product-price-usual").addClass("d-none");
-                     $("span#product-price-premium").html("<i class='fa fa-rupee-sign'> "+premium_price)
+                     $("#product-price-usual").addClass("d-none");
+                     $("#product-price-premium").html("<b><i class='fa fa-rupee-sign'> "+premium_price+"</b>")
 
                   }
                   // console.log(message)

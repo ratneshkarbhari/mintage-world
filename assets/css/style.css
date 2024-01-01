@@ -2033,18 +2033,12 @@ margin: 5px;
   text-align: center;
   padding: 10px;
 }
-.info-item-grid-row .price {
-  font-size: 20px;
-  color: #e19726;
-  font-weight: 600;
+
+.price-group {
+  font-size: 22px;
 }
-.info-item-grid-row .price span {
-  font-size: 14px;
-  color: #999;
-  text-decoration: line-through;
-  margin: 0 5px 0 0;
-  font-weight: 400;
-}
+ 
+ 
 .birth-date-wraper img {
   width: 150px;
 }

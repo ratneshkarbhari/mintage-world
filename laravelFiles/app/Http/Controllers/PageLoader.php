@@ -237,8 +237,13 @@ class PageLoader extends Controller
 
     function manage_orders()
     {
-        $orderModel = new Order();
-        $orders = $orderModel->orderBy("id","desc")->get();
+        if(!$orders = Cache::pull("orders")){
+
+            $orderModel = new Order();
+            $orders = $orderModel->orderBy("id","desc")->get();
+
+        }
+
         $this->admin_page_loader("manage_orders", [
             "title" => "Manage Orders",
             "orders" => $orders

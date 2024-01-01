@@ -26,21 +26,42 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                    @php 
+                    
+                    $orderCounter = 1;
+                    @endphp
                     @foreach($orders as $order)
+
                     <tr>
-                        <td>1</td>
-                        <td><a href="view-order/">ORD-12558</a></td>
-                        <td><a href="view-user/">Sudnyaa Kataria</a></td>
-                        <td>17/08/2023 </td>
-                        <td>535.00</td>
-                        <td><span class="badge bg-info text-dark">Processing</span></td>
-                        <td><span class="badge bg-success">Success</span></td>
+                        <td>{{$orderCounter}}</td>
+                        <td><a href="view-order/">{{$order["orderid"]}}</a></td>
+                        <td><a href="#">{{$order["Shipping_Name1"]}}</a></td>
                         <td>
-                            <a href="view-order/" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
+                        @php
+                        $convertedDate = date("d/m/Y",strtotime($order["modified_date"]))
+                        @endphp
+                        
+                        {{$convertedDate}}	</td>
+                        <td>{{$order['totalamt']}}</td>
+                        <td><span class="badge bg-info text-dark">{{$order["status"]}}</span></td>
+                        @if($order["payment_status"]=="Success")
+                        <td><span class="badge bg-success">Success</span></td>
+                        @else
+                        <td><span class="badge bg-danger">Failure</span></td>
+                        @endif
+                        <td>
+                            <a href="{{ url('view-order/'.$order['orderid']) }}" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
+                                                    
                         </td>
                     </tr>
+                    
+                    @php 
+                    $orderCounter++;
+                    @endphp
                     @endforeach
-                </tbody>
+                     
+                </tbody> 
             </table>
         </div>
 

@@ -51,7 +51,7 @@
                         <td><span class="badge bg-danger">Failure</span></td>
                         @endif
                         <td>
-                            <a href="{{ url('view-order/'.$order['orderid']) }}" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
+                            <a href="{{ url('admin/view-order/'.$order['orderid']) }}" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>
                                                     
                         </td>
                     </tr>

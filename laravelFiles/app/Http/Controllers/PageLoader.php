@@ -249,10 +249,17 @@ class PageLoader extends Controller
             "orders" => $orders
         ]);
     }
-    function view_order()
+    function view_order($orderid)
     {
+
+        $orderModel = new Order();
+
+        $order = $orderModel->where("orderid",$orderid)->with("order_products")->with("member")->first();
+
+
         $this->admin_page_loader("view_order", [
-            "title" => "View order"
+            "title" => "View order",
+            "order" => $order
         ]);
     }
 

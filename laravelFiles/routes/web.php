@@ -138,7 +138,7 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/dashboard", [PageLoader::class, 'dashboard']);
 
     Route::get("admin/manage-orders", [PageLoader::class, 'manage_orders']);
-    Route::get("admin/view-order", [PageLoader::class, 'view_order']);
+    Route::get("admin/view-order/{orderid}", [PageLoader::class, 'view_order']);
 
     Route::get("admin/manage-products", [PageLoader::class, 'manage_products']);
     Route::get("admin/edit-product/{id}", [PageLoader::class, 'edit_product']);

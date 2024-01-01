@@ -1,3 +1,8 @@
+@php
+
+use App\Models\Product;
+@endphp
+
 <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
   <div class="container-fluid">
      <div class="mb-3">
@@ -42,23 +47,25 @@
            <div class="row mb-4 border-bottom pb-2">
               <div class="col-md-6">
                  <div class="invoice-no">
-                    <h3 class="text-danger">#ORD-12776</h3>
+                    <h3 class="text-danger">#{{$order["orderid"]}}</h3>
                     <span class="small"><b>Order Date : </b>20-11-2023</span> 
                  </div>
               </div>
               <div class="col-md-6 text-end">
-                 <p class="mb-0"><b>Invoice No : </b> ORD-12776<br> <strong>Order Status : </strong> Confirmed <br> <strong>Payment Status : </strong> RAZORPAY - Success</p>
+                 <p class="mb-0"><b>Invoice No : </b> {{$order["orderid"]}}<br> <strong>Order Status : </strong> {{$order["status"]}} <br> <strong>Payment Status : </strong> RAZORPAY - {{$order["payment_status"]}}</p>
               </div>
            </div>
            <div class="row mb-4 cust-detail">
               <div class="col-md-4">
                  <h6 class="mb-3 text-primary"><b>Customer Details :</b></h6>
-                 <p class="mb-0"><strong>Nandkumar Arekar</strong> <br> arekars@gmail.com<br> 9930176267<br> 1/3 SHivsagar Rahiwashi Sangh, Bhatwadi Ghatkopar (W)<br> Mumbai, Maharashtra<br> India - 400084</p>
+                 <p class="mb-0">{!! $order["payment_address"] !!}</p>
               </div>
               <div class="col-md-4"> </div>
               <div class="col-md-4 text-end">
                  <h6 class="mb-3 text-primary"><b>Delivery Address :</b></h6>
-                 <p class="mb-0"><strong>Nandkumar Arekar</strong><br> 9930176267<br>1/3 SHivsagar Rahiwashi Sangh, Bhatwadi Ghatkopar (W)<br> Mumbai, Maharashtra<br> India - 400084</p>
+                 <p class="mb-0">
+                  {!! $order["ShippingAddress1"] !!}
+                 </p>
               </div>
            </div>
            <div class="table-responsive">
@@ -76,36 +83,78 @@
                     </tr>
                  </thead>
                  <tbody>
-                    <tr>
+                     @php
+                     $orderProductsCounter = 1;
+                     $subtotal = 0.00;
+                     $totalWeight = 0.00;
+                     @endphp
+                     @foreach($order["order_products"] as $product)
+                     @php
+                     $pdata = Product::find($product["productid"]);
+                     
+                     if($pdata["img"]!=""){
+
+                     $imgParts = explode("/",$pdata["img"]);
+
+                     }else{
+
+                     $imgParts[2] = "noimage.jpg";
+
+                     }
+                     @endphp
+                     <tr>
                         <td class="text-start">1</td>
-                        <td class="text-start"> <img src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/MINBOK0004.jpg" alt="Global Collectibles of Mahatma Gandhi Through Banknotes, Coins &amp; Stamps Hardcover Book" width="50" height="50"> </td>
-                        <td class="text-start">Global Collectibles of Mahatma Gandhi Through Banknotes, Coins & Stamps Hardcover Book <br> SKU -  MINBIC0001-8<br>
-                        HSN - 4820<br>
-                        Date - 26-12-78 
+                        <td class="text-start"> <img src="{{env('PRODUCT_IMAGE_BASE_URL').$imgParts[2]}}" alt="Global Collectibles of Mahatma Gandhi Through Banknotes, Coins &amp; Stamps Hardcover Book" width="50" height="50"> </td>
+                        <td class="text-start">{{$pdata["name1"]}} <br> SKU -  {{$pdata['sku']}}<br>
+                        HSN - {{$pdata['hsn']}}<br>
                         </td>
-                        <td class="text-end">222.32</td>
-                        <td class="text-end">1</td>                      
-                        <td class="text-end">222.32</td> 
-                        <td class="text-end">26.68<br><small>(12%)</small> </td>
-                        <td class="text-end">249</td>
+                        <td class="text-end">{{$product["price"]}}</td>
+                        <td class="text-end">{{$product["quantity"]}}</td>                      
+                        <td class="text-end">
+                        @php
+                        $amount = $product["price"]*$product["quantity"];
+                        @endphp
+                        {{$amount}}</td> 
+                        <td class="text-end">{{$tax = 0.12*$amount}}<br><small>(12%)</small> </td>
+                        <td class="text-end">{{$amountWTax = $amount+$tax}}</td>
                     </tr>
+                     @php
+                     $orderProductsCounter++;
+                     $subtotal=$subtotal+$amountWTax;
+                     $totalWeight=$totalWeight+$pdata["weight"];
+                     @endphp
+                     @endforeach
                     <tr>
                        <td colspan="7" class="text-end">Sub-Total</td>
-                       <td class="text-end">249</td>
+                       <td class="text-end">{{$subtotal}}</td>
                     </tr>
                     <tr>
                        <td colspan="7" class="text-end"> Shipping Rate</td>
-                       <td class="text-end">00</td>
+                       <td class="text-end">
+                        @if($subtotal<500)
+                        {{$shipping = 500}}
+                        @else
+                        {{$shipping=0.00}}
+                        @endif
+                       </td>
                     </tr>
                     <tr>
                        <td colspan="4" class="text-end">Total Weight	</td>
-                       <td class="text-end">0</td>
+                       <td class="text-end">{{$totalWeight}}</td>
                        <td  colspan="2" class="text-end">Coupon</td>
-                       <td class="text-end">00</td>
+                       <td class="text-end">@if($order["discount"]=="")
+                        {{$discount = 0.00}}
+                        @else
+{{                        $discount = $order["discount"]}}
+                        @endif
+                       </td>
                     </tr>
                     <tr>
                        <td colspan="7" class="text-end">Total</td>
-                       <td class="text-end"><i class="fa fa-rupee-sign"></i> 249</td>
+                       <td class="text-end"><i class="fa fa-rupee-sign"></i> {{
+                        $payable = $subtotal+$shipping-$discount;
+
+                       }}</td>
                     </tr>
                  </tbody>
               </table>

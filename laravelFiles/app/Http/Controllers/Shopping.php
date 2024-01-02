@@ -126,7 +126,7 @@ class Shopping extends Controller
         if($maincatdata["meta_title"]){
 
         }else{
-            
+
         }
 
         $this->page_loader("shop_list", [
@@ -152,12 +152,22 @@ class Shopping extends Controller
         })->first();
 
 
+        $relatedProducts = json_decode(json_encode(DB::table("products")
+        ->select("products.*")
+        ->where("products.category", "=", $product["category"])
+        ->where("products.id", "!=", $product["id"])
+        ->where("products.status", "=", 'Active')
+        ->limit(6)
+        ->inRandomOrder()
+        ->get()),TRUE);
+
 
         if ($product) {
 
             $this->page_loader("view_product", [
                 "title" => "Buy " . $product["name1"] . " Online",
                 "product" => $product,
+                "related_products" => $relatedProducts,
                 "category" => $product["product_category"]
             ]);
         } else {

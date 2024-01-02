@@ -476,128 +476,47 @@
               <div class="col-md-12">
                   <h2 class="mb-3 heading-2">YOU MAY ALSO LIKE</h2>
                   <div class="owl-carousel Recommended-Slider position-relative">
-                     <div class="item text-center">
-                        <div class="product-grid">
-                           <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3288-global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book" class="image"> 
-                              <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MINBOK0004.jpg"> </a> 
-                           </div>
-                           <div class="product-content">
-                              <h2 class="title"><a href="http://localhost/mintage-world/view-product/global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book">Global Collectibles of Mahatma Gandhi Through Banknotes, Coins &amp; Stamps Hardcover Book</a> </h2>
-                              <div class="price"><i class="fa fa-rupee-sign"></i> 1999</div>                              
-                           </div>
-                        </div>
-                     </div>
-                     <div class="item text-center">
-                        <div class="product-grid">
-                           <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3288-global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book" class="image"> 
-                              <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MINBOK0004.jpg"> </a> 
-                           </div>
-                           <div class="product-content">
-                              <h2 class="title"><a href="http://localhost/mintage-world/view-product/global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book">Global Collectibles of Mahatma Gandhi Through Banknotes, Coins &amp; Stamps Hardcover Book</a> </h2>
-                              <div class="price"><i class="fa fa-rupee-sign"></i> 1999</div>                              
-                           </div>
-                        </div>
-                     </div>
-                     <div class="item text-center">
-                        <div class="product-grid">
-                           <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3288-global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book" class="image"> 
-                              <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MINBOK0004.jpg"> </a> 
-                           </div>
-                           <div class="product-content">
-                              <h2 class="title"><a href="http://localhost/mintage-world/view-product/global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book">Global Collectibles of Mahatma Gandhi Through Banknotes, Coins &amp; Stamps Hardcover Book</a> </h2>
-                              <div class="price"><i class="fa fa-rupee-sign"></i> 1999</div>                              
-                           </div>
-                        </div>
-                     </div>
-                     <div class="item text-center">
-                        <div class="product-grid">
-                           <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3288-global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book" class="image"> 
-                              <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MINBOK0004.jpg"> </a> 
-                           </div>
-                           <div class="product-content">
-                              <h2 class="title"><a href="http://localhost/mintage-world/view-product/global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book">Global Collectibles of Mahatma Gandhi Through Banknotes, Coins &amp; Stamps Hardcover Book</a> </h2>
-                              <div class="price"><i class="fa fa-rupee-sign"></i> 1999</div>                              
-                           </div>
-                        </div>
-                     </div>
-                     <div class="item text-center">
-                        <div class="product-grid">
-                           <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3288-global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book" class="image"> 
-                              <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MINBOK0004.jpg"> </a> 
-                           </div>
-                           <div class="product-content">
-                              <h2 class="title"><a href="http://localhost/mintage-world/view-product/global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book">Global Collectibles of Mahatma Gandhi Through Banknotes, Coins &amp; Stamps Hardcover Book</a> </h2>
-                              <div class="price"><i class="fa fa-rupee-sign"></i> 1999</div>                              
-                           </div>
-                        </div>
-                     </div>
-                     <div class="item text-center">
-                        <div class="product-grid">
-                           <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3288-global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book" class="image"> 
-                              <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MINBOK0004.jpg"> </a> 
-                           </div>
-                           <div class="product-content">
-                              <h2 class="title"><a href="http://localhost/mintage-world/view-product/global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book">Global Collectibles of Mahatma Gandhi Through Banknotes, Coins &amp; Stamps Hardcover Book</a> </h2>
-                              <div class="price"><i class="fa fa-rupee-sign"></i> 1999</div>                              
-                           </div>
-                        </div>
-                     </div>
-                     <div class="item text-center">
-                        <div class="product-grid">
-                           <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3288-global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book" class="image"> 
-                              <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MINBOK0004.jpg"> </a> 
-                           </div>
-                           <div class="product-content">
-                              <h2 class="title"><a href="http://localhost/mintage-world/view-product/global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book">Global Collectibles of Mahatma Gandhi Through Banknotes, Coins &amp; Stamps Hardcover Book</a> </h2>
-                              <div class="price"><i class="fa fa-rupee-sign"></i> 1999</div>                              
-                           </div>
-                        </div>
-                     </div>
-                     <div class="item text-center">
-                        <div class="product-grid">
-                           <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3288-global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book" class="image"> 
-                              <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MINBOK0004.jpg"> </a> 
-                           </div>
-                           <div class="product-content">
-                              <h2 class="title"><a href="http://localhost/mintage-world/view-product/global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book">Global Collectibles of Mahatma Gandhi Through Banknotes, Coins &amp; Stamps Hardcover Book</a> </h2>
-                              <div class="price"><i class="fa fa-rupee-sign"></i> 1999</div>                              
-                           </div>
-                        </div>
-                     </div>
-                     <div class="item text-center">
-                        <div class="product-grid">
-                           <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3288-global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book" class="image"> 
-                              <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MINBOK0004.jpg"> </a> 
-                           </div>
-                           <div class="product-content">
-                              <h2 class="title"><a href="http://localhost/mintage-world/view-product/global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book">Global Collectibles of Mahatma Gandhi Through Banknotes, Coins &amp; Stamps Hardcover Book</a> </h2>
-                              <div class="price"><i class="fa fa-rupee-sign"></i> 1999</div>                              
-                           </div>
-                        </div>
-                     </div>
-                     <div class="item text-center">
-                        <div class="product-grid">
-                           <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3288-global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book" class="image"> 
-                              <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MINBOK0004.jpg"> </a> 
-                           </div>
-                           <div class="product-content">
-                              <h2 class="title"><a href="http://localhost/mintage-world/view-product/global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book">Global Collectibles of Mahatma Gandhi Through Banknotes, Coins &amp; Stamps Hardcover Book</a> </h2>
-                              <div class="price"><i class="fa fa-rupee-sign"></i> 1999</div>                              
-                           </div>
-                        </div>
-                     </div>
-                     <div class="item text-center">
-                        <div class="product-grid">
-                           <div class="product-image"> <a href="http://localhost/mintage-world/view-product/3288-global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book" class="image"> 
-                              <img class="pic-1" src="https://s3-ap-southeast-1.amazonaws.com/mint-product-img/homepage/MINBOK0004.jpg"> </a> 
-                           </div>
-                           <div class="product-content">
-                              <h2 class="title"><a href="http://localhost/mintage-world/view-product/global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book">Global Collectibles of Mahatma Gandhi Through Banknotes, Coins &amp; Stamps Hardcover Book</a> </h2>
-                              <div class="price"><i class="fa fa-rupee-sign"></i> 1999</div>                              
-                           </div>
-                        </div>
-                     </div>
+                        
+                     @foreach($related_products as $related_product)
+                  
 
+                     @php
+
+                     if($related_product["img"]!=""){
+
+                     $imgParts = explode("/",$related_product["img"]);
+
+                     }else{
+
+                     $imgParts[2] = "noimage.jpg";
+
+                     }
+
+                     @endphp
+
+                     <div class="item text-center">
+                     
+                        <div class="product-grid">
+                           <div class="product-image"> <a href="{{url("view-product/".$related_product["id"]."-".$related_product["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+                           <div class="product-content">
+                              <h2 class="title"><a href="{{url("view-product/".$related_product["id"]."-".$related_product["custom_url"])}}">{{$related_product["name1"]}}</a> </h2>
+                              @if($related_product["discount"])
+                              <div class="price"><span class="d-inline-block me-3"><i class="fa fa-rupee-sign"></i> {{$related_product["price"]}}</span>
+                                 @php
+                                 $discountAmt = ($related_product["discount"]/100)*$related_product["price"];
+                                 $discountedPrice = $related_product["price"]-$discountAmt;
+                                 @endphp
+                                 <i class="fa fa-rupee-sign"></i> {{round($discountedPrice)}}
+                              </div>
+                              @else
+                              <i class="fa fa-rupee-sign"></i> {{$related_product["price"]}}
+                              @endif
+                           </div>
+                        </div>
+                     
+                     </div>
+                     
+                     @endforeach
                      
                        
 

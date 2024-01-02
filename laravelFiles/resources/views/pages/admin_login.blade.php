@@ -1,4 +1,19 @@
-<main id="admin-login" class="page-content">
+<style>
+    section.header-wrap,footer{
+        display: none;
+    }
+    .admin-bg{
+    background: #212529;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.menu-container {
+    display: none;
+}
+</style>
+<main id="admin-login" class="w-100" >
     <div class="container">
         <div class="row justify-content-center">         
             <div class="card col-md-6 p-0">
@@ -28,11 +43,7 @@
         </div>
     </div>
 </main>
-<style>
-    section.header-wrap,footer{
-        display: none;
-    }
-</style>
+
 <script>
     $("button#adminLoginButton").click(function (e) { 
         e.preventDefault();
@@ -76,4 +87,8 @@
             $(this).html(showPasswordIcon)
        }
     });
+
+    $(function() {
+  $('body').addClass('admin-bg');
+});
 </script>

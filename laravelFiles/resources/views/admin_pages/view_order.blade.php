@@ -121,7 +121,8 @@ use App\Models\Product;
                      @php
                      $orderProductsCounter++;
                      $subtotal=$subtotal+$amountWTax;
-                     $totalWeight=$totalWeight+$pdata["weight"];
+                     
+
                      @endphp
                      @endforeach
                     <tr>
@@ -140,7 +141,7 @@ use App\Models\Product;
                     </tr>
                     <tr>
                        <td colspan="4" class="text-end">Total Weight	</td>
-                       <td class="text-end">{{$totalWeight}}</td>
+                       <td class="text-end">0</td>
                        <td  colspan="2" class="text-end">Coupon</td>
                        <td class="text-end">@if($order["discount"]=="")
                         {{$discount = 0.00}}

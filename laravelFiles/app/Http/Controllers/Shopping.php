@@ -123,8 +123,14 @@ class Shopping extends Controller
             $grand_parent_category = NULL;
         }
 
+        if($maincatdata["meta_title"]){
+
+        }else{
+            
+        }
+
         $this->page_loader("shop_list", [
-            "title" => "Buy Coins of " . $maincatdata["cat_name"] . " Online | Mintage World",
+            "title" => "Buy " . $maincatdata["cat_name"] . " Online | Mintage World",
             "grand_parent_category" => $grand_parent_category,
             "parent_category" => $parent_category,
             "category" => $maincatdata,

@@ -363,44 +363,28 @@
 <section class="common-padding  px-lg-2 px-lg-5 home-page-content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
-                <h1>ONLINE MUSEUM FOR COINS, NOTES AND STAMPS OF WORLD</h1>
-                <p>
-                    Coins and notes are a part of our daily lives. We have used stamps while availing of postal
-                    service provided by the government.
-                    But seldom do we think about their origin, history, and evolution. Mintage World offers you a
-                    platform to discover the coins,stamps and <a href="#">notes of
-                        India</a>.
-                    Mintage World is an online museum with an extensively researched collection of coins, notes, and
-                    stamps. It is a haven for Numismatists, Notaphilists, and Philatelists.
-                    It is also a place for history buffs to learn about the coins, notes, and stamps issued in India
-                    over the ages. This online museum provides information on <a href="#">ancient coins</a>, <a
-                        href="#">medieval coins</a> and <a href="#">modern Indian coins</a>, Pre-Colonial,
-                    <a href="#">Colonial</a>, and Republic paper
-                    currency, and Pre-Independence and Post-Independence stamps issued in India.
-                </p>
-                <p>Mintage World is more than just an online museum. You can also check upcoming events such as coin
-                    fairs or auctions or you can read interesting titbits from the world of coins, notes, and
-                    stamps. This website is also a hub of historic information. There is more to Indian history than
-                    the freedom struggle, <a href="#">Mauryas (Magadha
-                        Mauryan Janapada)</a>, <a href="#">Guptas</a>, <a href="#">Mughals</a> and <a
-                        href="#">Marathas</a>. Read up on the
-                    numerous dynasties that ruled different parts of India at different times. Learn about Janpadas,
-                    <a href="#">Satavahana</a>, <a href="#">Kushan</a>, Western Kshatrapas, <a href="#">Alupas</a>,
-                    Delhi sultanate, <a href="#">Malwa Sultanate</a> and
-                    more. Learn about their coins along with the names of their rulers through our 'History' section
-                </p>
-                <p>
-                    Mintage World is a one-of-its-kind online museum for coins, notes, and <a href="#">stamps in
-                        India</a>.
-                    It is unique in its concept and the collection includes information on many coins issued by
-                    Indian rulers.
-                    The online museum of coins contains the largest collection on <a href="#">Indian coins</a>.
-                    The online museum of notes houses information on all the paper money issued in India right from
-                    the 18th century;
-                    while the online museum of stamps displays all the stamps issued in India, right from the Scinde
-                    Dawk.
-                </p>
+            <div class="col-md-12"> 
+
+            
+                    <h1>ONLINE MUSEUM FOR COINS, NOTES AND STAMPS OF WORLD</h1>
+                    <p>
+                        Coins and notes are a part of our daily lives. We have used stamps while availing of postal service provided by the government. 
+                        But seldom do we think about their origin, history, and evolution. Mintage World offers you a platform to discover the coins,stamps and <a href="https://www.mintageworld.com/note/">notes of India</a>. 
+                        Mintage World is an online museum with an extensively researched collection of coins, notes, and stamps. It is a haven for Numismatists, Notaphilists, and Philatelists. 
+                        It is also a place for history buffs to learn about the coins, notes, and stamps issued in India over the ages. This online museum provides information on <a href="https://www.mintageworld.com/coin/dynasty/17/">ancient coins</a>, <a href="https://www.mintageworld.com/coin/dynasty/4/">medieval coins</a> and <a href="https://www.mintageworld.com/coin/dynasty/30/">modern Indian coins</a>, Pre-Colonial, <a href="https://www.mintageworld.com/coin/dynasty/10/">Colonial</a>, and Republic paper currency, and Pre-Independence and Post-Independence stamps issued in India.
+                    </p>
+                    
+                    
+                  <p>Mintage World is more than just an online museum. You can also check upcoming events such as coin fairs or auctions or you can read interesting titbits from the world of coins, notes, and stamps. This website is also a hub of historic information. There is more to Indian history than the freedom struggle, <a href="https://www.mintageworld.com/coin/ruler/38/">Mauryas (Magadha Mauryan Janapada)</a>, <a href="https://www.mintageworld.com/coin/ruler/133/">Guptas</a>, <a href="https://www.mintageworld.com/history/detail/6-Mughal/">Mughals</a> and <a href="https://www.mintageworld.com/history/detail/169-Maratha/">Marathas</a>. Read up on the numerous dynasties that ruled different parts of India at different times. Learn about Janpadas, <a href="https://www.mintageworld.com/coin/ruler/442/">Satavahana</a>, <a href="https://www.mintageworld.com/coin/ruler/175/">Kushan</a>, Western Kshatrapas, <a href="https://www.mintageworld.com/coin/ruler/16/">Alupas</a>, Delhi sultanate, <a href="https://www.mintageworld.com/history/detail/5-Malwa-Sultan/">Malwa Sultanate</a> and more. Learn about their coins along with the names of their rulers through our 'History' section</p>
+            
+                    <p>
+                        Mintage World is a one-of-its-kind online museum for coins, notes, and <a href="https://www.mintageworld.com/stamp/">stamps in India</a>. 
+                        It is unique in its concept and the collection includes information on many coins issued by Indian rulers. 
+                        The online museum of coins contains the largest collection on <a href="https://www.mintageworld.com/coin/">Indian coins</a>. 
+                        The online museum of notes houses information on all the paper money issued in India right from the 18th century; 
+                        while the online museum of stamps displays all the stamps issued in India, right from the Scinde Dawk.
+                    </p> 
+
             </div>
         </div>
     </div>

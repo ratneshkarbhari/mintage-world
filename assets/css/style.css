@@ -475,6 +475,12 @@ section.home-page-carousel {
   line-height: 24px;
 }
 
+.home-page-content p a {
+  color: #e19726;
+}
+.home-page-content p a:hover {
+  color: #000;
+}
 /*** Header ***/
 
 .header-carousel .owl-nav {

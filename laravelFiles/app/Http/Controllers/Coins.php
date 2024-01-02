@@ -150,6 +150,7 @@ class Coins extends Controller
             "title" => $period["title"]." Coins | Coins of ".$period["title"]." ".$country["name"]." | ".$period["title"]." Period Coins | Mintage World",
             "info_title" => "Dynasties : ".$period["title"],
             "dynasties" => $dynasties,
+            "country" => $country,
             "breadCrumbData" => [
                 [
                     "slug" => "coins/",

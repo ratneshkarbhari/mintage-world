@@ -18,15 +18,23 @@
                     <p><b>Metal :</b> <span>{{$coin["metal"]["title"]}}</span></p>
                     <p><b>Shape :</b> <span>{{$coin["shape"]["title"]}}</span></p>
                     <p><b>Weight :</b> <span>{{$coin["weight"]}}</span></p>
+                    @if($coin["type"])
                     <p><b>Type/Series :</b> <span>{{$coin["type"]}}</span></p>
+                    @endif
                     <p><b>Minting Technique :</b> <span>{{$coin["minting_technique"]["title"]}}</span></p>
 
                     @if(session('type')=="member")
                     <div id="members-info">
+                        @if($coin["calendar_system"]["title"])
                         <p><b>Calendar System :</b> <span>{{$coin["calendar_system"]["title"]}}</span></p>
+                        @endif
                         <p><b>Issued Year :</b> <span>{{$coin["issued_year"]}}</span></p>
+                        @if($coin["remark"])
                         <p><b>Remark :</b> <span>{{$coin["remark"]}}</span></p>
+                        @endif
+                        @if($coin["rarity"]!="")
                         <p><b>Rarity :</b> <span>{{$coin["rarity"]["title"]}}</span></p>
+                        @endif
                         <p><b>Obverse Description :</b> <span>{{$coin["obverse_desc"]}}</span></p>
                         <p><b>Reverse Description :</b> <span>{{$coin["reverse_desc"]}}</span></p>
                     </div>

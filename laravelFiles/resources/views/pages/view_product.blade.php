@@ -104,6 +104,16 @@
                         <p>
                             {!!$product["desc1"]!!}
                         </p>
+                        @if(($product['category']=="11" && $product['accesories_type']=='Premium') || ($product['category']=="12" && $product['accesories_type']=='Premium') || ($product['category']=="13") || ($product['category']=="14") || ($product['category']=="15"))
+                        <div class="short-describe"><b>Leuchtturm original products made in germany.</b></div>
+                        @endif
+                        <br>
+                        @if($product['xbxh'])
+                        <p><strong>Product Specification: </strong>
+                                    <?php
+                                    echo $product['xbxh']; ?>
+                                </p>                        
+                        @endif
                         <?php if ($product['issue_year']) { ?>
                             <div class="short-describe">
                                 <p><strong>Issue Year: </strong>
@@ -169,6 +179,7 @@
                                 </p>
                             </div>
                         <?php } ?>
+                        
                         <?php if ($product['sku']) { ?>
                             <div class="short-describe">
                                 <div class="available1"><!--Available:-->
@@ -182,7 +193,13 @@
                         <?php } ?>
 
                         {{-- <p class="mt-3"><b>Product Code : </b> {{$product["sku"]}} </p> --}}
-
+                        <?php
+                        if($product['category']="35"){?>
+                           <div class="short-describe" style="font-size:12px;">
+                              <b> Note : Serial number will vary from image. </b>
+                           </div>
+                        <?php } ?>
+                        <br>
 
                         <div class="d-none">
                             <b>Customize your card: </b> Send your photo to <a href="info@mintageworld.com ">info@mintageworld.com</a> alongwith order id.</p>

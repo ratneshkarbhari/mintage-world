@@ -304,7 +304,7 @@
                         <div class="product-image"> <a href="{{url("view-product/".$product["id"]."-".$product["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                         <div class="product-content">
                            <h2 class="title"><a href="{{url("view-product/".$product["id"]."-".$product["custom_url"])}}">{{$product["name1"]}}</a> </h2>
-                           <div class="price"><i class="fa fa-rupee-sign"></i> {{$product["price"]}}</div>
+                           <div class="price"><span class="d-inline-block me-3"><i class="fa fa-rupee-sign"></i> 400</span><i class="fa fa-rupee-sign"></i> {{$product["price"]}}</div>
                            <a href="{{url("view-product/".$product["custom_url"])}}" class="add-to-cart">Add to Cart</a> 
                         </div>                     </div>
                   </div> 

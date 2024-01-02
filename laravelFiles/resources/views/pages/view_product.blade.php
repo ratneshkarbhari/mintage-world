@@ -78,7 +78,7 @@
                               $discountAmount = ($product["discount"]/100)*$product["price"];
                               $discountedPrice = $product["price"]-$discountAmount;
                               @endphp
-                              <span id="discounted-price" class="me-4"><b><i class="fa fa-rupee-sign"></i> {{$discountedPrice}}</b></span>
+                              <span id="discounted-price" class="me-4"><b><i class="fa fa-rupee-sign"></i> {{round($discountedPrice)}}</b></span>
                               <span id="discount-percentage" class="text-success"><small>{{$product['discount']}}%</small></span>                        
                            </div> 
                         </div> 

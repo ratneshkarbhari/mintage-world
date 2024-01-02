@@ -131,7 +131,8 @@ class Shopping extends Controller
             "category_products" => $categoryProducts,
             "product_count" => count($categoryProducts),
             "pagination_string" => $paginationInfoString,
-            "totalRecords" => $total
+            "totalRecords" => $total,
+            "footer_content" => $maincatdata["desc1"]
         ]);
     }
     function view_product($productSlug)

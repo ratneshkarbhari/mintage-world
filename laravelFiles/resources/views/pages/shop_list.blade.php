@@ -323,9 +323,7 @@
    </section>
    <section class="common-padding page-footer-disc bg-light-wraper">
       <div class="container-fluid px-lg-2 px-lg-5">
-         <h1>Online Shopping Portal for Coins, Banknotes &amp; Stamps Collectors</h1>
-         <p>Mintage World offers a unique online shopping portal for collectors where you can choose from a wide range of exciting products. You can now buy banknotes online and select from a <a href="{{url("/")}}/shop/list/19-buy-banknotes/">collection of beautiful paper money</a> from the world with just a few clicks. The buy coins section gives you a chance to enhance your collection with some very interesting coins from India as well as the world. To top it, these products also come with detailed descriptions about the coin and its history. What more could you have asked! The <a href="{{url("/")}}/shop/list/16-buy-stamps/">collection of stamps</a> offers philatelists and stamp lovers a wide range of colourful items based on various amazing themes. </p>
-         <p>You can also buy <a href="{{url("/")}}/shop/list/11-coin-accessories/">world class coin collecting accessories</a>, philatelic supplies, banknote accessories and postcard collecting accessories from our website to treasure and nurture your collection like never before! Last but not the least; Mintage World also has unique <a href="{{url("/")}}/shop/list/6-greeting-cards/">gifting options for you</a>! From greeting cards to table photo frames, all these products will definitely make your special occasions even more memorable. These items come along with a banknote that features a special date of your choice as its serial number. So get going and enjoy shopping! We are only an email or a call away to resolve any of your doubts or queries.</p>
+         {!!$footer_content!!}
       </div>
    </section>
     

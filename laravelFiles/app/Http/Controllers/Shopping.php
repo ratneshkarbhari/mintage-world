@@ -80,10 +80,11 @@ class Shopping extends Controller
     }
     function shop_list($categorySlug, Request $request)
     {
-
+        
+        
         $categorySlugParts = explode("-",$categorySlug);
                 
-        $products = Product::select('products.*', 'shopping_category.parent AS parent')
+        $productsQuery = Product::select('products.*', 'shopping_category.parent AS parent')
         ->join('shopping_category', 'shopping_category.id', '=', 'products.category')
         ->where('products.status', 'Active')
         ->where('products.instock', '>=', 1)
@@ -98,10 +99,30 @@ class Shopping extends Controller
                     $query->where('products.instock', '>=', 1)
                         ->where('products.special_status', 2);
                 });
-        })
-        ->orderByDesc('products.instock')
-        ->orderByDesc('products.id')
-        ->paginate(12);
+        });
+        
+        if ($request->has('price_sort')&&$request->price_sort!="") {
+
+            $productsQuery = $productsQuery->orderBy("price",$request->price_sort);
+
+
+        }
+
+        if($request->has("denomination")&&$request->denomination!=""){
+
+            $productsQuery = $productsQuery->where("denomination",$request->denomination);
+
+        }
+
+        
+        if($request->has("governor")&&$request->governor!=""){
+
+            $productsQuery = $productsQuery->where("governor",$request->governor);
+
+        }
+
+        $products = $productsQuery->paginate(12);
+        
 
         $maincatdata = ProductCategory::find($categorySlugParts[0]);
 
@@ -123,11 +144,6 @@ class Shopping extends Controller
             $grand_parent_category = NULL;
         }
 
-        if($maincatdata["meta_title"]){
-
-        }else{
-
-        }
 
         $this->page_loader("shop_list", [
             "title" => "Buy " . $maincatdata["cat_name"] . " Online | Mintage World",

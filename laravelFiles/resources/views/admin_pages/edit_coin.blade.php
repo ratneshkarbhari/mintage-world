@@ -6,13 +6,13 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
                   <li class="breadcrumb-item">Information</li>
-                  <li class="breadcrumb-item active" aria-current="page">{{$title}}</li>
+                  <li class="breadcrumb-item active" aria-current="page">Manage Coins</li>
                 </ol>
               </nav>  
         </div> 
         <div class="d-flex justify-content-between">
             <h2 class="title heading-3">{{$title}} </h2>
-             <a type="button" class="btn btn-primary btn-sm align-self-baseline" href="add-coin"><i class="fa fa-plus"></i> Add Coin</a>  
+             <a type="button" class="btn btn-primary btn-sm align-self-baseline" href=""><i class="fa fa-plus"></i> Add Coin</a>  
          </div> 
         <div class="table-responsive">
             <table id="example" class="table table-striped table-bordered DataTable" style="width:100%">

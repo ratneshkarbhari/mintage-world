@@ -149,10 +149,17 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/manage-ruler", [PageLoader::class, 'manage_ruler']);
 
     Route::get("admin/manage-stamps", [PageLoader::class, 'manage_stamps']);
+    Route::get("admin/add-stamp", [PageLoader::class, 'add_stamp']);
+    Route::get("admin/edit-stamp", [PageLoader::class, 'edit_stamp']);
 
 
     Route::get("admin/manage-coins", [PageLoader::class, 'manage_coins']);
+    Route::get("admin/add-coin", [PageLoader::class, 'add_coin']);
+    Route::get("admin/edit-coin", [PageLoader::class, 'edit_coin']);
+
     Route::get("admin/manage-notes", [PageLoader::class, 'manage_notes']);
+    Route::get("admin/add-note", [PageLoader::class, 'add_note']);
+    Route::get("admin/edit-note", [PageLoader::class, 'edit_note']);
 
     Route::get("admin/manage-categories", [PageLoader::class, 'manage_categories']);
     Route::get("admin/add-category", [PageLoader::class, 'add_category']);
@@ -175,11 +182,9 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::get("admin/manage-members", [PageLoader::class, 'manage_members']);
     Route::get("admin/manage-watermark", [PageLoader::class, 'manage_watermark']);
-
-
 });
 
-Route::post("add-product-rating",[Shopping::class,'add_product_rating']);
+Route::post("add-product-rating", [Shopping::class, 'add_product_rating']);
 
 Route::get("universal-search-exe", [Utils::class, 'universal_search']);
 
@@ -188,7 +193,7 @@ Route::post("member-login-exe", [Authentication::class, 'member_login']);
 
 
 
-Route::get("fetch-current-cart-count",[CartActions::class,'fetch_current_cart_count']);
+Route::get("fetch-current-cart-count", [CartActions::class, 'fetch_current_cart_count']);
 
 Route::get("coin/list/{rulerId}", [Coins::class, 'coin_list']);
 Route::get("note/list/{denominationUnit}/{dynastyId}", [Notes::class, 'note_list']);
@@ -232,5 +237,5 @@ Route::post("verify-email-exe", [Authentication::class, 'verify_email']);
 Route::post("check-note-availability", [Shopping::class, 'check_note_availability']);
 Route::get('story/', [StaticPages::class, 'story']);
 Route::get('story/detail/{id}', [StaticPages::class, 'story_detail']);
-Route::post('forgot-password-exe',[Authentication::class,'forgot_password']);
-Route::post('forgot-password-email-verif-exe',[Authentication::class,'forgot_password_code_verify_set_password']);
+Route::post('forgot-password-exe', [Authentication::class, 'forgot_password']);
+Route::post('forgot-password-email-verif-exe', [Authentication::class, 'forgot_password_code_verify_set_password']);

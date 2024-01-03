@@ -2030,6 +2030,23 @@ margin: 5px;
 .category-menu .nav li.active-li a {
   color: #e19726;
 }
+
+.category-menu li.active .group-list {
+	max-height: 1000px
+}
+
+.category-menu li.active li.active .sub-group-list {
+	max-height: 1000px;
+}
+
+.category-menu li.active li.active label>span {
+	-webkit-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg)
+}
+.current-tab{
+  font-weight: bolder;
+}
 /* category-menu css End */
 
 .product-short-wrap {

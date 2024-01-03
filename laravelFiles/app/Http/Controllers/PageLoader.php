@@ -117,9 +117,9 @@ class PageLoader extends Controller
 
         $productModel = new Product();
 
-        $latestEightOrders = $orderModel->orderBy("id","desc")->limit(10,0)->get();
+        $latestEightOrders = $orderModel->orderBy("id", "desc")->limit(10, 0)->get();
 
-        $latestEightProducts = $productModel->orderBy("id","desc")->limit(10,0)->get();
+        $latestEightProducts = $productModel->orderBy("id", "desc")->limit(10, 0)->get();
 
         $this->admin_page_loader("dashboard", [
             "title" => "Dashboard",
@@ -135,16 +135,16 @@ class PageLoader extends Controller
         ]);
     }
 
-    function add_coins()
+    function add_coin()
     {
-        $this->admin_page_loader("add_coins", [
-            "title" => "Add Coins"
+        $this->admin_page_loader("add_coin", [
+            "title" => "Add Coin"
         ]);
     }
-    function edit_coins()
+    function edit_coin()
     {
-        $this->admin_page_loader("edit_coins", [
-            "title" => "Edit Coins"
+        $this->admin_page_loader("edit_coin", [
+            "title" => "Edit Coin"
         ]);
     }
 
@@ -155,16 +155,16 @@ class PageLoader extends Controller
         ]);
     }
 
-    function add_notes()
+    function add_note()
     {
-        $this->admin_page_loader("add_notes", [
-            "title" => "Add notes"
+        $this->admin_page_loader("add_note", [
+            "title" => "Add note"
         ]);
     }
-    function edit_notes()
+    function edit_note()
     {
-        $this->admin_page_loader("edit_notes", [
-            "title" => "Edit notes"
+        $this->admin_page_loader("edit_note", [
+            "title" => "Edit note"
         ]);
     }
 
@@ -189,7 +189,7 @@ class PageLoader extends Controller
 
     function manage_products()
     {
-        $latestTwentyFiveProducts = Product::orderBy("id","desc")->with("product_category")->get();
+        $latestTwentyFiveProducts = Product::orderBy("id", "desc")->with("product_category")->get();
 
         $this->admin_page_loader("manage_products", [
             "title" => "Manage Products",
@@ -237,11 +237,10 @@ class PageLoader extends Controller
 
     function manage_orders()
     {
-        if(!$orders = Cache::pull("orders")){
+        if (!$orders = Cache::pull("orders")) {
 
             $orderModel = new Order();
-            $orders = $orderModel->orderBy("id","desc")->get();
-
+            $orders = $orderModel->orderBy("id", "desc")->get();
         }
 
         $this->admin_page_loader("manage_orders", [
@@ -254,7 +253,7 @@ class PageLoader extends Controller
 
         $orderModel = new Order();
 
-        $order = $orderModel->where("orderid",$orderid)->with("order_products")->with("member")->first();
+        $order = $orderModel->where("orderid", $orderid)->with("order_products")->with("member")->first();
 
 
         $this->admin_page_loader("view_order", [

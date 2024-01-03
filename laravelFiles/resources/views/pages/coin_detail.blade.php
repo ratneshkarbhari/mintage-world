@@ -23,12 +23,15 @@
                     @endif
                     <p><b>Minting Technique :</b> <span>{{$coin["minting_technique"]["title"]}}</span></p>
 
+                    <p><b>Issued Year :</b> <span>{{$coin["issued_year"]}}</span></p>
+                    <p><b>Size :</b> <span>{{$coin["size"]}}</span></p>
+
+
                     @if(session('type')=="member")
                     <div id="members-info">
                         @if($coin["calendar_system"]["title"])
                         <p><b>Calendar System :</b> <span>{{$coin["calendar_system"]["title"]}}</span></p>
                         @endif
-                        <p><b>Issued Year :</b> <span>{{$coin["issued_year"]}}</span></p>
                         @if($coin["remark"])
                         <p><b>Remark :</b> <span>{{$coin["remark"]}}</span></p>
                         @endif

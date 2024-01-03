@@ -72,7 +72,22 @@
                <div class="product-image"> <a href="{{url("view-product/".$random_book["id"]."-".$random_book["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
                   <h2 class="title"><a href="{{url("view-product/".$random_book["custom_url"])}}">{{$random_book["name1"]}}</a> </h2>
-                  <div class="price"><i class="fa fa-rupee-sign"></i> {{$random_book["price"]}}</div>
+                  @if($random_book["discount"])
+                  <div class="price">
+                  <span class="me-3">  <i class="fa fa-rupee-sign"></i> {{$random_book["price"]}}</span>
+                  @php  
+
+                  $discountAmt = ($random_book["discount"]/100)*$random_book["price"];
+                  $discountedPrice = $random_book["price"]-$discountAmt;
+                  
+                  @endphp
+                  <i class="fa fa-rupee-sign"></i> {{round($discountedPrice)}}
+                    </div>
+                  @else
+                  <div class="price">
+                  <i class="fa fa-rupee-sign"></i> {{$random_book["price"]}}
+                    </div>
+                  @endif
                   <a href="{{url("view-product/".$random_book["custom_url"])}}" class="add-to-cart d-none">Add to Cart</a> 
                </div>
             </div>
@@ -103,7 +118,24 @@
                <div class="product-image"> <a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
                   <h2 class="title"><a href="{{url("view-product/".$random_coin["custom_url"])}}">{{$random_coin["name1"]}}</a> </h2>
-                  <div class="price"><i class="fa fa-rupee-sign"></i> {{$random_coin["price"]}}</div>
+
+                  @if($random_coin["discount"])
+                  <div class="price">
+                  <span class="me-3">  <i class="fa fa-rupee-sign"></i> {{$random_coin["price"]}}</span>
+                  @php  
+
+                  $discountAmt = ($random_coin["discount"]/100)*$random_coin["price"];
+                  $discountedPrice = $random_coin["price"]-$discountAmt;
+                  
+                  @endphp
+                  <i class="fa fa-rupee-sign"></i> {{round($discountedPrice)}}
+                    </div>
+                  @else
+                  <div class="price">
+                  <i class="fa fa-rupee-sign"></i> {{$random_coin["price"]}}
+                    </div>
+                  @endif
+                  
                   <a href="{{url("view-product/".$random_coin["custom_url"])}}" class="add-to-cart d-none">Add to Cart</a> 
                </div>
             </div>
@@ -133,7 +165,24 @@
                <div class="product-image"> <a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
                   <h2 class="title"><a href="{{url("view-product/".$random_note["custom_url"])}}">{{$random_note["name1"]}}</a> </h2>
-                  <div class="price"><i class="fa fa-rupee-sign"></i> {{$random_note["price"]}}</div>
+                  
+                  @if($random_note["discount"])
+                  <div class="price">
+                  <span class="me-3">  <i class="fa fa-rupee-sign"></i> {{$random_note["price"]}}</span>
+                  @php  
+
+                  $discountAmt = ($random_note["discount"]/100)*$random_note["price"];
+                  $discountedPrice = $random_note["price"]-$discountAmt;
+                  
+                  @endphp
+                  <i class="fa fa-rupee-sign"></i> {{round($discountedPrice)}}
+                    </div>
+                  @else
+                  <div class="price">
+                  <i class="fa fa-rupee-sign"></i> {{$random_note["price"]}}
+                    </div>
+                  @endif
+                  
                   <a href="{{url("view-product/".$random_note["custom_url"])}}" class="add-to-cart d-none">Add to Cart</a> 
                </div>
             </div>
@@ -165,7 +214,24 @@
                <div class="product-image"> <a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
                   <h2 class="title"><a href="{{url("view-product/".$random_accessory["custom_url"])}}">{{$random_accessory["name1"]}}</a> </h2>
-                  <div class="price"><i class="fa fa-rupee-sign"></i> {{$random_accessory["price"]}}</div>
+                  
+                  @if($random_accessory["discount"])
+                  <div class="price">
+                  <span class="me-3">  <i class="fa fa-rupee-sign"></i> {{$random_accessory["price"]}}</span>
+                  @php  
+
+                  $discountAmt = ($random_accessory["discount"]/100)*$random_accessory["price"];
+                  $discountedPrice = $random_accessory["price"]-$discountAmt;
+                  
+                  @endphp
+                  <i class="fa fa-rupee-sign"></i> {{round($discountedPrice)}}
+                    </div>
+                  @else
+                  <div class="price">
+                  <i class="fa fa-rupee-sign"></i> {{$random_accessory["price"]}}
+                    </div>
+                  @endif
+                  
                   <a href="{{url("view-product/".$random_accessory["custom_url"])}}" class="add-to-cart d-none">Add to Cart</a> 
                </div>
             </div>
@@ -199,7 +265,24 @@
                <div class="product-image"> <a href="{{url("view-product/".$random_stamp["id"]."-".$random_stamp["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
                   <h2 class="title"><a href="{{url("view-product/".$random_stamp["custom_url"])}}">{{$random_stamp["name1"]}}</a> </h2>
-                  <div class="price"><i class="fa fa-rupee-sign"></i> {{$random_stamp["price"]}}</div>
+                  
+                  @if($random_stamp["discount"])
+                  <div class="price">
+                  <span class="me-3">  <i class="fa fa-rupee-sign"></i> {{$random_stamp["price"]}}</span>
+                  @php  
+
+                  $discountAmt = ($random_stamp["discount"]/100)*$random_stamp["price"];
+                  $discountedPrice = $random_stamp["price"]-$discountAmt;
+                  
+                  @endphp
+                  <i class="fa fa-rupee-sign"></i> {{round($discountedPrice)}}
+                    </div>
+                  @else
+                  <div class="price">
+                  <i class="fa fa-rupee-sign"></i> {{$random_stamp["price"]}}
+                    </div>
+                  @endif
+                  
                   <a href="{{url("view-product/".$random_stamp["custom_url"])}}" class="add-to-cart d-none">Add to Cart</a> 
                </div>
             </div>

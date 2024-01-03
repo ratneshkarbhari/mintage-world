@@ -223,7 +223,10 @@ class Coins extends Controller
 
         $coinModel = new Coin();
 
+        $coinsAll = $coinModel->where("ruler_id",$rulerId)->with("denomination")->with("metal")->with("rarity")->with("shape")->get();
+
         $coins = $coinModel->where("ruler_id",$rulerId)->with("denomination")->with("metal")->with("rarity")->with("shape")->paginate(12);
+
 
         $ruler = Ruler::find($rulerId);
 
@@ -236,12 +239,9 @@ class Coins extends Controller
 
         $dynastyRulers = Ruler::where("dynasty_id",$dynasty["id"])->get();
 
-
-
         $denominations = $metals = $rarities = $mints = [];
 
-
-        foreach ($coins as $coin) {
+        foreach ($coinsAll as $coin) {
             
             $denominations[] = $coin["denomination"];
             $metals[] = $coin["metal"];

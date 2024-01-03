@@ -11,6 +11,7 @@ use App\Models\Denomination;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
+use PhpParser\Node\Stmt\Echo_;
 
 class Notes extends Controller
 {
@@ -203,7 +204,7 @@ class Notes extends Controller
                 ],
 
                 [
-                    "slug" => "note/dynasty/".$period["id"].Str::slug($period["title"]),
+                    "slug" => "note/dynasty/".$period["id"]."-".Str::slug($period["title"]),
                     "label" => $period["title"]
                 ]
                 ,[
@@ -215,12 +216,15 @@ class Notes extends Controller
 
     }
 
-    function note_list($denominationUnit,$dynastyId){
+    function note_list($dynastyId,$denominationUnit){
 
-        $dynastyIdParts = explode("-",$dynastyId);
 
-        $dynastyId = $dynastyIdParts[0];
 
+        // echo $dynastyId.",".$denominationUnit;
+
+        $denominationUnitParts = explode("-",$denominationUnit);
+
+        $denominationUnit = $denominationUnitParts[0];
 
         if(!Cache::get('notes-'.$denominationUnit."-".$dynastyId)){
 
@@ -239,7 +243,6 @@ class Notes extends Controller
         }
 
 
-        
 
         $notes = Cache::get('notes-'.$denominationUnit."-".$dynastyId);
 
@@ -330,6 +333,8 @@ class Notes extends Controller
             $note["issued_year"] = $note["catalogue_ref_no"];
         }
 
+        
+
         $this->page_loader("note_detail",[
             "title" => $note["catalogue_ref_no"],
             "note" => $note,
@@ -356,7 +361,7 @@ class Notes extends Controller
                 ],
                 [
                     "label" => $note["denomination_unit"]." ".$denomination["title"],
-                    "slug"=> "note/list/".$note["denomination_unit"]."/".$dynasty["id"]
+                    "slug"=> "note/list/".$dynasty["id"]."/".$note["denomination_unit"]."-".strtolower($note["denomination"]["title"])
                 ],
                 [
                     "label" => $note["issued_year"]

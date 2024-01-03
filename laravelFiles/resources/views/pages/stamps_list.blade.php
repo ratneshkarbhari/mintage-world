@@ -61,7 +61,7 @@
                         
                         @foreach($stamps as $stamp)
                         @if($stamp["obverse_image"]!=""||$stamp["obverse_image"]!="NA")
-                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("stamp/detail/".$stamp["id"])}}">
+                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("stamp/detail/".$stamp["id"]."-".Str::slug($stamp["stamp_name"]))}}">
                                 <div class="info-item-grid-box">
                                     @if(($stamp["obverse_image"]!=""))
                                     <img

@@ -81,7 +81,7 @@
                         
                         @foreach($notes as $note)
                         @if($note["obverse_image"]!="")
-                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("note/detail/".$note["id"])}}">
+                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("note/detail/".$note["id"]."-".$note["denomination_unit"]."-".strtolower($note["denomination_title"]))}}">
                                 <div class="info-item-grid-box"><img
                                         src="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}"
                                         class="img-fluid" >

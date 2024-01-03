@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Stamp;
 use App\Models\Period;
 use App\Models\Dynasty;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
@@ -26,7 +27,7 @@ class Stamps extends Controller
 
             $periodModel = new Period();
 
-            $periods = $periodModel->where("category_id",3)->get();
+            $periods = $periodModel->where("category_id",3)->orderBy("")->get();
 
 
             Cache::put('stamp-periods',$periods);
@@ -119,7 +120,7 @@ class Stamps extends Controller
                     "label" => "Periods"
                 ],
                 [
-                    "slug" => "stamp/dynasty/".$period["id"],
+                    "slug" => "stamp/dynasty/".$period["id"]."-".Str::slug($period["title"]),
                     "label" => $period["title"]
                 ],
                 [
@@ -155,11 +156,11 @@ class Stamps extends Controller
                     "label" => "Periods"
                 ],
                 [
-                    "slug" => "stamp/dynasty/".$period["id"],
+                    "slug" => "stamp/dynasty/".$period["id"]."-".Str::slug($period["title"]),
                     "label" => $period["title"]
                 ],
                 [
-                    "slug" => "stamp/dynasty/".$dynasty["id"],
+                    "slug" => "stamp/dynasty/".$dynasty["id"]."-".Str::slug($dynasty["title"]),
                     "label" => $dynasty["title"]
                 ],
                 [

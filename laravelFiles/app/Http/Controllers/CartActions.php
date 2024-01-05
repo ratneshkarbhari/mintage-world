@@ -267,6 +267,16 @@ class CartActions extends Controller
         }
     }
 
+    function create_new_address(Request $request){
+
+        $memberAddressObj = [
+
+            "member_id"
+
+        ];
+
+    }
+
     function checkout()
     {
 
@@ -276,6 +286,7 @@ class CartActions extends Controller
 
             return redirect(url("shop"));
         } else {
+
 
             if (session("subtotal") < 499) {
                 $shipping = 100;
@@ -293,14 +304,40 @@ class CartActions extends Controller
 
             $order = $api->order->create(array('receipt' => uniqid(), 'amount' => $payable * 100, 'currency' => 'INR'));
 
+            $memberData = Member::where("id",session("member_id"))->with("addresses")->first();
+
+            if(!empty($memberData["addresses"])){
+
+                session([
+                    "order_address" => $memberData["addresses"]
+                ]);
+
+            }else{
+
+                if($memberData["address"]){
+                    session([
+                        "order_address" => [
+                            "tag" => "default",
+                            "address" => $memberData["address"]
+                        ]
+                    ]);
+                }
+    
+
+            }
+
+
             $this->page_loader("checkout", [
                 "title" => "Checkout ",
                 "member" => Member::find(session("member_id")),
                 "cart_items" => session("cart"),
                 "payable" => $payable,
-                "order" => $order
+                "order" => $order,
+                "member" => $memberData
             ]);
         }
+
+
     }
     function payment()
     {

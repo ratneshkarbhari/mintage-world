@@ -74,6 +74,7 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get('cart', [CartActions::class, 'cart_page']);
     Route::get('/checkout', [CartActions::class, 'checkout']);
     Route::get('payment', [CartActions::class, 'payment']);
+    Route::post('create-new-address-for-member',[CartActions::class,'p']);
 
 
 

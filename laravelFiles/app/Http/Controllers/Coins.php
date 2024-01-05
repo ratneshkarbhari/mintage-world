@@ -128,37 +128,23 @@ class Coins extends Controller
 
     function coin_dynasties($periodId){
 
-
-        $dynasties = Dynasty::where("period_id",17)->where("dynasty_group",1)->orderBy("order_by","desc")->get();
-
-        // dd($dynasties);
-
-        
-
-
-        // if(!Cache::get('coin-dynasties-'.$periodId)){
-
-        //     $dynastyModel = new Dynasty();
-
-        //     if($periodId==17){
-        //         $dynasties = $dynastyModel->where("period_id",$periodId)->where("dynasty_group",1)->orderBy("order_by","desc")->get();
-        //     }elseif ($periodId==4) {
-        //         $dynasties = $dynastyModel->where("period_id",$periodId)->orderBy("order_by","desc")->get();
-        //     }else{
-        //         $dynasties = $dynastyModel->where("period_id",$periodId)->orderBy("order_by","desc")->get();
-        //     }
+        $periodIdParts = explode("-",$periodId);
 
 
 
-        //     // Cache::put('coin-dynasties-'.$periodId,$dynasties);
+        $periodId = $periodIdParts[0];
 
-        // }
 
-        // // $dynasties = Cache::get('coin-dynasties-'.$periodId);
+           
+        if($periodId==17){
+            $dynasties = Dynasty::where("period_id",$periodIdParts[0])->where("dynasty_group",1)->orderBy("order_by","desc")->get();
+        }elseif ($periodId==4) {
+            $dynasties = Dynasty::where("period_id",$periodIdParts[0])->where("dynasty_group",7)->orderBy("order_by","desc")->get();
+        }else{
+            $dynasties = Dynasty::where("period_id",$periodId)->orderBy("order_by","desc")->get();
+        }
 
-        // dd($dynasties);
 
-        // exit;
 
         $period = Period::find($periodId);
 

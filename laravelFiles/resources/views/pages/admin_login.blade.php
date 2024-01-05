@@ -30,9 +30,9 @@
                         <div class="form-group  mb-3" style="position: relative">
                             <label for="login-password"><b>Password</b></label>
                             <input type="password" class="form__input mb-1 form-control" name="password" id="admin-login-password"  placeholder="Password">
-                            <button style="position: absolute;top: 35%; right: 0%;" id="showHidePassword" class="btn">
+                            <a style="position: absolute;top: 35%; right: 0%;" id="showHidePassword" class="btn">
                                 <i class="fas fa-eye"></i>
-                            </button>
+                            </a>
                         </div>
                         <span class="small text-end d-block w-100  mb-3">
                         <a href="{{url('member/forgotpassword')}}"> Forgot password?</a> </span>
@@ -75,7 +75,7 @@
     });
     let showPasswordIcon = '<i class="fas fa-eye"></i>'
     let hidePasswordIcon = '<i class="fas fa-eye-slash"></i>'
-    $("button#showHidePassword").click(function (e) { 
+    $("#showHidePassword").click(function (e) { 
         e.preventDefault();
        if ($("input#admin-login-password").attr("type")=="password") {
             $("input#admin-login-password").attr("type","text");

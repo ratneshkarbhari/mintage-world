@@ -158,32 +158,32 @@ class PageLoader extends Controller
     function add_note()
     {
         $this->admin_page_loader("add_note", [
-            "title" => "Add note"
+            "title" => "Add Note"
         ]);
     }
     function edit_note()
     {
         $this->admin_page_loader("edit_note", [
-            "title" => "Edit note"
+            "title" => "Edit Note"
         ]);
     }
 
     function manage_stamp()
     {
         $this->admin_page_loader("manage_stamp", [
-            "title" => "Manage stamp"
+            "title" => "Manage Stamp"
         ]);
     }
     function add_stamp()
     {
         $this->admin_page_loader("add_stamp", [
-            "title" => "Add stamp"
+            "title" => "Add Stamp"
         ]);
     }
     function edit_stamp()
     {
         $this->admin_page_loader("edit_stamp", [
-            "title" => "Edit stamp"
+            "title" => "Edit Stamp"
         ]);
     }
 

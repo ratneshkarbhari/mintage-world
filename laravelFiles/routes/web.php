@@ -133,6 +133,8 @@ Route::group(['middleware' => ['slashes']], function () {
     // Universal search
 });
 
+
+
 Route::group(['middleware' => ['check_admin_auth']], function () {
     // admin routes
     Route::get("admin/dashboard", [PageLoader::class, 'dashboard']);
@@ -183,6 +185,8 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/manage-members", [PageLoader::class, 'manage_members']);
     Route::get("admin/manage-watermark", [PageLoader::class, 'manage_watermark']);
 });
+
+Route::post("fetch-dg-dynasties",[Coins::class,'fetch_dg_dynasties']);
 
 Route::post("add-product-rating", [Shopping::class, 'add_product_rating']);
 

@@ -10,6 +10,7 @@ use App\Models\Dynasty;
 use App\Models\History;
 use Illuminate\Support\Str;
 use App\Models\Denomination;
+use App\Models\DynastyGroup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
@@ -126,31 +127,53 @@ class Coins extends Controller
 
 
     function coin_dynasties($periodId){
+
+
+        $dynasties = Dynasty::where("period_id",17)->where("dynasty_group",1)->orderBy("order_by","desc")->get();
+
+        // dd($dynasties);
+
         
 
 
-        if(!Cache::get('coin-dynasties-'.$periodId)){
+        // if(!Cache::get('coin-dynasties-'.$periodId)){
 
-            $dynastyModel = new Dynasty();
+        //     $dynastyModel = new Dynasty();
 
-            $dynasties = $dynastyModel->where("period_id",$periodId)->orderBy("order_by","desc")->get();
+        //     if($periodId==17){
+        //         $dynasties = $dynastyModel->where("period_id",$periodId)->where("dynasty_group",1)->orderBy("order_by","desc")->get();
+        //     }elseif ($periodId==4) {
+        //         $dynasties = $dynastyModel->where("period_id",$periodId)->orderBy("order_by","desc")->get();
+        //     }else{
+        //         $dynasties = $dynastyModel->where("period_id",$periodId)->orderBy("order_by","desc")->get();
+        //     }
 
 
-            Cache::put('coin-dynasties-'.$periodId,$dynasties);
 
-        }
+        //     // Cache::put('coin-dynasties-'.$periodId,$dynasties);
 
-        $dynasties = Cache::get('coin-dynasties-'.$periodId);
+        // }
+
+        // // $dynasties = Cache::get('coin-dynasties-'.$periodId);
+
+        // dd($dynasties);
+
+        // exit;
 
         $period = Period::find($periodId);
 
         $country = Country::find($period["country_id"]);
+
+        $dynastyGroups = [];
+
+        $dynastyGroups = DynastyGroup::where("period_id",$periodId)->get();
 
         $this->page_loader("dynasties",[
             "title" => $period["title"]." Coins | Coins of ".$period["title"]." ".$country["name"]." | ".$period["title"]." Period Coins | Mintage World",
             "info_title" => "Dynasties : ".$period["title"],
             "dynasties" => $dynasties,
             "country" => $country,
+            "dynastyGroups" => $dynastyGroups,
             "breadCrumbData" => [
                 [
                     "slug" => "coins/",
@@ -166,6 +189,38 @@ class Coins extends Controller
             ],
             "footer_content" =>$period["footer_content"]
         ]);
+
+    }
+
+    function fetch_dg_dynasties(Request $request){
+
+        $dynastyGroupId = $request->dynasty_group_id;
+
+        $dynastyModel = new Dynasty();
+
+        $dynastiesData = $dynastyModel->where("dynasty_group",$dynastyGroupId)->get();
+
+        $dynastiesHtml = '';
+
+
+        foreach($dynastiesData as $dynasty){
+
+
+            if(isset($dynasty["image"])){
+
+                $dynastiesHtml.='<div class="col-lg-2 col-md-6 col-sm-12 info-item-grid-outer-box d-flex align-items-stretch"><a href="'.url("coin/ruler/".$dynasty["id"]."-".Str::slug($dynasty["title"])).'"><div class="info-item-grid-box min-h-0"><img class="img-fluid" src="'.getenv("dynasty_IMAGE_BASE_URL")."/".$dynasty["image"].'" alt=""><div class="info-meta text-center"><h2 class="info-item-grid-title">'.$dynasty["title"].'</h2>'.$dynasty["description"].'</div></div></a></div>';
+            
+            }else{
+    
+
+                $dynastiesHtml.='<div class="col-lg-2 col-md-6 col-sm-12 info-item-grid-outer-box d-flex align-items-stretch"><a href="'.url("coin/ruler/".$dynasty["id"]."-".Str::slug($dynasty["title"])).'"><div class="info-item-grid-box min-h-0"><img class="img-fluid" src="'.getenv("API_DEFAULT_IMG_PATH").'" alt=""><div class="info-meta text-center"><h2 class="info-item-grid-title">'.$dynasty["title"].'</h2>'.$dynasty["description"].'</div></div></a></div>';
+
+
+            }
+
+        }
+
+        return $dynastiesHtml;
 
     }
 

@@ -74,7 +74,6 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get('cart', [CartActions::class, 'cart_page']);
     Route::get('/checkout', [CartActions::class, 'checkout']);
     Route::get('payment', [CartActions::class, 'payment']);
-    Route::post('create-new-address-for-member',[CartActions::class,'p']);
 
 
 
@@ -134,6 +133,7 @@ Route::group(['middleware' => ['slashes']], function () {
     // Universal search
 });
 
+Route::post('create-new-address-for-member',[CartActions::class,'create_new_address']);
 
 
 Route::group(['middleware' => ['check_admin_auth']], function () {

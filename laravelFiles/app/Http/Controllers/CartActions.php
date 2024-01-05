@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Razorpay\Api\Api;
 use App\Models\Member;
 use App\Models\Country;
+use App\Models\MemberAddress;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -271,15 +272,38 @@ class CartActions extends Controller
 
         $memberAddressObj = [
 
-            "member_id"
+            "member_id" => session("member_id"),
+            "first_name" => $request->first_name,
+            "last_name" => $request->last_name,
+            "address" => $request->address,
+            "city" => $request->city,
+            "state" => $request->state,
+            "zip" => $request->zip,
+            "country" => "India",
+            "default" => "yes",
+            "tag" => $request->address_tag
 
         ];
 
+        MemberAddress::where('member_id', session("member_id"))
+        ->update(['default' => "no"]);
+
+        if(MemberAddress::create($memberAddressObj)){
+            
+            $this->checkout("Address added to your account");
+            
+        }else{
+
+            $this->checkout("Address added to your account");
+            
+        }
+
     }
 
-    function checkout()
+    function checkout($successMessage='',$failureMessage='')
     {
 
+        
         $cart_items = session("cart");
 
         if (empty($cart_items) || (!isset($cart_items))) {
@@ -329,6 +353,8 @@ class CartActions extends Controller
 
             $this->page_loader("checkout", [
                 "title" => "Checkout ",
+                "success" => $successMessage,
+                "failure" => $failureMessage,
                 "member" => Member::find(session("member_id")),
                 "cart_items" => session("cart"),
                 "payable" => $payable,
@@ -339,6 +365,7 @@ class CartActions extends Controller
 
 
     }
+
     function payment()
     {
         $this->page_loader("payment", [

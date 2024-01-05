@@ -24,6 +24,8 @@
 
                   <div class="step-wrap mb-4">
                      <h6 class="heading-2"><b>Delivery Addresses</b></h6>
+                     <p class="text-success">{{$success}}</p>
+                     <p class="text-danger">{{$failure}}</p>
                      <h6 style="font-weight: 900;">{{session("first_name")." ".session("last_name")}}</h6>
                      @php
                      $addressCount = count(session("order_address"));
@@ -290,7 +292,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             <h4 class="text-start mb-3">Add New Address</h4>
             <hr>
-               <form action="{{ url('create-new-address-for-member') }}" method="post">
+               <form action="{{ url('create-new-address-for-member') }}" method="POST">
                   @csrf
                   <input type="hidden" name="member_id" value="{{session('member_id')}}">
                   <div class="add-wraper">

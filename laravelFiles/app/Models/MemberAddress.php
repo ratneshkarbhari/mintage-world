@@ -9,7 +9,7 @@ class MemberAddress extends Model
 {
     use HasFactory;
 
-    protected $protected = [];
+    protected $guarded = [];  
 
     protected $table = "member_addresses";
 

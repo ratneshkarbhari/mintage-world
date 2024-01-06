@@ -19,82 +19,56 @@
             <h2 class="mb-3 heading-1">CHECKOUT</h2>
          </div>
          <div class="row">
-            <div class="step-wrap  ">
-               <h6 class="heading-2"><b>Confirm Order</b></h6>
-               <div class="checkout-content-box payment-method-box" style="display: block;">
-                  <div class="row heading-row border-bottom-0 w-100 m-auto">
-                     <div class="col-md-2"><strong>Image</strong></div>
-                     <div class="col-md-3"><strong>Product Name</strong></div>
-                     <div class="col-md-3"><strong>Price</strong></div>
-                     <div class="col-md-1"><strong>Qty</strong></div>
-                     <div class="col-md-3"><strong>Total</strong></div>
-                  </div>
-                  <!-- repeat div in loop start -->
-                  @php $subtotal = 0.00; @endphp
-                  @foreach($cart_items as $cart_item)
-                  @php
-                  $product = $cart_item["product"];
-                  $imgParts = explode("/",$product["img"]);
-                  @endphp
-                  <div class="row content-row border-bottom-0 w-100 m-auto">
-                     <div class="col-md-2 col-4 img-div">
-                        <img src="{{getenv("PRODUCT_IMAGE_BASE_URL").$imgParts[2]}}" alt="" class="img-fluid">
+           
+            <div class="col-md-8 booking-wrap">
+               <div class="step-wrap  mb-3">
+                  <h6 class="heading-2"><b>Confirm Order</b></h6>
+                  <div class="checkout-content-box payment-method-box" style="display: block;">
+                     <div class="row heading-row border-bottom-0 w-100 m-auto">
+                        <div class="col-md-2"><strong>Image</strong></div>
+                        <div class="col-md-3"><strong>Product Name</strong></div>
+                        <div class="col-md-3"><strong>Price</strong></div>
+                        <div class="col-md-1"><strong>Qty</strong></div>
+                        <div class="col-md-3"><strong>Total</strong></div>
                      </div>
-                     <div class="col-md-3 col-8 product-name-div">
-                        <p><strong>{{$cart_item["product"]["name1"]}}</strong> </p>
-                     </div>
-                     <div class="col-md-3 col-12 d-md-flex align-items-center justify-content-center">
-                        <span class="d-md-none d-block m-heading font-weight-bold">Price</span>
-                        <div class="cart-quantity text-right">
-                           <span class="cart-price m-0"><i class="fa fa-inr" aria-hidden="true"></i> {{$product["price"]}}</span>
+                     <!-- repeat div in loop start -->
+                     @php $subtotal = 0.00; @endphp
+                     @foreach($cart_items as $cart_item)
+                     @php
+                     $product = $cart_item["product"];
+                     $imgParts = explode("/",$product["img"]);
+                     @endphp
+                     <div class="row content-row border-bottom-0 w-100 m-auto">
+                        <div class="col-md-2 col-4 img-div">
+                           <img src="{{getenv("PRODUCT_IMAGE_BASE_URL").$imgParts[2]}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-md-3 col-8 product-name-div">
+                           <p><strong>{{$cart_item["product"]["name1"]}}</strong> </p>
+                        </div>
+                        <div class="col-md-3 col-12 d-md-flex align-items-center justify-content-center">
+                           <span class="d-md-none d-block m-heading font-weight-bold">Price</span>
+                           <div class="cart-quantity text-right">
+                              <span class="cart-price m-0"><i class="fa fa-inr" aria-hidden="true"></i> {{$product["price"]}}</span>
+                           </div>
+                        </div>
+   
+                        <div class="col-md-1 col-12 d-md-flex align-items-center justify-content-center">
+                           <span class="d-md-none d-block m-heading font-weight-bold">Qty</span>
+                           <div class="cart-quantity m-0 text-right">{{$cart_item["quantity"]}}</div>
+                        </div>
+                        <div class="col-md-3 col-12 d-md-flex align-items-center justify-content-center">
+                           <span class="d-md-none d-block m-heading font-weight-bold">Total</span>
+                           <span class="cart-final-price m-0 font-weight-bold"> {{$itemPrice = $product["price"]*$cart_item["quantity"]}}</span>
+                           {{-- @php $subtotal+=$itemPrice; @endphp --}}
                         </div>
                      </div>
-
-                     <div class="col-md-1 col-12 d-md-flex align-items-center justify-content-center">
-                        <span class="d-md-none d-block m-heading font-weight-bold">Qty</span>
-                        <div class="cart-quantity m-0 text-right">{{$cart_item["quantity"]}}</div>
+                     @endforeach
+                     <!-- repeat div in loop end -->
+                     <div class="row total-row w-100 m-auto">
+                        <div class="col-md-10 col-6 total-heading font-weight-bold">SubTotal:</div>
+                        <div class="col-md-2 col-6 total-amount font-weight-bold">₹ {{session("subtotal")}}</div>
                      </div>
-                     <div class="col-md-3 col-12 d-md-flex align-items-center justify-content-center">
-                        <span class="d-md-none d-block m-heading font-weight-bold">Total</span>
-                        <span class="cart-final-price m-0 font-weight-bold"> {{$itemPrice = $product["price"]*$cart_item["quantity"]}}</span>
-                        {{-- @php $subtotal+=$itemPrice; @endphp --}}
-                     </div>
-                  </div>
-                  @endforeach
-                  <!-- repeat div in loop end -->
-                  <div class="row total-row w-100 m-auto">
-                     <div class="col-md-10 col-6 total-heading font-weight-bold">SubTotal:</div>
-                     <div class="col-md-2 col-6 total-amount font-weight-bold">₹ {{session("subtotal")}}</div>
-                  </div>
-                  <input type="hidden" name="sub_total" value="199">
-               </div>
-            </div>
-            <div class="col-md-8 booking-wrap">
-               <div class="step-wrap  mt-3">
-                  <h6 class="heading-2"><b>Shipping Addresses</b></h6>
-                  <div class="mt-3 radio-btn-wrap checkout-user-detail">
-                     <ul class="mb-0">
-                        <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
-                           <div>
-                              <input type="radio" id="lblAdd1" name="shipping_address" checked="">
-                              <label for="lblAdd1"><span>Nandkumar Arekar</span><br>1/3 Shivsagar Rahiwashi Sangh, Bhatwadi, Ghatkopar (W), Mumbai - 400086, Maharashtra, India.</label>
-                              <div class="check"></div>
-                           </div>
-                           <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
-                        </li>
-
-                        <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
-                           <div>
-                              <input type="radio" id="lblAdd12" name="shipping_address">
-                              <label for="lblAdd12"><span>Ratnesh</span><br>1/3 Shivsagar Rahiwashi Sangh, Bhatwadi, Ghatkopar (W), Mumbai - 400086, Maharashtra, India.</label>
-                              <div class="check"></div>
-                           </div>
-                           <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
-                        </li>
-                        <li class="w-100">
-                           <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#NewAddModal"><i class="fa fa-location"></i>Add New Address</button>
-                        </li>
-                     </ul>
+                     <input type="hidden" name="sub_total" value="199">
                   </div>
                </div>
                <div class="step-wrap  mt-3">
@@ -124,6 +98,34 @@
                      </ul>
                   </div>
                </div>
+               <div class="step-wrap  mt-3">
+                  <h6 class="heading-2"><b>Shipping Addresses</b></h6>
+                  <div class="mt-3 radio-btn-wrap checkout-user-detail">
+                     <ul class="mb-0">
+                        <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
+                           <div>
+                              <input type="radio" id="lblAdd1" name="shipping_address" checked="">
+                              <label for="lblAdd1"><span>Nandkumar Arekar</span><br>1/3 Shivsagar Rahiwashi Sangh, Bhatwadi, Ghatkopar (W), Mumbai - 400086, Maharashtra, India.</label>
+                              <div class="check"></div>
+                           </div>
+                           <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
+                        </li>
+
+                        <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
+                           <div>
+                              <input type="radio" id="lblAdd12" name="shipping_address">
+                              <label for="lblAdd12"><span>Ratnesh</span><br>1/3 Shivsagar Rahiwashi Sangh, Bhatwadi, Ghatkopar (W), Mumbai - 400086, Maharashtra, India.</label>
+                              <div class="check"></div>
+                           </div>
+                           <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
+                        </li>
+                        <li class="w-100">
+                           <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#NewAddModal"><i class="fa fa-location"></i>Add New Address</button>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+              
 
             </div>
             <div class="col-md-4 checkout-summary mt-3 mt-md-0">

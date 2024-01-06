@@ -26,7 +26,7 @@
                         <h2><i class="fas fa-sign-in-alt"></i></h2>
                     </span>
                 </div>
-                <div class="col-md-8 col-xs-12 col-sm-12 login_form "> 
+                <div class="col-md-8 col-xs-12 col-12 login_form  text-start"> 
 
                     <p class="text-success text-center">
                         {{$success}}
@@ -34,8 +34,17 @@
                     
                     <form action="{{url("coin-info-filter-exe")}}" id="memberLoginForm">                        
                         @csrf
-                        <input type="text" name="username" id="login-username" class="form__input" placeholder="Username">
-                        <input type="password" name="password" id="login-password" class="form__input mb-1" placeholder="Password">
+                        <div class="form-group mb-3 mt-5">
+                        <label for="login-username"><b>Username</b></label>
+                        <input type="text" name="username" id="login-username" class="form__input m-0" placeholder="">
+                        </div>
+                        <div class="form-group mb-3" style="position: relative">
+                        <label for="login-password"><b>Password</b></label>
+                        <input type="password" name="password" id="login-password" class="form__input m-0" placeholder="">
+                        <a  id="showHidePassword" class="">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                        </div>
                         <span class="small text-end d-block w-100">
                         <a href="{{url("member/forgotpassword/")}}"> Forgot password?</a> </span>
                         <button type="button" class="btn" id="loginButton">Login</button>
@@ -69,5 +78,20 @@
                 </div>
         </div>
     </section>
-    
+    <script>
+    let showPasswordIcon = '<i class="fas fa-eye"></i>'
+    let hidePasswordIcon = '<i class="fas fa-eye-slash"></i>'
+        $("#showHidePassword").click(function (e) { 
+        e.preventDefault();
+       if ($("input#login-password").attr("type")=="password") {
+            $("input#login-password").attr("type","text");
+            $(this).html('')
+            $(this).html(hidePasswordIcon)
+       } else {
+            $("input#login-password").attr("type","password");
+            $(this).html('')
+            $(this).html(showPasswordIcon)
+       }
+    });
+    </script>
 </main>

@@ -25,12 +25,12 @@
                         @csrf
                         <div class="form-group mb-3">
                             <label for="login-username"><b>Username</b></label>
-                            <input type="text" class="form-control form__input" name="username" id="admin-login-username" placeholder="Username">
+                            <input type="text" class="form-control form__input" name="username" id="admin-login-username" placeholder="">
                         </div>
                         <div class="form-group  mb-3" style="position: relative">
                             <label for="login-password"><b>Password</b></label>
-                            <input type="password" class="form__input mb-1 form-control" name="password" id="admin-login-password"  placeholder="Password">
-                            <a style="position: absolute;top: 35%; right: 0%;" id="showHidePassword" class="btn">
+                            <input type="password" class="form__input mb-1 form-control" name="password" id="admin-login-password"  placeholder="">
+                            <a id="showHidePassword" class="" style="font-size: 20px; bottom: 4px;">
                                 <i class="fas fa-eye"></i>
                             </a>
                         </div>

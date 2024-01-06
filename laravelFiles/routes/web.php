@@ -133,6 +133,7 @@ Route::group(['middleware' => ['slashes']], function () {
     // Universal search
 });
 
+Route::post('create-new-address-for-member',[CartActions::class,'create_new_address']);
 
 
 Route::group(['middleware' => ['check_admin_auth']], function () {

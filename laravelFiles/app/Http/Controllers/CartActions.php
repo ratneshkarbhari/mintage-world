@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Razorpay\Api\Api;
 use App\Models\Member;
 use App\Models\Country;
+use App\Models\MemberAddress;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -267,15 +268,49 @@ class CartActions extends Controller
         }
     }
 
-    function checkout()
+    function create_new_address(Request $request){
+
+        $memberAddressObj = [
+
+            "member_id" => session("member_id"),
+            "first_name" => $request->first_name,
+            "last_name" => $request->last_name,
+            "address" => $request->address,
+            "city" => $request->city,
+            "state" => $request->state,
+            "zip" => $request->zip,
+            "country" => "India",
+            "default" => "yes",
+            "tag" => $request->address_tag
+
+        ];
+
+        MemberAddress::where('member_id', session("member_id"))
+        ->update(['default' => "no"]);
+
+        if(MemberAddress::create($memberAddressObj)){
+            
+            $this->checkout("Address added to your account");
+            
+        }else{
+
+            $this->checkout("Address added to your account");
+            
+        }
+
+    }
+
+    function checkout($successMessage='',$failureMessage='')
     {
 
+        
         $cart_items = session("cart");
 
         if (empty($cart_items) || (!isset($cart_items))) {
 
             return redirect(url("shop"));
         } else {
+
 
             if (session("subtotal") < 499) {
                 $shipping = 100;
@@ -293,15 +328,48 @@ class CartActions extends Controller
 
             $order = $api->order->create(array('receipt' => uniqid(), 'amount' => $payable * 100, 'currency' => 'INR'));
 
+            $memberData = Member::where("id",session("member_id"))->with("addresses")->first();
+
+            // dd($memberData["addresses"]);
+
+            if(count($memberData["addresses"])>0){
+
+                session([
+                    "order_address" => $memberData["addresses"]
+                ]);
+
+            }else{
+
+                if($memberData["address"]){
+                    session([
+                        "order_address" => [
+                            "tag" => "default",
+                            "address" => $memberData["address"]
+                        ]
+                    ]);
+                }
+    
+
+            }
+
+
+            
+
             $this->page_loader("checkout", [
                 "title" => "Checkout ",
-                "member" => Member::find(session("member_id")),
+                "success" => $successMessage,
+                "failure" => $failureMessage,
+                "member" => $memberData,
                 "cart_items" => session("cart"),
                 "payable" => $payable,
-                "order" => $order
+                "order" => $order,
+                "member" => $memberData
             ]);
         }
+
+
     }
+
     function payment()
     {
         $this->page_loader("payment", [

@@ -75,25 +75,42 @@
                   <h6 class="heading-2"><b>Billing Addresses</b></h6>
                   <div class="mt-3 radio-btn-wrap checkout-user-detail">
                      <ul class="mb-0">
-                        <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
-                           <div>
-                              <input type="radio" id="lblAdd1" name="billing_address" checked="">
-                              <label for="lblAdd1"><span>Nandkumar Arekar</span><br>1/3 Shivsagar Rahiwashi Sangh, Bhatwadi, Ghatkopar (W), Mumbai - 400086, Maharashtra, India.</label>
-                              <div class="check"></div>
-                           </div>
-                           <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
-                        </li>
-
-                        <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
-                           <div>
-                              <input type="radio" id="lblAdd12" name="billing_address">
-                              <label for="lblAdd12"><span>Ratnesh</span><br>1/3 Shivsagar Rahiwashi Sangh, Bhatwadi, Ghatkopar (W), Mumbai - 400086, Maharashtra, India.</label>
-                              <div class="check"></div>
-                           </div>
-                           <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
-                        </li>
+                        @if($member["address"])
+                           <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
+                              <div>
+                                 <input type="radio" id="lblAdd1" name="billing_address" checked="">
+                                 <label for="lblAdd1"><span>{{$member["first_name"]}} {{ $member["last_name"] }}</span><br>
+                                 {{$member["address"]}}<br>
+                                 {{$member["city"]}},{{$member["state"]}},<br>
+                                 {{$member["country"]}}</label>
+                                 <div class="check"></div>
+                              </div>
+                              <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
+                           </li>
+                        @endif
+                        @if($member["addresses"])
+                        @foreach($member["addresses"] as $address)
+                           <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
+                              <div>
+                                 <input type="radio"
+                                 @if($address['default']=="yes")
+                                 checked 
+                                 @endif
+                                 id="lblAdd12" name="billing_address">
+                                 <label for="lblAdd12"><span>{{$address["first_name"]}} {{ $address["last_name"] }}</span>
+                                 <br>
+                                 {{$address["address"]}}<br>
+                                 {{$address["city"]}},{{$address["state"]}},<br>
+                                 {{$address["country"]}}
+                                 </label>
+                                 <div class="check"></div>
+                              </div>
+                              <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
+                           </li>
+                        @endforeach
+                        @endif
                         <li class="w-100">
-                           <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#NewAddModal"><i class="fa fa-location"></i>Add New Address</button>
+                           <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#NewAddModal"><i class="fa fa-location"></i>Add New Address</button>
                         </li>
                      </ul>
                   </div>
@@ -102,25 +119,42 @@
                   <h6 class="heading-2"><b>Shipping Addresses</b></h6>
                   <div class="mt-3 radio-btn-wrap checkout-user-detail">
                      <ul class="mb-0">
-                        <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
-                           <div>
-                              <input type="radio" id="lblAdd1" name="shipping_address" checked="">
-                              <label for="lblAdd1"><span>Nandkumar Arekar</span><br>1/3 Shivsagar Rahiwashi Sangh, Bhatwadi, Ghatkopar (W), Mumbai - 400086, Maharashtra, India.</label>
-                              <div class="check"></div>
-                           </div>
-                           <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
-                        </li>
-
-                        <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
-                           <div>
-                              <input type="radio" id="lblAdd12" name="shipping_address">
-                              <label for="lblAdd12"><span>Ratnesh</span><br>1/3 Shivsagar Rahiwashi Sangh, Bhatwadi, Ghatkopar (W), Mumbai - 400086, Maharashtra, India.</label>
-                              <div class="check"></div>
-                           </div>
-                           <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
-                        </li>
+                        @if($member["address"]!=NULL)
+                           <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
+                              <div>
+                                 <input type="radio" id="lblAdd1" class="shipping_address" name="shipping_address" checked="">
+                                 <label for="lblAdd1"><span>{{$member["first_name"]}} {{ $member["last_name"] }}</span>
+                                 <br>
+                                 {{$member["address"]}}<br>
+                                 {{$member["city"]}},{{$member["state"]}},<br>
+                                 {{$member["country"]}}</label>
+                                 <div class="check"></div>
+                              </div>
+                              <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
+                           </li>
+                        @endif
+                        @if($member["addresses"])
+                        @foreach($member["addresses"] as $address)
+                           <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
+                              <div>
+                                 <input type="radio"
+                                 @if($address['default']=="yes")
+                                 checked 
+                                 @endif
+                                 id="lblAdd12" class="shipping_address" name="shipping_address">
+                                 <label for="lblAdd12"><span>{{$address["first_name"]}} {{ $address["last_name"] }}</span><br>
+                                 {{$address["address"]}}<br>
+                                 {{$address["city"]}},{{$address["state"]}},<br>
+                                 {{$address["country"]}}
+                                 </label>
+                                 <div class="check"></div>
+                              </div>
+                              <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
+                           </li>
+                        @endforeach
+                        @endif
                         <li class="w-100">
-                           <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#NewAddModal"><i class="fa fa-location"></i>Add New Address</button>
+                           <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#NewAddModal"><i class="fa fa-location"></i>Add New Address</button>
                         </li>
                      </ul>
                   </div>
@@ -386,6 +420,16 @@
    </div>
 
 </main>
+
+<script>
+   $(document).ready(function () {
+      let billingAddress = $("input#billing_address").val();
+      let shippingAddress = $("input#shipping_address").val();
+
+      console.log(billingAddress);
+      console.log(shippingAddress);
+   });
+</script>
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>

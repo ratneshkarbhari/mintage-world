@@ -330,30 +330,7 @@ class CartActions extends Controller
 
             $memberData = Member::where("id",session("member_id"))->with("addresses")->first();
 
-            // dd($memberData["addresses"]);
 
-            if(count($memberData["addresses"])>0){
-
-                session([
-                    "order_address" => $memberData["addresses"]
-                ]);
-
-            }else{
-
-                if($memberData["address"]){
-                    session([
-                        "order_address" => [
-                            "tag" => "default",
-                            "address" => $memberData["address"]
-                        ]
-                    ]);
-                }
-    
-
-            }
-
-
-            
 
             $this->page_loader("checkout", [
                 "title" => "Checkout ",
@@ -363,8 +340,9 @@ class CartActions extends Controller
                 "cart_items" => session("cart"),
                 "payable" => $payable,
                 "order" => $order,
-                "member" => $memberData
+                "member" => $memberData,
             ]);
+
         }
 
 

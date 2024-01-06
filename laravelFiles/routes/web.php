@@ -167,6 +167,9 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/add-category", [PageLoader::class, 'add_category']);
     Route::get("admin/edit-category", [PageLoader::class, 'edit_category']);
 
+    Route::get("admin/manage-bulk-upload", [PageLoader::class, 'manage_bulk_upload']);
+    Route::get("admin/manage-bulk-images-upload", [PageLoader::class, 'manage_bulk_images_upload']);
+
     Route::get("admin/manage-history", [PageLoader::class, 'manage_history']);
 
     Route::get("admin/manage-enquiry", [PageLoader::class, 'manage_enquiry']);
@@ -186,7 +189,7 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/manage-watermark", [PageLoader::class, 'manage_watermark']);
 });
 
-Route::post("fetch-dg-dynasties",[Coins::class,'fetch_dg_dynasties']);
+Route::post("fetch-dg-dynasties", [Coins::class, 'fetch_dg_dynasties']);
 
 Route::post("add-product-rating", [Shopping::class, 'add_product_rating']);
 

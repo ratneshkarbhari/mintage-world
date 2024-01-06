@@ -167,7 +167,6 @@ class PageLoader extends Controller
             "title" => "Edit Note"
         ]);
     }
-
     function manage_stamp()
     {
         $this->admin_page_loader("manage_stamp", [
@@ -186,6 +185,19 @@ class PageLoader extends Controller
             "title" => "Edit Stamp"
         ]);
     }
+    function manage_bulk_upload()
+    {
+        $this->admin_page_loader("manage_bulk_upload", [
+            "title" => "Manage Bulk Upload"
+        ]);
+    }
+    function manage_bulk_images_upload()
+    {
+        $this->admin_page_loader("manage_bulk_images_upload", [
+            "title" => "Bulk Images Upload"
+        ]);
+    }
+
 
     function manage_products()
     {

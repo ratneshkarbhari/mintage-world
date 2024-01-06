@@ -284,6 +284,11 @@
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Bulk Upload
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="{{url('admin/manage-bulk-images-upload/')}}"
+                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Bulk Images Upload
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -310,8 +315,37 @@
                                     </ul>
                                 </div>
                             </li>
+                            <li class="">
+                                <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#product-category-collapse" aria-expanded="false">Product Category</button>
+                                <div class="collapse" id="product-category-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li><a href="{{url('admin/manage-denomination/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Denomination</a></li>
+                                        <li><a href="{{url('admin/manage-shape/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Shape</a></li>
+                                        <li><a href="{{url('admin/manage-metal/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Metal</a></li>
+                                        <li><a href="{{url('admin/manage-rarity/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Rarity</a></li>
+                                        <li><a href="{{url('admin/manage-minting-technique/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Minting Technique</a></li>
+                                        <li><a href="{{url('admin/manage-calender-system/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Calender System</a></li> 
+                                    </ul>
+                                </div>
+                            </li>
                             <li class=""><a href="{{url('admin/manage-history/')}}" class="">History</a></li>
                             <li class=""><a href="{{url('admin/manage-enquiry/')}}" class="">Enquiry</a></li>
+
+                            <li class="">
+                                <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#seo-collapse" aria-expanded="false">Manage SEO</button>
+                                <div class="collapse" id="seo-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li><a href="{{url('admin/manage-seo/1-periods/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Periods</a></li>
+                                        <li><a href="{{url('admin/manage-seo/2-dynasty/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Dynasty</a></li>
+                                        <li><a href="{{url('admin/manage-seo/3-rulers/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Rulers</a></li>
+                                        <li><a href="{{url('admin/manage-seo/4-coins/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Coins</a></li>
+                                        <li><a href="{{url('admin/manage-seo/5-notes/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Notes</a></li>
+                                        <li><a href="{{url('admin/manage-seo/6-stamps/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Stamps</a></li>
+                                        <li><a href="{{url('admin/manage-seo/7-history/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">History</a></li>
+                                        <li><a href="{{url('admin/manage-seo/8-country/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Country</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                            
                             <li class="">
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">Content Management</button>

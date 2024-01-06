@@ -50,7 +50,7 @@
                         @if(session("level")=="Regular")
                         <div class="d-flex justify-content-between">
                            <div class="d-inline-block alert alert-success p-0 mb-0 px-2">{{session("level")}}</div>  
-                           <a class="btn btn-sm btn-primary p-0 mb-0 px-2" href="{{url("upgrade-membership")}}">Update Membership</a>  
+                           <a class="btn btn-sm btn-primary p-0 mb-0 px-2" href="{{url("upgrade-membership")}}">Upgrade Membership</a>  
                         </div>
                         @else
                         <div class="d-inline-block alert alert-success p-0 mb-0 px-2">{{session("level")}}</div>  

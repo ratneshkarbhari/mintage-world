@@ -22,7 +22,7 @@ class Member extends Model
     
     public function addresses() : HasMany
     {
-        return $this->hasMany(MemberAddress::class,"id","member_id");
+        return $this->hasMany(MemberAddress::class,"member_id","id");
     }
 
 }

@@ -87,7 +87,7 @@
                   <div class="mt-3 radio-btn-wrap checkout-user-detail">
                      <ul class="mb-0">
                         @if($member["address"])
-                           <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
+                           <li id="add_1" class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
                               <div>
                                  <input type="radio" id="lblAdd1" name="billing_address"
                                  pincode="{{$member['pincode']}}" first_name="{{$member['first_name']}}" last_name="{{$member['last_name']}}"
@@ -104,12 +104,15 @@
                                  {{$member["country"]}}</label>
                                  <div class="check"></div>
                               </div>
-                              <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
+                              <div class="btn-row">                                 
+                                 <button class="btn btn-secondary btn-sm " data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
+                                 <button class="btn btn-danger btn-sm DeleteAddModal" id="" data-id="add_1"><i class="fa fa-trash"></i> Delete</button>
+                              </div>
                            </li>
-                        @endif
+                        @endif                        
                         @if($member["addresses"])
                         @foreach($member["addresses"] as $address)
-                           <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
+                           <li id="add_1" class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
                               <div>
                                  <input type="radio"
                                  @if($address['default']=="yes")
@@ -130,7 +133,10 @@
                                  {{$address["country"]}}</label>
                                  <div class="check"></div>
                               </div>
-                              <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
+                              <div class="btn-row">                                 
+                                 <button class="btn btn-secondary btn-sm " data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
+                                 <button class="btn btn-danger btn-sm DeleteAddModal" id="" data-id="add_1"><i class="fa fa-trash"></i> Delete</button>
+                              </div>
                            </li>
                         @endforeach
                         @endif
@@ -145,7 +151,7 @@
                   <div class="mt-3 radio-btn-wrap checkout-user-detail">
                      <ul class="mb-0">
                         @if($member["address"]!=NULL)
-                           <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
+                           <li id="add_1" class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
                               <div>
                                  <input type="radio" id="lblAdd1" class="shipping_address" name="shipping_address" pincode="{{$member['pincode']}}" first_name="{{$member['first_name']}}" last_name="{{$member['last_name']}}"
                                  address="{{$member['address']}}" 
@@ -161,7 +167,10 @@
                                  {{$member["country"]}}</label>
                                  <div class="check"></div>
                               </div>
-                              <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
+                              <div class="btn-row">                                 
+                              <button class="btn btn-secondary btn-sm " data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
+                              <button class="btn btn-danger btn-sm DeleteAddModal" id="" data-id="add_1"><i class="fa fa-trash"></i> Delete</button>
+                           </div>
                            </li>
                         @endif
                         @if($member["addresses"])
@@ -186,7 +195,10 @@
                                  </label>
                                  <div class="check"></div>
                               </div>
-                              <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
+                              <div class="btn-row">                                 
+                                 <button class="btn btn-secondary btn-sm " data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
+                                 <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                              </div>
                            </li>
                         @endforeach
                         @endif
@@ -279,9 +291,13 @@
                <hr>
                <div class="add-wraper">
                   <div class="row">
-                     <div class="col-md-8 mb-3">
+                     <div class="col-md-6 mb-3">
                         <label for="inputName">Name</label>
-                        <input type="text" class="form-control" id="inputName" placeholder="Name" value="Nandkumar Arekar">
+                        <input type="text" class="form-control" id="inputName" placeholder="Name" value="Nandkumar">
+                     </div>
+                     <div class="col-md-6 mb-3">
+                        <label for="last_name">Last Name</label>
+                        <input name="last_name" type="text" class="form-control" id="lastName" value="Arekar">
                      </div>
                      <div class="col-md-4  mb-3">
                         <label for="inputMobileNo">Mobile No</label>
@@ -289,7 +305,8 @@
                      </div>
                      <div class="col-md-12  mb-3">
                         <label for="inputAddress">Address</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Address" value="1/3 shivsagar rahiwashi sangh, ,bhatwadi, ghatkopar west">
+                        <textarea name="address" class="form-control" cols="30" rows="5">ultra media ent. pvt ltd, 2C third floor, thakker Ind. Estate, Lower Parel (E)
+                        </textarea>
                      </div>
                      <div class="col-md-6  mb-3">
                         <label for="inputCity">City</label>
@@ -347,6 +364,10 @@
                            <option value="113" selected="selected">India</option>
                         </select>
                      </div>
+                     <div class="col-md-6  mb-3">
+                        <button type="submit" class="btn btn-success btn-sm">Update Address</button>
+                     </div>
+
                   </div>
                </div>
             </div>
@@ -455,6 +476,48 @@
       </div>
    </div>
 
+   <div class="modal fade" id="DeleteAddModal" tabindex="-1" aria-labelledby="DeleteAddModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+         <div class="modal-content">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <input type="hidden" name="bookId" id="bookId" value=""/>
+            <div class="modal-body text-center mt-5">
+               <h4 class="modal-title w-100">Are you sure?</h4>	      
+               <p>Do you really want to delete these records?</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+               <button type="button" id="add_delete_btn" class="btn btn-danger delete-add-btn">Delete</button>
+            </div>
+         </div>
+      </div>
+   </div>     
+   <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
+      <div id="liveToast " class="toast hide bg-success text-white add-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-success text-white">         
+          <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
+          <small>Just Now</small>
+          {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
+        </div>
+        <div class="toast-body">
+          "Your Address" has been Added / Update in list Successfully.
+        </div>
+        <div class='toast-timeline animate'></div>
+      </div>
+    </div>
+   <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
+      <div id="liveToast " class="toast hide bg-danger text-white add-deleted position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-danger text-white">         
+          <strong class="me-auto"><i class="fas fa-check-circle"></i> Addres Deleted </strong>
+          <small>Just Now</small>
+          {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
+        </div>
+        <div class="toast-body">
+         "Your Addres" has been deleted from list. 
+        </div>
+        <div class='toast-timeline animate'></div>
+      </div>
+    </div>
 </main>
 
 <script>
@@ -487,6 +550,7 @@
          },
          success: function (response) {
             console.log("order-created");
+            $('.add-success').toast('show');
          }
       });
    });
@@ -576,4 +640,24 @@
       rzp1.open();
       e.preventDefault();
    }
+</script>
+
+
+
+<script>
+
+$(function(){
+  $(".DeleteAddModal").click(function(){
+     $('#bookId').val($(this).data('id')); 
+    $("#DeleteAddModal").modal("show");    
+  });
+});
+
+
+   $("#add_delete_btn").click(function(e) {      
+    $('.add-deleted').toast('show');
+    const li_id = $("#bookId").val();
+    $("#"+li_id).remove();  
+    $('#DeleteAddModal').modal('hide'); 
+   });  
 </script>

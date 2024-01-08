@@ -133,7 +133,14 @@ Route::group(['middleware' => ['slashes']], function () {
     // Universal search
 });
 
+<<<<<<< HEAD
 Route::post('create-new-address-for-member', [CartActions::class, 'create_new_address']);
+=======
+
+Route::get("payment-successful",[StaticPages::class,'payment_successful']);
+
+Route::post('create-new-address-for-member',[CartActions::class,'create_new_address']);
+>>>>>>> e008c3a4e6d5847165d386103d5981b691d05155
 
 
 Route::group(['middleware' => ['check_admin_auth']], function () {
@@ -235,6 +242,8 @@ Route::get('shop/list/{categorySlug}', [Shopping::class, 'shop_list']);
 
 Route::post("apply-coupon-recalculate-discount-exe", [Coupons::class, 'apply_coupon_recalculate']);
 Route::post("create-order-exe", [Orders::class, 'create_exe']);
+
+Route::post("update-order-exe",[Orders::class,'update']);
 
 Route::get('media/', [StaticPages::class, 'media_list']);
 

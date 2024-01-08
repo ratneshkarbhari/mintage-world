@@ -269,7 +269,7 @@ class StaticPages extends Controller
             "pagination_info_string" => $paginationInfoString
         ]);
     }
-    function dashboard($success="")
+    function dashboard($status="")
     {
         $memberId = session("member_id");
         if (!isset($memberId)) {
@@ -278,10 +278,14 @@ class StaticPages extends Controller
         $this->page_loader("dashboard", [
             "title" => "Dashboard | Mintage World",
             "user" => Member::find(session("member_id")),
-            "success" => $success
+            "status" => $status
         ]);
     }
     
+    function payment_successful(){
+        return view("payment_successful");
+    }
+
     function change_password()
     {
         $this->page_loader("change_password", [

@@ -40,7 +40,7 @@
                      @endphp
                      <div class="row content-row border-bottom-0 w-100 m-auto">
                         <div class="col-md-2 col-4 img-div">
-                           <img src="{{getenv("PRODUCT_IMAGE_BASE_URL").$imgParts[2]}}" alt="" class="img-fluid">
+                           <img src="{{getenv('PRODUCT_IMAGE_BASE_URL').$imgParts[2]}}" alt="" class="img-fluid">
                         </div>
                         <div class="col-md-3 col-8 product-name-div">
                            <p><strong>{{$cart_item["product"]["name1"]}}</strong> </p>
@@ -68,9 +68,20 @@
                         <div class="col-md-10 col-6 total-heading font-weight-bold">SubTotal:</div>
                         <div class="col-md-2 col-6 total-amount font-weight-bold">₹ {{session("subtotal")}}</div>
                      </div>
-                     <input type="hidden" name="sub_total" value="199">
                   </div>
                </div>
+               <input type="hidden" name="billing_address">
+               <input type="hidden" name="billing_city">
+               <input type="hidden" name="billing_state">
+               <input type="hidden" name="billing_country">
+               <input type="hidden" name="billing_pincode">
+               <input type="hidden" name="shipping_address">
+               <input type="hidden" name="shipping_city">
+               <input type="hidden" name="shipping_state">
+               <input type="hidden" name="shipping_country">
+               <input type="hidden" name="shipping_pincode">
+
+               @if(session("member_id"))
                <div class="step-wrap  mt-3">
                   <h6 class="heading-2"><b>Billing Addresses</b></h6>
                   <div class="mt-3 radio-btn-wrap checkout-user-detail">
@@ -78,10 +89,18 @@
                         @if($member["address"])
                            <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
                               <div>
-                                 <input type="radio" id="lblAdd1" name="billing_address" checked="">
-                                 <label for="lblAdd1"><span>{{$member["first_name"]}} {{ $member["last_name"] }}</span><br>
+                                 <input type="radio" id="lblAdd1" name="billing_address"
+                                 pincode="{{$member['pincode']}}" first_name="{{$member['first_name']}}" last_name="{{$member['last_name']}}"
+                                 address="{{$member['address']}}" 
+                                 mobile_number="{{$member['mobile_number']}}" 
+                                 city = "{{$member['city']}}"
+                                 state = "{{$member['state']}}"
+                                 country = "{{$member['country']}}"
+                                 checked="">
+                                 <label for="lblAdd1"><span>{{$member["first_name"]}} {{ $member["last_name"] }}</span>
+                                 <br>
                                  {{$member["address"]}}<br>
-                                 {{$member["city"]}},{{$member["state"]}},<br>
+                                 {{$member["city"]}},{{$member["state"]}}, {{$member["pincode"]}}<br>
                                  {{$member["country"]}}</label>
                                  <div class="check"></div>
                               </div>
@@ -96,13 +115,19 @@
                                  @if($address['default']=="yes")
                                  checked 
                                  @endif
+
+                                 pincode="{{$address['zip']}}" first_name="{{$address['first_name']}}" last_name="{{$address['last_name']}}"
+                                 address="{{$address['address']}}" 
+                                 mobile_number="{{$address['mobile_number']}}" 
+                                 city = "{{$address['city']}}"
+                                 state = "{{$address['state']}}"
+                                 country = "{{$address['country']}}"
+
                                  id="lblAdd12" name="billing_address">
-                                 <label for="lblAdd12"><span>{{$address["first_name"]}} {{ $address["last_name"] }}</span>
-                                 <br>
+                                 <label for="lblAdd12"><span>{{$address["first_name"]}} {{ $address["last_name"] }}</span><br>
                                  {{$address["address"]}}<br>
-                                 {{$address["city"]}},{{$address["state"]}},<br>
-                                 {{$address["country"]}}
-                                 </label>
+                                 {{$address["city"]}},{{$address["state"]}}, {{$address["zip"]}}<br>
+                                 {{$address["country"]}}</label>
                                  <div class="check"></div>
                               </div>
                               <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
@@ -122,11 +147,17 @@
                         @if($member["address"]!=NULL)
                            <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
                               <div>
-                                 <input type="radio" id="lblAdd1" class="shipping_address" name="shipping_address" checked="">
+                                 <input type="radio" id="lblAdd1" class="shipping_address" name="shipping_address" pincode="{{$member['pincode']}}" first_name="{{$member['first_name']}}" last_name="{{$member['last_name']}}"
+                                 address="{{$member['address']}}" 
+                                 mobile_number="{{$member['mobile']}}" 
+                                 city = "{{$member['city']}}"
+                                 state = "{{$member['state']}}"
+                                 country = "{{$member['country']}}"
+                                 checked="">
                                  <label for="lblAdd1"><span>{{$member["first_name"]}} {{ $member["last_name"] }}</span>
                                  <br>
                                  {{$member["address"]}}<br>
-                                 {{$member["city"]}},{{$member["state"]}},<br>
+                                 {{$member["city"]}},{{$member["state"]}}, {{$member["pincode"]}}<br>
                                  {{$member["country"]}}</label>
                                  <div class="check"></div>
                               </div>
@@ -141,15 +172,21 @@
                                  @if($address['default']=="yes")
                                  checked 
                                  @endif
+                                 pincode="{{$address['zip']}}" first_name="{{$address['first_name']}}" last_name="{{$address['last_name']}}"
+                                 address="{{$address['address']}}" 
+                                 mobile_number="{{$address['mobile_number']}}" 
+                                 city = "{{$address['city']}}"
+                                 state = "{{$address['state']}}"
+                                 country = "{{$address['country']}}"
                                  id="lblAdd12" class="shipping_address" name="shipping_address">
                                  <label for="lblAdd12"><span>{{$address["first_name"]}} {{ $address["last_name"] }}</span><br>
                                  {{$address["address"]}}<br>
-                                 {{$address["city"]}},{{$address["state"]}},<br>
+                                 {{$address["city"]}},{{$address["state"]}}, {{$address["zip"]}}<br>
                                  {{$address["country"]}}
                                  </label>
                                  <div class="check"></div>
                               </div>
-                              <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
+                              <button class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
                            </li>
                         @endforeach
                         @endif
@@ -159,6 +196,7 @@
                      </ul>
                   </div>
                </div>
+               @endif
               
 
             </div>
@@ -202,7 +240,15 @@
                   </div>
 
 
-                  @if(!session("member_id"))
+                  @if(session("member_id"))
+
+                  <div class="submit-box mt-2 w-100 text-end">
+                     <button id="rzp-button1" type="submit" class="btn btn-success btn-lg  "><i class="fa fa-check-double"></i>
+                        Pay now</button>
+                  </div>
+
+                  @else
+
 
                   <button type="button" class="btn btn-success btn-lg  " data-bs-toggle="modal" data-bs-target="#LoginModal">
                      <i class="fa fa-check-double"></i> Login to checkout
@@ -211,20 +257,10 @@
                      <span class="third"></span>
                      <span class="fourth"></span>
                   </button>
-                  @else
-                  @php
-                  $orderAddresses = session("order_address")
-                  @endphp
-                  @if(!session("order_address")||count($orderAddresses)==0)
-                  <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#NewAddModal"><i class="fa fa-location"></i>Add New Address</button>
 
-                  @else
-                  <div class="submit-box mt-2 w-100 text-end">
-                     <button id="rzp-button1" type="submit" class="btn btn-success btn-lg  "><i class="fa fa-check-double"></i>
-                        Pay now</button>
-                  </div>
                   @endif
-                  @endif
+
+
                </div>
             </div>
 
@@ -423,19 +459,43 @@
 
 <script>
    $(document).ready(function () {
-      let billingAddress = $("input#billing_address").val();
-      let shippingAddress = $("input#shipping_address").val();
+      let shippingAddressField = $("input[name=shipping_address]:checked");
+      let billingAddressField = $("input[name=billing_address]:checked");
 
-      console.log(billingAddress);
-      console.log(shippingAddress);
+
+      $.ajax({
+         type: "POST",
+         url: "{{url('create-order-exe')}}",
+         data: {
+            "_token": "{{ csrf_token() }}",
+
+            "rzp_order_id" : '{{$order["id"]}}',
+            "shipping_address" : shippingAddressField.attr("address"),
+            "shipping_city" : shippingAddressField.attr("city"),
+            "shipping_state" : shippingAddressField.attr("state"),
+            "shipping_country" : shippingAddressField.attr("country"),
+            "shipping_mobile_number" : shippingAddressField.attr("mobile_number"),
+            "shipping_pincode" : billingAddressField.attr("pincode"),
+            "billing_address" : billingAddressField.attr("address"),
+            "billing_city" : billingAddressField.attr("city"),
+            "billing_state" : billingAddressField.attr("state"),
+            "billing_country" : billingAddressField.attr("country"),
+            "billing_mobile_number" : billingAddressField.attr("mobile_number"),
+            "billing_pincode" : billingAddressField.attr("pincode"),
+            "status" : "Payment Processing",
+            "payment_status" : "Processing",
+         },
+         success: function (response) {
+            console.log("order-created");
+         }
+      });
    });
 </script>
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
    var options = {
-      "key": '{{getenv('
-      RAZOR_KEY ')}}', // Enter the Key ID generated from the Dashboard
+      "key": '{{getenv('RAZOR_KEY ')}}', // Enter the Key ID generated from the Dashboard
       "amount": "{{$payable*100}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       "currency": "INR",
       "name": "Mintage World",
@@ -448,16 +508,19 @@
 
          $.ajax({
             type: "POST",
-            url: "{{url('create-order-exe')}}",
+            url: "{{url('update-order-exe')}}",
             data: {
                "_token": "{{ csrf_token() }}",
-               "rzp_order_id": '{{$order["id"]}}'
+               "gw_tx_id": '{{$order["id"]}}',
+               "status" : "Not Confirmed",
+               "payment_status" : "Success"
             },
             success: function(response) {
 
-               if (response == "order-created") {
+               if (response == "updated") {
 
-                  $("#successMessage").html("Your order is placed successfully");
+                  window.location.replace('{{url("payment-successful")}}');
+
 
                } else {
 
@@ -470,7 +533,31 @@
          });
 
       },
+      "modal": {
+         "ondismiss": function(){
 
+            $.ajax({
+               type: "POST",
+               url: "{{url('update-order-exe')}}",
+               data: {
+                  "_token": "{{ csrf_token() }}",
+                  "gw_tx_id": '{{$order["id"]}}',
+                  "status" : "Cancelled",
+                  "payment_status" : "Cancelled"
+               },
+               success: function(response) {
+
+                  if (response == "order-updated") {
+
+                     $("#failureMessage").html("Complete the payment to place your order");
+
+                  }
+
+               }
+            });
+            
+         }
+      },
       "notes": {
          "address": "Razorpay Corporate Office"
       },
@@ -480,9 +567,12 @@
    };
    var rzp1 = new Razorpay(options);
    rzp1.on('payment.failed', function(response) {
-      $("#failureMessage").html("Membership upgrade failed, Contact support and mention {{$order['id']}} if your payment was successful");
+      $("p#failureMessage").html("Payment failed, Contact support and mention {{$order['id']}} .");
    });
    document.getElementById('rzp-button1').onclick = function(e) {
+
+      
+      
       rzp1.open();
       e.preventDefault();
    }

@@ -37,6 +37,7 @@
                 </div>
              </div>
              <div class="col-lg-9 col-md-12 mt-md-5 mt-0 mt-lg-0">
+               
                 <div class="d-flex justify-content-between">
                     <h2 class="mb-3 heading-1">My Profile</h2>
                     <span class="d-inline-block"><a href="javascript:void(0)" class="btn btn-primary btn-sm" id="edit_profile"  onclick="removeattr()"><i class="fa fa-edit"></i> Edit Profile</a></span>

@@ -276,6 +276,7 @@ class CartActions extends Controller
             "first_name" => $request->first_name,
             "last_name" => $request->last_name,
             "address" => $request->address,
+            "mobile_number" => $request->mobile_number,
             "city" => $request->city,
             "state" => $request->state,
             "zip" => $request->zip,
@@ -303,12 +304,12 @@ class CartActions extends Controller
     function checkout($successMessage='',$failureMessage='')
     {
 
-        
         $cart_items = session("cart");
 
         if (empty($cart_items) || (!isset($cart_items))) {
 
             return redirect(url("shop"));
+
         } else {
 
 
@@ -329,8 +330,6 @@ class CartActions extends Controller
             $order = $api->order->create(array('receipt' => uniqid(), 'amount' => $payable * 100, 'currency' => 'INR'));
 
             $memberData = Member::where("id",session("member_id"))->with("addresses")->first();
-
-
 
             $this->page_loader("checkout", [
                 "title" => "Checkout ",

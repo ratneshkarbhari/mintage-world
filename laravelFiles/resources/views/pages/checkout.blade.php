@@ -517,13 +517,10 @@
             },
             success: function(response) {
 
-               if (response == "order-created") {
+               if (response == "updated") {
 
-                  $("#successMessage").html("Your order is placed successfully");
+                  window.location.replace('{{url("payment-successful")}}');
 
-                  setTimeout(() => {
-                     window.location.replace('{{url("payment-successful")}}');
-                  }, 1000);
 
                } else {
 

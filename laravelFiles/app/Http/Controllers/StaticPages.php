@@ -126,7 +126,7 @@ class StaticPages extends Controller
     function login($success="")
     {
 
-        if (session()->has("type")) {
+        if (session("member_id")) {
             return redirect(url("member/dashboard"));
         }
 

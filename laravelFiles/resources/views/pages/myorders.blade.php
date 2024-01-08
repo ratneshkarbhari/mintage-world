@@ -45,7 +45,7 @@
                     <p>We will have to check the status on our payment gateway. It will be updated in 24 hours or you can contact our Customer Support : <a href="tel:02240190400">022-40190400</a></p>
                 </div>
 
-                <div class="table-responsive">
+                <div class="table-responsive" id="orders">
                     <table class="table table-bordered table-striped  my-order-table">
                         <thead class="table-primary">
                         <tr>

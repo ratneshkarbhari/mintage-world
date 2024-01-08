@@ -133,7 +133,7 @@ Route::group(['middleware' => ['slashes']], function () {
     // Universal search
 });
 
-Route::post('create-new-address-for-member',[CartActions::class,'create_new_address']);
+Route::post('create-new-address-for-member', [CartActions::class, 'create_new_address']);
 
 
 Route::group(['middleware' => ['check_admin_auth']], function () {
@@ -172,7 +172,6 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/manage-bulk-images-upload", [PageLoader::class, 'manage_bulk_images_upload']);
 
     Route::get("admin/manage-history", [PageLoader::class, 'manage_history']);
-
     Route::get("admin/manage-enquiry", [PageLoader::class, 'manage_enquiry']);
 
     Route::get("admin/manage-banners", [PageLoader::class, 'manage_banners']);
@@ -188,6 +187,10 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::get("admin/manage-members", [PageLoader::class, 'manage_members']);
     Route::get("admin/manage-watermark", [PageLoader::class, 'manage_watermark']);
+
+
+    Route::get("admin/manage-product-category", [PageLoader::class, 'manage_product_category']);
+    Route::get("admin/manage-seo", [PageLoader::class, 'manage_seo']);
 });
 
 Route::post("fetch-dg-dynasties", [Coins::class, 'fetch_dg_dynasties']);

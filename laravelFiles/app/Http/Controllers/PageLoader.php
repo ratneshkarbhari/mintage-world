@@ -197,6 +197,19 @@ class PageLoader extends Controller
             "title" => "Bulk Images Upload"
         ]);
     }
+    function manage_product_category()
+    {
+        $this->admin_page_loader("manage_product_category", [
+            "title" => "Denomination"
+        ]);
+    }
+    function manage_seo()
+    {
+        $this->admin_page_loader("manage_seo", [
+            "title" => "Manage SEO"
+        ]);
+    }
+
 
 
     function manage_products()

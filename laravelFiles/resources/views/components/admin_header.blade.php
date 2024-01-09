@@ -354,7 +354,7 @@
                                 <div class="collapse" id="orders-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                         <li><a href="{{url('admin/manage-banners/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Banner</a></li>
-                                        <li><a href="{{url('admin/manage-video/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Video</a></li>
+                                        <li><a href="{{url('admin/manage-video/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Event Videos</a></li>
                                         <li><a href="{{url('admin/manage-story-week/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Story of the week</a></li>
                                         <li><a href="{{url('admin/manage-media/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Media</a></li>
                                         <li><a href="{{url('admin/manage-events/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Events</a></li>

@@ -94,7 +94,7 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get('content/sitemap/', [StaticPages::class, 'sitemap']);
     Route::get('content/photopro/', [StaticPages::class, 'photopro']);
     Route::get('videos/', [StaticPages::class, 'videos']);
-    Route::get('videos/detail/', [StaticPages::class, 'videos_detail']);
+    Route::get('videos/detail/{videoSlug}', [StaticPages::class, 'videos_detail']);
     Route::get('content/courtesy/', [StaticPages::class, 'courtesy']);
     Route::get('contact/', [StaticPages::class, 'contact_us']);
     Route::get('application/login', [StaticPages::class, 'login']);

@@ -20,7 +20,7 @@ class slashesMiddleware
         $lastChar = $request->getRequestUri()[-1];
 
         if ($lastChar != "/") {
-            return Redirect::to("http://localhost" . $request->getRequestUri() . "/");
+            return Redirect::to("http://localhost". $request->getRequestUri() . "/");
         }
 
         return $next($request);

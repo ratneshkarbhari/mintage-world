@@ -9,6 +9,7 @@ use Razorpay\Api\Api;
 use App\Models\Member;
 use App\Models\MediaCoverage;
 use App\Models\Story;
+use App\Models\Video;
 
 class StaticPages extends Controller
 {
@@ -101,14 +102,24 @@ class StaticPages extends Controller
     }
     function videos()
     {
+
+        $videoModel = new Video();
+
         $this->page_loader("videos", [
-            "title" => "videos | Mintage World"
+            "title" => "Event Videos | Mintage World",
+            "videos" => $videoModel->orderBy("id",'desc')->get()
         ]);
+
     }
-    function videos_detail()
+    function videos_detail($videoSlug)
     {
+        $videoSlugParts = explode("-",$videoSlug);
+        $mainVideoData = Video::find($videoSlugParts[0]);
+        $latestFiveVideos = Video::orderBy("id","desc")->limit(5,0)->get();
         $this->page_loader("videos_detail", [
-            "title" => "video Title | Mintage World"
+            "title" => $mainVideoData['title']." | Mintage World",
+            "main_video" => $mainVideoData,
+            "latest_five_videos" => $latestFiveVideos
         ]);
     }
     function courtesy()

@@ -41,6 +41,7 @@
     <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
     <link rel="stylesheet" href="{{url('assets/admin/css/bootstrap.min.css')}}" /> 
+    <link rel="stylesheet" href="{{url('assets/admin/css/datepicker.css')}}" /> 
 
 
 
@@ -356,7 +357,7 @@
                                         <li><a href="{{url('admin/manage-banners/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Banner</a></li>
                                         <li><a href="{{url('admin/manage-video/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Event Videos</a></li>
                                         <li><a href="{{url('admin/manage-story-week/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Story of the week</a></li>
-                                        <li><a href="{{url('admin/manage-media/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Media</a></li>
+                                        <li><a href="{{url('admin/manage-media-coverage/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Media Coverage</a></li>
                                         <li><a href="{{url('admin/manage-events/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Events</a></li>
                                         <li><a href="{{url('admin/manage-news/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">News</a></li>
                                         <li><a href="{{url('admin/manage-career/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Career</a></li>

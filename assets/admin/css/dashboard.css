@@ -1106,6 +1106,10 @@ tbody:last-child tr .addProduct {
   display: inline-block;
 }
 
+.position-fixed.bottom-0.end-0.p-3 {
+  padding: 0 !important;
+}
+
 .toast-timeline {
   position: absolute;
   bottom: 0;
@@ -1144,5 +1148,5 @@ tbody:last-child tr .addProduct {
 @media (max-width: 767px) {
 .table-responsive table {
   width: 700px;
-} 
+}
 }

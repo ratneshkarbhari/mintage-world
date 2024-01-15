@@ -177,7 +177,9 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/manage-banners", [PageLoader::class, 'manage_banners']);
     Route::get("admin/manage-video", [PageLoader::class, 'manage_video']);
     Route::get("admin/manage-story-week", [PageLoader::class, 'manage_story_week']);
-    Route::get("admin/manage-media", [PageLoader::class, 'manage_media']);
+    Route::get("admin/manage-media-coverage", [PageLoader::class, 'manage_media_coverage']);
+    Route::get("admin/add-media-coverage", [PageLoader::class, 'add_media_coverage']);
+    Route::get("admin/edit-media-coverage", [PageLoader::class, 'edit_media_coverage']);
     Route::get("admin/manage-events", [PageLoader::class, 'manage_events']);
     Route::get("admin/manage-news", [PageLoader::class, 'manage_news']);
     Route::get("admin/manage-career", [PageLoader::class, 'manage_career']);

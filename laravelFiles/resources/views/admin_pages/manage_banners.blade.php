@@ -11,6 +11,7 @@
      </div>
      <div class="d-flex justify-content-between">
         <h2 class="title heading-3">{{$title}} </h2> 
+        <button type="button" class="btn btn-primary btn-sm align-self-baseline" data-bs-toggle="modal" data-bs-target="#AddBanner"><i class="fa fa-plus"></i> Add Banner</button>
      </div>
      <div class="col-md-12 admin-card mt-3">
       <div class="table-responsive">
@@ -50,6 +51,48 @@
     
   </div>
 </div>
+
+
+<div class="modal fade" id="AddBanner" tabindex="-1" aria-labelledby="AddBannerLabel" aria-hidden="true">
+   <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="AddBannerLabel">Add Banner</h5>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body"> 
+         <div class="row">
+               <div class="col-md-12 mb-3">
+                  <label class="control-label">Title</label> 
+                  <div class=""> <input type="text" name="title" class="form-control" id="title"  value=""> </div>
+               </div>
+               <div class="col-md-12 mb-3">
+                  <label class="control-label">Alt</label> 
+                  <div class=""> <input type="text" name="title" class="form-control" id="title"  value=""> </div>
+               </div>
+               <div class="col-md-2 mb-3">
+                  <label class="control-label">Order</label> 
+                  <div class=""> <input type="text" name="title" class="form-control" id="title"  value=""> </div>
+               </div>
+               <div class="col-md-10 mb-3">
+                  <label class="control-label">Link</label> 
+                  <div class=""> <input type="text" name="title" class="form-control" id="title"  value=""> </div>
+               </div> 
+               <div class="col-md-6 mb-3">
+                  <label class="control-label">Upload Image</label> 
+                  <div class=""><input type="file" class="form-control" placeholder="upload image"></div>
+               </div>
+               
+               <div class="col-md-12">                  
+                  <input type="submit" name="submit" id="AddButton" class="btn btn-warning btn-sm" value="Submit">
+               </div>
+         </div>
+       </div>      
+     </div>
+   </div>
+ </div>
+
+
 <div class="modal fade" id="EditBanner" tabindex="-1" aria-labelledby="EditBannerLabel" aria-hidden="true">
    <div class="modal-dialog modal-lg">
      <div class="modal-content">
@@ -85,7 +128,7 @@
                </div>
                
                <div class="col-md-12">                  
-                  <input type="submit" name="submit" id="SubmitButton" class="btn btn-warning btn-sm" value="Submit">
+                  <input type="submit" name="submit" id="EditButton" class="btn btn-warning btn-sm" value="Submit">
                </div>
          </div>
        </div>      
@@ -121,7 +164,11 @@
 </div>
 
 <script>
-   $("#SubmitButton").click(function(e) {
+   $("#AddButton").click(function(e) {
+    $('.update-success').toast('show');
+    $('#AddBanner').modal('hide'); 
+   }); 
+   $("#EditButton").click(function(e) {
     $('.update-success').toast('show');
     $('#EditBanner').modal('hide'); 
    });  

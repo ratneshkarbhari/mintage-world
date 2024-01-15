@@ -85,3 +85,12 @@ ClassicEditor.create(document.querySelector("#editor"), {
 //      select2();
 //   });
 // });
+
+$(function () {
+  $("#datepicker")
+    .datepicker({
+      autoclose: true,
+      todayHighlight: true,
+    })
+    .datepicker("update", new Date());
+});

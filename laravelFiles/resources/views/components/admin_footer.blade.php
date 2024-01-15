@@ -20,7 +20,7 @@
 <script type="text/javascript" language="javascript" src="{{url('assets/admin/js/vfs_fonts.js')}}"></script>
 <script type="text/javascript" language="javascript" src="{{url('assets/admin/js/buttons.html5.min.js')}}"></script>
 <script type="text/javascript" language="javascript" src="{{url('assets/admin/js/buttons.print.min.js')}}"></script>
-
+<script type="text/javascript" language="javascript" src="{{url('assets/admin/js/bootstrap-datepicker.js')}}"></script>
 
 
 

@@ -211,18 +211,21 @@ use App\Models\Product;
                                     <option value="Other">Other</option>
                                  </select>
                               </div>
-                              <div class="col-md-2 mb-2"><label for="courier_number" class="control-label">Tracking Number</label></div>
-                               
+                              <div class="col-md-2 mb-2"><label for="courier_number" class="control-label">Tracking Number</label></div>                               
                               <div class="col-md-10 mb-2"> <input type="textbox" id="courier_number" placeholder="Enter Courier Number" class="form-control" name="courier_number"> </div>
-                              <div class="col-md-2 mb-2"><label for="courier_date" class="control-label">Courier Date</label> </div>
-                              
-                              <div class="col-sm-10 mb-2"> <input name="courier_date" id="courier_date" class="form-control form_datetime" placeholder="Select Date" readonly="readonly" required="required" value="" type="text"> </div>
-                              <div class="col-md-2 mb-2"><label for="dispatch" class="control-label">Details</label> </div>
-                              
-                              <div class="col-sm-10 mb-2"> <textarea class="form-control" id="dispatch" placeholder="Enter Description" rows="2" name="dispatch"></textarea> </div>
-                              <div class="col-md-2 d-none d-md-block">
-                            
+
+                              <div class="col-md-2 mb-2"><label for="courier_date" class="control-label">Courier Date</label> </div>                              
+                              <div class="col-sm-10 mb-2"> 
+                                 <div id="datepicker" class="input-group date" data-date-format="yyyy-mm-dd">
+                                    <input class="form-control" type="text" readonly="">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                </div>
                               </div>
+                             
+                              <div class="col-md-2 mb-2"><label for="dispatch" class="control-label">Details</label> </div>                              
+                              <div class="col-sm-10 mb-2"> <textarea class="form-control" id="dispatch" placeholder="Enter Description" rows="2" name="dispatch"></textarea> </div>
+
+                              <div class="col-md-2 d-none d-md-block"></div>
                               <div class="col-md-10">
                                <button id="AddHistory" data-loading-text="Loading..." class="btn btn-primary btn-sm"><i class="fa fa-plus-circle"></i> Add History</button>
                               </div>   
@@ -350,5 +353,6 @@ use App\Models\Product;
     $("#AddHistory,#UpdatePayment").click(function(e) {
      $('.update-success').toast('show'); 
     });  
+     
 
 </script>

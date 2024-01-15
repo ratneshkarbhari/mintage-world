@@ -149,6 +149,5 @@
      }); 
      $("#Delete_Story").click(function(e) {
     $('.delete-success').toast('show'); 
-   });  
- 
+   });   
  </script>

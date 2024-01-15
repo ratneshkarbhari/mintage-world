@@ -427,6 +427,7 @@ class PageLoader extends Controller
         ]);
     }
 
+
     function manage_career()
     {
         $this->admin_page_loader("manage_career", [

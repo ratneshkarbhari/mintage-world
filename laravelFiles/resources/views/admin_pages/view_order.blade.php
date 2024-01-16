@@ -121,8 +121,6 @@ use App\Models\Product;
                      @php
                      $orderProductsCounter++;
                      $subtotal=$subtotal+$amountWTax;
-                     
-
                      @endphp
                      @endforeach
                     <tr>
@@ -180,17 +178,40 @@ use App\Models\Product;
                      <div class="accordion-body">                          
                         <div class="d-block">
                            <h4 class="border-bottom pb-2 text-primary mb-4">Add Order History</h4>
+                           <input type="hidden" value="{{$order['orderid']}}" id="orderid" name="orderid">
                            <div class="row mb-3">
                             <div class="col-md-2 mb-2"> <label class="control-label" for="status">Order Status</label> </div>
                              
                               <div class="col-md-10 mb-2">
-                                 <select class="form-control" id="status" name="status">
-                                    <option value="Canceled">Canceled</option>
-                                    <option value="Order Pending">Order Pending</option>
-                                    <option value="Not Confirmed" selected="selected">Not Confirmed</option>
-                                    <option value="Pending">Pending</option>
-                                    <option value="Under Processing">Under Processing</option>
-                                    <option value="Dispatched">Dispatched</option>
+                                 <select id="order_status" class="form-control" id="status" name="status">
+                                    <option 
+                                    @if($order["status"]=="Canceled")
+                                    selected
+                                    @endif
+                                    value="Canceled">Canceled</option>
+                                    <option 
+                                    @if($order["status"]=="Order Pending")
+                                    selected
+                                    @endif
+                                    value="Order Pending">Order Pending</option>
+                                    <option
+                                    @if($order["status"]=="Not Confirmed")
+                                    selected
+                                    @endif
+                                    value="Not Confirmed" selected="selected">Not Confirmed</option>
+                                    <option
+                                    @if($order["status"]=="Pending")
+                                    selected
+                                    @endif
+                                    value="Pending">Pending</option>
+                                    <option value="Under Processing" @if($order["status"]=="Under Processing")
+                                    selected
+                                    @endif>Under Processing</option>
+                                    <option 
+                                    @if($order["status"]=="Dispatched")
+                                    selected
+                                    @endif
+                                    value="Dispatched">Dispatched</option>
                                     <option value="Delivered">Delivered</option>
                                  </select>
                               </div>
@@ -198,32 +219,77 @@ use App\Models\Product;
                               
                               <div class="col-md-10 mb-2">
                                  <select class="form-control" id="courier_name" name="courier_name" onchange="changeFunc();">
-                                    <option value="">Select courier name</option>
-                                    <option value="Anjani">Anjani</option>
-                                    <option value="Blue Dart">Blue Dart</option>
-                                    <option value="DTDC">DTDC</option>
-                                    <option value="Fed Ex">Fed Ex</option>
-                                    <option value="Post">Post</option>
-                                    <option value="Professional">Professional</option>
-                                    <option value="Aramex">Aramex</option>
-                                    <option value="Delhivery">Delhivery</option>
-                                    <option value="Tirupati Courier">Tirupati Courier</option>
-                                    <option value="Other">Other</option>
+                                    <option 
+                                    
+                                    value="">Select courier name</option>
+                                    <option 
+                                    @if($order['couriers']=='Anjani')
+                                    selected
+                                    @endif
+                                    value="Anjani">Anjani</option>
+                                    <option 
+                                    @if($order['couriers']=='Blue Dart')
+                                    selected
+                                    @endif
+                                    value="Blue Dart">Blue Dart</option>
+                                    <option
+                                    @if($order['couriers']=='DTDC')
+                                    selected
+                                    @endif
+                                    value="DTDC">DTDC</option>
+                                    <option
+                                    @if($order['couriers']=='Fed Ex')
+                                    selected
+                                    @endif
+                                    value="Fed Ex">Fed Ex</option>
+                                    <option
+                                    @if($order['couriers']=='Post')
+                                    selected
+                                    @endif
+                                    value="Post">Post</option>
+                                    <option 
+                                    @if($order['couriers']=='Professional')
+                                    selected
+                                    @endif
+                                    value="Professional">Professional</option>
+                                    <option
+                                    @if($order['couriers']=='Aramex')
+                                    selected
+                                    @endif
+                                    value="Aramex">Aramex</option>
+                                    <option 
+                                    @if($order['couriers']=='Delhivery')
+                                    selected
+                                    @endif
+                                    value="Delhivery">Delhivery</option>
+                                    <option
+                                    @if($order['couriers']=='Tirupati Courier')
+                                    selected
+                                    @endif
+                                    value="Tirupati Courier">Tirupati Courier</option>
+                                    <option 
+                                    
+                                    @if($order['couriers']=='Other')
+                                    selected
+                                    @endif
+                                    value="Other">Other</option>
                                  </select>
                               </div>
                               <div class="col-md-2 mb-2"><label for="courier_number" class="control-label">Tracking Number</label></div>                               
-                              <div class="col-md-10 mb-2"> <input type="textbox" id="courier_number" placeholder="Enter Courier Number" class="form-control" name="courier_number"> </div>
+                              <div class="col-md-10 mb-2"> <input type="textbox" value="{{$order['tracking_number']}}" id="courier_number" placeholder="Enter Courier Number" class="form-control" name="courier_number"> </div>
 
                               <div class="col-md-2 mb-2"><label for="courier_date" class="control-label">Courier Date</label> </div>                              
                               <div class="col-sm-10 mb-2"> 
                                  <div id="datepicker" class="input-group date" data-date-format="yyyy-mm-dd">
-                                    <input class="form-control" type="text" readonly="">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                    <input class="form-control" type="text" value="{{$order['courier_date']}}" id="courier_date" readonly="">
+
+                                    <span class="input-group-text input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    
                                 </div>
                               </div>
                              
                               <div class="col-md-2 mb-2"><label for="dispatch" class="control-label">Details</label> </div>                              
-                              <div class="col-sm-10 mb-2"> <textarea class="form-control" id="dispatch" placeholder="Enter Description" rows="2" name="dispatch"></textarea> </div>
+                              <div class="col-sm-10 mb-2"> <textarea class="form-control" id="description" placeholder="Enter Description" rows="2" name="dispatch"></textarea> </div>
 
                               <div class="col-md-2 d-none d-md-block"></div>
                               <div class="col-md-10">
@@ -350,9 +416,39 @@ use App\Models\Product;
 </div>
 
 <script>
-    $("#AddHistory,#UpdatePayment").click(function(e) {
-     $('.update-success').toast('show'); 
-    });  
+   $("#AddHistory").click(function(e) {
+     
+      let order_status = $("select#order_status").val();
+      let courier_name = $("select#courier_name").val();
+      let courier_number = $("input#courier_number").val();
+      let courier_date = $("input#courier_date").val();
+      let orderid = $("input#orderid").val();
+      let description = $("textarea#description").val();
+
+      $.ajax({
+         type: "POST",
+         url: "{{url('update-order-status')}}",
+         data: {
+            "_token": "{{ csrf_token() }}",
+            "orderid" : orderid,
+            "status" : order_status,
+            "courier_name" : courier_name,
+            "courier_number" : courier_number,
+            "courier_date" : courier_date,
+            "description" : description
+         },
+         success: function (response) {
+            if(response=='order-updated'){
+               $('.update-success').toast('show'); 
+            }  
+         }
+      });
+
+   
+
+   });  
+
+    
      
 
 </script>

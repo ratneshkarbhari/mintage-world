@@ -136,6 +136,23 @@ class Orders extends Controller
         
 
     }
+   
+    function update_order_status(Request $request) {
+       
+        $orderModel = new Order();
+
+        if($orderModel->where("orderid",$request->orderid)->update([
+            "status" => $request->status,
+            "couriers" => $request->courier_name,
+            "tracking_number" => $request->courier_number,
+            "courier_date" => $request->courier_date,
+        ])){
+            return "order-updated";
+        }else{
+            return "order-update-failed";
+        }
+        
+    }
     
     function update(Request $request) {
 

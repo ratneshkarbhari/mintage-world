@@ -133,6 +133,9 @@ Route::group(['middleware' => ['slashes']], function () {
     // Universal search
 });
 
+
+Route::post("update-order-status",[Orders::class,'update_order_status']);
+
 Route::get("payment-successful", [StaticPages::class, 'payment_successful']);
 Route::post('create-new-address-for-member', [CartActions::class, 'create_new_address']);
 

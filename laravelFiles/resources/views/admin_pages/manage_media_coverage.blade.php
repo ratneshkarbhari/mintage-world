@@ -37,7 +37,7 @@
                      </label> 
                   </td>
                   <td>
-                     <a class="btn btn-secondary btn-sm" title="Edit Media" href=""><i class="fa fa-edit"></i></a>
+                     <a class="btn btn-secondary btn-sm" href="{{url('admin/edit-media-coverage')}}" title="Edit Media" href=""><i class="fa fa-edit"></i></a>
                      <button class="btn btn-danger btn-sm DeleteAddModal" id="" data-id="tr_1"><i class="fa fa-trash"></i></button>
                   </td>
                </tr>

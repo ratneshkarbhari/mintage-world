@@ -40,77 +40,80 @@
          </div> 
          <hr>
          <div class="col-md-12 mb-3"> 
-            <form action="">
-               <div class="row" style="align-items: center;">
-                  <div class="col-md-12 dynamic-field mb-3" id="dynamic-pdf-1">
-                     <div class="row" >
-                        <div class="col-md-5">
-                           <div class="form-group">
-                           <label for="field" class="control-label d-block mb-2">PDF File </label> 
-                           <a href="http://www.mintageworld.com/public/mediacoverage/Free Press Journal-1674294980.pdf" target="_blank" class="d-block link-primary"><img src="{{url('assets/images/PDF-Icon.png')}}" width="60"> Free Press Journal</a>
+            <div class="row">
+               <div class="col-md-12 dynamic-field mb-3" id="dynamic-pdf-1">
+                  <div class="row" >
+                     <div class="col-md-5">
+                        <div class="form-group">
+                        <label for="field" class="control-label d-block mb-2">PDF File </label> 
+                        <a href="http://www.mintageworld.com/public/mediacoverage/Free Press Journal-1674294980.pdf" target="_blank" class="d-block link-primary"><img src="{{url('assets/images/PDF-Icon.png')}}" width="60"> Free Press Journal</a>
+                        </div>
+                     </div>
+                     
+                     <div class="col-md-5">
+                        <div class="staresd">
+                           <div class="imgup">
+                              <label for="" class="control-label">Upload Only PDF</label>
+                              <input type="file" class="form-control">
                            </div>
                         </div>
-                        
-                        <div class="col-md-5">
-                           <div class="staresd">
-                              <div class="imgup">
-                                 <label for="" class="control-label">Upload Only PDF</label>
-                                 <input type="file" class="form-control">
-                              </div>
-                           </div>
-                        </div>   
-                        <div class="col-md-2">
-                           <label for="field" class="control-label d-block mb-2">Action</label> 
-                           <button class="btn btn-danger btn-sm DeleteAddModal" id="" data-id="dynamic-pdf-1"><i class="fa fa-trash"></i></button>
-                        </div>       
-                     </div>
+                     </div>   
+                     <div class="col-md-2">
+                        <label for="field" class="control-label d-block mb-2">Action</label> 
+                        <button class="btn btn-danger btn-sm DeleteAddModal" id="" data-id="dynamic-pdf-1"><i class="fa fa-trash"></i></button>
+                     </div>       
                   </div>
-                  <div class="col-md-12 dynamic-field mb-3" id="dynamic-pdf-2">
-                     <div class="row" >
-                        <div class="col-md-5">
-                           <div class="form-group">
-                           <label for="field" class="control-label d-block mb-2">PDF File </label> 
-                           <a href="http://www.mintageworld.com/public/mediacoverage/Free Press Journal-1674294980.pdf" target="_blank" class="d-block link-primary"><img src="{{url('assets/images/PDF-Icon.png')}}" width="60"> Free Press Journal</a>
+               </div>
+               <div class="col-md-12 dynamic-field mb-3" id="dynamic-pdf-2">
+                  <div class="row" >
+                     <div class="col-md-5">
+                        <div class="form-group">
+                        <label for="field" class="control-label d-block mb-2">PDF File </label> 
+                        <a href="http://www.mintageworld.com/public/mediacoverage/Free Press Journal-1674294980.pdf" target="_blank" class="d-block link-primary"><img src="{{url('assets/images/PDF-Icon.png')}}" width="60"> Free Press Journal</a>
+                        </div>
+                     </div>
+                     
+                     <div class="col-md-5">
+                        <div class="staresd">
+                           <div class="imgup">
+                              <label for="" class="control-label">Upload Only PDF</label>
+                              <input type="file" class="form-control">
                            </div>
                         </div>
-                        
-                        <div class="col-md-5">
-                           <div class="staresd">
-                              <div class="imgup">
-                                 <label for="" class="control-label">Upload Only PDF</label>
-                                 <input type="file" class="form-control">
-                              </div>
-                           </div>
-                        </div>   
-                        <div class="col-md-2">
-                           <label for="field" class="control-label d-block mb-2">Action</label> 
-                           <button class="btn btn-danger btn-sm DeleteAddModal" id="" data-id="dynamic-pdf-2"><i class="fa fa-trash"></i></button>
-                        </div>         
+                     </div>   
+                     <div class="col-md-2">
+                        <label for="field" class="control-label d-block mb-2">Action</label> 
+                        <button class="btn btn-danger btn-sm DeleteAddModal" id="" data-id="dynamic-pdf-2"><i class="fa fa-trash"></i></button>
+                     </div>         
+                  </div>
+               </div> 
+               <div class="col-md-12 dynamic-field mb-3" id="dynamic-pdf-3">
+                  <div class="row" >
+                     <div class="col-md-5">
+                        <div class="form-group">
+                        <label for="field" class="control-label d-block mb-2">PDF File </label> 
+                        <a href="http://www.mintageworld.com/public/mediacoverage/Free Press Journal-1674294980.pdf" target="_blank" class="d-block link-primary"><img src="{{url('assets/images/PDF-Icon.png')}}" width="60"> Free Press Journal</a>
+                        </div>
                      </div>
-                  </div> 
-                  <div class="col-md-12 dynamic-field mb-3" id="dynamic-pdf-3">
-                     <div class="row" >
-                        <div class="col-md-5">
-                           <div class="form-group">
-                           <label for="field" class="control-label d-block mb-2">PDF File </label> 
-                           <a href="http://www.mintageworld.com/public/mediacoverage/Free Press Journal-1674294980.pdf" target="_blank" class="d-block link-primary"><img src="{{url('assets/images/PDF-Icon.png')}}" width="60"> Free Press Journal</a>
+                     
+                     <div class="col-md-5">
+                        <div class="staresd">
+                           <div class="imgup">
+                              <label for="" class="control-label">Upload Only PDF</label>
+                              <input type="file" class="form-control">
                            </div>
                         </div>
-                        
-                        <div class="col-md-5">
-                           <div class="staresd">
-                              <div class="imgup">
-                                 <label for="" class="control-label">Upload Only PDF</label>
-                                 <input type="file" class="form-control">
-                              </div>
-                           </div>
-                        </div>   
-                        <div class="col-md-2">
-                           <label for="field" class="control-label d-block mb-2">Action</label> 
-                           <button class="btn btn-danger btn-sm DeleteAddModal" id="" data-id="dynamic-pdf-3"><i class="fa fa-trash"></i></button>
-                        </div>         
-                     </div>
-                  </div> 
+                     </div>   
+                     <div class="col-md-2">
+                        <label for="field" class="control-label d-block mb-2">Action</label> 
+                        <button class="btn btn-danger btn-sm DeleteAddModal" id="" data-id="dynamic-pdf-3"><i class="fa fa-trash"></i></button>
+                     </div>         
+                  </div>
+               </div> 
+            </div>
+            <form action="" method="post">
+               <div class="row" style="align-items: center;">
+                
                   <div class="col-md-10 dynamic-field mb-3" id="dynamic-field-1">
                      <div class="row" >
                         <div class="col-md-6">

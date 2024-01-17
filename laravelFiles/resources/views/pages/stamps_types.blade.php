@@ -29,9 +29,11 @@
         </div>
     </section>
     <!--Footer Content -->
+    @if($footer_content!=""||$footer_content!=NULL)
     <section class="common-padding page-footer-disc bg-light-wraper">
         <div class="container-fluid px-lg-2 px-lg-5">
             <?php echo $footer_content; ?>
         </div>
     </section>
+    @endif
 </main>

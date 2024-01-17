@@ -128,8 +128,16 @@
             url: "{{url("stamp-info-filter-exe")}}",
             data: $("form#stampFilterForm").serialize(),
             success: function (response) {
-                $("div#stampBox").html(response);
-                $("div.pagination-container").hide();
+                if(response.status==200){
+                    $("div#stampBox").html(response.html);
+                    // $("div.pagination-container").hide();
+                }else{
+                    
+                    window.location.replace("http://www.w3schools.com");
+
+                    
+                }
+
             }
         });
     });

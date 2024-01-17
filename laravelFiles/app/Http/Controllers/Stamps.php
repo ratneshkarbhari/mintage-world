@@ -27,7 +27,7 @@ class Stamps extends Controller
 
             $periodModel = new Period();
 
-            $periods = $periodModel->where("category_id",3)->orderBy("")->get();
+            $periods = $periodModel->where("category_id",3)->orderBy("order_by","asc")->get();
 
 
             Cache::put('stamp-periods',$periods);
@@ -45,7 +45,7 @@ class Stamps extends Controller
                     "label" => "Periods"
                 ]
             ],
-            "footer_content" => ""
+            "footer_content" => '<div class=""><h1>STAMPS OF INDIA</h1><p>The history of<strong>stamps of India</strong>begins with the Scinde Dawk, which is the oldest in Asia. India has issued a variety of stamps covering many themes. Stamps arose as a necessity for the sustenance of the postal service. As the postage was originally paid by the receiver, there was no guarantee that the addressee would accept the parcel. A stamp acts as a receipt of pre-payment to the postal service.<a href="http://www.mintageworld.com/stamp/list/78">Commemorative stamps</a>in<a href="http://www.mintageworld.com/stamp/dynasty/20">Independent India</a>cover birth anniversaries, death anniversaries, important events, and important developments highlighting the country.</p><p>The Scinde Dawk is a unique and rare<strong>stamp of India</strong>, the first to be issued in Asia by British India. It was issued by the British and is red sealing wax wafers with the design embossed upon it. These wafers were impressed upon paper and used by those seeking postal services. The Scinde Dawk was circulated in the Sindh region of India. The word `Scinde` is an anglicised version of `Sindh` while `Dawk` was the British pronunciation of the Hindi word `Dak` which means `Post`. This<i>old stamp</i>originally cost one half anna each, but today they feature as a rare collectible owing to the fact that less than 100 of these stamps exist today.</p><p>Scents are a peculiar, yet interesting theme for stamps in India.<i>Stamps</i>with sandalwood, jasmine, and rose fragrances have been released by the postal authority of India. You can also find rare stamps with meteorite dust issued in Austria or chocolate scented ones issued by Belgium, France and Switzerland. The ones issued by Switzerland has adhesive that actually tastes like chocolate.</p><p>Error stamps, those with printing mistakes, make for rare collectors` items and are actively sought out by avid philatelists. You can find that old stamps are a part of any philatelist`s collection. Philately is a budding hobby, and with so many unique stamps being issued by countries all over the world, the hobby is bound to expand. Many youngsters as well as adults are avid stamp collectors and people`s interest in the field of philately only grows.</p></div>'
         ]);
 
 
@@ -57,7 +57,7 @@ class Stamps extends Controller
 
         if(!Cache::get('stamp-types-'.$periodId)){
 
-            $types = Dynasty::where("period_id",$periodId)->get();
+            $types = Dynasty::where("period_id",$periodId)->orderBy("order_by","asc")->get();
 
 
             Cache::put('stamp-types-'.$periodId,$types);
@@ -194,7 +194,21 @@ class Stamps extends Controller
             
         }
 
-        return $stampsHtml;
+        if($stampsHtml!=""){
+
+            return [
+                "html" => $stampsHtml,
+                "status" => 200
+            ];
+    
+
+        }else{
+
+            return [
+                "status" => 500
+            ];
+
+        }
 
     }
 

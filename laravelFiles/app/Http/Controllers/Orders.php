@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 class Orders extends Controller
 {
 
+
+    
+
     function create_exe(Request $request){
 
         $rzpOrderId = $request->rzp_order_id;
@@ -60,6 +63,8 @@ class Orders extends Controller
 
             $orderIdDigits=$orderIdDigits+1;
 
+            $memberData = Member::find(session("member_id"));
+
 
             $orderId = $orderModel->insertGetId([
 
@@ -86,7 +91,7 @@ class Orders extends Controller
                 "subtotal" => session("subtotal")-session("discount"),
                 "shipping" => $shipping,
                 "items" => count(session("cart")),
-                "orderid" => "ORD9-".$orderIdDigits,
+                "orderid" => "ORD-".$orderIdDigits,
                 "payment_status" => "Processing",
                 "payment_note" => NULL,
                 "dispatch" => NULL,
@@ -106,6 +111,8 @@ class Orders extends Controller
 
 
             if ($orderId) {
+
+                    
             
                 foreach ($cart_items as $cart_item) {
                 
@@ -127,55 +134,52 @@ class Orders extends Controller
 
             }
 
+
+
+            $cartActions = new CartActions();
+
+            $cartActions->clear_cart();
+
             return "order-created";
 
 
         }
 
-
+        
         
 
     }
+
+
    
     function update_order_status(Request $request) {
        
         $orderModel = new Order();
 
-        if($orderModel->where("orderid",$request->orderid)->update([
+        if($order = $orderModel->where("orderid",$request->orderid)->update([
             "status" => $request->status,
             "couriers" => $request->courier_name,
             "tracking_number" => $request->courier_number,
             "courier_date" => $request->courier_date,
         ])){
+
+            if($request->status=="Not Confirmed"){
+
+                $emailBody = 'Your order with id : '.$order["orderid"].' is placed';
+                
+                $memberData = Member::find($order["member_id"]);
+    
+                $res = $this->send_email($memberData["email"],$order["Shipping_Name1"],"Your Order from Mintage World Shopping",$emailBody);
+                    
+            }
+            
             return "order-updated";
+
         }else{
             return "order-update-failed";
         }
         
     }
     
-    function update(Request $request) {
-
-        $gwTxId = $request->gw_tx_id;
-
-        $paymentStatus = $request->payment_status;
-        $status = $request->status;
-
-        $orderModel = new Order();
-
-        $order = $orderModel->where("gw_tx_id",$gwTxId)->first();
-
-        if($order){
-
-            if($order->update([
-                "status" => $status,
-                "payment_status" => $paymentStatus
-            ])){
-                return "updated";
-            }
-
-        }
-        
-    }
-
+    
 }

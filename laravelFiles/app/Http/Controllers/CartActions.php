@@ -301,6 +301,19 @@ class CartActions extends Controller
 
     }
 
+    function clear_cart(){
+
+        $cleared = session([
+            "cart" => [],
+            "cart_count" => 0
+        ]);
+
+        if($cleared){
+            return TRUE;
+        }
+
+    }
+
     function checkout($successMessage='',$failureMessage='')
     {
 

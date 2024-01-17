@@ -405,8 +405,12 @@ class Coins extends Controller
 
     function info_filter_exe(Request $request){
 
+
+
         $denominations = $request->denominations;
+        
         $metals = $request->metals;
+        
         $rarities = $request->rarities;
         $shapes = $request->shapes;
         $mints = $request->mints;
@@ -425,29 +429,31 @@ class Coins extends Controller
 
         if(!empty($denominations)){
             $hasFilterParams = TRUE;
-            $query.=' AND denomination.id IN ('.implode(",",$denominations).')'; 
+            $inParam = implode(",",$denominations);
+
+            $query.=' AND denomination.id IN ('.str_replace("/","",implode(",",$denominations)).')';
         }
 
         if(!empty($metals)){
             $hasFilterParams = TRUE;
-            $query.=' AND metal.id IN ('.implode(",",$metals).')';
+            $query.=' AND metal.id IN ('.str_replace("/","",(implode(",",$metals))).')';
         }
 
         if(!empty($rarities)) {
             $hasFilterParams = TRUE;
-            $query.=' AND rarity.id IN ('.implode(",",$rarities).')';
+            $query.=' AND rarity.id IN ('.str_replace("/","",implode(",",$rarities)).')';
 
         }
 
         if(!empty($shapes)){
             $hasFilterParams = TRUE;
-            $query.=' AND shape.id IN ('.implode(",",$shapes).')';
+            $query.=' AND shape.id IN ('.str_replace("/","",implode(",",$shapes)).')';
 
         }
 
         if(!empty($mints)){
             $hasFilterParams = TRUE;
-            $query.='AND coin.mint IN ("'.implode(",",$mints).'")';
+            $query.='AND coin.mint IN ("'.str_replace("/","",implode(",",$mints)).'")';
 
         }
 
@@ -477,6 +483,8 @@ class Coins extends Controller
 
 
         }
+
+
 
 
         $coinHtml = '';

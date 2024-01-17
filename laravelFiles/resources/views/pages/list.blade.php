@@ -219,7 +219,7 @@
         $.ajax({
             type: "GET",
             url: "{{url("coin-info-filter-exe")}}",
-            data: $("form#coinFilterForm").serialize(),
+            data: $("form#coinFilterForm").serializeArray(),
             success: function (response) {
                 $("div#coinBox").html(response);
                 $("div.pagination-container").hide();

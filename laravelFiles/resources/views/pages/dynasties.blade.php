@@ -130,6 +130,7 @@
                 "dynasty_group_id" : dynastyGroupId
             },
             success: function (response) {
+                console.log(response);
                 $("div#dg-group-dynasties").html(response);
             }
         });

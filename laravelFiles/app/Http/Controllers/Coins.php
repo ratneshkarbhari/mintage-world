@@ -180,6 +180,7 @@ class Coins extends Controller
 
     function fetch_dg_dynasties(Request $request){
 
+
         $dynastyGroupId = $request->dynasty_group_id;
 
         $dynastyModel = new Dynasty();
@@ -194,7 +195,9 @@ class Coins extends Controller
 
             if(isset($dynasty["image"])){
 
-                $dynastiesHtml.='<div class="col-lg-2 col-md-6 col-sm-12 info-item-grid-outer-box d-flex align-items-stretch"><a href="'.url("coin/ruler/".$dynasty["id"]."-".Str::slug($dynasty["title"])).'"><div class="info-item-grid-box min-h-0"><img class="img-fluid" src="'.getenv("dynasty_IMAGE_BASE_URL")."/".$dynasty["image"].'" alt=""><div class="info-meta text-center"><h2 class="info-item-grid-title">'.$dynasty["title"].'</h2>'.$dynasty["description"].'</div></div></a></div>';
+                $imageUrl  = getenv("DYNASTY_IMAGE_BASE_URL")."/".$dynasty["image"];
+
+                $dynastiesHtml.='<div class="col-lg-2 col-md-6 col-sm-12 info-item-grid-outer-box d-flex align-items-stretch"><a href="'.url("coin/ruler/".$dynasty["id"]."-".Str::slug($dynasty["title"])).'"><div class="info-item-grid-box min-h-0"><img class="img-fluid" src="'.$imageUrl.'" alt=""><div class="info-meta text-center"><h2 class="info-item-grid-title">'.$dynasty["title"].'</h2>'.$dynasty["description"].'</div></div></a></div>';
             
             }else{
     
@@ -205,6 +208,7 @@ class Coins extends Controller
             }
 
         }
+
 
         return $dynastiesHtml;
 

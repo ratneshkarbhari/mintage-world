@@ -177,7 +177,12 @@ class Stamps extends Controller
 
         $themeCategories = $request->themeCategories;
 
-        $stamps = DB::table('stamp')->where("dynasty_id",$request->dynasty_id)->whereIn('theme_category_id', $themeCategories)->get();
+        if(!is_null($themeCategories)){
+            $stamps = DB::table('stamp')->where("dynasty_id",$request->dynasty_id)->whereIn('theme_category_id', $themeCategories)->get();
+        }else{
+            $stamps = DB::table('stamp')->where("dynasty_id",$request->dynasty_id)->get();
+        }
+
 
         $stampsHtml = '';
 

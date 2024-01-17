@@ -130,12 +130,7 @@
             success: function (response) {
                 if(response.status==200){
                     $("div#stampBox").html(response.html);
-                    // $("div.pagination-container").hide();
-                }else{
-                    
-                    window.location.replace("http://www.w3schools.com");
-
-                    
+                    $("div.pagination-container").hide();
                 }
 
             }

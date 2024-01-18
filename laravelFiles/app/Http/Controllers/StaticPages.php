@@ -195,7 +195,9 @@ class StaticPages extends Controller
 
         $eventModel = new Event();
 
-        $events = $eventModel->where("status", 1)->orderBy("id", "desc")->paginate(16);
+        $events = $eventModel->where("status",'1')->orderBy("id","desc")->paginate(12);
+
+        
 
 
         $total = $events->total();

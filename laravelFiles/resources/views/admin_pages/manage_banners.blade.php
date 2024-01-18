@@ -82,7 +82,11 @@
                   <div class=""> <input type="text" name="title" class="form-control" id="title"  value=""> </div>
                </div> 
                <div class="col-md-6 mb-3">
-                  <label class="control-label">Upload Image</label> 
+                  <label class="control-label">Upload Desktop Image  <small>(1920px - 700px)</small></label> 
+                  <div class=""><input type="file" class="form-control" placeholder="upload image"></div>
+               </div>
+               <div class="col-md-6 mb-3">
+                  <label class="control-label">Upload Mobile Image <small>(600px - 520px)</small></label> 
                   <div class=""><input type="file" class="form-control" placeholder="upload image"></div>
                </div>
                
@@ -122,12 +126,20 @@
                   <div class=""> <input type="text" name="title" class="form-control" id="title"  value="https://www.mintageworld.com/view-product/3288-global-collectibles-of-mahatma-gandhi-through-banknotes-coins-stamps-hardcover-book/"> </div>
                </div>
                <div class="col-md-6 mb-3">
-                  <label class="control-label">Current Image</label> 
-                  <div class=""> <img src="https://www.mintageworld.com/img/light-house-banner.jpg" alt="" class="img-fluid" style="width:300px"></div>
+                  <label class="control-label">Current Desktop Image</label> 
+                  <div class=""> <img  src="{{url("assets/images/carousel-1-desktop.jpg")}}" alt="" class="img-fluid" style="width:300px"></div>
                </div>
                <div class="col-md-6 mb-3">
-                  <label class="control-label">Upload New Image</label> 
-                  <div class=""><input type="file" class="form-control" placeholder="upload image"></div>
+                  <label class="control-label">Upload New Desktop Image <small>(1920px - 700px)</small></label> 
+                  <div class=""><input type="file" class="form-control" placeholder="upload Desktop image"></div>
+               </div>
+               <div class="col-md-6 mb-3">
+                  <label class="control-label">Current Mobile Image</label> 
+                  <div class=""> <img src="{{url("assets/images/carousel-1-mobile.jpg")}}" alt="" class="img-fluid" style="width:300px"></div>
+               </div>
+               <div class="col-md-6 mb-3">
+                  <label class="control-label">Upload New Mobile Image <small>(600px - 520px)</small></label> 
+                  <div class=""><input type="file" class="form-control" placeholder="upload Mobile image"></div>
                </div>
                
                <div class="col-md-12">                  

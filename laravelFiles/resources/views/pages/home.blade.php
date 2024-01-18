@@ -1,11 +1,17 @@
 <!-- Carousel Start -->
 <section class="home-page-carousel">
     <div class="owl-carousel header-carousel position-relative">
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{{url("assets/img/carousel-1.jpg")}}" alt="">           
+        <div class="owl-carousel-item position-relative">     
+            <a class="d-block" href="{{url("shop/")}}">
+                <img class="img-fluid d-none d-md-block" src="{{url("assets/images/carousel-1-desktop.jpg")}}" title="" alt="">
+                <img class="img-fluid d-block d-md-none" src="{{url("assets/images/carousel-1-mobile.jpg")}}" title="" alt="">
+            </a> 
         </div>
         <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{{url("assets/img/carousel-2.jpg")}}" alt="">
+            <a class="d-block" href="{{url("shop/")}}">
+                <img class="img-fluid d-none d-md-block" src="{{url("assets/images/carousel-2-desktop.jpg")}}" title="" alt="">
+                <img class="img-fluid d-block d-md-none" src="{{url("assets/images/carousel-2-mobile.jpg")}}" title="" alt="">
+            </a> 
         </div>
     </div>
 </section>

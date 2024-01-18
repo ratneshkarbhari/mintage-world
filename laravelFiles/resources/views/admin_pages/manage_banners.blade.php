@@ -27,10 +27,11 @@
                  </tr>
              </thead>
              <tbody>
+               @foreach($banners as $banner)
                <tr>
-                  <td>1</td>
-                  <td>Genuine lighthouse germany numismatics coins, philately & banknotes accessories</td>
-                  <td><img src="https://www.mintageworld.com/img/light-house-banner.jpg" alt="" class="img-fluid" style="width:100px"></td>
+                  <td>{{$banner["slide_order"]}}</td>
+                  <td>{{$banner["title"]}}</td>
+                  <td><img src="{{url('assets/banners/'.$banner['image'])}}" alt="" class="img-fluid" style="width:100px"></td>
                   <td>1</td>
                   <td>  
                      <label class="switch switch-success" for="chk1">
@@ -43,6 +44,8 @@
                      <button class="btn btn-danger btn-sm" title="Delete Banner" id="Delete_Banner"><i class="fa fa-trash"></i></button>
                   </td>
                </tr>
+               @endforeach
+               
              </tbody> 
          </table>
      </div>

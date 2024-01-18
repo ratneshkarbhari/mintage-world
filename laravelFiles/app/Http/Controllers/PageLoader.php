@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Media;
 use App\Models\Order;
+use App\Models\Banner;
 use App\Models\Country;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -377,8 +378,12 @@ class PageLoader extends Controller
 
     function manage_banners()
     {
+
+        $banners = Banner::orderBy("slide_order","desc")->get();
+
         $this->admin_page_loader("manage_banners", [
-            "title" => "Manage banners"
+            "title" => "Manage banners",
+            "banners" => $banners
         ]);
     }
 

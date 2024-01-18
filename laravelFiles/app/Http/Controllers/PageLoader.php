@@ -376,7 +376,7 @@ class PageLoader extends Controller
         ]);
     }
 
-    function manage_banners()
+    function manage_banners($success="",$failure="")
     {
 
         $banners = Banner::orderBy("slide_order","desc")->get();

@@ -31,11 +31,19 @@
                <tr>
                   <td>{{$banner["slide_order"]}}</td>
                   <td>{{$banner["title"]}}</td>
-                  <td><img src="{{url('assets/banners/'.$banner['image'])}}" alt="" class="img-fluid" style="width:100px"></td>
+                  <td><img src="{{url('assets/images/banners/'.$banner['image_landscape'])}}" alt="" class="img-fluid" style="width:100px"></td>
                   <td>1</td>
                   <td>  
-                     <label class="switch switch-success" for="chk1">
-                        <input type="checkbox" checked="" id="chk1">
+                     <label class="switch switch-success" for="banner-{{$banner['id']}}">
+                        <input class="active-inactive-switch" bannerId="{{$banner['id']}}" type="checkbox" 
+                        @if($banner['status']=='1')
+                        checked
+
+                        valueToSet = '0'
+                        @else
+                        valueToSet = '1'
+                        @endif
+                        id="banner-{{$banner['id']}}">
                         <span class="slider round"></span> 
                      </label> 
                   </td>
@@ -64,36 +72,38 @@
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
        <div class="modal-body"> 
-         <div class="row">
+         <form action="{{ url('create-new-banner') }}" enctype="multipart/form-data" method="post">
+            @csrf
+            <div class="row">
                <div class="col-md-12 mb-3">
                   <label class="control-label">Title</label> 
                   <div class=""> <input type="text" name="title" class="form-control" id="title"  value=""> </div>
                </div>
                <div class="col-md-12 mb-3">
                   <label class="control-label">Alt</label> 
-                  <div class=""> <input type="text" name="title" class="form-control" id="title"  value=""> </div>
+                  <div class=""> <input type="text" name="alt" class="form-control" id="title"  value=""> </div>
                </div>
                <div class="col-md-2 mb-3">
                   <label class="control-label">Order</label> 
-                  <div class=""> <input type="text" name="title" class="form-control" id="title"  value=""> </div>
+                  <div class=""> <input type="text" name="order" class="form-control" id="title"  value=""> </div>
                </div>
                <div class="col-md-10 mb-3">
                   <label class="control-label">Link</label> 
-                  <div class=""> <input type="text" name="title" class="form-control" id="title"  value=""> </div>
+                  <div class=""> <input type="text" name="link" class="form-control" id="title"  value=""> </div>
                </div> 
                <div class="col-md-6 mb-3">
                   <label class="control-label">Upload Desktop Image  <small>(1920px - 700px)</small></label> 
-                  <div class=""><input type="file" class="form-control" placeholder="upload image"></div>
+                  <div class=""><input type="file" name="desktop_banner" class="form-control" accept="image/*" placeholder="upload image"></div>
                </div>
                <div class="col-md-6 mb-3">
                   <label class="control-label">Upload Mobile Image <small>(600px - 520px)</small></label> 
-                  <div class=""><input type="file" class="form-control" placeholder="upload image"></div>
+                  <div class=""><input type="file" name="touch_banner" class="form-control" accept="image/*" placeholder="upload image"></div>
                </div>
-               
                <div class="col-md-12">                  
                   <input type="submit" name="submit" id="AddButton" class="btn btn-warning btn-sm" value="Submit">
                </div>
-         </div>
+            </div>
+         </form>
        </div>      
      </div>
    </div>
@@ -178,6 +188,21 @@
    </div>
 </div>
 
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+   <div id="liveToast " class="toast hide bg-danger text-white set-status-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+       <div class="toast-header bg-danger text-white">
+           <strong class="me-auto"><i class="fas fa-check-circle"></i> Set Banner Status</strong>
+           <small>Just Now</small>
+           {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
+       </div>
+       <div class="toast-body">
+         "Your Banner" status is changed 
+       </div>
+       <div class='toast-timeline animate'></div>
+   </div>
+</div>
+
+
 <script>
    $("#AddButton").click(function(e) {
     $('.update-success').toast('show');
@@ -190,5 +215,26 @@
    $("#Delete_Banner").click(function(e) {
     $('.delete-success').toast('show'); 
    });  
+
+   $(".active-inactive-switch").on('change',function (e) { 
+      e.preventDefault();
+      let bannerId = $(this).attr("bannerId");
+
+      let statusToSet = $(this).attr('valueToSet');
+      
+      $.ajax({
+         type: "POST",
+         url: "{{ url('set-banner-status') }}",
+         data: {
+            "_token": "{{ csrf_token() }}",
+            "bannerId" : bannerId,
+            "statusToSet" : statusToSet
+         },
+         success: function (response) {
+            $(".set-status-success").toast("show");
+         }
+      });
+      
+   });
 
 </script>

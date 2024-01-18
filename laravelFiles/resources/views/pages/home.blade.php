@@ -71,7 +71,7 @@
             <div class="product-grid">
                <div class="product-image"> <a href="{{url("view-product/".$random_book["id"]."-".$random_book["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
-                  <h2 class="title"><a href="{{url("view-product/".$random_book["custom_url"])}}">{{$random_book["name1"]}}</a> </h2>
+                  <h2 class="title"><a href="{{url("view-product/".$random_book["id"]."-".$random_book["custom_url"])}}">{{$random_book["name1"]}}</a> </h2>
                   @if($random_book["discount"])
                   <div class="price">
                   <span class="me-3">  <i class="fa fa-rupee-sign"></i> {{$random_book["price"]}}</span>

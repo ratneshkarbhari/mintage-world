@@ -310,7 +310,7 @@ class StaticPages extends Controller
 
         $orderModel = new Order();
 
-        $orders = $orderModel->where("member_id", session("member_id"))->with("order_products")->orderBy("id", "desc")->get();
+        $orders = $orderModel->where("payment_status","Success")->where("member_id", session("member_id"))->with("order_products")->orderBy("id", "desc")->get();
 
 
         $this->page_loader("myorders", [

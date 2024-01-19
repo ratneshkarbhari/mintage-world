@@ -248,7 +248,9 @@ Route::get('shop/list/{categorySlug}', [Shopping::class, 'shop_list']);
 Route::post("apply-coupon-recalculate-discount-exe", [Coupons::class, 'apply_coupon_recalculate']);
 Route::post("create-order-exe", [Orders::class, 'create_exe']);
 
-Route::post("update-order-exe", [Orders::class, 'update']);
+Route::post("update-order-exe", [Orders::class, 'update_order_status']);
+
+Route::post("place-order-exe",[Orders::class,'place_order']);
 
 Route::get('media/', [StaticPages::class, 'media_list']);
 

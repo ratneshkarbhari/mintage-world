@@ -550,7 +550,7 @@
          },
          success: function (response) {
             console.log("order-created");
-            $('.add-success').toast('show');
+            // $('.add-success').toast('show');
          }
       });
    });
@@ -572,10 +572,9 @@
 
          $.ajax({
             type: "POST",
-            url: "{{url('update-order-exe')}}",
+            url: "{{url('place-order-exe')}}",
             data: {
                "_token": "{{ csrf_token() }}",
-               "gw_tx_id": '{{$order["id"]}}',
                "status" : "Not Confirmed",
                "payment_status" : "Success"
             },
@@ -621,9 +620,6 @@
             });
             
          }
-      },
-      "notes": {
-         "address": "Razorpay Corporate Office"
       },
       "theme": {
          "color": "#e19726"

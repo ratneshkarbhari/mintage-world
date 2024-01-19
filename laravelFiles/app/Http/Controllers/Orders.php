@@ -112,7 +112,7 @@ class Orders extends Controller
 
             if ($orderId) {
 
-                    
+                session(["current_order_id"=>$orderId]);
             
                 foreach ($cart_items as $cart_item) {
                 
@@ -150,6 +150,24 @@ class Orders extends Controller
 
     }
 
+
+    function place_order(Request $request){
+
+        $currentOrder = session("current_order_id");
+
+        
+
+        if($done = Order::find($currentOrder)->update([
+            "status" => $request->status,
+            "payment_status" => $request->payment_status
+        ])){
+            echo "updated";
+        }
+
+
+
+    }
+    
 
    
     function update_order_status(Request $request) {

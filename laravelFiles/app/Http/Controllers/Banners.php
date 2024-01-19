@@ -47,6 +47,71 @@ class Banners extends Controller
 
     function update(Request $request){
 
+        $bannerId = $request->bannerId;
+
+        if($prevBannerData = Banner::find($bannerId)){
+
+            $uploadPath = './assets/images/banners/';
+
+
+            if($request->hasFile("desktop_banner")){
+
+                $landscapeImageFile = $request->file("desktop_banner");
+
+                $landscapeImageName = $landscapeImageFile->getClientOriginalName();
+
+                $prevDesktopBannerPath = $uploadPath.$prevBannerData['image_landscape'];
+
+                if(is_file($prevDesktopBannerPath)){
+                    unlink($prevDesktopBannerPath);
+                }
+
+                $landscapeImageFile->move($uploadPath,$landscapeImageFile->getClientOriginalName());
+
+
+            }else{
+                $landscapeImageName = $prevBannerData["image_landscape"];
+            }
+
+
+            if($request->hasFile("touch_banner")){
+
+                $potraitImageFile = $request->file("touch_banner");
+
+                $potraitImageName = $potraitImageFile->getClientOriginalName();
+
+                $prevTouchBannerPath = $uploadPath.$prevBannerData['image_potrait'];
+
+                if(is_file($prevTouchBannerPath)){
+                    unlink($prevTouchBannerPath);
+                }
+
+                $potraitImageFile->move($uploadPath,$potraitImageFile->getClientOriginalName());
+
+
+            }else{
+                $potraitImageName = $prevBannerData["image_potrait"];
+            }
+
+            $updateBannerObj = [
+
+                "title" => $request->title,
+                "alt" => $request->alt,
+                "slide_order" => $request->order,
+                "link" => $request->link,
+                "image_landscape" => $landscapeImageName,
+                "image_potrait" => $potraitImageName,
+                "status" => "1" 
+    
+            ];
+
+            Banner::find($bannerId)->update($updateBannerObj);
+
+            return redirect()->to(url("admin/manage-banners"));
+
+
+        }
+
     }
 
     function set_status(Request $request){

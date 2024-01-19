@@ -203,6 +203,8 @@ Route::post("set-banner-status",[Banners::class,'set_status']);
 
 Route::post("create-new-banner",[Banners::class,'create_new']);
 
+Route::post('update-banner-exe',[Banners::class,'update']);
+
 Route::post("fetch-dg-dynasties", [Coins::class, 'fetch_dg_dynasties']);
 
 Route::post("add-product-rating", [Shopping::class, 'add_product_rating']);

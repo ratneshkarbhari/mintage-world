@@ -92,6 +92,8 @@ class PageLoader extends Controller
 
         $entries = Media::where("status", "1")->orderBy("id", "desc")->limit(7)->get();
 
+        $banners = Banner::where("status","1")->get();
+
         $this->page_loader("home", [
             "title" => "Online Museum of Coins, Stamps and Notes",
             "random_books" => $featuredBooks,
@@ -99,7 +101,8 @@ class PageLoader extends Controller
             "random_notes" => $featuredNotes,
             "random_accessories" => $featuredAccessories,
             "random_stamps" => $featuredStamps,
-            "news_items" => $entries
+            "news_items" => $entries,
+            "banners" => $banners
         ]);
     }
 

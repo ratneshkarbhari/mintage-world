@@ -1,18 +1,14 @@
 <!-- Carousel Start -->
 <section class="home-page-carousel">
     <div class="owl-carousel header-carousel position-relative">
-        <div class="owl-carousel-item position-relative">     
-            <a class="d-block" href="{{url("shop/")}}">
-                <img class="img-fluid d-none d-md-block" src="{{url("assets/images/carousel-1-desktop.jpg")}}" title="" alt="">
-                <img class="img-fluid d-block d-md-none" src="{{url("assets/images/carousel-1-mobile.jpg")}}" title="" alt="">
-            </a> 
-        </div>
+        @foreach($banners as $banner)
         <div class="owl-carousel-item position-relative">
-            <a class="d-block" href="{{url("shop/")}}">
-                <img class="img-fluid d-none d-md-block" src="{{url("assets/images/carousel-2-desktop.jpg")}}" title="" alt="">
-                <img class="img-fluid d-block d-md-none" src="{{url("assets/images/carousel-2-mobile.jpg")}}" title="" alt="">
+            <a class="d-block" href="{{$banner['link']}}">
+                <img class="img-fluid d-none d-md-block" src="{{url('assets/images/banners/'.$banner['image_landscape'])}}" title="{{$banner['title']}}" alt="{{$banner['alt']}}">
+                <img class="img-fluid d-block d-md-none" src="{{url('assets/images/banners/'.$banner['image_potrait'])}}" title="{{$banner['title']}}" alt="{{$banner['alt']}}">
             </a> 
         </div>
+        @endforeach
     </div>
 </section>
 <!-- Carousel End -->

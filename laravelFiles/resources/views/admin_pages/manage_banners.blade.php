@@ -28,11 +28,11 @@
                </thead>
                <tbody>
                   @foreach($banners as $banner)
-                  <tr>
+                  <tr id="tr_1">
                      <td>{{$banner["slide_order"]}}</td>
                      <td>{{$banner["title"]}}</td>
                      <td><img src="{{url('assets/images/banners/'.$banner['image_landscape'])}}" alt="" class="img-fluid" style="width:100px"></td>
-                     <td>1</td>
+                     <td>{{$banner["slide_order"]}}</td>
                      <td>
                         <label class="switch switch-success" for="banner-{{$banner['id']}}">
                            <input class="active-inactive-switch" bannerId="{{$banner['id']}}" type="checkbox" @if($banner['status']=='1' ) checked valueToSet='0' @else valueToSet='1' @endif id="banner-{{$banner['id']}}">
@@ -96,14 +96,10 @@
                               </div>
                            </div>
                         </div>
-
-                        <button class="btn btn-danger btn-sm" title="Delete Banner" id="Delete_Banner"><i class="fa fa-trash"></i></button>
+                        <button class="btn btn-danger btn-sm DeleteModal" title="Delete Banner" id="Delete_Banner" data-id="tr_1"><i class="fa fa-trash"></i></button>
                      </td>
-                  </tr>
-
-                  
+                  </tr>                  
                   @endforeach
-
                </tbody>
             </table>
          </div>
@@ -203,6 +199,29 @@
    </div>
 </div>
 
+<div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="DeleteModal" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-lg">
+      
+      <div class="modal-content"> 
+         <div class="modal-header">
+            <h5 class="modal-title" id="AddMediaLabel">Delete Banner?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body"> 
+         <input type="hidden" name="bookId" id="bookId" value=""/>
+         <div class="modal-body text-center mt-2">   
+            <h2 class="text-danger"><i class="fa fa-trash"></i></h2>
+            <p>Do you really want to delete these Banner?</p>
+         </div>
+          </div>
+         <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+            <button type="button" id="add_delete_btn" class="btn btn-danger delete-add-btn">Delete</button>
+         </div>
+      </div>
+   </div>
+</div>  
+
 
 <script>
    $("#AddButton").click(function(e) {
@@ -213,10 +232,7 @@
       $('.update-success').toast('show');
       $('#EditBanner').modal('hide');
    });
-   $("#Delete_Banner").click(function(e) {
-      $('.delete-success').toast('show');
-   });
-
+    
    $(".active-inactive-switch").on('change', function(e) {
       e.preventDefault();
       let bannerId = $(this).attr("bannerId");
@@ -237,4 +253,20 @@
       });
 
    });
+
+   $(function(){
+  $(".DeleteModal").click(function(){
+     $('#bookId').val($(this).data('id')); 
+    $("#DeleteModal").modal("show");    
+  });
+});
+
+
+   $("#add_delete_btn").click(function(e) {      
+    $('.add-deleted').toast('show');
+    const li_id = $("#bookId").val();
+    $("#"+li_id).remove();  
+    $('#DeleteModal').modal('hide'); 
+   });
+   
 </script>

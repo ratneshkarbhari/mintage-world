@@ -719,6 +719,7 @@ section.home-page-carousel {
   transition: all 0.4s ease-out;
   border: solid 1px #cfcfcf;
   margin: 0px;
+  width: 100%;
 }
 
 /* .product-grid:hover{box-shadow: 0 0 0 10px #fff,0 0 20px rgba(0,0,0,0.5);} */
@@ -728,8 +729,11 @@ section.home-page-carousel {
   position: relative;
   background: #ffffff;
   text-align: center;
-  min-height: 225px;
   border-bottom: solid 1px #efeded;
+}
+.home-page-product .product-grid .product-image {  
+  min-height: 225px;
+
 }
 
 .product-grid .product-image a.image {
@@ -757,7 +761,9 @@ section.home-page-carousel {
   width: 90%;
   height: auto;
   transition: all 0.7s ease 0s;
-  margin: 0px auto;
+  margin: 0px auto; 
+}
+.home-page-product  .product-grid .product-image img {
   max-height: 224px;
 }
 
@@ -850,8 +856,10 @@ section.home-page-carousel {
   font-size: 14px;
   line-height: 20px;
   font-weight: 500;
-  min-height: 85px;
   display: block;
+}
+.home-page-product   .product-grid .title a{
+  min-height: 85px;
 }
 
 .product-grid .title a:hover {
@@ -4698,7 +4706,7 @@ small.icon-text {
   .product-short-wrap {
     min-width: 0px;
 }
-.product-grid .product-image img{
+.home-page-product .product-grid .product-image img{
   max-height: 120px;
 }
 .login-form-content form {

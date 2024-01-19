@@ -57,7 +57,7 @@
 </section> --}}
 <!-- About End -->
 
-<section class="common-padding product-wraper ">
+<section class="common-padding product-wraper home-page-product">
     <div class="container-fluid overflow-hidden px-lg-2 px-lg-5">
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
@@ -103,7 +103,7 @@
         </div>
     </div>
 </section>
-<section class="common-padding product-wraper bg-light-wraper">
+<section class="common-padding product-wraper bg-light-wraper home-page-product">
     <div class="container-fluid overflow-hidden px-lg-2 px-lg-5">
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
@@ -151,7 +151,7 @@
         </div>
     </div>
 </section>
-<section class="common-padding product-wraper">
+<section class="common-padding product-wraper home-page-product">
     <div class="container-fluid overflow-hidden px-lg-2 px-lg-5">
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
@@ -198,7 +198,7 @@
 
     </div>
 </section>
-<section class="common-padding product-wraper bg-light-wraper">
+<section class="common-padding product-wraper bg-light-wraper home-page-product">
     <div class="container-fluid overflow-hidden px-lg-2 px-lg-5">
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
@@ -248,7 +248,7 @@
 
     </div>
 </section>
-<section class="common-padding product-wraper">
+<section class="common-padding product-wraper home-page-product">
     <div class="container-fluid overflow-hidden px-lg-2 px-lg-5">
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
@@ -304,7 +304,7 @@
 
 
 <!-- Fact Start -->
-<section class="some-fact-wraper common-padding bg-light-wraper">
+<section class="some-fact-wraper common-padding bg-light-wrape r">
     <div class="container-fluid  px-lg-2 px-lg-5">
         <div class="row">
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">

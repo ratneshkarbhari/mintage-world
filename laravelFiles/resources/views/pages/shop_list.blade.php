@@ -228,7 +228,7 @@
 
                   @endphp
 
-                  <div class="col-lg-2 col-md-6 col-6 mb-3">
+                  <div class="col-lg-3 col-md-6 col-6 mb-3">
                      <div class="product-grid">
                         <div class="product-image"> <a href="{{url("view-product/".$product["id"]."-".$product["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                         <div class="product-content">
@@ -239,10 +239,12 @@
                               $discountAmt = ($product["discount"]/100)*$product["price"];
                               $discountedPrice = $product["price"]-$discountAmt;
                               @endphp
-                              <i class="fa fa-rupee-sign"></i> {{round($discountedPrice)}}
+                              <b><i class="fa fa-rupee-sign"></i> {{round($discountedPrice)}}</b>
                            </div>
                            @else
-                           <i class="fa fa-rupee-sign"></i> {{$product["price"]}}
+                           <div class="price">
+                           <b><i class="fa fa-rupee-sign"></i> {{$product["price"]}}</b>
+                           </div>
                            @endif
                         </div>
 

@@ -232,7 +232,7 @@
                      <div class="product-grid">
                         <div class="product-image"> <a href="{{url("view-product/".$product["id"]."-".$product["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                         <div class="product-content">
-                           <h2 class="title"><a href="{{url("view-product/".$product["id"]."-".$product["custom_url"])}}">{{$product["name1"]}}</a> </h2>
+                           <h2 class="title"><a href="{{url("view-product/".$product["id"]."-".$product["custom_url"])}}">{{substr($product["name1"],0,45)}}...</a> </h2>
                            @if($product["discount"])
                            <div class="price"><span class="d-inline-block me-3"><i class="fa fa-rupee-sign"></i> {{$product["price"]}}</span>
                               @php

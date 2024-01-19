@@ -96,7 +96,35 @@
                               </div>
                            </div>
                         </div>
-                        <button class="btn btn-danger btn-sm DeleteModal" title="Delete Banner" id="Delete_Banner" data-id="tr_1"><i class="fa fa-trash"></i></button>
+                        <button class="btn btn-danger btn-sm" title="Delete Banner" data-bs-toggle="modal" data-bs-target="#DeleteBanner-{{$banner['id']}}" title="Delete"><i class="fa fa-trash"></i></button>
+
+                        <div class="modal fade" id="DeleteBanner-{{$banner['id']}}" tabindex="-1" aria-labelledby="DeleteModal" aria-hidden="true">
+                           <div class="modal-dialog modal-dialog-centered modal-lg">
+                              
+                              <div class="modal-content"> 
+                                 <div class="modal-header">
+                                    <h5 class="modal-title" id="AddMediaLabel">Delete Banner?</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                 </div>
+                                 <div class="modal-body"> 
+                                 <input type="hidden" name="bookId" id="bookId" value=""/>
+                                 <div class="modal-body text-center mt-2">   
+                                    <h2 class="text-danger"><i class="fa fa-trash"></i></h2>
+                                    <p>Do you really want to delete these Banner?</p>
+                                 </div>
+                                 </div>
+                                 <div class="modal-footer justify-content-center">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                    <form method="POST" action="{{url('delete-banner-exe')}}">
+                                    @csrf
+                                    <input type="hidden" name="bannerId" value="{{$banner['id']}}">
+                                    <button type="submit" id="add_delete_btn" class="btn btn-danger delete-add-btn">Delete</button>
+                                    </form>
+                                 </div>
+                              </div>
+                           </div>
+                        </div> 
+
                      </td>
                   </tr>                  
                   @endforeach
@@ -199,28 +227,7 @@
    </div>
 </div>
 
-<div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="DeleteModal" aria-hidden="true">
-   <div class="modal-dialog modal-dialog-centered modal-lg">
-      
-      <div class="modal-content"> 
-         <div class="modal-header">
-            <h5 class="modal-title" id="AddMediaLabel">Delete Banner?</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body"> 
-         <input type="hidden" name="bookId" id="bookId" value=""/>
-         <div class="modal-body text-center mt-2">   
-            <h2 class="text-danger"><i class="fa fa-trash"></i></h2>
-            <p>Do you really want to delete these Banner?</p>
-         </div>
-          </div>
-         <div class="modal-footer justify-content-center">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-            <button type="button" id="add_delete_btn" class="btn btn-danger delete-add-btn">Delete</button>
-         </div>
-      </div>
-   </div>
-</div>  
+ 
 
 
 <script>

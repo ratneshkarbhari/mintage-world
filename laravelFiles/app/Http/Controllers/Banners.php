@@ -114,6 +114,13 @@ class Banners extends Controller
 
     }
 
+    function delete(Request $request){
+        $bannerId = $request->bannerId;
+        $bannerModel= new Banner();
+        $bannerModel->find($bannerId)->delete();
+        return redirect()->to(url("admin/manage-banners"));
+    }
+
     function set_status(Request $request){
         $bannerId = $request->bannerId;
         $statusToSet = $request->statusToSet;

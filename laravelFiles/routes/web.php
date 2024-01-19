@@ -214,7 +214,7 @@ Route::get("universal-search-exe", [Utils::class, 'universal_search']);
 
 Route::post("member-login-exe", [Authentication::class, 'member_login']);
 
-
+Route::post("delete-banner-exe",[Banners::class,'delete']);
 
 Route::get("fetch-current-cart-count", [CartActions::class, 'fetch_current_cart_count']);
 

@@ -3,7 +3,15 @@
     <div class="owl-carousel header-carousel position-relative">
         @foreach($banners as $banner)
         <div class="owl-carousel-item position-relative">
-            <a class="d-block" href="{{$banner['link']}}">
+            <a class="d-block" href="
+            
+            @if(strpos($banner['link'],'mintageworld.com'))
+            {{$banner['link']}}
+            @else
+            {{url($banner['link'])}}
+            @endif
+            
+            ">
                 <img class="img-fluid d-none d-md-block" src="{{url('assets/images/banners/'.$banner['image_landscape'])}}" title="{{$banner['title']}}" alt="{{$banner['alt']}}">
                 <img class="img-fluid d-block d-md-none" src="{{url('assets/images/banners/'.$banner['image_potrait'])}}" title="{{$banner['title']}}" alt="{{$banner['alt']}}">
             </a> 

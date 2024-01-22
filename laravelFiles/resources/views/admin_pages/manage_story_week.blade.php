@@ -57,25 +57,24 @@
                                   <p>Do you really want to delete these Story?</p>
                                </div>
                                </div>
-                               <div class="modal-footer justify-content-center">
+                              <div class="modal-footer justify-content-center">
                                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
                                   <form method="POST" action="{{url('delete-story-exe')}}">
                                   @csrf
                                   <input type="hidden" name="StoryId" value="{{}}">
                                   <button type="submit" id="add_delete_btn" class="btn btn-danger delete-add-btn">Delete</button>
-                                  </form>
-                               </div>
-                            </div>
-                         </div>
-                      </div> 
-                </td>
-             </tr>
-             
-          </tbody>
-       </table>
+                                 </form>
+                              </div>
+                           </div>
+                        </div>
+                     </div> 
+                  </td>
+               </tr>             
+            </tbody>
+         </table>
+      </div>
     </div>
-    </div>
-    </div>
+   </div>
    
  <div class="modal fade" id="AddStory" tabindex="-1" aria-labelledby="AddStoryLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

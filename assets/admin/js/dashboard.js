@@ -87,7 +87,7 @@ ClassicEditor.create(document.querySelector("#editor"), {
 // });
 
 $(function () {
-  $("#datepicker")
+  $("#datepicker,.datepicker")
     .datepicker({
       autoclose: true,
       todayHighlight: true,

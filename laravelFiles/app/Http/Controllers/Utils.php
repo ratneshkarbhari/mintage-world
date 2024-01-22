@@ -128,7 +128,8 @@ class Utils extends Controller
                 // ->orWhere ( 'period', 'LIKE', '%' . $searchTerm . '%' )
                 // ->orWhere ( 'country', 'LIKE', '%' . $searchTerm . '%' )
                 ->paginate(12)->appends([
-                    "q" => $searchTerm
+                    "term" => $searchTerm,
+                    "product_type" => 1
                 ]);
     
 
@@ -155,7 +156,8 @@ class Utils extends Controller
 
 
                 ->paginate(12)->appends([
-                    "q" => $searchTerm
+                    "term" => $searchTerm,
+                    "product_type" => 2
                 ]);
     
                 
@@ -181,7 +183,9 @@ class Utils extends Controller
 
 
                 ->paginate(12)->appends([
-                    "q" => $searchTerm
+                    "term" => $searchTerm,
+                    "product_type" => 3
+
                 ]);
                 
             }
@@ -202,7 +206,11 @@ class Utils extends Controller
             ->orWhere ( 'custom_url', 'LIKE', '%' . $searchTerm . '%' )
             ->orderBy("id", "desc")
             ->paginate(12)->appends([
-                "q" => $searchTerm
+
+                "term" => $searchTerm,
+                "product_type" => 4
+
+                
             ]);
 
             $searchItem = "media";
@@ -223,7 +231,11 @@ class Utils extends Controller
             ->orWhere ( 'meta_keywords', 'LIKE', '%' . $searchTerm . '%' )
             ->orWhere ( 'dynasty_ruler', 'LIKE', '%' . $searchTerm . '%' )
             ->paginate(12)->appends([
-                "q" => $searchTerm
+                
+                "term" => $searchTerm,
+                "product_type" => 5
+
+                
             ]);
 
             

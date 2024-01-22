@@ -57,40 +57,40 @@
     <div class="container-fluid overflow-hidden px-lg-2 px-lg-5">
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
-            <h2 class="mb-3 heading-1">Buy Numistatic Books</h2>
+            <h2 class="mb-3 heading-1">Buy Lighthouse Products</h2>
             <a href="{{url("/shop/list/23-books/")}}" class="view-all">More <i class="fa fa-angle-right"></i></a>
         </div>
         <div class="owl-carousel product-carousel-home  position-relative">
                   
-            @foreach($random_books as $random_book)
+            @foreach($random_lighthouse as $rlh)
 
             @php
 
-            $imgParts = explode("/",$random_book["img"]);
+            $imgParts = explode("/",$rlh["img"]);
 
             @endphp
 
             <div class="product-grid">
-               <div class="product-image"> <a href="{{url("view-product/".$random_book["id"]."-".$random_book["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+               <div class="product-image"> <a href="{{url("view-product/".$rlh["id"]."-".$rlh["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
-                  <h2 class="title"><a href="{{url("view-product/".$random_book["id"]."-".$random_book["custom_url"])}}">{{$random_book["name1"]}}</a> </h2>
-                  @if($random_book["discount"])
+                  <h2 class="title"><a href="{{url("view-product/".$rlh["id"]."-".$rlh["custom_url"])}}">{{substr($rlh["name1"],0,45)}}...</a> </h2>
+                  @if($rlh["discount"])
                   <div class="price">
-                  <span class="me-3">  <i class="fa fa-rupee-sign"></i> {{$random_book["price"]}}</span>
+                  <span class="me-3">  <i class="fa fa-rupee-sign"></i> {{$rlh["price"]}}</span>
                   @php  
 
-                  $discountAmt = ($random_book["discount"]/100)*$random_book["price"];
-                  $discountedPrice = $random_book["price"]-$discountAmt;
+                  $discountAmt = ($rlh["discount"]/100)*$rlh["price"];
+                  $discountedPrice = $rlh["price"]-$discountAmt;
                   
                   @endphp
                   <i class="fa fa-rupee-sign"></i> {{round($discountedPrice)}}
                     </div>
                   @else
                   <div class="price">
-                  <i class="fa fa-rupee-sign"></i> {{$random_book["price"]}}
+                  <i class="fa fa-rupee-sign"></i> {{$rlh["price"]}}
                     </div>
                   @endif
-                  <a href="{{url("view-product/".$random_book["custom_url"])}}" class="add-to-cart d-none">Add to Cart</a> 
+                  <a href="{{url("view-product/".$rlh["custom_url"])}}" class="add-to-cart d-none">Add to Cart</a> 
                </div>
             </div>
 
@@ -119,7 +119,7 @@
             <div class="product-grid">
                <div class="product-image"> <a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
-                  <h2 class="title"><a href="{{url("view-product/".$random_coin["custom_url"])}}">{{$random_coin["name1"]}}</a> </h2>
+                  <h2 class="title"><a href="{{url("view-product/".$random_coin["custom_url"])}}">{{substr($random_coin["name1"],0,45)}}...</a> </h2>
 
                   @if($random_coin["discount"])
                   <div class="price">
@@ -166,7 +166,7 @@
             <div class="product-grid">
                <div class="product-image"> <a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
-                  <h2 class="title"><a href="{{url("view-product/".$random_note["custom_url"])}}">{{$random_note["name1"]}}</a> </h2>
+                  <h2 class="title"><a href="{{url("view-product/".$random_note["custom_url"])}}">{{substr($random_note["name1"],0,45)}}...</a> </h2>
                   
                   @if($random_note["discount"])
                   <div class="price">
@@ -215,7 +215,7 @@
             <div class="product-grid">
                <div class="product-image"> <a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
-                  <h2 class="title"><a href="{{url("view-product/".$random_accessory["custom_url"])}}">{{$random_accessory["name1"]}}</a> </h2>
+                  <h2 class="title"><a href="{{url("view-product/".$random_accessory["custom_url"])}}">{{substr($random_accessory["name1"],0,45)}}...   </a> </h2>
                   
                   @if($random_accessory["discount"])
                   <div class="price">
@@ -266,7 +266,7 @@
             <div class="product-grid">
                <div class="product-image"> <a href="{{url("view-product/".$random_stamp["id"]."-".$random_stamp["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
-                  <h2 class="title"><a href="{{url("view-product/".$random_stamp["custom_url"])}}">{{$random_stamp["name1"]}}</a> </h2>
+                  <h2 class="title"><a href="{{url("view-product/".$random_stamp["custom_url"])}}">{{substr($random_stamp["name1"],0,45)}}...</a> </h2>
                   
                   @if($random_stamp["discount"])
                   <div class="price">

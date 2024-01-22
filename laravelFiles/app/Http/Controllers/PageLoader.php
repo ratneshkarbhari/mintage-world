@@ -46,6 +46,16 @@ class PageLoader extends Controller
         }
 
 
+        if (!$featuredLightHouse = Cache::get("featured_lighthouse")) {
+
+            $lightHouseQuery = 'SELECT * FROM products WHERE status = "Active" AND instock > 0 AND sku IN (325853,309759,304772,339365,319991,347998,358073,341943,327468,308045) LIMIT 10';
+
+            $featuredLightHouse = json_decode(json_encode(DB::select($lightHouseQuery)), TRUE);
+
+
+            Cache::set("featured_books", $featuredLightHouse);
+        }
+
         if (!$featuredCoins = Cache::get("featured_coins")) {
 
             $coinsQuery = 'SELECT * FROM products WHERE featured = 1 AND status = "Active" AND instock > 0 AND category IN (18,24,25,26,27,28) LIMIT 10';
@@ -96,7 +106,7 @@ class PageLoader extends Controller
 
         $this->page_loader("home", [
             "title" => "Online Museum of Coins, Stamps and Notes",
-            "random_books" => $featuredBooks,
+            "random_lighthouse" => $featuredLightHouse,
             "random_coins" => $featuredCoins,
             "random_notes" => $featuredNotes,
             "random_accessories" => $featuredAccessories,

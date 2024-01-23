@@ -59,6 +59,21 @@
                                        <div class="col-md-9"> <input name="title" class="form-control textarea" value="{{$period['title']}}" required="required" id="title" placeholder="Enter Title"  /></div>
                                     </div>
                                     <div class="form-group row mb-3">
+                                       <label class="col-md-3 control-label">Country</label> 
+                                       <div class="col-md-9">
+                                          <select name="country" class="form-control" required="required">
+                                             <option value="">Select Country</option>
+                                             @foreach($countries as $country)
+                                             <option
+                                             @if($period['country_id']==$country['id'])
+                                             selected
+                                             @endif
+                                             value="{{$country['id']}}">{{$country['name']}}</option>
+                                             @endforeach
+                                          </select>
+                                       </div>
+                                    </div>
+                                    <div class="form-group row mb-3">
                                        <label class="col-md-3 control-label">Type</label> 
                                        <div class="col-md-9">
                                           <select name="type" class="form-control" required="required" >
@@ -121,10 +136,25 @@
          <h5 class="modal-title" id="AddPeriodLabel">Add Period</h5>
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
+       <form action="{{url('create-new-period')}}" method="POST" enctype="multipart/form-data">
+         @csrf
        <div class="modal-body"> 
             <div class="form-group row mb-3">
                <label class="col-md-3 control-label">Enter Title</label> 
-               <div class="col-md-9"> <textarea name="title" class="form-control textarea" required="required" id="title" placeholder="Enter Title"></textarea> </div>
+               <div class="col-md-9"> 
+               <input type="text" class="form-control" name="title">
+               </div>
+            </div>
+            <div class="form-group row mb-3">
+               <label class="col-md-3 control-label">Country</label> 
+               <div class="col-md-9">
+                  <select name="country" class="form-control" required="required">
+                     <option value="">Select Country</option>
+                     @foreach($countries as $country)
+                     <option value="{{$country['id']}}">{{$country['name']}}</option>
+                     @endforeach
+                  </select>
+               </div>
             </div>
             <div class="form-group row mb-3">
                <label class="col-md-3 control-label">Type</label> 
@@ -150,6 +180,7 @@
        </div>
        <div class="modal-footer">
          <input type="submit" name="submit" id="SubmitButton" class="btn btn-warning btn-sm" value="Submit">
+         </form>
          <input type="reset" value="Reset" class="btn btn-warning btn-sm">
        </div>
      </div>

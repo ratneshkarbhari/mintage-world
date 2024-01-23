@@ -468,13 +468,18 @@ class PageLoader extends Controller
     function manage_period()
     {
 
+    
+
         $periodModel = new Period();
 
         $allPeriods = $periodModel->all();
 
+        $allCountries = Country::all();
+
         $this->admin_page_loader("manage_period", [
             "title" => "Manage Period",
-            "periods" => $allPeriods
+            "periods" => $allPeriods,
+            "countries" => $allCountries
         ]);
     }
     function manage_dynasty()

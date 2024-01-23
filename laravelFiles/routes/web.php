@@ -135,6 +135,7 @@ Route::group(['middleware' => ['slashes']], function () {
 });
 Route::get('event/', [StaticPages::class, 'event']);
 
+Route::post('create-new-period',[Periods::class,'create']);
 
 Route::post("update-order-status",[Orders::class,'update_order_status']);
 

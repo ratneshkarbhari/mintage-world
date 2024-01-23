@@ -234,62 +234,14 @@
                                 <a href="{{url('admin/dashboard')}}" class="">Dashboard</a>
                             </li>
 
-                            <li class="">
+                            <li class="d-none">
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"
                                     data-bs-toggle="collapse" data-bs-target="#category-collapse" aria-expanded="false">
                                     Category Management
                                 </button>
                                 <div class="collapse" id="category-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                        <li>
-                                            <a href="{{url('admin/manage-period/')}}"
-                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Period</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{url('admin/manage-dynasty/')}}"
-                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Dynasty
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{url('admin/manage-ruler/')}}"
-                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Ruler / Authority
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li class="">
-                                <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"
-                                    data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
-                                    Information
-                                </button>
-                                <div class="collapse" id="home-collapse">
-                                    <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                        <li>
-                                            <a href="{{url('admin/manage-coins/')}}"
-                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Coins</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{url('admin/manage-notes/')}}"
-                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Notes
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{url('admin/manage-stamps/')}}"
-                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Stamps
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{url('admin/manage-bulk-upload/')}}"
-                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Bulk Upload
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{url('admin/manage-bulk-images-upload/')}}"
-                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Bulk Images Upload
-                                            </a>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </li>
@@ -317,7 +269,42 @@
                                 </div>
                             </li>
                             <li class="">
-                                <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#product-category-collapse" aria-expanded="false">Product Category</button>
+                                <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"
+                                    data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+                                    Information
+                                </button>
+                                <div class="collapse" id="home-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal small">
+                                        <!-- <li>
+                                            <a href="{{url('admin/manage-coins/')}}"
+                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Coins</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{url('admin/manage-notes/')}}"
+                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Notes
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{url('admin/manage-stamps/')}}"
+                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Stamps
+                                            </a>
+                                        </li> -->
+                                        <li>
+                                            <a href="{{url('admin/manage-bulk-upload/')}}"
+                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Bulk Upload
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{url('admin/manage-bulk-images-upload/')}}"
+                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Bulk Images Upload
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            
+                            <li class="">
+                                <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#product-category-collapse" aria-expanded="false">Information Attributes</button>
                                 <div class="collapse" id="product-category-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                         <li><a href="{{url('admin/manage-product-category/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Denomination</a></li>
@@ -327,6 +314,20 @@
                                         <li><a href="{{url('admin/manage-product-category/4-rarity/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Rarity</a></li>
                                         <li><a href="{{url('admin/manage-product-category/5-minting-technique/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Minting Technique</a></li>
                                         <li><a href="{{url('admin/manage-product-category/6-calender-system/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Calender System</a></li> 
+                                        <li>
+                                            <a href="{{url('admin/manage-period/')}}"
+                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Period</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{url('admin/manage-dynasty/')}}"
+                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Dynasty
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{url('admin/manage-ruler/')}}"
+                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Ruler / Authority
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>

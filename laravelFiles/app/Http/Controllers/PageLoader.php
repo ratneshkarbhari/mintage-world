@@ -10,6 +10,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use App\Http\Controllers\Orders;
+use App\Models\Period;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 
@@ -466,8 +467,14 @@ class PageLoader extends Controller
     }
     function manage_period()
     {
+
+        $periodModel = new Period();
+
+        $allPeriods = $periodModel->all();
+
         $this->admin_page_loader("manage_period", [
-            "title" => "Manage Period"
+            "title" => "Manage Period",
+            "periods" => $allPeriods
         ]);
     }
     function manage_dynasty()

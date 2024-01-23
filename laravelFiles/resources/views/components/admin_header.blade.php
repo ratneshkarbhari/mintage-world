@@ -297,7 +297,7 @@
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"
                                     data-bs-toggle="collapse" data-bs-target="#dashboard-collapse"
                                     aria-expanded="false">
-                                    Shoping
+                                    Shopping
                                 </button>
                                 <div class="collapse" id="dashboard-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal small">

@@ -12,7 +12,7 @@ class Period extends Model {
      *
      * @var string[]
      */
-    protected $guarded = [];  
+    protected $guarded = [];
     const CREATED_AT = 'created';
     const UPDATED_AT = 'modified';
 

@@ -21,111 +21,107 @@
                <th>Period Title</th> 
                <th>Type</th> 
                <th>Image</th> 
-               <th>Posted Dated</th> 
                <th>Action</th> 
             </tr>
           </thead>
           <tbody>
+
+            @php
+            $counter = 1;
+            $categories = [
+               "1" => "Coin",
+               "2" => "Note",
+               "3" => "Stamp"
+            ];
+            @endphp
+            @foreach($periods as $period)
             <tr>
-               <td>1</td>
-               <td>Medieval</td>
-               <td>Coin</td>
-               <td><img src="http://www.mintageworld.com/images/period/medieval.jpg" width="100"></td>
-               <td>2018-08-30 12:08:57</td>
+               <td>{{$counter}}</td>
+               <td>{{$period['title']}}</td>
+               <td>{{$categories[$period['category_id']]}}</td>
+               <td><img src="{{ getenv('PERIOD_IMAGE_BASE_URL').$period['image'] }}" width="100"></td>
                <td>
-                  <button type="button" class="btn btn-primary btn-sm align-self-baseline" data-bs-toggle="modal" data-bs-target="#EditPeriod" title="Edit"><i class="fa fa-edit"></i></button>
+                  <button type="button" class="btn btn-primary btn-sm align-self-baseline" data-bs-toggle="modal" data-bs-target="#EditPeriod-{{$period['id']}}" title="Edit"><i class="fa fa-edit"></i></button>
+                  <div class="modal fade" id="EditPeriod-{{$period['id']}}" tabindex="-1" aria-labelledby="EditPeriod-{{$period['id']}}Label" aria-hidden="true">
+                     <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                           <div class="modal-header">
+                              <h5 class="modal-title" id="EditPeriodLabel">Edit Period</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                           </div>
+                           <form  action="{{ url('update-period-exe') }}" enctype="multipart/form-data" method="POST">
+                              @csrf
+
+                              <input type="hidden" name="periodId" value="{{$period['id']}}">
+                              <div class="modal-body"> 
+                                    <div class="form-group row mb-3">
+                                       <label class="col-md-3 control-label">Title</label> 
+                                       <div class="col-md-9"> <input name="title" class="form-control textarea" value="{{$period['title']}}" required="required" id="title" placeholder="Enter Title"  /></div>
+                                    </div>
+                                    <div class="form-group row mb-3">
+                                       <label class="col-md-3 control-label">Country</label> 
+                                       <div class="col-md-9">
+                                          <select name="country" class="form-control" required="required">
+                                             <option value="">Select Country</option>
+                                             @foreach($countries as $country)
+                                             <option
+                                             @if($period['country_id']==$country['id'])
+                                             selected
+                                             @endif
+                                             value="{{$country['id']}}">{{$country['name']}}</option>
+                                             @endforeach
+                                          </select>
+                                       </div>
+                                    </div>
+                                    <div class="form-group row mb-3">
+                                       <label class="col-md-3 control-label">Type</label> 
+                                       <div class="col-md-9">
+                                          <select name="type" class="form-control" required="required" >
+                                             <option value="">Select Type</option>
+                                             <option @if($period['category_id']==1)
+                                             selected
+                                             @endif value="1">Coin</option>
+                                             <option @if($period['category_id']==2)
+                                             selected
+                                             @endif value="2">Note</option>
+                                             <option @if($period['category_id']==3)
+                                             selected
+                                             @endif value="3">Stamp</option>
+                                          </select>
+                                       </div>
+                                    </div>
+                                    <div class="form-group row mb-3">
+                                       <label class="col-md-3 control-label">Order By (e.g. 1,2,3)</label> 
+                                       <div class="col-md-9"> <input type="text" name="orderby" class="form-control" id="orderby" placeholder="Enter Order By" value="{{$period['order_by']}}"  /> </div>
+                                    </div> 
+                                    <div class="form-group row mb-3">
+                                       <label class="col-md-3 control-label">Current Image</label> 
+                                       <div class="col-md-9">
+                                          <img src="{{ getenv('PERIOD_IMAGE_BASE_URL').$period['image'] }}" class="img-gluid">                
+                                       </div>
+                                    </div>
+                                    <div class="form-group row">
+                                       <label class="col-md-3 control-label">Upload Image</label> 
+                                       <div class="col-md-9">
+                                          <input name="featured_image" type="file" accept="image/*" class="form-control image-preview-filename">                      
+                                       </div>
+                                    </div>           
+                              </div>
+                           <div class="modal-footer">
+                              <input type="submit" name="submit" id="EditButton" class="btn btn-warning btn-sm" value="Submit">                           </form>
+
+                              <!-- <input type="reset" value="Reset" class="btn btn-warning btn-sm"> -->
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                </td>      
             </tr>
-            <tr>
-               <td>2</td>
-               <td>Colonial</td>
-               <td>Coin</td>
-               <td><img src="http://www.mintageworld.com/images/period/british_colonial.jpg" width="100"></td>
-               <td>2017-06-20 10:26:49</td>
-               <td>
-                  <button type="button" class="btn btn-primary btn-sm align-self-baseline" data-bs-toggle="modal" data-bs-target="#EditPeriod" title="Edit"><i class="fa fa-edit"></i></button>
-               </td>
-            </tr>
-            <tr>
-               <td>3</td>
-               <td>Ancient</td>
-               <td>Coin</td>
-               <td><img src="http://www.mintageworld.com/images/period/ancient.jpg" width="100"></td>
-               <td>2018-12-07 05:21:33</td>
-               <td>
-                  <button type="button" class="btn btn-primary btn-sm align-self-baseline" data-bs-toggle="modal" data-bs-target="#EditPeriod" title="Edit"><i class="fa fa-edit"></i></button>
-               </td>
-            </tr>
-            <tr>
-               <td>4</td>
-               <td>Modern</td>
-               <td>Coin</td>
-               <td><img src="http://www.mintageworld.com/images/period/republic_india.jpg" width="100"></td>
-               <td>2017-12-19 12:15:01</td>
-               <td>
-                  <button type="button" class="btn btn-primary btn-sm align-self-baseline" data-bs-toggle="modal" data-bs-target="#EditPeriod" title="Edit"><i class="fa fa-edit"></i></button>
-               </td>
-            </tr>
-            <tr>
-               <td>5</td>
-               <td>Hellenistic</td>
-               <td>Coin</td>
-               <td><img src="http://www.mintageworld.com/images/period/Hellenistic.jpg" width="100"></td>
-               <td>2017-06-23 06:29:54</td>
-               <td>
-                  <button type="button" class="btn btn-primary btn-sm align-self-baseline" data-bs-toggle="modal" data-bs-target="#EditPeriod" title="Edit"><i class="fa fa-edit"></i></button>
-               </td>
-            </tr>
-            <tr>
-               <td>6</td>
-               <td>Archaic</td>
-               <td>Coin</td>
-               <td><img src="http://www.mintageworld.com/images/period/arcahic-greece.jpg" width="100"></td>
-               <td>2017-05-16 05:55:32</td>
-               <td>
-                  <button type="button" class="btn btn-primary btn-sm align-self-baseline" data-bs-toggle="modal" data-bs-target="#EditPeriod" title="Edit"><i class="fa fa-edit"></i></button>
-               </td>      
-            </tr>
-            <tr>
-               <td>7</td>
-               <td>Classical</td>
-               <td>Coin</td>
-               <td><img src="http://www.mintageworld.com/images/period/classical1.jpg" width="100"></td>
-               <td>2017-04-27 11:45:09</td>
-               <td>
-                  <button type="button" class="btn btn-primary btn-sm align-self-baseline" data-bs-toggle="modal" data-bs-target="#EditPeriod" title="Edit"><i class="fa fa-edit"></i></button>
-               </td>      
-            </tr>
-            <tr>
-               <td>8</td>
-               <td>United States of America</td>
-               <td>Coin</td>
-               <td><img src="http://www.mintageworld.com/images/period/united-states-of-america-periods.jpg" width="100"></td>
-               <td>2017-11-13 04:32:40</td>
-               <td>
-                  <button type="button" class="btn btn-primary btn-sm align-self-baseline" data-bs-toggle="modal" data-bs-target="#EditPeriod" title="Edit"><i class="fa fa-edit"></i></button>
-               </td>     
-            </tr>
-            <tr>
-               <td>9</td>
-               <td>Modern</td>
-               <td>Coin</td>
-               <td><img src="http://www.mintageworld.com/images/period/Modern.jpg" width="100"></td>
-               <td>2018-08-20 10:55:43</td>
-               <td>
-                  <button type="button" class="btn btn-primary btn-sm align-self-baseline" data-bs-toggle="modal" data-bs-target="#EditPeriod" title="Edit"><i class="fa fa-edit"></i></button>
-               </td>      
-            </tr>
-            <tr>
-               <td>10</td>
-               <td>Medieval</td>
-               <td>Coin</td>
-               <td><img src="http://www.mintageworld.com/images/period/Medieval.jpg" width="100"></td>
-               <td>2017-07-18 11:48:22</td>
-               <td>
-                  <button type="button" class="btn btn-primary btn-sm align-self-baseline" data-bs-toggle="modal" data-bs-target="#EditPeriod" title="Edit"><i class="fa fa-edit"></i></button>
-               </td>
-            </tr>
+            @php
+            $counter++;
+            @endphp
+            @endforeach
+            
          </tbody>           
       </table>
   </div>     
@@ -140,10 +136,25 @@
          <h5 class="modal-title" id="AddPeriodLabel">Add Period</h5>
          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
        </div>
+       <form action="{{url('create-new-period')}}" method="POST" enctype="multipart/form-data">
+         @csrf
        <div class="modal-body"> 
             <div class="form-group row mb-3">
                <label class="col-md-3 control-label">Enter Title</label> 
-               <div class="col-md-9"> <textarea name="title" class="form-control textarea" required="required" id="title" placeholder="Enter Title"></textarea> </div>
+               <div class="col-md-9"> 
+               <input type="text" class="form-control" name="title">
+               </div>
+            </div>
+            <div class="form-group row mb-3">
+               <label class="col-md-3 control-label">Country</label> 
+               <div class="col-md-9">
+                  <select name="country" class="form-control" required="required">
+                     <option value="">Select Country</option>
+                     @foreach($countries as $country)
+                     <option value="{{$country['id']}}">{{$country['name']}}</option>
+                     @endforeach
+                  </select>
+               </div>
             </div>
             <div class="form-group row mb-3">
                <label class="col-md-3 control-label">Type</label> 
@@ -169,59 +180,14 @@
        </div>
        <div class="modal-footer">
          <input type="submit" name="submit" id="SubmitButton" class="btn btn-warning btn-sm" value="Submit">
+         </form>
          <input type="reset" value="Reset" class="btn btn-warning btn-sm">
        </div>
      </div>
    </div>
  </div>
 
- <div class="modal fade" id="EditPeriod" tabindex="-1" aria-labelledby="EditPeriodLabel" aria-hidden="true">
-   <div class="modal-dialog modal-lg">
-     <div class="modal-content">
-       <div class="modal-header">
-         <h5 class="modal-title" id="EditPeriodLabel">Edit Period</h5>
-         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-       </div>
-       <div class="modal-body"> 
-            <div class="form-group row mb-3">
-               <label class="col-md-3 control-label">Title</label> 
-               <div class="col-md-9"> <input name="title" class="form-control textarea" required="required" id="title" placeholder="Enter Title" disabled /></div>
-            </div>
-            <div class="form-group row mb-3">
-               <label class="col-md-3 control-label">Type</label> 
-               <div class="col-md-9">
-                  <select name="type" class="form-control" required="required" disabled>
-                     <option value="">Select Type</option>
-                     <option value="1">Coin</option>
-                     <option value="2">Note</option>
-                     <option value="3">Stamp</option>
-                  </select>
-               </div>
-            </div>
-            <div class="form-group row mb-3">
-               <label class="col-md-3 control-label">Order By (e.g. 1,2,3)</label> 
-               <div class="col-md-9"> <input type="text" name="orderby" class="form-control" id="orderby" placeholder="Enter Order By" disabled /> </div>
-            </div> 
-            <div class="form-group row mb-3">
-               <label class="col-md-3 control-label">Current Image</label> 
-               <div class="col-md-9">
-                  <img src="https://www.mintageworld.com/public/images/period/medieval.jpg" alt="" class="img-fluid" />                 
-               </div>
-            </div>
-            <div class="form-group row">
-               <label class="col-md-3 control-label">Upload Image</label> 
-               <div class="col-md-9">
-                  <input name="fileupload" type="file" class="form-control image-preview-filename">                      
-               </div>
-            </div>           
-       </div>
-       <div class="modal-footer">
-         <input type="submit" name="submit" id="EditButton" class="btn btn-warning btn-sm" value="Submit">
-         <input type="reset" value="Reset" class="btn btn-warning btn-sm">
-       </div>
-     </div>
-   </div>
- </div>
+ 
 
  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
    <div id="liveToast " class="toast hide bg-success text-white update-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">

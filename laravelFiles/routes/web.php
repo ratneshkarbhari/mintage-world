@@ -10,6 +10,7 @@ use App\Http\Controllers\Stamps;
 use App\Http\Controllers\Banners;
 use App\Http\Controllers\Coupons;
 use App\Http\Controllers\Members;
+use App\Http\Controllers\Periods;
 use App\Http\Controllers\Shopping;
 use App\Http\Controllers\Histories;
 use App\Http\Controllers\PageLoader;
@@ -105,7 +106,6 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get('member/dashboard/', [StaticPages::class, 'dashboard']);
     Route::get('member/change-password/', [StaticPages::class, 'change_password']);
     Route::get('member/myorders/', [StaticPages::class, 'myorders']);
-    Route::get('event/', [StaticPages::class, 'event']);
     Route::get('media/detail/{slug}', [StaticPages::class, 'media_detail']);
     Route::get('media-coverage/', [StaticPages::class, 'media_coverage']);
 
@@ -133,7 +133,9 @@ Route::group(['middleware' => ['slashes']], function () {
 
     // Universal search
 });
+Route::get('event/', [StaticPages::class, 'event']);
 
+Route::post('create-new-period',[Periods::class,'create']);
 
 Route::post("update-order-status",[Orders::class,'update_order_status']);
 
@@ -142,6 +144,9 @@ Route::post('create-new-address-for-member', [CartActions::class, 'create_new_ad
 
 Route::group(['middleware' => ['check_admin_auth']], function () {
     // admin routes
+
+    Route::post('update-period-exe',[Periods::class,'update']);
+
     Route::get("admin/dashboard", [PageLoader::class, 'dashboard']);
 
     Route::get("admin/manage-orders", [PageLoader::class, 'manage_orders']);

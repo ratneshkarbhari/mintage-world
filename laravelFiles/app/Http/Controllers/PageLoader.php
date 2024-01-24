@@ -257,9 +257,14 @@ class PageLoader extends Controller
 
     function manage_categories()
     {
+
+        $allProductCats = ProductCategory::all();
+
         $this->admin_page_loader("manage_categories", [
-            "title" => "Manage Categories"
+            "title" => "Manage Shopping Categories",
+            "categories" => $allProductCats
         ]);
+        
     }
     function add_category()
     {

@@ -19,6 +19,7 @@ use App\Http\Controllers\StaticPages;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfoComments;
 use App\Http\Controllers\Authentication;
+use App\Http\Controllers\ShoppingCategories;
 
 /*
 |--------------------------------------------------------------------------
@@ -173,7 +174,10 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/add-note", [PageLoader::class, 'add_note']);
     Route::get("admin/edit-note", [PageLoader::class, 'edit_note']);
 
-    Route::get("admin/manage-categories", [PageLoader::class, 'manage_categories']);
+    Route::get("admin/manage-product-categories", [PageLoader::class, 'manage_categories']);
+
+    Route::post("delete-shopping-category",[ShoppingCategories::class,'delete']);
+
     Route::get("admin/add-category", [PageLoader::class, 'add_category']);
     Route::get("admin/edit-category", [PageLoader::class, 'edit_category']);
 

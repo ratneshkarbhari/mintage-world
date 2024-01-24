@@ -253,8 +253,8 @@
                                 </button>
                                 <div class="collapse" id="dashboard-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                        <li><a href="{{url('admin/manage-categories/')}}"
-                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Categories
+                                        <li><a href="{{url('admin/manage-product-categories/')}}"
+                                                class="link-body-emphasis d-inline-flex text-decoration-none ">Product Categories
                                             </a>
                                         </li>
                                         <li><a href="{{url('admin/manage-products/')}}"

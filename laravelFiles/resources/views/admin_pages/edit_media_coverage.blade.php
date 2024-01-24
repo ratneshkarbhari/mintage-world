@@ -34,7 +34,7 @@
          </div> 
          <div class="col-md-12 mb-3">
             <label class="control-label">Short Description</label> 
-            <div class=""> <div id="editor">
+            <div class=""> <div id="editor" class="editor">
             <p>This is the only collectable book in the world that will showcase the various Stamps, Coins & Notes issued by more than 135 countries around the world on Gandhiji from 15th August 1948 till date</p>   
             </div></div>
          </div> 

@@ -34,7 +34,7 @@
          </div> 
          <div class="col-md-12 mb-3">
             <label class="control-label">Short Description</label> 
-            <div class=""> <div id="editor"></div></div>
+            <div class=""> <div id="editor" class="editor"></div></div>
          </div> 
          <hr>
          <div class="col-md-12 mb-3"> 

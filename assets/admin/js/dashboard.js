@@ -32,15 +32,19 @@ function GetDynamicTextBox(value) {
 }
 
 // Text editor start
-ClassicEditor.create(document.querySelector("#editor"), {
-  // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
-})
-  .then((editor) => {
-    window.editor = editor;
-  })
-  .catch((err) => {
-    console.error(err.stack);
+
+window.editors = {};
+document.querySelectorAll(".editor").forEach((node, index) => {
+  ClassicEditor.create(node, {}).then((newEditor) => {
+    window.editors[index] = newEditor;
   });
+});
+
+// let editor = document.querySelectorAll(".editor");
+// editor.forEach(function (item) {
+//   window.editor = editor;
+// });
+
 // Text editor end
 
 // $(document).ready(function () {

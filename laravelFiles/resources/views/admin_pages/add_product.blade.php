@@ -135,7 +135,7 @@
                <div class="form-group">
                   <label for="desc1">Description</label>
                </div>
-               <div id="editor"></div>
+               <div id="editor" class="editor"></div>
             </div>
             <div class="col-md-6 mb-3">
                <div class="form-group">

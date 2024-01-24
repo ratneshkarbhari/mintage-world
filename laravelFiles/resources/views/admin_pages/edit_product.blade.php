@@ -151,7 +151,7 @@
                   <div class="form-group">
                      <label for="editor">Description</label>
                   </div>
-                  <div id="editor">
+                  <div id="editor" class="editor">
                      {!! $productToEdit['desc1'] !!}
                   </div>
                </div>

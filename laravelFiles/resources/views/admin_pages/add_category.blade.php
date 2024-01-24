@@ -20,7 +20,7 @@
           </div>
           <div class="col-md-12 mb-3">
               <label >Footer Description</label> 
-              <div id="editor"></div>
+              <div id="editor" class="editor"></div>
           </div>
           <div class="col-md-6 mb-3">
               <label >Meta Title</label> 

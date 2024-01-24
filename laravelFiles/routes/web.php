@@ -179,6 +179,9 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::post("delete-shopping-category",[ShoppingCategories::class,'delete']);
 
     Route::get("admin/add-category", [PageLoader::class, 'add_category']);
+
+    Route::post("create-shopping-category-exe",[ShoppingCategories::class,'create']);
+
     Route::get("admin/edit-category", [PageLoader::class, 'edit_category']);
 
     Route::get("admin/manage-bulk-upload", [PageLoader::class, 'manage_bulk_upload']);

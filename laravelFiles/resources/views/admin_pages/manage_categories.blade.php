@@ -114,6 +114,10 @@
 </div>
 <script>
 
+    // craete sc script
+    
+
+    // delete sc script
     $(".deleteCatForm").submit(function (e) { 
         e.preventDefault();
         let deleteFormData = $(this).serializeArray();

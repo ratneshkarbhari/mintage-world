@@ -126,7 +126,7 @@
          <div class="row">
             <div class="col-md-12 mb-3"> 
                <label class="control-label">Title</label>
-               <div class=""> <input type="text" name="Edit_Career_title" class="form-control" id="Edit_Career_title" value="NAGMONEY 2024	"> </div>
+               <div class=""> <input type="text" name="Edit_Career_title" class="form-control" id="Edit_Career_title" value="NAGMONEY 2024"> </div>
             </div>
             
             <div class="col-md-12 mb-3">
@@ -135,7 +135,11 @@
                   <div class="editor"></div> 
             </div>
             </div> 
-            <div class="col-md-12 mb-3"> 
+             <div class="col-md-6 mb-3"> 
+               <label class="control-label">Career Location</label>
+               <div class=""><input type="text" name="Career_Location" class="form-control" id="Career_Location" value="Mumbai"></div>
+            </div>
+            <div class="col-md-6 mb-3"> 
                <label class="control-label">Date</label>
                <div class="">
                   <div id="datepicker2" class="input-group date datepicker" data-date-format="yyyy-mm-dd">

@@ -4,7 +4,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-                    <li class="breadcrumb-item"><a href="manage-categories">Manage Categories</a></li>
+                    <li class="breadcrumb-item"><a href="manage-product-categories">Manage Shopping Categories</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{$title}}</li>
                 </ol>
             </nav>
@@ -20,6 +20,19 @@
                     <div class="col-md-12 mb-3">
                         <label>Product Category Name</label>
                         <input name="cat_name" id="cat_name" type="text" class="form-control" placeholder="Please Enter Product Category" required="required" value="">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Sort Order</label>
+                        <input name="cat_order" id="cat_order" type="text" class="form-control" placeholder="Order No" required="required" value="6">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Select Parent Category</label>
+                        <select name="Parent_Category" id="Parent_Category" class="form-control">
+                            <option value="0">Select Parent</option>
+                            <option value="1">3D Puzzles</option>
+                            <option value="2">Accessories</option>
+                            <option value="16">Buy Stamps</option>
+                        </select>
                     </div>
                     <div class="col-md-12 mb-3">
                         <label>Footer Description</label>

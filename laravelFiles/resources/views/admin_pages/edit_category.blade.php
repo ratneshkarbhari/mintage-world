@@ -4,7 +4,7 @@
         <nav aria-label="breadcrumb">
            <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="dashboard">Home</a></li> 
-            <li class="breadcrumb-item"><a href="manage-categories">Manage Categories</a></li> 
+            <li class="breadcrumb-item"><a href="manage-product-categories">Manage Shopping Categories</a></li> 
             <li class="breadcrumb-item active" aria-current="page">{{$title}}</li>
            </ol>
         </nav>
@@ -15,12 +15,25 @@
    <div class="col-md-12 event-table mt-3">
     <div class="row">
         <div class="col-md-12 mb-3">
-            <label >Product Category Name</label> 
+            <label >Shopping Category Name</label> 
             <input name="cat_name" id="cat_name" type="text" class="form-control" placeholder="Please Enter Product Category" required="required" value="Banknote Accessories"> 
+        </div>
+        <div class="col-md-6 mb-3">
+            <label>Sort Order</label>
+            <input name="cat_order" id="cat_order" type="text" class="form-control" placeholder="Order No" required="required" value="6">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label>Select Parent Category</label>
+            <select name="Parent_Category" id="Parent_Category" class="form-control">
+                <option value="0">Select Parent</option>
+                <option value="1">3D Puzzles</option>
+                <option value="2">Accessories</option>
+                <option value="16">Buy Stamps</option>
+            </select>
         </div>
         <div class="col-md-12 mb-3">
             <label >Footer Description</label> 
-            <div id="editor">
+            <div id="editor" class="editor">
                 <h1>Buy Banknote Accessories Online at Mintage World</h1>
                 <p>There are some things in life which you should never compromise on. If you are a passionate collector of Banknotes then you would know how valuable your collection is. Mintage world offers a chance to buy lighthouse <strong>banknote accessories online</strong> that will help you nurture and protect your precious collection of banknotes. If you are looking for a premium <strong>banknote album</strong> to <strong>banknote sleeves</strong> then here is paradise for you. Our collection has the widest range of world-class accessories that your notes stay fresh as ever.</p>
                 <p>You might be already aware that how the market value of old banknotes changes drastically depending upon the condition of your note. Just a minor fold mark might cost you a lot. That’s the reason why it is always advised by experts that collectors should ideally invest in good quality lighthouse <strong>banknote collecting supplies</strong> so that you won’t have to regret later. The materials used for making these amazing products ensure that your notes are away from any kind of moisture or dust. If you want to ensure that your notes are never folded or torn. Arranging your notes and keeping them presentable is also a knack that good collectors inculcate. Buy banknote accessories online at Mintage World to keep your collection well-arranged based on different categories. Impress everyone not only with your amazing collection but also by flaunting your top-notch banknote collecting supplies. Notes that are well-maintained for several years will fetch you a lot of money in the future. So don’t be complacent about the quality of accessories that you buy.</p>

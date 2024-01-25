@@ -50,7 +50,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                  </div>
                                  <div class="modal-body">
-                                    <form action="{{ url('update-banner-exe') }}" enctype="multipart/form-data" method="post">
+                                    <form class="updateBannerForm" action="{{ url('update-banner-exe') }}" enctype="multipart/form-data" method="post">
                                        @csrf
                                        <input type="hidden" name="bannerId" value="{{$banner['id']}}">
                                        <div class="row">
@@ -146,7 +146,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body">
-            <form action="{{ url('create-new-banner') }}" enctype="multipart/form-data" method="post">
+            <form id="createBannerForm" action="{{ url('create-new-banner') }}" enctype="multipart/form-data" method="POST">
                @csrf
                <div class="row">
                   <div class="col-md-12 mb-3">
@@ -167,11 +167,11 @@
                   </div>
                   <div class="col-md-6 mb-3">
                      <label class="control-label">Upload Desktop Image <small>(1920px - 700px)</small></label>
-                     <div class=""><input type="file" name="desktop_banner" class="form-control" accept="image/*" placeholder="upload image"></div>
+                     <div class=""><input id="desktop_image" type="file" name="desktop_banner" class="form-control" accept="image/*" placeholder="upload image"></div>
                   </div>
                   <div class="col-md-6 mb-3">
                      <label class="control-label">Upload Mobile Image <small>(600px - 520px)</small></label>
-                     <div class=""><input type="file" name="touch_banner" class="form-control" accept="image/*" placeholder="upload image"></div>
+                     <div class=""><input type="file" name="touch_banner" id="touch_banner" class="form-control" accept="image/*" placeholder="upload image"></div>
                   </div>
                   <div class="col-md-12">
                      <input type="submit" name="submit" id="AddButton" class="btn btn-warning btn-sm" value="Submit">
@@ -276,4 +276,46 @@
     $('#DeleteModal').modal('hide'); 
    });
    
+
+   $("form.updateBannerForm").submit(function (e) { 
+      e.preventDefault();
+      var formData = new FormData(this);
+
+  
+      $.ajax({
+         type: "POST",
+         url: $(this).attr("action"),
+         data: formData,
+         contentType: false,
+         processData: false,
+         success: function (response) {
+            $('.update-success').toast('show');
+
+            window.location.reload();
+            
+         }
+      });
+
+   });
+
+   $("form#createBannerForm").submit(function (e) { 
+      e.preventDefault();
+      var formData = new FormData(this);
+
+  
+      $.ajax({
+         type: "POST",
+         url: $(this).attr("action"),
+         data: formData,
+         contentType: false,
+         processData: false,
+         success: function (response) {
+            $('.update-success').toast('show');
+
+            window.location.reload();
+            
+         }
+      });
+
+   });
 </script>

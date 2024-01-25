@@ -38,7 +38,7 @@
                         </label> 
                     </td>
                     <td> 
-                        <a href="edit-category" class="btn btn-warning btn-sm" title="Edit Category"><i class="fa fa-edit"></i></a>
+                        <a href="{{ url('admin/edit-category/'.$category['id']) }}" class="btn btn-warning btn-sm" title="Edit Category"><i class="fa fa-edit"></i></a>
                         <a href="#" id="DeleteCategory"  class="btn btn-danger  btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{$category['id']}}" title="Delete Category"><i class="fa fa-trash"></i></a>           
                         <div class="modal fade" id="deleteModal-{{$category['id']}}" tabindex="-1" aria-labelledby="deleteModal-{{$category['id']}}Label" aria-hidden="true">
                             <div class="modal-dialog">

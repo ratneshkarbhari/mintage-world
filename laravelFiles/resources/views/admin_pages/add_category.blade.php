@@ -23,15 +23,15 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Sort Order</label>
-                        <input name="cat_order" id="cat_order" type="text" class="form-control" placeholder="Order No" required="required" value="6">
+                        <input name="cat_order" id="cat_order" type="text" class="form-control" placeholder="Order No" required="required">
                     </div>
                     <div class="col-md-6 mb-3">
                         <label>Select Parent Category</label>
                         <select name="Parent_Category" id="Parent_Category" class="form-control">
-                            <option value="0">Select Parent</option>
-                            <option value="1">3D Puzzles</option>
-                            <option value="2">Accessories</option>
-                            <option value="16">Buy Stamps</option>
+                            <option value="0">Is Independent</option>
+                            @foreach($categories as $category)
+                            <option value="{{$category['id']}}">{{$category['cat_name']}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="col-md-12 mb-3">
@@ -115,17 +115,19 @@
             url: $(this).attr("action"),
             data: formData,
             success: function (response) {
-                
+                if (response=="success") {
+                    $(".update-success").toast("show");
+                } else {
+                    $(".edit-failure").toast("show");
+                }
             }
         });
     });
-    // $("#SubmitButton").click(function(e) {
-        $('.update-success').toast('show');
+    
+    // $("#EditButton").click(function(e) {
+    //     // $('.update-success').toast('show');
+    //     $('#EditDynasty').modal('hide');
+    //     $('#AddDynasty').modal('hide');
     // });
-    $("#EditButton").click(function(e) {
-        $('.update-success').toast('show');
-        $('#EditDynasty').modal('hide');
-        $('#AddDynasty').modal('hide');
-    });
 
 </script>

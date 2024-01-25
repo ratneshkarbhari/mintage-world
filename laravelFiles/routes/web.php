@@ -182,7 +182,9 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::post("create-shopping-category-exe",[ShoppingCategories::class,'create']);
 
-    Route::get("admin/edit-category", [PageLoader::class, 'edit_category']);
+    Route::get("admin/edit-category/{catId}", [PageLoader::class, 'edit_category']);
+
+    Route::post('update-category-exe',[ShoppingCategories::class,'update']);
 
     Route::get("admin/manage-bulk-upload", [PageLoader::class, 'manage_bulk_upload']);
     Route::get("admin/manage-bulk-images-upload", [PageLoader::class, 'manage_bulk_images_upload']);

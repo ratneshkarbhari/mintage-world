@@ -13,7 +13,11 @@ class ProductCategory extends Model
      *
      * @var string[]
      */
-    protected $protected = [];
+
+    const CREATED_AT = 'created';
+    const UPDATED_AT = 'modified';
+
+    protected $guarded = [];
 
     protected $table = "shopping_category";
 

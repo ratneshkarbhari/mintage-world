@@ -19,6 +19,8 @@ use App\Http\Controllers\StaticPages;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfoComments;
 use App\Http\Controllers\Authentication;
+use App\Http\Controllers\AwsS3;
+use App\Http\Controllers\Products;
 use App\Http\Controllers\ShoppingCategories;
 
 /*
@@ -143,8 +145,14 @@ Route::post("update-order-status",[Orders::class,'update_order_status']);
 Route::get("payment-successful", [StaticPages::class, 'payment_successful']);
 Route::post('create-new-address-for-member', [CartActions::class, 'create_new_address']);
 
+
+
 Route::group(['middleware' => ['check_admin_auth']], function () {
     // admin routes
+
+    Route::get("upload",[AwsS3::class,'upload']);
+
+    Route::post("update-product-exe",[Products::class,'update']);
 
     Route::post('update-period-exe',[Periods::class,'update']);
 

@@ -248,10 +248,12 @@ class PageLoader extends Controller
     {
         $productToEdit = Product::find($id);
         $allProductCats = ProductCategory::all();
+        $productsFromCat = Product::where("category",$productToEdit["category"])->get();
         $this->admin_page_loader("edit_product", [
             "title" => "Edit Product",
             "productToEdit" => $productToEdit,
-            "product_categories" => $allProductCats
+            "product_categories" => $allProductCats,
+            "category_products" => $productsFromCat
         ]);
     }
 

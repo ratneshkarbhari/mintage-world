@@ -13,7 +13,7 @@ class ProductImage extends Model
      *
      * @var string[]
      */
-    protected $protected = [];
+    protected $guarded = [];
 
     protected $table = "product_image";
 

@@ -291,7 +291,6 @@
          success: function (response) {
             $('.update-success').toast('show');
 
-            window.location.reload();
             
          }
       });
@@ -312,7 +311,6 @@
          success: function (response) {
             $('.update-success').toast('show');
 
-            window.location.reload();
             
          }
       });

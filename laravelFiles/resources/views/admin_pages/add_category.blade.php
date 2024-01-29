@@ -86,7 +86,7 @@
             {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
         </div>
         <div class="toast-body">
-            Saved Successfully
+            Category Created Successfully
         </div>
         <div class='toast-timeline animate'></div>
     </div>

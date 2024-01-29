@@ -13,8 +13,9 @@
          <h2 class="title heading-3">{{$title}} </h2>
       </div>
       <div class="add-form">
-         <form action="{{url('update-product-exe')}}" method="POST" enctype="multipart/form-data">
+         <form action="{{url('update-product-exe')}}" id="update-product-form" method="post" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="pid" value="{{$productToEdit['id']}}">
             <div class="row">
                <div class="col-md-12 mb-3">
                   <div class="form-group">
@@ -196,22 +197,26 @@
                   </div>
                </div>
                @php
-               $imgParts = explode("/",$productToEdit["img"]);
-
+               if(!is_file(getenv("PRODUCT_IMAGE_BASE_URL").$productToEdit["img"])){
+                  $imgParts = explode("/",$productToEdit["img"]);
+               }
                @endphp
                <div class="col-md-6 mb-3">
                   <div class="form-group">
                      <label for="fileupload">Poster Image <small class="text-danger">(600 X 600) <a class="" href="#">MICMMAR30804.jpg</a></small></label>
-                     <input name="fileupload" id="fileupload" type="file" class="form-control" style="width:100%;height:auto">
+                     <input name="featured_image" id="fileupload" type="file" accept="image/*" class="form-control" style="width:100%;height:auto">
+                     @if(is_file(getenv("PRODUCT_IMAGE_BASE_URL").$productToEdit["img"]))
                      <img id="image_upload_preview" src="{{env('PRODUCT_IMAGE_BASE_URL').$imgParts[2]}}" style="height:30%;width:30%;border-width:0px;" alt="Image Not Available">
+                     @else
+                     <img id="image_upload_preview" src="{{env('PRODUCT_IMAGE_BASE_URL').$productToEdit['img']}}" style="height:30%;width:30%;border-width:0px;" alt="Image Not Available">
+                     @endif
                   </div>
                </div>
                <div class="col-md-6 mb-3">
                   <div class="form-group">
                      <label for="prodimages">Upload Multiple Gallery Image <small class="text-danger">(600px X 600px)</small></label>
                      <div class="input-group">
-                        <input name="prodimages[]" id="prodimages" type="file" class="form-control" multiple="multiple">
-                        <input name="MAX_FILE_SIZE" id="MAX_FILE_SIZE" type="hidden" value="10000000">
+                        <input accept="image/*" name="prodimages[]" id="prodimages" type="file" class="form-control" multiple="multiple">
                      </div>
                      <p class="help-block">Upload only PNG and JPEG file's.</p>
                   </div>
@@ -239,7 +244,7 @@
                               <td class="text-left">image/jpeg</td>
                               <td class="text-left">{{$product_image['image_name']}}</td>
                               <td>
-                                 <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                 <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                               </td>
                            </tr>
                            @endforeach
@@ -261,21 +266,21 @@
                         <tbody id="content">
                            <tr id="CloneTr">
                               <td>
-                                 <select class="form-control js-example-basic-single" name="variation[1][variation_product_id]">
+                                 <select class="form-control js-example-basic-single" name="variation_pids[]">
                                     <option value="0">Select Product</option>
                                     @php
                                     $optionString = '';
                                     @endphp
                                     @foreach($category_products as $catPro)
                                     <?php
-                                    $optionString.= '<option value="'.$catPro["id"].'">'.$catPro["name1"].'</option>';
+                                    $optionString .= '<option value="' . $catPro["id"] . '">' . $catPro["name1"] . '</option>';
                                     ?>
                                     <option value="{{$catPro['id']}}">{{$catPro['name1']}}</option>
                                     @endforeach
                                  </select>
                               </td>
                               <td class="text-left">
-                                 <input name="variation[` + id + `][variation_name]" id="" type="text" class="form-control" placeholder="Enter Variation Title" value="">
+                                 <input name="variation_titles[]" id="" type="text" class="form-control" placeholder="Enter Variation Title" value="">
                               </td>
                               <td class="text-left">
                                  <input type="button" class="btn btn-danger btn-sm remove" value="Remove">
@@ -293,6 +298,35 @@
       </div>
    </div>
 </div>
+
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+   <div id="liveToast " class="toast hide bg-success text-white update-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header bg-success text-white">
+         <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
+         <small>Just Now</small>
+         {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
+      </div>
+      <div class="toast-body">
+         Updated Successfully
+      </div>
+      <div class='toast-timeline animate'></div>
+   </div>
+</div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+   <div id="liveToast " class="toast hide bg-danger text-white update-failure position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header bg-danger text-white">
+         <strong class="me-auto"><i class="fas fa-check-circle"></i> Failure</strong>
+         <small>Just Now</small>
+         {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
+      </div>
+      <div class="toast-body">
+         Update failed
+      </div>
+      <div class='toast-timeline animate'></div>
+   </div>
+</div>
 <script>
    function addRow(e) {
       var id = Math.random().toFixed(2) * 100;
@@ -300,12 +334,12 @@
          'Afterend',
          `<tr> <td class="text-left">
          <div class="form-group">
-            <select class="form-control js-example-basic-single" name="variation[` + id + `][variation_product_id]">
+            <select class="form-control js-example-basic-single" name="variation_pids[]">
             <option value="0">Select Product</option>{!!$optionString!!}</select>
       </div>
    </td>
    <td class="text-left">
-   <input name="variation[` + id + `][variation_name]" id="" type="text" class="form-control" placeholder="Enter Variation Title" value="">      
+   <input name="variation_titles[]" id="" type="text" class="form-control" placeholder="Enter Variation Title" value="">      
    </td>
    <td class="text-left">
    <input type="button" class="btn btn-danger btn-sm remove" value="Remove"> 
@@ -318,4 +352,24 @@
    $('table').on('click', 'input[type="button"]', function(e) {
       $(this).closest('tr').remove()
    })
+
+   $("form#update-product-form").submit(function(e) {
+      e.preventDefault();
+      let formData = new FormData(this);
+      $.ajax({
+         type: "POST",
+         url: $(this).attr("action"),
+         data: formData,
+         contentType: false,
+         processData: false,
+         success: function(response) {
+            if(response.result=="success"){
+               $('.update-success').toast('show');
+            }else{
+               $(".update-failure").toast("show");
+            }
+         }
+      });
+
+   });
 </script>

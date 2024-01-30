@@ -364,7 +364,32 @@ class Orders extends Controller
 
     }
     
+    function update_payment_status(Request $request) {
+        
+        $orderid = $request->orderid;
+        $paymentStatus = $request->payment_status;
 
+        if($orderData = Order::where("orderid",$orderid)->first()){
+
+            $updated = Order::where("orderid",$orderid)->update([
+                "payment_status" => $paymentStatus
+            ]);
+
+            if($updated){
+                return [
+                    "result" => "success",
+                    "message" => "Payment status updated"
+                ];
+            }
+
+        }else{
+            return [
+                "result" => "failure",
+                "message" => "Order not present"
+            ];
+        }
+
+    }
    
     function update_order_status(Request $request) {
        
@@ -393,7 +418,6 @@ class Orders extends Controller
 
             ];
 
-            dd($orderData);
             
             return "order-updated";
 

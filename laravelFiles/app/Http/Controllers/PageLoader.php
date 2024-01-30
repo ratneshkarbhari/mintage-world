@@ -310,7 +310,6 @@ class PageLoader extends Controller
 
         $order = $orderModel->where("orderid", $orderid)->with("order_products")->with("member")->first();
 
-
         $this->admin_page_loader("view_order", [
             "title" => "View order",
             "order" => $order

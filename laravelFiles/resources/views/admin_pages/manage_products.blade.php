@@ -130,10 +130,6 @@
 
       let pid = $(this).attr("pid");
 
-      console.log(pid);
-
-      console.log($("tr#"+pid));
-
 
       $.ajax({
          type: method,

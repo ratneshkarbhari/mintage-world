@@ -167,6 +167,8 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/manage-orders", [PageLoader::class, 'manage_orders']);
     Route::get("admin/view-order/{orderid}", [PageLoader::class, 'view_order']);
 
+    Route::post("update-payment-status",[Orders::class,'update_payment_status']);
+
     Route::get("admin/manage-products", [PageLoader::class, 'manage_products']);
     Route::get("admin/edit-product/{id}", [PageLoader::class, 'edit_product']);
     Route::get("admin/add-product", [PageLoader::class, 'add_product']);

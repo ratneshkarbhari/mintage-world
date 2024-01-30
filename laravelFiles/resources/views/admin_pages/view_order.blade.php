@@ -351,32 +351,48 @@ use App\Models\Product;
                        <div class="accordion-body">                          
                         <div class="d-block">
                            <h4 class="border-bottom pb-2 text-primary mb-4">Update Payment Status</h4>
-                           <div class="row mb-3">
-                              <div class="col-md-2 mb-2"> 
-                                 <label for="payment_status" class="control-label">Payment Status</label> 
-                              </div>
-                             
-                              <div class="col-md-10 mb-2">
-                                 <select class="form-control" id="payment_status" name="payment_status">
-                                    <option value="Success">Success</option>
-                                    <option value="Failed">Failed</option>
-                                    <option value="Refund">Refund</option>
-                                    <option value="Partial Refund">Partial Refund</option>
-                                </select>
-                              </div>
-                              <div class="col-md-2 mb-2"><label for="payment_note" class="control-label">Payment Note</label> </div>
+                           <form  action="{{ url('update-payment-status') }}" id="changePaymentStatusForm" method="post">
+                              @csrf
+                              <input type="hidden" name="orderid" value="{{$order['orderid']}}">
+                              <div class="row mb-3">
+                                 <div class="col-md-2 mb-2"> 
+                                    <label for="payment_status" class="control-label">Payment Status</label> 
+                                 </div>
                               
-                              <div class="col-md-10 mb-2">
-                                 <textarea class="form-control" id="payment_note" placeholder="Enter Note" rows="2" name="payment_note"></textarea>
-                              </div>    
-                              <div class="col-md-2 d-none d-md-block">
-                              
+                                 <div class="col-md-10 mb-2">
+                                    <select class="form-control" id="payment_status" name="payment_status">
+                                       <option @if($order['payment_status']="Success")
+                                       selected
+                                       @endif
+                                       value="Success">Success</option>
+                                       <option @if($order['payment_status']="Failed")
+                                       selected
+                                       @endif
+                                       value="Failed">Failed</option>
+                                       <option @if($order['payment_status']="Refund")
+                                       selected
+                                       @endif
+                                       value="Refund">Refund</option>
+                                       <option @if($order['payment_status']="Partial 
+                                       Refund")
+                                       selected
+                                       @endif
+                                       value="Partial Refund">Partial Refund</option>
+                                 </select>
+                                 </div>
+                                 <div class="col-md-2 mb-2"><label for="payment_note" class="control-label">Payment Note</label> </div>
+                                 
+                                 <div class="col-md-10 mb-2">
+                                    <textarea class="form-control" id="payment_note" placeholder="Enter Note" rows="2" name="payment_note"></textarea>
+                                 </div>    
+                                 <div class="col-md-2 d-none d-md-block">
+                                 
+                                 </div>
+                                 <div class="col-md-10">
+                                    <button class="btn btn-primary btn-sm" data-loading-text="Loading..." id="UpdatePayment"><i class="fa fa-plus-circle"></i> Update Payment</button>
+                                 </div>                          
                               </div>
-                              <div class="col-md-10">
-                                 <button class="btn btn-primary btn-sm" data-loading-text="Loading..." id="UpdatePayment"><i class="fa fa-plus-circle"></i> Update Payment</button>
-                              </div>                          
-                           </div>
-                           
+                           </form>
                         </div>
                      </div>
                     </div>
@@ -410,6 +426,31 @@ use App\Models\Product;
        </div>
        <div class="toast-body">
          Something went wrong. Please contact to Administration
+       </div>
+       <div class='toast-timeline animate'></div>
+   </div>
+</div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+   <div id="liveToast " class="toast hide bg-success text-white payment-update-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+       <div class="toast-header bg-success text-white">
+           <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
+           <small>Just Now</small>
+       </div>
+       <div class="toast-body">
+           Payment status updated Successfully
+       </div>
+       <div class='toast-timeline animate'></div>
+   </div>
+</div>
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+   <div id="liveToast " class="toast hide bg-danger text-white payment-update-failure position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+       <div class="toast-header bg-danger text-white">
+           <strong class="me-auto"><i class="fas fa-check-circle"></i> Failure</strong>
+           <small>Just Now</small>
+       </div>
+       <div class="toast-body">
+           Payment status update failure
        </div>
        <div class='toast-timeline animate'></div>
    </div>
@@ -449,6 +490,27 @@ use App\Models\Product;
    });  
 
     
-     
+   $("form#changePaymentStatusForm").submit(function (e) { 
+      e.preventDefault();
+      let url = $(this).attr("action");
+      let method = $(this).attr("method");
+      let formData = new FormData(this);
+
+      $.ajax({
+         type: method,
+         url: url,
+         data: formData,
+         contentType: false,
+         processData: false,
+         success: function (response) {
+            if (response.result=="success") {
+               $(".payment-update-success").toast("show");         
+            } else {
+               $(".payment-update-failure").toast("show");
+            }
+
+         }
+      });
+   });
 
 </script>

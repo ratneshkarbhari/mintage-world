@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use App\Http\Controllers\Orders;
 use App\Models\Period;
+use App\Models\ProductVariation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 
@@ -249,11 +250,13 @@ class PageLoader extends Controller
         $productToEdit = Product::find($id);
         $allProductCats = ProductCategory::all();
         $productsFromCat = Product::where("category",$productToEdit["category"])->get();
+        $productVariations = ProductVariation::where("product_id",$id)->get();
         $this->admin_page_loader("edit_product", [
             "title" => "Edit Product",
             "productToEdit" => $productToEdit,
             "product_categories" => $allProductCats,
-            "category_products" => $productsFromCat
+            "category_products" => $productsFromCat,
+            "variations" => $productVariations
         ]);
     }
 

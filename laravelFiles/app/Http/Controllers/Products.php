@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AwsS3;
 use App\Models\ProductImage;
+use App\Models\ProductVariation;
 
 class Products extends Controller
 {
@@ -139,7 +140,26 @@ class Products extends Controller
                 "discount" => $request["discount"]
             ];
 
-            
+
+            // handling variations
+
+            $variationPids = $request->variation_pids;
+            $variationTitles = $request->variation_titles;
+            $existingVariationIds = $request->existing_variation_ids;
+            $countVariations = count($request->variation_pids);
+
+            for ($i=0; $i < $countVariations; $i++) { 
+                
+                $variationObj = [
+                    "product_id" => $request->pid,
+                    "variation_product_id" => $variationPids[$i],
+                    "variation_name" => $variationTitles[$i]
+                ];
+
+                ProductVariation::where("id",$existingVariationIds[$i])->update($variationObj);
+                
+            }
+
             if(Product::find($request->pid)->update($objectToUpdate)){
                 return [
                     "result" => "success",

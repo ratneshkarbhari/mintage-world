@@ -278,6 +278,8 @@
                            </tr>
                         </thead>
                         <tbody id="content">
+                           @if(count($variations)==0)
+                           <input type="hidden">
                            <tr id="CloneTr">
                               <td>
                                  <select class="form-control js-example-basic-single" name="variation_pids[]">
@@ -300,6 +302,37 @@
                                  <input type="button" class="btn btn-danger btn-sm remove" value="Remove">
                               </td>
                            </tr>
+                           @else
+                           @foreach($variations as $variation)
+                           <tr id="CloneTr">
+                              <input type="hidden" name="existing_variation_ids[]" value="{{$variation['id']}}">
+                              <td>
+                                 <select class="form-control js-example-basic-single" name="variation_pids[]">
+                                    <option value="0">Select Product</option>
+                                    <?php
+                              $optionString = '';
+                              ?>
+                              @foreach($category_products as $catPro)
+                              <?php
+                              $optionString .= '<option value="' . $catPro["id"] . '">' . $catPro["name1"] . '</option>';
+                              ?>
+                              <option 
+                              @if($variation['variation_product_id']==$catPro['id'])
+                              selected
+                              @endif
+                              value="{{$catPro['id']}}">{{$catPro['name1']}}</option>
+                              @endforeach
+                                 </select>
+                              </td>
+                              <td class="text-left">
+                                 <input name="variation_titles[]" id="" type="text" class="form-control" placeholder="Enter Variation Title" value="{{$variation['variation_name']}}">
+                              </td>
+                              <td class="text-left">
+                                 <input type="button" class="btn btn-danger btn-sm remove" value="Remove">
+                              </td>
+                           </tr>
+                           @endforeach
+                           @endif
                         </tbody>
                      </table>
                   </div>

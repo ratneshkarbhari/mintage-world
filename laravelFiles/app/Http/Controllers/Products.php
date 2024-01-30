@@ -183,5 +183,18 @@ class Products extends Controller
         
 
     }
+
+    function delete(Request $request){
+
+        $pid = $request->pid;
+
+        if (Product::find($pid)->delete()) {
+            return "success";
+        } else {
+            return "failure";
+        }
+        
+
+    }
     
 }

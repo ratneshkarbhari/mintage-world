@@ -197,19 +197,13 @@
                   </div>
                </div>
                @php
-               if(!is_file(getenv("PRODUCT_IMAGE_BASE_URL").$productToEdit["img"])){
                   $imgParts = explode("/",$productToEdit["img"]);
-               }
                @endphp
                <div class="col-md-6 mb-3">
                   <div class="form-group">
                      <label for="fileupload">Poster Image <small class="text-danger">(600 X 600) <a class="" href="#">MICMMAR30804.jpg</a></small></label>
                      <input name="featured_image" id="fileupload" type="file" accept="image/*" class="form-control" style="width:100%;height:auto">
-                     @if(is_file(getenv("PRODUCT_IMAGE_BASE_URL").$productToEdit["img"]))
                      <img id="image_upload_preview" src="{{env('PRODUCT_IMAGE_BASE_URL').$imgParts[2]}}" style="height:30%;width:30%;border-width:0px;" alt="Image Not Available">
-                     @else
-                     <img id="image_upload_preview" src="{{env('PRODUCT_IMAGE_BASE_URL').$productToEdit['img']}}" style="height:30%;width:30%;border-width:0px;" alt="Image Not Available">
-                     @endif
                   </div>
                </div>
                <div class="col-md-6 mb-3">
@@ -235,7 +229,7 @@
                         <tbody>
                            @foreach($productToEdit["product_images"] as $product_image)
 
-                           <tr id="image-row0">
+                           <tr id="image-row0-{{$product_image['image_id']}}">
                               <td class="text-left">
                                  <a target="_blank" href="{{ getenv('PRODUCT_EXTRA_IMAGE_BASE_URL').$product_image['image_name'] }}">
                                     <img src="{{ getenv('PRODUCT_EXTRA_IMAGE_BASE_URL').$product_image['image_name'] }}" alt="" width="75px" height="50px">
@@ -244,7 +238,27 @@
                               <td class="text-left">image/jpeg</td>
                               <td class="text-left">{{$product_image['image_name']}}</td>
                               <td>
-                                 <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                 <button type="button" data-bs-toggle="modal" data-bs-target="#delete-product-modal-{{$product_image['image_id']}}" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                 <div class="modal fade" id="delete-product-modal-{{$product_image['image_id']}}" tabindex="-1" aria-labelledby="delete-product-modal-{{$product_image['image_id']}}Label" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                       <div class="modal-content">
+                                          <div class="modal-header">
+                                          <h1 class="modal-title fs-5" id="delete-product-modal-{{$product_image['image_id']}}Label">Delete Product</h1>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                          </div>
+                                          <div class="modal-body">
+                                          Are you sure?
+                                          </div>
+                                          <div class="modal-footer">
+                                             <button type="button"
+                                             product_image_id="{{$product_image['image_id']}}"
+                                             class="btn btn-danger product_image_delete_button">Delete</button>
+                                          </form>
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
                               </td>
                            </tr>
                            @endforeach
@@ -315,11 +329,23 @@
 </div>
 
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+   <div id="liveToast " class="toast hide bg-success text-white product-image-delete-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header bg-success text-white">
+         <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
+         <small>Just Now</small>
+      </div>
+      <div class="toast-body">
+         Gallery image deleted Successfully
+      </div>
+      <div class='toast-timeline animate'></div>
+   </div>
+</div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
    <div id="liveToast " class="toast hide bg-danger text-white update-failure position-relative" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header bg-danger text-white">
          <strong class="me-auto"><i class="fas fa-check-circle"></i> Failure</strong>
          <small>Just Now</small>
-         {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
       </div>
       <div class="toast-body">
          Update failed
@@ -372,4 +398,31 @@
       });
 
    });
+
+
+   $(".product_image_delete_button").click(function (e) { 
+      e.preventDefault();
+      
+      console.log(this);
+
+      let product_image_id = $(this).attr("product_image_id");
+      
+      $.ajax({
+         type: "POST",
+         url: "{{url('delete-product-image-exe')}}",
+         data: {
+            "_token": "{{ csrf_token() }}",
+            "product_image_id" : product_image_id
+         },
+         success: function (response) {
+            if (response.result=="success") {
+               $(".product-image-delete-success").toast("show");
+               $('.modal').modal('hide');
+
+               $("tr#image-row0-"+product_image_id).addClass("d-none");
+            }
+         }
+      });
+   });
+   
 </script>

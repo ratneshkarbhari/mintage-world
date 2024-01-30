@@ -408,3 +408,4 @@
                     </div>
                 </div>
             </div>
+            <script src="{{url('assets/admin/js/functions.js')}}"></script>

@@ -150,6 +150,8 @@ Route::post('create-new-address-for-member', [CartActions::class, 'create_new_ad
 Route::group(['middleware' => ['check_admin_auth']], function () {
     // admin routes
 
+    Route::post("delete-product-image-exe",[Products::class,'delete_product_image']);
+
     Route::get("upload",[AwsS3::class,'upload']);
 
     Route::post("update-product-exe",[Products::class,'update']);

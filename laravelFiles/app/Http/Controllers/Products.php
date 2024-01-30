@@ -10,6 +10,27 @@ use App\Models\ProductImage;
 class Products extends Controller
 {
     
+    function delete_product_image(Request $request){
+
+        $productImageId = $request->product_image_id;
+
+
+        $productImageModel = new ProductImage();
+
+        if ($productImageModel->where("image_id",$productImageId)->delete()) {
+            return [
+                "result" => "success",
+                "message" => "Product Image deleted" 
+            ];
+        }else{
+            return [
+                "result" => "failure",
+                "message" => "Product Image delete failed" 
+            ];
+        }
+        
+    }
+
     function update(Request $request){
 
         $uploadPath = './assets/images/products/';

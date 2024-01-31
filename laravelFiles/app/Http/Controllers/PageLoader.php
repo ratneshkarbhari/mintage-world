@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use App\Http\Controllers\Orders;
 use App\Models\Period;
+use App\Models\ProductVariation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 
@@ -238,10 +239,13 @@ class PageLoader extends Controller
     function add_product()
     {
         $allProductCats = ProductCategory::all();
+        $productsFromCat = Product::all();
 
         $this->admin_page_loader("add_product", [
             "title" => "Add New Product",
-            "product_categories" => $allProductCats
+            "product_categories" => $allProductCats,
+            "category_products" => $productsFromCat,
+
         ]);
     }
     function edit_product($id)
@@ -249,11 +253,13 @@ class PageLoader extends Controller
         $productToEdit = Product::find($id);
         $allProductCats = ProductCategory::all();
         $productsFromCat = Product::where("category",$productToEdit["category"])->get();
+        $productVariations = ProductVariation::where("product_id",$id)->get();
         $this->admin_page_loader("edit_product", [
             "title" => "Edit Product",
             "productToEdit" => $productToEdit,
             "product_categories" => $allProductCats,
-            "category_products" => $productsFromCat
+            "category_products" => $productsFromCat,
+            "variations" => $productVariations
         ]);
     }
 
@@ -306,7 +312,6 @@ class PageLoader extends Controller
         $orderModel = new Order();
 
         $order = $orderModel->where("orderid", $orderid)->with("order_products")->with("member")->first();
-
 
         $this->admin_page_loader("view_order", [
             "title" => "View order",

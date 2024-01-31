@@ -17,7 +17,12 @@ class Product extends Model
      *
      * @var string[]
      */
-    protected $protected = [];
+
+    const UPDATED_AT = "modified";
+    const CREATED_AT = "modified";
+
+
+    protected $guarded = [];
 
     protected $table = "products";
 

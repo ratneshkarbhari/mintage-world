@@ -72,22 +72,18 @@
                 <tbody>
                     
                     @php 
-                    
                     $productCounter = 1;
                     @endphp
                     @foreach($latest_products as $product)
-
-
-                    
                     @php
-
                     $imgParts = explode("/",$product["img"]);
-
                     @endphp
                     <tr>
                         <td>{{$productCounter}}</td>
                         <td>{{$product["id"]}}</td>
-                        <td><img src="{{env('PRODUCT_IMAGE_BASE_URL').$imgParts[2]}}" class="img-fluid" width="100" height="100"></td>
+                        <td>
+                            <img src="{{env('PRODUCT_IMAGE_BASE_URL').$imgParts[2]}}" class="img-fluid" width="100" height="100">
+                        </td>
                         <td>{{$product["name1"]}}</td>
                         <td>{{$product["instock"]}}</td>
                         <td>{{$product["price"]}}</td>

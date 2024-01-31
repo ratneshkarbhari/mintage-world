@@ -275,7 +275,7 @@
                                 </button>
                                 <div class="collapse" id="home-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                        <!-- <li>
+                                        <li>
                                             <a href="{{url('admin/manage-coins/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Coins</a>
                                         </li>
@@ -288,7 +288,7 @@
                                             <a href="{{url('admin/manage-stamps/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Stamps
                                             </a>
-                                        </li> -->
+                                        </li>
                                         <li>
                                             <a href="{{url('admin/manage-bulk-upload/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Bulk Upload
@@ -408,3 +408,4 @@
                     </div>
                 </div>
             </div>
+            <script src="{{url('assets/admin/js/functions.js')}}"></script>

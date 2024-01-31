@@ -13,11 +13,13 @@ class ProductImage extends Model
      *
      * @var string[]
      */
-    protected $protected = [];
+    protected $guarded = [];
+
+
 
     protected $table = "product_image";
 
 
-    protected $primaryKey = "id";
+    protected $primaryKey = "image_id";
 
 }

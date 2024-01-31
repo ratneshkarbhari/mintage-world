@@ -26,7 +26,7 @@ class AwsS3 extends Controller
 
         try {
             $s3->putObject([
-                'Bucket' => 'mint-product-img',
+                'Bucket' => $bucketName,
                 'Key'    => $fileName,
                 'Body'   => fopen($path, 'r'),
                 'ACL'    => 'public-read',

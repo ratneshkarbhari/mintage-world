@@ -196,6 +196,12 @@
                      <input name="discount" id="discount" type="text" class="form-control" placeholder="Enter Discount" value="{{$productToEdit['discount']}}">
                   </div>
                </div>
+               <div class="col-md-6 mb-3">
+                  <div class="form-group">
+                     <label for="videoid">Video ID <small class="text-danger">( Please do not enter Full YOUTUBE URL Eg: QLtJHvGC3MQ )</small></label>
+                     <input name="videoid" id="videoid" type="text" class="form-control" placeholder="Enter Video ID" value="">
+                  </div>
+               </div>
                @php
                   $imgParts = explode("/",$productToEdit["img"]);
                @endphp
@@ -281,6 +287,8 @@
                            @if(count($variations)==0)
                            <input type="hidden">
                            <tr id="CloneTr">
+                              <input type="hidden" name="existing_variation_ids[]" value="x">
+
                               <td>
                                  <select class="form-control js-example-basic-single" name="variation_pids[]">
                                     <option value="0">Select Product</option>

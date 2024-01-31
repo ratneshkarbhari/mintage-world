@@ -239,10 +239,13 @@ class PageLoader extends Controller
     function add_product()
     {
         $allProductCats = ProductCategory::all();
+        $productsFromCat = Product::all();
 
         $this->admin_page_loader("add_product", [
             "title" => "Add New Product",
-            "product_categories" => $allProductCats
+            "product_categories" => $allProductCats,
+            "category_products" => $productsFromCat,
+
         ]);
     }
     function edit_product($id)

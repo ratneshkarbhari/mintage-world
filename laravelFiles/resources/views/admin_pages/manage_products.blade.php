@@ -23,7 +23,7 @@
                   <th>Stock</th>
                   <th>Price</th>
                   <th>Status</th>
-                  <th>Action</th>
+                  <th width="80">Action</th>
                </tr>
             </thead>
             <tbody>

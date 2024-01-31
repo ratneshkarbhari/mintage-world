@@ -235,6 +235,7 @@
                         </thead>
                         <tbody id="content">
                            <tr id="CloneTr">
+                              <input type="hidden" name="existing_variation_ids[]" value="x">
                               <td>
                                  <select class="form-control js-example-basic-single" name="variation[1][variation_product_id]">
                                     <option value="0">Select Product</option>
@@ -297,8 +298,10 @@
    function addRow(e) {
       var id = Math.random().toFixed(2) * 100;
       document.querySelector('#content').insertAdjacentHTML(
-         'Afterend',
-         `<tr> <td class="text-left">
+         'afterbegin',
+         `<tr> 
+            <input type="hidden" name="existing_variation_ids[]" value="x">
+            <td class="text-left">
       <div class="form-group">
          <select class="form-control js-example-basic-single" name="variation[` + id + `][variation_product_id]">
          <option value="0">Select Product</option>

@@ -288,7 +288,6 @@
                            <input type="hidden">
                            <tr id="CloneTr">
                               <input type="hidden" name="existing_variation_ids[]" value="x">
-
                               <td>
                                  <select class="form-control js-example-basic-single" name="variation_pids[]">
                                     <option value="0">Select Product</option>
@@ -398,8 +397,10 @@
    function addRow(e) {
       var id = Math.random().toFixed(2) * 100;
       document.querySelector('#content').insertAdjacentHTML(
-         'Afterend',
-         `<tr> <td class="text-left">
+         'afterbegin',
+         `<tr> 
+            <input type="hidden" name="existing_variation_ids[]" value="x">
+         <td class="text-left">
          <div class="form-group">
             <select class="form-control js-example-basic-single" name="variation_pids[]">
             <option value="0">Select Product</option>{!!$optionString!!}</select>
@@ -442,10 +443,8 @@
 
 
    $(".product_image_delete_button").click(function (e) { 
-      e.preventDefault();
-      
+      e.preventDefault();      
       console.log(this);
-
       let product_image_id = $(this).attr("product_image_id");
       
       $.ajax({

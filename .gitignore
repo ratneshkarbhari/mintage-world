@@ -2,3 +2,5 @@ assets/history-pdfs/
 product_listing_query.txt
 laravelFiles/app/Http/Middleware/slashesMiddleware.php
 assets/images/
+assets/admin/json/data3.txt
+assets/admin/json/data2.txt

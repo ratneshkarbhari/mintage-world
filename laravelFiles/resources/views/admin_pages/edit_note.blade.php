@@ -12,7 +12,7 @@
        </div>
        <div class="d-flex justify-content-between">
            <h2 class="title heading-3">{{$title}}</h2>
-           <a type="button" class="btn btn-primary btn-sm align-self-baseline" href="manage-notes"><i class="fa fa-plus"></i> Go Back</a>
+           <a type="button" class="btn btn-primary btn-sm align-self-baseline" href="manage-notes"><i class="fa fa-arrow-left"></i> Go Back</a>
        </div>
        <div class="row"> 
            <div class="col-md-6 mb-3">
@@ -34,11 +34,7 @@
            <div class="col-md-6 mb-3">
            <label class="control-label">Denomination Unit</label>
            <div class=""><input type="text" name="denomination_unit" class="form-control" value="1"></div>
-            </div>
-           <div class="col-md-6 mb-3">
-           <label class="control-label">Metal</label> 
-           <div class=""> <input type="text" name="metal_title" class="form-control" value="Gold"></div>
-           </div>
+            </div>           
            <div class="col-md-6 mb-3">
            <label class="control-label">Shape</label> 
            <div class=""> 
@@ -113,7 +109,12 @@
            <label class="control-label">Issued Year</label> 
            <div class=""><input type="text" name="issued_year" class="form-control" value="1949(not appear)"></div>
            </div>                 
-           
+           <div class="col-md-6 mb-3">
+            <label class="control-label">Watermark</label> 
+            <div class=""> 
+               <textarea name="watermark" class="form-control">Ashokan Pillar (The National Emblem) on the left</textarea>
+            </div>
+        </div> 
          
            <div class="col-md-6 mb-3">
                <label class="control-label">Remarks</label> 
@@ -127,12 +128,7 @@
             </div> 
        
    
-           <div class="col-md-12 mb-3">
-            <label class="control-label">Watermark</label> 
-            <div class=""> 
-               <textarea name="watermark" class="form-control">Ashokan Pillar (The National Emblem) on the left</textarea>
-            </div>
-        </div>       
+                 
 
            <div class="col-md-3 mb-3">
            <label class="control-label">Current Note Obverse Image</label> 

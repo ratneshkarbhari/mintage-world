@@ -34,11 +34,7 @@
             <div class="col-md-6 mb-3">
             <label class="control-label">Denomination Unit</label>
             <div class=""><input type="text" name="denomination_unit" class="form-control" value=""></div>
-             </div>
-            <div class="col-md-6 mb-3">
-            <label class="control-label">Metal</label> 
-            <div class=""> <input type="text" name="metal_title" class="form-control" value=""></div>
-            </div>
+             </div> 
             <div class="col-md-6 mb-3">
             <label class="control-label">Shape</label> 
             <div class=""> 
@@ -113,7 +109,12 @@
             <label class="control-label">Issued Year</label> 
             <div class=""><input type="text" name="issued_year" class="form-control" value=""></div>
             </div>                 
-            
+            <div class="col-md-6 mb-3">
+                <label class="control-label">Watermark</label> 
+                <div class=""> 
+                   <textarea name="watermark" class="form-control"></textarea>
+                </div>
+            </div>   
           
             <div class="col-md-6 mb-3">
                 <label class="control-label">Remarks</label> 
@@ -127,12 +128,7 @@
              </div> 
         
     
-            <div class="col-md-12 mb-3">
-             <label class="control-label">Watermark</label> 
-             <div class=""> 
-                <textarea name="watermark" class="form-control"></textarea>
-             </div>
-         </div>       
+               
   
             <div class="col-md-6 mb-3">
             <label class="control-label">Upload Note Obverse Image</label> 

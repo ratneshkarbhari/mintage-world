@@ -331,15 +331,14 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class=""><a href="{{url('admin/manage-history/')}}" class="">History</a></li>
-                            <li class=""><a href="{{url('admin/manage-enquiry/')}}" class="">Enquiry</a></li>
-
+                            {{-- <li class=""><a href="{{url('admin/manage-history/')}}" class="">History</a></li>
+                            <li class=""><a href="{{url('admin/manage-enquiry/')}}" class="">Enquiry</a></li> 
                             <li class="">
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#seo-collapse" aria-expanded="false">Manage SEO</button>
                                 <div class="collapse" id="seo-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                         <li><a href="{{url('admin/manage-seo/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Periods</a></li>
-                                        {{-- <li><a href="{{url('admin/manage-seo/1-periods/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Periods</a></li> --}}
+                                       <li><a href="{{url('admin/manage-seo/1-periods/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Periods</a></li>
                                         <li><a href="{{url('admin/manage-seo/2-dynasty/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Dynasty</a></li>
                                         <li><a href="{{url('admin/manage-seo/3-rulers/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Rulers</a></li>
                                         <li><a href="{{url('admin/manage-seo/4-coins/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Coins</a></li>
@@ -349,16 +348,16 @@
                                         <li><a href="{{url('admin/manage-seo/8-country/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Country</a></li>
                                     </ul>
                                 </div>
-                            </li>
+                            </li> --}}
                            
                             <li class="">
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">Content Management</button>
                                 <div class="collapse" id="orders-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                         <li><a href="{{url('admin/manage-banners/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Banner</a></li>
-                                        <li><a href="{{url('admin/manage-video/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Event Videos</a></li>
+                                        {{-- <li><a href="{{url('admin/manage-video/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Event Videos</a></li>
                                         <li><a href="{{url('admin/manage-story-week/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Story of the week</a></li>
-                                        <li><a href="{{url('admin/manage-media-coverage/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Media Coverage</a></li>
+                                        <li><a href="{{url('admin/manage-media-coverage/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Media Coverage</a></li> --}}
                                         <li><a href="{{url('admin/manage-events/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Events</a></li>
                                         <li><a href="{{url('admin/manage-news/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">News</a></li>
                                         <li><a href="{{url('admin/manage-career/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Career</a></li>
@@ -374,7 +373,7 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#setting-collapse" aria-expanded="false">Setting</button>
                                 <div class="collapse" id="setting-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -382,7 +381,7 @@
                                         <li><a href="{{url('admin/manage-watermark/')}}">Upload Watermark</a></li> 
                                     </ul>
                                 </div>
-                            </li>
+                            </li> --}}
                             <li class=""><a href="{{url('/login/logout/')}}" class="">Logout</a></li>
                         </ul>
 

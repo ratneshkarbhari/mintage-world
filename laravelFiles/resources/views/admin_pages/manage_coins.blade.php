@@ -178,8 +178,23 @@
                 </tbody> 
             </table>
         </div>
-
-
+        <div class="table-responsive">
+        <table id="example1" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Denomination Id</th>
+                    <th>Ruler ID</th>
+                    <th>metal id</th>
+                    <th>minting technique id</th>
+                    <th>rarity id</th>
+                    <th>calender system id</th>
+                    <th>shape id</th> 
+                </tr>
+            </thead>
+           
+        </table>
+    </div>
     </div>
 
 </div>
@@ -217,3 +232,4 @@
      });  
  
  </script>
+

@@ -18,7 +18,6 @@
            <table id="example" class="table table-striped table-bordered DataTable" style="width:100%">
                <thead>
                    <tr>
-                       <th>Sr. No.</th>                       
                        <th>Id	</th>
                        <th>Image</th>
                        <th>Cat. Ref. No</th> 
@@ -28,211 +27,28 @@
                    </tr>
                </thead>
                <tbody>
-                   <tr>
-                       <td>1</td>
-                       <td>1571</td>
-                       <td><img src="https://mintage2.s3.amazonaws.com/note/list/A-1-f.jpg" class="img-fluid" width="100" height="100"></td> 
-                       <td>1-1</td>
-                       <td>2015-07-13 06:50:32</td> 
+                    @foreach($notes as $note)
+                    <tr>
+                       <td>{{$note["id"]}}</td>
+                       <td><img src="{{env('NOTE_BASE_URL').$note['obverse_image']}}" class="img-fluid" width="100" height="100"></td> 
+                       <td>{{$note['catalogue_ref_no']}}</td>
+                       <td>{{$note['created']}}</td> 
                        <td>  
                            <label class="switch switch-success" for="chk1">
-                             <input type="checkbox" checked id="chk1">
+                             <input type="checkbox" 
+                             @if($note['status']==0)
+                             checked
+                             @endif
+                             id="chk1">
                              <span class="slider round"></span> 
                            </label> 
                        </td>
                        <td> 
-                           <a href="edit-note" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
+                           <a href="{{ url('admin/edit-note/'.$note['id']) }}" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
                            <a href="#"  class="btn btn-danger  btn-sm" title="Delete Product"><i class="fa fa-trash"></i></a>                        
                        </td>
-                   </tr>
-                   <tr>
-                     <td>2</td>
-                     <td>1571</td>
-                     <td><img src="https://mintage2.s3.amazonaws.com/note/list/A-1-f.jpg" class="img-fluid" width="100" height="100"></td> 
-                     <td>1-1</td>
-                     <td>2015-07-13 06:50:32</td> 
-                     <td>  
-                         <label class="switch switch-success" for="chk1">
-                           <input type="checkbox" checked id="chk1">
-                           <span class="slider round"></span> 
-                         </label> 
-                     </td>
-                     <td> 
-                         <a href="edit-note" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-                         <a href="#"  class="btn btn-danger  btn-sm" title="Delete Product"><i class="fa fa-trash"></i></a>                        
-                     </td>
-                 </tr>
-                 <tr>
-                  <td>3</td>
-                  <td>1571</td>
-                  <td><img src="https://mintage2.s3.amazonaws.com/note/list/A-1-f.jpg" class="img-fluid" width="100" height="100"></td> 
-                  <td>1-1</td>
-                  <td>2015-07-13 06:50:32</td> 
-                  <td>  
-                      <label class="switch switch-success" for="chk1">
-                        <input type="checkbox" checked id="chk1">
-                        <span class="slider round"></span> 
-                      </label> 
-                  </td>
-                  <td> 
-                      <a href="edit-note" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-                      <a href="#"  class="btn btn-danger  btn-sm" title="Delete Product"><i class="fa fa-trash"></i></a>                        
-                  </td>
-              </tr>
-              <tr>
-               <td>4</td>
-               <td>1571</td>
-               <td><img src="https://mintage2.s3.amazonaws.com/note/list/A-1-f.jpg" class="img-fluid" width="100" height="100"></td> 
-               <td>1-1</td>
-               <td>2015-07-13 06:50:32</td> 
-               <td>  
-                   <label class="switch switch-success" for="chk1">
-                     <input type="checkbox" checked id="chk1">
-                     <span class="slider round"></span> 
-                   </label> 
-               </td>
-               <td> 
-                   <a href="edit-note" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-                   <a href="#"  class="btn btn-danger  btn-sm" title="Delete Product"><i class="fa fa-trash"></i></a>                        
-               </td>
-           </tr>
-           <tr>
-            <td>5</td>
-            <td>1571</td>
-            <td><img src="https://mintage2.s3.amazonaws.com/note/list/A-1-f.jpg" class="img-fluid" width="100" height="100"></td> 
-            <td>1-1</td>
-            <td>2015-07-13 06:50:32</td> 
-            <td>  
-                <label class="switch switch-success" for="chk1">
-                  <input type="checkbox" checked id="chk1">
-                  <span class="slider round"></span> 
-                </label> 
-            </td>
-            <td> 
-                <a href="edit-note" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-                <a href="#"  class="btn btn-danger  btn-sm" title="Delete Product"><i class="fa fa-trash"></i></a>                        
-            </td>
-        </tr>
-        <tr>
-         <td>6</td>
-         <td>1571</td>
-         <td><img src="https://mintage2.s3.amazonaws.com/note/list/A-1-f.jpg" class="img-fluid" width="100" height="100"></td> 
-         <td>1-1</td>
-         <td>2015-07-13 06:50:32</td> 
-         <td>  
-             <label class="switch switch-success" for="chk1">
-               <input type="checkbox" checked id="chk1">
-               <span class="slider round"></span> 
-             </label> 
-         </td>
-         <td> 
-             <a href="edit-note" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-             <a href="#"  class="btn btn-danger  btn-sm" title="Delete Product"><i class="fa fa-trash"></i></a>                        
-         </td>
-     </tr>
-     <tr>
-      <td>7</td>
-      <td>1571</td>
-      <td><img src="https://mintage2.s3.amazonaws.com/note/list/A-1-f.jpg" class="img-fluid" width="100" height="100"></td> 
-      <td>1-1</td>
-      <td>2015-07-13 06:50:32</td> 
-      <td>  
-          <label class="switch switch-success" for="chk1">
-            <input type="checkbox" checked id="chk1">
-            <span class="slider round"></span> 
-          </label> 
-      </td>
-      <td> 
-          <a href="edit-note" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-          <a href="#"  class="btn btn-danger  btn-sm" title="Delete Product"><i class="fa fa-trash"></i></a>                        
-      </td>
-  </tr>
-  <tr>
-   <td>8</td>
-   <td>1571</td>
-   <td><img src="https://mintage2.s3.amazonaws.com/note/list/A-1-f.jpg" class="img-fluid" width="100" height="100"></td> 
-   <td>1-1</td>
-   <td>2015-07-13 06:50:32</td> 
-   <td>  
-       <label class="switch switch-success" for="chk1">
-         <input type="checkbox" checked id="chk1">
-         <span class="slider round"></span> 
-       </label> 
-   </td>
-   <td> 
-       <a href="edit-note" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-       <a href="#"  class="btn btn-danger  btn-sm" title="Delete Product"><i class="fa fa-trash"></i></a>                        
-   </td>
-</tr>
-<tr>
-   <td>9</td>
-   <td>1571</td>
-   <td><img src="https://mintage2.s3.amazonaws.com/note/list/A-1-f.jpg" class="img-fluid" width="100" height="100"></td> 
-   <td>1-1</td>
-   <td>2015-07-13 06:50:32</td> 
-   <td>  
-       <label class="switch switch-success" for="chk1">
-         <input type="checkbox" checked id="chk1">
-         <span class="slider round"></span> 
-       </label> 
-   </td>
-   <td> 
-       <a href="edit-note" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-       <a href="#"  class="btn btn-danger  btn-sm" title="Delete Product"><i class="fa fa-trash"></i></a>                        
-   </td>
-</tr>
-<tr>
-   <td>10</td>
-   <td>1571</td>
-   <td><img src="https://mintage2.s3.amazonaws.com/note/list/A-1-f.jpg" class="img-fluid" width="100" height="100"></td> 
-   <td>1-1</td>
-   <td>2015-07-13 06:50:32</td> 
-   <td>  
-       <label class="switch switch-success" for="chk1">
-         <input type="checkbox" checked id="chk1">
-         <span class="slider round"></span> 
-       </label> 
-   </td>
-   <td> 
-       <a href="edit-note" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-       <a href="#"  class="btn btn-danger  btn-sm" title="Delete Product"><i class="fa fa-trash"></i></a>                        
-   </td>
-</tr>
-<tr>
-   <td>11</td>
-   <td>1571</td>
-   <td><img src="https://mintage2.s3.amazonaws.com/note/list/A-1-f.jpg" class="img-fluid" width="100" height="100"></td> 
-   <td>1-1</td>
-   <td>2015-07-13 06:50:32</td> 
-   <td>  
-       <label class="switch switch-success" for="chk1">
-         <input type="checkbox" checked id="chk1">
-         <span class="slider round"></span> 
-       </label> 
-   </td>
-   <td> 
-       <a href="edit-note" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-       <a href="#"  class="btn btn-danger  btn-sm" title="Delete Product"><i class="fa fa-trash"></i></a>                        
-   </td>
-</tr>
-<tr>
-   <td>12</td>
-   <td>1571</td>
-   <td><img src="https://mintage2.s3.amazonaws.com/note/list/A-1-f.jpg" class="img-fluid" width="100" height="100"></td> 
-   <td>1-1</td>
-   <td>2015-07-13 06:50:32</td> 
-   <td>  
-       <label class="switch switch-success" for="chk1">
-         <input type="checkbox" checked id="chk1">
-         <span class="slider round"></span> 
-       </label> 
-   </td>
-   <td> 
-       <a href="edit-note" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-       <a href="#"  class="btn btn-danger  btn-sm" title="Delete Product"><i class="fa fa-trash"></i></a>                        
-   </td>
-</tr>
-                    
+                    </tr>
+                    @endforeach
                </tbody> 
            </table>
        </div>

@@ -104,7 +104,7 @@ class PageLoader extends Controller
 
         $entries = Media::where("status", "1")->orderBy("id", "desc")->limit(7)->get();
 
-        $banners = Banner::where("status","1")->get();
+        $banners = Banner::where("status", "1")->get();
 
         $this->page_loader("home", [
             "title" => "Online Museum of Coins, Stamps and Notes",
@@ -243,15 +243,15 @@ class PageLoader extends Controller
         $this->admin_page_loader("add_product", [
             "title" => "Add New Product",
             "product_categories" => $allProductCats,
-            
+
         ]);
     }
     function edit_product($id)
     {
         $productToEdit = Product::find($id);
         $allProductCats = ProductCategory::all();
-        $productsFromCat = Product::where("category",$productToEdit["category"])->get();
-        $productVariations = ProductVariation::where("product_id",$id)->get();
+        $productsFromCat = Product::where("category", $productToEdit["category"])->get();
+        $productVariations = ProductVariation::where("product_id", $id)->get();
         $this->admin_page_loader("edit_product", [
             "title" => "Edit Product",
             "productToEdit" => $productToEdit,
@@ -270,7 +270,6 @@ class PageLoader extends Controller
             "title" => "Manage Shopping Categories",
             "categories" => $allProductCats
         ]);
-        
     }
     function add_category()
     {
@@ -281,7 +280,7 @@ class PageLoader extends Controller
         ]);
     }
     function edit_category($catId)
-    {   
+    {
         $parentCats = ProductCategory::all();
         $catData = ProductCategory::find($catId);
         $this->admin_page_loader("edit_category", [
@@ -406,10 +405,10 @@ class PageLoader extends Controller
         ]);
     }
 
-    function manage_banners($success="",$failure="")
+    function manage_banners($success = "", $failure = "")
     {
 
-        $banners = Banner::orderBy("slide_order","desc")->get();
+        $banners = Banner::orderBy("slide_order", "desc")->get();
 
         $this->admin_page_loader("manage_banners", [
             "title" => "Manage banners",
@@ -484,7 +483,7 @@ class PageLoader extends Controller
     function manage_period()
     {
 
-    
+
 
         $periodModel = new Period();
 
@@ -550,6 +549,18 @@ class PageLoader extends Controller
     {
         $this->admin_page_loader("manage_watermark", [
             "title" => "Manage Watermark"
+        ]);
+    }
+    function manage_auction()
+    {
+        $this->admin_page_loader("manage_auction", [
+            "title" => "Manage Auction"
+        ]);
+    }
+    function manage_key_events()
+    {
+        $this->admin_page_loader("manage_key_events", [
+            "title" => "Manage Key Events"
         ]);
     }
 }

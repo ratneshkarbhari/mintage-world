@@ -138,9 +138,9 @@ Route::group(['middleware' => ['slashes']], function () {
 });
 Route::get('event/', [StaticPages::class, 'event']);
 
-Route::post('create-new-period',[Periods::class,'create']);
+Route::post('create-new-period', [Periods::class, 'create']);
 
-Route::post("update-order-status",[Orders::class,'update_order_status']);
+Route::post("update-order-status", [Orders::class, 'update_order_status']);
 
 Route::get("payment-successful", [StaticPages::class, 'payment_successful']);
 Route::post('create-new-address-for-member', [CartActions::class, 'create_new_address']);
@@ -150,26 +150,26 @@ Route::post('create-new-address-for-member', [CartActions::class, 'create_new_ad
 Route::group(['middleware' => ['check_admin_auth']], function () {
     // admin routes
 
-    Route::post("create-product-exe",[Products::class,'create']);
+    Route::post("create-product-exe", [Products::class, 'create']);
 
-    Route::post("delete-product-exe",[Products::class,'delete']);
+    Route::post("delete-product-exe", [Products::class, 'delete']);
 
-    Route::post("delete-product-image-exe",[Products::class,'delete_product_image']);
+    Route::post("delete-product-image-exe", [Products::class, 'delete_product_image']);
 
-    Route::get("upload",[AwsS3::class,'upload']);
+    Route::get("upload", [AwsS3::class, 'upload']);
 
-    Route::post("update-product-exe",[Products::class,'update']);
+    Route::post("update-product-exe", [Products::class, 'update']);
 
-    Route::post("delete-product-exe",[Products::class,'delete']);
+    Route::post("delete-product-exe", [Products::class, 'delete']);
 
-    Route::post('update-period-exe',[Periods::class,'update']);
+    Route::post('update-period-exe', [Periods::class, 'update']);
 
     Route::get("admin/dashboard", [PageLoader::class, 'dashboard']);
 
     Route::get("admin/manage-orders", [PageLoader::class, 'manage_orders']);
     Route::get("admin/view-order/{orderid}", [PageLoader::class, 'view_order']);
 
-    Route::post("update-payment-status",[Orders::class,'update_payment_status']);
+    Route::post("update-payment-status", [Orders::class, 'update_payment_status']);
 
     Route::get("admin/manage-products", [PageLoader::class, 'manage_products']);
     Route::get("admin/edit-product/{id}", [PageLoader::class, 'edit_product']);
@@ -194,15 +194,15 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::get("admin/manage-product-categories", [PageLoader::class, 'manage_categories']);
 
-    Route::post("delete-shopping-category",[ShoppingCategories::class,'delete']);
+    Route::post("delete-shopping-category", [ShoppingCategories::class, 'delete']);
 
     Route::get("admin/add-category", [PageLoader::class, 'add_category']);
 
-    Route::post("create-shopping-category-exe",[ShoppingCategories::class,'create']);
+    Route::post("create-shopping-category-exe", [ShoppingCategories::class, 'create']);
 
     Route::get("admin/edit-category/{catId}", [PageLoader::class, 'edit_category']);
 
-    Route::post('update-category-exe',[ShoppingCategories::class,'update']);
+    Route::post('update-category-exe', [ShoppingCategories::class, 'update']);
 
     Route::get("admin/manage-bulk-upload", [PageLoader::class, 'manage_bulk_upload']);
     Route::get("admin/manage-bulk-images-upload", [PageLoader::class, 'manage_bulk_images_upload']);
@@ -226,16 +226,19 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/manage-members", [PageLoader::class, 'manage_members']);
     Route::get("admin/manage-watermark", [PageLoader::class, 'manage_watermark']);
 
+    Route::get("admin/manage-auction", [PageLoader::class, 'manage_auction']);
+    Route::get("admin/manage-key-events", [PageLoader::class, 'manage_key_events']);
+
 
     Route::get("admin/manage-product-category", [PageLoader::class, 'manage_product_category']);
     Route::get("admin/manage-seo", [PageLoader::class, 'manage_seo']);
 });
 
-Route::post("set-banner-status",[Banners::class,'set_status']);
+Route::post("set-banner-status", [Banners::class, 'set_status']);
 
-Route::post("create-new-banner",[Banners::class,'create_new']);
+Route::post("create-new-banner", [Banners::class, 'create_new']);
 
-Route::post('update-banner-exe',[Banners::class,'update']);
+Route::post('update-banner-exe', [Banners::class, 'update']);
 
 Route::post("fetch-dg-dynasties", [Coins::class, 'fetch_dg_dynasties']);
 
@@ -246,7 +249,7 @@ Route::get("universal-search-exe", [Utils::class, 'universal_search']);
 
 Route::post("member-login-exe", [Authentication::class, 'member_login']);
 
-Route::post("delete-banner-exe",[Banners::class,'delete']);
+Route::post("delete-banner-exe", [Banners::class, 'delete']);
 
 Route::get("fetch-current-cart-count", [CartActions::class, 'fetch_current_cart_count']);
 
@@ -282,7 +285,7 @@ Route::post("create-order-exe", [Orders::class, 'create_exe']);
 
 Route::post("update-order-exe", [Orders::class, 'update_order_status']);
 
-Route::post("place-order-exe",[Orders::class,'place_order']);
+Route::post("place-order-exe", [Orders::class, 'place_order']);
 
 Route::get('media/', [StaticPages::class, 'media_list']);
 

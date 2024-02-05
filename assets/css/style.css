@@ -859,7 +859,7 @@ section.home-page-carousel {
   display: block;
 }
 .home-page-product   .product-grid .title a{
-  min-height: 85px;
+  min-height: 60px;
 }
 
 .product-grid .title a:hover {
@@ -3986,6 +3986,11 @@ input[type="password"] {
   font: large Verdana,sans-serif;
   letter-spacing: 1px;
 }
+
+.noteg-list-wraper .info-item-grid-outer-box .info-item-grid-box img {
+    min-height: 225px;
+}
+
 
 /* --------Responsive Media Css Start------------- */
 

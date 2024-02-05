@@ -82,6 +82,9 @@
                <input type="hidden" name="shipping_pincode">
 
                @if(session("member_id"))
+               @if(count($member['addresses'])==0)
+               <p class="text-danger">Please Enter atleast one address</p>
+               @endif
                <div class="step-wrap  mt-3">
                   <h6 class="heading-2"><b>Billing Addresses</b></h6>
                   <div class="mt-3 radio-btn-wrap checkout-user-detail">
@@ -146,6 +149,9 @@
                      </ul>
                   </div>
                </div>
+               @if(count($member['addresses'])==0)
+               <p class="text-danger">Please Enter atleast one address</p>
+               @endif
                <div class="step-wrap  mt-3">
                   <h6 class="heading-2"><b>Shipping Addresses</b></h6>
                   <div class="mt-3 radio-btn-wrap checkout-user-detail">
@@ -255,12 +261,11 @@
                   @if(session("member_id"))
 
                   <div class="submit-box mt-2 w-100 text-end">
-                     <button id="rzp-button1" type="submit" class="btn btn-success btn-lg 
                      
-                     " <?php
+                     <button id="rzp-button1" type="submit" class="btn btn-success btn-lg" <?php
                      if(count($member['addresses'])==0){
                      echo "disabled";
-                  }
+                     }
                      ?>><i class="fa fa-check-double"></i>
                         Pay now</button>
                   </div>
@@ -387,7 +392,7 @@
                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                <h4 class="text-start mb-3">Add New Address</h4>
                <hr>
-               <form action="{{ url('create-new-address-for-member') }}" method="POST">
+               <form id="createNewAddress" action="{{ url('create-new-address-for-member') }}" method="POST">
                   @csrf
                   <input type="hidden" name="member_id" value="{{session('member_id')}}">
                   <div class="add-wraper">
@@ -503,7 +508,6 @@
         <div class="toast-header bg-success text-white">         
           <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
           <small>Just Now</small>
-          {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
         </div>
         <div class="toast-body">
           "Your Address" has been Added / Update in list Successfully.
@@ -565,7 +569,7 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
    var options = {
-      "key": '{{getenv('RAZOR_KEY ')}}', // Enter the Key ID generated from the Dashboard
+      "key": '{{getenv('RAZOR_KEY')}}', // Enter the Key ID generated from the Dashboard
       "amount": "{{$payable*100}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       "currency": "INR",
       "name": "Mintage World",
@@ -647,6 +651,25 @@
 
 
 <script>
+
+   $("form#createNewAddress").submit(function (e) { 
+      e.preventDefault();
+      let formData = $(this).serialize();
+      $.ajax({
+         type: "POST",
+         url: $(this).attr("action"),
+         data: formData,
+         success: function (response) {
+            if(response=="success"){
+               $(".add-success").toast("show");
+            }else{
+               $(".add-deleted").toast("show");
+            }
+            $('.modal').modal('hide');
+            location.reload();
+         }
+      });
+   });
 
 $(function(){
   $(".DeleteAddModal").click(function(){

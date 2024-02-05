@@ -261,7 +261,7 @@ class Orders extends Controller
 
             $orderIdDigits=$orderIdDigits+1;
 
-            $memberData = Member::find(session("member_id"));
+            // $memberData = Member::find(session("member_id"));
 
 
             $orderId = $orderModel->insertGetId([
@@ -334,9 +334,7 @@ class Orders extends Controller
 
 
 
-            $cartActions = new CartActions();
 
-            $cartActions->clear_cart();
 
             return "order-created";
 
@@ -352,6 +350,11 @@ class Orders extends Controller
     function place_order(Request $request){
 
         $currentOrder = session("current_order_id");
+
+        $cartActions = new CartActions();
+
+        $cartActions->clear_cart();
+
 
         if($done = Order::find($currentOrder)->update([
             "status" => $request->status,
@@ -371,7 +374,7 @@ class Orders extends Controller
 
         if($orderData = Order::where("orderid",$orderid)->first()){
 
-            $updated = Order::where("orderid",$orderid)->update([
+            $updated = $orderData->update([
                 "payment_status" => $paymentStatus
             ]);
 

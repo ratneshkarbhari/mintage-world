@@ -291,11 +291,14 @@ class CartActions extends Controller
 
         if(MemberAddress::create($memberAddressObj)){
             
-            $this->checkout("Address added to your account");
+
+            return "success";
+            
             
         }else{
 
-            $this->checkout("Address added to your account");
+
+            return "failure";
             
         }
 

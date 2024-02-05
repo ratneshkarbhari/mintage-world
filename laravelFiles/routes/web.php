@@ -136,7 +136,12 @@ Route::group(['middleware' => ['slashes']], function () {
 
     // Universal search
 });
+
+Route::post("update-member-address",[CartActions::class,'update_member_address']);
+
 Route::get('event/', [StaticPages::class, 'event']);
+
+Route::post("delete-address-exe",[CartActions::class,'delete_address']);
 
 Route::post('create-new-period', [Periods::class, 'create']);
 

@@ -82,8 +82,11 @@
                <input type="hidden" name="shipping_pincode">
 
                @if(session("member_id"))
-               @if(count($member['addresses'])==0)
-               <p class="text-danger">Please Enter atleast one address</p>
+               @if(count($member['addresses'])!=0||$member["address"]!="")
+               
+               @else
+               
+               <p class="text-danger">Please Enter atleast one address</p> 
                @endif
                <div class="step-wrap  mt-3">
                   <h6 class="heading-2"><b>Billing Addresses</b></h6>
@@ -108,8 +111,105 @@
                                  <div class="check"></div>
                               </div>
                               <div class="btn-row">                                 
-                                 <button class="btn btn-secondary btn-sm " data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
-                                 <button class="btn btn-danger btn-sm DeleteAddModal" id="" data-id="add_1"><i class="fa fa-trash"></i> Delete</button>
+                                 <button class="btn btn-secondary btn-sm " data-bs-toggle="modal" data-bs-target="#EditAddModal-ba-member"><i class="fa fa-pen"></i> Edit</button>
+
+                                 <div class="modal fade" id="EditAddModal-ba-member" tabindex="-1" aria-labelledby="EditAddModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                                       <div class="modal-content">
+                                          <div class="modal-body text-start p-3">
+                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                             <h4 class="text-start mb-3">Edit Address</h4>
+                                             <hr>
+                                             <div class="add-wraper">
+                                             <form class="update-member-address-form" action="{{url('update-member-address')}}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="member_id" value="{{session('member_id')}}">
+                                                <div class="row">
+                                                   <div class="col-md-6 mb-3 d-none">
+                                                      <label for="inputName">Name</label>
+                                                      <input type="text" class="form-control" id="inputName" placeholder="Name" value="{{$member['first_name']}}">
+                                                   </div>
+                                                   <div class="col-md-6 mb-3 d-none">
+                                                      <label for="last_name">Last Name</label>
+                                                      <input name="last_name" type="text" class="form-control" id="lastName" value="{{$member['last_name']}}">
+                                                   </div>
+                                                   <div class="col-md-4  mb-3">
+                                                      <label for="inputMobileNo">Mobile No</label>
+                                                      <input type="number" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" value="{{$member['mobile']}}">
+                                                   </div>
+                                                   <div class="col-md-12  mb-3">
+                                                      <label for="inputAddress">Address</label>
+                                                      <textarea name="address" class="form-control" cols="30" rows="5">{{$member['address']}}</textarea>
+                                                   </div>
+                                                   <div class="col-md-6  mb-3">
+                                                      <label for="inputCity">City</label>
+                                                      <input type="text" class="form-control" id="inputCity" name="city" placeholder="City" value="{{$member['city']}}">
+                                                   </div>
+                                                   <div class="col-md-6  mb-3">
+                                                      <label for="inputState">State</label>
+                                                      <select id="inputState" name="inputState" class="form-control" required="required">
+                                                         <option value="">--- Select your state ---</option>
+                                                         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                                         <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                         <option value="Assam">Assam</option>
+                                                         <option value="Bihar">Bihar</option>
+                                                         <option value="Chandigarh">Chandigarh</option>
+                                                         <option value="Chhattisgarh">Chhattisgarh</option>
+                                                         <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                                                         <option value="Daman and Diu">Daman and Diu</option>
+                                                         <option value="Delhi">Delhi</option>
+                                                         <option value="Goa">Goa</option>
+                                                         <option value="Gujarat">Gujarat</option>
+                                                         <option value="Haryana">Haryana</option>
+                                                         <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                         <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                         <option value="Jharkhand">Jharkhand</option>
+                                                         <option value="Karnataka">Karnataka</option>
+                                                         <option value="Kerala">Kerala</option>
+                                                         <option value="Lakshadweep">Lakshadweep</option>
+                                                         <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                         <option value="Maharashtra" selected="selected">Maharashtra</option>
+                                                         <option value="Manipur">Manipur</option>
+                                                         <option value="Meghalaya">Meghalaya</option>
+                                                         <option value="Mizoram">Mizoram</option>
+                                                         <option value="Nagaland">Nagaland</option>
+                                                         <option value="Orissa">Orissa</option>
+                                                         <option value="Pondicherry">Pondicherry</option>
+                                                         <option value="Punjab">Punjab</option>
+                                                         <option value="Rajasthan">Rajasthan</option>
+                                                         <option value="Sikkim">Sikkim</option>
+                                                         <option value="Tamil Nadu">Tamil Nadu</option>
+                                                         <option value="Telangana">Telangana</option>
+                                                         <option value="Tripura">Tripura</option>
+                                                         <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                         <option value="Uttaranchal">Uttaranchal</option>
+                                                         <option value="West Bengal">West Bengal</option>
+                                                      </select>
+                                                   </div>
+                                                   <div class="col-md-6  mb-3">
+                                                      <label for="inputZip">Zip Code</label>
+                                                      <input type="number" class="form-control" id="inputZip" placeholder="Zip Code" name="pincode" value="{{$member['pincode']}}">
+                                                   </div>
+                                                   <div class="col-md-6  mb-3">
+                                                      <label for="inputCountry">Country</label>
+                                                      <select id="inputCountry" name="inputCountry" class="form-control" required="required">
+                                                         <option value="113" selected="selected">India</option>
+                                                      </select>
+                                                   </div>
+                                                   <div class="col-md-6  mb-3">
+                                                      <button type="submit" class="btn btn-success btn-sm">Update Address</button>
+                                                   </div>
+
+                                                </div>
+                                             </form>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 
+
                               </div>
                            </li>
                         @endif                        
@@ -138,7 +238,33 @@
                               </div>
                               <div class="btn-row">                                 
                                  <button class="btn btn-secondary btn-sm " data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
-                                 <button class="btn btn-danger btn-sm DeleteAddModal" id="" data-id="add_1"><i class="fa fa-trash"></i> Delete</button>
+
+                                 <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete-address-{{$address['id']}}">
+                                 <i class="fa fa-trash"></i>Delete
+                                 </button>
+
+
+                                 <div class="modal fade" id="delete-address-{{$address['id']}}" tabindex="-1" aria-labelledby="Delete-Address-{{$address['id']}}Label" aria-hidden="true">
+                                 <div class="modal-dialog">
+                                    <div class="modal-content">
+                                       <div class="modal-header">
+                                       <h1 class="modal-title fs-5" id="Delete-Address-{{$address['id']}}Label">Delete Address</h1>
+                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                       </div>
+                                       <div class="modal-body">
+                                       Are you Sure?
+                                       </div>
+                                       <div class="modal-footer">
+                                          <form  class="Delete-Address-Form" method="post" action="{{url('delete-address-exe')}}">
+                                          @csrf
+                                             <input type="hidden" name="address_id" value="{{$address['id']}}">
+                                             <button type="submit" class="btn btn-danger btn-sm">DELETE ADDRESS PERMANENTLY</button>
+                                             </form>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 
                               </div>
                            </li>
                         @endforeach
@@ -149,8 +275,9 @@
                      </ul>
                   </div>
                </div>
-               @if(count($member['addresses'])==0)
-               <p class="text-danger">Please Enter atleast one address</p>
+               @if(count($member['addresses'])!=0||$member["address"]!="")
+               @else
+               <p class="text-danger">Please Enter atleast one address</p> 
                @endif
                <div class="step-wrap  mt-3">
                   <h6 class="heading-2"><b>Shipping Addresses</b></h6>
@@ -174,28 +301,107 @@
                                  <div class="check"></div>
                               </div>
                               <div class="btn-row">                                 
-                              <button class="btn btn-secondary btn-sm " data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#Delete-Address-{{$address['id']}}" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                              <div class="modal fade" id="Delete-Address-{{$address['id']}}" tabindex="-1" aria-labelledby="Delete-Address-{{$address['id']}}Label" aria-hidden="true">
-                                 <div class="modal-dialog">
+
+                              <button class="btn btn-secondary btn-sm " data-bs-toggle="modal" data-bs-target="#EditAddModal-sa-member"><i class="fa fa-pen"></i> Edit</button>
+
+                              <div class="modal fade" id="EditAddModal-sa-member" tabindex="-1" aria-labelledby="EditAddModalLabel" aria-hidden="true">
+                                 <div class="modal-dialog modal-dialog-centered modal-lg">
                                     <div class="modal-content">
-                                       <div class="modal-header">
-                                       <h1 class="modal-title fs-5" id="Delete-Address-{{$address['id']}}Label">Delete Address</h1>
-                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                       </div>
-                                       <div class="modal-body">
-                                       Are you Sure?
-                                       </div>
-                                       <div class="modal-footer">
-                                          <form pid="{{$address['id']}}" class="Delete-Address-Form" method="post" action="{{url('delete-address-exe')}}">
-                                          @csrf
-                                          <input type="hidden" name="pid" value="{{$address['id']}}">
-                                          <button type="submit" class="btn btn-primary btn-danger">DELETE ADDRESS PERMANENTLY</button>
-                                          </form>
+                                       <div class="modal-body text-start p-3">
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                          <h4 class="text-start mb-3">Edit Address</h4>
+                                          <hr>
+                                          <div class="add-wraper">
+                                             <form class="update-member-address-form" action="{{url('update-member-address')}}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="member_id" value="{{session('member_id')}}">
+                                                <div class="row">
+                                                   <div class="col-md-6 mb-3 d-none">
+                                                      <label for="inputName">Name</label>
+                                                      <input type="text" class="form-control" id="inputName" placeholder="Name" value="{{$member['first_name']}}">
+                                                   </div>
+                                                   <div class="col-md-6 mb-3 d-none">
+                                                      <label for="last_name">Last Name</label>
+                                                      <input name="last_name" type="text" class="form-control" id="lastName" value="{{$member['last_name']}}">
+                                                   </div>
+                                                   <div class="col-md-4  mb-3">
+                                                      <label for="inputMobileNo">Mobile No</label>
+                                                      <input type="number" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" value="{{$member['mobile']}}">
+                                                   </div>
+                                                   <div class="col-md-12  mb-3">
+                                                      <label for="inputAddress">Address</label>
+                                                      <textarea name="address" class="form-control" cols="30" rows="5">{{$member['address']}}</textarea>
+                                                   </div>
+                                                   <div class="col-md-6  mb-3">
+                                                      <label for="inputCity">City</label>
+                                                      <input type="text" class="form-control" id="inputCity" name="city" placeholder="City" value="{{$member['city']}}">
+                                                   </div>
+                                                   <div class="col-md-6  mb-3">
+                                                      <label for="inputState">State</label>
+                                                      <select id="inputState" name="inputState" class="form-control" required="required">
+                                                         <option value="">--- Select your state ---</option>
+                                                         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                                         <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                         <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                         <option value="Assam">Assam</option>
+                                                         <option value="Bihar">Bihar</option>
+                                                         <option value="Chandigarh">Chandigarh</option>
+                                                         <option value="Chhattisgarh">Chhattisgarh</option>
+                                                         <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                                                         <option value="Daman and Diu">Daman and Diu</option>
+                                                         <option value="Delhi">Delhi</option>
+                                                         <option value="Goa">Goa</option>
+                                                         <option value="Gujarat">Gujarat</option>
+                                                         <option value="Haryana">Haryana</option>
+                                                         <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                         <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                         <option value="Jharkhand">Jharkhand</option>
+                                                         <option value="Karnataka">Karnataka</option>
+                                                         <option value="Kerala">Kerala</option>
+                                                         <option value="Lakshadweep">Lakshadweep</option>
+                                                         <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                         <option value="Maharashtra" selected="selected">Maharashtra</option>
+                                                         <option value="Manipur">Manipur</option>
+                                                         <option value="Meghalaya">Meghalaya</option>
+                                                         <option value="Mizoram">Mizoram</option>
+                                                         <option value="Nagaland">Nagaland</option>
+                                                         <option value="Orissa">Orissa</option>
+                                                         <option value="Pondicherry">Pondicherry</option>
+                                                         <option value="Punjab">Punjab</option>
+                                                         <option value="Rajasthan">Rajasthan</option>
+                                                         <option value="Sikkim">Sikkim</option>
+                                                         <option value="Tamil Nadu">Tamil Nadu</option>
+                                                         <option value="Telangana">Telangana</option>
+                                                         <option value="Tripura">Tripura</option>
+                                                         <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                         <option value="Uttaranchal">Uttaranchal</option>
+                                                         <option value="West Bengal">West Bengal</option>
+                                                      </select>
+                                                   </div>
+                                                   <div class="col-md-6  mb-3">
+                                                      <label for="inputZip">Zip Code</label>
+                                                      <input type="number" class="form-control" id="inputZip" placeholder="Zip Code" name="pincode" value="{{$member['pincode']}}">
+                                                   </div>
+                                                   <div class="col-md-6  mb-3">
+                                                      <label for="inputCountry">Country</label>
+                                                      <select id="inputCountry" name="inputCountry" class="form-control" required="required">
+                                                         <option value="113" selected="selected">India</option>
+                                                      </select>
+                                                   </div>
+                                                   <div class="col-md-6  mb-3">
+                                                      <button type="submit" class="btn btn-success btn-sm">Update Address</button>
+                                                   </div>
+
+                                                </div>
+                                             </form>
+                                          </div>
                                        </div>
                                     </div>
                                  </div>
                               </div>
+
+                              
+                              
                            </div>
                            </li>
                         @endif
@@ -223,7 +429,33 @@
                               </div>
                               <div class="btn-row">                                 
                                  <button class="btn btn-secondary btn-sm " data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
-                                 <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+
+                                 <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete-address-{{$address['id']}}">
+                                 <i class="fa fa-trash"></i>Delete
+                                 </button>
+
+
+                                 <div class="modal fade" id="delete-address-{{$address['id']}}" tabindex="-1" aria-labelledby="Delete-Address-{{$address['id']}}Label" aria-hidden="true">
+                                 <div class="modal-dialog">
+                                    <div class="modal-content">
+                                       <div class="modal-header">
+                                       <h1 class="modal-title fs-5" id="Delete-Address-{{$address['id']}}Label">Delete Address</h1>
+                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                       </div>
+                                       <div class="modal-body">
+                                       Are you Sure?
+                                       </div>
+                                       <div class="modal-footer">
+                                          <form  class="Delete-Address-Form" method="post" action="{{url('delete-address-exe')}}">
+                                          @csrf
+                                             <input type="hidden" name="address_id" value="{{$address['id']}}">
+                                             <button type="submit" class="btn btn-danger btn-sm">DELETE ADDRESS PERMANENTLY</button>
+                                             </form>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 
                               </div>
                            </li>
                         @endforeach
@@ -283,8 +515,10 @@
                   <div class="submit-box mt-2 w-100 text-end">
                      
                      <button id="rzp-button1" type="submit" class="btn btn-success btn-lg" <?php
-                     if(count($member['addresses'])==0){
-                     echo "disabled";
+                     if(count($member['addresses'])!=0||$member["address"]!=""){
+                        echo "";
+                     }else{
+                        echo "disabled";
                      }
                      ?>><i class="fa fa-check-double"></i>
                         Pay now</button>
@@ -313,98 +547,7 @@
       </div>
    </section>
 
-   <div class="modal fade" id="EditAddModal" tabindex="-1" aria-labelledby="EditAddModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-         <div class="modal-content">
-            <div class="modal-body text-start p-3">
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               <h4 class="text-start mb-3">Edit Address</h4>
-               <hr>
-               <div class="add-wraper">
-                  <div class="row">
-                     <div class="col-md-6 mb-3">
-                        <label for="inputName">Name</label>
-                        <input type="text" class="form-control" id="inputName" placeholder="Name" value="Nandkumar">
-                     </div>
-                     <div class="col-md-6 mb-3">
-                        <label for="last_name">Last Name</label>
-                        <input name="last_name" type="text" class="form-control" id="lastName" value="Arekar">
-                     </div>
-                     <div class="col-md-4  mb-3">
-                        <label for="inputMobileNo">Mobile No</label>
-                        <input type="number" class="form-control" id="inputMobileNo" placeholder="Mobile No" value="9898989898">
-                     </div>
-                     <div class="col-md-12  mb-3">
-                        <label for="inputAddress">Address</label>
-                        <textarea name="address" class="form-control" cols="30" rows="5">ultra media ent. pvt ltd, 2C third floor, thakker Ind. Estate, Lower Parel (E)
-                        </textarea>
-                     </div>
-                     <div class="col-md-6  mb-3">
-                        <label for="inputCity">City</label>
-                        <input type="text" class="form-control" id="inputCity" placeholder="City" value="Mumbai">
-                     </div>
-                     <div class="col-md-6  mb-3">
-                        <label for="inputState">State</label>
-                        <select id="inputState" name="inputState" class="form-control" required="required">
-                           <option value="">--- Select your state ---</option>
-                           <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                           <option value="Andhra Pradesh">Andhra Pradesh</option>
-                           <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                           <option value="Assam">Assam</option>
-                           <option value="Bihar">Bihar</option>
-                           <option value="Chandigarh">Chandigarh</option>
-                           <option value="Chhattisgarh">Chhattisgarh</option>
-                           <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
-                           <option value="Daman and Diu">Daman and Diu</option>
-                           <option value="Delhi">Delhi</option>
-                           <option value="Goa">Goa</option>
-                           <option value="Gujarat">Gujarat</option>
-                           <option value="Haryana">Haryana</option>
-                           <option value="Himachal Pradesh">Himachal Pradesh</option>
-                           <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                           <option value="Jharkhand">Jharkhand</option>
-                           <option value="Karnataka">Karnataka</option>
-                           <option value="Kerala">Kerala</option>
-                           <option value="Lakshadweep">Lakshadweep</option>
-                           <option value="Madhya Pradesh">Madhya Pradesh</option>
-                           <option value="Maharashtra" selected="selected">Maharashtra</option>
-                           <option value="Manipur">Manipur</option>
-                           <option value="Meghalaya">Meghalaya</option>
-                           <option value="Mizoram">Mizoram</option>
-                           <option value="Nagaland">Nagaland</option>
-                           <option value="Orissa">Orissa</option>
-                           <option value="Pondicherry">Pondicherry</option>
-                           <option value="Punjab">Punjab</option>
-                           <option value="Rajasthan">Rajasthan</option>
-                           <option value="Sikkim">Sikkim</option>
-                           <option value="Tamil Nadu">Tamil Nadu</option>
-                           <option value="Telangana">Telangana</option>
-                           <option value="Tripura">Tripura</option>
-                           <option value="Uttar Pradesh">Uttar Pradesh</option>
-                           <option value="Uttaranchal">Uttaranchal</option>
-                           <option value="West Bengal">West Bengal</option>
-                        </select>
-                     </div>
-                     <div class="col-md-6  mb-3">
-                        <label for="inputZip">Zip Code</label>
-                        <input type="number" class="form-control" id="inputZip" placeholder="Zip Code" value="400084">
-                     </div>
-                     <div class="col-md-6  mb-3">
-                        <label for="inputCountry">Country</label>
-                        <select id="inputCountry" name="inputCountry" class="form-control" required="required">
-                           <option value="113" selected="selected">India</option>
-                        </select>
-                     </div>
-                     <div class="col-md-6  mb-3">
-                        <button type="submit" class="btn btn-success btn-sm">Update Address</button>
-                     </div>
-
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
+   
    <div class="modal fade" id="NewAddModal" tabindex="-1" aria-labelledby="NewAddModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
          <div class="modal-content">
@@ -535,15 +678,40 @@
         <div class='toast-timeline animate'></div>
       </div>
     </div>
-   <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
-      <div id="liveToast " class="toast hide bg-danger text-white add-deleted position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
+      <div id="liveToast " class="toast hide bg-danger text-white address-add-update-failure position-relative" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-danger text-white">         
-          <strong class="me-auto"><i class="fas fa-check-circle"></i> Addres Deleted </strong>
+          <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
           <small>Just Now</small>
-          {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
         </div>
         <div class="toast-body">
-         "Your Addres" has been deleted from list. 
+          "Your Address" has been Added / Update in list failed.
+        </div>
+        <div class='toast-timeline animate'></div>
+      </div>
+    </div>
+   <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
+      <div id="liveToast " class="toast hide bg-success text-white add-deleted position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-success text-white">         
+          <strong class="me-auto"><i class="fas fa-check-circle"></i> Address Deleted </strong>
+          <small>Just Now</small>
+        </div>
+        <div class="toast-body">
+         "Your Address" has been deleted from list. 
+        </div>
+        <div class='toast-timeline animate'></div>
+      </div>
+    </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
+      <div id="liveToast " class="toast hide bg-danger text-white add-deleted-failure position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-danger text-white">         
+          <strong class="me-auto"><i class="fas fa-check-circle"></i> Address Deleted </strong>
+          <small>Just Now</small>
+        </div>
+        <div class="toast-body">
+         "Your Address" deleting failed
         </div>
         <div class='toast-timeline animate'></div>
       </div>
@@ -683,7 +851,7 @@
             if(response=="success"){
                $(".add-success").toast("show");
             }else{
-               $(".add-deleted").toast("show");
+               $(".address-add-update-failure").toast("show");
             }
             $('.modal').modal('hide');
             location.reload();
@@ -698,11 +866,42 @@ $(function(){
   });
 });
 
+$("form.update-member-address-form").submit(function (e) { 
+   e.preventDefault();
+   let formData = $(this).serialize();
+   let action = $(this).attr("action");
+   let method = $(this).attr("method");
+   $.ajax({
+      type: method,
+      url: action,
+      data: formData,
+      success: function (response) {
+         $('.modal').modal('hide');
+         location.reload();
+      }
+   });
+});
 
-   $("#add_delete_btn").click(function(e) {      
-    $('.add-deleted').toast('show');
-    const li_id = $("#bookId").val();
-    $("#"+li_id).remove();  
-    $('#DeleteAddModal').modal('hide'); 
-   });  
+$("form.Delete-Address-Form").submit(function (e) { 
+   e.preventDefault();
+   let formData = $(this).serialize();
+   let action = $(this).attr("action");
+   let method = $(this).attr("method");
+   $.ajax({
+      type: method,
+      url: action,
+      data: formData,
+      success: function (response) {
+
+         if(response=="success"){
+            $(".add-deleted").toast("show");
+         }else{
+            $(".add-deleted-failure").toast("show");
+         }
+         $('.modal').modal('hide');
+            location.reload();
+      }
+   });
+});
+
 </script>

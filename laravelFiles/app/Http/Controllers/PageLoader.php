@@ -10,6 +10,8 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use App\Http\Controllers\Orders;
+use App\Models\Denomination;
+use App\Models\Note;
 use App\Models\Period;
 use App\Models\ProductVariation;
 use Illuminate\Support\Facades\DB;
@@ -165,8 +167,15 @@ class PageLoader extends Controller
 
     function manage_notes()
     {
+
+        if(!$allNotes=Cache::pull("all_notes")){
+            $allNotes = Note::all();
+            Cache::put("all_notes",$allNotes);
+        }
+        $allNotes = Note::all();
         $this->admin_page_loader("manage_notes", [
-            "title" => "Manage Notes"
+            "title" => "Manage Notes",
+            "notes" => $allNotes
         ]);
     }
 
@@ -176,10 +185,13 @@ class PageLoader extends Controller
             "title" => "Add Note"
         ]);
     }
-    function edit_note()
+    function edit_note($id)
     {
+        $allDenominations = Denomination::all();
         $this->admin_page_loader("edit_note", [
-            "title" => "Edit Note"
+            "title" => "Edit Note",
+            "noteToEdit" => Note::find($id),
+            "denominations" => $allDenominations
         ]);
     }
     function manage_stamp()

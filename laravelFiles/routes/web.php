@@ -189,8 +189,10 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/edit-coin", [PageLoader::class, 'edit_coin']);
 
     Route::get("admin/manage-notes", [PageLoader::class, 'manage_notes']);
+
     Route::get("admin/add-note", [PageLoader::class, 'add_note']);
-    Route::get("admin/edit-note", [PageLoader::class, 'edit_note']);
+    Route::get("admin/edit-note/{id}", [PageLoader::class, 'edit_note']);
+    Route::post("update-note-exe", [Notes::class, 'update']);
 
     Route::get("admin/manage-product-categories", [PageLoader::class, 'manage_categories']);
 

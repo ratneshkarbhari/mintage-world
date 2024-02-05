@@ -255,7 +255,13 @@
                   @if(session("member_id"))
 
                   <div class="submit-box mt-2 w-100 text-end">
-                     <button id="rzp-button1" type="submit" class="btn btn-success btn-lg  "><i class="fa fa-check-double"></i>
+                     <button id="rzp-button1" type="submit" class="btn btn-success btn-lg 
+                     
+                     " <?php
+                     if(count($member['addresses'])==0){
+                     echo "disabled";
+                  }
+                     ?>><i class="fa fa-check-double"></i>
                         Pay now</button>
                   </div>
 

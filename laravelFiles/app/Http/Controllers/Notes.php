@@ -482,5 +482,69 @@ class Notes extends Controller
         
     }
 
+    function update(Request $request){
+
+        $noteId = $request->id;
+
+        if ($noteToEdit = Note::find($noteId)->with("denomination")) {
+            
+            
+
+            $objectToUpdate = [
+
+                	
+                "denomination_id"=>$request->denomination_id,	
+                "dynasty_id"=>$request->dynasty_id,
+                "shape_id"=>$request->shape_id,
+                "rarity_id"=>$request->rarity_id,
+                "inset"=>$request->inset,
+                "currency_type"=>$request->currency_type,
+                "obverse_image"=>$request->obverse_image,
+                "reverse_image"=>$request->reverse_image,
+                "catalogue_ref_no"=>$request->catalogue_ref_no,
+                "language_panel"=>$request->language_panel,
+                "paper_type"=>$request->paper_type,
+                "remark"=>$request->remark,
+                "size"=>$request->size,
+                "obverse_description"=>$request->obverse_description,
+                "reverse_description"=>$request->reverse_description,
+                "external_link"=>$request->external_link,
+                "vignette"=>$request->vignette,
+                "color"=>$request->color,
+                "denomination_unit"=>$request->denomination_unit,
+                "signatory"=>$request->signatory,
+                "prefix"=>$request->prefix,
+                "legend"=>$request->legend,
+                "mintage"=>$request->mintage,
+                "issued_year"=>$request->issued_year,
+                "issued_circle"=>$request->issued_circle,
+                "underprint"=>$request->underprint,
+                "note"=>$request->note,
+                "text"=>$request->text,
+                "theme"=>$request->theme,
+                "watermark"=>$request->watermark,
+                "status"=>$request->status,
+                "created"=>$request->created,
+                "modified"=>$request->modified,
+                "sort_by"=>$request->sort_by,
+                "meta_title"=>$request->meta_title,
+                "meta_desc"=>$request->meta_desc,
+                "meta_key"=>$request->meta_key,
+                "footer_content" => $request->footer_content
+
+            ];
+
+
+            
+        } else {
+            return [
+                "result" => "failure",
+                "message" => "Note not found"
+            ];
+        }
+        
+
+    }
+
 
 }

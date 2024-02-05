@@ -138,6 +138,7 @@ Route::group(['middleware' => ['slashes']], function () {
 });
 
 Route::post("update-member-address",[CartActions::class,'update_member_address']);
+Route::post("update-additional-address",[CartActions::class,'update_additional_address']);
 
 Route::get('event/', [StaticPages::class, 'event']);
 

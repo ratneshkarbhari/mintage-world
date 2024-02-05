@@ -4717,4 +4717,8 @@ small.icon-text {
 .login-form-content form {
   padding: 0 15px;
 }
+.noteg-list-wraper .info-item-grid-outer-box .info-item-grid-box img {
+  min-height: 0px;
+}
+
 }

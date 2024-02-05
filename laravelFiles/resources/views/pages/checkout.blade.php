@@ -169,7 +169,27 @@
                               </div>
                               <div class="btn-row">                                 
                               <button class="btn btn-secondary btn-sm " data-bs-toggle="modal" data-bs-target="#EditAddModal"><i class="fa fa-pen"></i> Edit</button>
-                              <button class="btn btn-danger btn-sm DeleteAddModal" id="" data-id="add_1"><i class="fa fa-trash"></i> Delete</button>
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#Delete-Address-{{$address['id']}}" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                              <div class="modal fade" id="Delete-Address-{{$address['id']}}" tabindex="-1" aria-labelledby="Delete-Address-{{$address['id']}}Label" aria-hidden="true">
+                                 <div class="modal-dialog">
+                                    <div class="modal-content">
+                                       <div class="modal-header">
+                                       <h1 class="modal-title fs-5" id="Delete-Address-{{$address['id']}}Label">Delete Address</h1>
+                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                       </div>
+                                       <div class="modal-body">
+                                       Are you Sure?
+                                       </div>
+                                       <div class="modal-footer">
+                                          <form pid="{{$address['id']}}" class="Delete-Address-Form" method="post" action="{{url('delete-address-exe')}}">
+                                          @csrf
+                                          <input type="hidden" name="pid" value="{{$address['id']}}">
+                                          <button type="submit" class="btn btn-primary btn-danger">DELETE ADDRESS PERMANENTLY</button>
+                                          </form>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
                            </div>
                            </li>
                         @endif
@@ -482,7 +502,7 @@
       </div>
    </div>
 
-   <div class="modal fade" id="DeleteAddModal" tabindex="-1" aria-labelledby="DeleteAddModal" aria-hidden="true">
+   {{-- <div class="modal fade" id="DeleteAddModal" tabindex="-1" aria-labelledby="DeleteAddModal" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
          <div class="modal-content">
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -497,7 +517,7 @@
             </div>
          </div>
       </div>
-   </div>     
+   </div>      --}}
    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
       <div id="liveToast " class="toast hide bg-success text-white add-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header bg-success text-white">         

@@ -381,4 +381,15 @@ class StaticPages extends Controller
             "registrationErrorMessage" => $registrationErrorMessage
         ]);
     }
+
+    function verify_email_page() {
+
+        
+        $this->page_loader("verify_email", [
+            "title" => "Verify Email | Mintage World",
+            "registrationErrorMessage" => "",
+            "verif_code" => ""
+        ]);
+
+    }
 }

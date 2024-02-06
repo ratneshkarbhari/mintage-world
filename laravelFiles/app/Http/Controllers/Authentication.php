@@ -21,7 +21,35 @@ class Authentication extends Controller
 
         $memberData = $memberModel->where("email", $request->username)->first();
 
+
         if ($memberData) {
+
+            
+
+            if(!$memberData["email_verified"]){
+
+
+
+                $code = rand(1000,9999);
+
+                $passwordResetEmailBody = '
+                Enter this code : '.$code.' on Mintage World to verify email account';
+
+                $emailVerifEmail = $this->send_email($memberData["email"],$memberData["name"],"Email Verification",$passwordResetEmailBody);
+
+                if($emailVerifEmail){
+                    setcookie("email_sent",1,60);
+                }
+
+                $memberObj["verif_code"] = $code;
+
+                return "redirect-to-email-verif";
+                
+                exit;
+
+
+
+            }
 
             $encryptedPassword = md5($this->salt . $request->password);
 
@@ -116,17 +144,13 @@ class Authentication extends Controller
             session(["password_reset_code"=>$code,"pwd_reset_email"=>$memberExists["email"]]);
 
             $passwordResetEmailBody = '
-                Enter this code : '.$code.' on Mintage World to reset password
+                Enter this code : '.$code.' on Mintage World to verify email
             ';
 
-            $pwdResetEmailSent = $this->send_email($memberExists["email"],$memberExists["name"],"Password Reset code",$passwordResetEmailBody);
+            $pwdResetEmailSent = $this->send_email($memberExists["email"],$memberExists["name"],"Email verification code",$passwordResetEmailBody);
 
-            if ($pwdResetEmailSent) {
-                
-                $staticPageLoader->pwd_reset_code_verify();
-                
-            } 
-            
+            return "redirect-to-email-verif";
+
 
         }else{
             $staticPageLoader->forgotpassword("A user with this email does not exist");
@@ -270,13 +294,15 @@ class Authentication extends Controller
                     
                 }
 
-                $memberObj["user_type"] = "member";
+                // $memberObj["user_type"] = "member";
                 
+
+                // $memberObj["member_id"] = $memberCreated->id;
+
+                // $memberObj["level"] = "Regular";
+
                 $memberObj["verif_code"] = $code;
 
-                $memberObj["member_id"] = $memberCreated->id;
-
-                $memberObj["level"] = "Regular";
 
                 session($memberObj);
                 $staticPageLoader->verify_email();        

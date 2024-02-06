@@ -230,6 +230,7 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::get("admin/manage-auction", [PageLoader::class, 'manage_auction']);
     Route::get("admin/manage-key-events", [PageLoader::class, 'manage_key_events']);
+    Route::get("admin/manage-coupon", [PageLoader::class, 'manage_coupon']);
 
 
     Route::get("admin/manage-product-category", [PageLoader::class, 'manage_product_category']);

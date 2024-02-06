@@ -168,9 +168,9 @@ class PageLoader extends Controller
     function manage_notes()
     {
 
-        if(!$allNotes=Cache::pull("all_notes")){
+        if (!$allNotes = Cache::pull("all_notes")) {
             $allNotes = Note::all();
-            Cache::put("all_notes",$allNotes);
+            Cache::put("all_notes", $allNotes);
         }
         $allNotes = Note::all();
         $this->admin_page_loader("manage_notes", [
@@ -573,6 +573,12 @@ class PageLoader extends Controller
     {
         $this->admin_page_loader("manage_key_events", [
             "title" => "Manage Key Events"
+        ]);
+    }
+    function manage_coupon()
+    {
+        $this->admin_page_loader("manage_coupon", [
+            "title" => "Manage Coupon"
         ]);
     }
 }

@@ -1171,6 +1171,7 @@ ul.sticky-footer-ul li a:hover {
   box-shadow: none;
   border-radius: 10px;
   overflow: hidden;
+  width: 100%;
 }
 
 .info-item-grid-outer-box a:hover {

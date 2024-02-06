@@ -304,6 +304,76 @@ class CartActions extends Controller
 
     }
 
+    function update_member_address(Request $request){
+
+        if($memberData = Member::find($request->member_id)){
+
+            $memberAddressUpdateObj = [
+                "address" => $request->address,
+                "pincode" => $request->pincode,
+                "mobile" => $request->mobile,
+                "state_id" => $request->inputState,
+                "city" => $request->city
+            ];
+
+            if($memberData->update($memberAddressUpdateObj)){
+                return "success";
+            }else{
+                return "failure";
+            }
+
+
+        }
+
+    }
+
+    function update_additional_address(Request $request) {
+        
+
+        $addressId=  $request->address_id;
+
+        if($address = MemberAddress::find($addressId)){
+
+            $memberAddressObj = [
+
+                "first_name" => $request->first_name,
+                "last_name" => $request->last_name,
+                "address" => $request->address,
+                "mobile_number" => $request->mobile,
+                "city" => $request->city,
+                "state" => $request->inputState,
+                "zip" => $request->pincode,
+                "country" => "India",
+                "default" => "yes",
+    
+            ];
+    
+
+            $updated = $address->update($memberAddressObj);
+            if ($updated) {
+                return "success";
+            } else {
+                return "failure";
+            }
+            
+
+        }
+
+
+        
+
+    }
+
+    function delete_address(Request $request){
+        
+        if(MemberAddress::find($request->address_id)->delete()){
+            return "success";
+        }else{
+            return "failure";
+        }
+
+    }
+
     function clear_cart(){
 
         $cleared = session([

@@ -229,6 +229,24 @@ class Authentication extends Controller
 
             ];
 
+
+            foreach($memberObj as $memberObjData){
+
+                if($memberObjData==""){
+                    $staticPageLoader->member("Please enter all fields");
+                    exit;
+
+                }
+
+
+
+            }
+
+            if(!preg_match('^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$^',$request->MobileNo)){
+                $staticPageLoader->member("Invalid mobile number.");
+                exit;
+            }
+
             $memberCreated = $memberModel->create($memberObj);
 
             $email = $request->EmailID;

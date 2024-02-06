@@ -66,6 +66,8 @@
                                 success: function (response) {
                                     if (response=="login-success") {
                                         location.reload();
+                                    }else if(response=="redirect-to-email-verif"){
+                                        window.location.replace("{{url('verify-email-page')}}");
                                     }else{
                                         $("p#loginError").html("Email or password is incorrect");
                                     }
@@ -73,7 +75,7 @@
                             });
                        });
                     </script>
-                    <p class="mb-4 text-center">Don't have an account? <a href="{{url("member/")}}">Register Here</a></p>
+                    <p class="mb-4 text-center">Don't have an account? <a href="{{url('member/')}}">Register Here</a></p>
                 </div>
                 </div>
         </div>

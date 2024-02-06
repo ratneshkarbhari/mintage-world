@@ -304,6 +304,7 @@ Route::post("registration-exe", [Authentication::class, 'registration']);
 
 Route::post("verify-email-exe", [Authentication::class, 'verify_email']);
 
+Route::get("verify-email-page",[StaticPages::class,'verify_email_page']);
 
 Route::post("check-note-availability", [Shopping::class, 'check_note_availability']);
 Route::get('story/', [StaticPages::class, 'story']);

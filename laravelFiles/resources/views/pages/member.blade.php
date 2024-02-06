@@ -38,12 +38,19 @@
                       <input type="text" id="last_name" class="form__input mb-2 mt-2" placeholder="Doe" name="last_name">
                       <input type="text" id="email" class="form__input mb-2 mt-2" placeholder="Email ID" name="EmailID">
                       <input type="text" id="mobile_number" class="form__input mb-2 mt-2" placeholder="Mobile No" name="MobileNo">
-                      <input type="password" id="password" class="form__input mb-2 mt-2 passwordFields" placeholder="Password" name="password">
-                      <div class="d-block position-relative">
-                        <input type="password" id="confPassword" class="form__input mb-2 mt-2 passwordFields" placeholder="Confirm Password" name="confPassword">
-                        <button id="showHidePassword" class="member-btn">
+                      <div class="d-block position-relative mb-2 mt-2 ">
+                        <input type="password" id="password" class="form__input m-0 passwordFields" placeholder="Password" name="password"  style="height: 46px">
+                        <a id="showPassword" class="member-btn">
                           <i class="fas fa-eye"></i>
-                      </button>
+                      </a>
+                      </div>
+
+                      
+                      <div class="d-block position-relative mb-2 mt-2 ">
+                        <input type="password" id="confPassword" class="form__input passwordFields m-0" placeholder="Confirm Password" name="confPassword"  style="height: 46px">
+                        <a id="showConfPassword" class="member-btn">
+                          <i class="fas fa-eye"></i>
+                      </a>
                       </div>
                      
                       <select name="country_id" class="form-control" required="" disabled>
@@ -86,26 +93,30 @@
     <script>
         let showPasswordIcon = '<i class="fas fa-eye"></i>'
         let hidePasswordIcon = '<i class="fas fa-eye-slash"></i>'
-        $("i.fas.fa-eye,button#showHidePassword").click(function (e) { 
+            $("#showPassword").click(function (e) { 
             e.preventDefault();
-            
-        if ($("input#confPassword").attr("type")=="password") {
+           if ($("input#password").attr("type")=="password") {
+                $("input#password").attr("type","text");
+                $(this).html('')
+                $(this).html(hidePasswordIcon)
+           } else {
+                $("input#password").attr("type","password");
+                $(this).html('')
+                $(this).html(showPasswordIcon)
+           }
+        });
+
+        $("#showConfPassword").click(function (e) { 
+            e.preventDefault();
+           if ($("input#confPassword").attr("type")=="password") {
                 $("input#confPassword").attr("type","text");
-        } else {
+                $(this).html('')
+                $(this).html(hidePasswordIcon)
+           } else {
                 $("input#confPassword").attr("type","password");
-        }
+                $(this).html('')
+                $(this).html(showPasswordIcon)
+           }
         });
-
-        $(".passwordFields").change(function (e) { 
-            e.preventDefault();
-            if($("input#password").val()==$("input#confPassword").val()){
-                $("button#registerButton").removeClass("disabled");
-            }else{
-                $("button#registerButton").addClass("disabled");
-            }
-        });
-
-        
-
     </script>
 </main>

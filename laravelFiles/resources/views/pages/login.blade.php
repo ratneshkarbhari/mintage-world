@@ -40,10 +40,12 @@
                         </div>
                         <div class="form-group mb-3" style="position: relative">
                         <label for="login-password"><b>Password</b></label>
-                        <input type="password" name="password" id="login-password" class="form__input m-0" placeholder="">
-                        <a  id="showHidePassword" class="">
-                            <i class="fas fa-eye"></i>
-                        </a>
+                        <div class="d-block position-relative">
+                            <input type="password" name="password" id="login-password" class="form__input m-0" placeholder="" style="height: 46px">
+                            <a  id="showHidePassword" class="member-btn">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div> 
                         </div>
                         <span class="small text-end d-block w-100">
                         <a href="{{url("member/forgotpassword/")}}"> Forgot password?</a> </span>

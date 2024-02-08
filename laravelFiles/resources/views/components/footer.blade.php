@@ -106,29 +106,7 @@
                         <button type="button" class="btn" id="loginButton">Login</button>
                     </form>
                     @endif
-                    <script>
-                       $("button#loginButton").click(function (e) { 
-                            e.preventDefault();
-                            let username = $("input#login-username").val();
-                            let password = $("input#login-password").val();
-                            $.ajax({
-                                type: "POST",
-                                url: "{{url('member-login-exe')}}",
-                                data: {
-                                    "_token": "{{ csrf_token() }}",
-                                    "username" : username,
-                                    "password" : password
-                                },
-                                success: function (response) {
-                                    if (response=="login-success") {
-                                        location.reload();
-                                    }else{
-                                        $("p#loginError").html("Email or password is incorrect");
-                                    }
-                                }
-                            });
-                       });
-                    </script>
+                    
                     <p class="mb-4">Don't have an account? <a href="{{url("member/")}}">Register Here</a></p>
                 </div>
                 </div>

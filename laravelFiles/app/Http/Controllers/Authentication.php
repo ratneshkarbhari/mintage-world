@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use PDO;
+use App\Models\User;
+use App\Models\Admin;
 use App\Models\Member;
 use Illuminate\Http\Request;
-use App\Models\Admin;
-use App\Models\User;
+use App\Http\Controllers\Utils;
 use Illuminate\Support\Facades\Mail;
-use PDO;
+
 
 class Authentication extends Controller
 {
@@ -15,40 +17,9 @@ class Authentication extends Controller
     private $salt = 'DYhG93b0qyJfIxfs2guVoUubWwvni';
 
 
-    private function send_email_unverified($to,$toName,$subject,$message){
-
-        
-        $ch = curl_init();
-
-        curl_setopt($ch, CURLOPT_URL,"https://www.ultrasofttoys.com/public/mintage-email-api/send_email.php");
-        curl_setopt($ch, CURLOPT_POST, 1);
-        // curl_setopt($ch, CURLOPT_POSTFIELDS,
-        //             "postvar1=value1&postvar2=value2&postvar3=value3");
-
-        // In real life you should use something like:
-        curl_setopt($ch, CURLOPT_POSTFIELDS, 
-                    http_build_query([
-                    'recipient_email' => $to,
-                    'recipient_name' => $toName,
-                    'subject' => $subject,
-                    'message' => $message                    
-                ]));
-
-        // Receive server response ...
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $server_output = curl_exec($ch);
-
-
-        curl_close($ch);
-        
-        
-        return TRUE;
-
-
-    }
-
     function member_login(Request $request)
     {
+
 
         $memberModel = new Member();
 
@@ -62,24 +33,25 @@ class Authentication extends Controller
             if(!$memberData["email_verified"]){
 
 
-
                 $code = rand(1000,9999);
 
                 session([
-                    'email_to_verify' => $memberData["email"]
+                    'email_to_verify' => $memberData["email"],
+                    "verif_code" => $code
                 ]);
 
                 $passwordResetEmailBody = '
                 Enter this code : '.$code.' on Mintage World to verify email account';
 
-                $memberObj["verif_code"] = $code;
+                
+                $utils = new Utils();
 
-                $emailSendingResult = $this->send_email_unverified($memberData['email'],$memberData->first_name,"Email Verification",$passwordResetEmailBody);
+                
+                $emailSendingResult = $utils->send_email($memberData['email'],$memberData->first_name,"Email Verification",$passwordResetEmailBody);
         
         
-                if($emailSendingResult){
-                    return "redirect-to-email-verif";
-                }
+                return "redirect-to-email-verif";
+
         
 
                 
@@ -116,6 +88,7 @@ class Authentication extends Controller
             return "login-failed";
         }
     }
+
 
     function forgot_password_code_verify_set_password(Request $request){
 

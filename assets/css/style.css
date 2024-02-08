@@ -1679,7 +1679,8 @@ ul.sticky-footer-ul li a:hover {
 }
 @media screen and (max-width: 640px) {
   .login-form-content {
-    width: 90%;
+    width: 100%;
+    border: none;
   }
   .login-form-content .company__info {
     display: none;
@@ -3988,6 +3989,31 @@ input[type="password"] {
     min-height: 225px;
 }
 
+.tooltip-div {
+  position: absolute;
+  display: inline-block;
+  font-size: 7px;
+  right: -25px;
+  top: 13px;
+}
+.tooltip-div ul {
+  position: absolute;
+  z-index: 999;
+  background: #000;
+  color: #FFF;
+  font-size: 11px;
+  padding: 5px;
+  border-radius: 5px;
+  bottom: 40px;
+  right: -40%;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  width: 300px;
+}
+
+
+.tooltip-div:hover ul {visibility: visible;opacity: 1;}
 
 /* --------Responsive Media Css Start------------- */
 
@@ -4713,6 +4739,9 @@ small.icon-text {
 }
 .login-form-content form {
   padding: 0 15px;
+}
+.login-form-content form.registrationForm{
+  padding: 0 15px 0 0;
 }
 .noteg-list-wraper .info-item-grid-outer-box .info-item-grid-box img {
   min-height: 0px;

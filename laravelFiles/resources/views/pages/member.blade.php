@@ -33,21 +33,31 @@
                    <form action="{{url('registration-exe')}}" class="registrationForm" method="POST" class="form-group">
 
                    @csrf    
-                        <input type="text" id="first_name" class="form__input mb-2 mt-2" placeholder="John" name="first_name">
+                        <input type="text" id="first_name" class="form__input mb-2 mt-2" placeholder="First Name" name="first_name">
 
-                      <input type="text" id="last_name" class="form__input mb-2 mt-2" placeholder="Doe" name="last_name">
+                      <input type="text" id="last_name" class="form__input mb-2 mt-2" placeholder="Last Name" name="last_name">
                       <input type="text" id="email" class="form__input mb-2 mt-2" placeholder="Email ID" name="EmailID">
                       <input type="text" id="mobile_number" class="form__input mb-2 mt-2" placeholder="Mobile No" name="MobileNo">
                       <div class="d-block position-relative mb-2 mt-2 ">
-                        <input type="password" id="password" class="form__input m-0 passwordFields" placeholder="Password" name="password"  style="height: 46px">
+                        <input type="password" id="password" class="form__input m-0 passwordFields" placeholder="Password" name="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*_])(?=.{6,12}$)" style="height: 46px">
                         <a id="showPassword" class="member-btn">
                           <i class="fas fa-eye"></i>
-                      </a>
+                        </a>
+                        <div class="tooltip-div">
+                            <i class="fa fa-info-circle link-primary"> </i>
+                            <ul>
+                                <li>Must be between 6 to 12 character</li>
+                                <li>Must contain at least one character uppercase</li>
+                                <li>Must contain at least one character lowsercase</li>
+                                <li>Must contain at least one specaial character</li>
+                                <li>Must contain at least a number</li>
+                            </ul>
+                        </div>
                       </div>
 
                       
                       <div class="d-block position-relative mb-2 mt-2 ">
-                        <input type="password" id="confPassword" class="form__input passwordFields m-0" placeholder="Confirm Password" name="confPassword"  style="height: 46px">
+                        <input type="password" id="confPassword" class="form__input passwordFields m-0" placeholder="Confirm Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*_])(?=.{6,12}$)" name="confPassword"  style="height: 46px">
                         <a id="showConfPassword" class="member-btn">
                           <i class="fas fa-eye"></i>
                       </a>

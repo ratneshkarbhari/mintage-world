@@ -223,6 +223,13 @@ class Authentication extends Controller
                 exit;
             }
 
+            if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*_])(?=.{6,12}$)/", $request->password)) {
+                
+                $staticPageLoader->member("Please follow password pattern");
+
+            }
+
+
             $collectingArray = json_decode(json_encode($request->collecting), TRUE);
 
             $encryptedPassword = md5($this->salt . $request->password);

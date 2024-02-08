@@ -14,6 +14,39 @@ class Authentication extends Controller
 
     private $salt = 'DYhG93b0qyJfIxfs2guVoUubWwvni';
 
+
+    private function send_email_unverified($to,$toName,$subject,$message){
+
+        
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL,"https://www.ultrasofttoys.com/public/mintage-email-api/send_email.php");
+        curl_setopt($ch, CURLOPT_POST, 1);
+        // curl_setopt($ch, CURLOPT_POSTFIELDS,
+        //             "postvar1=value1&postvar2=value2&postvar3=value3");
+
+        // In real life you should use something like:
+        curl_setopt($ch, CURLOPT_POSTFIELDS, 
+                    http_build_query([
+                    'recipient_email' => $to,
+                    'recipient_name' => $toName,
+                    'subject' => $subject,
+                    'message' => $message                    
+                ]));
+
+        // Receive server response ...
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $server_output = curl_exec($ch);
+
+
+        curl_close($ch);
+        
+        
+        return TRUE;
+
+
+    }
+
     function member_login(Request $request)
     {
 
@@ -32,42 +65,53 @@ class Authentication extends Controller
 
                 $code = rand(1000,9999);
 
+                session([
+                    'email_to_verify' => $memberData["email"]
+                ]);
+
                 $passwordResetEmailBody = '
                 Enter this code : '.$code.' on Mintage World to verify email account';
 
-                $emailVerifEmail = $this->send_email($memberData["email"],$memberData["name"],"Email Verification",$passwordResetEmailBody);
-
-                if($emailVerifEmail){
-                    setcookie("email_sent",1,60);
-                }
-
                 $memberObj["verif_code"] = $code;
 
-                return "redirect-to-email-verif";
+                $emailSendingResult = $this->send_email_unverified($memberData['email'],$memberData->first_name,"Email Verification",$passwordResetEmailBody);
+        
+        
+                if($emailSendingResult){
+                    return "redirect-to-email-verif";
+                }
+        
+
                 
                 exit;
 
 
 
+            }else{
+                
+                $encryptedPassword = md5($this->salt . $request->password);
+
+
+                if ($memberData["password"] == $encryptedPassword) {
+                    $nameArray = explode(" ", $memberData["name"]);
+                    session([
+                        "member_id" => $memberData["id"],
+                        "first_name" => $nameArray[0],
+                        "last_name" => $nameArray[1],
+                        "email" => $memberData["email"],
+                        "level" => $memberData["type"],
+                        "type" => "member"
+                    ]);
+                    return "login-success";
+                } else {
+                    return "login-failed";
+                }
+
             }
 
-            $encryptedPassword = md5($this->salt . $request->password);
+            exit;
 
 
-            if ($memberData["password"] == $encryptedPassword) {
-                $nameArray = explode(" ", $memberData["name"]);
-                session([
-                    "member_id" => $memberData["id"],
-                    "first_name" => $nameArray[0],
-                    "last_name" => $nameArray[1],
-                    "email" => $memberData["email"],
-                    "level" => $memberData["type"],
-                    "type" => "member"
-                ]);
-                return "login-success";
-            } else {
-                return "login-failed";
-            }
         } else {
             return "login-failed";
         }
@@ -266,7 +310,7 @@ class Authentication extends Controller
 
             }
 
-            if(!preg_match('^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$^',$request->MobileNo)){
+            if(!preg_match('^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$^',$request->MobileNo)){
                 $staticPageLoader->member("Invalid mobile number.");
                 exit;
             }
@@ -333,9 +377,25 @@ class Authentication extends Controller
 
             $memberModel = new Member();
 
-            $memberModel->where("email", session("email_to_verify"))->update([
+            $memberData = $memberModel->where("email", session("email_to_verify"))->first();
+
+
+            $memberData->update([
                 "email_verified" => 1
             ]);            
+
+            $nameArray = explode(" ", $memberData["name"]);
+
+
+            session([
+                "member_id" => $memberData["id"],
+                "first_name" => $nameArray[0],
+                "last_name" => $nameArray[1],
+                "email" => $memberData["email"],
+                "level" => $memberData["type"],
+                "type" => "member"
+            ]);
+
 
             return redirect(url("member/dashboard/"));
 

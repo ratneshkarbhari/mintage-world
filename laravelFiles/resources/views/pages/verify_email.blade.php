@@ -44,7 +44,7 @@
             
             </div>
     </section>
-    <script>
+    <!-- <script>
         let showPasswordIcon = '<i class="fas fa-eye"></i>'
         let hidePasswordIcon = '<i class="fas fa-eye-slash"></i>'
         $("i.fas.fa-eye,button#showHidePassword").click(function (e) { 
@@ -68,5 +68,5 @@
 
         
 
-    </script>
+    </script> -->
 </main>

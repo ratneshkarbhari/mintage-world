@@ -58,33 +58,7 @@
                 </div>
         </div>
     </section>
-    <script>
-        $("button#loginButton").click(function (e) { 
-            e.preventDefault();
-
-            
-            
-            $.ajax({
-                type: "POST",
-                url: '{{url("member-login-exe")}}',
-                data: {
-                    "_token": "{{ csrf_token() }}",
-
-                    "username" : $("input#login-username").val(),
-                    "password" : $("input#login-password").val()
-                },
-                success: function (response) {
-                    if (response=="login-success") {
-                        location.reload();
-                    }else if(response=="redirect-to-email-verif"){
-                        window.location.replace("{{url('verify-email-page')}}");
-                    }else{
-                        $("p#loginError").html("Email or password is incorrect");
-                    }
-                }
-            });
-        });
-    </script>
+    
     <script>
     let showPasswordIcon = '<i class="fas fa-eye"></i>'
     let hidePasswordIcon = '<i class="fas fa-eye-slash"></i>'

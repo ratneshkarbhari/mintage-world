@@ -17,19 +17,20 @@ class Authentication extends Controller
     private $salt = 'DYhG93b0qyJfIxfs2guVoUubWwvni';
 
 
-    function set_new_password(Request $request) {
-        
+    function set_new_password(Request $request)
+    {
+
         $memberData = Member::find(session("member_id"));
-        
+
         $staticPageLoader = new StaticPages();
         if ($memberData) {
-            
+
             if ($request->password != $request->confPassword) {
 
                 $staticPageLoader->forgotpassword("Passwords dont match");
             } else {
 
-                if (preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*_])(?=.{6,12}$)/", $request->password)) {
+                if (preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/", $request->password)) {
 
                     $encryptedPassword = md5($this->salt . $request->password);
 
@@ -46,13 +47,9 @@ class Authentication extends Controller
             }
 
             exit;
-            
-
         } else {
             return redirect()->to(url("/"));
         }
-        
-
     }
 
     function member_login(Request $request)
@@ -129,10 +126,10 @@ class Authentication extends Controller
         $new_password = $request->new_password;
         $new_password_conf = $request->new_password_conf;
 
-       
+
         $sessionSavedCode = session('password_reset_code');
 
-    
+
 
         $staticPageLoader = new StaticPages();
 
@@ -144,7 +141,7 @@ class Authentication extends Controller
                     $staticPageLoader->forgotpassword("Passwords dont match");
                 } else {
 
-                    if (preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*_])(?=.{6,12}$)/", $new_password)) {
+                    if (preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/", $new_password)) {
 
                         $encryptedPassword = md5($this->salt . $new_password);
 
@@ -164,7 +161,7 @@ class Authentication extends Controller
             }
         } else {
 
-            
+
 
             $staticPageLoader->forgotpassword("Verification code incorrect");
         }
@@ -198,13 +195,10 @@ class Authentication extends Controller
             $pwdResetEmailSent = $utils->send_email($memberExists["email"], $memberExists["name"], "Password reset code", $passwordResetEmailBody);
 
             if ($pwdResetEmailSent) {
-                
+
                 return redirect()->to(url("password-reset-code-verify"));
-                
             }
             exit;
-
-            
         } else {
             $staticPageLoader->forgotpassword("A user with this email does not exist");
         }
@@ -276,10 +270,10 @@ class Authentication extends Controller
                 exit;
             }
 
-            if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*_])(?=.{6,12}$)/", $request->password)) {
-                
-                $staticPageLoader->member("Please follow password pattern");
+            if (!preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/', $request->password)) {
 
+                $staticPageLoader->member("Please follow password pattern");
+                exit;
             }
 
 
@@ -332,7 +326,9 @@ class Authentication extends Controller
                 $message = '<p>This is your email verification code : ' . $code . '</p>
                 <p>Enter it on Mintage World to verify your account.</p>';
 
-                $emailSendingResult = $this->send_email($email, $request->first_name, "Email Verification", $message);
+                $utils = new Utils();
+
+                $emailSendingResult = $utils->send_email($email, $request->first_name, "Email Verification", $message);
 
 
                 if (!$emailSendingResult) {

@@ -105,8 +105,9 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get('application/login', [StaticPages::class, 'login']);
     Route::get('member/forgotpassword/', [StaticPages::class, 'forgotpassword']);
 
-    Route::group(['middleware'=>['check_member_auth']],function(){
-        Route::get('member', [StaticPages::class, 'member']);
+    Route::get('member', [StaticPages::class, 'member']);
+
+    Route::group(['middleware' => ['check_member_auth']], function () {
         Route::get('member/upgrademembership', [StaticPages::class, 'upgrademembership']);
         Route::get('member/dashboard/', [StaticPages::class, 'dashboard']);
         Route::get('member/change-password/', [StaticPages::class, 'change_password']);
@@ -117,7 +118,7 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get('media/detail/{slug}', [StaticPages::class, 'media_detail']);
     Route::get('media-coverage/', [StaticPages::class, 'media_coverage']);
 
-    Route::get("password-reset-code-verify",[StaticPages::class,'pwd_reset_code_verify']);
+    Route::get("password-reset-code-verify", [StaticPages::class, 'pwd_reset_code_verify']);
 
     Route::get('knowledge-base/', [StaticPages::class, 'knowledge_base']);
     Route::get('knowledge-base/know-your-coins/', [StaticPages::class, 'know_your_coins']);
@@ -144,14 +145,14 @@ Route::group(['middleware' => ['slashes']], function () {
 });
 
 
-Route::post("set-new-password",[Authentication::class,'set_new_password']);
+Route::post("set-new-password", [Authentication::class, 'set_new_password']);
 
-Route::post("update-member-address",[CartActions::class,'update_member_address']);
-Route::post("update-additional-address",[CartActions::class,'update_additional_address']);
+Route::post("update-member-address", [CartActions::class, 'update_member_address']);
+Route::post("update-additional-address", [CartActions::class, 'update_additional_address']);
 
 Route::get('event/', [StaticPages::class, 'event']);
 
-Route::post("delete-address-exe",[CartActions::class,'delete_address']);
+Route::post("delete-address-exe", [CartActions::class, 'delete_address']);
 
 Route::post('create-new-period', [Periods::class, 'create']);
 
@@ -312,7 +313,7 @@ Route::post("registration-exe", [Authentication::class, 'registration']);
 
 Route::post("verify-email-exe", [Authentication::class, 'verify_email']);
 
-Route::get("verify-email-page",[StaticPages::class,'verify_email_page']);
+Route::get("verify-email-page", [StaticPages::class, 'verify_email_page']);
 
 Route::post("check-note-availability", [Shopping::class, 'check_note_availability']);
 Route::get('story/', [StaticPages::class, 'story']);

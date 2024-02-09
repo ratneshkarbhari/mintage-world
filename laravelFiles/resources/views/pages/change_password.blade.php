@@ -42,19 +42,19 @@
                         <p id="successMessage" class="text-success">{{$successMessage}}</p>
                     </div>
                     <form  action="{{url('set-new-password')}}" method="post">
-
+                        @csrf
                         <div class="row my-profile-wrap">
                             <div class="col-md-6 mb-3">
                                 <label for="" class="w-100 mb-2">Change New Password</label>
                                 <div class="d-block position-relative mb-2 mt-2 ">
-                                    <input required type="password" id="TxtPwd" class="form__input m-0 passwordFields form-control" placeholder="" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*_])(?=.{6,12}$)" style="height: 46px">
+                                    <input required type="password" id="NewPassword" name="password"  class="form__input passwordFields m-0 form-control" placeholder=""  style="height: 46px">
                                     <a id="showPassword" class="member-btn">
                                         <i class="fas fa-eye"></i>
                                     </a>
                                     <div class="tooltip-div">
                                         <i class="fa fa-info-circle link-primary"> </i>
                                         <ul>
-                                            <li>Must be between 6 to 12 character</li>
+                                            <li>Must be 8 character</li>
                                             <li>Must contain at least one character uppercase</li>
                                             <li>Must contain at least one character lowsercase</li>
                                             <li>Must contain at least one specaial character</li>
@@ -68,7 +68,7 @@
                                     <label for="" class="w-100 mb-2">Confirm New Password</label>
 
                                     <div class="d-block position-relative mb-2 mt-2 ">
-                                        <input required type="password" id="TxtConfPwd" class="form__input passwordFields m-0 form-control" placeholder="" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*_])(?=.{6,12}$)" name="confPassword" style="height: 46px">
+                                        <input required type="password" id="confPassword" name="confPassword" class="form__input passwordFields m-0 form-control" placeholder=""   style="height: 46px">
                                         <a id="showConfPassword" class="member-btn">
                                             <i class="fas fa-eye"></i>
                                         </a>
@@ -77,7 +77,7 @@
                                 <div class="divider w-100 mb-3"></div>
                                 <p id="alertPassword"></p>
 
-                                <button type="button" class="btn btn-sm btn-explore">
+                                <button type="submit" class="btn btn-sm btn-explore">
                                     Update Password
                                     <span class="first"></span>
                                     <span class="second"></span>
@@ -125,42 +125,43 @@
         //    }
         // });
     </script>
-    <script>
-        let showPasswordIcon = '<i class="fas fa-eye"></i>'
-        let hidePasswordIcon = '<i class="fas fa-eye-slash"></i>'
-        $("#showPassword").click(function(e) {
-            e.preventDefault();
-            if ($("input#TxtPwd").attr("type") == "password") {
-                $("input#TxtPwd").attr("type", "text");
-                $(this).html('')
-                $(this).html(hidePasswordIcon)
-            } else {
-                $("input#TxtPwd").attr("type", "password");
-                $(this).html('')
-                $(this).html(showPasswordIcon)
-            }
-        });
+   <script>
+    let showPasswordIcon = '<i class="fas fa-eye"></i>'
+    let hidePasswordIcon = '<i class="fas fa-eye-slash"></i>'
+        $("#showPassword").click(function (e) { 
+        e.preventDefault();
+       if ($("input#password").attr("type")=="password") {
+            $("input#password").attr("type","text");
+            $(this).html('')
+            $(this).html(hidePasswordIcon)
+       } else {
+            $("input#password").attr("type","password");
+            $(this).html('')
+            $(this).html(showPasswordIcon)
+       }
+    });
 
-        $("#showConfPassword").click(function(e) {
-            e.preventDefault();
-            if ($("input#TxtConfPwd").attr("type") == "password") {
-                $("input#TxtConfPwd").attr("type", "text");
-                $(this).html('')
-                $(this).html(hidePasswordIcon)
-            } else {
-                $("input#TxtConfPwd").attr("type", "password");
-                $(this).html('')
-                $(this).html(showPasswordIcon)
-            }
-        });
-        $(".passwordFields").change(function(e) {
-            e.preventDefault();
-            if ($("input#password").val() == $("input#confPassword").val()) {
-                $("button#registerButton").removeClass("disabled");
-            } else {
-                $("button#registerButton").addClass("disabled");
-            }
-        });
-    </script>
+    $("#showConfPassword").click(function (e) { 
+        e.preventDefault();
+       if ($("input#confPassword").attr("type")=="password") {
+            $("input#confPassword").attr("type","text");
+            $(this).html('')
+            $(this).html(hidePasswordIcon)
+       } else {
+            $("input#confPassword").attr("type","password");
+            $(this).html('')
+            $(this).html(showPasswordIcon)
+       }
+    });
+    $(".passwordFields").change(function (e) { 
+        e.preventDefault();
+        if($("input#password").val()==$("input#confPassword").val()){
+            $("button#registerButton").removeClass("disabled");
+        }else{
+            $("button#registerButton").addClass("disabled");
+        }
+    });
+
+</script>
 
 </main>

@@ -43,14 +43,38 @@
                 <div class="row my-profile-wrap">
                     <div class="col-md-6 mb-3">
                        <label for="" class="w-100 mb-2">Change New Password</label>
-                       <input type="Password" name="" id="TxtPwd" value="" class="form-control" onkeyup='check()' required>
+                       <div class="d-block position-relative mb-2 mt-2 ">
+                        <input type="password" id="TxtPwd" class="form__input m-0 passwordFields form-control" placeholder="" name="password"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*_])(?=.{6,12}$)" style="height: 46px">
+                        <a id="showPassword" class="member-btn">
+                          <i class="fas fa-eye"></i>
+                        </a>
+                        <div class="tooltip-div">
+                            <i class="fa fa-info-circle link-primary"> </i>
+                            <ul>
+                                <li>Must be between 6 to 12 character</li>
+                                <li>Must contain at least one character uppercase</li>
+                                <li>Must contain at least one character lowsercase</li>
+                                <li>Must contain at least one specaial character</li>
+                                <li>Must contain at least a number</li>
+                            </ul>
+                        </div>
+                      </div>
+
+                       {{-- <input type="Password" name="" id="TxtPwd" value="" class="form-control" onkeyup='check()' required> --}}
                        <div class="divider w-100 mb-3"></div>
                        <div class="form-group" style="position: relative">
                        <label for="" class="w-100 mb-2">Confirm New Password</label>                        
-                       <input type="Password" name="" id="TxtConfPwd" value="" class="form-control" onkeyup='check()' required>   
+                          
+                       <div class="d-block position-relative mb-2 mt-2 ">
+                        <input type="password" id="TxtConfPwd" class="form__input passwordFields m-0 form-control" placeholder="" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*_])(?=.{6,12}$)" name="confPassword"  style="height: 46px">
+                        <a id="showConfPassword" class="member-btn">
+                          <i class="fas fa-eye"></i>
+                      </a>
+                      </div>
+                      {{-- <input type="Password" name="" id="TxtConfPwd" value="" class="form-control" onkeyup='check()' required>
                        <button style="position: absolute;top: 45%; right: 0%;" id="showHidePassword" class="btn">
                         <i class="fas fa-eye"></i>
-                        </button>
+                        </button> --}}
                     </div>
                        <div class="divider w-100 mb-3"></div>      
                        <p id="alertPassword"></p>
@@ -88,9 +112,38 @@
         alertPassword.innerHTML = '<span><i class="fas fa-exclamation-triangle"></i> Confirm Password Not Matching</span>';
       }
   }
+    // let showPasswordIcon = '<i class="fas fa-eye"></i>'
+    // let hidePasswordIcon = '<i class="fas fa-eye-slash"></i>'
+    // $("button#showHidePassword").click(function (e) { 
+    //     e.preventDefault();
+    //    if ($("input#TxtConfPwd").attr("type")=="password") {
+    //         $("input#TxtConfPwd").attr("type","text");
+    //         $(this).html('')
+    //         $(this).html(hidePasswordIcon)
+    //    } else {
+    //         $("input#TxtConfPwd").attr("type","password");
+    //         $(this).html('')
+    //         $(this).html(showPasswordIcon)
+    //    }
+    // });
+    </script>
+<script>
     let showPasswordIcon = '<i class="fas fa-eye"></i>'
     let hidePasswordIcon = '<i class="fas fa-eye-slash"></i>'
-    $("button#showHidePassword").click(function (e) { 
+        $("#showPassword").click(function (e) { 
+        e.preventDefault();
+       if ($("input#TxtPwd").attr("type")=="password") {
+            $("input#TxtPwd").attr("type","text");
+            $(this).html('')
+            $(this).html(hidePasswordIcon)
+       } else {
+            $("input#TxtPwd").attr("type","password");
+            $(this).html('')
+            $(this).html(showPasswordIcon)
+       }
+    });
+
+    $("#showConfPassword").click(function (e) { 
         e.preventDefault();
        if ($("input#TxtConfPwd").attr("type")=="password") {
             $("input#TxtConfPwd").attr("type","text");
@@ -102,7 +155,15 @@
             $(this).html(showPasswordIcon)
        }
     });
-    </script>
+    $(".passwordFields").change(function (e) { 
+        e.preventDefault();
+        if($("input#password").val()==$("input#confPassword").val()){
+            $("button#registerButton").removeClass("disabled");
+        }else{
+            $("button#registerButton").addClass("disabled");
+        }
+    });
 
+</script>
 
 </main>

@@ -103,12 +103,17 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get('content/courtesy/', [StaticPages::class, 'courtesy']);
     Route::get('contact/', [StaticPages::class, 'contact_us']);
     Route::get('application/login', [StaticPages::class, 'login']);
-    Route::get('member', [StaticPages::class, 'member']);
-    Route::get('member/forgotpassword/', [StaticPages::class, 'forgotpassword']);
-    Route::get('member/upgrademembership', [StaticPages::class, 'upgrademembership']);
-    Route::get('member/dashboard/', [StaticPages::class, 'dashboard']);
-    Route::get('member/change-password/', [StaticPages::class, 'change_password']);
-    Route::get('member/myorders/', [StaticPages::class, 'myorders']);
+    
+    Route::group(['middleware'=>['check_member_auth']],function(){
+        Route::get('member', [StaticPages::class, 'member']);
+        Route::get('member/forgotpassword/', [StaticPages::class, 'forgotpassword']);
+        Route::get('member/upgrademembership', [StaticPages::class, 'upgrademembership']);
+        Route::get('member/dashboard/', [StaticPages::class, 'dashboard']);
+        Route::get('member/change-password/', [StaticPages::class, 'change_password']);
+        Route::get('member/myorders/', [StaticPages::class, 'myorders']);
+        Route::get('member/membership-detail', [StaticPages::class, 'membership_detail']);
+    });
+
     Route::get('media/detail/{slug}', [StaticPages::class, 'media_detail']);
     Route::get('media-coverage/', [StaticPages::class, 'media_coverage']);
 
@@ -283,7 +288,6 @@ Route::post("recalculate-subtotal", [CartActions::class, 'recalculate_subtotal']
 Route::post("apply-coupon-exe", [Coupons::class, 'apply_exe']);
 
 Route::get('upgrade-membership', [StaticPages::class, 'upgrademembership']);
-Route::get('member/membership-detail', [StaticPages::class, 'membership_detail']);
 Route::post("upgrade-membership-to-premium", [Members::class, 'upgrade_to_premium']);
 
 Route::get("history-download/{historyId}", [Histories::class, 'download_exe']);

@@ -58,7 +58,7 @@
                         </div>
 
                         <span class="small text-end d-block w-100"> 
-                        <button type="submit" class="btn">Verify Code</button>
+                        <button type="submit" id="pwdSubmit" class="btn">Submit</button>
                     </form>
                     <p class="text-danger text-center" id="loginError"></p>                   
                     <p class="mb-4 text-center">Don't have an account? <a href="{{url('member/')}}">Register Here</a></p>
@@ -97,10 +97,10 @@
         });
         $(".passwordFields").change(function (e) { 
             e.preventDefault();
-            if($("input#password").val()==$("input#confPassword").val()){
-                $("button#registerButton").removeClass("disabled");
+            if($("input#NewPassword").val()==$("input#confPassword").val()){
+                $("button#pwdSubmit").removeClass("disabled");
             }else{
-                $("button#registerButton").addClass("disabled");
+                $("button#pwdSubmit").addClass("disabled");
             }
         });
 

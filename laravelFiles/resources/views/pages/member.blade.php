@@ -130,7 +130,7 @@
         });
         $(".passwordFields").change(function (e) { 
             e.preventDefault();
-            if($("input#password").val()==$("input#confPassword").val()){
+            if($("input#NewPassword").val()==$("input#confPassword").val()){
                 $("button#registerButton").removeClass("disabled");
             }else{
                 $("button#registerButton").addClass("disabled");

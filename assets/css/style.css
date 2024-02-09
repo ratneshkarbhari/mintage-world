@@ -3982,6 +3982,7 @@ iframe.you-tube-video {
  
 input#login-password,#admin-login-password {
   padding-right: 40px;
+  font-size: 16px;
 }
 input[type="password"]::placeholder, input[type="password"]::-webkit-input-placeholder {
   font-family:"Montserrat", sans-serif;

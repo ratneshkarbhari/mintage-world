@@ -77,7 +77,7 @@
                                 <div class="divider w-100 mb-3"></div>
                                 <p id="alertPassword"></p>
 
-                                <button type="submit" id="UpdateButton"  class="btn btn-sm btn-explore">
+                                <button type="submit" id="UpdateButton"  class="btn btn-sm btn-explore disabled">
                                     Update Password
                                     <span class="first"></span>
                                     <span class="second"></span>
@@ -156,9 +156,9 @@
     $(".passwordFields").change(function (e) { 
         e.preventDefault();
         if($("input#NewPassword").val()==$("input#confPassword").val()){
-            $("button#registerButton").removeClass("disabled");
+            $("button#UpdateButton").removeClass("disabled");
         }else{
-            $("button#registerButton").addClass("disabled");
+            $("button#UpdateButton").addClass("disabled");
         }
     });
 

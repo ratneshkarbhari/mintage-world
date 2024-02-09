@@ -261,6 +261,7 @@ class Authentication extends Controller
         if ($userWithEmail) {
 
             $staticPageLoader->member("A member with this email already exists");
+            exit;
         } else {
 
             if ($request->password != $request->confPassword) {
@@ -326,7 +327,10 @@ class Authentication extends Controller
                 $message = '<p>This is your email verification code : ' . $code . '</p>
                 <p>Enter it on Mintage World to verify your account.</p>';
 
+                session(["email_to_verify"=>$email]);
+
                 $utils = new Utils();
+                
 
                 $emailSendingResult = $utils->send_email($email, $request->first_name, "Email Verification", $message);
 

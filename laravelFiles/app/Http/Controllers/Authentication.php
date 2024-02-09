@@ -17,6 +17,44 @@ class Authentication extends Controller
     private $salt = 'DYhG93b0qyJfIxfs2guVoUubWwvni';
 
 
+    function set_new_password(Request $request) {
+        
+        $memberData = Member::find(session("member_id"));
+        
+        $staticPageLoader = new StaticPages();
+        if ($memberData) {
+            
+            if ($request->password != $request->confPassword) {
+
+                $staticPageLoader->forgotpassword("Passwords dont match");
+            } else {
+
+                if (preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*_])(?=.{6,12}$)/", $request->password)) {
+
+                    $encryptedPassword = md5($this->salt . $request->password);
+
+
+                    Member::where("email", session("pwd_reset_email"))->update([
+                        "password" => $encryptedPassword
+                    ]);
+
+                    $staticPageLoader->change_password("Password changed");
+                } else {
+
+                    $staticPageLoader->forgotpassword("Password strength not enough");
+                }
+            }
+
+            exit;
+            
+
+        } else {
+            return redirect()->to(url("/"));
+        }
+        
+
+    }
+
     function member_login(Request $request)
     {
 

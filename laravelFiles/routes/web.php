@@ -103,10 +103,10 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get('content/courtesy/', [StaticPages::class, 'courtesy']);
     Route::get('contact/', [StaticPages::class, 'contact_us']);
     Route::get('application/login', [StaticPages::class, 'login']);
-    
+    Route::get('member/forgotpassword/', [StaticPages::class, 'forgotpassword']);
+
     Route::group(['middleware'=>['check_member_auth']],function(){
         Route::get('member', [StaticPages::class, 'member']);
-        Route::get('member/forgotpassword/', [StaticPages::class, 'forgotpassword']);
         Route::get('member/upgrademembership', [StaticPages::class, 'upgrademembership']);
         Route::get('member/dashboard/', [StaticPages::class, 'dashboard']);
         Route::get('member/change-password/', [StaticPages::class, 'change_password']);
@@ -142,6 +142,9 @@ Route::group(['middleware' => ['slashes']], function () {
 
     // Universal search
 });
+
+
+Route::post("set-new-password",[Authentication::class,'set_new_password']);
 
 Route::post("update-member-address",[CartActions::class,'update_member_address']);
 Route::post("update-additional-address",[CartActions::class,'update_additional_address']);

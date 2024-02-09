@@ -166,6 +166,10 @@ class StaticPages extends Controller
 
     function forgotpassword($error='')
     {
+        $memberId = session("member_id");
+        if(isset($memberId)){
+            return redirect()->to(url('/'));
+        }
         $this->page_loader("forgotpassword", [
             "title" => "Forgot Password | Mintage World",
             "error" => $error
@@ -299,10 +303,12 @@ class StaticPages extends Controller
         return view("payment_successful");
     }
 
-    function change_password()
+    function change_password($errorMessage="",$successMessage="")
     {
         $this->page_loader("change_password", [
-            "title" => "Change Password | Mintage World"
+            "title" => "Change Password | Mintage World",
+            "errorMessage" => $errorMessage,
+            "successMessage" => $successMessage
         ]);
     }
     function myorders()

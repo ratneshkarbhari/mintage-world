@@ -112,6 +112,7 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get('media/detail/{slug}', [StaticPages::class, 'media_detail']);
     Route::get('media-coverage/', [StaticPages::class, 'media_coverage']);
 
+    Route::get("password-reset-code-verify",[StaticPages::class,'pwd_reset_code_verify']);
 
     Route::get('knowledge-base/', [StaticPages::class, 'knowledge_base']);
     Route::get('knowledge-base/know-your-coins/', [StaticPages::class, 'know_your_coins']);

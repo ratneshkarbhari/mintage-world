@@ -91,7 +91,10 @@ class Authentication extends Controller
         $new_password = $request->new_password;
         $new_password_conf = $request->new_password_conf;
 
+       
         $sessionSavedCode = session('password_reset_code');
+
+    
 
         $staticPageLoader = new StaticPages();
 
@@ -122,6 +125,9 @@ class Authentication extends Controller
                 $staticPageLoader->forgotpassword("Invalid Email");
             }
         } else {
+
+            
+
             $staticPageLoader->forgotpassword("Verification code incorrect");
         }
 
@@ -149,9 +155,18 @@ class Authentication extends Controller
                 Enter this code : ' . $code . ' on Mintage World to verify email
             ';
 
-            $pwdResetEmailSent = $this->send_email($memberExists["email"], $memberExists["name"], "Email verification code", $passwordResetEmailBody);
+            $utils = new Utils();
 
-            return "redirect-to-email-verif";
+            $pwdResetEmailSent = $utils->send_email($memberExists["email"], $memberExists["name"], "Password reset code", $passwordResetEmailBody);
+
+            if ($pwdResetEmailSent) {
+                
+                return redirect()->to(url("password-reset-code-verify"));
+                
+            }
+            exit;
+
+            
         } else {
             $staticPageLoader->forgotpassword("A user with this email does not exist");
         }
@@ -222,6 +237,13 @@ class Authentication extends Controller
 
                 exit;
             }
+
+            if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*_])(?=.{6,12}$)/", $request->password)) {
+                
+                $staticPageLoader->member("Please follow password pattern");
+
+            }
+
 
             $collectingArray = json_decode(json_encode($request->collecting), TRUE);
 

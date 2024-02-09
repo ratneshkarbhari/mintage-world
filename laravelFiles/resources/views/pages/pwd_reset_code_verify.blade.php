@@ -72,12 +72,12 @@
         let hidePasswordIcon = '<i class="fas fa-eye-slash"></i>'
             $("#showPassword").click(function (e) { 
             e.preventDefault();
-           if ($("input#password").attr("type")=="password") {
-                $("input#password").attr("type","text");
+           if ($("input#NewPassword").attr("type")=="password") {
+                $("input#NewPassword").attr("type","text");
                 $(this).html('')
                 $(this).html(hidePasswordIcon)
            } else {
-                $("input#password").attr("type","password");
+                $("input#NewPassword").attr("type","password");
                 $(this).html('')
                 $(this).html(showPasswordIcon)
            }
@@ -98,9 +98,9 @@
         $(".passwordFields").change(function (e) { 
             e.preventDefault();
             if($("input#NewPassword").val()==$("input#confPassword").val()){
-                $("button#pwdSubmit").removeClass("disabled");
+                $("button#registerButton").removeClass("disabled");
             }else{
-                $("button#pwdSubmit").addClass("disabled");
+                $("button#registerButton").addClass("disabled");
             }
         });
 

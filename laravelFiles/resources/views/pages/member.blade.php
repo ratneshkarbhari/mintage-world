@@ -32,7 +32,7 @@
                 <div class="col-md-8 col-xs-12 col-sm-12 login_form "> 
                    <form action="{{url('registration-exe')}}" class="registrationForm" method="POST" class="form-group">
 
-                   @csrf    
+                        @csrf    
                         <input type="text" id="first_name" class="form__input mb-2 mt-2" placeholder="First Name" name="first_name">
 
                       <input type="text" id="last_name" class="form__input mb-2 mt-2" placeholder="Last Name" name="last_name">
@@ -105,12 +105,12 @@
         let hidePasswordIcon = '<i class="fas fa-eye-slash"></i>'
             $("#showPassword").click(function (e) { 
             e.preventDefault();
-           if ($("input#password").attr("type")=="password") {
-                $("input#password").attr("type","text");
+           if ($("input#NewPassword").attr("type")=="password") {
+                $("input#NewPassword").attr("type","text");
                 $(this).html('')
                 $(this).html(hidePasswordIcon)
            } else {
-                $("input#password").attr("type","password");
+                $("input#NewPassword").attr("type","password");
                 $(this).html('')
                 $(this).html(showPasswordIcon)
            }

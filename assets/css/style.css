@@ -3617,6 +3617,9 @@ span.cart-item-amount {
   border: none;  
   color: #e19726;
 }
+.my-profile-wrap .member-btn {
+  font-size: 18px;
+}
 .box1 {
   border: 1px solid #939598;
   padding: 10px;
@@ -3980,10 +3983,18 @@ iframe.you-tube-video {
 input#login-password,#admin-login-password {
   padding-right: 40px;
 }
-input[type="password"] {
-  font: large Verdana,sans-serif;
-  letter-spacing: 1px;
+input[type="password"]::placeholder, input[type="password"]::-webkit-input-placeholder {
+  font-family:"Montserrat", sans-serif;
+  letter-spacing: unset;
+  font-size: 16px;
 }
+input[type="password"] {
+  font-family: large Verdana,sans-serif;
+  letter-spacing: 1px;
+  font-size: 30px;
+}
+
+
 
 .noteg-list-wraper .info-item-grid-outer-box .info-item-grid-box img {
     min-height: 225px;
@@ -4014,6 +4025,9 @@ input[type="password"] {
 
 
 .tooltip-div:hover ul {visibility: visible;opacity: 1;}
+.my-profile-wrap .tooltip-div{
+  font-size: 18px;
+}
 
 /* --------Responsive Media Css Start------------- */
 

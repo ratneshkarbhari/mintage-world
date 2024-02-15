@@ -33,6 +33,7 @@ use App\Http\Controllers\ShoppingCategories;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::post("update-profile-exe",[Members::class,'update_profile']);
 
 
 Route::group(['middleware' => ['slashes']], function () {

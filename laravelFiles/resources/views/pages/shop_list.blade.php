@@ -260,7 +260,7 @@
             <div class="pagination-container">
 
                <p>{{$pagination_string}}</p>
-               {!! $category_products->links() !!}
+               {!! $category_products->withQueryString()->links() !!}
 
             </div>
          </div>

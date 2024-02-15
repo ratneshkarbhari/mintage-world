@@ -121,14 +121,13 @@ class Shopping extends Controller
 
         }
 
-        $products = $productsQuery->paginate(12);
+        $categoryProducts = $productsQuery->paginate(12)->withQueryString();
         
 
         $maincatdata = ProductCategory::find($categorySlugParts[0]);
 
         $parent_category = ProductCategory::find($maincatdata["parent"]);
 
-        $categoryProducts = $products;
 
         $total = $categoryProducts->total();
         

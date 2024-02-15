@@ -39,4 +39,35 @@ class Members extends Controller
 
     }
 
+    function update_profile(Request $request) {
+        
+        $nameParts = explode(" ",$request->full_name);
+
+        $profileUpdateObj = [
+
+            "name" => $request->full_name,
+            "first_name" => $nameParts[0],
+            "last_name" => $nameParts[1],
+            "country_id" => $request->country,
+            "state_id" => $request->state,
+            "mobile" => $request->mobile_number,
+            "city" => $request->city,
+            "pincode" => $request->pincode,
+            "address" => $request->address
+
+
+        ];
+
+
+
+        $memberData = Member::find(session("member_id"));
+
+        if($memberData->update($profileUpdateObj)){
+            return "success";
+        }else{
+            return "failure";
+        }
+
+    }
+
 }

@@ -66,7 +66,7 @@
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
             <h2 class="mb-3 heading-1">Buy Lighthouse Products</h2>
-            <a href="{{url("/shop/list/23-books/")}}" class="view-all">More <i class="fa fa-angle-right"></i></a>
+            <a href="{{url("/shop/list/11-coin-accessories/")}}" class="view-all">More <i class="fa fa-angle-right"></i></a>
         </div>
         <div class="owl-carousel product-carousel-home  position-relative">
                   

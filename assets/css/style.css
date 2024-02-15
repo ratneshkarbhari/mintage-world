@@ -3611,7 +3611,7 @@ span.cart-item-amount {
 
 #showHidePassword, .member-btn {
   position: absolute;
-  bottom: 10px;
+  top: 14px;
   right: 10px;
   font-size: 7px;
   border: none;  

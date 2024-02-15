@@ -25,12 +25,17 @@ use App\Models\Product;
                 <h2 class="mb-3 heading-1" id="cartCount">SHOPPING CART (<span id="cartCountFigure">{{count($cart_items)}}</span>)</h2>
             </div>
 
-            <div id="emptyCartDiv" class="container d-none">
-                <h1>Your cart is empty. <a href="{{url('shop')}}">Find what you love</a>
-            </div>
+            
 
             <div class="cart row">
                 <div class="basket col-lg-8 col-md-7 col-12">
+                    <div id="emptyCartDiv" class="container d-none text-center mt-5">
+                        <img src="{{url('assets/img/cart-icon.png')}}" style="width: 150px;" class="img-fluid mb-4 mr-3">
+                        <h3><strong>Your Cart is Empty</strong></h3>
+                        <h6>Find what you Love :)</h6>
+                        <a href="{{url('shop')}}" class="btn btn-explore mt-3">Continue Shopping <span class="first"></span><span class="second"></span><span class="third"></span><span class="fourth"></span></a>
+                                               
+                    </div>
                     @if (empty($cart_items))                    
                         <h1>No Items in Cart</h1>
                     @else
@@ -140,8 +145,8 @@ use App\Models\Product;
         </div>
     </section>
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
-        <div id="liveToast " class="toast hide bg-danger text-white add-to-cart-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
-          <div class="toast-header bg-danger text-white">         
+        <div id="liveToast " class="toast hide bg-success text-white add-to-cart-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header bg-success text-white">            
             <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
             <small>Just Now</small>
             {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}

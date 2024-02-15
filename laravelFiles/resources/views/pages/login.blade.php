@@ -35,7 +35,7 @@
                     <form action="{{url('member-login-exe')}}" id="memberLoginForm" method="POST">                        
                         @csrf
                         <div class="form-group mb-3 mt-5">
-                        <label for="login-username"><b>Username</b></label>
+                        <label for="login-username"><b>Email ID</b></label>
                         <input type="text" name="username" id="login-username" class="form__input m-0" placeholder="">
                         </div>
                         <div class="form-group mb-3" style="position: relative">

@@ -137,8 +137,18 @@ class Shopping extends Controller
         $from = ($currentPage - 1) * $perPage + 1;
         $to = min($currentPage * $perPage, $total);
 
+        if($to==0){
+            
+        $paginationInfoString = "Coming soon";
+
+
+
+        }else{
+            
         $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
 
+
+        }
         if (!isset($grand_parent_category)) {
             $grand_parent_category = NULL;
         }

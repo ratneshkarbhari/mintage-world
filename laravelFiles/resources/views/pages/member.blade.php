@@ -138,4 +138,9 @@
         });
 
     </script>
+    <script>
+        $("input#first_name,input#last_name").keydown(function (e) { 
+            if((/\d/g).test(e.key)) e.preventDefault();
+        });
+    </script>
 </main>

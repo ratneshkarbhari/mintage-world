@@ -37,7 +37,7 @@ use App\Models\Product;
                                                
                     </div>
                     @if (empty($cart_items))                    
-                        <h1>No Items in Cart</h1>
+                        <h1>Your cart is empty</h1>
                     @else
                         @php
                         $subTotal = 0.00;

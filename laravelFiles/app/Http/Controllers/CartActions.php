@@ -173,31 +173,28 @@ class CartActions extends Controller
 
         $cart_items = session("cart");
 
-        if (empty($cart_items) || (!isset($cart_items))) {
-            return redirect(url("shop"));
+        
+
+        if (session("cart")) {
+
+            $cartItems = session("cart");
         } else {
-
-            if (session("cart")) {
-
-                $cartItems = session("cart");
-            } else {
-                $cartItems = [];
-            }
-            $discountSet = session("discount");
-            if (isset($discountSet)) {
-                $discount = session("discount");
-            } else {
-                $discount = 0.00;
-                session(["discount" => 0.00]);
-            }
-
-
-            $this->page_loader("list_of_cart", [
-                "title" => "Cart ",
-                "cart_items" => $cartItems,
-                "discount" => $discount
-            ]);
+            $cartItems = [];
         }
+        $discountSet = session("discount");
+        if (isset($discountSet)) {
+            $discount = session("discount");
+        } else {
+            $discount = 0.00;
+            session(["discount" => 0.00]);
+        }
+
+
+        $this->page_loader("list_of_cart", [
+            "title" => "Cart ",
+            "cart_items" => $cartItems,
+            "discount" => $discount
+        ]);
     }
 
     function increase_cart_item(Request $request)
@@ -259,16 +256,17 @@ class CartActions extends Controller
 
         $cartCount = session("cart_count");
 
-        $newCartCount = $cartCount-1; 
+        $newCartCount = $cartCount - 1;
 
-        if (session(["cart" => $cartItems,"cart_count"=>$newCartCount])) {
+        if (session(["cart" => $cartItems, "cart_count" => $newCartCount])) {
             return TRUE;
         } else {
             return FALSE;
         }
     }
 
-    function create_new_address(Request $request){
+    function create_new_address(Request $request)
+    {
 
         $memberAddressObj = [
 
@@ -287,26 +285,23 @@ class CartActions extends Controller
         ];
 
         MemberAddress::where('member_id', session("member_id"))
-        ->update(['default' => "no"]);
+            ->update(['default' => "no"]);
 
-        if(MemberAddress::create($memberAddressObj)){
-            
+        if (MemberAddress::create($memberAddressObj)) {
+
 
             return "success";
-            
-            
-        }else{
+        } else {
 
 
             return "failure";
-            
         }
-
     }
 
-    function update_member_address(Request $request){
+    function update_member_address(Request $request)
+    {
 
-        if($memberData = Member::find($request->member_id)){
+        if ($memberData = Member::find($request->member_id)) {
 
             $memberAddressUpdateObj = [
                 "address" => $request->address,
@@ -316,23 +311,21 @@ class CartActions extends Controller
                 "city" => $request->city
             ];
 
-            if($memberData->update($memberAddressUpdateObj)){
+            if ($memberData->update($memberAddressUpdateObj)) {
                 return "success";
-            }else{
+            } else {
                 return "failure";
             }
-
-
         }
-
     }
 
-    function update_additional_address(Request $request) {
-        
+    function update_additional_address(Request $request)
+    {
 
-        $addressId=  $request->address_id;
 
-        if($address = MemberAddress::find($addressId)){
+        $addressId =  $request->address_id;
+
+        if ($address = MemberAddress::find($addressId)) {
 
             $memberAddressObj = [
 
@@ -345,9 +338,9 @@ class CartActions extends Controller
                 "zip" => $request->pincode,
                 "country" => "India",
                 "default" => "yes",
-    
+
             ];
-    
+
 
             $updated = $address->update($memberAddressObj);
             if ($updated) {
@@ -355,39 +348,33 @@ class CartActions extends Controller
             } else {
                 return "failure";
             }
-            
-
         }
-
-
-        
-
     }
 
-    function delete_address(Request $request){
-        
-        if(MemberAddress::find($request->address_id)->delete()){
+    function delete_address(Request $request)
+    {
+
+        if (MemberAddress::find($request->address_id)->delete()) {
             return "success";
-        }else{
+        } else {
             return "failure";
         }
-
     }
 
-    function clear_cart(){
+    function clear_cart()
+    {
 
         $cleared = session([
             "cart" => [],
             "cart_count" => 0
         ]);
 
-        if($cleared){
+        if ($cleared) {
             return TRUE;
         }
-
     }
 
-    function checkout($successMessage='',$failureMessage='')
+    function checkout($successMessage = '', $failureMessage = '')
     {
 
         $cart_items = session("cart");
@@ -395,7 +382,6 @@ class CartActions extends Controller
         if (empty($cart_items) || (!isset($cart_items))) {
 
             return redirect(url("shop"));
-
         } else {
 
 
@@ -415,7 +401,7 @@ class CartActions extends Controller
 
             $order = $api->order->create(array('receipt' => uniqid(), 'amount' => $payable * 100, 'currency' => 'INR'));
 
-            $memberData = Member::where("id",session("member_id"))->with("addresses")->first();
+            $memberData = Member::where("id", session("member_id"))->with("addresses")->first();
 
             $this->page_loader("checkout", [
                 "title" => "Checkout ",
@@ -427,10 +413,7 @@ class CartActions extends Controller
                 "order" => $order,
                 "member" => $memberData,
             ]);
-
         }
-
-
     }
 
     function payment()
@@ -452,7 +435,8 @@ class CartActions extends Controller
         return $subtotal;
     }
 
-    function fetch_current_cart_count(){
+    function fetch_current_cart_count()
+    {
         return session("cart_count");
     }
 }

@@ -630,7 +630,7 @@
                 {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
             </div>
             <div class="toast-body">
-                "Add to cart failed"
+               Product out of stock
             </div>
             <div class='toast-timeline animate'></div>
         </div>

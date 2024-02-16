@@ -91,6 +91,7 @@
                          <span class="small text-start d-block w-100 ">Dont worry we wont spam you. </span>
 
                       </div>
+                      <p class="text-danger d-none" id="registrationErrorToShow">Passwords dont match</p>
                       <button type="submit" id="registerButton" class="btn btn-explore disabled">Register <span class="first"></span><span class="second"></span><span class="third"></span><span class="fourth"></span>
                       </button>
                       <p class="text-center">Aleady a member? <a href="{{url('application/login')}}">Login here</a> </p>
@@ -132,7 +133,9 @@
             e.preventDefault();
             if($("input#NewPassword").val()==$("input#confPassword").val()){
                 $("button#registerButton").removeClass("disabled");
+                $("p#registrationErrorToShow").addClass("d-none");
             }else{
+                $("p#registrationErrorToShow").removeClass("d-none");
                 $("button#registerButton").addClass("disabled");
             }
         });

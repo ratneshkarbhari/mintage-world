@@ -27,18 +27,26 @@ use App\Models\Product;
 
             
 
-            <div class="cart row">
-                <div class="basket col-lg-8 col-md-7 col-12">
-                    <div id="emptyCartDiv" class="container d-none text-center mt-5">
+            <div class="cart row">               
+                    @if (empty($cart_items))
+                <div class="basket col-lg-12 col-md-12 col-12 mt-5">
+                    <div id="allemptyCartDiv" class="w-100 text-center ">
                         <img src="{{url('assets/img/cart-icon.png')}}" style="width: 150px;" class="img-fluid mb-4 mr-3">
                         <h3><strong>Your Cart is Empty</strong></h3>
                         <h6>Find what you Love :)</h6>
                         <a href="{{url('shop')}}" class="btn btn-explore mt-3">Continue Shopping <span class="first"></span><span class="second"></span><span class="third"></span><span class="fourth"></span></a>
                                                
                     </div>
-                    @if (empty($cart_items))                    
-                        <h1>Your cart is empty</h1>
+                </div>
                     @else
+                    <div class="basket col-lg-8 col-md-7 col-12">
+                        <div id="emptyCartDiv" class="d-none text-center mt-5">
+                            <img src="{{url('assets/img/cart-icon.png')}}" style="width: 150px;" class="img-fluid mb-4 mr-3">
+                            <h3><strong>Your Cart is Empty</strong></h3>
+                            <h6>Find what you Love :)</h6>
+                            <a href="{{url('shop')}}" class="btn btn-explore mt-3">Continue Shopping <span class="first"></span><span class="second"></span><span class="third"></span><span class="fourth"></span></a>
+                                                   
+                        </div>
                         @php
                         $subTotal = 0.00;
                         @endphp
@@ -78,13 +86,13 @@ use App\Models\Product;
                         
                         @endforeach
 
-                        
+                    </div>
                     @endif
 
                     
 
 
-                </div>
+             
                 @if (!empty($cart_items))
 
                 <div class="shopping-cart-summary col-lg-4 col-md-5 col-12">

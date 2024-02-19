@@ -123,7 +123,7 @@
                                 },
                                 success: function (response) {
                                     if (response=="login-success") {
-                                        window.location.replace({url("member/dashboard")});
+                                        window.location.replace('{url("member/dashboard")}');
                                     }else if(response=="redirect-to-email-verif"){
                                         window.location.replace("{{url('verify-email-page')}}");
                                     }else{

@@ -232,7 +232,7 @@
                 message[3].innerHTML = text;
 
             } else {
-                text = "Only numbers & 10 Digits";
+                text = "Please Enter 10 Digit Indian Mobile No";
                 message[3].innerHTML = text;
             }
 

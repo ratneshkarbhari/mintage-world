@@ -38,14 +38,21 @@
                 <div class="col-lg-9 col-md-12 mt-md-5 mt-0 mt-lg-0">
                     <div class="d-flex justify-content-between">
                         <h2 class="mb-3 heading-1">Change Password</h2>
-                        <p id="errorMessage" class="text-danger">{{$errorMessage}}</p>
-                        <p id="successMessage" class="text-success">{{$successMessage}}</p>
+                      
                     </div>
                     <form  action="{{url('set-new-password')}}" method="post">
                         @csrf
                         <div class="row my-profile-wrap">
+                            <p id="errorMessage" class="text-danger mb-0">{{$errorMessage}}</p>
+                            <p id="successMessage" class="text-success mb-0">{{$successMessage}}</p>
                             <div class="col-md-6 mb-3">
-                                <label for="" class="w-100 mb-2">Change New Password</label>
+                                <label for="" class="w-100 mb-2">Old Password</label>
+                                <input required type="password" id="OldPassword" name="oldpassword"  class="form__input  m-0 form-control" placeholder=""  style="height: 46px">
+                            </div>
+                            <div class="divider w-100 mb-3"></div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="" class="w-100 mb-2">New Password</label>
                                 <div class="d-block position-relative mb-2 mt-2 ">
                                     <input required type="password" id="NewPassword" name="password"  class="form__input passwordFields m-0 form-control" placeholder=""  style="height: 46px">
                                     <a id="showPassword" class="member-btn">
@@ -66,7 +73,6 @@
                                 <div class="divider w-100 mb-3"></div>
                                 <div class="form-group" style="position: relative">
                                     <label for="" class="w-100 mb-2">Confirm New Password</label>
-
                                     <div class="d-block position-relative mb-2 mt-2 ">
                                         <input required type="password" id="confPassword" name="confPassword" class="form__input passwordFields m-0 form-control" placeholder=""   style="height: 46px">
                                         <a id="showConfPassword" class="member-btn">
@@ -163,5 +169,6 @@
     });
 
 </script>
+
 
 </main>

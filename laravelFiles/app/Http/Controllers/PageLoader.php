@@ -10,10 +10,16 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use App\Http\Controllers\Orders;
+use App\Models\CalendarSystem;
 use App\Models\Denomination;
+use App\Models\Metal;
+use App\Models\MintingTechnique;
 use App\Models\Note;
 use App\Models\Period;
 use App\Models\ProductVariation;
+use App\Models\Rarity;
+use App\Models\Ruler;
+use App\Models\Shape;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 
@@ -152,10 +158,27 @@ class PageLoader extends Controller
         ]);
     }
 
-    function add_coin()
+    function add_coin($success="",$error="")
     {
+        $rulers = Ruler::all();
+        $denominations = Denomination::all();
+        $metals = Metal::all();
+        $shapes = Shape::all();
+        $rarities = Rarity::all();
+        $calendarSystems = CalendarSystem::all();
+        $mintingTechniques = MintingTechnique::all();
+
         $this->admin_page_loader("add_coin", [
-            "title" => "Add Coin"
+            "title" => "Add Coin",
+            "rulers" => $rulers,
+            "metals" => $metals,
+            "shapes" => $shapes,
+            "denominations" => $denominations,
+            "rarities" => $rarities,
+            "calendar_systems" => $calendarSystems,
+            "minting_techniques" => $mintingTechniques,
+            "success"=>$success,
+            "error" => $error
         ]);
     }
     function edit_coin()

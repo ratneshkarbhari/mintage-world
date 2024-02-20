@@ -403,6 +403,116 @@ class Coins extends Controller
     }
 
 
+    function create_new(Request $request) {
+        
+        $uploadPath = './assets/images/coin/';
+
+
+        if($request->hasFile("obverse_image")){
+
+            $obverseImageFile = $request->file("obverse_image");
+
+            $obverseImageName = $obverseImageFile->getClientOriginalName();
+
+            $s3 = new AwsS3();
+
+
+            $obverseImageFile->move($uploadPath,$obverseImageName);
+
+            if (!is_file(getenv("COIN_IMAGE_BASE_URL").$obverseImageName)) {
+                
+                $s3->upload($obverseImageName,$uploadPath.$obverseImageName,"mint-product-img");
+                
+            }else{
+
+                $obverseImageName = "noimage.jpg";
+
+            }
+
+
+        }else{
+            $obverseImageName = "noimage.jpg";
+        }
+
+        if($request->hasFile("reverse_image")){
+
+            $reverseImageFile = $request->file("reverse_image");
+
+            $reverseImageName = $reverseImageFile->getClientOriginalName();
+
+            $s3 = new AwsS3();
+
+
+            $reverseImageFile->move($uploadPath,$reverseImageName);
+
+            if (!is_file(getenv("COIN_IMAGE_BASE_URL").$reverseImageName)) {
+                
+                $s3->upload($reverseImageName,$uploadPath.$reverseImageName,"mint-product-img");
+                
+            }else{
+
+                $reverseImageName = "noimage.jpg";
+
+            }
+
+
+        }else{
+            $reverseImageName = "noimage.jpg";
+        }
+
+        $data = [
+            'denomination_id' => $request->denomination_title,
+            'ruler_id' => $request->ruler,
+            'metal_id'  => $request->metal,
+            'minting_technique_id'  => $request->minting_technique,
+            'rarity_id'  => $request->rarity,
+            'calender_system_id'  => $request->calender_system,
+            'shape_id'  => $request->shape,
+            'obverse_image'  => $obverseImageName,
+            'reverse_image'  => $reverseImageName,
+            'catalogue_ref_no'  => $request->catalogue_ref_no,
+            'mintage'  => $request->mintage,
+            'remark'  => $request->remark,
+            'size'  => $request->size,
+            'obverse_desc'  => $request->obverse_desc,
+            'reverse_desc'  => $request->reverse_desc,
+            'denomination_unit'  => $request->denomination_unit,
+            'type'  => $request->type,
+            'ry'  => $request->ry,
+            'ulc_no'  => $request->ulc_no,
+            'issued_year'  => $request->issued_year,
+            'mint'  => $request->mint,
+            'note'  => $request->note,
+            'weight'  => $request->weight,
+            'theme'  => $request->theme,
+            'status'  => '0',
+            'created' => date('Y-m-d H:i:s'),
+        ];
+
+        $coinModel = new Coin();
+
+        $pageLoader = new PageLoader();
+
+        if($coinModel->insert($data)){
+
+
+            return [
+                "result" => "success",
+                
+            ];
+            
+
+        }else{
+
+            return [
+                "result" => "failure",
+                "message"=> "Coin create failed"
+            ];
+
+        }
+
+    }
+
     function info_filter_exe(Request $request){
 
 

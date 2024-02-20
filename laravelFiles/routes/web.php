@@ -252,7 +252,13 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::get("admin/manage-product-category", [PageLoader::class, 'manage_product_category']);
     Route::get("admin/manage-seo", [PageLoader::class, 'manage_seo']);
+
+
+    Route::post("create-new-coin",[Coins::class,'create_new']);
+
 });
+
+
 
 Route::post("set-banner-status", [Banners::class, 'set_status']);
 

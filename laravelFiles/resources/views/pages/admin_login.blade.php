@@ -30,7 +30,7 @@
                         <div class="form-group  mb-3" style="position: relative">
                             <label for="login-password"><b>Password</b></label>
                             <input type="password" class="form__input mb-1 form-control" name="password" id="admin-login-password"  placeholder="">
-                            <a id="showHidePassword" class="" style="font-size: 20px; bottom: 4px;">
+                            <a id="showHidePassword" class="member-btn" style="font-size: 20px; top: 28px;">
                                 <i class="fas fa-eye"></i>
                             </a>
                         </div>

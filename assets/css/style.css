@@ -3617,6 +3617,9 @@ span.cart-item-amount {
   border: none;  
   color: #e19726;
 }
+.password-div .member-btn {
+  top: 38px;
+}
 .my-profile-wrap .member-btn {
   font-size: 18px;
 }
@@ -4006,7 +4009,10 @@ input[type="password"] {
   display: inline-block;
   font-size: 7px;
   right: -25px;
-  top: 13px;
+  top: 14px;
+}
+.password-div .tooltip-div{
+  top: 38px;
 }
 .tooltip-div ul {
   position: absolute;

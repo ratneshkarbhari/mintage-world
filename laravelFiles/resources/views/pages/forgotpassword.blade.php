@@ -30,7 +30,7 @@
                     <p class="text-center text-danger">{{$error}}</p>
                     <form method="POST" action="{{url('forgot-password-exe')}}" >                        
                         @csrf
-                        <input type="text" name="username" id="loginEmail" class="form__input" placeholder="Email"> 
+                        <input type="text" name="username" id="loginEmail" class="form__input" placeholder="Email" required> 
                         <span class="small text-end d-block w-100"> 
                         <button type="submit" class="btn">Send Email</button>
                     </form>

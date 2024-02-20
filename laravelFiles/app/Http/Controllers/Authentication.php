@@ -258,23 +258,33 @@ class Authentication extends Controller
 
         $staticPageLoader = new StaticPages();
 
+
         if ($userWithEmail) {
 
-            $staticPageLoader->member("A member with this email already exists");
-            exit;
+            return [
+                "result" => "failure",
+                "message" => "User with this email already exists"
+            ];
+
         } else {
 
             if ($request->password != $request->confPassword) {
 
-                $staticPageLoader->member("Passwords dont match");
 
-                exit;
+                return [
+                    "result" => "failure",
+                    "message" => "Passwords dont match"
+                ];
+                
             }
 
             if (!preg_match('/^(?=.*\d)*(?=.*[a-z])*(?=.*[A-Z]).{8,}/', $request->password)) {
 
-                $staticPageLoader->member("Please follow password pattern");
-                exit;
+                return [
+                    "result" => "failure",
+                    "message" => "Please follow password pattern"
+                ];
+                
             }
 
 
@@ -305,14 +315,22 @@ class Authentication extends Controller
             foreach ($memberObj as $memberObjData) {
 
                 if ($memberObjData == "") {
-                    $staticPageLoader->member("Please enter all fields");
-                    exit;
+
+                    return [
+                        "result" => "failure",
+                        "message" => "Please enter all fields"
+                    ];
+                    
                 }
             }
 
             if (!preg_match('^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$^', $request->MobileNo)) {
-                $staticPageLoader->member("Invalid mobile number.");
-                exit;
+
+                return [
+                    "result" => "failure",
+                    "message" => "Invalid mobile number."
+                ];
+                
             }
 
             $memberCreated = $memberModel->create($memberObj);
@@ -353,10 +371,20 @@ class Authentication extends Controller
 
 
                 session($memberObj);
-                $staticPageLoader->verify_email();
+
+                return [
+                    "result" => "success",
+                    "message" => "redirect-to-email"
+                ];
+                
             } else {
 
-                $staticPageLoader->member("Registration failed please try after some time");
+               
+                return [
+                    "result" => "failure",
+                    "message" => "Registration failed"
+                ];
+                
             }
         }
     }

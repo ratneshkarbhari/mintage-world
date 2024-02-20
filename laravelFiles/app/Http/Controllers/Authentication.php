@@ -30,20 +30,29 @@ class Authentication extends Controller
                 $staticPageLoader->forgotpassword("Passwords dont match");
             } else {
 
-                if (preg_match("/^(?=.*\d)*(?=.*[a-z])*(?=.*[A-Z]).{8,}/", $request->password)) {
+                if(md5($this->salt.$request->oldpassword)!=$memberData["password"]){
+                    $staticPageLoader->change_password("Old password incorrect","");
+                    
+                }else{
 
-                    $encryptedPassword = md5($this->salt . $request->password);
+                    if (preg_match("/^(?=.*\d)*(?=.*[a-z])*(?=.*[A-Z]).{8,}/", $request->password)) {
 
+                        $encryptedPassword = md5($this->salt . $request->password);
+    
+    
+                        Member::where("email", session("email"))->update([
+                            "password" => $encryptedPassword
+                        ]);
+    
+                        $staticPageLoader->change_password("","Password changed");
+                    } else {
+    
+                        $staticPageLoader->forgotpassword("Password strength not enough","");
+                    }
 
-                    Member::where("email", session("pwd_reset_email"))->update([
-                        "password" => $encryptedPassword
-                    ]);
-
-                    $staticPageLoader->change_password("Password changed");
-                } else {
-
-                    $staticPageLoader->forgotpassword("Password strength not enough");
                 }
+
+                
             }
 
             exit;

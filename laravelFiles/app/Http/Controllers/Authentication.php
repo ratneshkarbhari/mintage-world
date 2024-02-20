@@ -30,7 +30,7 @@ class Authentication extends Controller
                 $staticPageLoader->forgotpassword("Passwords dont match");
             } else {
 
-                if (preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/", $request->password)) {
+                if (preg_match("/^(?=.*\d)*(?=.*[a-z])*(?=.*[A-Z]).{8,}/", $request->password)) {
 
                     $encryptedPassword = md5($this->salt . $request->password);
 
@@ -141,7 +141,7 @@ class Authentication extends Controller
                     $staticPageLoader->forgotpassword("Passwords dont match");
                 } else {
 
-                    if (preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/", $new_password)) {
+                    if (preg_match("/^(?=.*\d)*(?=.*[a-z])*(?=.*[A-Z]).{8,}/", $new_password)) {
 
                         $encryptedPassword = md5($this->salt . $new_password);
 
@@ -271,7 +271,7 @@ class Authentication extends Controller
                 exit;
             }
 
-            if (!preg_match('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/', $request->password)) {
+            if (!preg_match('/^(?=.*\d)*(?=.*[a-z])*(?=.*[A-Z]).{8,}/', $request->password)) {
 
                 $staticPageLoader->member("Please follow password pattern");
                 exit;

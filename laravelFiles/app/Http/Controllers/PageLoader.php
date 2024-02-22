@@ -239,8 +239,17 @@ class PageLoader extends Controller
 
     function add_note()
     {
+        $allDenominations = Denomination::all();
+        $dynasties = Dynasty::all();
+        $shapes = Shape::all();
+        $rarities = Rarity::all();
         $this->admin_page_loader("add_note", [
-            "title" => "Add Note"
+            "title" => "Add Note",
+            "denominations" => $allDenominations,
+            "dynasties" => $dynasties,
+            "shapes" => $shapes,
+            "rarities" => $rarities,
+            "calendar_systems" => CalendarSystem::all()
         ]);
     }
     function edit_note($id)

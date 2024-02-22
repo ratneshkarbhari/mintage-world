@@ -270,6 +270,9 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     
     Route::post("delete-coin-exe",[Coins::class,'delete_coin']);
 
+
+    Route::post("create-note-exe",[Notes::class,'create']);
+
 });
 
 

@@ -24,6 +24,115 @@ class Notes extends Controller
         echo view("components.footer", $data);
     }
 
+    function create(Request $request) {
+
+        $uploadPath = './assets/images/note/';
+
+        if($request->hasFile("obverse_image")){
+
+            $obverseImageFile = $request->file("obverse_image");
+
+            $obverseImageName = $obverseImageFile->getClientOriginalName();
+
+            $s3 = new AwsS3();
+
+
+            $obverseImageFile->move($uploadPath,$obverseImageName);
+
+            if (!is_file(getenv("NOTE_BASE_URL").$obverseImageName)) {
+                
+                $s3->upload($obverseImageName,$uploadPath.$obverseImageName,"mintage2","us-east-1");
+                
+            }else{
+
+                $obverseImageName = "noimage.jpg";
+
+            }
+
+
+        }else{
+            $obverseImageName = "noimage.jpg";
+        }
+
+        if($request->hasFile("reverse_image")){
+
+            $reverseImageFile = $request->file("reverse_image");
+
+            $reverseImageName = $reverseImageFile->getClientOriginalName();
+
+            $s3 = new AwsS3();
+
+
+            $reverseImageFile->move($uploadPath,$reverseImageName);
+
+            if (!is_file(getenv("NOTE_BASE_URL").$reverseImageName)) {
+                
+                $s3->upload($reverseImageName,$uploadPath.$reverseImageName,"mintage2","us-east-1");
+                
+            }else{
+
+                $reverseImageName = "noimage.jpg";
+
+            }
+
+
+        }else{
+            $reverseImageName = "noimage.jpg";
+        }
+    
+        $data = [
+            'denomination_id' => $request->denomination,
+            'rarity_id'  => $request->rarity,
+            'shape_id'  => $request->shape,
+            'obverse_image'  => $request->obverse_image,
+            'reverse_image'  => $request->reverse_image,
+            'catalogue_ref_no'  => $request->catalogue_ref_no,
+            'vignette'  => $request->vignette,
+            'signatory'  => $request->signatory,
+            'inset'  => $request->inset,
+            'underprint'  => $request->underprint,
+            'paper_type'  => $request->paper_type,
+            'prefix'  => $request->prefix,
+            'language_panel'  => $request->language_panel,
+            'color'  => $request->color,
+            'currency_type'  => $request->currency_type,
+            'remark'  => $request->remark,
+            'size'  => $request->size,
+            'obverse_description'  => $request->obverse_description,
+            'reverse_description'  => $request->reverse_description,
+            'issued_year'  => $request->issued_year,
+            'note'  => $request->note,
+            'theme'  => $request->theme,
+            'watermark'  => $request->watermark,
+            'denomination_unit'  => $request->denomination_unit,
+            'status'  => '0',
+            'modified' => date('Y-m-d H:i:s'),
+        ];
+
+        $noteModel = new Note();
+
+
+        if($noteModel->insert($data)){
+
+
+            return [
+                "result" => "success",
+                
+            ];
+            
+
+        }else{
+
+            return [
+                "result" => "failure",
+                "message"=> "Note create failed"
+            ];
+
+        }
+
+
+    }
+
     function note_countries()
     {
 

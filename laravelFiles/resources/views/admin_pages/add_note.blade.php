@@ -25,9 +25,31 @@
                     <div class=""> <input type="text" name="catalogue_ref_no" class="form-control" id="catalogue_ref_no" value=""></div>
                 </div>
                 <div class="col-md-6 mb-3">
+                    <label class="control-label">Dynasty</label>
+                    <div class="">
+
+                        <select name="dynasty" class="form-control">
+                            <option value="">Select Dynasty</option>
+                            @foreach($dynasties as  $dynasty)
+                            <option value="{{$dynasty['id']}}">{{$dynasty['title']}}</option>
+                            @endforeach
+                        </select>
+
+                    
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
                     <label class="control-label">Denomination</label>
                     <div class="">
-                        <input type="text" name="denomination_title" class="form-control" id="denomination_title" value="">
+
+                        <select name="denomination" class="form-control">
+                            <option value="">Select Denomination</option>
+                            @foreach($denominations as  $denomination)
+                            <option value="{{$denomination['id']}}">{{$denomination['title']}}</option>
+                            @endforeach
+                        </select>
+
+                    
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
@@ -37,7 +59,14 @@
                 <div class="col-md-6 mb-3">
                     <label class="control-label">Shape</label>
                     <div class="">
-                        <input type="text" name="shape_title" class="form-control" value="">
+
+                        <select name="shape" class="form-control">
+                            <option value="">Select shape</option>
+                            @foreach($shapes as  $shape)
+                            <option value="{{$shape['id']}}">{{$shape['title']}}</option>
+                            @endforeach
+                        </select>
+                    
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
@@ -63,7 +92,12 @@
                 <div class="col-md-6 mb-3">
                     <label class="control-label">Rarity</label>
                     <div class="">
-                        <input type="text" name="rarity_title" class="form-control" value="">
+                        <select name="rarity" class="form-control">
+                            <option value="">Select rarity</option>
+                            @foreach($rarities as  $rarity)
+                            <option value="{{$rarity['id']}}">{{$rarity['title']}}</option>
+                            @endforeach
+                        </select>                    
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
@@ -102,7 +136,14 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label class="control-label">Calendar System</label>
-                    <div class=""> <input type="text" name="calender_system_title" class="form-control" value=""></div>
+                    <div class=""> 
+                        <select name="calendar_system_title" class="form-control">
+                            <option value="">Select Calendar System</option>
+                            @foreach($calendar_systems as  $calendar_system)
+                            <option value="{{$calendar_system['id']}}">{{$calendar_system['title']}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label class="control-label">Issued Year</label>

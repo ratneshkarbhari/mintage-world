@@ -12,7 +12,7 @@
         </div>
         <div class="d-flex justify-content-between">
             <h2 class="title heading-3">{{$title}} </h2>
-            <a type="button" class="btn btn-primary btn-sm align-self-baseline" href="add-coin"><i class="fa fa-plus"></i> Add Coin</a>
+            <!-- <a type="button" class="btn btn-primary btn-sm align-self-baseline" href="add-coin"><i class="fa fa-plus"></i> Add Coin</a> -->
         </div>
         <div class="table-responsive">
             <table id="coinTable" class="table table-striped table-bordered DataTable" style="width:100%">

@@ -12,12 +12,12 @@ use Aws\S3\Exception\S3Exception;
 class AwsS3 extends Controller
 {
 
-    function upload($fileName,$path,$bucketName,){
+    function upload($fileName,$path,$bucketName,$region){
         
 
         $s3 = new S3Client([
             'version' => 'latest',
-            'region'  => 'ap-southeast-1',
+            'region'  => $region,
             'credentials' => array(
                 'key' => getenv("S3_KEY"),
                 'secret'  => getenv("S3_SECRET"),

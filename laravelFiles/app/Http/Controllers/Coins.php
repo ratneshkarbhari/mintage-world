@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use App\Models\Denomination;
 use App\Models\DynastyGroup;
 use Illuminate\Http\Request;
+use App\Http\Controllers\AwsS3;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Schema;
@@ -423,7 +424,7 @@ class Coins extends Controller
 
             if (!is_file(getenv("COIN_IMAGE_BASE_URL").$obverseImageName)) {
                 
-                $s3->upload($obverseImageName,$uploadPath.$obverseImageName,"mintage1");
+                $s3->upload($obverseImageName,$uploadPath.$obverseImageName,"mintage1","us-east-1");
                 
             }else{
 
@@ -449,7 +450,7 @@ class Coins extends Controller
 
             if (!is_file(getenv("COIN_IMAGE_BASE_URL").$reverseImageName)) {
                 
-                $s3->upload($reverseImageName,$uploadPath.$reverseImageName,"mintage1");
+                $s3->upload($reverseImageName,$uploadPath.$reverseImageName,"mintage1","us-east-1");
                 
             }else{
 
@@ -535,7 +536,7 @@ class Coins extends Controller
 
                 if (!is_file(getenv("COIN_IMAGE_BASE_URL").$obverseImageName)) {
                     
-                    $s3->upload($obverseImageName,$uploadPath.$obverseImageName,"mint-product-img");
+                    $s3->upload($obverseImageName,$uploadPath.$obverseImageName,"mint-product-img","us-east-1");
                     
                 }else{
 
@@ -561,7 +562,7 @@ class Coins extends Controller
 
                 if (!is_file(getenv("COIN_IMAGE_BASE_URL").$reverseImageName)) {
                     
-                    $s3->upload($reverseImageName,$uploadPath.$reverseImageName,"mint-product-img");
+                    $s3->upload($reverseImageName,$uploadPath.$reverseImageName,"mint-product-img","us-east-1");
                     
                 }else{
 

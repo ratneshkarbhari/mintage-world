@@ -12,7 +12,7 @@
        </div> 
        <div class="d-flex justify-content-between">
            <h2 class="title heading-3">{{$title}} </h2>
-            <a type="button" class="btn btn-primary btn-sm align-self-baseline" href="add-note"><i class="fa fa-plus"></i> Add note</a>  
+            <!-- <a type="button" class="btn btn-primary btn-sm align-self-baseline" href="add-note"><i class="fa fa-plus"></i> Add note</a>   -->
         </div> 
        <div class="table-responsive">
            <table id="example" class="table table-striped table-bordered DataTable" style="width:100%">
@@ -53,7 +53,12 @@
            </table>
        </div>
 
+       <div class="pagination-container">
 
+        <p>{{$pagination_string}}</p>
+        {!! $notes->withQueryString()->links() !!}
+
+        </div>
    </div>
 
 </div>

@@ -49,7 +49,7 @@ class Products extends Controller
 
             if (!is_file(getenv("PRODUCT_IMAGE_BASE_URL").$featuredImageName)) {
                 
-                $s3->upload($featuredImageName,$uploadPath.$featuredImageName,"mint-product-img");
+                $s3->upload($featuredImageName,$uploadPath.$featuredImageName,"mint-product-img","ap-southeast-1");
                 
             }else{
 
@@ -122,7 +122,7 @@ class Products extends Controller
                             $s3 = new AwsS3();
     
     
-                            $s3->upload("extra_images/".$galleryImageName,$uploadPath.$galleryImageName,"mint-product-img");
+                            $s3->upload("extra_images/".$galleryImageName,$uploadPath.$galleryImageName,"mint-product-img","ap-southeast-1");
     
                             $galleryImageObj = [
                                 "product_id" => $pid,
@@ -182,7 +182,7 @@ class Products extends Controller
 
                 if (!is_file(getenv("PRODUCT_IMAGE_BASE_URL").$featuredImageName)) {
                     
-                    $s3->upload($featuredImageName,$uploadPath.$featuredImageName,"mint-product-img");
+                    $s3->upload($featuredImageName,$uploadPath.$featuredImageName,"mint-product-img","ap-southeast-1");
                     
                 }else{
 
@@ -214,7 +214,7 @@ class Products extends Controller
                             $s3 = new AwsS3();
     
     
-                            $s3->upload("extra_images/".$galleryImageName,$uploadPath.$galleryImageName,"mint-product-img");
+                            $s3->upload("extra_images/".$galleryImageName,$uploadPath.$galleryImageName,"mint-product-img","ap-southeast-1");
     
                             $galleryImageObj = [
                                 "product_id" => $request->pid,

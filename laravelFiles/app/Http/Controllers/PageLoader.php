@@ -13,6 +13,7 @@ use App\Http\Controllers\Orders;
 use App\Models\CalendarSystem;
 use App\Models\Coin;
 use App\Models\Denomination;
+use App\Models\Dynasty;
 use App\Models\Metal;
 use App\Models\MintingTechnique;
 use App\Models\Note;
@@ -218,14 +219,21 @@ class PageLoader extends Controller
     function manage_notes()
     {
 
-        if (!$allNotes = Cache::pull("all_notes")) {
-            $allNotes = Note::all();
-            Cache::put("all_notes", $allNotes);
-        }
-        $allNotes = Note::all();
+        $notes = Note::paginate(12);
+        $total = $notes->total();
+        $currentPage = $notes->currentPage();
+        $perPage = $notes->perPage();
+
+        $from = ($currentPage - 1) * $perPage + 1;
+        $to = min($currentPage * $perPage, $total);
+
+        $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
+
+        
         $this->admin_page_loader("manage_notes", [
             "title" => "Manage Notes",
-            "notes" => $allNotes
+            "notes" => $notes,
+            "pagination_string" => $paginationInfoString
         ]);
     }
 
@@ -238,10 +246,16 @@ class PageLoader extends Controller
     function edit_note($id)
     {
         $allDenominations = Denomination::all();
+        $dynasties = Dynasty::all();
+        $shapes = Shape::all();
+        $rarities = Rarity::all();
         $this->admin_page_loader("edit_note", [
             "title" => "Edit Note",
             "noteToEdit" => Note::find($id),
-            "denominations" => $allDenominations
+            "denominations" => $allDenominations,
+            "dynasties" => $dynasties,
+            "shapes" => $shapes,
+            "rarities" => $rarities
         ]);
     }
     function manage_stamp()

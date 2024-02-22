@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\ProductCategory;
 use App\Http\Controllers\Orders;
 use App\Models\CalendarSystem;
+use App\Models\Coin;
 use App\Models\Denomination;
 use App\Models\Metal;
 use App\Models\MintingTechnique;
@@ -153,8 +154,20 @@ class PageLoader extends Controller
 
     function manage_coins()
     {
+        $coins = Coin::paginate(12);
+        $total = $coins->total();
+        $currentPage = $coins->currentPage();
+        $perPage = $coins->perPage();
+
+        $from = ($currentPage - 1) * $perPage + 1;
+        $to = min($currentPage * $perPage, $total);
+
+        $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
+
         $this->admin_page_loader("manage_coins", [
-            "title" => "Manage Coins"
+            "title" => "Manage Coins",
+            "coins" => $coins,
+            "pagination_string" => $paginationInfoString
         ]);
     }
 
@@ -176,15 +189,29 @@ class PageLoader extends Controller
             "denominations" => $denominations,
             "rarities" => $rarities,
             "calendar_systems" => $calendarSystems,
-            "minting_techniques" => $mintingTechniques,
-            "success"=>$success,
-            "error" => $error
+            "minting_techniques" => $mintingTechniques
         ]);
     }
-    function edit_coin()
-    {
+    function edit_coin($id)
+    {        
+        $rulers = Ruler::all();
+        $denominations = Denomination::all();
+        $metals = Metal::all();
+        $shapes = Shape::all();
+        $rarities = Rarity::all();
+        $calendarSystems = CalendarSystem::all();
+        $mintingTechniques = MintingTechnique::all();
+
         $this->admin_page_loader("edit_coin", [
-            "title" => "Edit Coin"
+            "title" => "Edit Coin",
+            "coin" => Coin::find($id),
+            "rulers" => $rulers,
+            "metals" => $metals,
+            "shapes" => $shapes,
+            "denominations" => $denominations,
+            "rarities" => $rarities,
+            "calendar_systems" => $calendarSystems,
+            "minting_techniques" => $mintingTechniques
         ]);
     }
 

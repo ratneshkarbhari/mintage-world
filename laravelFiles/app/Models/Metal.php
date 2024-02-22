@@ -14,7 +14,7 @@ class Metal extends Model {
      *
      * @var string[]
      */
-    protected $protected = [];
+    protected $guarded = [];
 
     protected $table = "metal";
 

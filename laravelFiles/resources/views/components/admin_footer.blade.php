@@ -13,8 +13,7 @@
 <script src="{{url('assets/admin/js/color-modes.js')}}"></script>
 <script type="text/javascript" language="javascript" src="{{url('assets/admin/js/ckeditor.js')}}"></script>
 <script type="text/javascript" language="javascript" src="{{url('assets/admin/js/dashboard.js')}}"></script>
-<script type="text/javascript" language="javascript" src="{{url('assets/admin/js/jquery.dataTables.min.js')}}"></script> 
-<script type="text/javascript" language="javascript" src="{{url('assets/admin/js/dataTables.buttons.min.js')}}"></script>
+
 <script type="text/javascript" language="javascript" src="{{url('assets/admin/js/jszip.min.js')}}"></script>
 <script type="text/javascript" language="javascript" src="{{url('assets/admin/js/pdfmake.min.js')}}"></script>
 <script type="text/javascript" language="javascript" src="{{url('assets/admin/js/vfs_fonts.js')}}"></script>
@@ -24,29 +23,6 @@
 
 
 
-<script>
-    new DataTable('.DataTable', {   
-        dom: 'lBfrtip',
-        buttons: ['copy', 'csv', 'excel', 'pdf', 'print'], 
-    });
-</script>
- <script>
-    new DataTable('#example1', {
-    ajax: '{{url('assets/admin/json/data2.txt')}}',
-    columns: [
-        
-{ data: 'id' },
-{ data: 'denomination_id' },
-{ data: 'ruler_id' },
-{ data: 'metal_id' },
-{ data: 'minting_technique_id' },
-{ data: 'rarity_id' },
-{ data: 'calender_system_id' },
-{ data: 'shape_id' }
-    ]
-    
-});
- </script>  
 
   
 

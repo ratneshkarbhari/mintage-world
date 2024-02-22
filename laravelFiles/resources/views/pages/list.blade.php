@@ -160,7 +160,7 @@
                         @if($coin["obverse_image"]!="")
                         <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("coin/detail/".$coin["id"]."-".Str::slug(str_replace(["/","("]," ",$coin["denomination"]["title"])))}}">
                                 <div class="info-item-grid-box"><img
-                                        src="{{getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"]}}"
+                                        src="{{getenv('COIN_IMAGE_BASE_URL').$coin['obverse_image']}}"
                                         class="img-fluid" alt="Tanka | G&amp;G M1 | O">
                                     <div class="info-meta text-center">
                                         <h2 class="info-item-grid-title">{{$coin["denomination"]["title"]}}</h2>

@@ -16,7 +16,7 @@ class Coin extends Model {
      *
      * @var string[]
      */
-    protected $protected = [];
+    protected $guarded = [];
 
     protected $table = "coin";
 

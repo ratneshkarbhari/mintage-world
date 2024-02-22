@@ -403,4 +403,8 @@
                     </div>
                 </div>
             </div>
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+            <script type="text/javascript" language="javascript" src="{{url('assets/admin/js/jquery.dataTables.min.js')}}"></script> 
+            <script type="text/javascript" language="javascript" src="{{url('assets/admin/js/dataTables.buttons.min.js')}}"></script>
             <script src="{{url('assets/admin/js/functions.js')}}"></script>

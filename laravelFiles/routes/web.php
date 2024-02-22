@@ -22,6 +22,7 @@ use App\Http\Controllers\Authentication;
 use App\Http\Controllers\AwsS3;
 use App\Http\Controllers\Products;
 use App\Http\Controllers\ShoppingCategories;
+use App\Models\Coin;
 
 /*
 |--------------------------------------------------------------------------
@@ -203,7 +204,7 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::get("admin/manage-coins", [PageLoader::class, 'manage_coins']);
     Route::get("admin/add-coin", [PageLoader::class, 'add_coin']);
-    Route::get("admin/edit-coin", [PageLoader::class, 'edit_coin']);
+    Route::get("admin/edit-coin/{id}", [PageLoader::class, 'edit_coin']);
 
     Route::get("admin/manage-notes", [PageLoader::class, 'manage_notes']);
 
@@ -256,15 +257,21 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::post("create-new-coin",[Coins::class,'create_new']);
 
+    Route::get("get-all-coins",[Coins::class,'get_all_data']);
+    Route::post("set-coin-status-exe",[Coins::class,'set_coin_status']);
+
+    Route::post("set-banner-status", [Banners::class, 'set_status']);
+    
+    Route::post("create-new-banner", [Banners::class, 'create_new']);
+    
+    Route::post('update-banner-exe', [Banners::class, 'update']);
+
+    Route::post("update-coin-exe",[Coins::class,'update']);
+    
 });
 
 
 
-Route::post("set-banner-status", [Banners::class, 'set_status']);
-
-Route::post("create-new-banner", [Banners::class, 'create_new']);
-
-Route::post('update-banner-exe', [Banners::class, 'update']);
 
 Route::post("fetch-dg-dynasties", [Coins::class, 'fetch_dg_dynasties']);
 

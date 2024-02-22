@@ -167,29 +167,26 @@
                     </div>
                 </div>
 
-
-
-
                 <div class="col-md-6 mb-3">
                     <label class="control-label">Upload Note Obverse Image</label>
                     <div class="">
-                        <input type="file" class="form-control" placeholder="upload image">
+                        <input type="file" name="obverse_image" class="form-control" placeholder="upload image">
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label class="control-label">Obverse Description</label>
-                    <div class=""> <textarea name="obverse_desc" class="form-control"></textarea></div>
+                    <div class=""> <textarea name="obverse_description" class="form-control"></textarea></div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label class="control-label">Upload Note Reverse Image</label>
                     <div class="">
-                        <input type="file" class="form-control" placeholder="upload image">
+                        <input type="file" name="reverse_image" class="form-control" placeholder="upload image">
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label class="control-label">Reverse Description</label>
                     <div class="">
-                        <textarea name="reverse_desc" class="form-control"></textarea>
+                        <textarea name="reverse_description" class="form-control"></textarea>
                     </div>
                 </div>
                 <div class="col-md-12 mb-5">

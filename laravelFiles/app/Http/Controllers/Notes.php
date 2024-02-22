@@ -84,6 +84,7 @@ class Notes extends Controller
             'denomination_id' => $request->denomination,
             'rarity_id'  => $request->rarity,
             'shape_id'  => $request->shape,
+            'dynasty_id' => $request->dynasty ,
             'obverse_image'  => $request->obverse_image,
             'reverse_image'  => $request->reverse_image,
             'catalogue_ref_no'  => $request->catalogue_ref_no,

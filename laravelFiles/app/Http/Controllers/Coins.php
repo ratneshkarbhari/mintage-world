@@ -423,7 +423,7 @@ class Coins extends Controller
 
             if (!is_file(getenv("COIN_IMAGE_BASE_URL").$obverseImageName)) {
                 
-                $s3->upload($obverseImageName,$uploadPath.$obverseImageName,"mint-product-img");
+                $s3->upload($obverseImageName,$uploadPath.$obverseImageName,"mintage1");
                 
             }else{
 
@@ -449,7 +449,7 @@ class Coins extends Controller
 
             if (!is_file(getenv("COIN_IMAGE_BASE_URL").$reverseImageName)) {
                 
-                $s3->upload($reverseImageName,$uploadPath.$reverseImageName,"mint-product-img");
+                $s3->upload($reverseImageName,$uploadPath.$reverseImageName,"mintage1");
                 
             }else{
 
@@ -635,6 +635,23 @@ class Coins extends Controller
             ];
         }
         
+
+    }
+
+
+    function delete_coin(Request $request) {
+        
+        $coinId = $request->coinid;
+
+        if(Coin::find($coinId)->delete()){
+            return [
+                "result" => "success"
+            ];
+        }else{
+            return [
+                "result" => "failure"
+            ];
+        }
 
     }
 

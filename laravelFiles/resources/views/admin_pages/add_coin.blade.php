@@ -230,7 +230,7 @@
 
                 console.log(response);
 
-                if (response.status=="success") {
+                if (response.result=="success") {
                     $(this).get(0).reset();
                     $(".coin-create-success").toast("show");
                 } else {

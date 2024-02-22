@@ -268,6 +268,8 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::post("update-coin-exe",[Coins::class,'update']);
     
+    Route::post("delete-coin-exe",[Coins::class,'delete_coin']);
+
 });
 
 

@@ -27,7 +27,7 @@
                 </thead>
                 <tbody>
                     @foreach($coins as $coin)
-                    <tr>
+                    <tr id="coin-list-item-{{$coin['id']}}">
                         <td>{{$coin['id']}}</td>
                         <td><img src="{{getenv('COIN_IMAGE_BASE_URL').$coin['obverse_image']}}" class="img-fluid" width="100" height="100"></td>
                         <td>{{$coin['catalogue_ref_no']}}</td>
@@ -39,11 +39,34 @@
                         </td>
                         <td>
                             <a href="{{ url('admin/edit-coin/'.$coin['id']) }}" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-                            <form class="d-inline" action="{{url('delete-coin-exe')}}" method="post">
-                                @csrf
-                                <input type="hidden" name="coinid" value="{{$coin['id']}}">
-                                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                            </form>
+
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#deleteCoinModal-{{$coin['id']}}" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+
+                            <div class="modal fade" id="deleteCoinModal-{{$coin['id']}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Coin</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form coinId={{$coin['id']}} class="delete-coin-form" action="{{url('delete-coin-exe')}}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="coinid" value="{{$coin['id']}}">
+                                                <button type="submit" class="btn btn-danger">Delete Coin</button>
+
+                                            </form>
+
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                         </td>
                     </tr>
                     @endforeach
@@ -61,37 +84,31 @@
 </div>
 
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
-    <div id="liveToast " class="toast hide bg-success text-white update-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header bg-success text-white">
+    <div id="liveToast " class="toast hide bg-danger text-white delete-failure position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-danger text-white">
             <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
             <small>Just Now</small>
-            {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
         </div>
         <div class="toast-body">
-            Saved Successfully
+            Delete Failed
         </div>
         <div class='toast-timeline animate'></div>
     </div>
 </div>
 
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
-    <div id="liveToast " class="toast hide bg-danger text-white delete-failure position-relative" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header bg-danger text-white">
+    <div id="liveToast " class="toast hide bg-success text-white delete-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-success text-white">
             <strong class="me-auto"><i class="fas fa-check-circle"></i> Delete Coin</strong>
             <small>Just Now</small>
-            {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
         </div>
         <div class="toast-body">
-            Delete Successfully
+            Deleted Successfully
         </div>
         <div class='toast-timeline animate'></div>
     </div>
 </div>
 <script>
-    $(".btn-danger").click(function(e) {
-        $('.delete-failure').toast('show');
-    });
-
     $(".set-coin-status").click(function(e) {
         e.preventDefault();
         let coinId = $(this).attr("coinId");
@@ -108,9 +125,26 @@
         });
     });
 
-    // new DataTable('#coinTable', {   
-    //     dom: 'lBfrtip',
-    //     buttons: ['copy', 'csv', 'excel', 'pdf', 'print'], 
-    //     data : '{{$coins}}'
-    // });
+    $("form.delete-coin-form").submit(function(e) {
+        e.preventDefault();
+        let action = $(this).attr("action");
+        let method = $(this).attr("method");
+        let formData = $(this).serialize();
+        let coinId = $(this).attr("coinId");
+        $.ajax({
+            type: method,
+            url: action,
+            data: formData,
+            success: function(response) {
+                if (response.result == "success") {
+                    $(".delete-success").toast("show");
+                    $("tr#coin-list-item-" + coinId).hide();
+                    $('#deleteCoinModal-'+coinId).modal('hide');
+                } else {
+                    $(".delete-failure").toast("show");
+
+                }
+            }
+        });
+    });
 </script>

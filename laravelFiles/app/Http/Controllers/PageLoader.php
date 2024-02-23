@@ -47,6 +47,7 @@ class PageLoader extends Controller
     {
 
 
+
         if (!$featuredBooks = Cache::get("featured_books")) {
 
             $booksQuery = 'SELECT * FROM products WHERE status = "Active" AND instock > 0 AND category = 23 LIMIT 10';

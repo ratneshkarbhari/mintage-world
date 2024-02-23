@@ -1,3 +1,4 @@
+<input type="hidden" id="orderid" value="0">
 <main class="page-content">
    <section class="inside-banner"><img class="w-100 img-fluid" src="{{url("assets/images/inside-banner/default-banner.jpg")}}" /></section>
 
@@ -678,7 +679,7 @@
                                                                                                 echo "disabled";
                                                                                              }
                                                                                              ?>><i class="fa fa-check-double"></i>
-                        Pay now</button>
+                        Pay now </button>
                   </div>
 
                   @else
@@ -875,41 +876,6 @@
    </div>
 </main>
 
-<script>
-   $(document).ready(function() {
-      let shippingAddressField = $("input[name=shipping_address]:checked");
-      let billingAddressField = $("input[name=billing_address]:checked");
-
-
-      $.ajax({
-         type: "POST",
-         url: "{{url('create-order-exe')}}",
-         data: {
-            "_token": "{{ csrf_token() }}",
-
-            "rzp_order_id": '{{$order["id"]}}',
-            "shipping_address": shippingAddressField.attr("address"),
-            "shipping_city": shippingAddressField.attr("city"),
-            "shipping_state": shippingAddressField.attr("state"),
-            "shipping_country": shippingAddressField.attr("country"),
-            "shipping_mobile_number": shippingAddressField.attr("mobile_number"),
-            "shipping_pincode": billingAddressField.attr("pincode"),
-            "billing_address": billingAddressField.attr("address"),
-            "billing_city": billingAddressField.attr("city"),
-            "billing_state": billingAddressField.attr("state"),
-            "billing_country": billingAddressField.attr("country"),
-            "billing_mobile_number": billingAddressField.attr("mobile_number"),
-            "billing_pincode": billingAddressField.attr("pincode"),
-            "status": "Payment Processing",
-            "payment_status": "Processing",
-         },
-         success: function(response) {
-            console.log("order-created");
-            // $('.add-success').toast('show');
-         }
-      });
-   });
-</script>
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
@@ -924,6 +890,7 @@
       "order_id": '{{$order["id"]}}', //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
       "handler": function(response) {
 
+
          let rzpOrderId = response.razorpay_order_id;
 
          $.ajax({
@@ -931,22 +898,15 @@
             url: "{{url('place-order-exe')}}",
             data: {
                "_token": "{{ csrf_token() }}",
+               "orderid" : $("input#orderid").val(),
                "status": "Not Confirmed",
                "payment_status": "Success"
             },
             success: function(response) {
 
-               if (response == "updated") {
-
-                  window.location.replace('{{url("payment-successful")}}');
+               window.location.replace('{{url("payment-successful")}}');
 
 
-               } else {
-
-
-                  $("#failureMessage").html("Payment failed try again");
-
-               }
 
             }
          });
@@ -960,7 +920,7 @@
                url: "{{url('update-order-exe')}}",
                data: {
                   "_token": "{{ csrf_token() }}",
-                  "gw_tx_id": '{{$order["id"]}}',
+                  "orderid": $("input#orderid").val(),
                   "status": "Cancelled",
                   "payment_status": "Cancelled"
                },
@@ -987,8 +947,41 @@
    });
    document.getElementById('rzp-button1').onclick = function(e) {
 
+      let shippingAddressField = $("input[name=shipping_address]:checked");
+      let billingAddressField = $("input[name=billing_address]:checked");
 
 
+
+      $.ajax({
+         type: "POST",
+         url: "{{url('create-order-exe')}}",
+         data: {
+         "_token": "{{ csrf_token() }}",
+
+         "rzp_order_id": '{{$order["id"]}}',
+         "shipping_address": shippingAddressField.attr("address"),
+         "shipping_city": shippingAddressField.attr("city"),
+         "shipping_state": shippingAddressField.attr("state"),
+         "shipping_country": shippingAddressField.attr("country"),
+         "shipping_mobile_number": shippingAddressField.attr("mobile_number"),
+            "shipping_pincode": billingAddressField.attr("pincode"),
+            "billing_address": billingAddressField.attr("address"),
+            "billing_city": billingAddressField.attr("city"),
+            "billing_state": billingAddressField.attr("state"),
+            "billing_country": billingAddressField.attr("country"),
+            "billing_mobile_number": billingAddressField.attr("mobile_number"),
+            "billing_pincode": billingAddressField.attr("pincode"),
+            "status": "Payment Processing",
+            "payment_status": "Processing",
+         },
+         success: function(response) {
+
+            console.log(response);
+
+            $("input#orderid").val(response);
+
+         }
+      });
       rzp1.open();
       e.preventDefault();
    }

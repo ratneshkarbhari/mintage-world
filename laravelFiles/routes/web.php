@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfoComments;
 use App\Http\Controllers\Authentication;
 use App\Http\Controllers\AwsS3;
+use App\Http\Controllers\EmailTests;
 use App\Http\Controllers\Products;
 use App\Http\Controllers\ShoppingCategories;
 use App\Models\Coin;
@@ -275,7 +276,7 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
 });
 
-
+Route::get("email/order-placed",[EmailTests::class,'order_placed']);
 
 
 Route::post("fetch-dg-dynasties", [Coins::class, 'fetch_dg_dynasties']);

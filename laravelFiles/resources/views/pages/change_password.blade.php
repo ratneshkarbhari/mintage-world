@@ -28,6 +28,7 @@
                             <ul class="nav__list">
                                 <li><input type="checkbox" hidden=""><label><a href="{{url("member/dashboard/")}}"><i class="fa fa-user"> </i> Profile</a></label></li>
                                 <li class=""><input type="checkbox" hidden=""><label><a href="{{url("member/membership-detail/")}}"><i class="fa fa-user"> </i> Membership Detail</a></label></li>
+                                <li><input type="checkbox" hidden=""><label><a href="{{url("member/manage-address/")}}"><i class="fa fa-user"> </i> Manage Address</a></label></li>
                                 <li class="active-li"><input type="checkbox" hidden=""><label><a href="{{url("member/change-password/")}}"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></label></li>
                                 <li><input type="checkbox" hidden=""><label><a href="{{url("member/myorders/")}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> My Orders</a></label></li>
                                 <li><input type="checkbox" hidden=""><label><a href="{{url("/")}}"><i class="fa fa-power-off"></i> Logout</a></label></li>
@@ -47,7 +48,12 @@
                             <p id="successMessage" class="text-success mb-0">{{$successMessage}}</p>
                             <div class="col-md-6 mb-3">
                                 <label for="" class="w-100 mb-2">Old Password</label>
-                                <input required type="password" id="OldPassword" name="oldpassword"  class="form__input  m-0 form-control" placeholder=""  style="height: 46px">
+                                <div class="d-block position-relative mb-2 mt-2 ">
+                                <input required type="password" id="OldPassword" name="oldpassword"  class="form__input passwordFields m-0 form-control" placeholder=""  style="height: 46px">
+                                <a id="showOldPassword" class="member-btn">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </div>
                             </div>
                             <div class="divider w-100 mb-3"></div>
                             
@@ -159,9 +165,21 @@
             $(this).html(showPasswordIcon)
        }
     });
+    $("#showOldPassword").click(function (e) { 
+        e.preventDefault();
+       if ($("input#OldPassword").attr("type")=="password") {
+            $("input#OldPassword").attr("type","text");
+            $(this).html('')
+            $(this).html(hidePasswordIcon)
+       } else {
+            $("input#OldPassword").attr("type","password");
+            $(this).html('')
+            $(this).html(showPasswordIcon)
+       }
+    });
     $(".passwordFields").change(function (e) { 
         e.preventDefault();
-        if($("input#NewPassword").val()==$("input#confPassword").val()){
+        if($("input#NewPassword").val()==$("input#OldPassword").val()){
             $("button#UpdateButton").removeClass("disabled");
         }else{
             $("button#UpdateButton").addClass("disabled");

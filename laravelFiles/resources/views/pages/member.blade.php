@@ -33,10 +33,10 @@
 
                         @csrf
                         <label for="" class="w-100 mt-5 mb-0"><b>First Name</b></label>
-                        <input type="text" id="first_name" name="first_name" class="form__input mb-0 mt-0" title="Min. 4 to Max. 20 characters" minlength="4" maxlength="20" required="">
+                        <input type="text" id="first_name" name="first_name" class="form__input mb-0 mt-0" title="Min. 4 to Max. 20 characters" maxlength="20" required="">
                         <p class="error-message text-danger mb-3"></p>
                         <label for="" class="w-100 mb-0"><b>Last Name</b></label>
-                        <input type="text" id="last_name" name="last_name" class="form__input mb-0 mt-0" title="Min. 4 to Max. 20 characters" minlength="4" maxlength="20" required="">
+                        <input type="text" id="last_name" name="last_name" class="form__input mb-0 mt-0" title="Min. 4 to Max. 20 characters"  maxlength="20" required="">
                         <p class="error-message text-danger mb-3"></p>
                         <label for="" class="w-100"><b>Email ID</b></label>
                         <input type="text" id="email" name="EmailID" class="form__input mb-0 mt-0" placeholder="" required="">

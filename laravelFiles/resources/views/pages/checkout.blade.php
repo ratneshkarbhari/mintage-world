@@ -87,7 +87,7 @@
 
                @else
 
-               <p class="text-danger">Please Enter atleast one address</p>
+               <p class="text-danger">PLEASE ENTER ADDRESS TO PROCEED WITH THE CHECKOUT</p>
                @endif
                <div class="step-wrap  mt-3">
                   <h6 class="heading-2"><b>Billing Addresses</b></h6>
@@ -355,7 +355,7 @@
                </div>
                @if(count($member['addresses'])!=0||$member["address"]!="")
                @else
-               <p class="text-danger">Please Enter atleast one address</p>
+               <p class="text-danger">PLEASE ENTER ADDRESS TO PROCEED WITH THE CHECKOUT</p>
                @endif
                <div class="step-wrap  mt-3">
                   <h6 class="heading-2"><b>Shipping Addresses</b></h6>

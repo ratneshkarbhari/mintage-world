@@ -45,9 +45,9 @@ class Members extends Controller
 
         $profileUpdateObj = [
 
-            "name" => $request->full_name,
-            "first_name" => $nameParts[0],
-            "last_name" => $nameParts[1],
+            "name" => $request->first_name." ".$request->last_name,
+            "first_name" => $request->first_name,
+            "last_name" => $request->last_name,
             "country_id" => $request->country,
             "state_id" => $request->state,
             "mobile" => $request->mobile_number,

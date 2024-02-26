@@ -166,7 +166,7 @@
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
         <div id="liveToast " class="toast hide bg-success text-white profile-update-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header bg-success text-white">
-                <strong class="me-auto"><i class="fas fa-check-circle"></i> Failure</strong>
+                <strong class="me-auto"><i class="fas fa-check-circle"></i> Success</strong>
                 <small>Just Now</small>
                 {{-- <button type="button" class="btn-close text-white" data-bs-dismiss="toast" aria-label="Close"></button> --}}
             </div>

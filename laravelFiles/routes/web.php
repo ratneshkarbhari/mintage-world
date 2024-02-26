@@ -35,7 +35,8 @@ use App\Models\Coin;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::post("update-profile-exe",[Members::class,'update_profile']);
+
+Route::post("update-profile-exe", [Members::class, 'update_profile']);
 
 
 Route::group(['middleware' => ['slashes']], function () {
@@ -116,6 +117,7 @@ Route::group(['middleware' => ['slashes']], function () {
         Route::get('member/change-password/', [StaticPages::class, 'change_password']);
         Route::get('member/myorders/', [StaticPages::class, 'myorders']);
         Route::get('member/membership-detail', [StaticPages::class, 'membership_detail']);
+        Route::get('member/manage-address', [StaticPages::class, 'manage_address']);
     });
 
     Route::get('media/detail/{slug}', [StaticPages::class, 'media_detail']);
@@ -256,27 +258,26 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/manage-seo", [PageLoader::class, 'manage_seo']);
 
 
-    Route::post("create-new-coin",[Coins::class,'create_new']);
+    Route::post("create-new-coin", [Coins::class, 'create_new']);
 
-    Route::get("get-all-coins",[Coins::class,'get_all_data']);
-    Route::post("set-coin-status-exe",[Coins::class,'set_coin_status']);
+    Route::get("get-all-coins", [Coins::class, 'get_all_data']);
+    Route::post("set-coin-status-exe", [Coins::class, 'set_coin_status']);
 
     Route::post("set-banner-status", [Banners::class, 'set_status']);
-    
+
     Route::post("create-new-banner", [Banners::class, 'create_new']);
-    
+
     Route::post('update-banner-exe', [Banners::class, 'update']);
 
-    Route::post("update-coin-exe",[Coins::class,'update']);
-    
-    Route::post("delete-coin-exe",[Coins::class,'delete_coin']);
+    Route::post("update-coin-exe", [Coins::class, 'update']);
+
+    Route::post("delete-coin-exe", [Coins::class, 'delete_coin']);
 
 
-    Route::post("create-note-exe",[Notes::class,'create']);
-
+    Route::post("create-note-exe", [Notes::class, 'create']);
 });
 
-Route::get("email/order-placed",[EmailTests::class,'order_placed']);
+Route::get("email/order-placed", [EmailTests::class, 'order_placed']);
 
 
 Route::post("fetch-dg-dynasties", [Coins::class, 'fetch_dg_dynasties']);

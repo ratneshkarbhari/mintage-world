@@ -87,9 +87,15 @@
 
                                     </ul> 
                                 </td>
-                                <td>{{$order["ordered"]}}</td>
+                                <td>{{date('d-m-Y',strtotime($order["ordered"]))}}</td>
                                 <td> <i class="fa fa-rupee-sign "></i> {{$order["payableamount"]}}</td>
-                                <td><div class="alert alert-warning">{{$order["status"]}}</div></td>
+                                <td><div class="alert alert-warning">
+                                    @if($order["status"]=="Not Confirmed")
+                                    Placed
+                                    @else
+                                    $order["status"]
+                                    @endif
+                                </div></td>
                             </tr>
                             
                             

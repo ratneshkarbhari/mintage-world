@@ -47,43 +47,46 @@
                   <input type="hidden" name="member_id" value="{{session('member_id')}}">
                   <div class="row my-profile-wrap">
                      <div class="col-md-4 mb-3">
-                        <label for="" class="w-100 mb-2">Name</label>
-                        <input type="text" name="full_name" id="TxtName" value="{{$user['first_name']}} {{$user['last_name']}}" class="form-control inp-dis" disabled>
-                        <div class="divider w-100 mb-3"></div>
-                        <label for="" class="w-100 mb-2">Member Type</label>
+
+                        <label for="" class="w-100 mb-0">Name</label>
+                        <input type="text" name="first_name" id="TxtName" value="{{$user['first_name']}}" class="form-control inp-dis mb-3" disabled>
+
+                        <label for="" class="w-100 mb-0">Last Name</label>
+                        <input type="text" name="last_name" id="TxtLastName" value="{{$user['last_name']}}" class="form-control inp-dis mb-3" disabled> 
+                        <div class="mb-3"></div>
+                        <label for="" class="w-100 mb-0">Member Type</label>
                         @if(session("level")=="Regular")
                         <div class="d-flex justify-content-between">
                            <div class="d-inline-block alert alert-success p-0 mb-0 px-2">{{session("level")}}</div>
                            <a class="btn btn-sm btn-primary p-0 mb-0 px-2" href="{{url('upgrade-membership')}}">Upgrade Membership</a>
                         </div>
+                        <div class="mb-3"></div>
                         @else
                         <div class="d-inline-block alert alert-success p-0 mb-0 px-2">{{session("level")}}</div>
                         @endif
 
-
-
-                        <div class="divider w-100 mb-3"></div>
+ 
                         <!-- <label for="" class="w-100 mb-2">Email ID</label>
-                        <input type="text" name="email" id="TxtEmailID" value="{{$user['email']}}" class="form-control inp-dis" disabled> -->
-                        <div class="divider w-100 mb-3"></div>
-                        <label for="" class="w-100 mb-2">Mobile No</label>
-                        <input type="text" name="mobile_number" id="TxtMobileNo" value="{{$user['mobile']}}" class="form-control inp-dis" disabled>
+                        <input type="text" name="email" id="TxtEmailID" value="{{$user['email']}}" class="form-control inp-dis" disabled> --> 
+                        <label for="" class="w-100 mb-0">Mobile No</label>
+                        <input type="text" name="mobile_number" id="TxtMobileNo" value="{{$user['mobile']}}" class="form-control inp-dis" minlength="10" maxlength="10" title="10 characters length" disabled>
+                        <p class="error-message text-danger mb-3"></p>
                      </div>
                      <div class="col-md-8 mb-3">
                         <div class="row">
                            <div class="col-md-12 mb-3">
-                              <label for="" class="w-100 mb-2">Address</label>
-                              <textarea name="address" class="form-control inp-dis" placeholder="Enter address" rows="4" disabled>{{$user["address"]}}</textarea>
+                              <label for="" class="w-100 mb-0">Address</label>
+                              <textarea name="address" class="form-control inp-dis mb-3" placeholder="Enter address" rows="4" disabled>{{$user["address"]}}</textarea>
                            </div>
                            <div class="col-md-6 mb-3">
-                              <label for="" class="w-100 mb-2">Country</label>
-                              <select name="country" class="form-control inp-dis" required="required" disabled>
+                              <label for="" class="w-100 mb-0">Country</label>
+                              <select name="country" class="form-control inp-dis mb-3" required="required" disabled>
                                  <option value="113" selected="selected">India</option>
                               </select>
                            </div>
                            <div class="col-md-6 mb-3">
-                              <label for="" class="w-100 mb-2">State</label>
-                              <select name="state" class="form-control inp-dis" required="required" disabled>
+                              <label for="" class="w-100 mb-0">State</label>
+                              <select name="state" class="form-control inp-dis mb-3" required="required" disabled>
                                  <option value="">--- Select your state ---</option>
                                  <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                                  <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -124,8 +127,8 @@
                               </select>
                            </div>
                            <div class="col-md-6 mb-3">
-                              <label for="" class="w-100 mb-2">City</label>
-                              <input type="text" name="city" class="form-control inp-dis" value="{{$user['city']}}" disabled>
+                              <label for="" class="w-100 mb-0">City</label>
+                              <input type="text" name="city" class="form-control inp-dis mb-3" value="{{$user['city']}}" disabled>
                            </div>
                            <div class="col-md-6 mb-3">
                               <label for="" class="w-100 mb-2">Pin Code</label>
@@ -177,11 +180,42 @@
             <div class='toast-timeline animate'></div>
         </div>
     </div>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
+      <div id="liveToast " class="toast hide bg-danger text-white form-failure-error position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header bg-danger text-white">
+              <strong class="me-auto"><i class="fas fa-check-circle"></i> Failure</strong>
+              <small>Just Now</small>
+          </div>
+          <div class="toast-body">
+             <span id="registration-error-message">Fix the form Error</span>
+          </div>
+          <div class='toast-timeline animate'></div>
+      </div>
+  </div>
    <script>
       //Profile update ajax call
       $("form#profileUpdateForm").submit(function (e) { 
          e.preventDefault();
 
+
+         var pnumber = document.getElementById('TxtMobileNo').value;
+         var message = document.getElementsByClassName("error-message");
+         var valError = 0;
+
+         var text = "";
+         var numbers = /^[6-9]{1}[0-9]{9}/;
+            if (pnumber == " " || pnumber.match(numbers)) {
+                text = "";
+                message[0].innerHTML = text;
+
+            } else {
+                text = "Please Enter 10 Digit Indian Mobile No";
+                message[0].innerHTML = text;
+                valError = valError + 1;
+            }
+
+            if(valError == 0)
+            {  
          let action = $(this).attr("action");
          let formData = $(this).serializeArray();
 
@@ -207,6 +241,10 @@
                
             }
          });
+      }
+      else{
+         $(".form-failure-error").toast("show");
+      }
          
       });
 

@@ -123,7 +123,19 @@
                 <small>Just Now</small>
             </div>
             <div class="toast-body">
-               <span id="registration-error-message"></span>
+               <span id="registration-error-message">Form not submit</span>
+            </div>
+            <div class='toast-timeline animate'></div>
+        </div>
+    </div>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
+        <div id="liveToast " class="toast hide bg-danger text-white form-failure-error position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-danger text-white">
+                <strong class="me-auto"><i class="fas fa-check-circle"></i> Failure</strong>
+                <small>Just Now</small>
+            </div>
+            <div class="toast-body">
+               <span id="registration-error-message">Fix the form Error</span>
             </div>
             <div class='toast-timeline animate'></div>
         </div>
@@ -188,6 +200,7 @@
             var newpassword = document.getElementById('NewPassword').value;
             var confpassword = document.getElementById('confPassword').value;
             var message = document.getElementsByClassName("error-message");
+            var valError = 0;
             var text = "";
 
             // Validation start
@@ -200,6 +213,7 @@
             } else {
                 text = "Only letters & Min. 4 to Max. 20 lenght";
                 message[0].innerHTML = text;
+                valError= valError + 1;
             }
 
 
@@ -211,6 +225,7 @@
             } else {
                 text = "Only letters & Min. 4 to Max. 20 lenght";
                 message[1].innerHTML = text;
+                valError= valError + 1;
             }
 
             var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -219,11 +234,12 @@
 
             if (email == " " || email.match(mailformat) || atpos > 1 && (dotpos - atpos > 2)) {
                 text = "";
-                message[2].innerHTML = text;
+                message[2].innerHTML = text;               
 
             } else {
                 text = "Wrong email format : abc@xyz.com";
                 message[2].innerHTML = text;
+                valError= valError + 1;
             }
 
             var numbers = /^[6-9]{1}[0-9]{9}/;
@@ -234,6 +250,7 @@
             } else {
                 text = "Please Enter 10 Digit Indian Mobile No";
                 message[3].innerHTML = text;
+                valError= valError + 1;
             }
 
             var pattern3 = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
@@ -246,6 +263,7 @@
                 text = "";
                 message[4].innerHTML = "Invalid Password Please follow the pattern";
                 console.log('invalid');
+                valError= valError + 1;
             }
 
             var pattern4 = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
@@ -258,28 +276,34 @@
                 text = "";
                 message[5].innerHTML = "Invalid Password Please follow the pattern";
                 console.log('invalid');
+                valError= valError + 1;
             }
 
-            // Form processing
-
-            let formData = $(this).serialize();
-            let action = $(this).attr("action");
-            let method = $(this).attr("method");
-            
-            $.ajax({
-                type: method,
-                url: action,
-                data: formData,
-                success: function (response) {
-                    console.log(response);
-                    if(response.result=="success"){
-                        window.location.replace("{{ url('verify-email-page') }}");
-                    }else{
-                        $("span#registration-error-message").html(response.message);
-                        $(".registration-failure").toast("show");
+            if(valError == 0)
+            {           
+                // Form processing
+                let formData = $(this).serialize();
+                let action = $(this).attr("action");
+                let method = $(this).attr("method");
+                
+                $.ajax({
+                    type: method,
+                    url: action,
+                    data: formData,
+                    success: function (response) {
+                        console.log(response);
+                        if(response.result=="success"){
+                            window.location.replace("{{ url('verify-email-page') }}");
+                        }else{
+                            $("span#registration-error-message").html(response.message);
+                            $(".registration-failure").toast("show");
+                        }
                     }
-                }
-            });
+                });
+            }
+            else{
+                $(".form-failure-error").toast("show");
+            }
 
         });
     </script>

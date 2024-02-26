@@ -79,6 +79,7 @@ class Utils extends Controller
     function send_email($to,$toName,$subject,$message){
 
         
+
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_URL,"https://www.ultrasofttoys.com/public/mintage-email-api/send_email.php");

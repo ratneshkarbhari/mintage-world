@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Member;
+use PDO;
 use App\Models\Order;
+use App\Models\Member;
 use App\Models\OrderProduct;
 use Illuminate\Http\Request;
-use PDO;
+use Illuminate\Support\Facades\View;
 
 class Orders extends Controller
 {
@@ -152,12 +153,11 @@ class Orders extends Controller
     }
 
     function generate_email_body($viewName,$bodyData){
-        return view("emails.".$viewName,$bodyData);
+        return (string)View::make("emails.".$viewName,$bodyData);
     }
 
 
     function place_order(Request $request){
-
 
         $cartActions = new CartActions();
 
@@ -183,11 +183,16 @@ class Orders extends Controller
                 "full_name" => $order["Shipping_Name1"],
                 "orderid" => $order["orderid"],
                 "date" =>  date('l d F Y'),
+                "status" => $order['status'],
                 "payment_status" => $request->payment_status,
                 "products" => $orderProductsForEmail,
                 "shipping" => $order["shipping"],
                 "discount" => 0,
-                "mobile_number" =>  "" 
+                "courier_name" => $order['couriers'],
+                "tracking_number" => $order['tracking_number'],
+                "courier_date" => date("d-m-Y"),  
+                "shipping_address" => $order['Shipping_Address1'],
+                "payment_address" => $order['payment_address']
             ]);
 
             $utils = new Utils();

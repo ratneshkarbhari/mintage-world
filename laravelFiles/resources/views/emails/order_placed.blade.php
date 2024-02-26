@@ -1,481 +1,253 @@
-<table style="width:600px;font-family:Arial,Helvetica,sans-serif;border:1px solid #ddd;background-image:url(https://ci3.googleusercontent.com/meips/ADKq_NadKaN5Lh0fRj0B6iNrXei47frs08qM_dgOwfrm3XhnjbsGq_m1BuxY0NoKdgML4IyIQfavNUUSK5EBqvLNNWg7nI6xdnO3JA=s0-d-e1-ft#http://www.mintageworld.com/public/img/bg-body.gif);background-repeat:repeat-x repeat-y;background-color:#f7f7f7" cellspacing="0" cellpadding="10" align="center">
-    <tbody>
-        <tr>
-            <td height="20"></td>
-        </tr>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="date=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900&family=Salsa&display=swap" rel="stylesheet">
+    <title>Your Order from Mintage World Shopping</title>
+    <style type="text/css" media="screen">
+        body {
+            background-color: #f7f0ee;
+            background-image: url(images/pattern.jpg);
+            background-repeat: no-repeat repeat-y;
+            background-position: center 0;
+            padding: 0 !important;
+            margin: 0 !important;
+            display: block !important;
+            min-width: 100% !important;
+            width: 100% !important;
+            background: #f7f0ee;
+            -webkit-text-size-adjust: none
+        }
 
-        <tr>
-            <td align="center">
-                <table border="0" align="center" width="600" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
-                    <tbody>
-                        <tr>
-                            <td height="18"></td>
-                        </tr>
-                        <tr>
-                            <td align="center" width="560">
-                                <table border="0" width="560" align="center" cellpadding="0" cellspacing="0">
-                                    <tbody>
-                                        <tr>
-                                            <td><img src="https://ci3.googleusercontent.com/meips/ADKq_NbKjuOXeTv3ZkvNLPUcfn0PLqPx5BiEJY0uaIvvI-LaZieW1ZZn1sHA9v6u6gabCUQyLQ4AElEaP6p3gKi7_ReintXtkY67Ku4=s0-d-e1-ft#http://www.mintageworld.com/public/img/zf2-logo.png" width="179" height="68" class="CToWUd" data-bit="iit"></td>
+        a {
+            color: #ef5751;
+            text-decoration: none
+        }
+
+        p {
+            padding: 0 !important;
+            margin: 0 !important
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+            /* Allow smoother rendering of resized image in Internet Explorer */
+        }
+
+        .text a {
+            color: #ef5751 !important;
+            text-decoration: underline !important;
+        }
+
+        table tr td {
+            padding: 10px;
+            line-height: 22px;
+            font-size: 14px;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        table tr td label {
+            font-weight: 600;
+        }
+
+        /* Mobile styles */
+        @media only screen and (max-width: 480px) {
+
+            .mobile-shell {
+                width: 100% !important;
+                margin-bottom: 10px;
+                max-width: 100%
+            }
+
+            .mobile-shell tr td,
+            .mobile-shell tr th {
+                padding: 5px !important;
+                line-height: 18px !important;
+                font-size: 13px !important;
+            }
+
+            h2,
+            h4,
+            p {
+                font-size: 14px !important;
+                padding: 0px !important;
+                margin: 0px 0px 5px 0px !important;
+            }
+
+            h3 {
+                font-size: 12px !important;
+            }
+
+            .mobile-shell tr td p {
+                font-size: 12px !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="body" style="background-color:#F6F6F6; padding:0 !important; margin:0 !important; display:block !important; min-width:100% !important; width:100% !important; background:#f7f0ee; -webkit-text-size-adjust:none">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #F6F6F6;font-family: Helvetica,Arial,sans-serif" align="center">
+        <tbody>
+            <tr>
+                <td style="text-align: center; font-family: Helvetica,Arial,sans-serif">
+                    <table width="700" border="0" cellspacing="0" cellpadding="0" class="mobile-shell" style="margin: 0px auto;border: solid 1px #cfcfcf;font-family: Helvetica,Arial,sans-serif" bgcolor="#fff">
+                        <tbody>
+                            <tr>
+                                <td> <a href="https://www.mintageworld.com/" target="_blank"><img src="https://www.mintageworld.com/public/img/zf2-logo.png" alt="" style="max-width: 100%;"></a> </td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: solid 1px #cfcfcf;padding: 10px;line-height: 22px;font-size: 14px;">
+                                    <h2 style="text-align: center;	color: #e19726;	font-size: 22px;padding: 10px 0px;	margin: 0px; font-family: Helvetica,Arial,sans-serif">Booking Information</h2>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left;padding: 10px;line-height: 22px;font-size: 14px;">
+                                    <table width="50%" border="0" cellspacing="0" cellpadding="0" class="mobile-shell" style="float:left;">
+                                        <tr style="background-color: #742702; color: #FFF;">
+                                            <th colspan="2" style="text-align: left;padding: 10px;line-height: 22px;font-size: 14px;">
+                                                Order Details
+                                            </th>
                                         </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td height="15"></td>
-                        </tr>
-                        <tr>
-                            <td height="1" bgcolor="cdd0d3"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-
-
-        <tr>
-            <td>
-                <table border="0" align="center" width="600" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
-                    <tbody>
-                        <tr>
-                            <td height="30"></td>
-                        </tr>
-                        <tr>
-                            <td>
-
-                                <table border="0" align="center" width="580" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
-                                    <tbody>
                                         <tr>
-                                            <td>
-
-                                                <table width="580" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td height="5"></td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="10"></td>
-                                                            <td width="550" style="font-size:14px;color:#515151;font-weight:100;text-align:left;font-family:Helvetica,Arial,sans-serif;line-height:28px;vertical-align:top">
-                                                                Hello <b>{{$full_name}}</b>,
-                                                            </td>
-                                                            <td width="10"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="10"></td>
-                                                            <td width="550" height="5"></td>
-                                                            <td width="10"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="10"></td>
-                                                            <td width="550" height="10" style="border-top:1px dashed #bababa"></td>
-                                                            <td width="10"></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-
-
-                                                <table width="580" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td></td>
-                                                            <td height="5"></td>
-                                                            <td></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="10"></td>
-                                                            <td width="550" style="font-size:14px;color:#515151;font-weight:100;text-align:left;font-family:Helvetica,Arial,sans-serif;line-height:28px;vertical-align:top">
-                                                                We have received your order !
-                                                            </td>
-                                                            <td width="10"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="10"></td>
-                                                            <td width="550" height="5"></td>
-                                                            <td width="10"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td width="10"></td>
-                                                            <td width="550" height="10" style="border-top:1px dashed #bababa"></td>
-                                                            <td width="10"></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                            <td style="text-align: left;padding: 10px;line-height: 22px;font-size: 14px; vertical-align:top"><b>Order No : </b> <label for="" id="lblInvoiceNo">{{$orderid}}</label><br>
+                                                <b>Order Date : </b> <label for="" id="lblOrderDate">{{$date}}</label>
 
                                             </td>
                                         </tr>
-
-
+                                    </table>
+                                    <table width="50%" border="0" cellspacing="0" cellpadding="0" class="mobile-shell" style="float:left;">
+                                        <tr style="background-color: #742702; color: #FFF;">
+                                            <th colspan="2" style="text-align: left;padding: 10px;line-height: 22px;font-size: 14px;">
+                                                Payment Details
+                                            </th>
+                                        </tr>
                                         <tr>
-                                            <td>
-                                                <table width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#ffffff">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td width="10"></td>
-                                                            <td width="550" valign="top">
+                                            <td style="  text-align: left;font-size: 14px;"><b>Payment Method : Razorpay</b> 
+                                            </td>
 
+                                        </tr>
+                                        <tr>
+                                            <td style=" padding-top: 0;padding-bottom: 2px; text-align: left;font-size: 14px;"><b>Order Status : {{$status}}</b> 
+                                            </td>
 
-                                                                <table width="160" border="0" cellpadding="0" cellspacing="0" align="left" style="font-family:Helvetica,Arial,sans-serif;margin:0 0 10px">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td width="100%" style="font-size:14px;color:#333;text-align:left;line-height:24px;padding:0 5px;font-weight:bold">Order Number </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="100%" height="10" style="border-top:1px solid #bababa"></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="100%" valign="top" style="padding:0 5px;font-size:13px;color:#515151">{{$orderid}}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="100%" height="5"></td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            @if(in_array($status,["Dispatched","Delivered"]))
+                            <tr>
+                                <td>
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="mobile-shell">
+                                        <tr style="background-color: #742702; color: #FFF;">
+                                            <th style="text-align: left;padding: 10px;line-height: 22px;font-size: 14px;">Dispatch Details</th>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: left;padding: 10px;line-height: 22px;font-size: 14px;">
+                                                <b>Order Status : </b> <label for="" id="lblOrderStatus">{{$status}}</label><br>
+                                                <label for="" id="lblDisDetail">{{$courier_name}} - {{$tracking_number}} - {{$courier_date}}</label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            @endif
+                            <tr>
+                                <td style="text-align:left;padding: 10px;line-height: 22px;font-size: 14px;">
+                                    <table width="50%" border="0" cellspacing="0" cellpadding="0" class="mobile-shell" style="float:left;">
+                                        <tr style="background-color: #742702; color: #FFF;">
+                                            <th style="text-align: left;padding: 10px;line-height: 22px;font-size: 14px;">Payment Address</th>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: left;padding: 10px;line-height: 22px;font-size: 14px;"><label for="" id="lblShippingName">{{$full_name}}</label><br>
 
-
-
-                                                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="left" style="font-size:0;line-height:0;border-collapse:collapse">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td width="1" height="2" style="font-size:0;line-height:0;border-collapse:collapse">
-                                                                                <p style="padding-left:28px">&nbsp;</p>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-
-
-
-                                                                <table width="160" border="0" cellpadding="0" cellspacing="0" align="left" style="font-family:Helvetica,Arial,sans-serif;margin:0 0 10px">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td width="100%" style="font-size:13px;color:#333;text-align:left;line-height:24px;padding:0 5px;font-weight:bold">Date Placed </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="100%" height="10" style="border-top:1px solid #bababa"></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="100%" valign="top" style="padding:0 5px;font-size:13px;color:#515151">{{$date}}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td height="5"></td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-
-
-
-                                                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="left" style="font-size:0;line-height:0;border-collapse:collapse">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td width="1" height="2" style="font-size:0;line-height:0;border-collapse:collapse">
-                                                                                <p style="padding-left:28px">&nbsp;</p>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-
-
-                                                                <table width="160" border="0" cellpadding="0" cellspacing="0" align="left" style="font-family:Helvetica,Arial,sans-serif">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td width="100%" style="font-size:14px;color:#333;text-align:left;line-height:24px;padding:0 5px;font-weight:bold">Payment Status </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="100%" height="10" style="border-top:1px solid #bababa"></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="100%" valign="top" style="padding:0 5px;font-size:13px;color:#515151">{{$payment_status}}</td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-
-                                                            </td>
-                                                            <td width="10"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td height="25"></td>
-                                                            <td height="25"></td>
-                                                            <td height="25"></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                            {!!$payment_address!!}
 
                                             </td>
                                         </tr>
+                                    </table>
+                                    <table width="50%" border="0" cellspacing="0" cellpadding="0" class="mobile-shell" style="float:left;">
+                                        <tr style="background-color: #742702; color: #FFF;">
+                                            <th style="text-align: left;padding: 10px;line-height: 22px;font-size: 14px;">Shipping Address</th>
+                                        </tr>
                                         <tr>
-                                            <td>
-                                                <table width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#FFFFFF">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td width="10"></td>
-                                                            <td width="550" valign="top">
+                                            <td style="text-align: left;padding: 10px;line-height: 22px;font-size: 14px;"><label for="" id="lblShippingName">{{$full_name}}</label><br>
+                                            
+                                            {!!$shipping_address!!}
 
-
-
-
-                                                                <table border="0" cellspacing="0" cellpadding="0" style="margin:0 0 15px;font-family:Helvetica,Arial,sans-serif;width:100%">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td width="47%" style="font-size:14px;color:#333;text-align:left;line-height:16px;padding:5px;border-bottom:1px solid #ddd;font-weight:bold">Order Items</td>
-                                                                            <td width="9%" style="border-bottom:1px solid #ddd">&nbsp;</td>
-                                                                            <td width="21%" style="border-bottom:1px solid #ddd">&nbsp;</td>
-                                                                            <td width="23%" style="border-bottom:1px solid #ddd">&nbsp;</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td style="font-size:14px;color:#515151;font-weight:bold;border-bottom:1px solid #ddd;padding:5px">Products</td>
-                                                                            <td align="center" style="font-size:14px;color:#515151;font-weight:bold;line-height:26px;border-bottom:1px solid #ddd">Price</td>
-                                                                            <td align="right" style="font-size:14px;color:#515151;font-weight:bold;line-height:26px;border-bottom:1px solid #ddd">Quantity</td>
-                                                                            <td align="right" style="font-size:14px;color:#515151;font-weight:bold;line-height:26px;border-bottom:1px solid #ddd">Amount</td>
-                                                                        </tr>
-                                                                        @php
-                                                                        $subtotal = 0.00;
-                                                                        @endphp
-                                                                        @foreach($products as $product)
-                                                                        <tr>
-                                                                            <td valign="top" style="font-size:13px;color:#515151;padding:5px">{{$product["title"]}}<br></td>
-                                                                            <td align="center" valign="top" style="font-size:13px;color:#515151;line-height:26px">{{$product["price"]}}</td>
-                                                                            <td align="right" valign="top" style="font-size:13px;color:#515151;line-height:26px"> <span></span>{{$product['quantity']}}</td>
-                                                                            <td align="right" valign="top" style="font-size:13px;color:#515151;line-height:26px"> <span></span>{{$amount = $product['price']*$product['quantity']}}</td>
-                                                                        </tr>
-                                                                        @php
-                                                                        $subtotal = $subtotal+$amount;
-                                                                        @endphp
-                                                                        @endforeach
-                                                                    </tbody>
-                                                                </table>
-
-
-                                                            </td>
-                                                            <td width="10"></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-
+                                            
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <table width="580" border="0" cellpadding="0" cellspacing="0" align="center">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td width="10"></td>
-                                                            <td width="550" valign="top">
+                                    </table>
+                                </td>
+                            </tr>
 
+                            <tr>
+                                <td style="text-align: left;padding: 10px;line-height: 22px;font-size: 14px;">
+                                    <table width="700" border="0px" cellspacing="0" cellpadding="0" class="mobile-shell" style="border-collapse: collapse;">
+                                        <tbody>
+                                            <tr style="background-color: #742702; color: #FFF;">
+                                                <th style="color: #FFF;padding: 10px;line-height: 22px;font-size: 14px;">Product Name</th>
+                                                <th style="color: #FFF;padding: 10px;line-height: 22px;font-size: 14px; text-align: right;">Qty.</th>
+                                                <th style="color: #FFF;padding: 10px;line-height: 22px;font-size: 14px; text-align: right;">Price</th>
+                                                <th style="color: #FFF;padding: 10px;line-height: 22px;font-size: 14px; text-align: right;">Total</th>
+                                            </tr>
+                                            @php
+                                            $subtotal = 0.00;
+                                            @endphp
+                                            @foreach($products as $product)
+                                            <tr>
+                                                <td style="text-align: left;padding: 10px;line-height: 22px;font-size: 14px;border:solid 1px #cfcfcf;"><label for="" id="lblProductName">{{$product['title']}}
+                                                        
+                                                    </label></td>
+                                                <td style="text-align: right;padding: 10px;line-height: 22px;font-size: 14px;border:solid 1px #cfcfcf;"><label for="" id="lblQty">{{$product['quantity']}}</label></td>
+                                                <td style="text-align: right;padding: 10px;line-height: 22px;font-size: 14px;border:solid 1px #cfcfcf;"><label for="" id="lblPrice">{{$product['price']}}</label></td>
+                                                <td style="text-align: right;padding: 10px;line-height: 22px;font-size: 14px;border:solid 1px #cfcfcf;"> <label for="" id="lblTotalPrice">{{$amount = $product['price']*$product['quantity']}}</label></td>
+                                            </tr>
+                                            @php
+                                            $subtotal+=$amount;
+                                            @endphp
+                                            @endforeach
+                                            <tr>
+                                                <td colspan="3" style="text-align: right;padding: 10px;line-height: 22px;font-size: 14px;border:solid 1px #cfcfcf;">Sub Total </td>
+                                                <td style="text-align: right;padding: 10px;line-height: 22px;font-size: 14px;border:solid 1px #cfcfcf;"> <label for="" id="lblSubTotal">{{$subtotal}}</label></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3" style="text-align: right;padding: 10px;line-height: 22px;font-size: 14px;border:solid 1px #cfcfcf;">Discount</td>
+                                                <td style="text-align: right;padding: 10px;line-height: 22px;font-size: 14px;border:solid 1px #cfcfcf;"> <label for="" id="lblDiscount">{{$discount}}</label></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3" style="text-align: right;padding: 10px;line-height: 22px;font-size: 14px;border:solid 1px #cfcfcf;">Shipping</td>
+                                                <td style="text-align: right;padding: 10px;line-height: 22px;font-size: 14px;border:solid 1px #cfcfcf;"> <label for="" id="lblFreeShipping">{{$shipping}}</label></td>
+                                            </tr>
 
+                                            <tr>
+                                                <td colspan="3" style="text-align: right;padding: 10px;line-height: 22px;font-size: 14px;border:solid 1px #cfcfcf;"><b>Total</b> <small>(Prices are inclusive of all taxes)</small></td>
+                                                <td style="text-align: right;padding: 10px;line-height: 22px;font-size: 16px; font-weight: 600;border:solid 1px #cfcfcf;"><b><label for="" id="lblGrossTotal">{{$subtotal+$shipping-$discount}}</label></b></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 10px 0px;line-height: 22px;font-size: 14px;border-bottom: solid 1px #cfcfcf;text-align:center;font-family: Helvetica,Arial,sans-serif">
+                                    <p style="font-size:13px;margin:0px; font-family: Helvetica,Arial,sans-serif">
+                                        You received this email because you are registered with Mintage World by <a href="http://www.mintageworld.com" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.mintageworld.com&amp;source=gmail&amp;ust=1705480800930000&amp;usg=AOvVaw0LiFf7pJGoEZi3HUZTtBZ4">www.mintageworld.com</a></p>
+                                    Registered Office: 2-C, Thakar Indl. Estate N. M. Joshi Marg,<br>Lower Parel (E), Mumbai - 400 011.<br>
+                                    Email: <a href="mailto:shop@mintageworld.com">shop@mintageworld.com</a>,<br> Contact: 022 - 40190400
+                                </td>
+                            </tr>
 
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
 
-                                                                <table width="230" border="0" cellpadding="0" cellspacing="0" align="left" bgcolor="#FFFFFF">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td width="10"></td>
-                                                                            <td width="100%" style="font-size:14px;color:#9e9e9e;font-weight:100;text-align:left;font-family:Helvetica,Arial,sans-serif;line-height:26px">
-
-
-                                                                                <table width="100%" border="0" cellpadding="0" cellspacing="0" align="left" style="font-family:Helvetica,Arial,sans-serif;margin:0 0 10px">
-                                                                                    <tbody>
-                                                                                        <tr>
-                                                                                            <td colspan="2" style="font-size:14px;color:#333;text-align:left;line-height:16px;padding:5px;border-bottom:1px solid #ddd;font-weight:bold">Order Total</td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td width="50%" style="font-size:13px;color:#515151;text-align:left;line-height:16px;padding:5px;border-bottom:1px solid #ddd">Subtotal</td>
-                                                                                            <td width="50%" style="font-size:13px;color:#515151;text-align:left;line-height:16px;padding:5px;border-bottom:1px solid #ddd"><span>Rs. </span>{{$subtotal}}.00</td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td width="45%" style="font-size:13px;color:#515151;text-align:left;line-height:16px;padding:5px;border-bottom:1px solid #ddd">Discounts</td>
-                                                                                            <td width="55%" style="font-size:13px;color:#515151;text-align:left;line-height:16px;padding:5px;border-bottom:1px solid #ddd"><span>Rs. </span>{{$discount}}.00</td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td width="45%" style="font-size:13px;color:#515151;text-align:left;line-height:16px;padding:5px;border-bottom:1px solid #ddd">Shipping</td>
-                                                                                            <td width="55%" style="font-size:13px;color:#515151;text-align:left;line-height:16px;padding:5px;border-bottom:1px solid #ddd"><span>Rs. </span>{{$shipping}}.00</td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td width="45%" style="font-size:13px;color:#515151;text-align:left;line-height:16px;padding:5px;font-weight:bold">Total</td>
-                                                                                            <td width="55%" style="font-size:13px;color:#515151;text-align:left;line-height:16px;padding:5px;font-weight:bold"><span>Rs. </span>500.00</td>
-                                                                                        </tr>
-                                                                                    </tbody>
-                                                                                </table>
-
-
-
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="10"></td>
-                                                                            <td width="100%" height="5"></td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="left" style="font-size:0;line-height:0;border-collapse:collapse">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td width="1" height="2" style="font-size:0;line-height:0;border-collapse:collapse">
-                                                                                <p style="padding-left:28px">&nbsp;</p>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <table width="260" border="0" cellpadding="0" cellspacing="0" align="left" style="font-family:Helvetica,Arial,sans-serif" bgcolor="#FFFFFF">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td style="font-size:14px;color:#333;text-align:left;line-height:16px;padding:5px;border-bottom:1px solid #ddd;font-weight:bold">Delivery to</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="100%" valign="top" style="padding:5px;font-size:13px;line-height:19px;color:#515151">
-                                                                                <br>
-                                                                                <br>
-                                                                                <br>
-                                                                                <br>
-                                                                                {{$mobile_number}}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="100%" height="5"></td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-
-
-
-                                                            </td>
-                                                            <td width="20"></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <table width="580" border="0" cellpadding="0" cellspacing="0" align="center">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td width="10"></td>
-                                                            <td width="550" valign="top">
-
-
-
-
-                                                                <table width="140" border="0" cellpadding="0" cellspacing="0" align="left">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td width="20"></td>
-                                                                            <td width="100%" style="font-size:14px;color:#9e9e9e;font-weight:100;text-align:left;font-family:Helvetica,Arial,sans-serif;line-height:26px">
-
-
-                                                                                <table width="100%" border="0" cellpadding="0" cellspacing="0" align="left" style="font-family:Helvetica,Arial,sans-serif;margin:0 0 10px" bgcolor="#FFFFFF">
-                                                                                    <tbody>
-                                                                                        <tr>
-                                                                                            <td style="font-size:14px;color:#333;text-align:left;line-height:16px;padding:5px;border-bottom:1px solid #ddd;font-weight:bold">Payment Method</td>
-                                                                                        </tr>
-                                                                                        <tr>
-                                                                                            <td style="font-size:13px;color:#515151;text-align:left;line-height:16px;padding:5px">RAZORPAY</td>
-                                                                                        </tr>
-                                                                                    </tbody>
-                                                                                </table>
-
-
-
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td width="20"></td>
-                                                                            <td width="100%" height="5"></td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                                <table width="1" border="0" cellpadding="0" cellspacing="0" align="left" style="font-size:0;line-height:0;border-collapse:collapse">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td width="1" height="2" style="font-size:0;line-height:0;border-collapse:collapse">
-                                                                                <p style="padding-left:28px">&nbsp;</p>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                            <td width="10"></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <table width="580" border="0" cellpadding="0" cellspacing="0" align="center" bgcolor="#FFFFFF">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td width="10"></td>
-                                                            <td width="550" valign="top" style="font-size:13px;font-family:Helvetica,Arial,sans-serif;line-height:20px;padding:10px 0 0">
-                                                                <p style="margin:0 0 7px;color:#515151">Thanks again for your order. </p>
-                                                                <p style="margin:0;color:#515151"><span class="il">Mintage</span> World</p>
-                                                            </td>
-                                                            <td width="10"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td height="10"></td>
-                                                            <td height="10"></td>
-                                                            <td height="10"></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>&nbsp;</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="center" bgcolor="#F7F7F7">
-                                <table border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#F7F7F7">
-                                    <tbody>
-                                        <tr>
-                                            <td align="center">
-                                                <table border="0" width="350" align="center" cellpadding="0" cellspacing="0">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td align="center" style="color:#a5b0bf;font-size:10px;font-family:Helvetica,Arial,sans-serif;line-height:20px">
-                                                                You received this email because you are registered with <span class="il">Mintage</span> World by <a href="http://www.mintageworld.com" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.mintageworld.com&amp;source=gmail&amp;ust=1708748978337000&amp;usg=AOvVaw2nUwSz8SmRfbgggyQx7vWm">www.mintageworld.com</a> with the email address: <a style="color:#2c97fd;font-size:11px"></a>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td valign="middle" style="font-size:11px;color:#a2a2a2;text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;line-height:20px;height:24px">
-                                                Registered Office: 2-C, Thakar Indl. Estate N. M. Joshi Marg, Lower Parel (E), Mumbai - 400 011.<br>Email: <a href="mailto:shop@mintageworld.com" target="_blank">shop@mintageworld.com</a>, Contact: 022 - 40190400
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td height="10"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-
-        <tr>
-            <td height="40"></td>
-        </tr>
-    </tbody>
-</table>
+</html>

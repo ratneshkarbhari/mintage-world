@@ -110,100 +110,114 @@
     </section>
  
 
-<div class="modal fade" id="EditAddModal-sa-member" tabindex="-1" aria-labelledby="EditAddModalLabel" style="display: none;" aria-hidden="true">
-   <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-         <div class="modal-body text-start p-3">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            <h4 class="text-start mb-3">Edit Address</h4>
-            <hr>
-            <div class="add-wraper">
-               <form class="update-additional-address-form" action="http://localhost/mintage-world/update-additional-address" method="post">
-                  <input type="hidden" name="_token" value="2Z28jHbbIPkuu4sVZSrMQhv0zi1uaTxySjtAYKg0"><input type="hidden" name="address_id" value="9">
-                  <div class="row">
-                     <div class="col-md-6 mb-3">
-                        <label for="inputName">First Name</label>
-                        <input type="text" name="first_name" class="form-control" id="inputName" placeholder="Name" value="Nandkumar">
-                     </div>
-                     <div class="col-md-6 mb-3">
-                        <label for="last_name">Last Name</label>
-                        <input name="last_name" type="text" class="form-control" id="lastName" value="Arekar">
-                     </div>
-                     <div class="col-md-4  mb-3">
-                        <label for="inputMobileNo">Mobile No</label>
-                        <input type="number" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" value="">
-                     </div>
-                     <div class="col-md-12  mb-3">
-                        <label for="inputAddress">Address</label>
-                        <textarea name="address" class="form-control" cols="30" rows="5">1/3 SHivsagar Rahiwashi sangh Bhatwadi Ghatkopar West</textarea>
-                     </div>
-                     <div class="col-md-6  mb-3">
-                        <label for="inputCity">City</label>
-                        <input type="text" class="form-control" id="inputCity" name="city" placeholder="City" value="Mumbai">
-                     </div>
-                     <div class="col-md-6  mb-3">
-                        <label for="inputState">State</label>
-                        <select id="inputState" name="inputState" class="form-control" required="required">
-                           <option value="">--- Select your state ---</option>
-                           <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                           <option value="Andhra Pradesh">Andhra Pradesh</option>
-                           <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                           <option value="Assam">Assam</option>
-                           <option value="Bihar">Bihar</option>
-                           <option value="Chandigarh">Chandigarh</option>
-                           <option value="Chhattisgarh">Chhattisgarh</option>
-                           <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
-                           <option value="Daman and Diu">Daman and Diu</option>
-                           <option value="Delhi">Delhi</option>
-                           <option value="Goa">Goa</option>
-                           <option value="Gujarat">Gujarat</option>
-                           <option value="Haryana">Haryana</option>
-                           <option value="Himachal Pradesh">Himachal Pradesh</option>
-                           <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                           <option value="Jharkhand">Jharkhand</option>
-                           <option value="Karnataka">Karnataka</option>
-                           <option value="Kerala">Kerala</option>
-                           <option value="Lakshadweep">Lakshadweep</option>
-                           <option value="Madhya Pradesh">Madhya Pradesh</option>
-                           <option value="Maharashtra" selected="selected">Maharashtra</option>
-                           <option value="Manipur">Manipur</option>
-                           <option value="Meghalaya">Meghalaya</option>
-                           <option value="Mizoram">Mizoram</option>
-                           <option value="Nagaland">Nagaland</option>
-                           <option value="Orissa">Orissa</option>
-                           <option value="Pondicherry">Pondicherry</option>
-                           <option value="Punjab">Punjab</option>
-                           <option value="Rajasthan">Rajasthan</option>
-                           <option value="Sikkim">Sikkim</option>
-                           <option value="Tamil Nadu">Tamil Nadu</option>
-                           <option value="Telangana">Telangana</option>
-                           <option value="Tripura">Tripura</option>
-                           <option value="Uttar Pradesh">Uttar Pradesh</option>
-                           <option value="Uttaranchal">Uttaranchal</option>
-                           <option value="West Bengal">West Bengal</option>
-                        </select>
-                     </div>
-                     <div class="col-md-6  mb-3">
-                        <label for="inputZip">Zip Code</label>
-                        <input type="number" class="form-control" id="inputZip" placeholder="Zip Code" name="pincode" value="400084">
-                     </div>
-                     <div class="col-md-6  mb-3">
-                        <label for="inputCountry">Country</label>
-                        <select id="inputCountry" name="inputCountry" class="form-control" required="required">
-                           <option value="113" selected="selected">India</option>
-                        </select>
-                     </div>
-                     <div class="col-md-6  mb-3">
-                        <button type="submit" class="btn btn-success btn-sm">Update Address</button>
-                     </div>
+    <div class="modal fade" id="EditAddModal-sa-member" tabindex="-1" aria-labelledby="EditAddModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+         <div class="modal-content">
+            <div class="modal-body text-start p-3">
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               <h4 class="text-start mb-3">Edit Address</h4>
+               <hr>
+               <div class="add-wraper">
+                  <form class="update-member-address-form" action="{{url('update-member-address')}}" method="post">
+                     {{-- @csrf
+                     <input type="hidden" name="member_id" value=""> --}}
+                     <div class="row">
+                        <div class="col-md-6 mb-3">
+                           <label for="inputName">First Name</label>
+                           <input type="text" class="form-control" id="inputName" placeholder="Name" 
+                           {{-- value="{{$member['first_name']}}"  --}}
+                           pattern="[A-Za-z]" title="Enter only character / Max. limit is 20" required>                                                      
+                        </div>
+                        <div class="col-md-6 mb-3">
+                           <label for="last_name">Last Name</label>
+                           <input name="last_name" type="text" class="form-control" id="lastName" 
+                           {{-- value="{{$member['last_name']}}"  --}}
+                           pattern="[A-Za-z]" title="Enter only character / Max. limit is 20" required>
+                        </div>
+                        <div class="col-md-4  mb-3">
+                           <label for="inputMobileNo">Mobile No</label>
+                           <input type="text" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No" pattern="[6-9]{1}[0-9]{9}" 
+                           {{-- value="{{$member['mobile']}}" --}}
+                            required>
+                           
+                        </div>
+                        <div class="col-md-12  mb-3">
+                           <label for="inputAddress">Address</label>
+                           <textarea name="address" class="form-control" cols="30" rows="5">
+                              {{-- {{$member['address']}} --}}                           
+                           </textarea>
+                        </div>
+                        <div class="col-md-6  mb-3">
+                           <label for="inputCity">City</label>
+                           <input type="text" class="form-control" id="inputCity" name="city" placeholder="City" 
+                           {{-- value="{{$member['city']}} --}}
+                           ">
+                        </div>
+                        <div class="col-md-6  mb-3">
+                           <label for="inputState">State</label>
+                           <select id="inputState" name="inputState" class="form-control" required="required">
+                              <option value="">--- Select your state ---</option>
+                              <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                              <option value="Andhra Pradesh">Andhra Pradesh</option>
+                              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                              <option value="Assam">Assam</option>
+                              <option value="Bihar">Bihar</option>
+                              <option value="Chandigarh">Chandigarh</option>
+                              <option value="Chhattisgarh">Chhattisgarh</option>
+                              <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                              <option value="Daman and Diu">Daman and Diu</option>
+                              <option value="Delhi">Delhi</option>
+                              <option value="Goa">Goa</option>
+                              <option value="Gujarat">Gujarat</option>
+                              <option value="Haryana">Haryana</option>
+                              <option value="Himachal Pradesh">Himachal Pradesh</option>
+                              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                              <option value="Jharkhand">Jharkhand</option>
+                              <option value="Karnataka">Karnataka</option>
+                              <option value="Kerala">Kerala</option>
+                              <option value="Lakshadweep">Lakshadweep</option>
+                              <option value="Madhya Pradesh">Madhya Pradesh</option>
+                              <option value="Maharashtra">Maharashtra</option>
+                              <option value="Manipur">Manipur</option>
+                              <option value="Meghalaya">Meghalaya</option>
+                              <option value="Mizoram">Mizoram</option>
+                              <option value="Nagaland">Nagaland</option>
+                              <option value="Orissa">Orissa</option>
+                              <option value="Pondicherry">Pondicherry</option>
+                              <option value="Punjab">Punjab</option>
+                              <option value="Rajasthan">Rajasthan</option>
+                              <option value="Sikkim">Sikkim</option>
+                              <option value="Tamil Nadu">Tamil Nadu</option>
+                              <option value="Telangana">Telangana</option>
+                              <option value="Tripura">Tripura</option>
+                              <option value="Uttar Pradesh">Uttar Pradesh</option>
+                              <option value="Uttaranchal">Uttaranchal</option>
+                              <option value="West Bengal">West Bengal</option>
+                           </select>
+                        </div>
+                        <div class="col-md-6  mb-3">
+                           <label for="inputZip">Zip Code</label>
+                           <input type="number" class="form-control" id="inputZip" placeholder="Zip Code" name="pincode" 
+                           {{-- value="{{$member['pincode']}}" --}}
+                           >
+                        </div>
+                        <div class="col-md-6  mb-3">
+                           <label for="inputCountry">Country</label>
+                           <select id="inputCountry" name="inputCountry" class="form-control" required="required">
+                              <option value="113" selected="selected">India</option>
+                           </select>
+                        </div>
+                        <div class="col-md-6  mb-3">
+                           <button type="submit" class="btn btn-success btn-sm">Update Address</button>
+                        </div>
 
-                  </div>
-               </form>
+                     </div>
+                  </form>
+               </div>
             </div>
          </div>
       </div>
    </div>
-</div>
 
 <div class="modal fade" id="NewAddModal" tabindex="-1" aria-labelledby="NewAddModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -212,21 +226,22 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             <h4 class="text-start mb-3">Add New Address</h4>
             <hr>
-            <form id="createNewAddress" action="http://localhost/mintage-world/create-new-address-for-member" method="POST">
-               <input type="hidden" name="_token" value="2Z28jHbbIPkuu4sVZSrMQhv0zi1uaTxySjtAYKg0">                  <input type="hidden" name="member_id" value="196134">
+            <form id="createNewAddress" action="{{ url('create-new-address-for-member') }}" method="POST">
+               @csrf
+               <input type="hidden" name="member_id" value="{{session('member_id')}}">
                <div class="add-wraper">
                   <div class="row">
                      <div class="col-md-6 mb-3">
                         <label for="firstName">First Name</label>
-                        <input name="first_name" type="text" class="form-control" id="firstName">
+                        <input name="first_name" type="text" class="form-control" id="firstName" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20" required>                           
                      </div>
                      <div class="col-md-6 mb-3">
                         <label for="lastName">Last Name</label>
-                        <input name="last_name" type="text" class="form-control" id="lastName">
+                        <input name="last_name" type="text" class="form-control" id="lastName" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20" required>                           
                      </div>
                      <div class="col-md-6  mb-3">
                         <label for="mobileNumber">Mobile No</label>
-                        <input name="mobile_number" type="text" class="form-control" id="mobileNumber">
+                        <input name="mobile_number" type="text" class="form-control" id="mobileNumber" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No" pattern="[6-9]{1}[0-9]{9}">                           
                      </div>
                      <div class="col-md-6  mb-3">
                         <label for="addressTag">Tag</label>
@@ -288,7 +303,7 @@
                      </div>
                      <div class="col-md-6  mb-3">
                         <label for="inputZip">Zip Code</label>
-                        <input name="zip" type="number" class="form-control" id="inputZip">
+                        <input name="zip" type="text" class="form-control" id="inputZip" maxlength="6" minlength="6" pattern="[0-9]*" title="Only 6 Digit" required>
                      </div>
                      <div class="col-md-6  mb-3">
                         <label for="inputCountry">Country</label>
@@ -305,6 +320,7 @@
       </div>
    </div>
 </div>
+
 
 <div class="modal fade" id="delete-address" tabindex="-1" aria-labelledby="Delete-Address" aria-hidden="true">
    <div class="modal-dialog">

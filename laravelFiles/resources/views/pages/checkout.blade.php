@@ -96,7 +96,7 @@
                         @if($member["address"])
                         <li id="add_1" class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
                            <div>
-                              <input type="radio" id="lblAdd1" name="billing_address" pincode="{{$member['pincode']}}" first_name="{{$member['first_name']}}" last_name="{{$member['last_name']}}" address="{{$member['address']}}" mobile_number="{{$member['mobile_number']}}" city="{{$member['city']}}" state="{{$member['state']}}" country="{{$member['country']}}" checked="">
+                              <input type="radio" id="lblAdd1" name="billing_address" pincode="{{$member['pincode']}}" first_name="{{$member['first_name']}}" last_name="{{$member['last_name']}}" address="{{$member['address']}}" mobile_number="{{$member['mobile']}}" city="{{$member['city']}}" state="{{$member['state']}}" country="{{$member['country']}}" checked="">
                               <label for="lblAdd1"><span>{{$member["first_name"]}} {{ $member["last_name"] }}</span>
                                  <br>
                                  {{$member["address"]}}<br>
@@ -121,15 +121,15 @@
                                                 <div class="row">
                                                    <div class="col-md-6 mb-3 d-none">
                                                       <label for="inputName">First Name</label>
-                                                      <input type="text" class="form-control" id="inputName" placeholder="Name" value="{{$member['first_name']}}">
+                                                      <input  name="first_name" type="text" class="form-control" id="inputName" placeholder="Name" value="{{$member['first_name']}}" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20">
                                                    </div>
                                                    <div class="col-md-6 mb-3 d-none">
                                                       <label for="last_name">Last Name</label>
-                                                      <input name="last_name" type="text" class="form-control" id="lastName" value="{{$member['last_name']}}">
+                                                      <input name="last_name" type="text" class="form-control" id="lastName" value="{{$member['last_name']}}" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20">
                                                    </div>
                                                    <div class="col-md-4  mb-3">
                                                       <label for="inputMobileNo">Mobile No</label>
-                                                      <input type="number" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" value="{{$member['mobile']}}">
+                                                      <input type="text" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No"  pattern="[6-9]{1}[0-9]{9}" value="{{$member['mobile']}}">                                                      
                                                    </div>
                                                    <div class="col-md-12  mb-3">
                                                       <label for="inputAddress">Address</label>
@@ -235,15 +235,15 @@
                                                 <div class="row">
                                                    <div class="col-md-6 mb-3">
                                                       <label for="inputName">First Name</label>
-                                                      <input type="text" name="first_name" class="form-control" id="inputName" placeholder="Name" value="{{$address['first_name']}}">
+                                                      <input type="text" name="first_name" class="form-control" id="inputName" placeholder="Name" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20" value="{{$address['first_name']}}">                                                      
                                                    </div>
                                                    <div class="col-md-6 mb-3">
                                                       <label for="last_name">Last Name</label>
-                                                      <input name="last_name" type="text" class="form-control" id="lastName" value="{{$address['last_name']}}">
+                                                      <input name="last_name" type="text" class="form-control" id="lastName" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20" value="{{$address['last_name']}}">                                                      
                                                    </div>
                                                    <div class="col-md-4  mb-3">
                                                       <label for="inputMobileNo">Mobile No</label>
-                                                      <input type="number" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" value="{{$address['mobile']}}">
+                                                      <input type="text" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No"  pattern="[6-9]{1}[0-9]{9}" value="{{$address['mobile_number']}}">                                                      
                                                    </div>
                                                    <div class="col-md-12  mb-3">
                                                       <label for="inputAddress">Address</label>
@@ -297,7 +297,7 @@
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputZip">Zip Code</label>
-                                                      <input type="number" class="form-control" id="inputZip" placeholder="Zip Code" name="pincode" value="{{$address['zip']}}">
+                                                      <input type="number" class="form-control" id="inputZip" placeholder="Zip Code" title="Max. 6 characters" maxlength="6" name="pincode" value="{{$address['zip']}}">
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputCountry">Country</label>
@@ -347,9 +347,9 @@
                         </li>
                         @endforeach
                         @endif
-                        <li class="w-100">
+                        {{-- <li class="w-100">
                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#NewAddModal"><i class="fa fa-location"></i>Add New Address</button>
-                        </li>
+                        </li> --}}
                      </ul>
                   </div>
                </div>
@@ -390,15 +390,16 @@
                                                 <div class="row">
                                                    <div class="col-md-6 mb-3 d-none">
                                                       <label for="inputName">First Name</label>
-                                                      <input type="text" class="form-control" id="inputName" placeholder="Name" value="{{$member['first_name']}}">
+                                                      <input type="text" class="form-control" id="inputName" placeholder="Name" value="{{$member['first_name']}}" pattern="[A-Za-z]" title="Enter only character / Max. limit is 20" required>                                                      
                                                    </div>
                                                    <div class="col-md-6 mb-3 d-none">
                                                       <label for="last_name">Last Name</label>
-                                                      <input name="last_name" type="text" class="form-control" id="lastName" value="{{$member['last_name']}}">
+                                                      <input name="last_name" type="text" class="form-control" id="lastName" value="{{$member['last_name']}}" pattern="[A-Za-z]" title="Enter only character / Max. limit is 20" required>
                                                    </div>
                                                    <div class="col-md-4  mb-3">
                                                       <label for="inputMobileNo">Mobile No</label>
-                                                      <input type="number" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" value="{{$member['mobile']}}">
+                                                      <input type="text" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No" pattern="[6-9]{1}[0-9]{9}" value="{{$member['mobile']}}" required>
+                                                      
                                                    </div>
                                                    <div class="col-md-12  mb-3">
                                                       <label for="inputAddress">Address</label>
@@ -481,7 +482,7 @@
                         @foreach($member["addresses"] as $address)
                         <li class="w-100 mb-3 me-0 pb-3 border-bottom d-md-flex justify-content-between">
                            <div>
-                              <input type="radio" @if($address['default']=="yes" ) checked @endif pincode="{{$address['zip']}}" first_name="{{$address['first_name']}}" last_name="{{$address['last_name']}}" address="{{$address['address']}}" mobile_number="{{$address['mobile_number']}}" city="{{$address['city']}}" state="{{$address['state']}}" country="{{$address['country']}}" id="lblAdd12" class="shipping_address" name="shipping_address">
+                              <input type="radio" @if($address['default']=="yes" ) checked @endif pincode="{{$address['zip']}}" first_name="{{$address['first_name']}}" last_name="{{$address['last_name']}}" address="{{$address['address']}}" mobile_number="{{$address['mobile']}}" city="{{$address['city']}}" state="{{$address['state']}}" country="{{$address['country']}}" id="lblAdd12" class="shipping_address" name="shipping_address">
                               <label for="lblAdd12"><span>{{$address["first_name"]}} {{ $address["last_name"] }}</span><br>
                                  {{$address["address"]}}<br>
                                  {{$address["city"]}},{{$address["state"]}}, {{$address["zip"]}}<br>
@@ -506,15 +507,16 @@
                                                 <div class="row">
                                                    <div class="col-md-6 mb-3">
                                                       <label for="inputName">First Name</label>
-                                                      <input type="text" name="first_name" class="form-control" id="inputName" placeholder="Name" value="{{$address['first_name']}}">
+                                                      <input type="text" name="first_name" class="form-control" id="inputName" placeholder="Name" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20"  value="{{$address['first_name']}}">
                                                    </div>
                                                    <div class="col-md-6 mb-3">
                                                       <label for="last_name">Last Name</label>
-                                                      <input name="last_name" type="text" class="form-control" id="lastName" value="{{$address['last_name']}}">
+                                                      <input name="last_name" type="text" class="form-control" id="lastName" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20" value="{{$address['last_name']}}">
                                                    </div>
                                                    <div class="col-md-4  mb-3">
                                                       <label for="inputMobileNo">Mobile No</label>
-                                                      <input type="number" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" value="{{$address['mobile']}}">
+                                                      <input type="text" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No"  pattern="[6-9]{1}[0-9]{9}" value="{{$address['mobile']}}">
+                                                      
                                                    </div>
                                                    <div class="col-md-12  mb-3">
                                                       <label for="inputAddress">Address</label>
@@ -720,15 +722,15 @@
                      <div class="row">
                         <div class="col-md-6 mb-3">
                            <label for="firstName">First Name</label>
-                           <input name="first_name" type="text" class="form-control" id="firstName">
+                           <input name="first_name" type="text" class="form-control" id="firstName" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20" required>                           
                         </div>
                         <div class="col-md-6 mb-3">
                            <label for="lastName">Last Name</label>
-                           <input name="last_name" type="text" class="form-control" id="lastName">
+                           <input name="last_name" type="text" class="form-control" id="lastName" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20" required>                           
                         </div>
                         <div class="col-md-6  mb-3">
                            <label for="mobileNumber">Mobile No</label>
-                           <input name="mobile_number" type="text" class="form-control" id="mobileNumber">
+                           <input name="mobile_number" type="text" class="form-control" id="mobileNumber" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No" pattern="[6-9]{1}[0-9]{9}">                           
                         </div>
                         <div class="col-md-6  mb-3">
                            <label for="addressTag">Tag</label>
@@ -790,7 +792,7 @@
                         </div>
                         <div class="col-md-6  mb-3">
                            <label for="inputZip">Zip Code</label>
-                           <input name="zip" type="number" class="form-control" id="inputZip">
+                           <input name="zip" type="text" class="form-control" id="inputZip" maxlength="6" minlength="6" pattern="[0-9]*" title="Only 6 Digit" required>
                         </div>
                         <div class="col-md-6  mb-3">
                            <label for="inputCountry">Country</label>
@@ -874,6 +876,18 @@
          <div class='toast-timeline animate'></div>
       </div>
    </div>
+   <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 999">
+      <div id="liveToast " class="toast hide bg-danger text-white form-failure-error position-relative" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header bg-danger text-white">
+              <strong class="me-auto"><i class="fas fa-check-circle"></i> Failure</strong>
+              <small>Just Now</small>
+          </div>
+          <div class="toast-body">
+             <span id="registration-error-message">Fix the form Error</span>
+          </div>
+          <div class='toast-timeline animate'></div>
+      </div>
+  </div>
 </main>
 
 
@@ -992,7 +1006,24 @@
 <script>
    $("form#createNewAddress").submit(function(e) {
       e.preventDefault();
-      let formData = $(this).serialize();
+
+      // var pnumber = document.getElementById('mobileNumber').value;
+      //    var message = document.getElementsByClassName("error-message");
+      //    var valError = 0;
+      //    var numbers = /^[6-9]{1}[0-9]{9}/;
+      //       if (pnumber == " " || pnumber.match(numbers)) {
+      //           text = "";
+      //           message[0].innerHTML = text;
+
+      //       } else {
+      //           text = "Please Enter 10 Digit Indian Mobile No";
+      //           message[0].innerHTML = text;
+      //           valError = valError + 1;
+      //       }
+
+      //       if(valError == 0)
+      //       {  
+               let formData = $(this).serialize();
       $.ajax({
          type: "POST",
          url: $(this).attr("action"),
@@ -1007,6 +1038,12 @@
             location.reload();
          }
       });
+      //       }
+      //       else{
+      //    $(".form-failure-error").toast("show");
+      // }
+
+    
    });
 
    $(function() {

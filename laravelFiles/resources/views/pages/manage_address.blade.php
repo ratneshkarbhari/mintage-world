@@ -150,8 +150,8 @@
                         <div class="col-md-6  mb-3">
                            <label for="inputCity">City</label>
                            <input type="text" class="form-control" id="inputCity" name="city" placeholder="City" 
-                           {{-- value="{{$member['city']}} --}}
-                           ">
+                           {{-- value="{{$member['city']}}" --}}
+                           required>
                         </div>
                         <div class="col-md-6  mb-3">
                            <label for="inputState">State</label>
@@ -197,9 +197,9 @@
                         </div>
                         <div class="col-md-6  mb-3">
                            <label for="inputZip">Zip Code</label>
-                           <input type="number" class="form-control" id="inputZip" placeholder="Zip Code" name="pincode" 
+                           <input type="number" class="form-control" id="inputZip" placeholder="Zip Code" maxlength="6" minlength="6" pattern="[0-9]*" title="Only 6 Digit" name="pincode" 
                            {{-- value="{{$member['pincode']}}" --}}
-                           >
+                           required>
                         </div>
                         <div class="col-md-6  mb-3">
                            <label for="inputCountry">Country</label>
@@ -241,7 +241,7 @@
                      </div>
                      <div class="col-md-6  mb-3">
                         <label for="mobileNumber">Mobile No</label>
-                        <input name="mobile_number" type="text" class="form-control" id="mobileNumber" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No" pattern="[6-9]{1}[0-9]{9}">                           
+                        <input name="mobile_number" type="text" class="form-control" id="mobileNumber" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No" pattern="[6-9]{1}[0-9]{9}" required>                           
                      </div>
                      <div class="col-md-6  mb-3">
                         <label for="addressTag">Tag</label>
@@ -257,7 +257,7 @@
                      </div>
                      <div class="col-md-6  mb-3">
                         <label for="city">City</label>
-                        <input name="city" type="text" class="form-control" id="inputCity">
+                        <input name="city" type="text" class="form-control" id="inputCity" required>
                      </div>
                      <div class="col-md-6  mb-3">
                         <label for="inputState">State</label>

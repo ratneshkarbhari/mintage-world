@@ -69,7 +69,7 @@
                         <!-- <label for="" class="w-100 mb-2">Email ID</label>
                         <input type="text" name="email" id="TxtEmailID" value="{{$user['email']}}" class="form-control inp-dis" disabled> --> 
                         <label for="" class="w-100 mb-0">Mobile No</label>
-                        <input type="text" name="mobile_number" id="TxtMobileNo" value="{{$user['mobile']}}" class="form-control inp-dis" minlength="10" maxlength="10" title="10 characters length" disabled>
+                        <input type="text" name="mobile_number" id="TxtMobileNo"  value="{{$user['mobile']}}" class="form-control inp-dis"  placeholder="Mobile No" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No" pattern="[6-9]{1}[0-9]{9}" disabled>
                         <p class="error-message text-danger mb-3"></p>
                      </div>
                      <div class="col-md-8 mb-3">

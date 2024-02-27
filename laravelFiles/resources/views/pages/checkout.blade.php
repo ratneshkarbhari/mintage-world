@@ -121,15 +121,15 @@
                                                 <div class="row">
                                                    <div class="col-md-6 mb-3 d-none">
                                                       <label for="inputName">First Name</label>
-                                                      <input  name="first_name" type="text" class="form-control" id="inputName" placeholder="Name" value="{{$member['first_name']}}" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20">
+                                                      <input  name="first_name" type="text" class="form-control" id="inputName" placeholder="Name" value="{{$member['first_name']}}" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20" required>
                                                    </div>
                                                    <div class="col-md-6 mb-3 d-none">
                                                       <label for="last_name">Last Name</label>
-                                                      <input name="last_name" type="text" class="form-control" id="lastName" value="{{$member['last_name']}}" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20">
+                                                      <input name="last_name" type="text" class="form-control" id="lastName" value="{{$member['last_name']}}" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20" required>
                                                    </div>
                                                    <div class="col-md-4  mb-3">
                                                       <label for="inputMobileNo">Mobile No</label>
-                                                      <input type="text" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No"  pattern="[6-9]{1}[0-9]{9}" value="{{$member['mobile']}}">                                                      
+                                                      <input type="text" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No"  pattern="[6-9]{1}[0-9]{9}" value="{{$member['mobile']}}" required>                                                      
                                                    </div>
                                                    <div class="col-md-12  mb-3">
                                                       <label for="inputAddress">Address</label>
@@ -137,7 +137,7 @@
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputCity">City</label>
-                                                      <input type="text" class="form-control" id="inputCity" name="city" placeholder="City" value="{{$member['city']}}">
+                                                      <input type="text" class="form-control" id="inputCity" name="city" placeholder="City" value="{{$member['city']}}" required>
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputState">State</label>
@@ -183,7 +183,7 @@
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputZip">Zip Code</label>
-                                                      <input type="number" class="form-control" id="inputZip" placeholder="Zip Code" name="pincode" value="{{$member['pincode']}}">
+                                                      <input type="number" class="form-control" id="inputZip" maxlength="6" minlength="6" pattern="[0-9]*" title="Only 6 Digit" placeholder="Zip Code" name="pincode" value="{{$member['pincode']}}" required>
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputCountry">Country</label>
@@ -235,15 +235,15 @@
                                                 <div class="row">
                                                    <div class="col-md-6 mb-3">
                                                       <label for="inputName">First Name</label>
-                                                      <input type="text" name="first_name" class="form-control" id="inputName" placeholder="Name" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20" value="{{$address['first_name']}}">                                                      
+                                                      <input type="text" name="first_name" class="form-control" id="inputName" placeholder="Name" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20" value="{{$address['first_name']}}" required>                                                      
                                                    </div>
                                                    <div class="col-md-6 mb-3">
                                                       <label for="last_name">Last Name</label>
-                                                      <input name="last_name" type="text" class="form-control" id="lastName" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20" value="{{$address['last_name']}}">                                                      
+                                                      <input name="last_name" type="text" class="form-control" id="lastName" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20" value="{{$address['last_name']}}" required>                                                      
                                                    </div>
                                                    <div class="col-md-4  mb-3">
                                                       <label for="inputMobileNo">Mobile No</label>
-                                                      <input type="text" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No"  pattern="[6-9]{1}[0-9]{9}" value="{{$address['mobile_number']}}">                                                      
+                                                      <input type="text" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No"  pattern="[6-9]{1}[0-9]{9}" value="{{$address['mobile_number']}}" required>                                                      
                                                    </div>
                                                    <div class="col-md-12  mb-3">
                                                       <label for="inputAddress">Address</label>
@@ -251,7 +251,7 @@
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputCity">City</label>
-                                                      <input type="text" class="form-control" id="inputCity" name="city" placeholder="City" value="{{$address['city']}}">
+                                                      <input type="text" class="form-control" id="inputCity" name="city" placeholder="City" value="{{$address['city']}}" required>
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputState">State</label>
@@ -297,7 +297,7 @@
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputZip">Zip Code</label>
-                                                      <input type="number" class="form-control" id="inputZip" placeholder="Zip Code" title="Max. 6 characters" maxlength="6" name="pincode" value="{{$address['zip']}}">
+                                                      <input type="number" class="form-control" id="inputZip" placeholder="Zip Code" maxlength="6" minlength="6" pattern="[0-9]*" title="Only 6 Digit" name="pincode" value="{{$address['zip']}}" required>
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputCountry">Country</label>
@@ -407,7 +407,7 @@
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputCity">City</label>
-                                                      <input type="text" class="form-control" id="inputCity" name="city" placeholder="City" value="{{$member['city']}}">
+                                                      <input type="text" class="form-control" id="inputCity" name="city" placeholder="City" value="{{$member['city']}}" required>
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputState">State</label>
@@ -453,7 +453,7 @@
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputZip">Zip Code</label>
-                                                      <input type="number" class="form-control" id="inputZip" placeholder="Zip Code" name="pincode" value="{{$member['pincode']}}">
+                                                      <input type="number" class="form-control" id="inputZip" placeholder="Zip Code" maxlength="6" minlength="6" pattern="[0-9]*" title="Only 6 Digit" name="pincode" value="{{$member['pincode']}}" required>
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputCountry">Country</label>
@@ -507,15 +507,15 @@
                                                 <div class="row">
                                                    <div class="col-md-6 mb-3">
                                                       <label for="inputName">First Name</label>
-                                                      <input type="text" name="first_name" class="form-control" id="inputName" placeholder="Name" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20"  value="{{$address['first_name']}}">
+                                                      <input type="text" name="first_name" class="form-control" id="inputName" placeholder="Name" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20"  value="{{$address['first_name']}}" required>
                                                    </div>
                                                    <div class="col-md-6 mb-3">
                                                       <label for="last_name">Last Name</label>
-                                                      <input name="last_name" type="text" class="form-control" id="lastName" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20" value="{{$address['last_name']}}">
+                                                      <input name="last_name" type="text" class="form-control" id="lastName" maxlength="20" pattern="[A-Za-z]{0,20}" title="Enter only character / Max. limit is 20" value="{{$address['last_name']}}" required>
                                                    </div>
                                                    <div class="col-md-4  mb-3">
                                                       <label for="inputMobileNo">Mobile No</label>
-                                                      <input type="text" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No"  pattern="[6-9]{1}[0-9]{9}" value="{{$address['mobile']}}">
+                                                      <input type="text" class="form-control" id="inputMobileNo" name="mobile" placeholder="Mobile No" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No"  pattern="[6-9]{1}[0-9]{9}" value="{{$address['mobile']}}" required>
                                                       
                                                    </div>
                                                    <div class="col-md-12  mb-3">
@@ -524,7 +524,7 @@
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputCity">City</label>
-                                                      <input type="text" class="form-control" id="inputCity" name="city" placeholder="City" value="{{$address['city']}}">
+                                                      <input type="text" class="form-control" id="inputCity" name="city" placeholder="City" value="{{$address['city']}}" required>
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputState">State</label>
@@ -570,7 +570,7 @@
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputZip">Zip Code</label>
-                                                      <input type="number" class="form-control" id="inputZip" placeholder="Zip Code" name="pincode" value="{{$address['zip']}}">
+                                                      <input type="number" class="form-control" id="inputZip" placeholder="Zip Code" maxlength="6" minlength="6" pattern="[0-9]*" title="Only 6 Digit" name="pincode" value="{{$address['zip']}}" required>
                                                    </div>
                                                    <div class="col-md-6  mb-3">
                                                       <label for="inputCountry">Country</label>
@@ -730,7 +730,7 @@
                         </div>
                         <div class="col-md-6  mb-3">
                            <label for="mobileNumber">Mobile No</label>
-                           <input name="mobile_number" type="text" class="form-control" id="mobileNumber" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No" pattern="[6-9]{1}[0-9]{9}">                           
+                           <input name="mobile_number" type="text" class="form-control" id="mobileNumber" minlength="10" maxlength="10" title="Enter Only Indian 10 Digits Mobile No" pattern="[6-9]{1}[0-9]{9}" required>                           
                         </div>
                         <div class="col-md-6  mb-3">
                            <label for="addressTag">Tag</label>
@@ -746,7 +746,7 @@
                         </div>
                         <div class="col-md-6  mb-3">
                            <label for="city">City</label>
-                           <input name="city" type="text" class="form-control" id="inputCity">
+                           <input name="city" type="text" class="form-control" id="inputCity" required>
                         </div>
                         <div class="col-md-6  mb-3">
                            <label for="inputState">State</label>

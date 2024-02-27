@@ -433,19 +433,52 @@
                     @endif
                 </div>
               
-                    @if($product["instock"]<1)   <hr>                   
+                  @if($product["instock"]<1)   
+                  <hr>                   
                 
                 <div class="notify-me-wraper">
                    <p class="text-success"> <b><i class="fa fa-bell"></i>  Notify Me</b></p>
-                    <input name="nemail" value="" id="nemail" size="100" placeholder="Please enter your email address to get notified" class="form-control" type="text">
-                    <button class="btn btn-sm btn-explore mt-3"><i class="fa fa-thumbs-up"></i> Submit
+
+                   <form id="createInstockNotificationRequest" action="{{url('create-product-instock-notification-request')}}" method="post">
+                     @csrf
+                     <input type="hidden" name="pid" value="{{$product['id']}}">
+
+                     <p class="text-success" id="notifyInstockRequestSuccess"></p>
+                     <p class="text-danger" id="notifyInstockRequestFailure"></p>
+                    <input name="email" value="" id="nemail" size="100" placeholder="Please enter your email address to get notified" class="form-control" type="email" required>
+                    <button type="submit" class="btn btn-sm btn-explore mt-3"><i class="fa fa-thumbs-up"></i> Submit
                         <span class="first"></span>
                         <span class="second"></span>
                         <span class="third"></span>
                         <span class="fourth"></span>
                     </button>
 
+                    </form>
+
                 </div>
+                <script>
+                  $("form#createInstockNotificationRequest").submit(function (e) { 
+                     e.preventDefault();
+                     let action = $(this).attr("action");
+                     let method = $(this).attr("method");
+                     let formData = $(this).serialize();
+                     $.ajax({
+                        type: method,
+                        url: action,
+                        data: formData,
+                        success: function (response) {
+
+                           if(response.result=="success"){
+                              $("p#notifyInstockRequestSuccess").html("Notification Requested");
+                              $("input#nemail").val('');
+                           }else{
+                              $("p#notifyInstockRequestSuccess").html("Create notification request failed");
+                           }
+                           
+                        }
+                     });
+                  });
+                </script>
 
                 @endif
             </div>

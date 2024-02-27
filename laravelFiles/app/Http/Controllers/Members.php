@@ -41,7 +41,6 @@ class Members extends Controller
 
     function update_profile(Request $request) {
         
-        $nameParts = explode(" ",$request->full_name);
 
         $profileUpdateObj = [
 

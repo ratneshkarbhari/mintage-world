@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AwsS3;
+use App\Models\Member;
 use App\Models\ProductImage;
 use App\Models\ProductVariation;
+use App\Models\Wishlist;
 
 class Products extends Controller
 {
@@ -30,6 +32,56 @@ class Products extends Controller
             ];
         }
         
+    }
+
+    function create_notification_request_in_stock(Request $request) {
+        
+        $productId = $request->pid;
+        if (session("member_id")) {
+
+            $member = Member::find(session("member_id"));
+
+            $memberId = $member["id"];
+            
+        }else{
+
+            $memberId = 0;
+
+        }
+
+        $email = $request->email;
+
+        if(!Wishlist::where("member_id",$memberId)->where("product_id",$productId)->where("email",$email)->first()){
+
+            $obj = [
+                "product_id" => $productId,
+                "member_id" => $memberId,
+                "email" => $email
+            ];
+    
+            if (Wishlist::create($obj)) {
+                return [
+                    "result" => "success",
+                    "message" => "message"
+                ];
+            } else {
+                return [
+                    "result" => "failure",
+                    "message" => "Wishlist Add failed"
+                ];
+            }
+
+        }else{
+            return [
+                "result" => "failure",
+                "message" => "Already requested"
+            ];
+        }
+
+        
+        
+
+
     }
 
     function create(Request $request){

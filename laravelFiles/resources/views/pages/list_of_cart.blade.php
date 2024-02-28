@@ -319,8 +319,7 @@ use App\Models\Product;
                 
                 success: function (response) {
 
-                    console.log(response);
-                    $("span#cart-item-count").html(response);
+                    $("span#cart-item-count,span#cart-item-count-mobile").html(response);
 
                     
                 }

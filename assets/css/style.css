@@ -4355,7 +4355,7 @@ input[type="password"] {
     width: 7px !important;
     color: #fff;
   }
-  .cart-item {
+  #cart-item-count-mobile {
     position: relative;
     display: inline-block;
     width: 28px;

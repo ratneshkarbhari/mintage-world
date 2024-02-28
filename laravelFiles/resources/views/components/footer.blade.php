@@ -142,7 +142,15 @@
     </div>
     <div class="sticky-footer">
         <ul class="sticky-footer-ul">
-            <li><a href="{{url("cart/")}}" class="position-relative" title="Add to Cart"><i class="fa fa-cart-plus"></i><span class="cart-item">5</span> </a></li>
+            <li><a href="{{url("cart/")}}" class="position-relative" title="Add to Cart"><i class="fa fa-cart-plus"></i><span id="cart-item-count-mobile">@php 
+
+$cartCount = session("cart_count");
+@endphp
+@if(isset($cartCount))
+    {{session("cart_count")}}
+@else
+    0
+@endif</span> </a></li>
             @if(session("member_id"))
             <li><a href="{{url("member/dashboard")}}" title="Sign in"><i class="fas fa-user-cog"></i></a></li>            
             <li><a href="{{url("/logout")}}" title="Login"><i class="fas fa-sign-out-alt"></i></a></li>

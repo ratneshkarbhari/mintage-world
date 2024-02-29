@@ -245,7 +245,21 @@ class Orders extends Controller
        
         $orderModel = new Order();
 
-        $order = $orderModel->where("orderid",$request->orderid)->with("order_products")->first();
+        $order = $orderModel->where("orderid",$request->orderid)->with("order_products")->with("member")->first();
+
+
+        $orderProducts  = OrderProduct::where("shoppingid",$order["id"])->with("products")->get();
+
+
+        $orderProductsForEmail = [];
+        foreach($orderProducts as $orderProduct){
+            $orderProductsForEmail[] = [
+                "title" => $orderProduct["productname"],
+                "price" => $orderProduct["price"],
+                "quantity" => $orderProduct["quantity"]
+            ];
+        }
+
 
         if($order->update([
             "status" => $request->status,
@@ -254,22 +268,33 @@ class Orders extends Controller
             "courier_date" => $request->courier_date,
         ])){
 
-            $orderData = [
-
-                "orderid" => $order['orderid'],
-                "order_date" => $order["ordered"],
-                "status" => "Not Confirmed",
-                "payment_method" => "Razorpay",
-                "gw_tx_id" => $order["gw_tx_id"],
-                "dispatched_details" => "",
-                "payment_address" => $order["payment_address"],
+            $emailBody = $this->generate_email_body("order_placed",[
+                "full_name" => $order["Shipping_Name1"],
+                "orderid" => $order["orderid"],
+                "date" =>  date('l d F Y'),
+                "status" => $order['status'],
+                "payment_status" => $request->payment_status,
+                "products" => $orderProductsForEmail,
+                "shipping" => $order["shipping"],
+                "discount" => 0,
+                "courier_name" => $order['couriers'],
+                "tracking_number" => $order['tracking_number'],
+                "courier_date" => date("d-m-Y"),  
                 "shipping_address" => $order['Shipping_Address1'],
-                "order_products" => $order["order_products"]
+                "payment_address" => $order['payment_address']
+            ]);
 
-            ];
+            $utils = new Utils();
 
+
+
+            if($res = $utils->send_email($order['member']['email'],session("first_name"), "Mintage World - Order ".$request->status, $emailBody)){
+
+                return "order-updated";
+            }else{
+                return "order-not-updated";
+            }
             
-            return "order-updated";
 
         }else{
             return "order-update-failed";

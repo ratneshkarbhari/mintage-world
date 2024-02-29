@@ -21,8 +21,8 @@
                   <th>SKU</th>
                   <th>Stock</th>
                   <th>Price</th>
-                  <!-- <th>Status</th>
-                  <th width="80">Action</th> -->
+                  <th>Status</th>
+                  <th width="80">Action</th>
                </tr>
             </thead>
             <tbody>
@@ -69,7 +69,9 @@
 
    $("#manageProducts").DataTable({
       'ajax': '{{url("get-all-products")}}',
-      'columns': [{
+      'columns': [
+         
+         {
             data: 'name1'
          },
          {
@@ -86,6 +88,14 @@
          },
          {
             data : 'price'
+         },
+         {
+            data: 'status'
+         },
+         {
+            render : function(data,type,full){
+               return '<a href="{{url("admin/edit-product/")}}/'+full.id+'" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>';
+            }
          }
       ]
    });

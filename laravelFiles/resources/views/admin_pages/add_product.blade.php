@@ -134,7 +134,7 @@
                   </div>
                   <div id="editor" class="editor"></div>
                </div>
-               <div class="col-md-6 mb-3">
+               <!-- <div class="col-md-6 mb-3">
                   <div class="form-group">
                      <label for="meta_title">Meta Title</label>
                      <input name="meta_title" id="meta_title" type="text" class="form-control" placeholder="Please Enter Product Meta Title" value="">
@@ -157,7 +157,7 @@
                      <label for="schema_code">Schema Code Script</label>
                      <textarea name="schema_code" id="schema_code" class="form-control" placeholder="Enter Schema Code Script"></textarea>
                   </div>
-               </div>
+               </div> -->
                <div class="col-md-6 mb-3">
                   <div class="form-group">
                      <label for="color">Color</label>

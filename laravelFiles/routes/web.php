@@ -171,6 +171,8 @@ Route::post('create-new-address-for-member', [CartActions::class, 'create_new_ad
 Route::group(['middleware' => ['check_admin_auth']], function () {
     // admin routes
 
+    Route::get('get-all-products',[Products::class,'get_all']);
+
     Route::post("create-product-exe", [Products::class, 'create']);
 
     Route::post("delete-product-exe", [Products::class, 'delete']);

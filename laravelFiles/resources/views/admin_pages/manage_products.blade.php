@@ -13,78 +13,21 @@
          <a class="btn btn-primary btn-sm align-self-baseline" title="Add Product" href="add-product"> <i class="fa fa-plus"></i> Add Product </a>
       </div>
       <div class="table-responsive">
-         <table id="example" class="table table-striped table-hover table-bordered  DataTable" style="width:100%">
+         <table id="manageProducts" class="table table-striped table-hover table-bordered  DataTable" style="width:100%">
             <thead>
                <tr>
-                  <th>Sr. No.</th>
                   <th>Product Name</th>
                   <th>Category</th>
                   <th>SKU</th>
                   <th>Stock</th>
                   <th>Price</th>
-                  <th>Status</th>
-                  <th width="80">Action</th>
+                  <!-- <th>Status</th>
+                  <th width="80">Action</th> -->
                </tr>
             </thead>
             <tbody>
 
-               @php
-               $productCounter = 1;
-               @endphp
 
-               @foreach($latest_twenty_five_products as $product)
-               <tr id="{{$product['id']}}">
-                  <td>{{$productCounter}}</td>
-                  <td><a href="{{url('admin/edit-product/'.$product['id'])}}">{{$product["name1"]}}</a></td>
-                  <td>{{$product["product_category"]["cat_name"]}}</td>
-                  <td>{{$product["sku"]}}</td>
-                  <td>{{$product["instock"]}}</td>
-                  <td>{{$product["price"]}}</td>
-                  <td>
-                     <label class="switch switch-success" for="chk1">
-                        <input type="checkbox" 
-
-                        @if($product["status"]=="Active")
-                        checked
-                        @endif
-
-                        id="chk1">
-                        <span class="slider round"></span>
-                     </label>
-                  </td>
-                  <td>
-
-                     <a href="{{url('admin/edit-product/'.$product['id'])}}" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
-
-                     <button type="button" data-bs-toggle="modal" data-bs-target="#delete-product-{{$product['id']}}" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-
-                     <div class="modal fade" id="delete-product-{{$product['id']}}" tabindex="-1" aria-labelledby="delete-product-{{$product['id']}}Label" aria-hidden="true">
-                        <div class="modal-dialog">
-                           <div class="modal-content">
-                              <div class="modal-header">
-                              <h1 class="modal-title fs-5" id="delete-product-{{$product['id']}}Label">Delete Product</h1>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body">
-                              Are you Sure?
-                              </div>
-                              <div class="modal-footer">
-                                 <form pid="{{$product['id']}}" class="delete-product-form" method="post" action="{{url('delete-product-exe')}}">
-                                 @csrf
-                                 <input type="hidden" name="pid" value="{{$product['id']}}">
-                                 <button type="submit" class="btn btn-primary btn-danger">DELETE PRODUCT PERMANENTLY</button>
-                                 </form>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     
-                  </td>
-               </tr>
-               @php
-               $productCounter++;
-               @endphp
-               @endforeach
 
             </tbody>
          </table>
@@ -122,7 +65,33 @@
 
 
 <script>
-   $(".delete-product-form").submit(function (e) { 
+   //Datatable invoking script
+
+   $("#manageProducts").DataTable({
+      'ajax': '{{url("get-all-products")}}',
+      'columns': [{
+            data: 'name1'
+         },
+         {
+            data: 'product_category',
+            render: function(data, type) {
+               return data.cat_name;
+            }
+         },
+         {
+            data: 'sku',
+         },
+         {
+            data: 'instock'
+         },
+         {
+            data : 'price'
+         }
+      ]
+   });
+
+
+   $(".delete-product-form").submit(function(e) {
       e.preventDefault();
       let url = $(this).attr("action");
       let method = $(this).attr("method");
@@ -137,20 +106,20 @@
          data: formData,
          contentType: false,
          processData: false,
-         success: function (response) {
+         success: function(response) {
 
-            if (response=="success") {
-               $(".delete-success").toast("show");         
+            if (response == "success") {
+               $(".delete-success").toast("show");
             } else {
                $(".delete-failure").toast("show");
             }
 
          }
       });
-      
-      
+
+
       $('.modal').modal('hide');
-      $("tr#"+pid).addClass("d-none");
+      $("tr#" + pid).addClass("d-none");
 
    });
 </script>

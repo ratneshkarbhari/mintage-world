@@ -12,7 +12,7 @@
             <h2 class="title heading-3">{{$title}} </h2>
         </div>
         <div class="table-responsive">
-            <table id="example" class="table table-striped table-bordered DataTable" style="width:100%">
+            <table id="manageOrders" class="table table-striped table-bordered DataTable" style="width:100%">
                 <thead>
                     <tr>
                         <th>Sr. No.</th>
@@ -67,3 +67,10 @@
 
     </div>
 </div>
+
+<script>
+
+let table = new DataTable('#manageOrders');
+
+
+</script>

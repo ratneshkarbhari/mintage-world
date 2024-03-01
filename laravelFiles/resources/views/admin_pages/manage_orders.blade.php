@@ -57,21 +57,21 @@
             },
             {
                 data: 'status',
-                render : function(data,type,full){
-                    
-                    return '<span class="badge bg-info text-dark">'+data+'</span>';
+                // render : function(data,type,full){
 
-                }
+                //     return '<span class="badge bg-info text-dark">'+data+'</span>';
+
+                // }
             },
             {
                 data : 'payment_status',
-                render: function(data, type, full) {
-                    return '<span class="badge bg-success">'+data+'</span>';
-                }
+                // render: function(data, type, full) {
+                //     return '<span class="badge bg-success">'+data+'</span>';
+                // }
             },
             {
                 render : function(data, type, full){
-                    return '<a href="http://localhost/mintage-world/admin/view-order/ORD-'+full.orderid+'" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>';
+                    return '<a href="http://localhost/mintage-world/admin/view-order/'+full.orderid+'" class="btn btn-info btn-sm" title="View Order"><i class="fa fa-eye"></i></a>';
                 }
             }
         ]

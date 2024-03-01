@@ -354,6 +354,7 @@ class CartActions extends Controller
     function delete_address(Request $request)
     {
 
+
         if (MemberAddress::find($request->address_id)->delete()) {
             return "success";
         } else {

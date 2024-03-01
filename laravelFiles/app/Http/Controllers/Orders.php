@@ -13,11 +13,6 @@ class Orders extends Controller
 {
 
 
-  
-
-    
-    
-
     function create_exe(Request $request){
 
         $rzpOrderId = $request->rzp_order_id;
@@ -238,6 +233,16 @@ class Orders extends Controller
                 "message" => "Order not present"
             ];
         }
+
+    }
+
+    function get_all() {
+        
+        $allOrders = Order::orderBy("id","asc")->with("member")->with("order_products")->get();
+
+        return response()->json([
+            "data" => $allOrders
+        ]);
 
     }
    

@@ -277,6 +277,9 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
 
     Route::post("create-note-exe", [Notes::class, 'create']);
+
+    Route::get("get-all-orders",[Orders::class,'get_all']);
+
 });
 
 Route::post("create-product-instock-notification-request",[Products::class,'create_notification_request_in_stock']);

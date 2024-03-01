@@ -73,18 +73,18 @@ class Orders extends Controller
                 "billing_name" => session("first_name")." ".session("last_name"),
                 "Shipping_Address1" => $shippingAddressData["shipping_address"],
                 "payment_address" => $billingAddressData["billing_address"],
-                "City" => $shippingAddressData["shipping_city"],
+                "City" => $shippingAddressData["billing_city"],
                 "shpcity" => $billingAddressData["shipping_city"],
-                "State" => $shippingAddressData["shipping_state"],
+                "State" => $shippingAddressData["billing_state"],
                 "shpstate" => $billingAddressData["shipping_state"],
                 "PinCode" => $shippingAddressData["billing_pincode"],
                 "shppincode" => $billingAddressData["shipping_pincode"],
                 "Phone" => $shippingAddressData["shipping_mobile_number"],
-                "billing_phone" => $billingAddressData["shipping_mobile_number"],
+                "billing_phone" => $billingAddressData["billing_mobile_number"],
                 "Location" => 113,
                 "shplocation" => 113,
                 "shpcountry_name" => "India",
-                "ordered" => date("Y-m-d H:i:s"),
+                "ordered" => date("d-m-Y H:i:s"),
                 "confirmed" => 0,
                 "status" => $status,
                 "subtotal" => session("subtotal")-session("discount"),
@@ -99,7 +99,7 @@ class Orders extends Controller
                 "payableamount" => session("payable"),
                 "order_ip" => $_SERVER["REMOTE_ADDR"],
                 "order_agent" => $_SERVER['HTTP_USER_AGENT'],
-                "modified_date" => date("Y-m-d H:i:s"),
+                "modified_date" => date("d-m-Y H:i:s"),
                 "mode_of_purchase" => "Web",
                 "app_paymentid" => NULL,
                 "couriers" => "",
@@ -133,17 +133,9 @@ class Orders extends Controller
 
             }
 
-
-
-
-
             return $orderId;
 
-
         }
-
-        
-        
 
     }
 
@@ -267,10 +259,11 @@ class Orders extends Controller
 
 
         if($order->update([
+            
             "status" => $request->status,
             "couriers" => $request->courier_name,
             "tracking_number" => $request->courier_number,
-            "courier_date" => $request->courier_date,
+            "courier_date" => $request->courier_date
         ])){
 
             $emailBody = $this->generate_email_body("order_placed",[

@@ -515,6 +515,22 @@ class Coins extends Controller
 
     }
 
+    
+    function get_all(){
+    
+        $allCoins = Coin::orderBy("id","desc")->get();
+
+        $allCoins = json_encode(["data"=>$allCoins], JSON_INVALID_UTF8_IGNORE);
+
+        echo $allCoins;
+
+        // return response()->json([
+        //     "data" => $allCoins
+        // ],200, ['Content-type'=> 'application/json; charset=utf-8'], JSON_UNESCAPED_UNICODE);
+
+        
+    }
+
     function update(Request $request) {
         
 
@@ -660,6 +676,17 @@ class Coins extends Controller
         
         $coinData = Coin::find($request->coinId);
 
+        if($coinData->status=="0"){
+            $coinData->status = "1";
+        }else{
+            $coinData->status = "0";
+        }
+
+        if($coinData->save()){
+            return "coin-updated";
+        }else{
+            return "coin-update-failed";
+        }
         
 
     }

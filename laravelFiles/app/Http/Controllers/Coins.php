@@ -423,8 +423,10 @@ class Coins extends Controller
             $obverseImageFile->move($uploadPath,$obverseImageName);
 
             if (!is_file(getenv("COIN_IMAGE_BASE_URL").$obverseImageName)) {
+
+                $imgName =  "coin/".$obverseImageName;
                 
-                $s3->upload($obverseImageName,$uploadPath.$obverseImageName,"mintage1","us-east-1");
+                $s3->upload($imgName,$uploadPath.$obverseImageName,"mintage1","us-east-1");
                 
             }else{
 
@@ -524,16 +526,11 @@ class Coins extends Controller
 
         echo $allCoins;
 
-        // return response()->json([
-        //     "data" => $allCoins
-        // ],200, ['Content-type'=> 'application/json; charset=utf-8'], JSON_UNESCAPED_UNICODE);
-
         
     }
 
     function update(Request $request) {
         
-
         if ($coinData = Coin::find($request->coinid)) {
             
             $uploadPath = './assets/images/coin/';
@@ -552,7 +549,10 @@ class Coins extends Controller
 
                 if (!is_file(getenv("COIN_IMAGE_BASE_URL").$obverseImageName)) {
                     
-                    $s3->upload($obverseImageName,$uploadPath.$obverseImageName,"mint-product-img","us-east-1");
+                    $imgName =  "coin/".$obverseImageName;
+
+
+                    $s3->upload($imgName,$uploadPath.$obverseImageName,"mintage1","us-east-1");
                     
                 }else{
 
@@ -577,8 +577,10 @@ class Coins extends Controller
                 $reverseImageFile->move($uploadPath,$reverseImageName);
 
                 if (!is_file(getenv("COIN_IMAGE_BASE_URL").$reverseImageName)) {
+
+                    $imgName =  "coin/".$reverseImageName;
                     
-                    $s3->upload($reverseImageName,$uploadPath.$reverseImageName,"mint-product-img","us-east-1");
+                    $s3->upload($imgName,$uploadPath.$reverseImageName,"mintage1","us-east-1");
                     
                 }else{
 

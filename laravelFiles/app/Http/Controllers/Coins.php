@@ -451,8 +451,10 @@ class Coins extends Controller
             $reverseImageFile->move($uploadPath,$reverseImageName);
 
             if (!is_file(getenv("COIN_IMAGE_BASE_URL").$reverseImageName)) {
+
+                $imgName =  "coin/".$reverseImageName;
                 
-                $s3->upload($reverseImageName,$uploadPath.$reverseImageName,"mintage1","us-east-1");
+                $s3->upload($imgName,$uploadPath.$reverseImageName,"mintage1","us-east-1");
                 
             }else{
 

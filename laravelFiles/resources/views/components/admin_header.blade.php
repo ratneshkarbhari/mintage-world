@@ -303,7 +303,7 @@
                                 </div>
                             </li>
                             
-                            <li class="">
+                            <li class="d-none">
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#product-category-collapse" aria-expanded="false">Information Attributes</button>
                                 <div class="collapse" id="product-category-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">

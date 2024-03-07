@@ -19,7 +19,7 @@
             <input type="hidden" name="coinid" value="{{$coin['id']}}">
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label class="control-label">Ruler</label>
+                    <label class="control-label">Set Coin Status</label>
                     <div class="">
                         <select name="status" class="form-control">
                             <option value="">Set Coin Status</option>

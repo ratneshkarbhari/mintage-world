@@ -258,10 +258,11 @@ class PageLoader extends Controller
         $allDenominations = Denomination::all();
         $dynasties = Dynasty::all();
         $shapes = Shape::all();
-        $rarities = Rarity::all();
+        $rarities = Rarity::all();  
+
         $this->admin_page_loader("edit_note", [
             "title" => "Edit Note",
-            "noteToEdit" => Note::find($id),
+            "note" => Note::find($id),
             "denominations" => $allDenominations,
             "dynasties" => $dynasties,
             "shapes" => $shapes,

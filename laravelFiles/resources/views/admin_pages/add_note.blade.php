@@ -229,11 +229,13 @@
         e.preventDefault();
         let action = $(this).attr("action");
         let method = $(this).attr("method");
-        let formData = $(this).serialize();
+        let formData = new FormData(this);
         $.ajax({
             type: method,
             url: action,
             data: formData,
+            contentType: false,
+            processData: false,
             success: function (response) {
                 if (response.result=="success") {
                     $(".note-create-success").toast("show");

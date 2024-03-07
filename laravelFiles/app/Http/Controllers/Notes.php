@@ -36,6 +36,7 @@ class Notes extends Controller
 
     function create(Request $request) {
 
+
         $uploadPath = './assets/images/note/';
 
         if($request->hasFile("obverse_image")){
@@ -55,10 +56,6 @@ class Notes extends Controller
                 
                 $s3->upload($obverseImageNameS3Path,$uploadPath.$obverseImageName,"mintage2","us-east-1");
                 
-            }else{
-
-                $obverseImageName = "noimage.jpg";
-
             }
 
 
@@ -83,10 +80,6 @@ class Notes extends Controller
                 
                 $s3->upload($reverseImageNameS3Path,$uploadPath.$reverseImageName,"mintage2","us-east-1");
                 
-            }else{
-
-                $reverseImageName = "noimage.jpg";
-
             }
 
 
@@ -99,8 +92,8 @@ class Notes extends Controller
             'rarity_id'  => $request->rarity,
             'shape_id'  => $request->shape,
             'dynasty_id' => $request->dynasty ,
-            'obverse_image'  => $request->obverse_image,
-            'reverse_image'  => $request->reverse_image,
+            'obverse_image'  => $obverseImageName,
+            'reverse_image'  => $reverseImageName,
             'catalogue_ref_no'  => $request->catalogue_ref_no,
             'vignette'  => $request->vignette,
             'signatory'  => $request->signatory,
@@ -123,6 +116,7 @@ class Notes extends Controller
             'status'  => '0',
             'modified' => date('Y-m-d H:i:s'),
         ];
+
 
         $noteModel = new Note();
 
@@ -607,12 +601,12 @@ class Notes extends Controller
     }
 
     function update(Request $request){
-        
+
         $noteId = $request->id;
 
         if ($noteToEdit = Note::find($noteId)) {
             
-            $uploadPath = './assets/images/coin/';
+            $uploadPath = './assets/images/note/';
 
 
             if($request->hasFile("obverse_image")){

@@ -277,6 +277,7 @@ class PageLoader extends Controller
     }
     function add_stamp()
     {
+        
         $this->admin_page_loader("add_stamp", [
             "title" => "Add Stamp"
         ]);

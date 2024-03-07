@@ -24,6 +24,7 @@ use App\Http\Controllers\EmailTests;
 use App\Http\Controllers\Products;
 use App\Http\Controllers\ShoppingCategories;
 use App\Models\Coin;
+use App\Models\Stamp;
 
 /*
 |--------------------------------------------------------------------------
@@ -264,6 +265,7 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::get("get-all-coins", [Coins::class, 'get_all_data']);
     Route::get("get-all-notes", [Notes::class, 'get_all_data']);
+    Route::get("get-all-stamps",[Stamps::class,'get_all_data']);
     Route::post("set-coin-status-exe", [Coins::class, 'set_coin_status']);
 
     Route::post("set-banner-status", [Banners::class, 'set_status']);

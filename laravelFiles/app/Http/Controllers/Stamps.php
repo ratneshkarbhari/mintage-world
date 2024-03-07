@@ -173,6 +173,16 @@ class Stamps extends Controller
 
     }
 
+    function get_all_data(){
+        
+        $allStamps = Stamp::orderBy("id","desc")->get();
+
+        $allStamps = json_encode(["data"=>$allStamps], JSON_INVALID_UTF8_IGNORE);
+
+        echo $allStamps;
+
+    }
+
     function stamp_info_filter_exe(Request $request){
 
         $themeCategories = $request->themeCategories;

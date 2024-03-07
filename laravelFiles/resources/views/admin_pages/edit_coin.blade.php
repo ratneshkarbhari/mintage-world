@@ -18,7 +18,24 @@
             @csrf
             <input type="hidden" name="coinid" value="{{$coin['id']}}">
             <div class="row">
-                
+                <div class="col-md-6 mb-3">
+                    <label class="control-label">Ruler</label>
+                    <div class="">
+                        <select name="status" class="form-control">
+                            <option value="">Set Coin Status</option>
+                            <option 
+                            @if($coin['status']==0)
+                            selected
+                            @endif
+                            value="0">Active</option>
+                            <option 
+                            @if($coin['status']==1)
+                            selected
+                            @endif
+                            value="1">Disabled</option>
+                        </select>
+                    </div>
+                </div>
 
                 <div class="col-md-6 mb-3">
                     <label class="control-label">Ruler</label>

@@ -24,6 +24,16 @@ class Notes extends Controller
         echo view("components.footer", $data);
     }
 
+    function get_all_data() {
+        
+        $allNotes = Note::orderBy("id","desc")->get();
+
+        $allNotes = json_encode(["data"=>$allNotes], JSON_INVALID_UTF8_IGNORE);
+
+        echo $allNotes;
+
+    }
+
     function create(Request $request) {
 
         $uploadPath = './assets/images/note/';
@@ -40,8 +50,10 @@ class Notes extends Controller
             $obverseImageFile->move($uploadPath,$obverseImageName);
 
             if (!is_file(getenv("NOTE_BASE_URL").$obverseImageName)) {
+
+                $obverseImageNameS3Path = "note/list/".$obverseImageName;
                 
-                $s3->upload($obverseImageName,$uploadPath.$obverseImageName,"mintage2","us-east-1");
+                $s3->upload($obverseImageNameS3Path,$uploadPath.$obverseImageName,"mintage2","us-east-1");
                 
             }else{
 
@@ -66,8 +78,10 @@ class Notes extends Controller
             $reverseImageFile->move($uploadPath,$reverseImageName);
 
             if (!is_file(getenv("NOTE_BASE_URL").$reverseImageName)) {
+
+                $reverseImageNameS3Path = "note/list/".$reverseImageName;
                 
-                $s3->upload($reverseImageName,$uploadPath.$reverseImageName,"mintage2","us-east-1");
+                $s3->upload($reverseImageNameS3Path,$uploadPath.$reverseImageName,"mintage2","us-east-1");
                 
             }else{
 

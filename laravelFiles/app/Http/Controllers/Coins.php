@@ -620,7 +620,7 @@ class Coins extends Controller
                 'note'  => $request->note,
                 'weight'  => $request->weight,
                 'theme'  => $request->theme,
-                'status'  => '0',
+                'status'  => $request->status,
                 'created' => date('Y-m-d H:i:s'),
             ];
             Schema::disableForeignKeyConstraints();

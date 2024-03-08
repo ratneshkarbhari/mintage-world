@@ -87,7 +87,7 @@
             {
                 render: function (data,type,full) { 
 
-                    return '<a href="{{url("admin/edit-coin/")}}/'+full.id+'" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>';
+                    return '<a href="{{url("admin/edit-stamp/")}}/'+full.id+'" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>';
 
                 }
             }

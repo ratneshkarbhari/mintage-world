@@ -22,6 +22,7 @@ use App\Models\ProductVariation;
 use App\Models\Rarity;
 use App\Models\Ruler;
 use App\Models\Shape;
+use App\Models\Stamp;
 use App\Models\ThemeCategory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
@@ -292,10 +293,21 @@ class PageLoader extends Controller
             "rarities" => $rarities
         ]);
     }
-    function edit_stamp()
+    function edit_stamp($id)
     {
+        $stampData = Stamp::find($id);
+        $themeCategories = ThemeCategory::all();
+        $dynasties = Dynasty::all();
+        $shapes = Shape::all();
+        $rarities = Rarity::all();
+
         $this->admin_page_loader("edit_stamp", [
-            "title" => "Edit Stamp"
+            "title" => "Edit Stamp",
+            "themeCategories" => $themeCategories,
+            "dynasties" => $dynasties,
+            "shapes" => $shapes,
+            "rarities" => $rarities,
+            "stamp" => $stampData
         ]);
     }
     function manage_bulk_upload()

@@ -205,8 +205,10 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::get("admin/manage-stamps", [PageLoader::class, 'manage_stamps']);
     Route::get("admin/add-stamp", [PageLoader::class, 'add_stamp']);
-    Route::get("admin/edit-stamp", [PageLoader::class, 'edit_stamp']);
+    Route::get("admin/edit-stamp/{id}", [PageLoader::class, 'edit_stamp']);
 
+
+    Route::post("update-stamp-exe",[Stamps::class,'update']);
 
     Route::get("admin/manage-coins", [PageLoader::class, 'manage_coins']);
     Route::get("admin/add-coin", [PageLoader::class, 'add_coin']);

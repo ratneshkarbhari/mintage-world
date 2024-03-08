@@ -97,10 +97,7 @@
                     <div class=""> <input type="text" name="type" class="form-control" value=""></div>
                 </div>
                 
-                <div class="col-md-6 mb-3">
-                    <label class="control-label">Shape</label>
-                    <div class=""><input type="text" name="shape_title" class="form-control" value=""></div>
-                </div>
+              
                 <div class="col-md-6 mb-3">
                     <label class="control-label">Stamp Color</label>
                     <div class="">

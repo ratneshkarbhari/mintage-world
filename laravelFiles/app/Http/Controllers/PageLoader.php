@@ -22,6 +22,7 @@ use App\Models\ProductVariation;
 use App\Models\Rarity;
 use App\Models\Ruler;
 use App\Models\Shape;
+use App\Models\ThemeCategory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 
@@ -277,9 +278,18 @@ class PageLoader extends Controller
     }
     function add_stamp()
     {
+
+        $themeCategories = ThemeCategory::all();
+        $dynasties = Dynasty::all();
+        $shapes = Shape::all();
+        $rarities = Rarity::all();
         
         $this->admin_page_loader("add_stamp", [
-            "title" => "Add Stamp"
+            "title" => "Add Stamp",
+            "themeCategories" => $themeCategories,
+            "dynasties" => $dynasties,
+            "shapes" => $shapes,
+            "rarities" => $rarities
         ]);
     }
     function edit_stamp()

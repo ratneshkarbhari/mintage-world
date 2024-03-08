@@ -266,6 +266,9 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("get-all-coins", [Coins::class, 'get_all_data']);
     Route::get("get-all-notes", [Notes::class, 'get_all_data']);
     Route::get("get-all-stamps",[Stamps::class,'get_all_data']);
+
+    Route::post("create-stamp-exe",[Stamps::class,'create_new']);
+
     Route::post("set-coin-status-exe", [Coins::class, 'set_coin_status']);
 
     Route::post("set-banner-status", [Banners::class, 'set_status']);

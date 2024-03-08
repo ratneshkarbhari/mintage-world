@@ -183,6 +183,83 @@ class Stamps extends Controller
 
     }
 
+    function create_new(Request $request) {
+
+
+        $uploadPath = './assets/images/stamp/';
+
+
+        if($request->hasFile("obverse_image")){
+
+            $obverseImageFile = $request->file("obverse_image");
+
+            $obverseImageName = $obverseImageFile->getClientOriginalName();
+
+            $s3 = new AwsS3();
+
+
+            $obverseImageFile->move($uploadPath,$obverseImageName);
+
+            if (!is_file(getenv("NOTE_BASE_URL").$obverseImageName)) {
+
+                $obverseImageNameS3Path = "stamp/list/".$obverseImageName;
+                
+                $s3->upload($obverseImageNameS3Path,$uploadPath.$obverseImageName,"mintage2","us-east-1");
+                
+            }
+
+        }else{
+            $obverseImageName = "noimage.jpg";
+        }
+
+
+        $data = [
+            'shape_id'  => $request->shape,
+            'catalogue_ref_no'  => $request->catalogue_ref_no,
+            'type'  => $request->type,
+            'obverse_image'  => $obverseImageName,
+            'printing_process'  => $request->printing_process,
+            'quantity_issued'  => $request->quantity_issued,
+            'description'  => $request->description,
+            'perforation'  => $request->perforation,
+            'theme_category_id'  => $request->theme,
+            'stamp_name'  => $request->stamp_name,
+            'issued_date'  => $request->issued_date,
+            'color'  => $request->color,
+            'face_value'  => $request->face_value,
+            'printed_at'  => $request->printed_at,
+            'watermark'  => $request->watermark,
+            'remark'  => $request->remark,
+            'stamp_fdc_design'  => $request->stamp_fdc_design,
+            'cancellation_design'  => $request->cancellation_design,
+            'status'  => '0',
+            'modified' => date('Y-m-d H:i:s'),
+        ];
+
+
+        // dd($data);
+
+        $stampModel = new Stamp();
+
+        if($stampModel->insert($data)){
+
+            return [
+                "result" => "success",
+                
+            ];
+            
+
+        }else{
+
+            return [
+                "result" => "failure",
+                "message"=> "Stamp create failed"
+            ];
+
+        }
+
+    }
+
     function stamp_info_filter_exe(Request $request){
 
         $themeCategories = $request->themeCategories;

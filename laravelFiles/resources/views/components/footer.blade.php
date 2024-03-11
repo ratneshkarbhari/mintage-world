@@ -152,10 +152,10 @@ $cartCount = session("cart_count");
     0
 @endif</span> </a></li>
             @if(session("member_id"))
-            <li><a href="{{url("member/dashboard")}}" title="Sign in"><i class="fas fa-user-cog"></i></a></li>            
+            <li><a href="{{url("member/dashboard")}}" title="Sign in"><i class="fas fa-user-cog"></i></a></li>
             <li><a href="{{url("/logout")}}" title="Login"><i class="fas fa-sign-out-alt"></i></a></li>
             @else 
-            <li><a href="{{url("member/")}}" title="Sign in"><i class="fa fa-user"></i></a></li>            
+            {{-- <li><a href="{{url("member/")}}" title="Sign in"><i class="fa fa-user"></i></a></li> --}}
             <li><a href="{{url("application/login/")}}" title="Login"><i class="fa fa-lock"></i></a></li>
             @endif
            

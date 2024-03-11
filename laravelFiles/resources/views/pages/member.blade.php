@@ -32,7 +32,7 @@
                     <form id="RegForm" action="{{url('registration-exe')}}" class="registrationForm" method="POST" class="form-group">
 
                         @csrf
-                        <label for="" class="w-100 mt-5 mb-0"><b>First Name</b></label>
+                        <label for="" class="w-100 mt-md-5 mb-0"><b>First Name</b></label>
                         <input type="text" id="first_name" name="first_name" class="form__input mb-0 mt-0" title="Max. 20 characters" maxlength="20" required="">
                         <p class="error-message text-danger mb-3"></p>
                         <label for="" class="w-100 mb-0"><b>Last Name</b></label>

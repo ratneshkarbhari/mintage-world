@@ -319,7 +319,7 @@
                     seasoned collectors and students.
                 </p>
                 <div class="d-flex align-items-center">
-                    <i class="fa fa-headphones fa-2x flex-shrink-0 bg-primary p-3 text-white"></i>
+                    <i class="fa fa-headphones fa-2x flex-shrink-0 bg-warning p-3 text-white"></i>
                     <div class="ps-4">
                         <h6>Call for Enquiry!</h6>
                         <h3 class="text-primary m-0"><a href="tel:02240190400">022 - 40190400</a></h3>

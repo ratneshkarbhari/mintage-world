@@ -23,7 +23,7 @@
                   <th>Stock</th>
                   <th>Price</th>
                   <th>Status</th>
-                  <th width="80">Action</th>
+                  <th width="100">Action</th>
                </tr>
             </thead>
             <tbody>
@@ -56,7 +56,7 @@
 
                      <a href="{{url('admin/edit-product/'.$product['id'])}}" class="btn btn-warning btn-sm" title="Edit Product"><i class="fa fa-edit"></i></a>
 
-                     <button type="button" data-bs-toggle="modal" data-bs-target="#delete-product-{{$product['id']}}" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                     <button type="button" data-bs-toggle="modal" data-bs-target="#delete-product-{{$product['id']}}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
 
                      <div class="modal fade" id="delete-product-{{$product['id']}}" tabindex="-1" aria-labelledby="delete-product-{{$product['id']}}Label" aria-hidden="true">
                         <div class="modal-dialog">

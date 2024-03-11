@@ -9,7 +9,7 @@
             <div class="d-flex justify-content-between"><h2 class="mb-3 heading-1">{{$info_title}}</h2></div>
             <div class="row info-item-grid-row">
                 @foreach($periods as $period)
-                <div class="col-lg-2 col-md-6 col-sm-12 info-item-grid-outer-box"><a href="{{url("coin/dynasty/".$period["id"]."-".Str::slug($period["title"]))}}">
+                <div class="col-lg-2 col-md-6 col-6 info-item-grid-outer-box"><a href="{{url("coin/dynasty/".$period["id"]."-".Str::slug($period["title"]))}}">
                     <div class="info-item-grid-box min-h-0">
                         <img class="img-fluid" src="{{getenv("PERIOD_IMAGE_BASE_URL")."/".$period["image"]}}" alt="{{$period["title"]}}">
                         <div class="info-meta text-center">

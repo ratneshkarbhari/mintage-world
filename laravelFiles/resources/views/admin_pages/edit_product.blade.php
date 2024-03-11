@@ -417,7 +417,7 @@
       $('.js-example-basic-single').select2();
 
    }
-   $('table').on('click', 'input[type="button"]', function(e) {
+   $('table').on('click', 'input[type="button"].remove', function(e) {
       $(this).closest('tr').remove()
    })
 

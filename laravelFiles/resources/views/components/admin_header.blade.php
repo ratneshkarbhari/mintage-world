@@ -378,7 +378,7 @@
                                     </ul>
                                 </div>
                             </li> --}}
-                            <li class=""><a href="{{url('/login/logout/')}}" class="">Logout</a></li>
+                            <li class=""><a href="{{url('logout')}}" class="">Logout</a></li>
                         </ul>
 
 

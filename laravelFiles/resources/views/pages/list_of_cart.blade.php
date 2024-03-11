@@ -141,7 +141,7 @@ use App\Models\Product;
                        
                         <div class="shopping-cart-btn">
                             <a class="btn btn-sm btn-primary " href="{{url('/shop')}}"><i class="fab fa-opencart"></i> Continue Shopping</a>
-                            <a class="btn btn-lg  btn-success " href="{{url('/checkout')}}"><i class="fa fa-check-double"></i> Checkout</a>
+                            <a class="btn btn-sm  btn-success " href="{{url('/checkout')}}"><i class="fa fa-check-double"></i> Checkout</a>
                             
                         </div>
                     </div>

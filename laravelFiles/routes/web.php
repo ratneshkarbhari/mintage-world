@@ -292,6 +292,7 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("get-all-coins",[Coins::class,'get_all']);
 
     Route::post("create-new-event-exe",[Events::class,'create']);
+    Route::post("update-event-exe",[Events::class,'update']);
 
 });
 

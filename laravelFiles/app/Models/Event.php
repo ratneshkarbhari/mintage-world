@@ -14,8 +14,7 @@ class Event extends Model
      * @var string[]
      */
     protected $guarded = [];  
-    const CREATED_AT = 'created';
-    const UPDATED_AT = 'modified';
+
 
     protected $table = "event";
 

@@ -48,7 +48,9 @@ use App\Models\Product;
               <div class="col-md-6">
                  <div class="invoice-no">
                     <h3 class="text-danger">#{{$order["orderid"]}}</h3>
-                    <span class="small"><b>Order Date : </b>20-11-2023</span> 
+                    <span class="small"><b>Order Date : </b>20-11-2023</span>
+                     <p>{{$order['Shipping_Name1']}}</p>
+                     <p>{{$order['billing_phone']}}</p>
                  </div>
               </div>
               <div class="col-md-6 text-end">
@@ -57,15 +59,18 @@ use App\Models\Product;
            </div>
            <div class="row mb-4 cust-detail">
               <div class="col-md-4">
-                 <h6 class="mb-3 text-primary"><b>Customer Details :</b></h6>
+                 <h6 class="mb-3 text-primary"><b>Payment Address :</b></h6>
                  <p class="mb-0">{!! $order["payment_address"] !!}</p>
+                 <p>{{$order["City"]}}  {{$order["State"]}}  {{$order["PinCode"]}}</p> 
+
               </div>
               <div class="col-md-4"> </div>
               <div class="col-md-4 text-end">
-                 <h6 class="mb-3 text-primary"><b>Delivery Address :</b></h6>
+                 <h6 class="mb-3 text-primary"><b>Shipping Address :</b></h6>
                  <p class="mb-0">
-                  {!! $order["ShippingAddress1"] !!}
+                  {!! $order["Shipping_Address1"] !!}
                  </p>
+                 <p>{{$order["shpcity"]}}  {{$order["shpstate"]}} {{$order["shippincode"]}}</p> 
               </div>
            </div>
            <div class="table-responsive">

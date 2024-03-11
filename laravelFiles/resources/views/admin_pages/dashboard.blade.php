@@ -82,7 +82,11 @@
                         <td>{{$productCounter}}</td>
                         <td>{{$product["id"]}}</td>
                         <td>
+                            @if(isset($imgParts[2]))
                             <img src="{{env('PRODUCT_IMAGE_BASE_URL').$imgParts[2]}}" class="img-fluid" width="100" height="100">
+                            @else
+                            <img src="{{env('PRODUCT_IMAGE_BASE_URL').$product['img']}}" class="img-fluid" width="100" height="100">
+                            @endif
                         </td>
                         <td>{{$product["name1"]}}</td>
                         <td>{{$product["instock"]}}</td>

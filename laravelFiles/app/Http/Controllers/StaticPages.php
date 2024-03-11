@@ -8,6 +8,7 @@ use App\Models\Order;
 use Razorpay\Api\Api;
 use App\Models\Member;
 use App\Models\MediaCoverage;
+use App\Models\MemberAddress;
 use App\Models\Story;
 use App\Models\Video;
 
@@ -182,8 +183,12 @@ class StaticPages extends Controller
     }
     function manage_address()
     {
+
+        $memberAddresses = MemberAddress::where("member_id",session("member_id"))->get();
+
         $this->page_loader("manage_address", [
-            "title" => "Manage Address | Mintage World"
+            "title" => "Manage Address | Mintage World",
+            "member_addresses" => $memberAddresses
         ]);
     }
     function upgrademembership()

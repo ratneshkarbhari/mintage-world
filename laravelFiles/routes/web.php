@@ -24,6 +24,7 @@ use App\Http\Controllers\EmailTests;
 use App\Http\Controllers\Products;
 use App\Http\Controllers\ShoppingCategories;
 use App\Models\Coin;
+use App\Models\Stamp;
 
 /*
 |--------------------------------------------------------------------------
@@ -171,6 +172,8 @@ Route::post('create-new-address-for-member', [CartActions::class, 'create_new_ad
 Route::group(['middleware' => ['check_admin_auth']], function () {
     // admin routes
 
+    Route::get('get-all-products',[Products::class,'get_all']);
+
     Route::post("create-product-exe", [Products::class, 'create']);
 
     Route::post("delete-product-exe", [Products::class, 'delete']);
@@ -202,8 +205,10 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::get("admin/manage-stamps", [PageLoader::class, 'manage_stamps']);
     Route::get("admin/add-stamp", [PageLoader::class, 'add_stamp']);
-    Route::get("admin/edit-stamp", [PageLoader::class, 'edit_stamp']);
+    Route::get("admin/edit-stamp/{id}", [PageLoader::class, 'edit_stamp']);
 
+
+    Route::post("update-stamp-exe",[Stamps::class,'update']);
 
     Route::get("admin/manage-coins", [PageLoader::class, 'manage_coins']);
     Route::get("admin/add-coin", [PageLoader::class, 'add_coin']);
@@ -261,6 +266,11 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::post("create-new-coin", [Coins::class, 'create_new']);
 
     Route::get("get-all-coins", [Coins::class, 'get_all_data']);
+    Route::get("get-all-notes", [Notes::class, 'get_all_data']);
+    Route::get("get-all-stamps",[Stamps::class,'get_all_data']);
+
+    Route::post("create-stamp-exe",[Stamps::class,'create_new']);
+
     Route::post("set-coin-status-exe", [Coins::class, 'set_coin_status']);
 
     Route::post("set-banner-status", [Banners::class, 'set_status']);
@@ -275,6 +285,12 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
 
     Route::post("create-note-exe", [Notes::class, 'create']);
+
+    Route::get("get-all-orders",[Orders::class,'get_all']);
+
+    Route::get("get-all-coins",[Coins::class,'get_all']);
+
+
 });
 
 Route::post("create-product-instock-notification-request",[Products::class,'create_notification_request_in_stock']);

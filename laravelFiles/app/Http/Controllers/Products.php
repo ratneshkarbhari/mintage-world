@@ -137,10 +137,10 @@ class Products extends Controller
             "img" => "/product_img/".$featuredImageName,
             "type_series" => $request["type_series"],
             "keywords" => $request["keywords"],
-            "meta_title" => $request["meta_title"],
-            "meta_keywords" => $request["meta_keywords"],
-            "meta_content" => $request["meta_content"],
-            "schema_code" => $request["schema_code"],
+            // "meta_title" => $request["meta_title"],
+            // "meta_keywords" => $request["meta_keywords"],
+            // "meta_content" => $request["meta_content"],
+            // "schema_code" => $request["schema_code"],
             "color" => $request["color"],
             "size" => $request["size"],
             "product_type" => $request["size"],
@@ -212,6 +212,17 @@ class Products extends Controller
         }
 
         
+
+    }
+
+
+    function get_all() {
+        
+        $allProducts = Product::orderBy("id","desc")->with("product_category")->get();
+
+        return response()->json([
+            "data" => ($allProducts)
+        ]);
 
     }
 
@@ -311,10 +322,10 @@ class Products extends Controller
                 "img" => $featuredImageName,
                 "type_series" => $request["type_series"],
                 "keywords" => $request["keywords"],
-                "meta_title" => $request["meta_title"],
-                "meta_keywords" => $request["meta_keywords"],
-                "meta_content" => $request["meta_content"],
-                "schema_code" => $request["schema_code"],
+                // "meta_title" => $request["meta_title"],
+                // "meta_keywords" => $request["meta_keywords"],
+                // "meta_content" => $request["meta_content"],
+                // "schema_code" => $request["schema_code"],
                 "color" => $request["color"],
                 "size" => $request["size"],
                 "product_type" => $request["size"],

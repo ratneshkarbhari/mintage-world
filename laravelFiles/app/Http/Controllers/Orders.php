@@ -13,11 +13,6 @@ class Orders extends Controller
 {
 
 
-  
-
-    
-    
-
     function create_exe(Request $request){
 
         $rzpOrderId = $request->rzp_order_id;
@@ -78,18 +73,18 @@ class Orders extends Controller
                 "billing_name" => session("first_name")." ".session("last_name"),
                 "Shipping_Address1" => $shippingAddressData["shipping_address"],
                 "payment_address" => $billingAddressData["billing_address"],
-                "City" => $shippingAddressData["shipping_city"],
-                "shpcity" => $shippingAddressData["shipping_city"],
-                "State" => $shippingAddressData["shipping_state"],
-                "shpstate" => $shippingAddressData["shipping_state"],
-                "PinCode" => $shippingAddressData["shipping_pincode"],
-                "shppincode" => $shippingAddressData["shipping_pincode"],
+                "City" => $shippingAddressData["billing_city"],
+                "shpcity" => $billingAddressData["shipping_city"],
+                "State" => $shippingAddressData["billing_state"],
+                "shpstate" => $billingAddressData["shipping_state"],
+                "PinCode" => $shippingAddressData["billing_pincode"],
+                "shppincode" => $billingAddressData["shipping_pincode"],
                 "Phone" => $shippingAddressData["shipping_mobile_number"],
-                "billing_phone" => $shippingAddressData["shipping_mobile_number"],
+                "billing_phone" => $billingAddressData["billing_mobile_number"],
                 "Location" => 113,
                 "shplocation" => 113,
                 "shpcountry_name" => "India",
-                "ordered" => date("Y-m-d H:i:s"),
+                "ordered" => date("d-m-Y H:i:s"),
                 "confirmed" => 0,
                 "status" => $status,
                 "subtotal" => session("subtotal")-session("discount"),
@@ -104,7 +99,7 @@ class Orders extends Controller
                 "payableamount" => session("payable"),
                 "order_ip" => $_SERVER["REMOTE_ADDR"],
                 "order_agent" => $_SERVER['HTTP_USER_AGENT'],
-                "modified_date" => date("Y-m-d H:i:s"),
+                "modified_date" => date("d-m-Y H:i:s"),
                 "mode_of_purchase" => "Web",
                 "app_paymentid" => NULL,
                 "couriers" => "",
@@ -138,17 +133,9 @@ class Orders extends Controller
 
             }
 
-
-
-
-
             return $orderId;
 
-
         }
-
-        
-        
 
     }
 
@@ -240,36 +227,72 @@ class Orders extends Controller
         }
 
     }
+
+    function get_all() {
+        
+        $allOrders = Order::orderBy("id","asc")->with("member")->with("order_products")->get();
+
+        return response()->json([
+            "data" => $allOrders
+        ]);
+
+    }
    
     function update_order_status(Request $request) {
        
         $orderModel = new Order();
 
-        $order = $orderModel->where("orderid",$request->orderid)->with("order_products")->first();
+        $order = $orderModel->where("orderid",$request->orderid)->with("order_products")->with("member")->first();
+
+
+        $orderProducts  = OrderProduct::where("shoppingid",$order["id"])->with("products")->get();
+
+
+        $orderProductsForEmail = [];
+        foreach($orderProducts as $orderProduct){
+            $orderProductsForEmail[] = [
+                "title" => $orderProduct["productname"],
+                "price" => $orderProduct["price"],
+                "quantity" => $orderProduct["quantity"]
+            ];
+        }
+
 
         if($order->update([
+            
             "status" => $request->status,
             "couriers" => $request->courier_name,
             "tracking_number" => $request->courier_number,
-            "courier_date" => $request->courier_date,
+            "courier_date" => $request->courier_date
         ])){
 
-            $orderData = [
-
-                "orderid" => $order['orderid'],
-                "order_date" => $order["ordered"],
-                "status" => "Not Confirmed",
-                "payment_method" => "Razorpay",
-                "gw_tx_id" => $order["gw_tx_id"],
-                "dispatched_details" => "",
-                "payment_address" => $order["payment_address"],
+            $emailBody = $this->generate_email_body("order_placed",[
+                "full_name" => $order["Shipping_Name1"],
+                "orderid" => $order["orderid"],
+                "date" =>  date('l d F Y'),
+                "status" => $order['status'],
+                "payment_status" => $request->payment_status,
+                "products" => $orderProductsForEmail,
+                "shipping" => $order["shipping"],
+                "discount" => 0,
+                "courier_name" => $order['couriers'],
+                "tracking_number" => $order['tracking_number'],
+                "courier_date" => date("d-m-Y"),  
                 "shipping_address" => $order['Shipping_Address1'],
-                "order_products" => $order["order_products"]
+                "payment_address" => $order['payment_address']
+            ]);
 
-            ];
+            $utils = new Utils();
 
+
+
+            if($res = $utils->send_email($order['member']['email'],session("first_name"), "Mintage World - Order ".$request->status, $emailBody)){
+
+                return "order-updated";
+            }else{
+                return "order-not-updated";
+            }
             
-            return "order-updated";
 
         }else{
             return "order-update-failed";

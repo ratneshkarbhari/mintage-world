@@ -14,11 +14,28 @@
             <h2 class="title heading-3">{{$title}}</h2>
             <a type="button" class="btn btn-primary btn-sm align-self-baseline" href="manage-coins"><i class="fa fa-plus"></i> Go Back</a>
         </div>
-        <form id="editCoinForm" action="{{ url('update-coin-exe') }}" enctype="multipart/form-data" method="post">
+        <form id="editCoinForm" action="{{ url('update-coin-exe') }}" enctype="multipart/form-data" method="POST">
             @csrf
             <input type="hidden" name="coinid" value="{{$coin['id']}}">
             <div class="row">
-                
+                <div class="col-md-6 mb-3">
+                    <label class="control-label">Set Coin Status</label>
+                    <div class="">
+                        <select name="status" class="form-control">
+                            <option value="">Set Coin Status</option>
+                            <option 
+                            @if($coin['status']==0)
+                            selected
+                            @endif
+                            value="0">Active</option>
+                            <option 
+                            @if($coin['status']==1)
+                            selected
+                            @endif
+                            value="1">Disabled</option>
+                        </select>
+                    </div>
+                </div>
 
                 <div class="col-md-6 mb-3">
                     <label class="control-label">Ruler</label>
@@ -195,7 +212,7 @@
                 <div class="col-md-3 mb-3">
                     <label class="control-label">Upload New Coin Obverse Image</label>
                     <div class="">
-                        <input type="file" class="form-control" placeholder="upload image">
+                        <input type="file" name="obverse_image" class="form-control" placeholder="upload image">
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
@@ -211,7 +228,7 @@
                 <div class="col-md-3 mb-3">
                     <label class="control-label">Upload New Coin Reverse Image</label>
                     <div class="">
-                        <input type="file" class="form-control" placeholder="upload image">
+                        <input type="file" name="reverse_image" class="form-control" placeholder="upload image">
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
@@ -256,11 +273,13 @@
         e.preventDefault();
         let action = $(this).attr("action");
         let method = $(this).attr("method");
-        let formData = $(this).serialize();
+        let formData = new FormData(this);
         $.ajax({
             type: method,
             url: action,
             data: formData,
+            contentType: false,
+            processData: false,
             success: function (response) {
                 if(response.result=="success"){
                     $(".edit-success").toast("show");

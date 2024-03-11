@@ -22,6 +22,8 @@ use App\Models\ProductVariation;
 use App\Models\Rarity;
 use App\Models\Ruler;
 use App\Models\Shape;
+use App\Models\Stamp;
+use App\Models\ThemeCategory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 
@@ -258,10 +260,11 @@ class PageLoader extends Controller
         $allDenominations = Denomination::all();
         $dynasties = Dynasty::all();
         $shapes = Shape::all();
-        $rarities = Rarity::all();
+        $rarities = Rarity::all();  
+
         $this->admin_page_loader("edit_note", [
             "title" => "Edit Note",
-            "noteToEdit" => Note::find($id),
+            "note" => Note::find($id),
             "denominations" => $allDenominations,
             "dynasties" => $dynasties,
             "shapes" => $shapes,
@@ -276,14 +279,35 @@ class PageLoader extends Controller
     }
     function add_stamp()
     {
+
+        $themeCategories = ThemeCategory::all();
+        $dynasties = Dynasty::all();
+        $shapes = Shape::all();
+        $rarities = Rarity::all();
+        
         $this->admin_page_loader("add_stamp", [
-            "title" => "Add Stamp"
+            "title" => "Add Stamp",
+            "themeCategories" => $themeCategories,
+            "dynasties" => $dynasties,
+            "shapes" => $shapes,
+            "rarities" => $rarities
         ]);
     }
-    function edit_stamp()
+    function edit_stamp($id)
     {
+        $stampData = Stamp::find($id);
+        $themeCategories = ThemeCategory::all();
+        $dynasties = Dynasty::all();
+        $shapes = Shape::all();
+        $rarities = Rarity::all();
+
         $this->admin_page_loader("edit_stamp", [
-            "title" => "Edit Stamp"
+            "title" => "Edit Stamp",
+            "themeCategories" => $themeCategories,
+            "dynasties" => $dynasties,
+            "shapes" => $shapes,
+            "rarities" => $rarities,
+            "stamp" => $stampData
         ]);
     }
     function manage_bulk_upload()
@@ -315,11 +339,11 @@ class PageLoader extends Controller
 
     function manage_products()
     {
-        $latestTwentyFiveProducts = Product::orderBy("id", "desc")->with("product_category")->get();
+        // $latestTwentyFiveProducts = Product::orderBy("id", "desc")->with("product_category")->get();
 
         $this->admin_page_loader("manage_products", [
             "title" => "Manage Products",
-            "latest_twenty_five_products" => $latestTwentyFiveProducts
+            "latest_twenty_five_products" => []
         ]);
     }
     function add_product()

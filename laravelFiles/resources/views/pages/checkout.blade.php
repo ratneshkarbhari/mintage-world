@@ -990,7 +990,6 @@
          },
          success: function(response) {
 
-            console.log(response);
 
             $("input#orderid").val(response);
 
@@ -1007,23 +1006,7 @@
    $("form#createNewAddress").submit(function(e) {
       e.preventDefault();
 
-      // var pnumber = document.getElementById('mobileNumber').value;
-      //    var message = document.getElementsByClassName("error-message");
-      //    var valError = 0;
-      //    var numbers = /^[6-9]{1}[0-9]{9}/;
-      //       if (pnumber == " " || pnumber.match(numbers)) {
-      //           text = "";
-      //           message[0].innerHTML = text;
-
-      //       } else {
-      //           text = "Please Enter 10 Digit Indian Mobile No";
-      //           message[0].innerHTML = text;
-      //           valError = valError + 1;
-      //       }
-
-      //       if(valError == 0)
-      //       {  
-               let formData = $(this).serialize();
+      let formData = $(this).serialize();
       $.ajax({
          type: "POST",
          url: $(this).attr("action"),
@@ -1038,10 +1021,6 @@
             location.reload();
          }
       });
-      //       }
-      //       else{
-      //    $(".form-failure-error").toast("show");
-      // }
 
     
    });

@@ -24,7 +24,18 @@ class Notes extends Controller
         echo view("components.footer", $data);
     }
 
+    function get_all_data() {
+        
+        $allNotes = Note::orderBy("id","desc")->get();
+
+        $allNotes = json_encode(["data"=>$allNotes], JSON_INVALID_UTF8_IGNORE);
+
+        echo $allNotes;
+
+    }
+
     function create(Request $request) {
+
 
         $uploadPath = './assets/images/note/';
 
@@ -40,13 +51,11 @@ class Notes extends Controller
             $obverseImageFile->move($uploadPath,$obverseImageName);
 
             if (!is_file(getenv("NOTE_BASE_URL").$obverseImageName)) {
-                
-                $s3->upload($obverseImageName,$uploadPath.$obverseImageName,"mintage2","us-east-1");
-                
-            }else{
 
-                $obverseImageName = "noimage.jpg";
-
+                $obverseImageNameS3Path = "note/list/".$obverseImageName;
+                
+                $s3->upload($obverseImageNameS3Path,$uploadPath.$obverseImageName,"mintage2","us-east-1");
+                
             }
 
 
@@ -66,13 +75,11 @@ class Notes extends Controller
             $reverseImageFile->move($uploadPath,$reverseImageName);
 
             if (!is_file(getenv("NOTE_BASE_URL").$reverseImageName)) {
-                
-                $s3->upload($reverseImageName,$uploadPath.$reverseImageName,"mintage2","us-east-1");
-                
-            }else{
 
-                $reverseImageName = "noimage.jpg";
-
+                $reverseImageNameS3Path = "note/list/".$reverseImageName;
+                
+                $s3->upload($reverseImageNameS3Path,$uploadPath.$reverseImageName,"mintage2","us-east-1");
+                
             }
 
 
@@ -85,8 +92,8 @@ class Notes extends Controller
             'rarity_id'  => $request->rarity,
             'shape_id'  => $request->shape,
             'dynasty_id' => $request->dynasty ,
-            'obverse_image'  => $request->obverse_image,
-            'reverse_image'  => $request->reverse_image,
+            'obverse_image'  => $obverseImageName,
+            'reverse_image'  => $reverseImageName,
             'catalogue_ref_no'  => $request->catalogue_ref_no,
             'vignette'  => $request->vignette,
             'signatory'  => $request->signatory,
@@ -109,6 +116,7 @@ class Notes extends Controller
             'status'  => '0',
             'modified' => date('Y-m-d H:i:s'),
         ];
+
 
         $noteModel = new Note();
 
@@ -596,8 +604,67 @@ class Notes extends Controller
 
         $noteId = $request->id;
 
-        if ($noteToEdit = Note::find($noteId)->with("denomination")) {
+        if ($noteToEdit = Note::find($noteId)) {
             
+            $uploadPath = './assets/images/note/';
+
+
+            if($request->hasFile("obverse_image")){
+
+                $obverseImageFile = $request->file("obverse_image");
+
+                $obverseImageName = $obverseImageFile->getClientOriginalName();
+
+                $s3 = new AwsS3();
+
+
+                $obverseImageFile->move($uploadPath,$obverseImageName);
+
+                if (!is_file(getenv("NOTE_BASE_URL").$obverseImageName)) {
+                    
+                    $imgName =  "note/list/".$obverseImageName;
+
+
+                    $s3->upload($imgName,$uploadPath.$obverseImageName,"mintage2","us-east-1");
+                    
+                }else{
+
+                    $obverseImageName = "noimage.jpg";
+
+                }
+
+
+            }else{
+                $obverseImageName = $noteToEdit["obverse_image"];
+            }
+
+            if($request->hasFile("reverse_image")){
+
+                $reverseImageFile = $request->file("reverse_image");
+
+                $reverseImageName = $reverseImageFile->getClientOriginalName();
+
+                $s3 = new AwsS3();
+
+
+                $reverseImageFile->move($uploadPath,$reverseImageName);
+
+                if (!is_file(getenv("NOTE_BASE_URL").$reverseImageName)) {
+
+                    $imgName =  "note/list/".$reverseImageName;
+                    
+                    $s3->upload($imgName,$uploadPath.$reverseImageName,"mintage2","us-east-1");
+                    
+                }else{
+
+                    $reverseImageName = "noimage.jpg";
+
+                }
+
+
+            }else{
+                $reverseImageName = $noteToEdit["reverse_image"];
+            }
             
 
             $objectToUpdate = [
@@ -609,26 +676,21 @@ class Notes extends Controller
                 "rarity_id"=>$request->rarity_id,
                 "inset"=>$request->inset,
                 "currency_type"=>$request->currency_type,
-                "obverse_image"=>$request->obverse_image,
-                "reverse_image"=>$request->reverse_image,
+                "obverse_image"=>$obverseImageName,
+                "reverse_image"=>$reverseImageName,
                 "catalogue_ref_no"=>$request->catalogue_ref_no,
                 "language_panel"=>$request->language_panel,
                 "paper_type"=>$request->paper_type,
                 "remark"=>$request->remark,
                 "size"=>$request->size,
-                "obverse_description"=>$request->obverse_description,
-                "reverse_description"=>$request->reverse_description,
-                "external_link"=>$request->external_link,
+                "obverse_description"=>$request->obverse_desc,
+                "reverse_description"=>$request->reverse_desc,
                 "vignette"=>$request->vignette,
                 "color"=>$request->color,
                 "denomination_unit"=>$request->denomination_unit,
                 "signatory"=>$request->signatory,
                 "prefix"=>$request->prefix,
-                "legend"=>$request->legend,
-                "mintage"=>$request->mintage,
-                "issued_year"=>$request->issued_year,
-                "issued_circle"=>$request->issued_circle,
-                "underprint"=>$request->underprint,
+                "issued_year"=>$request->issued_year,                "underprint"=>$request->underprint,
                 "note"=>$request->note,
                 "text"=>$request->text,
                 "theme"=>$request->theme,
@@ -640,10 +702,28 @@ class Notes extends Controller
                 "meta_title"=>$request->meta_title,
                 "meta_desc"=>$request->meta_desc,
                 "meta_key"=>$request->meta_key,
-                "footer_content" => $request->footer_content
+                // "footer_content" => $request->footer_content
 
             ];
 
+            // echo(json_encode($objectToUpdate));
+
+            if ($noteToEdit->update($objectToUpdate)) {
+                
+                return [
+                    "result" => "success",
+                    "message" => "Note updated"
+                ];
+                
+            } else {
+                
+                return [
+                    "result" => "failure",
+                    "message" => "Note update failed"
+                ];
+                
+            }
+            
 
             
         } else {

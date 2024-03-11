@@ -409,10 +409,20 @@ class Coins extends Controller
 
             $obverseImageFile->move($uploadPath, $obverseImageName);
 
+<<<<<<< HEAD
             if (!is_file(getenv("COIN_IMAGE_BASE_URL") . $obverseImageName)) {
 
                 $s3->upload($obverseImageName, $uploadPath . $obverseImageName, "mintage1", "us-east-1");
             } else {
+=======
+            if (!is_file(getenv("COIN_IMAGE_BASE_URL").$obverseImageName)) {
+
+                $imgName =  "coin/".$obverseImageName;
+                
+                $s3->upload($imgName,$uploadPath.$obverseImageName,"mintage1","us-east-1");
+                
+            }else{
+>>>>>>> 173d9d0ba76c7b77f8868f3b2e6f901dee8fd2a2
 
                 $obverseImageName = "noimage.jpg";
             }
@@ -431,10 +441,20 @@ class Coins extends Controller
 
             $reverseImageFile->move($uploadPath, $reverseImageName);
 
+<<<<<<< HEAD
             if (!is_file(getenv("COIN_IMAGE_BASE_URL") . $reverseImageName)) {
 
                 $s3->upload($reverseImageName, $uploadPath . $reverseImageName, "mintage1", "us-east-1");
             } else {
+=======
+            if (!is_file(getenv("COIN_IMAGE_BASE_URL").$reverseImageName)) {
+
+                $imgName =  "coin/".$reverseImageName;
+                
+                $s3->upload($imgName,$uploadPath.$reverseImageName,"mintage1","us-east-1");
+                
+            }else{
+>>>>>>> 173d9d0ba76c7b77f8868f3b2e6f901dee8fd2a2
 
                 $reverseImageName = "noimage.jpg";
             }
@@ -490,10 +510,27 @@ class Coins extends Controller
         }
     }
 
+<<<<<<< HEAD
     function update(Request $request)
     {
 
 
+=======
+    
+    function get_all(){
+    
+        $allCoins = Coin::orderBy("id","desc")->get();
+
+        $allCoins = json_encode(["data"=>$allCoins], JSON_INVALID_UTF8_IGNORE);
+
+        echo $allCoins;
+
+        
+    }
+
+    function update(Request $request) {
+        
+>>>>>>> 173d9d0ba76c7b77f8868f3b2e6f901dee8fd2a2
         if ($coinData = Coin::find($request->coinid)) {
 
             $uploadPath = './assets/images/coin/';
@@ -510,10 +547,21 @@ class Coins extends Controller
 
                 $obverseImageFile->move($uploadPath, $obverseImageName);
 
+<<<<<<< HEAD
                 if (!is_file(getenv("COIN_IMAGE_BASE_URL") . $obverseImageName)) {
 
                     $s3->upload($obverseImageName, $uploadPath . $obverseImageName, "mint-product-img", "us-east-1");
                 } else {
+=======
+                if (!is_file(getenv("COIN_IMAGE_BASE_URL").$obverseImageName)) {
+                    
+                    $imgName =  "coin/".$obverseImageName;
+
+
+                    $s3->upload($imgName,$uploadPath.$obverseImageName,"mintage1","us-east-1");
+                    
+                }else{
+>>>>>>> 173d9d0ba76c7b77f8868f3b2e6f901dee8fd2a2
 
                     $obverseImageName = "noimage.jpg";
                 }
@@ -532,10 +580,20 @@ class Coins extends Controller
 
                 $reverseImageFile->move($uploadPath, $reverseImageName);
 
+<<<<<<< HEAD
                 if (!is_file(getenv("COIN_IMAGE_BASE_URL") . $reverseImageName)) {
 
                     $s3->upload($reverseImageName, $uploadPath . $reverseImageName, "mint-product-img", "us-east-1");
                 } else {
+=======
+                if (!is_file(getenv("COIN_IMAGE_BASE_URL").$reverseImageName)) {
+
+                    $imgName =  "coin/".$reverseImageName;
+                    
+                    $s3->upload($imgName,$uploadPath.$reverseImageName,"mintage1","us-east-1");
+                    
+                }else{
+>>>>>>> 173d9d0ba76c7b77f8868f3b2e6f901dee8fd2a2
 
                     $reverseImageName = "noimage.jpg";
                 }
@@ -568,7 +626,7 @@ class Coins extends Controller
                 'note'  => $request->note,
                 'weight'  => $request->weight,
                 'theme'  => $request->theme,
-                'status'  => '0',
+                'status'  => $request->status,
                 'created' => date('Y-m-d H:i:s'),
             ];
             Schema::disableForeignKeyConstraints();
@@ -621,6 +679,20 @@ class Coins extends Controller
     {
 
         $coinData = Coin::find($request->coinId);
+
+        if($coinData->status=="0"){
+            $coinData->status = "1";
+        }else{
+            $coinData->status = "0";
+        }
+
+        if($coinData->save()){
+            return "coin-updated";
+        }else{
+            return "coin-update-failed";
+        }
+        
+
     }
 
     function info_filter_exe(Request $request)

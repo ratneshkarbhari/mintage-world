@@ -409,12 +409,6 @@ class Coins extends Controller
 
             $obverseImageFile->move($uploadPath, $obverseImageName);
 
-<<<<<<< HEAD
-            if (!is_file(getenv("COIN_IMAGE_BASE_URL") . $obverseImageName)) {
-
-                $s3->upload($obverseImageName, $uploadPath . $obverseImageName, "mintage1", "us-east-1");
-            } else {
-=======
             if (!is_file(getenv("COIN_IMAGE_BASE_URL").$obverseImageName)) {
 
                 $imgName =  "coin/".$obverseImageName;
@@ -422,7 +416,6 @@ class Coins extends Controller
                 $s3->upload($imgName,$uploadPath.$obverseImageName,"mintage1","us-east-1");
                 
             }else{
->>>>>>> 173d9d0ba76c7b77f8868f3b2e6f901dee8fd2a2
 
                 $obverseImageName = "noimage.jpg";
             }
@@ -441,12 +434,6 @@ class Coins extends Controller
 
             $reverseImageFile->move($uploadPath, $reverseImageName);
 
-<<<<<<< HEAD
-            if (!is_file(getenv("COIN_IMAGE_BASE_URL") . $reverseImageName)) {
-
-                $s3->upload($reverseImageName, $uploadPath . $reverseImageName, "mintage1", "us-east-1");
-            } else {
-=======
             if (!is_file(getenv("COIN_IMAGE_BASE_URL").$reverseImageName)) {
 
                 $imgName =  "coin/".$reverseImageName;
@@ -454,7 +441,6 @@ class Coins extends Controller
                 $s3->upload($imgName,$uploadPath.$reverseImageName,"mintage1","us-east-1");
                 
             }else{
->>>>>>> 173d9d0ba76c7b77f8868f3b2e6f901dee8fd2a2
 
                 $reverseImageName = "noimage.jpg";
             }
@@ -510,12 +496,6 @@ class Coins extends Controller
         }
     }
 
-<<<<<<< HEAD
-    function update(Request $request)
-    {
-
-
-=======
     
     function get_all(){
     
@@ -530,7 +510,6 @@ class Coins extends Controller
 
     function update(Request $request) {
         
->>>>>>> 173d9d0ba76c7b77f8868f3b2e6f901dee8fd2a2
         if ($coinData = Coin::find($request->coinid)) {
 
             $uploadPath = './assets/images/coin/';
@@ -547,12 +526,6 @@ class Coins extends Controller
 
                 $obverseImageFile->move($uploadPath, $obverseImageName);
 
-<<<<<<< HEAD
-                if (!is_file(getenv("COIN_IMAGE_BASE_URL") . $obverseImageName)) {
-
-                    $s3->upload($obverseImageName, $uploadPath . $obverseImageName, "mint-product-img", "us-east-1");
-                } else {
-=======
                 if (!is_file(getenv("COIN_IMAGE_BASE_URL").$obverseImageName)) {
                     
                     $imgName =  "coin/".$obverseImageName;
@@ -561,7 +534,6 @@ class Coins extends Controller
                     $s3->upload($imgName,$uploadPath.$obverseImageName,"mintage1","us-east-1");
                     
                 }else{
->>>>>>> 173d9d0ba76c7b77f8868f3b2e6f901dee8fd2a2
 
                     $obverseImageName = "noimage.jpg";
                 }
@@ -580,12 +552,6 @@ class Coins extends Controller
 
                 $reverseImageFile->move($uploadPath, $reverseImageName);
 
-<<<<<<< HEAD
-                if (!is_file(getenv("COIN_IMAGE_BASE_URL") . $reverseImageName)) {
-
-                    $s3->upload($reverseImageName, $uploadPath . $reverseImageName, "mint-product-img", "us-east-1");
-                } else {
-=======
                 if (!is_file(getenv("COIN_IMAGE_BASE_URL").$reverseImageName)) {
 
                     $imgName =  "coin/".$reverseImageName;
@@ -593,7 +559,6 @@ class Coins extends Controller
                     $s3->upload($imgName,$uploadPath.$reverseImageName,"mintage1","us-east-1");
                     
                 }else{
->>>>>>> 173d9d0ba76c7b77f8868f3b2e6f901dee8fd2a2
 
                     $reverseImageName = "noimage.jpg";
                 }

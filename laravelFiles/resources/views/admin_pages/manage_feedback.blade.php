@@ -22,9 +22,9 @@
                 <th>Category</th> 
                 <th>Comment On</th> 
                 <th>Comment</th>                 
-                <th>Date</th> 
+                <th width="100">Date</th> 
                 <th>Status</th> 
-                <th>Action</th>
+                <th width="100">Action</th>
              </tr>
           </thead>
           <tbody>

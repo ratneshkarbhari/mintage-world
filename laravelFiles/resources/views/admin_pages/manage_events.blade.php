@@ -19,8 +19,8 @@
           <thead>
              <tr>
                 <th>Sr. No.</th>
-                <th>Title</th>
-                <th>Discription</th>
+                <th>Event Name</th>                
+                <th>Description</th> 
                 <th>Date</th> 
                 <th>Status</th> 
                 <th>Action</th>
@@ -29,9 +29,9 @@
           <tbody>
              <tr>
                 <td>1</td>
-                <td>NAGMONEY 2024	</td>
-                <td>Ramgopal Maheshwari A Sabhagruha, Beside Mor Bhavan Bus is Stand, Sitabuldi, Jhansi Rani Square, Nagpur-12</td>
-                <td>2024-01-26</td> 
+                <td>Shukla Day Fair 2024</td>
+                <td>The Expo Center, World Trade Center, Mumbai 400 005</td>
+                <td>2022-04-23 To  2022-04-23</td> 
                 <td>  
                   <label class="switch switch-success" for="chk1">
                      <input type="checkbox" checked="" id="chk1">
@@ -54,7 +54,7 @@
                                <input type="hidden" name="bookId" id="bookId" value=""/>
                                <div class="modal-body text-center mt-2">   
                                   <h2 class="text-danger"><i class="fa fa-trash"></i></h2>
-                                  <p>Do you really want to delete these Event?</p>
+                                  <p>Do you really want to delete these Event Records?</p>
                                </div>
                                </div>
                               <div class="modal-footer justify-content-center">
@@ -86,22 +86,39 @@
         <div class="modal-body"> 
          <div class="row">
             <div class="col-md-12 mb-3"> 
-               <label class="control-label">Event Title</label>
-               <div class=""> <input type="text" name="Event_title" class="form-control" id="Event_title" value=""> </div>
+               <label class="control-label">Enter Event Name</label>
+               <div class="">  <input type="text" name="event_name" class="form-control" id="event_name" value=""></div>
             </div>
             <div class="col-md-12 mb-3">
-               <label class="control-label">Event Description</label>
-               <div class=""> <textarea name="Event_Discription" id="Event_Discription" class="form-control"  rows="10"></textarea></div>
-            </div>
+               <label class="control-label">Description</label>
+               <div class="">
+                  <div class="editor"></div>
+               </div>
+            </div>    
             <div class="col-md-12 mb-3">
-               <label class="control-label">Event Date</label>
-               <div class=""> 
-                  <div id="datepicker1" class="input-group date datepicker" data-date-format="yyyy-mm-dd">
+               <label class="control-label">Address</label>
+               <div class="">
+                  <textarea name="" id="" rows="5" class="form-control "></textarea> 
+               </div>
+            </div>          
+            <div class="col-md-6 mb-3">
+               <label class="control-label">Event Start Date</label>
+               <div class="">
+                  <div id="datepicker2" class="input-group date datepicker" data-date-format="yyyy-mm-dd">
                      <input class="form-control" type="text" value="0000-00-00" id="courier_date" readonly="">
                      <span class="input-group-text input-group-addon"><i class="fa fa-calendar"></i></span>                     
                  </div>
                </div>
             </div>  
+            <div class="col-md-6 mb-3">
+               <label class="control-label">Event End Date</label>
+               <div class="">
+                  <div id="datepicker3" class="input-group date datepicker" data-date-format="yyyy-mm-dd">
+                     <input class="form-control" type="text" value="0000-00-00" id="courier_date" readonly="">
+                     <span class="input-group-text input-group-addon"><i class="fa fa-calendar"></i></span>                     
+                 </div>
+               </div>
+            </div> 
             <div class="col-md-12 mb-3"><input type="submit" name="submit" id="SubmitButton" class="btn btn-warning btn-sm" value="Submit"></div> 
          </div>             
         </div> 
@@ -119,29 +136,41 @@
         <div class="modal-body"> 
          <div class="row">
             <div class="col-md-12 mb-3"> 
-               <label class="control-label">Title</label>
-               <div class=""> <input type="text" name="Edit_Event_title" class="form-control" id="Edit_Event_title" value="NAGMONEY 2024	"> </div>
+               <label class="control-label">Enter Event Name</label>
+               <div class="">  <input type="text" name="event_name" class="form-control" id="event_name" value="Shukla Day Fair 2024"></div>
             </div>
-            
             <div class="col-md-12 mb-3">
-               <label class="control-label">Discription</label>
-               <div class=""> 
-                  <textarea name="Edit_Event_Discription" id="Edit_Event_Discription" class="form-control"  rows="10">Ramgopal Maheshwari A Sabhagruha, Beside Mor Bhavan Bus is Stand, Sitabuldi, Jhansi Rani Square, Nagpur-12	</textarea>
-            </div>
-            </div> 
-            <div class="col-md-12 mb-3"> 
-               <label class="control-label">Date</label>
+               <label class="control-label">Description</label>
+               <div class="">
+                  <div class="editor">The Expo Center, World Trade Center, Mumbai 400 005, 10AM to 7 PM.</div>
+               </div>
+            </div>  
+            <div class="col-md-12 mb-3">
+               <label class="control-label">Address</label>
+               <div class="">
+                  <textarea name="" id="" rows="5" class="form-control ">The Expo Center, World Trade Center, Mumbai 400 005</textarea> 
+               </div>
+            </div>  
+            <div class="col-md-6 mb-3">
+               <label class="control-label">Event Start Date</label>
                <div class="">
                   <div id="datepicker2" class="input-group date datepicker" data-date-format="yyyy-mm-dd">
                      <input class="form-control" type="text" value="0000-00-00" id="courier_date" readonly="">
                      <span class="input-group-text input-group-addon"><i class="fa fa-calendar"></i></span>                     
                  </div>
                </div>
-            </div>
-            
-            
-            <div class="col-md-12 mb-3"><input type="submit" name="submit" id="EditButton" class="btn btn-warning btn-sm" value="Submit"></div> 
-         </div>             
+            </div>  
+            <div class="col-md-6 mb-3">
+               <label class="control-label">Event End Date</label>
+               <div class="">
+                  <div id="datepicker3" class="input-group date datepicker" data-date-format="yyyy-mm-dd">
+                     <input class="form-control" type="text" value="0000-00-00" id="courier_date" readonly="">
+                     <span class="input-group-text input-group-addon"><i class="fa fa-calendar"></i></span>                     
+                 </div>
+               </div>
+            </div> 
+            <div class="col-md-12 mb-3"><input type="submit" name="submit" id="SubmitButton" class="btn btn-warning btn-sm" value="Submit"></div> 
+         </div>          
         </div>  
       </div>
     </div>
@@ -163,11 +192,11 @@
  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
    <div id="liveToast " class="toast hide bg-danger text-white delete-success position-relative" role="alert" aria-live="assertive" aria-atomic="true">
        <div class="toast-header bg-danger text-white">
-           <strong class="me-auto"><i class="fas fa-check-circle"></i> Delete Event</strong>
+           <strong class="me-auto"><i class="fas fa-check-circle"></i> Delete Auction</strong>
            <small>Just Now</small> 
        </div>
        <div class="toast-body">
-         "Your Event" has been deleted from list. 
+         "Your Auction" has been deleted from list. 
        </div>
        <div class='toast-timeline animate'></div>
    </div>
@@ -184,7 +213,7 @@
       $('#EditSEO').modal('hide');
       $('#AddCategory').modal('hide');
      }); 
-     $("#Delete_Event").click(function(e) {
+     $("#Delete_Auction").click(function(e) {
     $('.delete-success').toast('show'); 
    });   
  </script>

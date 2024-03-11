@@ -22,9 +22,9 @@
                 <th>Title</th>
                 <th>Discription</th>
                 <th>Images</th> 
-                <th>Date</th> 
+                <th width="100">Date</th> 
                 <th>Status</th> 
-                <th style="width:70px;">Action</th>
+                <th width="100">Action</th>
              </tr>
           </thead>
           <tbody>

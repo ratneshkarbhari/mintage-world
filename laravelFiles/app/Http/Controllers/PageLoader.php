@@ -486,8 +486,22 @@ class PageLoader extends Controller
 
     function manage_news()
     {
+
+        $news = Media::where("status", '1')->orderBy("id", "desc")->paginate(12);
+
+        $total = $news->total();
+        $currentPage = $news->currentPage();
+        $perPage = $news->perPage();
+
+        $from = ($currentPage - 1) * $perPage + 1;
+        $to = min($currentPage * $perPage, $total);
+
+        $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
+        
         $this->admin_page_loader("manage_news", [
-            "title" => "Manage news"
+            "title" => "Manage news",
+            "news" => $news,
+            "pagination_string" => $paginationInfoString
         ]);
     }
     function add_news()

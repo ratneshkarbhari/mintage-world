@@ -28,99 +28,76 @@
                @foreach($news as $news_item)
                <tr>
                   <td>{{$news_item['title']}}</td>
-                  <td>{{$news_item['description']}}</td>
+                  <td>{!!$news_item['description']!!}</td>
                   <td>
                      <img src="{{env('NEWS_IMAGE_BASE_URL').$news_item['image']}}" alt="" class="img-fluid" style="width:75px">
                   </td>
-                  
+
                   <td>
                      <button type="button" class="btn btn-secondary btn-sm align-self-baseline" data-bs-toggle="modal" data-bs-target="#EditNews-{{$news_item['id']}}" title="Edit"><i class="fa fa-edit"></i></button>
                      <div class="modal fade" id="EditNews-{{$news_item['id']}}" tabindex="-1" aria-labelledby="EditNewsLabel" aria-hidden="true">
-                     <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                           <div class="modal-header">
-                              <h5 class="modal-title" id="EditNewsLabel">Edit News</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                           </div>
-                           <div class="modal-body">
-                              <div class="row">
-                                 <div class="col-md-12 mb-3">
-                                    <label class="control-label">Title</label>
-                                    <div class=""> <input type="text" name="Edit_News_title" class="form-control" id="Edit_News_title" value="Vijaynagar Emperor Tirumala Raya issued gold Pagoda depicting Lord Rama and Sita seated with Lakshmana"> </div>
-                                 </div>
-                                 <div class="col-md-12 mb-3">
-                                    <label class="control-label">Discription</label>
-                                    <div class=""> <textarea name="Edit_News_Discription" id="Edit_News_Discription" class="form-control" rows="10">Jai Shri Ram!<br><br>
-
-                  The New #RamMandir in #Ayodhya, #Uttar Pradesh, is a sacred site for Hinduism. May the inauguration of the Ram Mandir bring peace, harmony, and spiritual enlightenment to all.<br><br>
-                  India has a long tradition of minting coins with images of Gods and Goddesses. <br><br>
-                  Vijaynagar emperor Tirumala Raya issued this Gold Pagoda, 3.5g, depicting Lord #Rama and Sita seated with Lakshmana, standing as an attendant on the obverse. The reverse of the coin features the Devanagari legend Sri Tirumala. <br><br>
-
-                  Image Courtesy: Oswal Antiques
-                     
-                                 </textarea></div>
-                                 </div>
-                                 <div class="col-md-6 mb-3">
-                                    <label class="control-label">Current Image</label>
-                                    <div class=""> <img src="https://s3-ap-southeast-1.amazonaws.com/mint-news/vijaynagar-emperor-tirumala-raya-fold-pagoda-depicting-lord-rama.jpg" alt="" class="img-fluid" style="width:100px"></div>
-                                 </div>
-                                 <div class="col-md-6 mb-3">
-                                    <label class="control-label">Upload New Image</label>
-                                    <div class=""><input type="file" class="form-control" placeholder="upload image"></div>
-                                 </div>
-                                 <div class="col-md-6 mb-3">
-                                    <label class="control-label">Date</label>
-                                    <div class="">
-                                       <div id="" class="input-group date datepicker" data-date-format="yyyy-mm-dd">
-                                          <input class="form-control" type="text" value="0000-00-00" id="courier_date" readonly="">
-                                          <span class="input-group-text input-group-addon"><i class="fa fa-calendar"></i></span>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <div class="col-md-6 mb-3">
-                                    <label class="control-label">Custom URL</label>
-                                    <div class="">
-                                       <input type="text" name="Edit_News_url" class="form-control" id="Edit_News_url" value="vijaynagar-emperor-tirumala-raya-fold-pagoda-depicting-lord-rama">
-                                    </div>
-                                 </div>
-
-                                 <div class="col-md-12 mb-3"><input type="submit" name="submit" id="EditButton" class="btn btn-warning btn-sm" value="Submit"></div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                     <!-- <button class="btn btn-danger btn-sm" title="Delete News" data-bs-toggle="modal" data-bs-target="#DeleteNews" title="Delete"><i class="fa fa-trash"></i></button>
-                     <div class="modal fade" id="DeleteNews" tabindex="-1" aria-labelledby="DeleteModal" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                        <div class="modal-dialog modal-lg">
                            <div class="modal-content">
                               <div class="modal-header">
-                                 <h5 class="modal-title" id="AddMediaLabel">Delete News?</h5>
+                                 <h5 class="modal-title" id="EditNewsLabel">Edit News</h5>
                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
-                                 <input type="hidden" name="bookId" id="bookId" value="" />
-                                 <div class="modal-body text-center mt-2">
-                                    <h2 class="text-danger"><i class="fa fa-trash"></i></h2>
-                                    <p>Do you really want to delete these News?</p>
-                                 </div>
-                              </div>
-                              <div class="modal-footer justify-content-center">
-                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-                                 <form method="POST" action="{{url('delete-News-exe')}}">
+                                 <form action="{{url('update-media-item-exe')}}" method="post">
                                     @csrf
-                                    <input type="hidden" name="NewsId" value="{{}}">
-                                    <button type="submit" id="add_delete_btn" class="btn btn-danger delete-add-btn">Delete</button>
+                                    <input type="hidden" name="id" value="{{$news_item['id']}}">
+                                    <div class="row">
+                                       <div class="col-md-12 mb-3">
+                                          <label class="control-label">Title</label>
+                                          <div class=""> <input type="text" name="title" class="form-control" id="title" value="{{$news_item['title']}}"> </div>
+                                       </div>
+                                       <div class="col-md-12 mb-3">
+                                          <label class="control-label">Description</label>
+                                          <div class=""> <textarea name="description" id="description" class="form-control" rows="10">{{$news_item['description']}}</textarea></div>
+                                       </div>
+                                       <div class="col-md-6 mb-3">
+                                          <label class="control-label">Current Image</label>
+                                          <div class=""> <img src="{{env('NEWS_IMAGE_BASE_URL').$news_item['image']}}" alt="" class="img-fluid" style="width:100px"></div>
+                                       </div>
+                                       <div class="col-md-6 mb-3">
+                                          <label class="control-label">Upload New Image</label>
+                                          <div class=""><input name="image" type="file" class="form-control" placeholder="upload image"></div>
+                                       </div>
+                                       <div class="col-md-6 mb-3">
+                                          <label class="control-label">Date</label>
+                                          <div class="">
+                                             <div id="" class="input-group date datepicker" data-date-format="yyyy-mm-dd"><input class="form-control" type="text" name="date" value="{{$news_item['media_date']}}" id="date" readonly="">
+                                                <span class="input-group-text input-group-addon"><i class="fa fa-calendar"></i></span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="col-md-6 mb-3">
+                                          <label class="control-label">Custom URL</label>
+                                          <div class="">
+                                             <input type="text" name="custom_url" class="form-control" id="custom_url" value="{{$news_item['custom_url']}}">
+                                          </div>
+                                       </div>
+
+                                       <div class="col-md-12 mb-3"><input type="submit" name="submit" id="EditButton" class="btn btn-warning btn-sm" value="Submit"></div>
+                                    </div>
                                  </form>
                               </div>
                            </div>
                         </div>
-                     </div> -->
+                     </div>
+
                   </td>
                </tr>
                @endforeach
             </tbody>
          </table>
+      </div>
+
+      <div class="pagination-container">
+
+         <p>{{$pagination_string}}</p>
+         {!! $news->links() !!}
+
       </div>
    </div>
 </div>
@@ -133,30 +110,45 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body">
-            <div class="row">
-               <div class="col-md-12 mb-3">
-                  <label class="control-label">Title</label>
-                  <div class=""> <input type="text" name="News_title" class="form-control" id="News_title" value=""> </div>
-               </div>
-               <div class="col-md-12 mb-3">
-                  <label class="control-label">Discription</label>
-                  <div class=""> <textarea name="News_Discription" id="News_Discription" class="form-control" rows="10"></textarea></div>
-               </div>
-               <div class="col-md-12 mb-3">
-                  <label class="control-label">Upload Image</label>
-                  <div class=""><input type="file" class="form-control" placeholder="upload image"></div>
-               </div>
-               <div class="col-md-12 mb-3">
-                  <label class="control-label">Date</label>
-                  <div class="">
-                     <div id="" class="input-group date datepicker" data-date-format="yyyy-mm-dd">
-                        <input class="form-control" type="text" value="0000-00-00" id="courier_date" readonly="">
-                        <span class="input-group-text input-group-addon"><i class="fa fa-calendar"></i></span>
+            <form action="{{url('add-news-item-exe')}}" id="addNewsForm" method="post">
+               @csrf
+               <div class="row">
+                  <div class="col-md-12 mb-3">
+                     <label class="control-label">Title</label>
+                     <div class=""> <input type="text" name="title" class="form-control" id="title" value="{{$news_item['title']}}"> </div>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                     <label class="control-label">Description</label>
+                     <div class=""> <textarea name="Edit_News_Discription" id="Edit_News_Discription" class="form-control" rows="10"></textarea></div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                     <label class="control-label">Current Image</label>
+                     <div class=""> </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                     <label class="control-label">Upload New Image</label>
+                     <div class=""><input name="image" type="file" class="form-control" placeholder="upload image"></div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                     <label class="control-label">Date</label>
+                     <div class="">
+                        <div id="" class="input-group date datepicker" data-date-format="yyyy-mm-dd">
+                           <input class="form-control" name="date" type="text" value="" id="date" readonly="">
+                           <span class="input-group-text input-group-addon"><i class="fa fa-calendar"></i></span>
+                        </div>
                      </div>
                   </div>
+                  <div class="col-md-6 mb-3">
+                     <label class="control-label">Custom URL</label>
+                     <div class="">
+                        <input type="text" name="custom_url" class="form-control" id="custom_url" value="{{$news_item['custom_url']}}">
+                     </div>
+                  </div>
+
+                  <div class="col-md-12 mb-3"><input type="submit" name="submit" id="EditButton" class="btn btn-warning btn-sm" value="Submit"></div>
                </div>
-               <div class="col-md-12 mb-3"><input type="submit" name="submit" id="SubmitButton" class="btn btn-warning btn-sm" value="Submit"></div>
-            </div>
+
+            </form>
          </div>
       </div>
    </div>

@@ -1,30 +1,31 @@
 <?php
 
+use App\Models\Coin;
+use App\Models\Stamp;
 use App\Models\ProductRating;
+use App\Http\Controllers\AwsS3;
 use App\Http\Controllers\Coins;
 use App\Http\Controllers\Notes;
 use App\Http\Controllers\Utils;
 use Dflydev\DotAccessData\Util;
+use App\Http\Controllers\Events;
 use App\Http\Controllers\Orders;
 use App\Http\Controllers\Stamps;
 use App\Http\Controllers\Banners;
 use App\Http\Controllers\Coupons;
 use App\Http\Controllers\Members;
 use App\Http\Controllers\Periods;
+use App\Http\Controllers\Products;
 use App\Http\Controllers\Shopping;
 use App\Http\Controllers\Histories;
+use App\Http\Controllers\EmailTests;
 use App\Http\Controllers\PageLoader;
 use App\Http\Controllers\CartActions;
 use App\Http\Controllers\StaticPages;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfoComments;
 use App\Http\Controllers\Authentication;
-use App\Http\Controllers\AwsS3;
-use App\Http\Controllers\EmailTests;
-use App\Http\Controllers\Products;
 use App\Http\Controllers\ShoppingCategories;
-use App\Models\Coin;
-use App\Models\Stamp;
 
 /*
 |--------------------------------------------------------------------------
@@ -290,6 +291,7 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::get("get-all-coins",[Coins::class,'get_all']);
 
+    Route::post("create-new-event-exe",[Events::class,'create']);
 
 });
 

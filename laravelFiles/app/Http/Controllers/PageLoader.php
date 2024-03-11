@@ -14,6 +14,7 @@ use App\Models\CalendarSystem;
 use App\Models\Coin;
 use App\Models\Denomination;
 use App\Models\Dynasty;
+use App\Models\Event;
 use App\Models\Metal;
 use App\Models\MintingTechnique;
 use App\Models\Note;
@@ -460,14 +461,20 @@ class PageLoader extends Controller
 
     function manage_event()
     {
+        
+
+
         $this->admin_page_loader("manage_event", [
-            "title" => "Manage Event"
+            "title" => "Manage Event",
         ]);
     }
     function add_event()
     {
+       
+
         $this->admin_page_loader("add_event", [
-            "title" => "Add Event"
+            "title" => "Add Event",
+
         ]);
     }
     function edit_event()
@@ -629,8 +636,22 @@ class PageLoader extends Controller
 
     function manage_events()
     {
+
+        $events = Event::where("status", '1')->orderBy("id", "desc")->paginate(12);
+
+        $total = $events->total();
+        $currentPage = $events->currentPage();
+        $perPage = $events->perPage();
+
+        $from = ($currentPage - 1) * $perPage + 1;
+        $to = min($currentPage * $perPage, $total);
+
+        $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
+
         $this->admin_page_loader("manage_events", [
-            "title" => "Manage Events"
+            "title" => "Manage Events",
+            "events" => $events,
+            "pagination_string" => $paginationInfoString
         ]);
     }
 

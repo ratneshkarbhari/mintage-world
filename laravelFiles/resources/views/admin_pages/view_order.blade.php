@@ -280,6 +280,11 @@ use App\Models\Product;
                                     value="Other">Other</option>
                                  </select>
                               </div>
+
+                              <div class="col-md-2 mb-2" id="Other_Courier_label" style="display: none"><label class="control-label" for="other_courier_name">Oher Courier Name</label> </div>                              
+                              <div class="col-md-10 mb-2" id="Other_Courier_textbox" style="display: none">
+                                 <input type="textbox" value="" id="other_courier_name" class="form-control" name="other_courier_name">
+                              </div>
                               <div class="col-md-2 mb-2"><label for="courier_number" class="control-label">Tracking Number</label></div>                               
                               <div class="col-md-10 mb-2"> <input type="textbox" value="{{$order['tracking_number']}}" id="courier_number" placeholder="Enter Courier Number" class="form-control" name="courier_number"> </div>
 
@@ -517,5 +522,23 @@ use App\Models\Product;
          }
       });
    });
+
+  
+
+    function changeFunc() {
+      var courier_name = document.getElementById('courier_name').value;
+      var lbl = document.getElementById('Other_Courier_label');
+      var box = document.getElementById('Other_Courier_textbox');
+      if ( courier_name == 'Other' ) {
+         lbl.style.display = "block";
+         box.style.display = "block";
+    }
+    else
+    {
+      lbl.style.display = "none";
+      box.style.display = "none";
+    }
+     
+    }
 
 </script>

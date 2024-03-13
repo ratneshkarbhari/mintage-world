@@ -52,20 +52,7 @@
             {
                 data: 'catalogue_ref_no'
             },
-            // {
-            //     data: 'status',
-            //     render: function (data,type,full) { 
-
-            //         let checked = "";
-
-            //         if(data=="0"){
-            //             checked = "checked";
-            //         }
-
-            //         return '<label class="switch switch-success" for="coin-'+full.id+'"><input class="active-inactive-switch" coinid="'+full.id+'" type="checkbox" '+checked+' valuetoset="0" id="coin-'+full.id+'"><span class="slider round"></span></label>';
-
-            //     }
-            // },
+            
             {
                 render: function (data,type,full) { 
 

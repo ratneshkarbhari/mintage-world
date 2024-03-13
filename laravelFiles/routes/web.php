@@ -3,6 +3,7 @@
 use App\Models\Coin;
 use App\Models\Stamp;
 use App\Models\ProductRating;
+use App\Http\Controllers\News;
 use App\Http\Controllers\AwsS3;
 use App\Http\Controllers\Coins;
 use App\Http\Controllers\Notes;
@@ -291,8 +292,15 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::get("get-all-coins",[Coins::class,'get_all']);
 
+    Route::get("get-all-news",[News::class,'get_all']);
+
+    Route::post("update-news",[News::class,'update']);
+    Route::post("add-news-item-exe",[News::class,'create']);
+
     Route::post("create-new-event-exe",[Events::class,'create']);
     Route::post("update-event-exe",[Events::class,'update']);
+
+    
 
 });
 

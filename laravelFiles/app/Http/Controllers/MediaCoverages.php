@@ -8,6 +8,24 @@ use Illuminate\Http\Request;
 
 class MediaCoverages extends Controller
 {
+
+    function delete_media_pdf(Request $request) {
+        
+        $mediaCoveragePdfItem = MediaCoveragePdf::find($request->media_pdf_id);
+
+        if($mediaCoveragePdfItem->delete()){
+            return [
+                "result" => "success",
+                "message" => "Pdf deleted"
+            ];
+        }else{
+            return [
+                "result" => "failure",
+                "message" => "Pdf delete failed"
+            ];
+        }
+
+    }
     
     function create(Request $request)  {
         

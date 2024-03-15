@@ -29,7 +29,7 @@
                      <td>{{$media_coverage_item['title']}}</td>
                      <td>{{$media_coverage_item['datetime']}}</td>
                      <td>
-                        <a class="btn btn-secondary btn-sm" href="{{url('admin/edit-media-coverage')}}" title="Edit Media" href=""><i class="fa fa-edit"></i></a>
+                        <a class="btn btn-secondary btn-sm" href="{{url('admin/edit-media-coverage/'.$media_coverage_item['id'])}}" title="Edit Media" href=""><i class="fa fa-edit"></i></a>
                      </td>
                   </tr>
                   @endforeach

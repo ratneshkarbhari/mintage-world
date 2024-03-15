@@ -586,10 +586,13 @@ class PageLoader extends Controller
             "title" => "Add Media Coverage"
         ]);
     }
-    function edit_media_coverage()
+    function edit_media_coverage($id)
     {
+        $mcObj = new MediaCoverage();
+        $mcData = $mcObj->with("pdf")->where("id",$id)->first();
         $this->admin_page_loader("edit_media_coverage", [
-            "title" => "Edit Media Coverage"
+            "title" => "Edit Media Coverage",
+            "media_coverage" => $mcData
         ]);
     }
 

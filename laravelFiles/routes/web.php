@@ -247,11 +247,11 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/manage-story-week", [PageLoader::class, 'manage_story_week']);
     Route::get("admin/manage-media-coverage", [PageLoader::class, 'manage_media_coverage']);
     Route::get("admin/add-media-coverage", [PageLoader::class, 'add_media_coverage']);
-    Route::get("admin/edit-media-coverage", [PageLoader::class, 'edit_media_coverage']);
+    Route::get("admin/edit-media-coverage/{id}", [PageLoader::class, 'edit_media_coverage']);
     Route::get("admin/manage-events", [PageLoader::class, 'manage_events']);
     Route::get("admin/manage-news", [PageLoader::class, 'manage_news']);
     Route::get("admin/manage-career", [PageLoader::class, 'manage_career']);
-
+    Route::post("delete-media-pdf-exe",[MediaCoverages::class,'delete_media_pdf']);
     Route::get("admin/manage-feedback", [PageLoader::class, 'manage_feedback']);
     Route::get("admin/manage-review", [PageLoader::class, 'manage_review']);
 

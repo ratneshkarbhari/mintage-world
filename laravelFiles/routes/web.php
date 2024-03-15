@@ -252,6 +252,8 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/manage-news", [PageLoader::class, 'manage_news']);
     Route::get("admin/manage-career", [PageLoader::class, 'manage_career']);
     Route::post("delete-media-pdf-exe",[MediaCoverages::class,'delete_media_pdf']);
+    Route::post("update-media-coverage-exe",[MediaCoverages::class,'update']);
+
     Route::get("admin/manage-feedback", [PageLoader::class, 'manage_feedback']);
     Route::get("admin/manage-review", [PageLoader::class, 'manage_review']);
 

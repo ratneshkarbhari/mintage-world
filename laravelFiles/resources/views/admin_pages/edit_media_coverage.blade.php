@@ -15,8 +15,9 @@
       </div>
       <div class="col-md-12 admin-card mt-3">
 
-         <form action="{{url('update-media-coverage-exe')}}" enctype="multipart/form-data" method="post">
+         <form action="{{url('update-media-coverage-exe')}}" enctype="multipart/form-data" id="updateMc" method="post">
             @csrf
+            <input type="hidden" name="mc_id" value="{{$media_coverage['id']}}">
             <div class="row">
                <div class="col-md-6 mb-3">
                   <label class="control-label">Enter Title</label> 
@@ -24,7 +25,7 @@
                </div>
                <div class="col-md-6 mb-3">
                   <label class="control-label">Date</label> 
-                  <div class=""><input type="text" name="datetime" id="datetime" class="form-control form_datetime" placeholder="Select Release Date" required="required" value="{{$media_coverage['datetime']}}"></div>
+                  <div class=""><input type="date" name="datetime" id="datetime" class="form-control form_datetime" placeholder="Select Release Date" required="required" value="{{$media_coverage['datetime']}}"></div>
                </div>
                <div class="col-md-12 mb-3">
                   <label class="control-label">Enter Media(URL) - Comma Separated</label> 
@@ -36,7 +37,7 @@
                </div> 
                <div class="col-md-12 mb-3">
                   <label class="control-label">Short Description</label> 
-                  <div class=""> <textarea class="editor">{{$media_coverage['desc']}}</textarea></div>
+                  <div class=""> <textarea class="editor" name="description">{{$media_coverage['desc']}}</textarea></div>
                </div> 
                <hr>
                <div class="col-md-12 mb-3"> 
@@ -93,37 +94,35 @@
                      </div>
                      @endforeach
                   </div>
-                  <form action="" method="post">
-                     <div class="row" style="align-items: center;">
-                     
-                        <div class="col-md-10 dynamic-field mb-3" id="dynamic-field-1">
-                           <div class="row" >
-                              <div class="col-md-6">
-                                 <div class="form-group">
-                                 <label for="field" class="control-label">PDF File Title </label>
-                                 <input type="text" id="field" class="form-control" name="pdf_titles[]" />
+                  <div class="row" style="align-items: center;">
+                  
+                     <div class="col-md-10 dynamic-field mb-3" id="dynamic-field-1">
+                        <div class="row" >
+                           <div class="col-md-6">
+                              <div class="form-group">
+                              <label for="field" class="control-label">PDF File Title </label>
+                              <input type="text" id="field" class="form-control" name="pdf_titles[]" />
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="staresd">
+                                 <div class="imgup">
+                                    <label for="" class="control-label">Upload Only PDF</label>
+                                    <input name="pdf_files[]" accept="application/pdf" type="file" class="form-control">
                                  </div>
                               </div>
-                              <div class="col-md-6">
-                                 <div class="staresd">
-                                    <div class="imgup">
-                                       <label for="" class="control-label">Upload Only PDF</label>
-                                       <input name="pdf_files[]" accept="application/pdf" type="file" class="form-control">
-                                    </div>
-                                 </div>
-                              </div>         
-                           </div>
-                        </div>                 
-                        <div class="col-md-2 mt-30 append-buttons">
-                        <div class="clearfix">
-                        <button type="button" id="add-button" class="btn btn-secondary float-left text-uppercase shadow-sm"><i class="fa fa-plus fa-fw"></i>
-                        </button>
-                        <button type="button" id="remove-button" class="btn btn-secondary float-left text-uppercase ml-1" disabled="disabled"><i class="fa fa-minus fa-fw"></i>
-                        </button>
+                           </div>         
                         </div>
-                        </div>
+                     </div>                 
+                     <div class="col-md-2 mt-30 append-buttons">
+                     <div class="clearfix">
+                     <button type="button" id="add-button" class="btn btn-secondary float-left text-uppercase shadow-sm"><i class="fa fa-plus fa-fw"></i>
+                     </button>
+                     <button type="button" id="remove-button" class="btn btn-secondary float-left text-uppercase ml-1" disabled="disabled"><i class="fa fa-minus fa-fw"></i>
+                     </button>
                      </div>
-                  </form>
+                     </div>
+                  </div>
 
 
                </div>
@@ -169,15 +168,42 @@
 </div>
 
 <script>
-   $("form#deletePdfForm").submit(function (e) { 
+
+   $("form#updateMc").submit(function (e) { 
       e.preventDefault();
       let action = $(this).attr("action");
       let method = $(this).attr("method");
-      let formData = $(this).serialize();
+      let formData = new FormData(this);
       $.ajax({
          type: method,
          url: action,
          data: formData,
+         contentType: false,
+         processData: false,
+
+         success: function (response) {
+            if(response.result=="success"){
+               $(".action-success").toast("show");
+            }else{
+               $(".action-failure").toast("show");
+            }
+            $(".modal").modal('hide');
+         }
+      });
+   });
+
+   $("form#deletePdfForm").submit(function (e) { 
+      e.preventDefault();
+      let action = $(this).attr("action");
+      let method = $(this).attr("method");
+      let formData = new FormData(this);
+      $.ajax({
+         type: method,
+         url: action,
+         data: formData,
+         contentType: false,
+         processData: false,
+
          success: function (response) {
             if(response.result=="success"){
                $(".action-success").toast("show");

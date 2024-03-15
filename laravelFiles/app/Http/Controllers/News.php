@@ -37,7 +37,7 @@ class News extends Controller
                     $s3 = new AwsS3();
 
                 
-                    $s3->upload($newsImageName,$uploadPath.$newsImageName,"mint-news","ap-southeast-1");
+                    $s3->upload($newsImageName,$uploadPath."/".$newsImageName,"mint-news","ap-southeast-1");
                     
                 }else{
     

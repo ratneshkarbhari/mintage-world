@@ -360,8 +360,9 @@
                                         <li><a href="{{url('admin/manage-media-coverage/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Media Coverage</a></li> --}}
                                         <li><a href="{{url('admin/manage-events/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Events</a></li>
                                         <li><a href="{{url('admin/manage-news/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">News</a></li>
-                                        <li><a href="{{url('admin/manage-career/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Career</a></li>
-                                        <li><a href="{{url('admin/manage-auction/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Auction</a></li>
+                                        <li><a href="{{url('admin/manage-media-coverage/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Media Coverage</a></li>
+                                        <li class="d-none"><a href="{{url('admin/manage-career/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Career</a></li>
+                                        <li class="d-none"><a href="{{url('admin/manage-auction/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Auction</a></li>
                                         {{-- <li><a href="{{url('admin/manage-key-events/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Key Events</a></li> --}}
                                         <li><a href="{{url('admin/manage-feedback/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Feedback</a></li>
                                         <li><a href="{{url('admin/manage-review/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Review</a></li>

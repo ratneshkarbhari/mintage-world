@@ -26,7 +26,9 @@ use App\Http\Controllers\StaticPages;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfoComments;
 use App\Http\Controllers\Authentication;
+use App\Http\Controllers\MediaCoverages;
 use App\Http\Controllers\ShoppingCategories;
+use App\Models\MediaCoverage;
 
 /*
 |--------------------------------------------------------------------------
@@ -300,7 +302,7 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::post("create-new-event-exe",[Events::class,'create']);
     Route::post("update-event-exe",[Events::class,'update']);
 
-    
+    Route::post("create-media-coverage-exe",[MediaCoverages::class,'create']);
 
 });
 

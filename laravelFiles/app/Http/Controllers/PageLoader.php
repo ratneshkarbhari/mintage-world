@@ -2,29 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Media;
-use App\Models\Order;
-use App\Models\Banner;
-use App\Models\Country;
-use App\Models\Product;
-use Illuminate\Http\Request;
-use App\Models\ProductCategory;
-use App\Http\Controllers\Orders;
-use App\Models\CalendarSystem;
 use App\Models\Coin;
-use App\Models\Denomination;
-use App\Models\Dynasty;
-use App\Models\Event;
-use App\Models\Metal;
-use App\Models\MintingTechnique;
 use App\Models\Note;
-use App\Models\Period;
-use App\Models\ProductVariation;
-use App\Models\Rarity;
+use App\Models\Event;
+use App\Models\Media;
+use App\Models\Metal;
+use App\Models\Order;
 use App\Models\Ruler;
 use App\Models\Shape;
 use App\Models\Stamp;
+use App\Models\Banner;
+use App\Models\Period;
+use App\Models\Rarity;
+use App\Models\Country;
+use App\Models\Dynasty;
+use App\Models\Product;
+use App\Models\Feedback;
+use App\Models\Denomination;
+use Illuminate\Http\Request;
+use App\Models\MediaCoverage;
 use App\Models\ThemeCategory;
+use App\Models\CalendarSystem;
+use App\Models\ProductCategory;
+use App\Http\Controllers\Orders;
+use App\Models\MintingTechnique;
+use App\Models\ProductVariation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 
@@ -568,8 +570,14 @@ class PageLoader extends Controller
 
     function manage_media_coverage()
     {
+        
+        $mediaCoverageModel = new MediaCoverage();
+
+        $media_coverage_items = $mediaCoverageModel->with("pdf")->orderBy("id", "desc")->paginate(12);
+
         $this->admin_page_loader("manage_media_coverage", [
-            "title" => "Manage Media Coverage"
+            "title" => "Manage Media Coverage",
+            "media_coverage_items" => $media_coverage_items
         ]);
     }
     function add_media_coverage()
@@ -664,8 +672,12 @@ class PageLoader extends Controller
 
     function manage_feedback()
     {
+
+        $allFeedBack = Feedback::orderBy("id","desc")->get();
+
         $this->admin_page_loader("manage_feedback", [
-            "title" => "Manage Feedback"
+            "title" => "Manage Feedback",
+            "feedback_entries" => $allFeedBack
         ]);
     }
 

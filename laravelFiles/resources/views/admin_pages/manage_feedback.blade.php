@@ -57,7 +57,7 @@
                      @if($feedback['status']=='0')
                      <button type="button" class="btn btn-success approve-feedback-button" feedbackId="{{$feedback['id']}}"><i class="fa fa-check"></i></button>
                      @else
-                     <button type="button" class="btn btn-danger"><i class="fa fa-arrow-down disapprove-feedback-button" feedbackId="{{$feedback['id']}}"></i></button>
+                     <button type="button" class="btn btn-danger disapprove-feedback-button" feedbackId="{{$feedback['id']}}"><i class="fa fa-arrow-down " ></i></button>
                      @endif
 
                   </td>

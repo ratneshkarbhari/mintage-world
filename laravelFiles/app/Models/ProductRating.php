@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ProductRating extends Model
 {
@@ -22,5 +23,15 @@ class ProductRating extends Model
 
 
     protected $primaryKey = "id";
+
+    public function product() : HasOne
+    {
+        return $this->hasOne(Product::class,"id","product_id");
+    }
+
+    public function member() : HasOne
+    {
+        return $this->hasOne(Member::class,"id","member_id");
+    }
 
 }

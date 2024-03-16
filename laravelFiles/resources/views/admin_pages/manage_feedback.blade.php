@@ -146,6 +146,7 @@
             } else {
                $(".reject-success").toast("show");
             }
+            location.reload();
          }
       });
    });

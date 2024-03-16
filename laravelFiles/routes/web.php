@@ -28,6 +28,7 @@ use App\Http\Controllers\InfoComments;
 use App\Http\Controllers\Authentication;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\MediaCoverages;
+use App\Http\Controllers\ProductRatings;
 use App\Http\Controllers\ShoppingCategories;
 use App\Models\MediaCoverage;
 
@@ -270,6 +271,9 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/manage-seo", [PageLoader::class, 'manage_seo']);
 
     Route::post("toggle-feedback-status",[FeedbackController::class,'toggle_status']);
+
+    Route::post("toggle-review-status",[ProductRatings::class,'toggle_status']);
+
 
     Route::post("create-new-coin", [Coins::class, 'create_new']);
 

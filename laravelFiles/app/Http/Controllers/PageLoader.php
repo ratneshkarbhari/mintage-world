@@ -26,6 +26,7 @@ use App\Models\CalendarSystem;
 use App\Models\ProductCategory;
 use App\Http\Controllers\Orders;
 use App\Models\MintingTechnique;
+use App\Models\ProductRating;
 use App\Models\ProductVariation;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
@@ -697,8 +698,25 @@ class PageLoader extends Controller
 
     function manage_review()
     {
+
+        $productRatingModel = new ProductRating();
+
+        $allReviews = $productRatingModel->orderBy("id","desc")->where("member_id","!=",NULL)->with("product")->with("member")->paginate(12);
+
+
+        $total = $allReviews->total();
+        $currentPage = $allReviews->currentPage();
+        $perPage = $allReviews->perPage();
+
+        $from = ($currentPage - 1) * $perPage + 1;
+        $to = min($currentPage * $perPage, $total);
+
+        $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
+
         $this->admin_page_loader("manage_review", [
-            "title" => "Manage Review"
+            "title" => "Manage Review",
+            "reviews" => $allReviews,
+            "pagination_info_string" => $paginationInfoString
         ]);
     }
 

@@ -437,6 +437,7 @@ class Notes extends Controller
 
         $note = $noteModel->with("denomination")->with("feedback.member")->find($noteId);
 
+
         $denomination = Denomination::find($note["denomination_id"]);
 
         $dynasty = Dynasty::find($note["dynasty_id"]);
@@ -451,11 +452,20 @@ class Notes extends Controller
             $note["issued_year"] = $note["catalogue_ref_no"];
         }
 
+
+        $feedback_entries = [];
+
+        foreach($note['feedback'] as $feedback){
+            if($feedback['status']==1){
+                $feedback_entries[] = $feedback;
+            }
+        }
         
 
         $this->page_loader("note_detail",[
             "title" => $note["catalogue_ref_no"],
             "note" => $note,
+            "feedback_entries" => $feedback_entries,
             "denomination" => $denomination,
             "dynasty" => $dynasty,
             "more_notes" => $more_notes,

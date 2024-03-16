@@ -26,6 +26,7 @@ use App\Http\Controllers\StaticPages;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfoComments;
 use App\Http\Controllers\Authentication;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\MediaCoverages;
 use App\Http\Controllers\ShoppingCategories;
 use App\Models\MediaCoverage;
@@ -268,6 +269,7 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/manage-product-category", [PageLoader::class, 'manage_product_category']);
     Route::get("admin/manage-seo", [PageLoader::class, 'manage_seo']);
 
+    Route::post("toggle-feedback-status",[FeedbackController::class,'toggle_status']);
 
     Route::post("create-new-coin", [Coins::class, 'create_new']);
 

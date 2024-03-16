@@ -154,18 +154,18 @@
                 <div class="col-md-6 col-sm-12 mt-5 mt-md-0">
                     <div class="recent-comment-wrap">
                         <h6><b>Recent Comments</b></h6>
-                        @if($note["feedback"]=="[]")
+                        @if(count($feedback_entries)==0)
                         <p>No Comments found </p>
                         @else
                         <div class="comment-wrap">
-                            @foreach($note["feedback"] as $feedback)
-                            @if($feedback["status"]==0)
+                            @foreach($feedback_entries as $feedback)
+                            @if($feedback["status"]==1)
                             <div class="UserDetail">
                                 <p class="d-flex justify-content-between"><span class="UserName" id="UserName">{{$feedback["member"]["name"]}}</span><span class="UserName" id="CommentDate">{{date("d/m/Y",strtotime($feedback["created"]))}}</span></p>
                                 <p>{{$feedback["comment"]}}</p>
                             </div>
                             @endif
-                            @endforeach                            
+                            @endforeach          
                         </div>
                         @endif
                     </div>

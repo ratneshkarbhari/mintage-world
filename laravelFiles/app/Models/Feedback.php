@@ -26,4 +26,19 @@ class Feedback extends Model {
         return $this->hasOne(Member::class,"id","member_id");
     }
 
+    function coin() : HasOne {
+        return $this->hasOne(Coin::class,"id","coin_id");
+
+    }
+
+    function note() : HasOne {
+        return $this->hasOne(Note::class,"id","note_id");
+
+    }
+
+    function stamp() : HasOne {
+        return $this->hasOne(Stamp::class,"id","stamp_id");
+
+    }
+
 }

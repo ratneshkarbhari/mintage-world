@@ -676,11 +676,22 @@ class PageLoader extends Controller
     function manage_feedback()
     {
 
-        $allFeedBack = Feedback::orderBy("id","desc")->get();
+        $allFeedBack = Feedback::orderBy("id","desc")->with("member")->with("coin")->with("note")->with("stamp")->paginate(20);
 
+        $total = $allFeedBack->total();
+        $currentPage = $allFeedBack->currentPage();
+        $perPage = $allFeedBack->perPage();
+
+        $from = ($currentPage - 1) * $perPage + 1;
+        $to = min($currentPage * $perPage, $total);
+
+        $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
+
+        
         $this->admin_page_loader("manage_feedback", [
             "title" => "Manage Feedback",
-            "feedback_entries" => $allFeedBack
+            "feedback_entries" => $allFeedBack,
+            "pagination_string" => $paginationInfoString
         ]);
     }
 

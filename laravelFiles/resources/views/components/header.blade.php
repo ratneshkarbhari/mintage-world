@@ -2,12 +2,43 @@
 <html lang="en">
 
 <head>
+
+    <link rel="canonical" href="https://www.mintageworld.com/" />
+
+    <meta name="msvalidate.01" content="3785FBE7F241DADD98A4C8036D42766B" />
+
+    <meta name="yandex-verification" content="214376cbde7c8e77" />
+
+    <meta name="google-site-verification" content="kxBYpzxZnIrFuKgPrCi77zJ53z8Xxb767lN7bQT2a7s" />
+
+    <meta name="p:domain_verify" content="c366a989fff29c6ee60d58207556d9db"/>
+
+    <meta name="robots" content="index, follow">
+
     <meta charset="utf-8">
-    <title> {{$title}} | Mintage World</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+    <!-- Bringing in title,description,keywords -->
+
+    <title>{{$title}} | Mintage World</title>
+    <meta name="description" content="{{$description}}">
+    <meta name="keywords" content="{{$keywords}}">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@mintageworld">
+
+    <meta name="twitter:description" content="{{$description}}">
+    <meta name="twitter:title" content="{{$title}} | Mintage World">
+
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+
+    <meta property="og:title" content="{{$title}} | Mintage World">
+    <meta property="og:description" content="{{$description}}">
+    <meta property="og:url" content="{{url()->current()}}">
+
+    <meta property="og:site_name" content="Mintage World">
+    <meta property="fb:page_id" content="408430029349409">
+
 
     <!-- Favicon -->
     <link href="{{url("assets/img/favicon.ico")}}" rel="icon">

@@ -289,7 +289,7 @@
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Stamps
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="{{url('admin/manage-bulk-upload/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Bulk Upload
                                             </a>
@@ -298,7 +298,7 @@
                                             <a href="{{url('admin/manage-bulk-images-upload/')}}"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Bulk Images Upload
                                             </a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </li>

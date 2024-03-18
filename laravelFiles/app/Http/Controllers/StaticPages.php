@@ -24,7 +24,7 @@ class StaticPages extends Controller
     {
         $this->page_loader("about_us", [
             "title" => "About Us | Mintage World",
-            ""
+            "description" => ""
         ]);
     }
     function disclaimer()
@@ -71,7 +71,7 @@ class StaticPages extends Controller
         $stories = $storyModel->orderBy("id", "desc")->paginate(20);
 
         $this->page_loader("story", [
-            "title" => "Story | Mintage World",
+            "title" => "Story ",
             "stories" => $stories
         ]);
     }
@@ -90,7 +90,7 @@ class StaticPages extends Controller
         $latestTenStories = $storyModel->orderBy("id", "desc")->limit(10, 0)->get();
 
         $this->page_loader("story_detail", [
-            "title" => $focus_story['title'] . " | Mintage World",
+            "title" => $focus_story['title'] ,
             "focus_story" => $focus_story,
             "ten_stories" => $latestTenStories
         ]);

@@ -2,6 +2,7 @@
 
 use App\Models\Coin;
 use App\Models\Stamp;
+use App\Models\MediaCoverage;
 use App\Models\ProductRating;
 use App\Http\Controllers\News;
 use App\Http\Controllers\AwsS3;
@@ -18,6 +19,7 @@ use App\Http\Controllers\Members;
 use App\Http\Controllers\Periods;
 use App\Http\Controllers\Products;
 use App\Http\Controllers\Shopping;
+use App\Http\Controllers\Countries;
 use App\Http\Controllers\Histories;
 use App\Http\Controllers\EmailTests;
 use App\Http\Controllers\PageLoader;
@@ -26,11 +28,11 @@ use App\Http\Controllers\StaticPages;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InfoComments;
 use App\Http\Controllers\Authentication;
-use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\BulkUploadController;
 use App\Http\Controllers\MediaCoverages;
 use App\Http\Controllers\ProductRatings;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\ShoppingCategories;
-use App\Models\MediaCoverage;
 
 /*
 |--------------------------------------------------------------------------
@@ -241,6 +243,10 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/manage-bulk-upload", [PageLoader::class, 'manage_bulk_upload']);
     Route::get("admin/manage-bulk-images-upload", [PageLoader::class, 'manage_bulk_images_upload']);
 
+    Route::get("countries-for-category-id",[Countries::class,'get_countries_dropdown_html']);
+
+    Route::post("bulk-upload-data-exe",[BulkUploadController::class,'bulk_upload_data']);
+
     Route::get("admin/manage-history", [PageLoader::class, 'manage_history']);
     Route::get("admin/manage-enquiry", [PageLoader::class, 'manage_enquiry']);
 
@@ -274,6 +280,8 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::post("toggle-review-status",[ProductRatings::class,'toggle_status']);
 
+
+    Route::post("get-countries",[Countries::class,'get_countries']);
 
     Route::post("create-new-coin", [Coins::class, 'create_new']);
 

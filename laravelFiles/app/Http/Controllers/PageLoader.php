@@ -36,6 +36,13 @@ class PageLoader extends Controller
 
     private function page_loader($viewName, $data)
     {
+        if (!isset($data['description'])) {
+            $data['description'] = "";
+        }
+
+        if (!isset($data['keywords'])) {
+            $data['keywords'] = "";
+        }
 
         echo view("components.header", $data);
         echo view("pages." . $viewName, $data);
@@ -180,7 +187,7 @@ class PageLoader extends Controller
         ]);
     }
 
-    function add_coin($success="",$error="")
+    function add_coin($success = "", $error = "")
     {
         $rulers = Ruler::all();
         $denominations = Denomination::all();
@@ -202,7 +209,7 @@ class PageLoader extends Controller
         ]);
     }
     function edit_coin($id)
-    {        
+    {
         $rulers = Ruler::all();
         $denominations = Denomination::all();
         $metals = Metal::all();
@@ -237,7 +244,7 @@ class PageLoader extends Controller
 
         $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
 
-        
+
         $this->admin_page_loader("manage_notes", [
             "title" => "Manage Notes",
             "notes" => $notes,
@@ -265,7 +272,7 @@ class PageLoader extends Controller
         $allDenominations = Denomination::all();
         $dynasties = Dynasty::all();
         $shapes = Shape::all();
-        $rarities = Rarity::all();  
+        $rarities = Rarity::all();
 
         $this->admin_page_loader("edit_note", [
             "title" => "Edit Note",
@@ -289,7 +296,7 @@ class PageLoader extends Controller
         $dynasties = Dynasty::all();
         $shapes = Shape::all();
         $rarities = Rarity::all();
-        
+
         $this->admin_page_loader("add_stamp", [
             "title" => "Add Stamp",
             "themeCategories" => $themeCategories,
@@ -465,7 +472,7 @@ class PageLoader extends Controller
 
     function manage_event()
     {
-        
+
 
 
         $this->admin_page_loader("manage_event", [
@@ -474,7 +481,7 @@ class PageLoader extends Controller
     }
     function add_event()
     {
-       
+
 
         $this->admin_page_loader("add_event", [
             "title" => "Add Event",
@@ -571,7 +578,7 @@ class PageLoader extends Controller
 
     function manage_media_coverage()
     {
-        
+
         $mediaCoverageModel = new MediaCoverage();
 
         $media_coverage_items = $mediaCoverageModel->with("pdf")->orderBy("id", "desc")->paginate(12);
@@ -590,7 +597,7 @@ class PageLoader extends Controller
     function edit_media_coverage($id)
     {
         $mcObj = new MediaCoverage();
-        $mcData = $mcObj->with("pdf")->where("id",$id)->first();
+        $mcData = $mcObj->with("pdf")->where("id", $id)->first();
         $this->admin_page_loader("edit_media_coverage", [
             "title" => "Edit Media Coverage",
             "media_coverage" => $mcData
@@ -677,7 +684,7 @@ class PageLoader extends Controller
     function manage_feedback()
     {
 
-        $allFeedBack = Feedback::orderBy("id","desc")->with("member")->with("coin")->with("note")->with("stamp")->paginate(20);
+        $allFeedBack = Feedback::orderBy("id", "desc")->with("member")->with("coin")->with("note")->with("stamp")->paginate(20);
 
         $total = $allFeedBack->total();
         $currentPage = $allFeedBack->currentPage();
@@ -688,7 +695,7 @@ class PageLoader extends Controller
 
         $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
 
-        
+
         $this->admin_page_loader("manage_feedback", [
             "title" => "Manage Feedback",
             "feedback_entries" => $allFeedBack,
@@ -701,7 +708,7 @@ class PageLoader extends Controller
 
         $productRatingModel = new ProductRating();
 
-        $allReviews = $productRatingModel->orderBy("id","desc")->where("member_id","!=",NULL)->with("product")->with("member")->paginate(12);
+        $allReviews = $productRatingModel->orderBy("id", "desc")->where("member_id", "!=", NULL)->with("product")->with("member")->paginate(12);
 
 
         $total = $allReviews->total();

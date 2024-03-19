@@ -15,6 +15,14 @@ class Stamps extends Controller
     
     private function page_loader($viewName,$data){
 
+        if (!isset($data['description'])) {
+            $data['description'] = "";
+        }
+
+        if (!isset($data['keywords'])) {
+            $data['keywords'] = "";
+        }
+
         echo view("components.header",$data);
         echo view("pages.".$viewName,$data);
         echo view("components.footer",$data);
@@ -37,7 +45,7 @@ class Stamps extends Controller
         $periods = Cache::get('stamp-periods');
 
         $this->page_loader("stamps_periods",[
-            "title" => "Stamps of India",
+            "title" => "Stamps of India| Postage Stamps| History of Indian Stamps",
             "info_title" => "Periods",
             "periods" => $periods,
             "breadCrumbData" => [
@@ -45,7 +53,9 @@ class Stamps extends Controller
                     "label" => "Periods"
                 ]
             ],
-            "footer_content" => '<div class=""><h1>STAMPS OF INDIA</h1><p>The history of<strong>stamps of India</strong>begins with the Scinde Dawk, which is the oldest in Asia. India has issued a variety of stamps covering many themes. Stamps arose as a necessity for the sustenance of the postal service. As the postage was originally paid by the receiver, there was no guarantee that the addressee would accept the parcel. A stamp acts as a receipt of pre-payment to the postal service.<a href="http://www.mintageworld.com/stamp/list/78">Commemorative stamps</a>in<a href="http://www.mintageworld.com/stamp/dynasty/20">Independent India</a>cover birth anniversaries, death anniversaries, important events, and important developments highlighting the country.</p><p>The Scinde Dawk is a unique and rare<strong>stamp of India</strong>, the first to be issued in Asia by British India. It was issued by the British and is red sealing wax wafers with the design embossed upon it. These wafers were impressed upon paper and used by those seeking postal services. The Scinde Dawk was circulated in the Sindh region of India. The word `Scinde` is an anglicised version of `Sindh` while `Dawk` was the British pronunciation of the Hindi word `Dak` which means `Post`. This<i>old stamp</i>originally cost one half anna each, but today they feature as a rare collectible owing to the fact that less than 100 of these stamps exist today.</p><p>Scents are a peculiar, yet interesting theme for stamps in India.<i>Stamps</i>with sandalwood, jasmine, and rose fragrances have been released by the postal authority of India. You can also find rare stamps with meteorite dust issued in Austria or chocolate scented ones issued by Belgium, France and Switzerland. The ones issued by Switzerland has adhesive that actually tastes like chocolate.</p><p>Error stamps, those with printing mistakes, make for rare collectors` items and are actively sought out by avid philatelists. You can find that old stamps are a part of any philatelist`s collection. Philately is a budding hobby, and with so many unique stamps being issued by countries all over the world, the hobby is bound to expand. Many youngsters as well as adults are avid stamp collectors and people`s interest in the field of philately only grows.</p></div>'
+            "footer_content" => '<div class=""><h1>STAMPS OF INDIA</h1><p>The history of<strong>stamps of India</strong>begins with the Scinde Dawk, which is the oldest in Asia. India has issued a variety of stamps covering many themes. Stamps arose as a necessity for the sustenance of the postal service. As the postage was originally paid by the receiver, there was no guarantee that the addressee would accept the parcel. A stamp acts as a receipt of pre-payment to the postal service.<a href="http://www.mintageworld.com/stamp/list/78">Commemorative stamps</a>in<a href="http://www.mintageworld.com/stamp/dynasty/20">Independent India</a>cover birth anniversaries, death anniversaries, important events, and important developments highlighting the country.</p><p>The Scinde Dawk is a unique and rare<strong>stamp of India</strong>, the first to be issued in Asia by British India. It was issued by the British and is red sealing wax wafers with the design embossed upon it. These wafers were impressed upon paper and used by those seeking postal services. The Scinde Dawk was circulated in the Sindh region of India. The word `Scinde` is an anglicised version of `Sindh` while `Dawk` was the British pronunciation of the Hindi word `Dak` which means `Post`. This<i>old stamp</i>originally cost one half anna each, but today they feature as a rare collectible owing to the fact that less than 100 of these stamps exist today.</p><p>Scents are a peculiar, yet interesting theme for stamps in India.<i>Stamps</i>with sandalwood, jasmine, and rose fragrances have been released by the postal authority of India. You can also find rare stamps with meteorite dust issued in Austria or chocolate scented ones issued by Belgium, France and Switzerland. The ones issued by Switzerland has adhesive that actually tastes like chocolate.</p><p>Error stamps, those with printing mistakes, make for rare collectors` items and are actively sought out by avid philatelists. You can find that old stamps are a part of any philatelist`s collection. Philately is a budding hobby, and with so many unique stamps being issued by countries all over the world, the hobby is bound to expand. Many youngsters as well as adults are avid stamp collectors and people`s interest in the field of philately only grows.</p></div>',
+            "description" => "Take a tour through a vibrant online collection of stamps of India, right from the early British India stamps of queen Victoria to the modern day stamps which depict a vibrant reflection of India.",
+            "keywords" => "Stamps of India, Indian Stamps, Indian Stamp, Rare Indian Stamps, Rare Stamps of India, Stamps in India, Old Indian Stamps, Rare Indian Postage Stamps, Indian Stamps Collection, Indian Rare Stamps"
         ]);
 
 
@@ -66,10 +76,11 @@ class Stamps extends Controller
 
         $period = Period::find($periodId);
 
+
         $types = Cache::get('stamp-types-'.$periodId);
 
         $this->page_loader("stamps_types",[
-            "title" => "Stamps of India",
+            "title" => $period["meta_title"],
             "info_title" => "Types: ".$period["title"],
             "types" => $types,
             "breadCrumbData" => [
@@ -81,7 +92,9 @@ class Stamps extends Controller
                     "label" => $period["title"]
                 ]
             ],
-            "footer_content" => ""
+            "footer_content" => "",
+            "description" => $period["meta_desc"],
+            "keywords" => $period["meta_key"]
         ]);
 
 
@@ -109,7 +122,7 @@ class Stamps extends Controller
         }
 
         $this->page_loader("stamps_list",[
-            "title" => "Stamps of ".$dynasty["title"],
+            "title" => $dynasty["meta_title"],
             "info_title" => "Stamps",
             "stamps" => $stamps,
             "dynastyId" => $dynastyId,
@@ -128,7 +141,9 @@ class Stamps extends Controller
                 ]
             ],
             "dynasties_in_period" => $dynastiesInPeriod, 
-            "footer_content" => ""
+            "footer_content" => "",
+            "description" => $dynasty["meta_desc"],
+            "keywords" => $dynasty['meta_key']
         ]);
 
 
@@ -146,8 +161,9 @@ class Stamps extends Controller
 
         $period = Period::find($dynasty["period_id"]);
 
+
         $this->page_loader("stamp_detail",[
-            "title" => $stamp["stamp_name"],
+            "title" => $stamp['meta_title'],
             "stamp" => $stamp,
             "dynasty" => $dynasty, 
             "breadCrumbData" => [
@@ -167,7 +183,9 @@ class Stamps extends Controller
                     "label" => $stamp["stamp_name"]
                 ]
             ],
-            "footer_content" => ""
+            "footer_content" => "",
+            "description" => $stamp["meta_desc"],
+            "keywords" => $stamp['meta_key']
         ]);
 
 

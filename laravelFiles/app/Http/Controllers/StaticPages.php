@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Note;
 use App\Models\Event;
 use App\Models\Media;
 use App\Models\Order;
+use App\Models\Story;
+use App\Models\Video;
 use Razorpay\Api\Api;
 use App\Models\Member;
 use App\Models\MediaCoverage;
 use App\Models\MemberAddress;
-use App\Models\Story;
-use App\Models\Video;
 
 class StaticPages extends Controller
 {
@@ -320,7 +321,7 @@ class StaticPages extends Controller
         $otherMediaEntries = $mediaModel->where("id", '!=', $mediaEntry["id"])->orderBy("id", "desc")->limit(5, 0)->get();
 
         $this->page_loader("media_detail", [
-            "title" => "News | Mintage World",
+            "title" => $mediaEntry['title'],
             "description" => "",
             "keywords" => "",
             "media_entry" => $mediaEntry,
@@ -430,12 +431,111 @@ class StaticPages extends Controller
             "keywords" => ""
         ]);
     }
-    function knowledge_base_note_listing()
+    function knowledge_base_note_listing($id)
     {
+
+        
+        switch ($id) {
+            case 1:
+                $governerName = "C. D Deshmukh";
+                break;
+            case 2:
+                $governerName = "B. Rama Rau";
+                break;
+            case 3:
+                $governerName = "K. G. Ambegaonkar";
+                break;
+            case 4:
+                $governerName = "H. V. R. Iyengar";
+                break;
+            case 5:
+                $governerName = "P. C. Bhattacharya";
+                break;
+            case 6:
+                $governerName = "L. K. JHA";
+                break;
+            case 7:
+                $governerName = "B. N. Adarkar";
+                break;
+            case 8:
+                $governerName = "S. Jagannathan";
+                break;
+            case 9:
+                $governerName = "N. C. Sengupta";
+                break;
+            case 10:
+                $governerName = "K.R Puri";
+                break;
+            case 11:
+                $governerName = "M. Narasimham";
+                break;
+            case 12:
+                $governerName = "I. G. Patel";
+                break;
+            case 13:
+                $governerName = "Manmohan Singh";
+                break;
+            case 14:
+                $governerName = "Amitabh Ghosh";
+                break;
+            case 15:
+                $governerName = "R. N. Malhotra";
+                break;
+            case 16:
+                $governerName = "S. Venkitaramanan";
+                break;
+            case 17:
+                $governerName = "C. Rangarajan";
+                break;
+            case 18:
+                $governerName = "Bimal Jalan";
+                break;
+            case 19:
+                $governerName = "Y. V. Reddy";
+                break;
+            case 20:
+                $governerName = "D Subbarao";
+                break;
+            case 21:
+                $governerName = "Raghuram Rajan";
+                break;
+            case 22:
+                $governerName = "K R K Menon";
+                break;
+            case 23:
+                $governerName = "H. M. Patel";
+                break;
+            case 24:
+                $governerName = "A.K. Roy";
+                break;
+            case 25:
+                $governerName = "S.Bhoothlingam";
+                break;
+            case 26:
+                $governerName = "M. G. Kaul";
+                break;
+            case 27:
+                $governerName = "Pratap Kisan Kaul";
+                break;
+            case 28:
+                $governerName = "Gopi K. Arora";
+                break;
+            case 29:
+                $governerName = "Montek Singh Ahluwalia";
+                break;
+            case 30:
+                $governerName = "S. P. Shukla";
+                break;
+        }
+
+        $notesForGoverner = Note::where("signatory",trim($governerName))->with("denomination")->get();
+
         $this->page_loader("knowledge_base_note_listing", [
             "title" => "Notes | Mintage World",
             "description" => "",
-            "keywords" => ""
+            "keywords" => "",
+            "notes" => $notesForGoverner,
+            "governor" => $governerName
         ]);
     }
 

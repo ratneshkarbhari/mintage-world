@@ -138,7 +138,7 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get('knowledge-base/know-your-coins/', [StaticPages::class, 'know_your_coins']);
     Route::get('knowledge-base/governors-of-reserve-bank-of-india/', [StaticPages::class, 'governors_india']);
     Route::get('knowledge-base/signatory-of-finance-secretary/', [StaticPages::class, 'signatory_finance_secretary']);
-    Route::get('note/data/22', [StaticPages::class, 'knowledge_base_note_listing']);
+    Route::get('note/data/{id}', [StaticPages::class, 'knowledge_base_note_listing']);
     Route::get('knowledge-base/note-numbering-system/', [StaticPages::class, 'note_numbering_system']);
     Route::get('knowledge-base/security-features-on-current-banknotes/', [StaticPages::class, 'security_features_on_current_banknotes']);
     Route::get('knowledge-base/security-features-on-demonetized-banknotes/', [StaticPages::class, 'security_features_on_demonetized_banknotes']);

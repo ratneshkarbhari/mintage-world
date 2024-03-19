@@ -138,6 +138,7 @@ Route::group(['middleware' => ['slashes']], function () {
     Route::get('knowledge-base/know-your-coins/', [StaticPages::class, 'know_your_coins']);
     Route::get('knowledge-base/governors-of-reserve-bank-of-india/', [StaticPages::class, 'governors_india']);
     Route::get('knowledge-base/signatory-of-finance-secretary/', [StaticPages::class, 'signatory_finance_secretary']);
+    Route::get('note/data/22', [StaticPages::class, 'knowledge_base_note_listing']);
     Route::get('knowledge-base/note-numbering-system/', [StaticPages::class, 'note_numbering_system']);
     Route::get('knowledge-base/security-features-on-current-banknotes/', [StaticPages::class, 'security_features_on_current_banknotes']);
     Route::get('knowledge-base/security-features-on-demonetized-banknotes/', [StaticPages::class, 'security_features_on_demonetized_banknotes']);
@@ -180,7 +181,7 @@ Route::post('create-new-address-for-member', [CartActions::class, 'create_new_ad
 Route::group(['middleware' => ['check_admin_auth']], function () {
     // admin routes
 
-    Route::get('get-all-products',[Products::class,'get_all']);
+    Route::get('get-all-products', [Products::class, 'get_all']);
 
     Route::post("create-product-exe", [Products::class, 'create']);
 
@@ -216,7 +217,7 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/edit-stamp/{id}", [PageLoader::class, 'edit_stamp']);
 
 
-    Route::post("update-stamp-exe",[Stamps::class,'update']);
+    Route::post("update-stamp-exe", [Stamps::class, 'update']);
 
     Route::get("admin/manage-coins", [PageLoader::class, 'manage_coins']);
     Route::get("admin/add-coin", [PageLoader::class, 'add_coin']);
@@ -243,9 +244,9 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/manage-bulk-upload", [PageLoader::class, 'manage_bulk_upload']);
     Route::get("admin/manage-bulk-images-upload", [PageLoader::class, 'manage_bulk_images_upload']);
 
-    Route::get("countries-for-category-id",[Countries::class,'get_countries_dropdown_html']);
+    Route::get("countries-for-category-id", [Countries::class, 'get_countries_dropdown_html']);
 
-    Route::post("bulk-upload-data-exe",[BulkUploadController::class,'bulk_upload_data']);
+    Route::post("bulk-upload-data-exe", [BulkUploadController::class, 'bulk_upload_data']);
 
     Route::get("admin/manage-history", [PageLoader::class, 'manage_history']);
     Route::get("admin/manage-enquiry", [PageLoader::class, 'manage_enquiry']);
@@ -259,8 +260,8 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/manage-events", [PageLoader::class, 'manage_events']);
     Route::get("admin/manage-news", [PageLoader::class, 'manage_news']);
     Route::get("admin/manage-career", [PageLoader::class, 'manage_career']);
-    Route::post("delete-media-pdf-exe",[MediaCoverages::class,'delete_media_pdf']);
-    Route::post("update-media-coverage-exe",[MediaCoverages::class,'update']);
+    Route::post("delete-media-pdf-exe", [MediaCoverages::class, 'delete_media_pdf']);
+    Route::post("update-media-coverage-exe", [MediaCoverages::class, 'update']);
 
     Route::get("admin/manage-feedback", [PageLoader::class, 'manage_feedback']);
     Route::get("admin/manage-review", [PageLoader::class, 'manage_review']);
@@ -276,20 +277,20 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     Route::get("admin/manage-product-category", [PageLoader::class, 'manage_product_category']);
     Route::get("admin/manage-seo", [PageLoader::class, 'manage_seo']);
 
-    Route::post("toggle-feedback-status",[FeedbackController::class,'toggle_status']);
+    Route::post("toggle-feedback-status", [FeedbackController::class, 'toggle_status']);
 
-    Route::post("toggle-review-status",[ProductRatings::class,'toggle_status']);
+    Route::post("toggle-review-status", [ProductRatings::class, 'toggle_status']);
 
 
-    Route::post("get-countries",[Countries::class,'get_countries']);
+    Route::post("get-countries", [Countries::class, 'get_countries']);
 
     Route::post("create-new-coin", [Coins::class, 'create_new']);
 
     Route::get("get-all-coins", [Coins::class, 'get_all_data']);
     Route::get("get-all-notes", [Notes::class, 'get_all_data']);
-    Route::get("get-all-stamps",[Stamps::class,'get_all_data']);
+    Route::get("get-all-stamps", [Stamps::class, 'get_all_data']);
 
-    Route::post("create-stamp-exe",[Stamps::class,'create_new']);
+    Route::post("create-stamp-exe", [Stamps::class, 'create_new']);
 
     Route::post("set-coin-status-exe", [Coins::class, 'set_coin_status']);
 
@@ -306,23 +307,22 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::post("create-note-exe", [Notes::class, 'create']);
 
-    Route::get("get-all-orders",[Orders::class,'get_all']);
+    Route::get("get-all-orders", [Orders::class, 'get_all']);
 
-    Route::get("get-all-coins",[Coins::class,'get_all']);
+    Route::get("get-all-coins", [Coins::class, 'get_all']);
 
-    Route::get("get-all-news",[News::class,'get_all']);
+    Route::get("get-all-news", [News::class, 'get_all']);
 
-    Route::post("update-news",[News::class,'update']);
-    Route::post("add-news-item-exe",[News::class,'create']);
+    Route::post("update-news", [News::class, 'update']);
+    Route::post("add-news-item-exe", [News::class, 'create']);
 
-    Route::post("create-new-event-exe",[Events::class,'create']);
-    Route::post("update-event-exe",[Events::class,'update']);
+    Route::post("create-new-event-exe", [Events::class, 'create']);
+    Route::post("update-event-exe", [Events::class, 'update']);
 
-    Route::post("create-media-coverage-exe",[MediaCoverages::class,'create']);
-
+    Route::post("create-media-coverage-exe", [MediaCoverages::class, 'create']);
 });
 
-Route::post("create-product-instock-notification-request",[Products::class,'create_notification_request_in_stock']);
+Route::post("create-product-instock-notification-request", [Products::class, 'create_notification_request_in_stock']);
 
 Route::get("email/order-placed", [EmailTests::class, 'order_placed']);
 

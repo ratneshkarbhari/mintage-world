@@ -430,6 +430,14 @@ class StaticPages extends Controller
             "keywords" => ""
         ]);
     }
+    function knowledge_base_note_listing()
+    {
+        $this->page_loader("knowledge_base_note_listing", [
+            "title" => "Notes | Mintage World",
+            "description" => "",
+            "keywords" => ""
+        ]);
+    }
 
     function note_numbering_system()
     {
@@ -439,6 +447,7 @@ class StaticPages extends Controller
             "keywords" => ""
         ]);
     }
+
 
     function security_features_on_current_banknotes()
     {

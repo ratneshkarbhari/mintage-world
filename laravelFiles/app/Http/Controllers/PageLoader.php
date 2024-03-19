@@ -138,7 +138,9 @@ class PageLoader extends Controller
             "random_accessories" => $featuredAccessories,
             "random_stamps" => $featuredStamps,
             "news_items" => $entries,
-            "banners" => $banners
+            "banners" => $banners,
+            "description" => "Mintage World - Online Museum and Collectorspedia. It is the world`s first online museum in India and a one-stop shop for information on coins, notes and stamps for budding and seasoned collectors and students.",
+            "keywords" => "coins of india, online museum of coins, online museum in India for coins, online museum in India for notes, online museum in India for stamps, museum of coins, museum in India for coins, museum in India for notes"
         ]);
     }
 

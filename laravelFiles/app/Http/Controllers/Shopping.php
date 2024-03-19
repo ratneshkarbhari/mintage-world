@@ -15,16 +15,23 @@ class Shopping extends Controller
 {
     private function page_loader($viewName, $data)
     {
+        if (!isset($data['description'])) {
+            $data['description'] = "";
+        }
+
+        if (!isset($data['keywords'])) {
+            $data['keywords'] = "";
+        }
         echo view("components.header", $data);
         echo view("pages." . $viewName, $data);
         echo view("components.footer", $data);
     }
 
-    private function fetch_random_products($catIds)
-    {
+    // private function fetch_random_products($catIds)
+    // {
 
-        return json_decode(json_encode(DB::table('products')->where('category', $catIds)->where("status", "Active")->where("instock", ">", 0)->where("featured", 1)->limit(7)->paginate(12)), TRUE);
-    }
+    //     return json_decode(json_encode(DB::table('products')->where('category', $catIds)->where("status", "Active")->where("instock", ">", 0)->where("featured", 1)->limit(7)->paginate(12)), TRUE);
+    // }
 
     function shop()
     {
@@ -70,12 +77,15 @@ class Shopping extends Controller
         }
 
 
+
         $this->page_loader("shop", [
             "title" => "Shopping | Buy Coins, Banknotes, Stamp, Accessories and Greeting Cards Online | Mintage World",
             "random_coins" => $featuredCoins,
             "random_notes" => $featuredNotes,
             "random_accessories" => $featuredAccessories,
-            "random_greeting_cards" => $featuredGiftCards
+            "random_greeting_cards" => $featuredGiftCards,
+            "description" => "Enhance your collection of Coins, Banknotes &amp; Stamps with just a few clicks. Also buy unique greeting cards with currency note featuring a date of your choice &amp; world-class collectibles accessories!
+            "
         ]);
     }
     function shop_list($categorySlug, Request $request)
@@ -155,7 +165,7 @@ class Shopping extends Controller
 
 
         $this->page_loader("shop_list", [
-            "title" => "Buy " . $maincatdata["cat_name"] . " Online | Mintage World",
+            "title" => $maincatdata['meta_title'],
             "grand_parent_category" => $grand_parent_category,
             "parent_category" => $parent_category,
             "category" => $maincatdata,
@@ -163,7 +173,10 @@ class Shopping extends Controller
             "product_count" => count($categoryProducts),
             "pagination_string" => $paginationInfoString,
             "totalRecords" => $total,
-            "footer_content" => $maincatdata["desc1"]
+            "footer_content" => $maincatdata["desc1"],
+            "description" => $maincatdata['meta_content'],
+            "keywords" => $maincatdata["meta_keywords"],
+            
         ]);
     }
     function view_product($productSlug)
@@ -193,7 +206,9 @@ class Shopping extends Controller
                 "title" => "Buy " . $product["name1"] . " Online",
                 "product" => $product,
                 "related_products" => $relatedProducts,
-                "category" => $product["product_category"]
+                "category" => $product["product_category"],
+                "keywords" => $product['keywords'],
+                "description" => "Shop online for ".$product['name1']." at lowest price in India. Buy best quality products with free shipping on Mintage World."
             ]);
         } else {
 

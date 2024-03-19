@@ -162,7 +162,7 @@ class Notes extends Controller
 
 
         $this->page_loader("countries_notes", [
-            "title" => "Notes From Around the World, now at Your Fingertips",
+            "title" => "Banknotes of the World: The Best Online Reference Guide",
             "info_title" => "Notes",
             "countries" => $data,
             "breadCrumbData" => [
@@ -174,7 +174,9 @@ class Notes extends Controller
             ],
             "url_prefix" => "note/",
             "image_base_url" => getenv("COUNTRY_FLAG_IMAGE_BASE_URL"),
-            "footer_content" => $footer_content
+            "footer_content" => $footer_content,
+            "description" => "Looking for authentic information about world banknotes? Mintage World presents well-researched information about different World currency notes in a very systematic manner. Simply perfect for students, notaphilists and researchers!",
+            "keywords" => "world currencies, banknote world, currency around the world, different currencies of the world, world paper money, world notes, currency of world countries, world currency notes, world bank notes, world currency collection, banknotes from around the world, rare banknotes of the world"
         ]);
     }
 

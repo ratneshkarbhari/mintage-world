@@ -24,6 +24,14 @@ class Coins extends Controller
     private function page_loader($viewName, $data)
     {
 
+        if (!isset($data['description'])) {
+            $data['description'] = "";
+        }
+
+        if (!isset($data['keywords'])) {
+            $data['keywords'] = "";
+        }
+
         echo view("components.header", $data);
         echo view("pages." . $viewName, $data);
         echo view("components.footer", $data);
@@ -60,7 +68,9 @@ class Coins extends Controller
             ],
             "url_prefix" => "coin/",
             "image_base_url" => getenv("COUNTRY_FLAG_IMAGE_BASE_URL"),
-            "footer_content" => $footer_content
+            "footer_content" => $footer_content,
+            "description" => "Open the doors to a whole new World of Coins. Know every minute detail of rare world coins. Mintage World brings to you the biggest well-categorised online catalogue of valuable world coins!",
+            "keywords" => "coin world, world coins, coins from around the world, rare world coins, coins of the world, rare coins of the world, world coin collection, world of coins, valuable coins from around the world"
         ]);
     }
 
@@ -99,7 +109,7 @@ class Coins extends Controller
         $country = Country::find($countryId);
 
         $this->page_loader("periods", [
-            "title" => "Coins of " . $countryName,
+            "title" => $country['meta_title'],
             "info_title" => "Periods : " . $countryName,
             "periods" => $periods,
             "breadCrumbData" => [
@@ -115,7 +125,9 @@ class Coins extends Controller
             "url_prefix" => "coin/dynasty/",
             "image_base_url" => getenv("PERIOD_IMAGE_BASE_URL"),
             "parent" => $country,
-            "footer_content" => $country["footer_content"]
+            "footer_content" => $country["footer_content"],
+            "description" => $country['meta_desc'],
+            "keywords" => $country['meta_key']
         ]);
     }
 
@@ -143,6 +155,8 @@ class Coins extends Controller
 
         $period = Period::find($periodId);
 
+        // dd($period);
+
         $country = Country::find($period["country_id"]);
 
         $dynastyGroups = [];
@@ -150,7 +164,7 @@ class Coins extends Controller
         $dynastyGroups = DynastyGroup::where("period_id", $periodId)->get();
 
         $this->page_loader("dynasties", [
-            "title" => $period["title"] . " Coins | Coins of " . $period["title"] . " " . $country["name"] . " | " . $period["title"] . " Period Coins | Mintage World",
+            "title" => $period['meta_title'],
             "info_title" => "Dynasties : " . $period["title"],
             "dynasties" => $dynasties,
             "country" => $country,
@@ -168,7 +182,9 @@ class Coins extends Controller
                     "label" => $period["title"]
                 ]
             ],
-            "footer_content" => $period["footer_content"]
+            "footer_content" => $period["footer_content"],
+            "description" => $period['meta_desc'],
+            "keywords" => $period['meta_key']
         ]);
     }
 
@@ -228,7 +244,7 @@ class Coins extends Controller
         $country = Country::find($period["country_id"]);
 
         $this->page_loader("rulers", [
-            "title" => "Biggest Online Information Repository of " . $dynasty["title"] . " Coins | Mintage World",
+            "title" => $dynasty['meta_title'],
             "info_title" => "Rulers : " . $dynasty["title"],
             "rulers" => $rulers,
             "breadCrumbData" => [
@@ -248,7 +264,9 @@ class Coins extends Controller
                     "label" => $dynasty["title"]
                 ]
             ],
-            "footer_content" => $dynasty["footer_content"]
+            "footer_content" => $dynasty["footer_content"],
+            "description" => $dynasty['meta_desc'],
+            "keywords" => $dynasty['meta_key']
         ]);
     }
 
@@ -296,7 +314,7 @@ class Coins extends Controller
 
 
         $this->page_loader("list", [
-            "title" => "Coins of " . $ruler["title"] . " | Mintage World",
+            "title" => $ruler['meta_title'],
             "info_title" => "Coins : " . $ruler["title"],
             "coins" => $coins,
             "dynasty" => $dynasty,
@@ -329,7 +347,9 @@ class Coins extends Controller
                     "label" => $ruler["title"]
                 ]
             ],
-            "footer_content" => $ruler["footer_content"]
+            "footer_content" => $ruler["footer_content"],
+            "description" => $ruler['meta_desc'],
+            "keywords" => $ruler['meta_key']
         ]);
     }
 
@@ -343,6 +363,7 @@ class Coins extends Controller
 
         $coin = $coinModel->with("denomination")->with("metal")->with("calendar_system")->with("ruler")->with("minting_technique")->with("shape")->with("rarity")->with("feedback.member")->find($coinId);
 
+
         $ruler = $coin["ruler"];
 
         $dynasty = Dynasty::find($ruler["dynasty_id"]);
@@ -354,7 +375,7 @@ class Coins extends Controller
         $history = History::where("dynasty_id", $dynasty["id"])->get();
 
         $this->page_loader("coin_detail", [
-            "title" => "Coins of " . $ruler["title"] . " | Mintage World",
+            "title" => $coin['denomination']["title"]." | ".$coin['catalogue_ref_no']." | Coins",
             "info_title" => "Coins : " . $ruler["title"],
             "coin" => $coin,
             "denomination" => $coin["denomination"],
@@ -386,7 +407,7 @@ class Coins extends Controller
                     "label" => $coin["denomination"]["title"]
                 ]
             ],
-            "footer_content" => ""
+            "footer_content" => "",
         ]);
     }
 

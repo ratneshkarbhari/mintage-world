@@ -452,7 +452,7 @@ class StaticPages extends Controller
     function security_features_on_current_banknotes()
     {
         $this->page_loader("security_features_on_current_banknotes", [
-            "title" => "Security Features On Current Banknotes | Mintage World",
+            "title" => "Security Features on Current Bank Notes | Mintage World",
             "description" => "",
             "keywords" => ""
         ]);
@@ -460,7 +460,7 @@ class StaticPages extends Controller
     function security_features_on_demonetized_banknotes()
     {
         $this->page_loader("security_features_on_demonetized_banknotes", [
-            "title" => "Security Features On Demonetized Banknotes | Mintage World",
+            "title" => "Security Features on Demonetized  Bank Notes | Mintage World",
             "description" => "",
             "keywords" => ""
         ]);
@@ -468,7 +468,7 @@ class StaticPages extends Controller
     function know_your_stamps()
     {
         $this->page_loader("know_your_stamps", [
-            "title" => "Know Your Stamps | Mintage World",
+            "title" => "Know your Stamps | Mintage World",
             "description" => "",
             "keywords" => ""
         ]);

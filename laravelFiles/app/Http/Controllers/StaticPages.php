@@ -186,7 +186,7 @@ class StaticPages extends Controller
     function member($registrationErrorMessage = "")
     {
         $this->page_loader("member", [
-            "title" => "Member | Mintage World",
+            "title" => "New Member Registraion | Mintage World",
             "description" => "",
             "keywords" => "",
             "registrationErrorMessage" => $registrationErrorMessage
@@ -338,10 +338,8 @@ class StaticPages extends Controller
         $total = $media_coverage_items->total();
         $currentPage = $media_coverage_items->currentPage();
         $perPage = $media_coverage_items->perPage();
-
         $from = ($currentPage - 1) * $perPage + 1;
         $to = min($currentPage * $perPage, $total);
-
         $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
 
         $this->page_loader("media_coverage", [

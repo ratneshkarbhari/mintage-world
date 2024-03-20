@@ -3,7 +3,7 @@
 
 <head>
 
-    <link rel="canonical" href="https://www.mintageworld.com/" />
+    <link rel="canonical" href="{{url()->current()}}/" />
 
     <meta name="msvalidate.01" content="3785FBE7F241DADD98A4C8036D42766B" />
 
@@ -35,7 +35,7 @@
 
     <meta property="og:title" content="{{$title}} | Mintage World">
     <meta property="og:description" content="{{$description}}">
-    <meta property="og:url" content="{{url()->current()}}">
+    <meta property="og:url" content="{{url()->current()}}/">
 
     <meta property="og:site_name" content="Mintage World">
     <meta property="fb:page_id" content="408430029349409">

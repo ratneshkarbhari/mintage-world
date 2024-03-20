@@ -16,6 +16,13 @@ class Histories extends Controller
 {
     private function page_loader($viewName, $data)
     {
+        if (!isset($data['description'])) {
+            $data['description'] = "";
+        }
+
+        if (!isset($data['keywords'])) {
+            $data['keywords'] = "";
+        }
         echo view("components.header", $data);
         echo view("pages." . $viewName, $data);
         echo view("components.footer", $data);
@@ -31,9 +38,11 @@ class Histories extends Controller
         $histories = json_decode(json_encode($histories),TRUE);
 
         $this->page_loader("history", [
-            "title" => "History | History of Ancient India | Mintage World",
+            "title" => "History | History of Ancient India ",
             "periods" => $periods,
-            "histories" => $histories
+            "histories" => $histories,
+            "description" => "India was ruled by a number of dynasties through the ages. Read about the dynastic history of Ancient India and learn of life during the ancient era",
+            "keywords" => "Stamps of India, Indian Stamps, Indian Stamp, Rare Indian Stamps, Rare Stamps of India, Stamps in India, Old Indian Stamps, Rare Indian Postage Stamps, Indian Stamps Collection, Indian Rare Stamps"
         ]);
 
     }
@@ -50,6 +59,7 @@ class Histories extends Controller
 
         $history = History::find($historySlugParts[0]);
         
+
         $periods = Period::where("country_id",1)->where("category_id",1)->get();
 
         if(!$history){
@@ -73,11 +83,13 @@ class Histories extends Controller
 
 
         $this->page_loader("history_detail", [
-            "title" => "History | History of ".$dynasty["title"]." | Mintage World",
+            "title" => $history['meta_title'],
             "periods" => $periods,
             "dynasty" => $dynasty,
             "histories_options"=>json_decode(json_encode($histories),TRUE),
-            "history" => $history
+            "history" => $history,
+            "description" => $history['meta_desc'],
+            "keywords" => $history['meta_key']
         ]);
     }
 

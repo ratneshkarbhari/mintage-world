@@ -37,6 +37,8 @@ class Histories extends Controller
 
         $histories = json_decode(json_encode($histories),TRUE);
 
+        // dd($histories);
+
         $this->page_loader("history", [
             "title" => "History | History of Ancient India ",
             "periods" => $periods,
@@ -95,7 +97,7 @@ class Histories extends Controller
 
     function get_histories_dropdown_for_period(){
 
-        $period_id = $_GET["period_id"];
+        $period_id = str_replace("/","",$_GET["period_id"]);
 
         $histories = DB::select('SELECT history.id,dynasty.title, dynasty.image FROM dynasty JOIN history ON dynasty.id = history.dynasty_id JOIN period ON period.id = dynasty.period_id WHERE period.category_id = 1 AND period.country_id = 1 AND period.id='.$period_id.' AND history.history!="" AND history.download_file!=""');
 
@@ -116,6 +118,10 @@ class Histories extends Controller
 
         $period_id = str_replace("/","",$_GET["period_id"]);
 
+        // echo 'SELECT history.id,dynasty.title, dynasty.image FROM dynasty JOIN history ON dynasty.id = history.dynasty_id JOIN period ON period.id = dynasty.period_id WHERE period.category_id = 1 AND period.country_id = 1 AND period.id='.$period_id.' AND history.history!="" AND history.download_file!=""';
+
+        // exit;
+
         
         $histories = DB::select('SELECT history.id,dynasty.title, dynasty.image FROM dynasty JOIN history ON dynasty.id = history.dynasty_id JOIN period ON period.id = dynasty.period_id WHERE period.category_id = 1 AND period.country_id = 1 AND period.id='.$period_id.' AND history.history!="" AND history.download_file!=""');
 
@@ -125,8 +131,13 @@ class Histories extends Controller
 
         $historiesGridHtml = '';
 
+        // dd($histories);
+
         foreach ($histories as $history) {
-            if(is_file(getenv("DYNASTY_IMAGE_BASE_URL").$history["image"])){
+
+
+
+            if($history["image"]!=""){
 
                 $historiesGridHtml.='<div class="col-lg-2 col-md-4 col-6 info-item-grid-outer-box">
                 <a href="'.url("history/detail/".$history["id"]).''.strtolower(Str::slug($history["title"])).'">
@@ -139,7 +150,9 @@ class Histories extends Controller
                 </a>
                 </div>';
 
+
             }else {
+
                 
                 $historiesGridHtml.='<div class="col-lg-2 col-md-4 col-6 info-item-grid-outer-box">
                 <a href="'.url("history/detail/".$history["id"]).'">

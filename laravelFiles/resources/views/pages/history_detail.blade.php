@@ -150,7 +150,7 @@
 
         let historyId = $("select#historyn").val();
 
-        window.location.replace("http://localhost/mintageworld/history/detail/"+historyId);
+        window.location.replace("{{url('history/detail/')}}/"+historyId);
 
     });
 

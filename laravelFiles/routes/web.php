@@ -189,7 +189,7 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::post("delete-product-image-exe", [Products::class, 'delete_product_image']);
 
-    Route::get("upload", [AwsS3::class, 'upload']);
+    //Route::get("upload", [AwsS3::class, 'upload']);
 
     Route::post("update-product-exe", [Products::class, 'update']);
 
@@ -231,7 +231,7 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
 
     Route::get("admin/manage-product-categories", [PageLoader::class, 'manage_categories']);
 
-    Route::post("delete-shopping-category", [ShoppingCategories::class, 'delete']);
+    // Route::post("delete-shopping-category", [ShoppingCategories::class, 'delete']);
 
     Route::get("admin/add-category", [PageLoader::class, 'add_category']);
 

@@ -48,7 +48,7 @@
                            <i class="fas fa-calendar-alt"></i> 
 
                            {{$media_entry["media_date"]." ".$day}}    </span> 		
-                        <h2><a href="{{url("media/detail/")}}" rel="bookmark"> {{$media_entry["title"]}}</a></h2>
+                        <h2><a href='{{url("media/detail/".$media_entry["id"]."-".$media_entry["custom_url"])}}' rel="bookmark"> {{$media_entry["title"]}}</a></h2>
                      </div>
                      <div class="blog-disc mb-0">
                         <p>

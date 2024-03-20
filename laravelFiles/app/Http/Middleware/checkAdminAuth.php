@@ -16,7 +16,7 @@ class checkAdminAuth
     public function handle(Request $request, Closure $next): Response
     {
 
-        if(session("type")!="admin"){
+        if(!in_array(session("type"),["admin","shopping","info","content"])){
 
             return redirect()->to(url("admin-login"));
 

@@ -14,6 +14,7 @@
     <meta name="p:domain_verify" content="c366a989fff29c6ee60d58207556d9db"/>
 
     <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta charset="utf-8">
 

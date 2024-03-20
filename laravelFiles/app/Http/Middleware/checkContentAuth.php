@@ -15,6 +15,12 @@ class checkContentAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if(!in_array(session("type"),["content"])){
+
+            return redirect()->to(url("admin/dashboard"));
+
+        }
+
         return $next($request);
     }
 }

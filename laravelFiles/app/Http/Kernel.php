@@ -66,6 +66,9 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'slashes' => \App\Http\Middleware\slashesMiddleware::class,
         'check_admin_auth' => \App\Http\Middleware\checkAdminAuth::class,
+        'check_shopping_auth' => \App\Http\Middleware\checkShoppingAuth::class,
+        'check_info_auth' => \App\Http\Middleware\checkInfoAuth::class,
+        'check_content_auth' => \App\Http\Middleware\checkContentAuth::class,
         'check_member_auth' => \App\Http\Middleware\check_member_auth::class
     ];
 }

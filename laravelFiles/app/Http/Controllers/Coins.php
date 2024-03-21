@@ -375,7 +375,7 @@ class Coins extends Controller
         $history = History::where("dynasty_id", $dynasty["id"])->get();
 
         $this->page_loader("coin_detail", [
-            "title" => $coin['denomination']["title"]." | ".$coin['catalogue_ref_no']." | Coins",
+            "title" => $coin['denomination']["title"]." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']." | Coins",
             "info_title" => "Coins : " . $ruler["title"],
             "coin" => $coin,
             "denomination" => $coin["denomination"],

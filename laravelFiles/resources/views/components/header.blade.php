@@ -69,7 +69,7 @@
     <link href="{{url("assets/css/baguetteBox.min.css")}}" rel="stylesheet">
 
 
-    <link rel="stylesheet" type="text/css" media="all" href="{{url("assets/css/stellarnav.css")}}/">
+    <link rel="stylesheet" type="text/css" media="all" href="{{url("assets/css/stellarnav.css")}}">
 
     <!-- Template Stylesheet -->
     <link href="{{url("assets/css/style.css")}}" rel="stylesheet">

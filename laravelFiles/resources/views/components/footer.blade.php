@@ -193,21 +193,21 @@ $cartCount = session("cart_count");
     <!-- JavaScript Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> --}}
-    <script src="{{url("assets/lib/wow/wow.min.js")}}/"></script>
-    <script src="{{url("assets/lib/easing/easing.min.js")}}/"></script>
-    <script src="{{url("assets/lib/waypoints/waypoints.min.js")}}/"></script>
-    <script src="{{url("assets/lib/counterup/counterup.min.js")}}/"></script>
-    <script src="{{url("assets/lib/owlcarousel/owl.carousel.min.js")}}/"></script>
+    <script src="{{url("assets/lib/wow/wow.min.js")}}"></script>
+    <script src="{{url("assets/lib/easing/easing.min.js")}}"></script>
+    <script src="{{url("assets/lib/waypoints/waypoints.min.js")}}"></script>
+    <script src="{{url("assets/lib/counterup/counterup.min.js")}}"></script>
+    <script src="{{url("assets/lib/owlcarousel/owl.carousel.min.js")}}"></script>
 
     <!-- Template Javascript -->
-    <script type="text/javascript" src="{{url("assets/js/stellarnav.min.js")}}/"></script>    
-    <script src="{{url("assets/js/main.js")}}/"></script>   
-    <script src="{{url("assets/js/baguetteBox.min.js")}}/"></script>
+    <script type="text/javascript" src="{{url("assets/js/stellarnav.min.js")}}"></script>    
+    <script src="{{url("assets/js/main.js")}}"></script>   
+    <script src="{{url("assets/js/baguetteBox.min.js")}}"></script>
     <script>
         baguetteBox.run('.tz-gallery');
     </script>
-     <script src="{{url("assets/js/thumb-carousel.js")}}/"></script>
-     <script src="{{url("assets/js/image-zoom.js")}}/"></script>
+     <script src="{{url("assets/js/thumb-carousel.js")}}"></script>
+     <script src="{{url("assets/js/image-zoom.js")}}"></script>
 
     <script>
 function sethref()  

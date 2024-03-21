@@ -6,10 +6,10 @@
             <nav aria-label="breadcrumb" class="breadcrumb-title-box">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item me-2">
-                        <a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{url("/")}}/"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <li class="breadcrumb-item me-2">
-                        <a href="{{url("/media")}}">News</a>
+                        <a href="{{url("/media")}}/">News</a>
                     </li>
                     <li class="breadcrumb-item me-2"> {{$media_entry["title"]}}</li>                    
                 </ol>
@@ -77,7 +77,7 @@
                      @endphp
 
                      <li>
-                        <a href="{{url("media/detail/".$media_entry["id"]."-".$media_entry["custom_url"])}}">
+                        <a href="{{url("media/detail/".$media_entry["id"]."-".$media_entry["custom_url"])}}/">
                            <h3>{{$media_entry["title"]}}</h3>                     
                            <div class="date"><i class="fas fa-clock"></i> {{$media_entry["media_date"]." ".$day}}</div>
                            <p>{{substr($media_entry["description"],0,100)}}...</p>
@@ -87,7 +87,7 @@
                      @endforeach
                       
                   </ul>
-                  <div class=""><a href="{{url("/media")}}" class="btn btn-sm btn-primary mt-3">View All</a></div>
+                  <div class=""><a href="{{url("/media")}}/" class="btn btn-sm btn-primary mt-3">View All</a></div>
               </div>   
             </div>
       

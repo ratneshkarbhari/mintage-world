@@ -42,7 +42,7 @@
 
 
     <!-- Favicon -->
-    <link href="{{url("assets/img/favicon.ico")}}" rel="icon">
+    <link href="{{url("assets/img/favicon.ico")}}/" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,7 +69,7 @@
     <link href="{{url("assets/css/baguetteBox.min.css")}}" rel="stylesheet">
 
 
-    <link rel="stylesheet" type="text/css" media="all" href="{{url("assets/css/stellarnav.css")}}">
+    <link rel="stylesheet" type="text/css" media="all" href="{{url("assets/css/stellarnav.css")}}/">
 
     <!-- Template Stylesheet -->
     <link href="{{url("assets/css/style.css")}}" rel="stylesheet">
@@ -102,7 +102,7 @@
                 </div>
                 <div class="col-xl-7 col-lg-7  text-end ">
                     <div class="h-100 d-inline-flex align-items-center  me-2">
-                        <a href="{{url("cart")}}" title="Cart">
+                        <a href="{{url("cart")}}/" title="Cart">
                             <small class="fa fa-shopping-cart text-primary me-2 position-relative"><span id="cart-item-count" class="cart-item">@php 
 
                                 $cartCount = session("cart_count");
@@ -117,20 +117,20 @@
                     </div>
                     <div class="h-100 d-inline-flex align-items-center  me-md-2 me-3">                       
                         @if(session("member_id"))
-                        <a href="{{url("member/dashboard")}}"  class="me-2" title="My Account">
+                        <a href="{{url("member/dashboard")}}/"  class="me-2" title="My Account">
                             <small class="fas fa-user-cog text-primary me-2"></small>
                             <small class="icon-text">My Account</small>
                         </a>
-                        <a href="{{url("/logout")}}"  class="me-2" title="Logout">
+                        <a href="{{url("/logout")}}/"  class="me-2" title="Logout">
                             <small class="fas fa-sign-out-alt text-primary me-2"></small>
                             <small class="icon-text">Logout</small>
                         </a>
                         @else 
-                        <a href="{{url("application/login")}}" class="me-2" title="Sign in">
+                        <a href="{{url("application/login")}}/" class="me-2" title="Sign in">
                             <small class="fa fa-sign-in-alt text-primary me-2"></small>
                             <small class="icon-text">Sign in</small>
                         </a>
-                        <a href="{{url("member")}}" title="Sign up"> 
+                        <a href="{{url("member")}}/" title="Sign up"> 
                             <small class="fas fa-user-plus text-primary me-2"></small>
                             <small class="icon-text">Sign up</small>
                         </a>
@@ -165,7 +165,7 @@
         <!-- Navbar Start -->
         <nav
             class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-primary sticky-top py-0 px-lg-2 px-lg-5">
-            <a href="{{url("")}}" class="navbar-brand d-flex align-items-center main-logo">
+            <a href="{{url("/")}}" class="navbar-brand d-flex align-items-center main-logo">
                 <img src="{{url("assets/img/logo.png")}}" alt="" class="img-fluid">
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
@@ -174,53 +174,53 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="{{url("/")}}" class="nav-item nav-link">Home</a>
+                    <a href="{{url("/")}}/" class="nav-item nav-link">Home</a>
                     <div class="nav-item dropdown">
-                        <a href="{{url('shop')}}" class="nav-link dropdown-toggle">Shopping </a>
+                        <a href="{{url('shop')}}/" class="nav-link dropdown-toggle">Shopping </a>
                         <div class="dropdown-menu fade-up m-0 mega-menu">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <h2>Notes</h2>
                                         <div class="sub-menu-list">
-                                            <a href="{{url("shop/list/19-buy-banknotes/")}}">Bank Notes</a>
-                                            <a href="{{url("shop/list/6-greeting-cards/")}}">Notes Greeting Cards</a>
-                                            <a href="{{url("shop/list/7-table-photo-frame/")}}">Notes Table Photo Frame</a>
-                                            <a href="{{url("shop/list/9-wall-photo-frame/")}}">Notes Wall Frame</a>
-                                            <a href="{{url("shop/list/57-premium-notes/")}}">Premium Notes</a>
+                                            <a href="{{url("shop/list/19-buy-banknotes/")}}/">Bank Notes</a>
+                                            <a href="{{url("shop/list/6-greeting-cards/")}}/">Notes Greeting Cards</a>
+                                            <a href="{{url("shop/list/7-table-photo-frame/")}}/">Notes Table Photo Frame</a>
+                                            <a href="{{url("shop/list/9-wall-photo-frame/")}}/">Notes Wall Frame</a>
+                                            <a href="{{url("shop/list/57-premium-notes/")}}/">Premium Notes</a>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <h2>Coins</h2>
                                         <div class="sub-menu-list">
-                                            <a href="{{url("shop/list/24-indian-coins/")}}">Indian Coins</a> 
-                                            <a href="{{url("shop/list/25-us-coins/")}}">US Coins</a> 
-                                            <a href="{{url("shop/list/26-german-coins/")}}">German Coins</a> 
-                                            <a href="{{url("shop/list/56-premium-coins/")}}">Premium Coins</a>
+                                            <a href="{{url("shop/list/24-indian-coins/")}}/">Indian Coins</a> 
+                                            <a href="{{url("shop/list/25-us-coins/")}}/">US Coins</a> 
+                                            <a href="{{url("shop/list/26-german-coins/")}}/">German Coins</a> 
+                                            <a href="{{url("shop/list/56-premium-coins/")}}/">Premium Coins</a>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <h2>Accessories</h2>
                                         <div class="sub-menu-list">
-                                            <a href="{{url("shop/list/11-coin-accessories/")}}">Coin Accessories</a> 
-                                            <a href="{{url("shop/list/12-banknote-accessories/")}}">Banknote Accessories</a> 
-                                            <a href="{{url("shop/list/14-stamp-accessories/")}}">Stamp Accessories</a> 
-                                            <a href="{{url("shop/list/13-postcard-accessories/")}}">Postcard Accessories</a> 
+                                            <a href="{{url("shop/list/11-coin-accessories/")}}/">Coin Accessories</a> 
+                                            <a href="{{url("shop/list/12-banknote-accessories/")}}/">Banknote Accessories</a> 
+                                            <a href="{{url("shop/list/14-stamp-accessories/")}}/">Stamp Accessories</a> 
+                                            <a href="{{url("shop/list/13-postcard-accessories/")}}/">Postcard Accessories</a> 
                                         </div>
                                     </div>
                                     <div class="col-md-2">
                                         <h2>Stamps</h2>
                                         <div class="sub-menu-list">
-                                            <a href="{{url("shop/list/20-indian-stamps/")}}">Indian Stamps</a> 
-					                        <a href="{{url("shop/list/17-australia-stamps/")}}">Australia Stamp</a>
+                                            <a href="{{url("shop/list/20-indian-stamps/")}}/">Indian Stamps</a> 
+					                        <a href="{{url("shop/list/17-australia-stamps/")}}/">Australia Stamp</a>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <h2>Other Products</h2>
                                         <div class="sub-menu-list">
-                                            <a href="{{url("shop/list/1-3d-puzzles/")}}">3D Puzzles</a> 
-                                            <a href="{{url("shop/list/10-first-day-cover/")}}">Envelope First Day Cover</a> 
-                                            <a href="{{url("shop/list/23-books/")}}">Numismatics Books</a> 
+                                            <a href="{{url("shop/list/1-3d-puzzles/")}}/">3D Puzzles</a> 
+                                            <a href="{{url("shop/list/10-first-day-cover/")}}/">Envelope First Day Cover</a> 
+                                            <a href="{{url("shop/list/23-books/")}}/">Numismatics Books</a> 
                                         </div>
                                     </div>
                                 </div>
@@ -231,20 +231,20 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Information</a>
                         <div class="dropdown-menu fade-up m-0">
-                            <a href="{{url("coins")}}" class="dropdown-item">Coins</a>
-                            <a href="{{url("notes")}}" class="dropdown-item">Notes</a>
-                            <a href="{{url("stamp")}}" class="dropdown-item">Stamps</a>
+                            <a href="{{url("coins")}}/" class="dropdown-item">Coins</a>
+                            <a href="{{url("notes")}}/" class="dropdown-item">Notes</a>
+                            <a href="{{url("stamp")}}/" class="dropdown-item">Stamps</a>
                         </div>
                     </div>
-                    <a href="{{url("history")}}" class="nav-item nav-link">History</a>
+                    <a href="{{url("history")}}/" class="nav-item nav-link">History</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Events</a>
                         <div class="dropdown-menu fade-up m-0">
-                            <a href="{{url("event")}}" class="dropdown-item">Fairs and Exhibitions</a>
+                            <a href="{{url("event")}}/" class="dropdown-item">Fairs and Exhibitions</a>
                         </div>
                     </div>
-                    <a href="{{url("media")}}" class="nav-item nav-link">News</a> 
-                    <a href="{{url("media-coverage")}}" class="nav-item nav-link">Media</a> 
+                    <a href="{{url("media")}}/" class="nav-item nav-link">News</a> 
+                    <a href="{{url("media-coverage")}}/" class="nav-item nav-link">Media</a> 
                     <a href="https://www.mintageworld.com/blog/" target="_blank" class="nav-item nav-link">Blog</a>
                 </div>
                 <div class="m-0   d-none d-lg-block search-box">
@@ -257,128 +257,128 @@
         <div class="stellarnav">
             <span class="close-bg"><a href="javascript:void(0)" class="close-menu third">&nbsp;</a></span>
             <ul style="display: block !important;">
-                <li><a href="{{url("")}}">Home</a></li>
-                <li><a href="{{url("shop")}}">Shopping</a>
+                <li><a href="{{url("")}}/">Home</a></li>
+                <li><a href="{{url("shop")}}/">Shopping</a>
                     <ul>
-                        <li><a href="{{url("#")}}">Premium Products</a>
+                        <li><a href="{{url("#")}}/">Premium Products</a>
                             <ul>
-                                <li><a href="{{url("shop/list/56-premium-coins/")}}">Premium Coins</a></li>
-                                <li><a href="{{url("shop/list/57-premium-notes/")}}">Premium Notes</a></li>
+                                <li><a href="{{url("shop/list/56-premium-coins/")}}/">Premium Coins</a></li>
+                                <li><a href="{{url("shop/list/57-premium-notes/")}}/">Premium Notes</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{url("#")}}">Bank Notes</a>
+                        <li><a href="{{url("#")}}/">Bank Notes</a>
                             <ul>
-                                <li><a href="{{url("shop/list/35-indian-banknotes/")}}">Republic India Banknotes</a></li>
-                                <li><a href="{{url("shop/list/36-world-banknotes/")}}">World Banknotes</a>
+                                <li><a href="{{url("shop/list/35-indian-banknotes/")}}/">Republic India Banknotes</a></li>
+                                <li><a href="{{url("shop/list/36-world-banknotes/")}}/">World Banknotes</a>
                                     <ul>
-                                        <li><a href="{{url("shop/list/37-asia/")}}">Asian Banknotes</a></li>
-                                        <li><a href="{{url("shop/list/38-africa/")}}">African Banknotes</a></li>
-                                        <li><a href="{{url("shop/list/39-europe/")}}">European Banknotes</a></li>
-                                        <li><a href="{{url("shop/list/40-north-america/")}}">North American Banknotes</a></li>
-                                        <li><a href="{{url("shop/list/41-south-america/")}}">South American Banknotes</a></li>
+                                        <li><a href="{{url("shop/list/37-asia/")}}/">Asian Banknotes</a></li>
+                                        <li><a href="{{url("shop/list/38-africa/")}}/">African Banknotes</a></li>
+                                        <li><a href="{{url("shop/list/39-europe/")}}/">European Banknotes</a></li>
+                                        <li><a href="{{url("shop/list/40-north-america/")}}/">North American Banknotes</a></li>
+                                        <li><a href="{{url("shop/list/41-south-america/")}}/">South American Banknotes</a></li>
 
                                     </ul>
                                 </li>
-                                <li><a href="{{url("shop/list/19-buy-banknotes/")}}">All Bank Notes</a></li>
+                                <li><a href="{{url("shop/list/19-buy-banknotes/")}}/">All Bank Notes</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{url("#")}}">Coins</a>
+                        <li><a href="{{url("#")}}/">Coins</a>
                             <ul>
-                                <li><a href="{{url("shop/list/24-indian-coins/")}}">Indian Coins</a>
+                                <li><a href="{{url("shop/list/24-indian-coins/")}}/">Indian Coins</a>
                                     <ul>
-                                        <li><a href="{{url("shop/list/29-ancient/")}}">Ancient Coins</a></li>
-                                        <li><a href="{{url("shop/list/30-medieval/")}}">Medieval Coins</a></li>
-                                        <li><a href="{{url("shop/list/31-indian-princely-state/")}}">Indian Princely State Coins</a></li>
-                                        <li><a href="{{url("shop/list/32-colonial/")}}">Colonial Coins</a></li>
-                                        <li><a href="{{url("shop/list/33-republic/")}}">Republic India Coins</a></li>
+                                        <li><a href="{{url("shop/list/29-ancient/")}}/">Ancient Coins</a></li>
+                                        <li><a href="{{url("shop/list/30-medieval/")}}/">Medieval Coins</a></li>
+                                        <li><a href="{{url("shop/list/31-indian-princely-state/")}}/">Indian Princely State Coins</a></li>
+                                        <li><a href="{{url("shop/list/32-colonial/")}}/">Colonial Coins</a></li>
+                                        <li><a href="{{url("shop/list/33-republic/")}}/">Republic India Coins</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{{url("shop/list/25-us-coins/")}}">US Coins</a></li>
-                                <li><a href="{{url("shop/list/26-german-coins/")}}">German Coins</a></li>
-                                <li><a href="{{url("shop/list/34-roman-era-coins/")}}">Roman Era Coins</a></li>
-                                <li><a href="{{url("shop/list/27-assorted-foreign-coins/")}}">Assorted Foreign Coins</a></li>
-                                <li><a href="{{url("shop/list/28-mint-rolls/")}}">Mint Coin Rolls</a></li>
-                                <li><a href="{{url("shop/list/18-buy-coins/")}}">All Coins</a></li>
+                                <li><a href="{{url("shop/list/25-us-coins/")}}/">US Coins</a></li>
+                                <li><a href="{{url("shop/list/26-german-coins/")}}/">German Coins</a></li>
+                                <li><a href="{{url("shop/list/34-roman-era-coins/")}}/">Roman Era Coins</a></li>
+                                <li><a href="{{url("shop/list/27-assorted-foreign-coins/")}}/">Assorted Foreign Coins</a></li>
+                                <li><a href="{{url("shop/list/28-mint-rolls/")}}/">Mint Coin Rolls</a></li>
+                                <li><a href="{{url("shop/list/18-buy-coins/")}}/">All Coins</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="{{url("#")}}">Stamps</a>
+                        <li><a href="{{url("#")}}/">Stamps</a>
                             <ul>
-                                <li><a href="{{url("shop/list/20-indian-stamps/")}}">Indian Stamps</a>
+                                <li><a href="{{url("shop/list/20-indian-stamps/")}}/">Indian Stamps</a>
                                     <ul>
-                                        <li><a href="{{url("shop/list/21-miniature-sheet-stamps/")}}">Miniature Sheet Stamps</a></li>
-                                        <li><a href="{{url("shop/list/22-stamps/")}}">Postal Stamps</a></li>
-                                        <li><a href="{{url("shop/list/58-block-of-stamps/")}}">Block of Stamps</a></li>
-                                        <li><a href="{{url("shop/list/59-full-stamp-sheet/")}}">Full Sheet Stamps</a></li>
-                                        <li><a href="{{url("shop/list/60-collectors-pack/")}}">Collectors Pack</a></li>
+                                        <li><a href="{{url("shop/list/21-miniature-sheet-stamps/")}}/">Miniature Sheet Stamps</a></li>
+                                        <li><a href="{{url("shop/list/22-stamps/")}}/">Postal Stamps</a></li>
+                                        <li><a href="{{url("shop/list/58-block-of-stamps/")}}/">Block of Stamps</a></li>
+                                        <li><a href="{{url("shop/list/59-full-stamp-sheet/")}}/">Full Sheet Stamps</a></li>
+                                        <li><a href="{{url("shop/list/60-collectors-pack/")}}/">Collectors Pack</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{{url("shop/list/17-australia-stamps/")}}">Australia Stamps</a></li>
-                                <li><a href="{{url("shop/list/45-england-stamps/")}}">England Stamps</a></li>
-                                <li><a href="{{url("shop/list/16-buy-stamps/")}}">All Stamps</a></li>
+                                <li><a href="{{url("shop/list/17-australia-stamps/")}}/">Australia Stamps</a></li>
+                                <li><a href="{{url("shop/list/45-england-stamps/")}}/">England Stamps</a></li>
+                                <li><a href="{{url("shop/list/16-buy-stamps/")}}/">All Stamps</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="{{url("#")}}">Accessories</a>
+                        <li><a href="{{url("#")}}/">Accessories</a>
                             <ul>
-                                <li><a href="{{url("shop/list/11-coin-accessories/")}}">Coin Accessories</a>
+                                <li><a href="{{url("shop/list/11-coin-accessories/")}}/">Coin Accessories</a>
                                     <ul>
-                                        <li><a href="{{url("shop/list/46-coin-albums/")}}">Coin Albums</a></li>
-                                        <li><a href="{{url("shop/list/47-coin-pages/")}}">Coin Pages</a></li>
-                                        <li><a href="{{url("shop/list/48-coin-capsules/")}}">Coin Capsules</a></li>
-                                        <li><a href="{{url("shop/list/49-coin-cleaners/")}}">Coin Cleaners</a></li>
-                                        <li><a href="{{url("shop/list/50-coin-holders/")}}">Coin Holders</a></li>
-                                        <li><a href="{{url("shop/list/51-coin-storage-box/")}}">Coin Storage Box</a></li>
+                                        <li><a href="{{url("shop/list/46-coin-albums/")}}/">Coin Albums</a></li>
+                                        <li><a href="{{url("shop/list/47-coin-pages/")}}/">Coin Pages</a></li>
+                                        <li><a href="{{url("shop/list/48-coin-capsules/")}}/">Coin Capsules</a></li>
+                                        <li><a href="{{url("shop/list/49-coin-cleaners/")}}/">Coin Cleaners</a></li>
+                                        <li><a href="{{url("shop/list/50-coin-holders/")}}/">Coin Holders</a></li>
+                                        <li><a href="{{url("shop/list/51-coin-storage-box/")}}/">Coin Storage Box</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{{url("shop/list/12-banknote-accessories/")}}">Banknote Accessories</a>
+                                <li><a href="{{url("shop/list/12-banknote-accessories/")}}/">Banknote Accessories</a>
                                     <ul>
-                                        <li><a href="{{url("shop/list/54-banknote-albums/")}}">Banknote Albums</a> </li>
-                                        <li><a href="{{url("shop/list/55-banknote-sleeves/")}}">Banknote Sleeves</a></li>
+                                        <li><a href="{{url("shop/list/54-banknote-albums/")}}/">Banknote Albums</a> </li>
+                                        <li><a href="{{url("shop/list/55-banknote-sleeves/")}}/">Banknote Sleeves</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{{url("shop/list/14-stamp-accessories/")}}">Stamp Accessories</a>
+                                <li><a href="{{url("shop/list/14-stamp-accessories/")}}/">Stamp Accessories</a>
                                     <ul>
-                                        <li><a href="{{url("shop/list/52-stamp-album-stockbooks/")}}">Stamp Album Stockbooks</a> </li>
-                                        <li><a href="{{url("shop/list/53-stamp-stock-pages/")}}">Stamp Stock Pages</a></li>
+                                        <li><a href="{{url("shop/list/52-stamp-album-stockbooks/")}}/">Stamp Album Stockbooks</a> </li>
+                                        <li><a href="{{url("shop/list/53-stamp-stock-pages/")}}/">Stamp Stock Pages</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="{{url("shop/list/13-postcard-accessories/")}}">Postcard Accessories</a></li>
-                                <li><a href="{{url("shop/list/15-general/")}}">General</a></li>
-                                <li><a href="{{url("shop/list/2-collectibles-accessories/")}}">All Accessories</a></li>
+                                <li><a href="{{url("shop/list/13-postcard-accessories/")}}/">Postcard Accessories</a></li>
+                                <li><a href="{{url("shop/list/15-general/")}}/">General</a></li>
+                                <li><a href="{{url("shop/list/2-collectibles-accessories/")}}/">All Accessories</a></li>
                             </ul>
                         </li>
 
-                        <li><a href="{{url("shop/list/6-greeting-cards/")}}">Notes Greeting Cards</a></li>
-                        <li><a href="{{url("shop/list/7-table-photo-frame/")}}">Notes Table Photo Frame </a></li>
-                        <li><a href="{{url("shop/list/9-wall-photo-frame/")}}">Notes Wall Photo Frame</a></li>
-                        <li><a href="{{url("shop/list/1-3d-puzzles/")}}">3D Puzzles</a></li>
-                        <li><a href="{{url("shop/list/10-first-day-cover/")}}">Envelopes First Day Cover</a></li>
-                        <li><a href="{{url("shop/list/23-books/")}}">Numismatic Books</a></li>
+                        <li><a href="{{url("shop/list/6-greeting-cards/")}}/">Notes Greeting Cards</a></li>
+                        <li><a href="{{url("shop/list/7-table-photo-frame/")}}/">Notes Table Photo Frame </a></li>
+                        <li><a href="{{url("shop/list/9-wall-photo-frame/")}}/">Notes Wall Photo Frame</a></li>
+                        <li><a href="{{url("shop/list/1-3d-puzzles/")}}/">3D Puzzles</a></li>
+                        <li><a href="{{url("shop/list/10-first-day-cover/")}}/">Envelopes First Day Cover</a></li>
+                        <li><a href="{{url("shop/list/23-books/")}}/">Numismatic Books</a></li>
                     </ul>
                 </li>
                 <li class="drop-left"><a href="#">Information</a>
                     <ul>
-                        <li><a href="{{url("coins")}}">Coins</a></li>
-                        <li><a href="{{url("notes")}}">Notes</a></li>
-                        <li><a href="{{url("history")}}">Stamps</a></li>
+                        <li><a href="{{url("coins")}}/">Coins</a></li>
+                        <li><a href="{{url("notes")}}/">Notes</a></li>
+                        <li><a href="{{url("history")}}/">Stamps</a></li>
                     </ul>
                 </li>
-                <li><a href="{{url("history")}}">History</a></li>
+                <li><a href="{{url("history")}}/">History</a></li>
                 <li class="drop-left"><a href="#">Events</a>
                     <ul>
-                        <li><a href="{{url("event")}}">Fairs and Exhibitions</a></li>
-                        {{-- <li><a href="{{url("")}}">Key Events (Coming Soon)</a></li> --}}
+                        <li><a href="{{url("event")}}/">Fairs and Exhibitions</a></li>
+                        {{-- <li><a href="{{url("")}}/">Key Events (Coming Soon)</a></li> --}}
                     </ul>
                 </li>
-                <li><a href="{{url("media")}}">News</a></li>
-                <li><a href="{{url("media-coverage")}}">Media</a></li>
-                <li><a href="{{url("knowledge-base")}}">Knowledge Base</a></li>
-                <li><a href="{{url("content/about-us")}}">About Us</a></li>
-                <li><a href="{{url("contact")}}">Contact Us</a></li>
+                <li><a href="{{url("media")}}/">News</a></li>
+                <li><a href="{{url("media-coverage")}}/">Media</a></li>
+                <li><a href="{{url("knowledge-base")}}/">Knowledge Base</a></li>
+                <li><a href="{{url("content/about-us")}}/">About Us</a></li>
+                <li><a href="{{url("contact")}}/">Contact Us</a></li>
                 @if(session("member_id"))
-                <li><a href="{{url("member/dashboard")}}">My Account</a></li>
-                <li><a href="{{url("/logout")}}">Log Out</a></li>
+                <li><a href="{{url("member/dashboard")}}/">My Account</a></li>
+                <li><a href="{{url("/logout")}}/">Log Out</a></li>
                 @endif
 
                 <li class="text-left mt-2 social-media-menu">

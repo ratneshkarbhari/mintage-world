@@ -5,7 +5,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-title-box">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item me-2">
-                        <a href="{{url('/')}}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{url('/')}}/"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <li class="breadcrumb-item me-2">Search</li>                    
                 </ol>
@@ -16,7 +16,7 @@
     <section class="common-padding coing-list-wraper">
         <div class="container-fluid  px-lg-2 px-lg-5">
             <div class="d-flex justify-content-between"><h2 class="mb-3 heading-1">Advance Search</h2></div>
-            <form id="detailed-search-form" action="{{url('detailed-search/')}}" method="GET" >
+            <form id="detailed-search-form" action="{{url('detailed-search/')}}/" method="GET" >
                 @csrf
            <div class="row">
             <div class="col-md-3">
@@ -74,7 +74,7 @@
                         <div class="col-lg-2 col-md-3 col-6 mt-4">
                             <div class="search-item">
                                 <div class="product-grid">
-                                    <div class="product-image"> <a href="{{url("view-product/".$result["id"].$result["custom_url"])}}" class="image"> <img class="pic-1" src="{{env("PRODUCT_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+                                    <div class="product-image"> <a href="{{url("view-product/".$result["id"].$result["custom_url"])}}/" class="image"> <img class="pic-1" src="{{env("PRODUCT_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                                     <div class="product-content">
                                        <h2 class="title"><a href="http://localhost/mintage-world/view-product/spain-1-euro-cent-2010-coin">{{$result["name1"]}}</a> </h2>
                                        <div class="price mb-0"><i class="fa fa-rupee-sign"></i> 60</div> 

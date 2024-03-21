@@ -17,31 +17,31 @@
 
                 
                 @if($breadCrumbsData["notes"])
-                <li class="breadcrumb-item me-2"><a href="{{url("notes")}}"> Notes </a></li>
+                <li class="breadcrumb-item me-2"><a href="{{url("notes")}}/"> Notes </a></li>
                 @else
                 <li class="breadcrumb-item me-2">Notes</li>
                 @endif
 
                 @if(isset($breadCrumbsData["country"])&&isset($breadCrumbsData["period"]))
-                <li class="breadcrumb-item me-2"><a href="{{url('note/'.$breadCrumbsData["country"]["id"]."-".strtolower($breadCrumbsData["country"]["name"]))}}"> {{$breadCrumbsData["country"]["name"]}} </a></li>
+                <li class="breadcrumb-item me-2"><a href="{{url('note/'.$breadCrumbsData["country"]["id"]."-".strtolower($breadCrumbsData["country"]["name"]))}}/"> {{$breadCrumbsData["country"]["name"]}} </a></li>
                 @elseif(isset($breadCrumbsData["country"]))
                 <li class="breadcrumb-item me-2">{{$breadCrumbsData["country"]["name"]}}</li>
                 @endif
                 
                 @if(isset($breadCrumbsData["period"])&&isset($breadCrumbsData["dynasty"]))
-                <li class="breadcrumb-item me-2"><a href="{{url("note/dynasty/".$breadCrumbsData["period"]["id"])}}"> {{$breadCrumbsData["period"]["name"]}} </a></li>
+                <li class="breadcrumb-item me-2"><a href="{{url("note/dynasty/".$breadCrumbsData["period"]["id"])}}/"> {{$breadCrumbsData["period"]["name"]}} </a></li>
                 @elseif(isset($breadCrumbsData["period"]))
                 <li class="breadcrumb-item me-2">{{$breadCrumbsData["period"]["name"]}}</li>
                 @endif
                 
                 @if(isset($breadCrumbsData["denomination"])&&isset($breadCrumbsData["dynasty"]))
-                <li class="breadcrumb-item me-2"><a href="{{url("note/note/"    .$breadCrumbsData["dynasty"]["id"])}}"> {{$breadCrumbsData["dynasty"]["name"]}} </a></li>
+                <li class="breadcrumb-item me-2"><a href="{{url("note/note/"    .$breadCrumbsData["dynasty"]["id"])}}/"> {{$breadCrumbsData["dynasty"]["name"]}} </a></li>
                 @elseif(isset($breadCrumbsData["dynasty"]))
                 <li class="breadcrumb-item me-2">{{$breadCrumbsData["dynasty"]["name"]}}</li>
                 @endif
 
                 @if(isset($breadCrumbsData["denomination"])&&isset($breadCrumbsData["note"]))
-                <li class="breadcrumb-item me-2"><a href="{{url("note/list/".$breadCrumbsData["denomination"]["id"])}}"> {{$breadCrumbsData["denomination"]["unit"]. " " .$breadCrumbsData["denomination"]["name"]}} </a></li>
+                <li class="breadcrumb-item me-2"><a href="{{url("note/list/".$breadCrumbsData["denomination"]["id"])}}/"> {{$breadCrumbsData["denomination"]["unit"]. " " .$breadCrumbsData["denomination"]["name"]}} </a></li>
                 @elseif(isset($breadCrumbsData["denomination"]))
                 <li class="breadcrumb-item me-2"> {{$breadCrumbsData["denomination"]["unit"]. " " .$breadCrumbsData["denomination"]["name"]}} </li>
                 @endif

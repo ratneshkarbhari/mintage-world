@@ -1,15 +1,15 @@
 
 <main class="page-content">
-    <section class="inside-banner"><img class="w-100 img-fluid" src="{{url('assets/images/inside-banner/default-banner.jpg')}}" /></section>
+    <section class="inside-banner"><img class="w-100 img-fluid" src="{{url('assets/images/inside-banner/default-banner.jpg')}}/" /></section>
     <section class="breadcrumb-wraper">
         <div class="container-fluid px-lg-2 px-lg-5">
             <nav aria-label="breadcrumb" class="breadcrumb-title-box">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item me-2">
-                        <a href="{{url('/')}}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{url('/')}}/"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <li class="breadcrumb-item me-2">
-                        <a href="{{url('/story')}}">Story of the week</a>
+                        <a href="{{url('/story')}}/">Story of the week</a>
                     </li>
                     <li class="breadcrumb-item me-2"> {{$focus_story->title}}</li>                    
                 </ol>
@@ -26,8 +26,8 @@
                      <div class="col-md-5">
                         <div id="sync1" class="owl-carousel owl-theme tz-gallery">
                            <div class="item zoomable">
-                               <a class="lightbox" href="{{url('assets/img/story/'.$focus_story['image1'])}}">
-                                   <img src="{{url('assets/img/story/'.$focus_story['image1'])}}"
+                               <a class="lightbox" href="{{url('assets/img/story/'.$focus_story['image1'])}}/">
+                                   <img src="{{url('assets/img/story/'.$focus_story['image1'])}}/"
                                        class="img-fluid zoomable__img w-100" />
                                </a>
                            </div>                     
@@ -50,10 +50,10 @@
 
                      @foreach($ten_stories as $story)
                      <li>
-                        <a href="{{url('story/detail/'.$story['id'].'-'.Str::slug($story['title']))}}">
+                        <a href="{{url('story/detail/'.$story['id'].'-'.Str::slug($story['title']))}}/">
                            <h3>{{$story->title}}</h3>  
                            <div class="d-flex justify-content-between">
-                              <div class="image w-50 me-3"><img src="{{url('assets/img/story/'.$story['image1'])}}" class="img-fluid border border-secondary"></div>
+                              <div class="image w-50 me-3"><img src="{{url('assets/img/story/'.$story['image1'])}}/" class="img-fluid border border-secondary"></div>
                               <p>{{substr($story->description,0,90)}}...</p>
                            </div>
                           
@@ -63,7 +63,7 @@
                      
                       
                   </ul>
-                  <div class=""><a href="{{url('/story')}}" class="btn btn-sm btn-primary mt-3">View All</a></div>
+                  <div class=""><a href="{{url('/story')}}/" class="btn btn-sm btn-primary mt-3">View All</a></div>
               </div>   
             </div>
       

@@ -31,20 +31,20 @@ use App\Models\Product;
                     @if (empty($cart_items))
                 <div class="basket col-lg-12 col-md-12 col-12 mt-5">
                     <div id="allemptyCartDiv" class="w-100 text-center ">
-                        <img src="{{url('assets/img/cart-icon.png')}}" style="width: 150px;" class="img-fluid mb-4 mr-3">
+                        <img src="{{url('assets/img/cart-icon.png')}}/" style="width: 150px;" class="img-fluid mb-4 mr-3">
                         <h3><strong>Your Cart is Empty</strong></h3>
                         <h6>Find what you Love :)</h6>
-                        <a href="{{url('shop')}}" class="btn btn-explore mt-3">Continue Shopping <span class="first"></span><span class="second"></span><span class="third"></span><span class="fourth"></span></a>
+                        <a href="{{url('shop')}}/" class="btn btn-explore mt-3">Continue Shopping <span class="first"></span><span class="second"></span><span class="third"></span><span class="fourth"></span></a>
                                                
                     </div>
                 </div>
                     @else
                     <div class="basket col-lg-8 col-md-7 col-12">
                         <div id="emptyCartDiv" class="d-none text-center mt-5">
-                            <img src="{{url('assets/img/cart-icon.png')}}" style="width: 150px;" class="img-fluid mb-4 mr-3">
+                            <img src="{{url('assets/img/cart-icon.png')}}/" style="width: 150px;" class="img-fluid mb-4 mr-3">
                             <h3><strong>Your Cart is Empty</strong></h3>
                             <h6>Find what you Love :)</h6>
-                            <a href="{{url('shop')}}" class="btn btn-explore mt-3">Continue Shopping <span class="first"></span><span class="second"></span><span class="third"></span><span class="fourth"></span></a>
+                            <a href="{{url('shop')}}/" class="btn btn-explore mt-3">Continue Shopping <span class="first"></span><span class="second"></span><span class="third"></span><span class="fourth"></span></a>
                                                    
                         </div>
                         @php
@@ -133,15 +133,15 @@ use App\Models\Product;
                             </div>
                             <label for="">Enter your coupon here</label>
                             <div class="d-flex">
-                                <input type="text" name="" value="{{session("code")}}" id="txtCouponCode" class="form-control">
+                                <input type="text" name="" value="{{session("code")}}/" id="txtCouponCode" class="form-control">
                                 <button id="apply-coupon" class="btn btn-sm btn-info text-white ">Apply</button>
                             </div>
 
                         </div>
                        
                         <div class="shopping-cart-btn">
-                            <a class="btn btn-sm btn-primary " href="{{url('/shop')}}"><i class="fab fa-opencart"></i> Continue Shopping</a>
-                            <a class="btn btn-sm  btn-success " href="{{url('/checkout')}}"><i class="fa fa-check-double"></i> Checkout</a>
+                            <a class="btn btn-sm btn-primary " href="{{url('/shop')}}/"><i class="fab fa-opencart"></i> Continue Shopping</a>
+                            <a class="btn btn-sm  btn-success " href="{{url('/checkout')}}/"><i class="fa fa-check-double"></i> Checkout</a>
                             
                         </div>
                     </div>
@@ -223,7 +223,7 @@ use App\Models\Product;
     @if(session("value"))
 
     let CouponVal = {{session("value")}};
-    let CouponType = '{{session("type")}}';
+    let CouponType = '{{session("type")}}/';
 
     
     if(CouponType == 'PERCENTAGE'){ 
@@ -256,7 +256,7 @@ use App\Models\Product;
         if(parseInt(currentQuantity)!=1){
             $.ajax({
             type: "POST",
-                url: "{{url('decrease-cart-item-quantity')}}",
+                url: "{{url('decrease-cart-item-quantity')}}/",
                 data: {
                     "_token" : "{{ csrf_token() }}",
                     "pid" : pid,
@@ -281,7 +281,7 @@ use App\Models\Product;
         let cartItemAmount = 0.00;
         $.ajax({
             type: "POST",
-            url: "{{url('increase-cart-item-quantity')}}",
+            url: "{{url('increase-cart-item-quantity')}}/",
             data: {
                 "_token" : "{{ csrf_token() }}",
                 "pid" : pid,
@@ -306,7 +306,7 @@ use App\Models\Product;
        
         $.ajax({
             type: "POST",
-            url: "{{url('delete-cart-item')}}",
+            url: "{{url('delete-cart-item')}}/",
             data: {
                 "_token" : "{{ csrf_token() }}",
                 "pid" : pid,
@@ -315,7 +315,7 @@ use App\Models\Product;
                 $("div#cart-item-"+pid).remove();
                 $.ajax({
                 type: "GET",
-                url: "{{url('fetch-current-cart-count')}}",
+                url: "{{url('fetch-current-cart-count')}}/",
                 
                 success: function (response) {
 
@@ -346,7 +346,7 @@ use App\Models\Product;
         let codeEntered = $("#txtCouponCode").val();
         $.ajax({
             type: "POST",
-            url: "{{url('apply-coupon-recalculate-discount-exe')}}",
+            url: "{{url('apply-coupon-recalculate-discount-exe')}}/",
             data: {
                 "_token" : "{{ csrf_token() }}",
                 "subtotal" : $("label#lblSubTotal").html(),
@@ -367,7 +367,7 @@ use App\Models\Product;
         let codeEntered = $("#txtCouponCode").val();
         $.ajax({
             type: "POST",
-            url: "{{url('apply-coupon-exe')}}",
+            url: "{{url('apply-coupon-exe')}}/",
             data: {
                 "_token" : "{{ csrf_token() }}",
 

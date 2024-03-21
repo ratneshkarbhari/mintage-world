@@ -101,7 +101,7 @@
                         
                         @foreach($more_notes as $note)
                         
-                        <div class="item text-center"><a href="{{url('note/detail/'.$note["id"])}}"><img class="img-fluid w-100" src="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}" alt="{{ $denomination["unit"]."|".$note["catalogue_ref_no"] }}">
+                        <div class="item text-center"><a href="{{url('note/detail/'.$note["id"])}}/"><img class="img-fluid w-100" src="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}" alt="{{ $denomination["unit"]."|".$note["catalogue_ref_no"] }}">
                                 <div class="latest-title">{{$note["catalogue_ref_no"]}}</div>
                             </a>
                         </div>
@@ -183,7 +183,7 @@
         let comment = $("textarea#comment-text").val();
         $.ajax({
             type: "POST",
-            url: "{{url('create-info-comment')}}",
+            url: "{{url('create-info-comment')}}/",
             data: {
                 "_token" : "{{ csrf_token() }}",
                 "feedback_id" : 2,

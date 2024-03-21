@@ -30,7 +30,7 @@
       <div class="container-fluid px-lg-2 px-lg-5">
          <nav aria-label="breadcrumb" class="breadcrumb-title-box">
             <ol class="breadcrumb">
-               <li class="breadcrumb-item me-2"><a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a></li>
+               <li class="breadcrumb-item me-2"><a href="{{url("/")}}/"><i class="fa fa-home"></i> Home</a></li>
                <li class="breadcrumb-item me-2" aria-current="page">Shop</li>
             </ol>
          </nav>
@@ -174,7 +174,7 @@
             <div class="col-lg-9 col-md-12 mt-md-5 mt-0 mt-lg-0">
                <div class="d-flex justify-content-between">
                   <h2 class="mb-3 heading-1">Buy Coins</h2>
-                  <a href="{{url('shop/list/18-buy-coins/')}}" class="view-all">More <i class="fa fa-angle-right"></i></a> 
+                  <a href="{{url('shop/list/18-buy-coins/')}}/" class="view-all">More <i class="fa fa-angle-right"></i></a> 
                </div>
                <div class="owl-carousel product-carousel shop-page-carousel position-relative">
                   
@@ -187,11 +187,11 @@
                   @endphp
 
                   <div class="product-grid">
-                     <div class="product-image"> <a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+                     <div class="product-image"> <a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                      <div class="product-content">
-                        <h2 class="title"><a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}">{{$random_coin["name1"]}}</a> </h2>
+                        <h2 class="title"><a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}/">{{$random_coin["name1"]}}</a> </h2>
                         <div class="price"><i class="fa fa-rupee-sign"></i> {{$random_coin["price"]}}</div>
-                        <a href="{{url("view-product/".$random_coin["custom_url"])}}" class="add-to-cart">Add to Cart</a> 
+                        <a href="{{url("view-product/".$random_coin["custom_url"])}}/" class="add-to-cart">Add to Cart</a> 
                      </div>
                   </div>
 
@@ -201,7 +201,7 @@
                <hr class="my-md-4">
                <div class="d-flex justify-content-between">
                   <h2 class="mb-3 heading-1">Buy Notes</h2>
-                  <a href="{{url('shop/list/19-buy-banknotes/')}}" class="view-all">More <i class="fa fa-angle-right"></i></a> 
+                  <a href="{{url('shop/list/19-buy-banknotes/')}}/" class="view-all">More <i class="fa fa-angle-right"></i></a> 
                </div>
                <div class="owl-carousel product-carousel shop-page-carousel position-relative">
                   @foreach($random_notes as $random_note)
@@ -213,11 +213,11 @@
                   @endphp
 
                   <div class="product-grid">
-                     <div class="product-image"> <a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+                     <div class="product-image"> <a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                      <div class="product-content">
-                        <h2 class="title"><a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}">{{$random_note["name1"]}}</a> </h2>
+                        <h2 class="title"><a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}/">{{$random_note["name1"]}}</a> </h2>
                         <div class="price"><i class="fa fa-rupee-sign"></i> {{$random_note["price"]}}</div>
-                        <a href="{{url("view-product/".$random_note["custom_url"])}}" class="add-to-cart">Add to Cart</a> 
+                        <a href="{{url("view-product/".$random_note["custom_url"])}}/" class="add-to-cart">Add to Cart</a> 
                      </div>
                   </div>
 
@@ -227,7 +227,7 @@
                <hr class="my-md-4">
                <div class="d-flex justify-content-between">
                   <h2 class="mb-3 heading-1">Buy Accessories</h2>
-                  <a href="{{url('shop/list/2-collectibles-accessories/')}}" class="view-all">More <i class="fa fa-angle-right"></i></a> 
+                  <a href="{{url('shop/list/2-collectibles-accessories/')}}/" class="view-all">More <i class="fa fa-angle-right"></i></a> 
                </div>
                <div class="owl-carousel product-carousel shop-page-carousel position-relative">
                   
@@ -240,11 +240,11 @@
                   @endphp
 
                   <div class="product-grid">
-                     <div class="product-image"> <a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+                     <div class="product-image"> <a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                      <div class="product-content">
-                        <h2 class="title"><a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}">{{$random_accessory["name1"]}}</a> </h2>
+                        <h2 class="title"><a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}/">{{$random_accessory["name1"]}}</a> </h2>
                         <div class="price"><i class="fa fa-rupee-sign"></i> {{$random_accessory["price"]}}</div>
-                        <a href="{{url("view-product/".$random_accessory["custom_url"])}}" class="add-to-cart">Add to Cart</a> 
+                        <a href="{{url("view-product/".$random_accessory["custom_url"])}}/" class="add-to-cart">Add to Cart</a> 
                      </div>
                   </div>
 
@@ -254,7 +254,7 @@
                <hr class="my-md-4">
                <div class="d-flex justify-content-between">
                   <h2 class="mb-3 heading-1"> Buy Greeting Cards </h2>
-                  <a href="{{url('shop/list/6-greeting-cards/')}}" class="view-all">More <i class="fa fa-angle-right"></i></a> 
+                  <a href="{{url('shop/list/6-greeting-cards/')}}/" class="view-all">More <i class="fa fa-angle-right"></i></a> 
                </div>
                <div class="owl-carousel product-carousel shop-page-carousel position-relative">
                   @foreach($random_greeting_cards as $random_greeting_card)
@@ -266,11 +266,11 @@
                   @endphp
 
                   <div class="product-grid">
-                     <div class="product-image"> <a href="{{url("view-product/".$random_greeting_card["id"]."-".$random_greeting_card["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+                     <div class="product-image"> <a href="{{url("view-product/".$random_greeting_card["id"]."-".$random_greeting_card["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                      <div class="product-content">
-                        <h2 class="title"><a href="{{url("view-product/".$random_greeting_card["id"]."-".$random_greeting_card["custom_url"])}}">{{$random_greeting_card["name1"]}}</a> </h2>
+                        <h2 class="title"><a href="{{url("view-product/".$random_greeting_card["id"]."-".$random_greeting_card["custom_url"])}}/">{{$random_greeting_card["name1"]}}</a> </h2>
                         <div class="price"><i class="fa fa-rupee-sign"></i> {{$random_greeting_card["price"]}}</div>
-                        <a href="{{url("view-product/".$random_greeting_card["custom_url"])}}" class="add-to-cart">Add to Cart</a> 
+                        <a href="{{url("view-product/".$random_greeting_card["custom_url"])}}/" class="add-to-cart">Add to Cart</a> 
                      </div>
                   </div>
 

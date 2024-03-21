@@ -6,7 +6,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-title-box">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item me-2">
-                        <a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{url("/")}}/"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <li class="breadcrumb-item me-2">News</li>                    
                 </ol>
@@ -41,14 +41,14 @@
                <div class="col-md-3 mb-3 d-flex align-items-stretch">
                   <div class="blog-div">
                      <div class="BlogImgDiv blog-image ">
-                        <a href="{{url('media/detail/'.$media_entry["id"]."-".$media_entry["custom_url"])}}"><img src="{{getenv('NEWS_IMAGE_BASE_URL').$media_entry["image"]}}" class="img-fluid" alt="" decoding="async" ></a>
+                        <a href="{{url('media/detail/'.$media_entry["id"]."-".$media_entry["custom_url"])}}/"><img src="{{getenv('NEWS_IMAGE_BASE_URL').$media_entry["image"]}}" class="img-fluid" alt="" decoding="async" ></a>
                      </div>                    
                      <div class="blog-title">
                      <span class="blog-date">	
                            <i class="fas fa-calendar-alt"></i> 
 
                            {{$media_entry["media_date"]." ".$day}}    </span> 		
-                        <h2><a href='{{url("media/detail/".$media_entry["id"]."-".$media_entry["custom_url"])}}' rel="bookmark"> {{$media_entry["title"]}}</a></h2>
+                        <h2><a href='{{url("media/detail/".$media_entry["id"]."-".$media_entry["custom_url"])}}/' rel="bookmark"> {{$media_entry["title"]}}</a></h2>
                      </div>
                      <div class="blog-disc mb-0">
                         <p>

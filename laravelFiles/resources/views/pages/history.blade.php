@@ -4,7 +4,7 @@
     <div class="container-fluid px-lg-2 px-lg-5">
         <nav aria-label="breadcrumb" class="breadcrumb-title-box">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item me-2"><a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a></li>  
+                <li class="breadcrumb-item me-2"><a href="{{url("/")}}/"><i class="fa fa-home"></i> Home</a></li>  
                 <li class="breadcrumb-item me-2" aria-current="page">History</li>
             </ol>
         </nav>
@@ -71,7 +71,7 @@
                                         <select name="historyn" id="historyn" required="" class="form-control" > 
                                             <option value="">Select History</option>
                                             @foreach($histories as $history)
-                                            <option value="{{$history["id"]."-".Str::slug(strtolower($history["title"]))}}">{{$history["title"]}}</option>
+                                            <option value="{{$history["id"]."-".Str::slug(strtolower($history["title"]))}}/">{{$history["title"]}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -88,7 +88,7 @@
                   @foreach($histories as $history)
 
                   <div class="col-lg-2 col-md-4 col-6 info-item-grid-outer-box">
-                     <a href="{{url("history/detail/".$history["id"]."-".Str::slug(strtolower($history["title"])))}}">
+                     <a href="{{url("history/detail/".$history["id"]."-".Str::slug(strtolower($history["title"])))}}/">
                         <div class="info-item-grid-box">
                            <img src="{{getenv("DYNASTY_IMAGE_BASE_URL").$history["image"]}}" class="img-fluid" alt="{{$history["title"]}}">
                            <div class="info-meta text-center">

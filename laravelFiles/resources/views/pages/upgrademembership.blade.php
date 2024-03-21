@@ -6,7 +6,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-title-box">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item me-2">
-                        <a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{url("/")}}/"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <li class="breadcrumb-item me-2">Upgrade Membership</li>                    
                 </ol>
@@ -89,7 +89,7 @@
 </script>
 <script>
 var options = {
-    "key": '{{getenv('RAZOR_KEY')}}', // Enter the Key ID generated from the Dashboard
+    "key": '{{getenv('RAZOR_KEY')}}/', // Enter the Key ID generated from the Dashboard
     "amount": "100", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     "currency": "INR",
     "name": "Mintage World",
@@ -102,14 +102,14 @@ var options = {
         
         $.ajax({
             type: "POST",
-            url: "{{url('upgrade-membership-to-premium')}}",
+            url: "{{url('upgrade-membership-to-premium')}}/",
             data: {
                 "_token" : "{{ csrf_token() }}",
-                "member_id" : '{{session("member_id")}}'
+                "member_id" : '{{session("member_id")}}/'
             },
             success: function (response) {                
                 if (response=="membership-upgrade-successful") {                    
-                    // $("#successMessage").html("Membership upgrade is successful, <a href='{{url("logout")}}'>Logout</a> and login again to enjoy premium access");
+                    // $("#successMessage").html("Membership upgrade is successful, <a href='{{url("logout")}}/'>Logout</a> and login again to enjoy premium access");
                     $("#upgrade_membership_wrap").addClass("d-none");
                     $("#successMessage").addClass("d-block");
                     $("#failureMessage").addClass("d-none");

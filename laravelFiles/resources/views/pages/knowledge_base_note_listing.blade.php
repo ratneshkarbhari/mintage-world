@@ -1,14 +1,14 @@
 <main class="page-content">
-   <section class="inside-banner"><img class="w-100 img-fluid" src="{{url('assets/images/inside-banner/default-banner.jpg')}}" /></section>
+   <section class="inside-banner"><img class="w-100 img-fluid" src="{{url('assets/images/inside-banner/default-banner.jpg')}}/" /></section>
    <section class="breadcrumb-wraper">
       <div class="container-fluid px-lg-2 px-lg-5">
          <nav aria-label="breadcrumb" class="breadcrumb-title-box">
             <ol class="breadcrumb">
                <li class="breadcrumb-item me-2">
-                  <a href="{{url('/')}}"><i class="fa fa-home"></i> Home</a>
+                  <a href="{{url('/')}}/"><i class="fa fa-home"></i> Home</a>
                </li>
                <li class="breadcrumb-item me-2">
-                  <a href="{{url('note/20-india/')}}">Note</a>
+                  <a href="{{url('note/20-india/')}}/">Note</a>
                </li>
                <li class="breadcrumb-item me-2">{{$governor}}</li>
             </ol>
@@ -22,11 +22,11 @@
                <div class="heading-2">Know Your Notes</div>
                <ul class="more-rulers">
                   <ul>
-                     <li><a href="{{url("knowledge-base/governors-of-reserve-bank-of-india/")}}">Governor</a></li>
-                     <li><a href="{{url("knowledge-base/signatory-of-finance-secretary/")}}">Finance Secretary</a></li>
-                     <li><a href="{{url("knowledge-base/note-numbering-system/")}}">Note Numbering</a></li>
-                     <li><a href="{{url("knowledge-base/security-features-on-current-banknotes/")}}">Security Features</a></li>
-                     <li><a href="{{url("knowledge-base/security-features-on-demonetized-banknotes/")}}">Security Features on Demonetized Banknotes</a></li>
+                     <li><a href="{{url("knowledge-base/governors-of-reserve-bank-of-india/")}}/">Governor</a></li>
+                     <li><a href="{{url("knowledge-base/signatory-of-finance-secretary/")}}/">Finance Secretary</a></li>
+                     <li><a href="{{url("knowledge-base/note-numbering-system/")}}/">Note Numbering</a></li>
+                     <li><a href="{{url("knowledge-base/security-features-on-current-banknotes/")}}/">Security Features</a></li>
+                     <li><a href="{{url("knowledge-base/security-features-on-demonetized-banknotes/")}}/">Security Features on Demonetized Banknotes</a></li>
                   </ul>
                </ul>
             </div>
@@ -38,7 +38,7 @@
                      @foreach($notes as $note)
                      <div class="col-md-3 col-sm-3 col-xs-6">
                         <div class="box1 governor">
-                           <a href="{{url('note/detail/'.$note['id'])}}">
+                           <a href="{{url('note/detail/'.$note['id'])}}/">
                               <img src="{{getenv('NOTE_BASE_URL').$note['obverse_image']}}" class="img-fluid" alt="">
                               <div class="box-governor">{{$note['denomination_unit']}} {{$note['denomination']['title']}}</div>
                               <div class="year">1948</div>

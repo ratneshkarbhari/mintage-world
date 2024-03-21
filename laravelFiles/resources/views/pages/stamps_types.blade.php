@@ -9,7 +9,7 @@
             <div class="d-flex justify-content-between"><h2 class="mb-3 heading-1">{{$info_title}}</h2></div>
             <div class="row info-item-grid-row">
                 @foreach($types as $type)
-                <div class="col-lg-2 col-md-6 col-6 info-item-grid-outer-box"><a href="{{url("stamp/list/".$type["id"]."-".Str::slug($type["title"]))}}">
+                <div class="col-lg-2 col-md-6 col-6 info-item-grid-outer-box"><a href="{{url("stamp/list/".$type["id"]."-".Str::slug($type["title"]))}}/">
                     @if(isset($type["image"]))
                     <div class="info-item-grid-box min-h-0"><img class="img-fluid" src="{{getenv("DYNASTY_IMAGE_BASE_URL")."/".$type["image"]}}" alt="{{$type["name"]}}">
                         <div class="info-meta text-center">

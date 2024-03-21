@@ -11,7 +11,7 @@
             {{url($banner['link'])}}
             @endif
             
-            ">
+            /">
                 <img class="img-fluid d-none d-md-block" src="{{url('assets/images/banners/'.$banner['image_landscape'])}}" title="{{$banner['title']}}" alt="{{$banner['alt']}}">
                 <img class="img-fluid d-block d-md-none" src="{{url('assets/images/banners/'.$banner['image_potrait'])}}" title="{{$banner['title']}}" alt="{{$banner['alt']}}">
             </a> 
@@ -66,7 +66,7 @@
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
             <h2 class="mb-3 heading-1">Buy Lighthouse Products</h2>
-            <a href="{{url("/shop/list/11-coin-accessories/")}}" class="view-all">More <i class="fa fa-angle-right"></i></a>
+            <a href="{{url("/shop/list/11-coin-accessories/")}}/" class="view-all">More <i class="fa fa-angle-right"></i></a>
         </div>
         <div class="owl-carousel product-carousel-home  position-relative">
                   
@@ -79,9 +79,9 @@
             @endphp
 
             <div class="product-grid">
-               <div class="product-image"> <a href="{{url("view-product/".$rlh["id"]."-".$rlh["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+               <div class="product-image"> <a href="{{url("view-product/".$rlh["id"]."-".$rlh["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
-                  <h2 class="title"><a href="{{url("view-product/".$rlh["id"]."-".$rlh["custom_url"])}}">{{substr($rlh["name1"],0,40)}}...</a> </h2>
+                  <h2 class="title"><a href="{{url("view-product/".$rlh["id"]."-".$rlh["custom_url"])}}/">{{substr($rlh["name1"],0,40)}}...</a> </h2>
                   @if($rlh["discount"])
                   <div class="price">
                   <span class="me-3">  <i class="fa fa-rupee-sign"></i> {{$rlh["price"]}}</span>
@@ -98,7 +98,7 @@
                   <i class="fa fa-rupee-sign"></i> {{$rlh["price"]}}
                     </div>
                   @endif
-                  <a href="{{url("view-product/".$rlh["custom_url"])}}" class="add-to-cart d-none">Add to Cart</a> 
+                  <a href="{{url("view-product/".$rlh["custom_url"])}}/" class="add-to-cart d-none">Add to Cart</a> 
                </div>
             </div>
 
@@ -112,7 +112,7 @@
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
             <h2 class="mb-3 heading-1">Buy Coins</h2>
-            <a href="{{url("/shop/list/18-buy-coins/")}}" class="view-all">More <i class="fa fa-angle-right"></i></a>
+            <a href="{{url("/shop/list/18-buy-coins/")}}/" class="view-all">More <i class="fa fa-angle-right"></i></a>
         </div>
         <div class="owl-carousel product-carousel-home  position-relative">
                   
@@ -125,9 +125,9 @@
             @endphp
 
             <div class="product-grid">
-               <div class="product-image"> <a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+               <div class="product-image"> <a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
-                  <h2 class="title"><a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}">{{substr($random_coin["name1"],0,40)}}...</a> </h2>
+                  <h2 class="title"><a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}/">{{substr($random_coin["name1"],0,40)}}...</a> </h2>
 
                   @if($random_coin["discount"])
                   <div class="price">
@@ -146,7 +146,7 @@
                     </div>
                   @endif
                   
-                  <a href="{{url("view-product/".$random_coin["custom_url"])}}" class="add-to-cart d-none">Add to Cart</a> 
+                  <a href="{{url("view-product/".$random_coin["custom_url"])}}/" class="add-to-cart d-none">Add to Cart</a> 
                </div>
             </div>
 
@@ -160,7 +160,7 @@
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
             <h2 class="mb-3 heading-1">Buy Notes</h2>
-            <a href="{{url("/shop/list/19-buy-banknotes/")}}" class="view-all">More <i class="fa fa-angle-right"></i></a>
+            <a href="{{url("/shop/list/19-buy-banknotes/")}}/" class="view-all">More <i class="fa fa-angle-right"></i></a>
         </div>
         <div class="owl-carousel product-carousel-home  position-relative">
             @foreach($random_notes as $random_note)
@@ -172,9 +172,9 @@
             @endphp
 
             <div class="product-grid">
-               <div class="product-image"> <a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+               <div class="product-image"> <a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
-                  <h2 class="title"><a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}">{{substr($random_note["name1"],0,40)}}...</a> </h2>
+                  <h2 class="title"><a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}/">{{substr($random_note["name1"],0,40)}}...</a> </h2>
                   
                   @if($random_note["discount"])
                   <div class="price">
@@ -193,7 +193,7 @@
                     </div>
                   @endif
                   
-                  <a href="{{url("view-product/".$random_note["custom_url"])}}" class="add-to-cart d-none">Add to Cart</a> 
+                  <a href="{{url("view-product/".$random_note["custom_url"])}}/" class="add-to-cart d-none">Add to Cart</a> 
                </div>
             </div>
 
@@ -207,7 +207,7 @@
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
             <h2 class="mb-3 heading-1">Buy Accessories</h2>
-            <a href="{{url("/shop/list/2-collectibles-accessories/")}}" class="view-all">More <i class="fa fa-angle-right"></i></a>
+            <a href="{{url("/shop/list/2-collectibles-accessories/")}}/" class="view-all">More <i class="fa fa-angle-right"></i></a>
         </div>
         <div class="owl-carousel product-carousel-home  position-relative">
                   
@@ -221,9 +221,9 @@
             @endphp
 
             <div class="product-grid">
-               <div class="product-image"> <a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+               <div class="product-image"> <a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
-                  <h2 class="title"><a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}">{{substr($random_accessory["name1"],0,40)}}...   </a> </h2>
+                  <h2 class="title"><a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}/">{{substr($random_accessory["name1"],0,40)}}...   </a> </h2>
                   
                   @if($random_accessory["discount"])
                   <div class="price">
@@ -242,7 +242,7 @@
                     </div>
                   @endif
                   
-                  <a href="{{url("view-product/".$random_accessory["custom_url"])}}" class="add-to-cart d-none">Add to Cart</a> 
+                  <a href="{{url("view-product/".$random_accessory["custom_url"])}}/" class="add-to-cart d-none">Add to Cart</a> 
                </div>
             </div>
 
@@ -257,7 +257,7 @@
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
         <div class="d-flex justify-content-between">
             <h2 class="mb-3 heading-1">Buy Stamp</h2>
-            <a href="{{url("/shop/list/16-buy-stamps/")}}" class="view-all">More <i class="fa fa-angle-right"></i></a>
+            <a href="{{url("/shop/list/16-buy-stamps/")}}/" class="view-all">More <i class="fa fa-angle-right"></i></a>
         </div>
         
         <div class="owl-carousel product-carousel-home  position-relative">
@@ -272,9 +272,9 @@
             @endphp
 
             <div class="product-grid">
-               <div class="product-image"> <a href="{{url("view-product/".$random_stamp["id"]."-".$random_stamp["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+               <div class="product-image"> <a href="{{url("view-product/".$random_stamp["id"]."-".$random_stamp["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
-                  <h2 class="title"><a href="{{url("view-product/".$random_stamp["id"]."-".$random_stamp["custom_url"])}}">{{substr($random_stamp["name1"],0,40)}}...</a> </h2>
+                  <h2 class="title"><a href="{{url("view-product/".$random_stamp["id"]."-".$random_stamp["custom_url"])}}/">{{substr($random_stamp["name1"],0,40)}}...</a> </h2>
                   
                   @if($random_stamp["discount"])
                   <div class="price">
@@ -293,7 +293,7 @@
                     </div>
                   @endif
                   
-                  <a href="{{url("view-product/".$random_stamp["custom_url"])}}" class="add-to-cart d-none">Add to Cart</a> 
+                  <a href="{{url("view-product/".$random_stamp["custom_url"])}}/" class="add-to-cart d-none">Add to Cart</a> 
                </div>
             </div>
 
@@ -374,16 +374,16 @@
                     <h2 class="mb-4 heading-1">Information </h2>
                 </div>
                 <div class="nav w-100 nav-pills">
-                    <a class="nav-link w-100 d-flex align-items-center text-start" href="{{url("coins/")}}"> 
+                    <a class="nav-link w-100 d-flex align-items-center text-start" href="{{url("coins/")}}/"> 
                         <h4 class="m-0">Coins</h4>
                     </a>
-                    <a class="nav-link w-100 d-flex align-items-center text-start" href="{{url("notes/")}}"> 
+                    <a class="nav-link w-100 d-flex align-items-center text-start" href="{{url("notes/")}}/"> 
                         <h4 class="m-0">Notes</h4>
                     </a>
-                    <a class="nav-link w-100 d-flex align-items-center text-start" href="{{url("notes/")}}"> 
+                    <a class="nav-link w-100 d-flex align-items-center text-start" href="{{url("notes/")}}/"> 
                         <h4 class="m-0">Stamps</h4>
                     </a>
-                    <a class="nav-link w-100 d-flex align-items-center text-start mb-0 p-0 img-info overflow-hidden" href="{{url("history/")}}"><img src="{{url("assets/img/info-img.jpg")}}" class="img-fluid" alt=""> </a>
+                    <a class="nav-link w-100 d-flex align-items-center text-start mb-0 p-0 img-info overflow-hidden" href="{{url("history/")}}/"><img src="{{url("assets/img/info-img.jpg")}}" class="img-fluid" alt=""> </a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 mb-md-0 mb-3">
@@ -396,7 +396,7 @@
                         @foreach($news_items as $news_item)
 
                         <li>
-                            <a href="{{url("media/detail/".$news_item["id"])}}">
+                            <a href="{{url("media/detail/".$news_item["id"])}}/">
                                 <div class="news-title">{{$news_item["title"]}}</div>
                                 <div class="news-date"><i class="fas fa-calendar-alt"></i> {{$news_item["media_date"]}}</div>
                                 <div class="news-info">{{substr($news_item["description"],0,40)}} ...</div>
@@ -406,14 +406,14 @@
                         @endforeach
 
                         {{-- <li>
-                            <a href="{{url("media/detail/16222/")}}">
+                            <a href="{{url("media/detail/16222/")}}/">
                                 <div class="news-title">The New Age of Philately - NFT Stamps</div>
                                 <div class="news-date"><i class="fas fa-calendar-alt"></i> 22&nbsp;Sep&nbsp;2023</div>
                                 <div class="news-info">The latest trend among Post Offices worldwide is the release of Non-Fungible tokens (NFT) stamps for...</div>
                              </a> 
                         </li>
                         <li>
-                            <a href="{{url("media/detail/16221/")}}">
+                            <a href="{{url("media/detail/16221/")}}/">
                                 <div class="news-title"> Silver Rupee of Independent Kingdom Sikh Empire</div>
                                 <div class="news-date"><i class="fas fa-calendar-alt"></i> 22&nbsp;Sep&nbsp;2023</div>
                                 <div class="news-info">The latest trend among Post Offices worldwide is the release of Non-Fungible tokens (NFT) stamps for...</div>
@@ -428,7 +428,7 @@
                         </li> --}}
                     </ul>                   
                 </div>
-                <div class="text-end d-block" ><a href="{{url("media/")}}" class="view-all">View All <i class="fa fa-angle-right"></i></a></div>
+                <div class="text-end d-block" ><a href="{{url("media/")}}/" class="view-all">View All <i class="fa fa-angle-right"></i></a></div>
                 
 
             </div>  
@@ -447,7 +447,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="text-end d-block" ><a href="{{url("videos/")}}" class="view-all">View All <i class="fa fa-angle-right"></i></a></div>
+                <div class="text-end d-block" ><a href="{{url("videos/")}}/" class="view-all">View All <i class="fa fa-angle-right"></i></a></div>
             </div>            
         </div>
     </div>

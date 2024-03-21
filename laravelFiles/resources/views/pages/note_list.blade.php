@@ -23,7 +23,7 @@
                                 <div id="CatClose" class="categories-close">X</div>
                             </div>
                             <div class="accordion accordion-flush w-100" id="accordionFlushExample">
-                                <form action="{{url("note-info-filter-exe")}}" id="noteFilterForm">
+                                <form action="{{url("note-info-filter-exe")}}/" id="noteFilterForm">
                                 <input type="hidden" name="dynasty_id" value="{{$dynasty["id"]}}">
                                 <input type="hidden" name="denomination_unit" value="{{$notes[0]["denomination_unit"]}}">
                                 <div class="accordion-item">
@@ -81,7 +81,7 @@
                         
                         @foreach($notes as $note)
                         @if($note["obverse_image"]!="")
-                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("note/detail/".$note["id"]."-".$note["denomination_unit"]."-".strtolower($note["denomination_title"]))}}">
+                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("note/detail/".$note["id"]."-".$note["denomination_unit"]."-".strtolower($note["denomination_title"]))}}/">
                                 <div class="info-item-grid-box"><img
                                         src="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}"
                                         class="img-fluid" >
@@ -93,7 +93,7 @@
                             </a>
                         </div>
                         @else
-                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("note/detail/".$note["id"])}}">
+                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("note/detail/".$note["id"])}}/">
                             <div class="info-item-grid-box"><img
                                         src="{{getenv("API_DEFAULT_IMG_PATH")}}"
                                         class="img-fluid" >
@@ -121,14 +121,14 @@
                     <ul class="more-rulers">
 
 
-                        <li><a href="{{url('knowledge-base/governors-of-reserve-bank-of-india/')}}">Governor</a></li>
-                        <li><a href="{{url('knowledge-base/signatory-of-finance-secretary/')}}">Finance Secretary</a></li>
+                        <li><a href="{{url('knowledge-base/governors-of-reserve-bank-of-india/')}}/">Governor</a></li>
+                        <li><a href="{{url('knowledge-base/signatory-of-finance-secretary/')}}/">Finance Secretary</a></li>
 
-                        <li><a href="{{url('knowledge-base/note-numbering-system/')}}">Note Numbering</a></li>
+                        <li><a href="{{url('knowledge-base/note-numbering-system/')}}/">Note Numbering</a></li>
 
-                        <li><a href="{{url('knowledge-base/security-features-on-current-banknotes/')}}">Security Features</a></li>
+                        <li><a href="{{url('knowledge-base/security-features-on-current-banknotes/')}}/">Security Features</a></li>
 
-                        <li><a href="{{url('knowledge-base/security-features-on-demonetized-banknotes/')}}">Security Features on Demonetized Banknotes</a></li>
+                        <li><a href="{{url('knowledge-base/security-features-on-demonetized-banknotes/')}}/">Security Features on Demonetized Banknotes</a></li>
 
 
                     </ul>
@@ -147,7 +147,7 @@
         $("div#noteBox").html("Loading")
         $.ajax({
             type: "GET",
-            url: "{{url("note-info-filter-exe")}}",
+            url: "{{url("note-info-filter-exe")}}/",
             data: $("form#noteFilterForm").serialize(),
             success: function (response) {
                 $("div#noteBox").html(response);

@@ -1,12 +1,12 @@
 <main class="page-content">
-    <section class="inside-banner"><img class="w-100 img-fluid" src="{{url('/assets/images/inside-banner/default-banner.jpg')}}"></section>
+    <section class="inside-banner"><img class="w-100 img-fluid" src="{{url('/assets/images/inside-banner/default-banner.jpg')}}/"></section>
     <section class="breadcrumb-wraper">
         <div class="container-fluid px-lg-2 px-lg-5">
             <nav aria-label="breadcrumb" class="breadcrumb-title-box">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item me-2"><a href="{{url('/')}}"><i class="fa fa-home"></i> Home</a></li>
-                    <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url('/shop')}}">Shopping</a> </li>
-                    <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url('shop/list/'.$product['product_category']['id'].'-'.$product['product_category']['custom_url'])}}">{{$product["product_category"]["cat_name"]}} </a> </li>
+                    <li class="breadcrumb-item me-2"><a href="{{url('/')}}/"><i class="fa fa-home"></i> Home</a></li>
+                    <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url('/shop')}}/">Shopping</a> </li>
+                    <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url('shop/list/'.$product['product_category']['id'].'-'.$product['product_category']['custom_url'])}}/">{{$product["product_category"]["cat_name"]}} </a> </li>
                     <li class="breadcrumb-item me-2" aria-current="page">{{$product["name1"]}} </li>
                 </ol>
             </nav>
@@ -41,7 +41,7 @@
                                 <img src="{{getenv('PRODUCT_EXTRA_IMAGE_BASE_URL').$product_image['image_name']}}" class="img-fluid zoomable__img" 
                                 />
                                 @else
-                                <img src="{{getenv('API_DEFAULT_IMG_PATH')}}" class="img-fluid zoomable__img" 
+                                <img src="{{getenv('API_DEFAULT_IMG_PATH')}}/" class="img-fluid zoomable__img" 
                                 />
                                 @endif
                             </a>
@@ -214,7 +214,7 @@
                             </ul>
                         </div>
                         @if($product["instock"]<1) 
-                        <img src="{{url('/assets/images/out-of-stock.png')}}" class="img-fluid out-of-stock-icon" alt="" />
+                        <img src="{{url('/assets/images/out-of-stock.png')}}/" class="img-fluid out-of-stock-icon" alt="" />
                         @endif
                     </div>
                     
@@ -224,9 +224,9 @@
                         <hr>
                         <p class="d-flex justify-content-between ">
                             <img src="https://www.mintageworld.com/img/note.png" class="img-fluid" alt="">
-                            <img src="{{url('/assets/images/available-icon.png')}}" class="img-fluid available-icon d-none" id="available-icon"  alt="">
-                            <img src="{{url('/assets/images/not-available-icon.png')}}" class="img-fluid available-icon d-none" id="not-available-icon" alt="">
-                            <img src="{{url('/assets/images/available-premium-price-icon.png')}}" class="img-fluid available-icon d-none" id="available-premium-icon" alt="">                           
+                            <img src="{{url('/assets/images/available-icon.png')}}/" class="img-fluid available-icon d-none" id="available-icon"  alt="">
+                            <img src="{{url('/assets/images/not-available-icon.png')}}/" class="img-fluid available-icon d-none" id="not-available-icon" alt="">
+                            <img src="{{url('/assets/images/available-premium-price-icon.png')}}/" class="img-fluid available-icon d-none" id="available-premium-icon" alt="">                           
 
                         </p>
                         
@@ -409,7 +409,7 @@
                     @endif
                     <div class="product-btn-group">
                         @if($product["instock"]>0)
-                        <form action="{{url('add-to-cart')}}" id="addToCartForm" method="POST">
+                        <form action="{{url('add-to-cart')}}/" id="addToCartForm" method="POST">
                             @csrf
                             <div id="atcBox" class="d-flex 
                             @if($product["date_option"]=="Yes")
@@ -439,7 +439,7 @@
                 <div class="notify-me-wraper">
                    <p class="text-success"> <b><i class="fa fa-bell"></i>  Notify Me</b></p>
 
-                   <form id="createInstockNotificationRequest" action="{{url('create-product-instock-notification-request')}}" method="post">
+                   <form id="createInstockNotificationRequest" action="{{url('create-product-instock-notification-request')}}/" method="post">
                      @csrf
                      <input type="hidden" name="pid" value="{{$product['id']}}">
 
@@ -530,9 +530,9 @@
                      <div class="item text-center">
                      
                         <div class="product-grid">
-                           <div class="product-image"> <a href="{{url("view-product/".$related_product["id"]."-".$related_product["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+                           <div class="product-image"> <a href="{{url("view-product/".$related_product["id"]."-".$related_product["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                            <div class="product-content">
-                              <h2 class="title"><a href="{{url("view-product/".$related_product["id"]."-".$related_product["custom_url"])}}">{{$related_product["name1"]}}</a> </h2>
+                              <h2 class="title"><a href="{{url("view-product/".$related_product["id"]."-".$related_product["custom_url"])}}/">{{$related_product["name1"]}}</a> </h2>
                               @if($related_product["discount"])
                               <div class="price"><span class="d-inline-block me-3"><i class="fa fa-rupee-sign"></i> {{$related_product["price"]}}</span>
                                  @php
@@ -567,7 +567,7 @@
                     @endif
                     <h6><b>Write a Review for <span>{{$product["name1"]}}</span></b></h6>
                     <p>Your Comments</p>
-                    <form action="{{url('add-product-rating')}}" method="POST">
+                    <form action="{{url('add-product-rating')}}/" method="POST">
                     @csrf
                     <input type="hidden" name="product_id" value="{{$product['id']}}">
                     <input name="UserName" class="form-control" placeholder="User Name" required="" />
@@ -690,7 +690,7 @@
 
         $.ajax({
             type: "POST",
-            url: "{{url('atc-exe')}}",
+            url: "{{url('atc-exe')}}/",
             data: {
                 "_token": "{{ csrf_token() }}",
                 "pid": {{$product["id"]}},
@@ -702,7 +702,7 @@
 
                      $.ajax({
                         type: "GET",
-                        url: "{{url('fetch-current-cart-count')}}",
+                        url: "{{url('fetch-current-cart-count')}}/",
                         
                         success: function (response) {
 
@@ -743,7 +743,7 @@
 
             $.ajax({
                type: "POST",
-               url: "{{url('check-note-availability')}}",
+               url: "{{url('check-note-availability')}}/",
                data: {
                   "_token": "{{ csrf_token() }}",
                   "date" : dateSelected,

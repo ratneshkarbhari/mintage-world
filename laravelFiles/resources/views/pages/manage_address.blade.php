@@ -5,7 +5,7 @@
          <nav aria-label="breadcrumb" class="breadcrumb-title-box">
             <ol class="breadcrumb">
                <li class="breadcrumb-item me-2">
-                  <a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a>
+                  <a href="{{url("/")}}/"><i class="fa fa-home"></i> Home</a>
                </li>
                <li class="breadcrumb-item me-2">Manage Address</li>
             </ol>
@@ -26,12 +26,12 @@
                         <div id="CatClose" class="categories-close">X</div>
                      </div>
                      <ul class="nav__list">
-                        <li><input type="checkbox" hidden=""><label><a href="{{url("member/dashboard/")}}"><i class="fa fa-user"> </i> Profile</a></label></li>
-                        <li><input type="checkbox" hidden=""><label><a href="{{url("member/membership-detail/")}}"><i class="fa fa-user"> </i> Membership Detail</a></label></li>
-                        <li class="active-li"><input type="checkbox" hidden=""><label><a href="{{url("member/manage-address/")}}"><i class="fa fa-map-marker-alt"> </i> Manage Address</a></label></li>
-                        <li><input type="checkbox" hidden=""><label><a href="{{url("member/change-password/")}}"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></label></li>
-                        <li><input type="checkbox" hidden=""><label><a href="{{url("member/myorders/")}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> My Orders</a></label></li>
-                        <li><input type="checkbox" hidden=""><label><a href="{{url("/")}}"><i class="fa fa-power-off"></i> Logout</a></label></li>
+                        <li><input type="checkbox" hidden=""><label><a href="{{url("member/dashboard/")}}/"><i class="fa fa-user"> </i> Profile</a></label></li>
+                        <li><input type="checkbox" hidden=""><label><a href="{{url("member/membership-detail/")}}/"><i class="fa fa-user"> </i> Membership Detail</a></label></li>
+                        <li class="active-li"><input type="checkbox" hidden=""><label><a href="{{url("member/manage-address/")}}/"><i class="fa fa-map-marker-alt"> </i> Manage Address</a></label></li>
+                        <li><input type="checkbox" hidden=""><label><a href="{{url("member/change-password/")}}/"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></label></li>
+                        <li><input type="checkbox" hidden=""><label><a href="{{url("member/myorders/")}}/"><i class="fa fa-shopping-cart" aria-hidden="true"></i> My Orders</a></label></li>
+                        <li><input type="checkbox" hidden=""><label><a href="{{url("/")}}/"><i class="fa fa-power-off"></i> Logout</a></label></li>
                      </ul>
                   </nav>
                </div>
@@ -82,7 +82,7 @@
                                           Are you Sure?
                                        </div>
                                        <div class="modal-footer">
-                                          <form class="Delete-Address-Form" method="post" action="{{url('delete-address-exe')}}">
+                                          <form class="Delete-Address-Form" method="post" action="{{url('delete-address-exe')}}/">
                                              @csrf
                                              <input type="hidden" name="address_id" value="{{$member_address['id']}}">
                                              <button type="submit" class="btn btn-danger btn-sm">DELETE ADDRESS PERMANENTLY</button>
@@ -100,7 +100,7 @@
                                           <hr>
                                           <div class="add-wraper">
                                              
-                                          <form class="update-additional-address-form" action="{{url('update-additional-address')}}" method="post">
+                                          <form class="update-additional-address-form" action="{{url('update-additional-address')}}/" method="post">
                                                 @csrf
                                                 <input type="hidden" name="address_id" value="{{$member_address['id']}}">
                                                 <div class="row">
@@ -211,7 +211,7 @@
                <hr>
                <form id="createNewAddress" action="{{ url('create-new-address-for-member') }}" method="POST">
                   @csrf
-                  <input type="hidden" name="member_id" value="{{session('member_id')}}">
+                  <input type="hidden" name="member_id" value="{{session('member_id')}}/">
                   <div class="add-wraper">
                      <div class="row">
                         <div class="col-md-6 mb-3">

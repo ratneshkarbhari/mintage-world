@@ -142,7 +142,7 @@
                         
                         @foreach($coins as $coin)
                         @if($coin["obverse_image"]!="")
-                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("coin/detail/".$coin["id"])}}">
+                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("coin/detail/".$coin["id"])}}/">
                                 <div class="info-item-grid-box"><img
                                         src="{{getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"]}}"
                                         class="img-fluid" alt="Tanka | G&amp;G M1 | O">
@@ -153,7 +153,7 @@
                             </a>
                         </div>
                         @else
-                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("coin/detail/".$coin["id"])}}">
+                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("coin/detail/".$coin["id"])}}/">
                             <div class="info-item-grid-box"><img
                                         src="{{getenv("API_DEFAULT_IMG_PATH")}}"
                                         class="img-fluid" alt="{{$coin["denomination"]["title"]}}">
@@ -174,7 +174,7 @@
 
                         @foreach($dynastyRulers as $dynastyRuler)
 
-                        <li><a href="{{url('/coin/list/'.$dynastyRuler["id"])}}">{{$dynastyRuler["title"]}}</a></li>
+                        <li><a href="{{url('/coin/list/'.$dynastyRuler["id"])}}/">{{$dynastyRuler["title"]}}</a></li>
 
                         @endforeach
 

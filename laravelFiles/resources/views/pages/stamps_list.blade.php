@@ -24,7 +24,7 @@
                                 <div id="CatClose" class="categories-close">X</div>
                             </div>
                             <div class="accordion accordion-flush w-100" id="accordionFlushExample">
-                                <form action="{{url("stamp-info-filter-exe")}}" id="stampFilterForm">
+                                <form action="{{url("stamp-info-filter-exe")}}/" id="stampFilterForm">
                                 <input type="hidden" name="dynasty_id" value="{{$dynastyId}}">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="flush-heading1">
@@ -61,7 +61,7 @@
                         
                         @foreach($stamps as $stamp)
                         @if($stamp["obverse_image"]!=""||$stamp["obverse_image"]!="NA")
-                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("stamp/detail/".$stamp["id"]."-".Str::slug($stamp["stamp_name"]))}}">
+                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("stamp/detail/".$stamp["id"]."-".Str::slug($stamp["stamp_name"]))}}/">
                                 <div class="info-item-grid-box">
                                     @if(($stamp["obverse_image"]!=""))
                                     <img
@@ -79,7 +79,7 @@
                             </a>
                         </div>
                         @else
-                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("stamp/detail/".$stamp["id"])}}">
+                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("stamp/detail/".$stamp["id"])}}/">
                             <div class="info-item-grid-box"><img
                                         src="{{getenv("API_DEFAULT_IMG_PATH")}}"
                                         class="img-fluid" alt="{{$stamp["stamp_name"]}}">
@@ -106,7 +106,7 @@
 
                         @foreach($dynasties_in_period as $dip)
 
-                        <li><a href="{{url('/stamp/dynasty/'.$dip["id"])}}">{{$dip["title"]}}</a></li>
+                        <li><a href="{{url('/stamp/dynasty/'.$dip["id"])}}/">{{$dip["title"]}}</a></li>
 
                         @endforeach
 
@@ -125,7 +125,7 @@
         $("div#stampBox").html("Loading")
         $.ajax({
             type: "GET",
-            url: "{{url("stamp-info-filter-exe")}}",
+            url: "{{url("stamp-info-filter-exe")}}/",
             data: $("form#stampFilterForm").serialize(),
             success: function (response) {
                 if(response.status==200){

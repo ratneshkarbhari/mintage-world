@@ -6,7 +6,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-title-box">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item me-2">
-                        <a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{url("/")}}/"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <li class="breadcrumb-item me-2">Membership Detail</li>                    
                 </ol>
@@ -27,12 +27,12 @@
                          <div id="CatClose" class="categories-close">X</div>
                       </div>
                       <ul class="nav__list">                          
-                         <li><input type="checkbox" hidden=""><label><a href="{{url("member/dashboard/")}}"><i class="fa fa-user"> </i> Profile</a></label></li>
-                         <li class="active-li"><input type="checkbox" hidden=""><label><a href="{{url("member/membership-detail/")}}"><i class="fa fa-user"> </i> Membership Detail</a></label></li>
-                         <li><input type="checkbox" hidden=""><label><a href="{{url("member/manage-address/")}}"><i class="fa fa-user"> </i> Manage Address</a></label></li>
-                         <li><input type="checkbox" hidden=""><label><a href="{{url("member/change-password/")}}"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></label></li>
-                         <li><input type="checkbox" hidden=""><label><a href="{{url("member/myorders/")}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> My Orders</a></label></li>
-                         <li><input type="checkbox" hidden=""><label><a href="{{url("/")}}"><i class="fa fa-power-off"></i> Logout</a></label></li> 
+                         <li><input type="checkbox" hidden=""><label><a href="{{url("member/dashboard/")}}/"><i class="fa fa-user"> </i> Profile</a></label></li>
+                         <li class="active-li"><input type="checkbox" hidden=""><label><a href="{{url("member/membership-detail/")}}/"><i class="fa fa-user"> </i> Membership Detail</a></label></li>
+                         <li><input type="checkbox" hidden=""><label><a href="{{url("member/manage-address/")}}/"><i class="fa fa-user"> </i> Manage Address</a></label></li>
+                         <li><input type="checkbox" hidden=""><label><a href="{{url("member/change-password/")}}/"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></label></li>
+                         <li><input type="checkbox" hidden=""><label><a href="{{url("member/myorders/")}}/"><i class="fa fa-shopping-cart" aria-hidden="true"></i> My Orders</a></label></li>
+                         <li><input type="checkbox" hidden=""><label><a href="{{url("/")}}/"><i class="fa fa-power-off"></i> Logout</a></label></li> 
                       </ul>
                    </nav>
                 </div>
@@ -63,7 +63,7 @@
                                  </td>
                                  <td>
                                     @if(session("level")=="Regular")
-                                    <a class="btn btn-sm btn-primary p-0 mb-0 px-2" href="{{url("upgrade-membership")}}" >Update Membership</a>  
+                                    <a class="btn btn-sm btn-primary p-0 mb-0 px-2" href="{{url("upgrade-membership")}}/" >Update Membership</a>  
                                     @else
                                     --
                                     @endif

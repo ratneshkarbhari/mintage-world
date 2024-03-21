@@ -4,8 +4,8 @@
    <div class="container-fluid px-lg-2 px-lg-5">
        <nav aria-label="breadcrumb" class="breadcrumb-title-box">
            <ol class="breadcrumb">
-               <li class="breadcrumb-item me-2"><a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a></li> 
-               <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("/history")}}">History</a></li>
+               <li class="breadcrumb-item me-2"><a href="{{url("/")}}/"><i class="fa fa-home"></i> Home</a></li> 
+               <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("/history")}}/">History</a></li>
                <li class="breadcrumb-item me-2" aria-current="page">{{$dynasty["title"]}}</li>
            </ol>
        </nav>
@@ -69,7 +69,7 @@
                                         <select name="historyn" id="historyn" required="" class="form-control" > 
                                             <option value="">Select History</option>
                                             @foreach($histories_options as $histories_option)
-                                            <option value="{{$histories_option["id"]."-".Str::slug(strtolower($histories_option["title"]))}}">{{$histories_option["title"]}}</option>
+                                            <option value="{{$histories_option["id"]."-".Str::slug(strtolower($histories_option["title"]))}}/">{{$histories_option["title"]}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -90,7 +90,7 @@
                  <div class="mb-3 d-block"></div>
                   @if(session()->has('type'))
                   @if(session("level")=="Regular")
-                    <a class="btn btn-sm btn-explore" href="{{url("upgrade-membership?history=".$history["id"])}}"> 
+                    <a class="btn btn-sm btn-explore" href="{{url("upgrade-membership?history=".$history["id"])}}/"> 
                         <i class="fa fa-download"> Click here to download the complete  </i>
                         <span class="first"></span>
                         <span class="second"></span>
@@ -98,7 +98,7 @@
                         <span class="fourth"></span>
                     </a>
                   @else
-                    <a class="btn btn-sm btn-explore" download href="{{url("history-download/".$history["id"])}}"> 
+                    <a class="btn btn-sm btn-explore" download href="{{url("history-download/".$history["id"])}}/"> 
                         <i class="fa fa-download"> Click here to download the complete history</i>
                         <span class="first"></span>
                         <span class="second"></span>

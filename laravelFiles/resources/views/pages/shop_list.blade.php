@@ -4,13 +4,13 @@
       <div class="container-fluid px-lg-2 px-lg-5">
          <nav aria-label="breadcrumb" class="breadcrumb-title-box">
             <ol class="breadcrumb">
-               <li class="breadcrumb-item me-2"><a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a></li>
-               <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("/shop")}}">Shop</a></li>
+               <li class="breadcrumb-item me-2"><a href="{{url("/")}}/"><i class="fa fa-home"></i> Home</a></li>
+               <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("/shop")}}/">Shop</a></li>
                @isset($grand_parent_category)
-               <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("/shop/list/".$grand_parent_category["id"]."-".Str::slug($grand_parent_category["cat_name"]))}}">{{$grand_parent_category["cat_name"]}}</a></li>
+               <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("/shop/list/".$grand_parent_category["id"]."-".Str::slug($grand_parent_category["cat_name"]))}}/">{{$grand_parent_category["cat_name"]}}</a></li>
                @endisset
                @isset($parent_category)
-               <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("/shop/list/".$parent_category["id"]."-".Str::slug($parent_category["cat_name"]))}}">{{$parent_category["cat_name"]}}</a></li>
+               <li class="breadcrumb-item me-2" aria-current="page"><a href="{{url("/shop/list/".$parent_category["id"]."-".Str::slug($parent_category["cat_name"]))}}/">{{$parent_category["cat_name"]}}</a></li>
                @endisset
                <li class="breadcrumb-item me-2" aria-current="page">{{$category["cat_name"]}}</li>
             </ol>
@@ -149,7 +149,7 @@
             <div class="col-lg-9 col-md-12 mt-md-5 mt-0 mt-lg-0">
                <div class="d-flex justify-content-between col-md-12">
                   <h2 class="mb-3 heading-1">{{$category["cat_name"]}} ({{$totalRecords}}) </h2>
-                  <form id="filterForm" action="{{url("shop/list/".$category["id"]."-".$category["custom_url"])}}" method="GET">
+                  <form id="filterForm" action="{{url("shop/list/".$category["id"]."-".$category["custom_url"])}}/" method="GET">
                      <div class="row product-short-wrap  justify-content-end">
                         <div class="col-md-4">
                            @if($category["id"]==35)
@@ -230,9 +230,9 @@
 
                   <div class="col-lg-3 col-md-6 col-6 mb-3">
                      <div class="product-grid">
-                        <div class="product-image"> <a href="{{url("view-product/".$product["id"]."-".$product["custom_url"])}}" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+                        <div class="product-image"> <a href="{{url("view-product/".$product["id"]."-".$product["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                         <div class="product-content">
-                           <h2 class="title"><a href="{{url("view-product/".$product["id"]."-".$product["custom_url"])}}">{{substr($product["name1"],0,45)}}...</a> </h2>
+                           <h2 class="title"><a href="{{url("view-product/".$product["id"]."-".$product["custom_url"])}}/">{{substr($product["name1"],0,45)}}...</a> </h2>
                            @if($product["discount"])
                            <div class="price"><span class="d-inline-block me-3"><i class="fa fa-rupee-sign"></i> {{$product["price"]}}</span>
                               @php
@@ -248,7 +248,7 @@
                            @endif
                         </div>
 
-                        <a href="{{url("view-product/".$product["custom_url"])}}" class="add-to-cart">Add to Cart</a>
+                        <a href="{{url("view-product/".$product["custom_url"])}}/" class="add-to-cart">Add to Cart</a>
 
                      </div>
                   </div>

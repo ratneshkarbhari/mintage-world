@@ -5,7 +5,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-title-box">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item me-2">
-                        <a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{url("/")}}/"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <li class="breadcrumb-item me-2">Search</li>                    
                 </ol>
@@ -16,7 +16,7 @@
     <section class="common-padding coing-list-wraper">
         <div class="container-fluid  px-lg-2 px-lg-5">
             <div class="d-flex justify-content-between"><h2 class="mb-3 heading-1">Advance Search</h2></div>
-            <form id="detailed-search-form" action="{{url("detailed-search/")}}" method="GET" >
+            <form id="detailed-search-form" action="{{url("detailed-search/")}}/" method="GET" >
                 @csrf
            <div class="row">
             <div class="col-md-3">
@@ -66,7 +66,7 @@
                         @foreach($results as $note)
 
                         @if($note["obverse_image"]!="")
-                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("note/detail/".$note["id"])}}">
+                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("note/detail/".$note["id"])}}/">
                                 <div class="info-item-grid-box"><img
                                         src="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}"
                                         class="img-fluid" >
@@ -78,7 +78,7 @@
                             </a>
                         </div>
                         @else
-                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("note/detail/".$note["id"])}}">
+                        <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("note/detail/".$note["id"])}}/">
                             <div class="info-item-grid-box"><img
                                         src="{{getenv("API_DEFAULT_IMG_PATH")}}"
                                         class="img-fluid" >

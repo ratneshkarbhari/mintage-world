@@ -1,11 +1,11 @@
 <main class="page-content">
-    <section class="inside-banner"><img class="w-100 img-fluid" src="{{url('assets/images/inside-banner/default-banner.jpg')}}" /></section>
+    <section class="inside-banner"><img class="w-100 img-fluid" src="{{url('assets/images/inside-banner/default-banner.jpg')}}/" /></section>
     <section class="breadcrumb-wraper">
         <div class="container-fluid px-lg-2 px-lg-5">
             <nav aria-label="breadcrumb" class="breadcrumb-title-box">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item me-2">
-                        <a href="{{url('/')}}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{url('/')}}/"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <li class="breadcrumb-item me-2">Registration</li>
                 </ol>
@@ -29,7 +29,7 @@
                     </span>
                 </div>
                 <div class="col-md-8 col-xs-12 col-sm-12 login_form ">
-                    <form id="RegForm" action="{{url('registration-exe')}}" class="registrationForm" method="POST" class="form-group">
+                    <form id="RegForm" action="{{url('registration-exe')}}/" class="registrationForm" method="POST" class="form-group">
 
                         @csrf
                         <label for="" class="w-100 mt-md-5 mb-0"><b>First Name</b></label>
@@ -109,7 +109,7 @@
                         <p class="text-danger d-none" id="registrationErrorToShow">Passwords dont match</p>
                         <button type="submit" id="registerButton" class="btn btn-explore disabled">Register <span class="first"></span><span class="second"></span><span class="third"></span><span class="fourth"></span>
                         </button>
-                        <p class="text-center">Aleady a member? <a href="{{url('application/login')}}">Login here</a> </p>
+                        <p class="text-center">Aleady a member? <a href="{{url('application/login')}}/">Login here</a> </p>
                     </form>
                 </div>
             </div>

@@ -6,10 +6,10 @@
             <nav aria-label="breadcrumb" class="breadcrumb-title-box">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item me-2">
-                        <a href="{{url('/')}}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{url('/')}}/"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <li class="breadcrumb-item me-2">
-                        <a href="{{url('videos/')}}">Event Videos</a>
+                        <a href="{{url('videos/')}}/">Event Videos</a>
                     </li>
                     <li class="breadcrumb-item me-2">{{$main_video['title']}}</li>                    
                 </ol>
@@ -40,7 +40,7 @@
                      <ul class="videos-detail-list">
                         @foreach($latest_five_videos as $video)
                         <li>
-                            <a href="{{url('videos/detail/'.$video["id"].'-'.$video["custom_url"])}}">
+                            <a href="{{url('videos/detail/'.$video["id"].'-'.$video["custom_url"])}}/">
                             <h3>{{$video['title']}}</h3>
                             
                             <p>{{substr($video['description'],0,35)}}...</p>
@@ -49,7 +49,7 @@
                         @endforeach
                     </ul>
                   
-                  <div class=""><a href="{{url('videos')}}" class="btn btn-sm btn-primary mt-3">View All</a></div>
+                  <div class=""><a href="{{url('videos')}}/" class="btn btn-sm btn-primary mt-3">View All</a></div>
               </div>
             </div>
        

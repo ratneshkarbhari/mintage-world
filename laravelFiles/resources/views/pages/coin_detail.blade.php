@@ -104,7 +104,7 @@
                     <div class="col-lg-2 col-md-12 col-sm-12 product-history-wrap mt-5 mt-lg-0 mt-md-5 order-lg-3">
                         <h5>History of {{$ruler["title"]}}</h5>
                         {!!$history!!}...
-                        <p><a href="{{url("history/detail/".$dynasty["id"])}}"  class="btn btn-info btn-sm text-white mt-3" target="_blank">Read more</a></p>
+                        <p><a href="{{url("history/detail/".$dynasty["id"])}}/"  class="btn btn-info btn-sm text-white mt-3" target="_blank">Read more</a></p>
                     </div>
 
                 @endif
@@ -182,7 +182,7 @@
         let comment = $("textarea#comment-text").val();
         $.ajax({
             type: "POST",
-            url: "{{url('create-info-comment')}}",
+            url: "{{url('create-info-comment')}}/",
             data: {
                 "_token" : "{{ csrf_token() }}",
                 "feedback_id" : 1,

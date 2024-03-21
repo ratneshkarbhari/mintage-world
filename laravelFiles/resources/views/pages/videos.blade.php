@@ -5,7 +5,7 @@
          <nav aria-label="breadcrumb" class="breadcrumb-title-box">
             <ol class="breadcrumb">
                <li class="breadcrumb-item me-2">
-                  <a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a>
+                  <a href="{{url("/")}}/"><i class="fa fa-home"></i> Home</a>
                </li>
                <li class="breadcrumb-item me-2">Event Videos</li>
             </ol>
@@ -27,7 +27,7 @@
                      <iframe class="iframevideo" height="220" width="100%" src="{{$video['image']}}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
                   </div>
                   <div class="blog-title">
-                     <h2><a href="{{url('videos/detail/'.$video["id"].'-'.$video['custom_url'])}}">{{$video['title']}}</a></h2>
+                     <h2><a href="{{url('videos/detail/'.$video["id"].'-'.$video['custom_url'])}}/">{{$video['title']}}</a></h2>
                   </div>
                </div>
             </div>

@@ -22,42 +22,42 @@
                 </div>
                 <div class="col">
                     <h4 class="text-light mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="{{url("/")}}">Home</a>
-                    <a class="btn btn-link" href="{{url("content/about-us/")}}">About Us</a>
-                    <a class="btn btn-link" href="{{url("media/")}}">News</a>
+                    <a class="btn btn-link" href="{{url("/")}}/">Home</a>
+                    <a class="btn btn-link" href="{{url("content/about-us/")}}/">About Us</a>
+                    <a class="btn btn-link" href="{{url("media/")}}/">News</a>
                     <a class="btn btn-link" href="https://www.mintageworld.com/blog/" target="_blank">Blogs</a>
-                    <a class="btn btn-link" href="{{url("contact")}}">Contact Us</a>
+                    <a class="btn btn-link" href="{{url("contact")}}/">Contact Us</a>
 
                     
                 </div>
                 <div class="col">
                     <h4 class="text-light mb-4 d-md-block">&nbsp;</h4>
-                    {{-- <a class="btn btn-link" href="{{url("history")}}">My Collection</a> --}}
-                    <a class="btn btn-link" href="{{url("coins/")}}">Coins</a>
-                    <a class="btn btn-link" href="{{url("notes/")}}">Notes</a>
-                    <a class="btn btn-link" href="{{url("stamp/")}}">Stamps</a>
-                    <a class="btn btn-link" href="{{url("history/")}}">History</a>
-                    <a class="btn btn-link" href="{{url("event/")}}">Fairs and Exhibitions</a>
+                    {{-- <a class="btn btn-link" href="{{url("history")}}/">My Collection</a> --}}
+                    <a class="btn btn-link" href="{{url("coins/")}}/">Coins</a>
+                    <a class="btn btn-link" href="{{url("notes/")}}/">Notes</a>
+                    <a class="btn btn-link" href="{{url("stamp/")}}/">Stamps</a>
+                    <a class="btn btn-link" href="{{url("history/")}}/">History</a>
+                    <a class="btn btn-link" href="{{url("event/")}}/">Fairs and Exhibitions</a>
                     
 
                 </div>              
                 <div class="col">
                     <h4 class="text-light mb-4 d-none d-md-block">&nbsp;</h4>
-                    <a class="btn btn-link" href="{{url("content/career/")}}">Career</a>
-                    <a class="btn btn-link" href="{{url("story/")}}">Story of the Week</a>
-                    <a class="btn btn-link" href="{{url("content/photopro/")}}">PhotoPro</a>
-                    <a class="btn btn-link" href="{{url("videos/")}}">Event Videos</a> 
-                    <a class="btn btn-link" href="{{url("content/courtesy/")}}">Courtesy</a> 
+                    <a class="btn btn-link" href="{{url("content/career/")}}/">Career</a>
+                    <a class="btn btn-link" href="{{url("story/")}}/">Story of the Week</a>
+                    <a class="btn btn-link" href="{{url("content/photopro/")}}/">PhotoPro</a>
+                    <a class="btn btn-link" href="{{url("videos/")}}/">Event Videos</a> 
+                    <a class="btn btn-link" href="{{url("content/courtesy/")}}/">Courtesy</a> 
                     
                 </div>
                 <div class="col">
                     <h4 class="text-light mb-4 d-none d-md-block">&nbsp;</h4>
-                    <a class="btn btn-link" href="{{url("knowledge-base/")}}">Knowledge Base</a> 
-                    <a class="btn btn-link" href="{{url("content/disclaimer/")}}">Disclaimer</a>
-                    <a class="btn btn-link" href="{{url("content/privacy/")}}">Privacy Policy</a>
-                    <a class="btn btn-link" href="{{url("content/term/")}}">Terms of Use</a>
-                    <a class="btn btn-link" href="{{url("content/return/")}}">Return Policy</a>
-                    <a class="btn btn-link" href="{{url("content/sitemap/")}}">Sitemap</a>
+                    <a class="btn btn-link" href="{{url("knowledge-base/")}}/">Knowledge Base</a> 
+                    <a class="btn btn-link" href="{{url("content/disclaimer/")}}/">Disclaimer</a>
+                    <a class="btn btn-link" href="{{url("content/privacy/")}}/">Privacy Policy</a>
+                    <a class="btn btn-link" href="{{url("content/term/")}}/">Terms of Use</a>
+                    <a class="btn btn-link" href="{{url("content/return/")}}/">Return Policy</a>
+                    <a class="btn btn-link" href="{{url("content/sitemap/")}}/">Sitemap</a>
                 </div>
             </div>
             <div class="row">
@@ -74,7 +74,7 @@
                 <path
                     d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
             </svg>
-            <form action="{{url('universal-search-exe')}}" method="GET">
+            <form action="{{url('universal-search-exe')}}/" method="GET">
             <input id="search-input" name="q" type="text" required placeholder="Search..." />
             </form>
         </div>
@@ -97,12 +97,12 @@
                     <h2 class="mt-3 mb-3 text-center">Sign In</h2>
                     <p class="text-danger text-center" id="loginError"></p>
                     @if(!isset($is_login))
-                    <form action="{{url("coin-info-filter-exe")}}" id="memberLoginForm">                        
+                    <form action="{{url("coin-info-filter-exe")}}/" id="memberLoginForm">                        
                         @csrf
                         <input type="text" name="username" id="login-username" class="form__input" placeholder="Username">
                         <input type="password" name="password" id="login-password" class="form__input mb-1" placeholder="Password">
                         <span class="small text-end d-block w-100">
-                        <a href="{{url("member/forgotpassword/")}}"> Forgot password?</a> </span>
+                        <a href="{{url("member/forgotpassword/")}}/"> Forgot password?</a> </span>
                         <button type="button" class="btn" id="loginButton">Login</button>
                     </form>
                     @endif
@@ -114,7 +114,7 @@
                             
                             $.ajax({
                                 type: "POST",
-                                url: '{{url("member-login-exe")}}',
+                                url: '{{url("member-login-exe")}}/',
                                 data: {
                                     "_token": "{{ csrf_token() }}",
 
@@ -123,9 +123,9 @@
                                 },
                                 success: function (response) {
                                     if (response=="login-success") {
-                                        window.location.replace('{{url("member/dashboard")}}');
+                                        window.location.replace('{{url("member/dashboard")}}/');
                                     }else if(response=="redirect-to-email-verif"){
-                                        window.location.replace("{{url('verify-email-page')}}");
+                                        window.location.replace("{{url('verify-email-page')}}/");
                                     }else{
                                         $("p#loginError").html("Email or password is incorrect");
                                     }
@@ -133,7 +133,7 @@
                             });
                         });
                     </script>
-                    <p class="mb-4">Don't have an account? <a href="{{url("member/")}}">Register Here</a></p>
+                    <p class="mb-4">Don't have an account? <a href="{{url("member/")}}/">Register Here</a></p>
                 </div>
                 </div>
             </div>
@@ -152,11 +152,11 @@ $cartCount = session("cart_count");
     0
 @endif</span> </a></li>
             @if(session("member_id"))
-            <li><a href="{{url("member/dashboard")}}" title="Sign in"><i class="fas fa-user-cog"></i></a></li>
-            <li><a href="{{url("/logout")}}" title="Login"><i class="fas fa-sign-out-alt"></i></a></li>
+            <li><a href="{{url("member/dashboard")}}/" title="Sign in"><i class="fas fa-user-cog"></i></a></li>
+            <li><a href="{{url("/logout")}}/" title="Login"><i class="fas fa-sign-out-alt"></i></a></li>
             @else 
-            {{-- <li><a href="{{url("member/")}}" title="Sign in"><i class="fa fa-user"></i></a></li> --}}
-            <li><a href="{{url("application/login/")}}" title="Login"><i class="fa fa-lock"></i></a></li>
+            {{-- <li><a href="{{url("member/")}}/" title="Sign in"><i class="fa fa-user"></i></a></li> --}}
+            <li><a href="{{url("application/login/")}}/" title="Login"><i class="fa fa-lock"></i></a></li>
             @endif
            
             <li><a href="#" title="search" id="footerSearch"><i class="fa fa-search"></i></a></li>
@@ -193,21 +193,21 @@ $cartCount = session("cart_count");
     <!-- JavaScript Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
     {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> --}}
-    <script src="{{url("assets/lib/wow/wow.min.js")}}"></script>
-    <script src="{{url("assets/lib/easing/easing.min.js")}}"></script>
-    <script src="{{url("assets/lib/waypoints/waypoints.min.js")}}"></script>
-    <script src="{{url("assets/lib/counterup/counterup.min.js")}}"></script>
-    <script src="{{url("assets/lib/owlcarousel/owl.carousel.min.js")}}"></script>
+    <script src="{{url("assets/lib/wow/wow.min.js")}}/"></script>
+    <script src="{{url("assets/lib/easing/easing.min.js")}}/"></script>
+    <script src="{{url("assets/lib/waypoints/waypoints.min.js")}}/"></script>
+    <script src="{{url("assets/lib/counterup/counterup.min.js")}}/"></script>
+    <script src="{{url("assets/lib/owlcarousel/owl.carousel.min.js")}}/"></script>
 
     <!-- Template Javascript -->
-    <script type="text/javascript" src="{{url("assets/js/stellarnav.min.js")}}"></script>    
-    <script src="{{url("assets/js/main.js")}}"></script>   
-    <script src="{{url("assets/js/baguetteBox.min.js")}}"></script>
+    <script type="text/javascript" src="{{url("assets/js/stellarnav.min.js")}}/"></script>    
+    <script src="{{url("assets/js/main.js")}}/"></script>   
+    <script src="{{url("assets/js/baguetteBox.min.js")}}/"></script>
     <script>
         baguetteBox.run('.tz-gallery');
     </script>
-     <script src="{{url("assets/js/thumb-carousel.js")}}"></script>
-     <script src="{{url("assets/js/image-zoom.js")}}"></script>
+     <script src="{{url("assets/js/thumb-carousel.js")}}/"></script>
+     <script src="{{url("assets/js/image-zoom.js")}}/"></script>
 
     <script>
 function sethref()  

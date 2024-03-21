@@ -5,7 +5,7 @@
           <nav aria-label="breadcrumb" class="breadcrumb-title-box">
              <ol class="breadcrumb">
                 <li class="breadcrumb-item me-2">
-                   <a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a>
+                   <a href="{{url("/")}}/"><i class="fa fa-home"></i> Home</a>
                 </li>
                 <li class="breadcrumb-item me-2">Media Coverage</li>
              </ol>
@@ -59,13 +59,12 @@
                                     <div class="row">
                                        <div class="col-md-3">
 
-                                          {{-- {{json_encode($media_coverage_item["pdf"])}} --}}
 
                                           <ul class="pdf-list">
                                           
                                           @foreach($media_coverage_item["pdf"] as $pdfFile)
 
-                                          <li><a class="view-pdf" href="{{url($pdfFile["pdf_url"])}}">{{$pdfFile["publication_name"]}}</a></li>
+                                          <li><a class="view-pdf" mciId="{{$media_coverage_item['id']}}" href="{{url($pdfFile["pdf_url"])}}">{{$pdfFile["publication_name"]}}</a></li>
 
                                           @endforeach
 
@@ -73,7 +72,7 @@
                                        </div>
                                        <div class="col-md-9">
                                           <div class="pdf-content">
-                                             <embed src="{{url($media_coverage_item["pdf"][0]["pdf_url"])}}" id="pdf_viewer" width="100%" height="650px" type="application/pdf">
+                                             <embed src="{{url($media_coverage_item["pdf"][0]["pdf_url"])}}" id="pdf_viewer-{{$media_coverage_item['id']}}" width="100%" height="650px" type="application/pdf">
                                           </div>
                                        </div>
                                     </div>
@@ -178,7 +177,8 @@
     $(function () {
       $(".view-pdf").on("click", function () {
         var pdf_link = $(this).attr("href");
-        var pdf_viewer = document.getElementById("pdf_viewer");
+        var mediaCovItemId = $(this).attr("mciID");
+        var pdf_viewer = document.getElementById("pdf_viewer-"+mediaCovItemId);
         $(pdf_viewer).attr("src", pdf_link);
         return false;
       });

@@ -35,7 +35,7 @@
                             </a>
                         </div>
                         <span class="small text-end d-block w-100  mb-3">
-                        <a href="{{url('member/forgotpassword')}}"> Forgot password?</a> </span>
+                        <a href="{{url('member/forgotpassword')}}/"> Forgot password?</a> </span>
                         <button type="button" class="btn btn-primary w-100" id="adminLoginButton">Login</button>
                     </form>
                 </div>            
@@ -50,7 +50,7 @@
 
         $.ajax({
             type: "POST",
-            url: "{{url('admin-login-exe')}}",
+            url: "{{url('admin-login-exe')}}/",
             data: {
                 "_token": "{{ csrf_token() }}",
                 "admin_username" : $("input#admin-login-username").val(),
@@ -62,7 +62,7 @@
 
                 if (response=="login-success") {
                     
-                    window.location.replace("{{url("admin/dashboard")}}");
+                    window.location.replace("{{url("admin/dashboard")}}/");
                     
                 } else {
                     

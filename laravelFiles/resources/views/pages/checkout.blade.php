@@ -115,9 +115,9 @@
                                           <h4 class="text-start mb-3">Edit Address</h4>
                                           <hr>
                                           <div class="add-wraper">
-                                             <form class="update-member-address-form" action="{{url('update-member-address')}}" method="post">
+                                             <form class="update-member-address-form" action="{{url('update-member-address')}}/" method="post">
                                                 @csrf
-                                                <input type="hidden" name="member_id" value="{{session('member_id')}}">
+                                                <input type="hidden" name="member_id" value="{{session('member_id')}}/">
                                                 <div class="row">
                                                    <div class="col-md-6 mb-3 d-none">
                                                       <label for="inputName">First Name</label>
@@ -229,7 +229,7 @@
                                           <h4 class="text-start mb-3">Edit Address</h4>
                                           <hr>
                                           <div class="add-wraper">
-                                             <form class="update-additional-address-form" action="{{url('update-additional-address')}}" method="post">
+                                             <form class="update-additional-address-form" action="{{url('update-additional-address')}}/" method="post">
                                                 @csrf
                                                 <input type="hidden" name="address_id" value="{{$address['id']}}">
                                                 <div class="row">
@@ -333,7 +333,7 @@
                                           Are you Sure?
                                        </div>
                                        <div class="modal-footer">
-                                          <form class="Delete-Address-Form" method="post" action="{{url('delete-address-exe')}}">
+                                          <form class="Delete-Address-Form" method="post" action="{{url('delete-address-exe')}}/">
                                              @csrf
                                              <input type="hidden" name="address_id" value="{{$address['id']}}">
                                              <button type="submit" class="btn btn-danger btn-sm">DELETE ADDRESS PERMANENTLY</button>
@@ -384,9 +384,9 @@
                                           <h4 class="text-start mb-3">Edit Address</h4>
                                           <hr>
                                           <div class="add-wraper">
-                                             <form class="update-member-address-form" action="{{url('update-member-address')}}" method="post">
+                                             <form class="update-member-address-form" action="{{url('update-member-address')}}/" method="post">
                                                 @csrf
-                                                <input type="hidden" name="member_id" value="{{session('member_id')}}">
+                                                <input type="hidden" name="member_id" value="{{session('member_id')}}/">
                                                 <div class="row">
                                                    <div class="col-md-6 mb-3 d-none">
                                                       <label for="inputName">First Name</label>
@@ -501,7 +501,7 @@
                                           <h4 class="text-start mb-3">Edit Address</h4>
                                           <hr>
                                           <div class="add-wraper">
-                                             <form class="update-additional-address-form" action="{{url('update-additional-address')}}" method="post">
+                                             <form class="update-additional-address-form" action="{{url('update-additional-address')}}/" method="post">
                                                 @csrf
                                                 <input type="hidden" name="address_id" value="{{$address['id']}}">
                                                 <div class="row">
@@ -606,7 +606,7 @@
                                           Are you Sure?
                                        </div>
                                        <div class="modal-footer">
-                                          <form class="Delete-Address-Form" method="post" action="{{url('delete-address-exe')}}">
+                                          <form class="Delete-Address-Form" method="post" action="{{url('delete-address-exe')}}/">
                                              @csrf
                                              <input type="hidden" name="address_id" value="{{$address['id']}}">
                                              <button type="submit" class="btn btn-danger btn-sm">DELETE ADDRESS PERMANENTLY</button>
@@ -717,7 +717,7 @@
                <hr>
                <form id="createNewAddress" action="{{ url('create-new-address-for-member') }}" method="POST">
                   @csrf
-                  <input type="hidden" name="member_id" value="{{session('member_id')}}">
+                  <input type="hidden" name="member_id" value="{{session('member_id')}}/">
                   <div class="add-wraper">
                      <div class="row">
                         <div class="col-md-6 mb-3">
@@ -894,8 +894,7 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
    var options = {
-      "key": '{{getenv('
-      RAZOR_KEY ')}}', // Enter the Key ID generated from the Dashboard
+      "key": '{{getenv('RAZOR_KEY ')}}', // Enter the Key ID generated from the Dashboard
       "amount": "{{$payable*100}}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
       "currency": "INR",
       "name": "Mintage World",
@@ -909,7 +908,7 @@
 
          $.ajax({
             type: "POST",
-            url: "{{url('place-order-exe')}}",
+            url: "{{url('place-order-exe')}}/",
             data: {
                "_token": "{{ csrf_token() }}",
                "orderid" : $("input#orderid").val(),
@@ -918,7 +917,7 @@
             },
             success: function(response) {
 
-               window.location.replace('{{url("payment-successful")}}');
+               window.location.replace('{{url("payment-successful")}}/');
 
 
 
@@ -931,7 +930,7 @@
 
             $.ajax({
                type: "POST",
-               url: "{{url('update-order-exe')}}",
+               url: "{{url('update-order-exe')}}/",
                data: {
                   "_token": "{{ csrf_token() }}",
                   "orderid": $("input#orderid").val(),
@@ -968,7 +967,7 @@
 
       $.ajax({
          type: "POST",
-         url: "{{url('create-order-exe')}}",
+         url: "{{url('create-order-exe')}}/",
          data: {
          "_token": "{{ csrf_token() }}",
 

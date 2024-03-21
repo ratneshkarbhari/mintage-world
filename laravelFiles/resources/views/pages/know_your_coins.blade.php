@@ -6,10 +6,10 @@
             <nav aria-label="breadcrumb" class="breadcrumb-title-box">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item me-2">
-                        <a href="{{url("/")}}"><i class="fa fa-home"></i> Home</a>
+                        <a href="{{url("/")}}/"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <li class="breadcrumb-item me-2">
-                        <a href="{{url("knowledge-base/")}}">Knowledge Base</a>
+                        <a href="{{url("knowledge-base/")}}/">Knowledge Base</a>
                     </li>                              
                     <li class="breadcrumb-item me-2">Know Your Coins</li>                    
                 </ol>

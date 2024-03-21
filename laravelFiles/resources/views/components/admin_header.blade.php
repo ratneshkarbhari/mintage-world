@@ -24,7 +24,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
 
-    <link href="{{url('assets/admin/css/select2.min.css')}}" rel="stylesheet" />
+    <link href="{{url('assets/admin/css/select2.min.css')}}/" rel="stylesheet" />
 
     
     <!-- for admin theam colour change  -->
@@ -33,23 +33,23 @@
     <!-- for admin theam colour change  -->
 
 
-    <link rel="stylesheet" type="text/css"  href="{{url('assets/admin/css/jquery.dataTables.min.css')}}" >
-    <link rel="stylesheet" type="text/css"  href="{{url('assets/admin/css/buttons.dataTables.min.css')}}" > 
+    <link rel="stylesheet" type="text/css"  href="{{url('assets/admin/css/jquery.dataTables.min.css')}}/" >
+    <link rel="stylesheet" type="text/css"  href="{{url('assets/admin/css/buttons.dataTables.min.css')}}/" > 
 
 
 
     <!-- Customized Bootstrap Stylesheet -->
     <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
-    <link rel="stylesheet" href="{{url('assets/admin/css/bootstrap.min.css')}}" /> 
-    <link rel="stylesheet" href="{{url('assets/admin/css/datepicker.css')}}" /> 
+    <link rel="stylesheet" href="{{url('assets/admin/css/bootstrap.min.css')}}/" /> 
+    <link rel="stylesheet" href="{{url('assets/admin/css/datepicker.css')}}/" /> 
 
 
 
     <!--only for admin css  -->
-    <link href="{{url('assets/admin/css/dashboard.css')}}" rel="stylesheet">
+    <link href="{{url('assets/admin/css/dashboard.css')}}/" rel="stylesheet">
   
-    <script src="{{url('assets/admin/js/jquery-3.4.1.min.js')}}"    ></script>
+    <script src="{{url('assets/admin/js/jquery-3.4.1.min.js')}}/"    ></script>
 
 </head>
 
@@ -187,7 +187,7 @@
     </svg>
 
     <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white bg-dark" href="{{url('admin/dashboard/')}}">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white bg-dark" href="{{url('admin/dashboard/')}}/">
             <img src="https://www.mintageworld.com/public/img/logo.png" alt="" class="img-fluid">
             <!-- <span>Mintage World</span> -->
         </a>
@@ -197,7 +197,7 @@
                     My Account
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{{url('logout')}}">Log Out</a></li>
+                    <li><a class="dropdown-item" href="{{url('logout')}}/">Log Out</a></li>
                 </ul>
             </li>
             <li class="nav-item text-nowrap d-md-none">
@@ -220,7 +220,7 @@
                     aria-labelledby="sidebarMenuLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="sidebarMenuLabel">
-                            <a href="{{url('admin/dashboard')}}">
+                            <a href="{{url('admin/dashboard')}}/">
                                 <img src="https://www.mintageworld.com/public/img/logo.png" alt="" class="img-fluid"
                                     style="width:100px">
                                 <!-- <span class="">Mintage World</span> -->
@@ -232,7 +232,7 @@
                     <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
                         <ul class="list-unstyled ps-0">
                             <li class="">
-                                <a href="{{url('admin/dashboard')}}" class="">Dashboard</a>
+                                <a href="{{url('admin/dashboard')}}/" class="">Dashboard</a>
                             </li>
 
                             <li class="d-none">
@@ -254,15 +254,15 @@
                                 </button>
                                 <div class="collapse" id="dashboard-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal small">
-                                        <li><a href="{{url('admin/manage-product-categories/')}}"
+                                        <li><a href="{{url('admin/manage-product-categories/')}}/"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Product Categories
                                             </a>
                                         </li>
-                                        <li><a href="{{url('admin/manage-products/')}}"
+                                        <li><a href="{{url('admin/manage-products/')}}/"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Products
                                             </a>
                                         </li>
-                                        <li><a href="{{url('admin/manage-orders/')}}"
+                                        <li><a href="{{url('admin/manage-orders/')}}/"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Orders
                                             </a>
                                         </li>
@@ -277,26 +277,26 @@
                                 <div class="collapse" id="home-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal small">
                                         <li>
-                                            <a href="{{url('admin/manage-coins/')}}"
+                                            <a href="{{url('admin/manage-coins/')}}/"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Coins</a>
                                         </li>
                                         <li>
-                                            <a href="{{url('admin/manage-notes/')}}"
+                                            <a href="{{url('admin/manage-notes/')}}/"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Notes
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{url('admin/manage-stamps/')}}"
+                                            <a href="{{url('admin/manage-stamps/')}}/"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Stamps
                                             </a>
                                         </li>
                                         <!-- <li>
-                                            <a href="{{url('admin/manage-bulk-upload/')}}"
+                                            <a href="{{url('admin/manage-bulk-upload/')}}/"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Bulk Upload
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{url('admin/manage-bulk-images-upload/')}}"
+                                            <a href="{{url('admin/manage-bulk-images-upload/')}}/"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Bulk Images Upload
                                             </a>
                                         </li> -->
@@ -308,45 +308,45 @@
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#product-category-collapse" aria-expanded="false">Information Attributes</button>
                                 <div class="collapse" id="product-category-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li><a href="{{url('admin/manage-product-category/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Denomination</a></li>
-                                        {{-- <li><a href="{{url('admin/manage-product-category/1-denomination/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Denomination</a></li> --}}
-                                        <li><a href="{{url('admin/manage-product-category/2-shape/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Shape</a></li>
-                                        <li><a href="{{url('admin/manage-product-category/3-metal/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Metal</a></li>
-                                        <li><a href="{{url('admin/manage-product-category/4-rarity/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Rarity</a></li>
-                                        <li><a href="{{url('admin/manage-product-category/5-minting-technique/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Minting Technique</a></li>
-                                        <li><a href="{{url('admin/manage-product-category/6-calender-system/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Calender System</a></li> 
+                                        <li><a href="{{url('admin/manage-product-category/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Denomination</a></li>
+                                        {{-- <li><a href="{{url('admin/manage-product-category/1-denomination/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Denomination</a></li> --}}
+                                        <li><a href="{{url('admin/manage-product-category/2-shape/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Shape</a></li>
+                                        <li><a href="{{url('admin/manage-product-category/3-metal/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Metal</a></li>
+                                        <li><a href="{{url('admin/manage-product-category/4-rarity/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Rarity</a></li>
+                                        <li><a href="{{url('admin/manage-product-category/5-minting-technique/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Minting Technique</a></li>
+                                        <li><a href="{{url('admin/manage-product-category/6-calender-system/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Calender System</a></li> 
                                         <li>
-                                            <a href="{{url('admin/manage-period/')}}"
+                                            <a href="{{url('admin/manage-period/')}}/"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Period</a>
                                         </li>
                                         <li>
-                                            <a href="{{url('admin/manage-dynasty/')}}"
+                                            <a href="{{url('admin/manage-dynasty/')}}/"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Dynasty
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{url('admin/manage-ruler/')}}"
+                                            <a href="{{url('admin/manage-ruler/')}}/"
                                                 class="link-body-emphasis d-inline-flex text-decoration-none ">Ruler / Authority
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
-                            {{-- <li class=""><a href="{{url('admin/manage-history/')}}" class="">History</a></li>
-                            <li class=""><a href="{{url('admin/manage-enquiry/')}}" class="">Enquiry</a></li> 
+                            {{-- <li class=""><a href="{{url('admin/manage-history/')}}/" class="">History</a></li>
+                            <li class=""><a href="{{url('admin/manage-enquiry/')}}/" class="">Enquiry</a></li> 
                             <li class="">
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#seo-collapse" aria-expanded="false">Manage SEO</button>
                                 <div class="collapse" id="seo-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li><a href="{{url('admin/manage-seo/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Periods</a></li>
-                                       <li><a href="{{url('admin/manage-seo/1-periods/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Periods</a></li>
-                                        <li><a href="{{url('admin/manage-seo/2-dynasty/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Dynasty</a></li>
-                                        <li><a href="{{url('admin/manage-seo/3-rulers/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Rulers</a></li>
-                                        <li><a href="{{url('admin/manage-seo/4-coins/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Coins</a></li>
-                                        <li><a href="{{url('admin/manage-seo/5-notes/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Notes</a></li>
-                                        <li><a href="{{url('admin/manage-seo/6-stamps/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Stamps</a></li>
-                                        <li><a href="{{url('admin/manage-seo/7-history/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">History</a></li>
-                                        <li><a href="{{url('admin/manage-seo/8-country/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Country</a></li>
+                                        <li><a href="{{url('admin/manage-seo/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Periods</a></li>
+                                       <li><a href="{{url('admin/manage-seo/1-periods/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Periods</a></li>
+                                        <li><a href="{{url('admin/manage-seo/2-dynasty/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Dynasty</a></li>
+                                        <li><a href="{{url('admin/manage-seo/3-rulers/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Rulers</a></li>
+                                        <li><a href="{{url('admin/manage-seo/4-coins/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Coins</a></li>
+                                        <li><a href="{{url('admin/manage-seo/5-notes/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Notes</a></li>
+                                        <li><a href="{{url('admin/manage-seo/6-stamps/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Stamps</a></li>
+                                        <li><a href="{{url('admin/manage-seo/7-history/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">History</a></li>
+                                        <li><a href="{{url('admin/manage-seo/8-country/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Country</a></li>
                                     </ul>
                                 </div>
                             </li> --}}
@@ -355,19 +355,19 @@
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">Content Management</button>
                                 <div class="collapse" id="orders-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li><a href="{{url('admin/manage-banners/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Banner</a></li>
-                                        {{-- <li><a href="{{url('admin/manage-video/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Event Videos</a></li>
-                                        <li><a href="{{url('admin/manage-story-week/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Story of the week</a></li>
-                                        <li><a href="{{url('admin/manage-media-coverage/')}}" class="link-body-emphasis d-inline-flex text-decoration-none ">Media Coverage</a></li> --}}
-                                        <li><a href="{{url('admin/manage-events/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Events</a></li>
-                                        <li><a href="{{url('admin/manage-news/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">News</a></li>
-                                        <li><a href="{{url('admin/manage-media-coverage/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Media Coverage</a></li>
-                                        <li class="d-none"><a href="{{url('admin/manage-career/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Career</a></li>
-                                        <li class="d-none"><a href="{{url('admin/manage-auction/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Auction</a></li>
-                                        {{-- <li><a href="{{url('admin/manage-key-events/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Key Events</a></li> --}}
-                                        <li><a href="{{url('admin/manage-feedback/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Feedback</a></li>
-                                        <li><a href="{{url('admin/manage-review/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Review</a></li>
-                                        {{-- <li><a href="{{url('admin/manage-coupon/')}}" class="link-body-emphasis d-inline-flex text-decoration-none">Coupon</a></li> --}}
+                                        <li><a href="{{url('admin/manage-banners/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none ">Banner</a></li>
+                                        {{-- <li><a href="{{url('admin/manage-video/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none ">Event Videos</a></li>
+                                        <li><a href="{{url('admin/manage-story-week/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none ">Story of the week</a></li>
+                                        <li><a href="{{url('admin/manage-media-coverage/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none ">Media Coverage</a></li> --}}
+                                        <li><a href="{{url('admin/manage-events/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Events</a></li>
+                                        <li><a href="{{url('admin/manage-news/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">News</a></li>
+                                        <li><a href="{{url('admin/manage-media-coverage/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Media Coverage</a></li>
+                                        <li class="d-none"><a href="{{url('admin/manage-career/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Career</a></li>
+                                        <li class="d-none"><a href="{{url('admin/manage-auction/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Auction</a></li>
+                                        {{-- <li><a href="{{url('admin/manage-key-events/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Key Events</a></li> --}}
+                                        <li><a href="{{url('admin/manage-feedback/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Feedback</a></li>
+                                        <li><a href="{{url('admin/manage-review/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Review</a></li>
+                                        {{-- <li><a href="{{url('admin/manage-coupon/')}}/" class="link-body-emphasis d-inline-flex text-decoration-none">Coupon</a></li> --}}
                                     </ul>
                                 </div>
                             </li> 
@@ -375,12 +375,12 @@
                                 <button class="btn btn-toggle d-inline-flex align-items-center rounded-0 border-0"  data-bs-toggle="collapse" data-bs-target="#setting-collapse" aria-expanded="false">Setting</button>
                                 <div class="collapse" id="setting-collapse">
                                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li><a href="{{url('admin/manage-members/')}}">Members</a></li> 
-                                        <li><a href="{{url('admin/manage-watermark/')}}">Upload Watermark</a></li> 
+                                        <li><a href="{{url('admin/manage-members/')}}/">Members</a></li> 
+                                        <li><a href="{{url('admin/manage-watermark/')}}/">Upload Watermark</a></li> 
                                     </ul>
                                 </div>
                             </li> --}}
-                            <li class=""><a href="{{url('logout')}}" class="">Logout</a></li>
+                            <li class=""><a href="{{url('logout')}}/" class="">Logout</a></li>
                         </ul>
 
 
@@ -407,6 +407,6 @@
             </div>
             <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-            <script type="text/javascript" language="javascript" src="{{url('assets/admin/js/jquery.dataTables.min.js')}}"></script> 
-            <script type="text/javascript" language="javascript" src="{{url('assets/admin/js/dataTables.buttons.min.js')}}"></script>
-            <script src="{{url('assets/admin/js/functions.js')}}"></script>
+            <script type="text/javascript" language="javascript" src="{{url('assets/admin/js/jquery.dataTables.min.js')}}/"></script> 
+            <script type="text/javascript" language="javascript" src="{{url('assets/admin/js/dataTables.buttons.min.js')}}/"></script>
+            <script src="{{url('assets/admin/js/functions.js')}}/"></script>

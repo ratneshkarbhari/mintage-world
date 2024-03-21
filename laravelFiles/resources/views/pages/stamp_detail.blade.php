@@ -161,7 +161,7 @@
         let comment = $("textarea#comment-text").val();
         $.ajax({
             type: "POST",
-            url: "{{url('create-info-comment')}}",
+            url: "{{url('create-info-comment')}}/",
             data: {
                 "_token" : "{{ csrf_token() }}",
                 "feedback_id" : 3,

@@ -106,7 +106,7 @@
 
                         @foreach($dynasties_in_period as $dip)
 
-                        <li><a href="{{url('/stamp/dynasty/'.$dip["id"])}}/">{{$dip["title"]}}</a></li>
+                        <li><a href="{{url('/stamp/dynasty/'.$dip["id"]."-".Str::slug($dip["title"]))}}/">{{$dip["title"]}}</a></li>
 
                         @endforeach
 

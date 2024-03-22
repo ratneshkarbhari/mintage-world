@@ -203,7 +203,7 @@
                         @endforeach
 
                     </ul>
-                    <div class=""><a href="{{url("coin/ruler/".$dynasty["id"])}}/" class="btn btn-sm btn-primary mt-3">View All</a></div>
+                    <div class=""><a href="{{url("coin/ruler/".$dynasty["id"]."-".Str::slug($dynasty["title"]))}}/" class="btn btn-sm btn-primary mt-3">View All</a></div>
                 </div>
             </div>
         </div>

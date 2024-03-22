@@ -41,7 +41,7 @@
                         @if(isset($sibling_dyanasties))
                         @foreach($sibling_dyanasties as $sibling_dynasty)
 
-                        <li><a href="{{url('/note/note/'.$sibling_dynasty["id"])}}/">{{$sibling_dynasty["title"]}}</a></li>
+                        <li><a href="{{url("note/note/".$sibling_dynasty["id"]."-".Str::slug($sibling_dynasty["title"]))}}/">{{$sibling_dynasty["title"]}}</a></li>
 
                         @endforeach
                         @endif

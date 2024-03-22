@@ -198,7 +198,7 @@
 
                         @foreach($dynastyRulers as $dynastyRuler)
 
-                        <li><a href="{{url('/coin/list/'.$dynastyRuler["id"])}}/">{{$dynastyRuler["title"]}}</a></li>
+                        <li><a href="{{url("coin/list/".$dynastyRuler["id"]."-".Str::slug($dynastyRuler["title"]))}}/">{{$dynastyRuler["title"]}}</a></li>
 
                         @endforeach
 

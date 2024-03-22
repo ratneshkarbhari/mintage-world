@@ -182,146 +182,163 @@ Route::group(['middleware' => ['check_admin_auth']], function () {
     // admin routes
 
     
+    Route::group(['middleware'=>['check_shopping_auth']],function(){
 
-    Route::get('get-all-products', [Products::class, 'get_all']);
+        Route::get('get-all-products', [Products::class, 'get_all']);
 
-    Route::post("create-product-exe", [Products::class, 'create']);
+        Route::post("create-product-exe", [Products::class, 'create']);
 
-    Route::post("delete-product-exe", [Products::class, 'delete']);
+        Route::post("delete-product-exe", [Products::class, 'delete']);
 
-    Route::post("delete-product-image-exe", [Products::class, 'delete_product_image']);
-
-    //Route::get("upload", [AwsS3::class, 'upload']);
-
-    Route::post("update-product-exe", [Products::class, 'update']);
-
-    Route::post("delete-product-exe", [Products::class, 'delete']);
-
-    Route::post('update-period-exe', [Periods::class, 'update']);
-
-    Route::get("admin/dashboard", [PageLoader::class, 'dashboard']);
-
-    Route::get("admin/manage-orders", [PageLoader::class, 'manage_orders']);
-    Route::get("admin/view-order/{orderid}", [PageLoader::class, 'view_order']);
-
-    Route::post("update-payment-status", [Orders::class, 'update_payment_status']);
-
-    Route::get("admin/manage-products", [PageLoader::class, 'manage_products']);
-    Route::get("admin/edit-product/{id}", [PageLoader::class, 'edit_product']);
-    Route::get("admin/add-product", [PageLoader::class, 'add_product']);
-
-    Route::get("admin/manage-period", [PageLoader::class, 'manage_period']);
-    Route::get("admin/manage-dynasty", [PageLoader::class, 'manage_dynasty']);
-    Route::get("admin/manage-ruler", [PageLoader::class, 'manage_ruler']);
-
-    Route::get("admin/manage-stamps", [PageLoader::class, 'manage_stamps']);
-    Route::get("admin/add-stamp", [PageLoader::class, 'add_stamp']);
-    Route::get("admin/edit-stamp/{id}", [PageLoader::class, 'edit_stamp']);
+        Route::post("delete-product-image-exe", [Products::class, 'delete_product_image']);
 
 
-    Route::post("update-stamp-exe", [Stamps::class, 'update']);
+        Route::post("update-product-exe", [Products::class, 'update']);
 
-    Route::get("admin/manage-coins", [PageLoader::class, 'manage_coins']);
-    Route::get("admin/add-coin", [PageLoader::class, 'add_coin']);
-    Route::get("admin/edit-coin/{id}", [PageLoader::class, 'edit_coin']);
+        Route::post("delete-product-exe", [Products::class, 'delete']);
 
-    Route::get("admin/manage-notes", [PageLoader::class, 'manage_notes']);
+        Route::post('update-period-exe', [Periods::class, 'update']);
 
-    Route::get("admin/add-note", [PageLoader::class, 'add_note']);
-    Route::get("admin/edit-note/{id}", [PageLoader::class, 'edit_note']);
-    Route::post("update-note-exe", [Notes::class, 'update']);
+        Route::get("admin/dashboard", [PageLoader::class, 'dashboard']);
 
-    Route::get("admin/manage-product-categories", [PageLoader::class, 'manage_categories']);
+        Route::get("admin/manage-orders", [PageLoader::class, 'manage_orders']);
+        Route::get("admin/view-order/{orderid}", [PageLoader::class, 'view_order']);
 
-    // Route::post("delete-shopping-category", [ShoppingCategories::class, 'delete']);
+        Route::post("update-payment-status", [Orders::class, 'update_payment_status']);
 
-    Route::get("admin/add-category", [PageLoader::class, 'add_category']);
+        Route::get("admin/manage-products", [PageLoader::class, 'manage_products']);
+        Route::get("admin/edit-product/{id}", [PageLoader::class, 'edit_product']);
+        Route::get("admin/add-product", [PageLoader::class, 'add_product']);
 
-    Route::post("create-shopping-category-exe", [ShoppingCategories::class, 'create']);
+            
+        Route::get("admin/manage-product-categories", [PageLoader::class, 'manage_categories']);
 
-    Route::get("admin/edit-category/{catId}", [PageLoader::class, 'edit_category']);
+        // Route::post("delete-shopping-category", [ShoppingCategories::class, 'delete']);
 
-    Route::post('update-category-exe', [ShoppingCategories::class, 'update']);
+        Route::get("admin/add-category", [PageLoader::class, 'add_category']);
 
-    Route::get("admin/manage-bulk-upload", [PageLoader::class, 'manage_bulk_upload']);
-    Route::get("admin/manage-bulk-images-upload", [PageLoader::class, 'manage_bulk_images_upload']);
+        Route::post("create-shopping-category-exe", [ShoppingCategories::class, 'create']);
 
-    Route::get("countries-for-category-id", [Countries::class, 'get_countries_dropdown_html']);
+        Route::get("admin/edit-category/{catId}", [PageLoader::class, 'edit_category']);
 
-    Route::post("bulk-upload-data-exe", [BulkUploadController::class, 'bulk_upload_data']);
-
-    Route::get("admin/manage-history", [PageLoader::class, 'manage_history']);
-    Route::get("admin/manage-enquiry", [PageLoader::class, 'manage_enquiry']);
-
-    Route::get("admin/manage-banners", [PageLoader::class, 'manage_banners']);
-    Route::get("admin/manage-video", [PageLoader::class, 'manage_video']);
-    Route::get("admin/manage-story-week", [PageLoader::class, 'manage_story_week']);
-    Route::get("admin/manage-media-coverage", [PageLoader::class, 'manage_media_coverage']);
-    Route::get("admin/add-media-coverage", [PageLoader::class, 'add_media_coverage']);
-    Route::get("admin/edit-media-coverage/{id}", [PageLoader::class, 'edit_media_coverage']);
-    Route::get("admin/manage-events", [PageLoader::class, 'manage_events']);
-    Route::get("admin/manage-news", [PageLoader::class, 'manage_news']);
-    Route::get("admin/manage-career", [PageLoader::class, 'manage_career']);
-    Route::post("delete-media-pdf-exe", [MediaCoverages::class, 'delete_media_pdf']);
-    Route::post("update-media-coverage-exe", [MediaCoverages::class, 'update']);
-
-    Route::get("admin/manage-feedback", [PageLoader::class, 'manage_feedback']);
-    Route::get("admin/manage-review", [PageLoader::class, 'manage_review']);
-
-    Route::get("admin/manage-members", [PageLoader::class, 'manage_members']);
-    Route::get("admin/manage-watermark", [PageLoader::class, 'manage_watermark']);
-
-    Route::get("admin/manage-auction", [PageLoader::class, 'manage_auction']);
-    Route::get("admin/manage-key-events", [PageLoader::class, 'manage_key_events']);
-    Route::get("admin/manage-coupon", [PageLoader::class, 'manage_coupon']);
+        Route::post('update-category-exe', [ShoppingCategories::class, 'update']);
 
 
-    Route::get("admin/manage-product-category", [PageLoader::class, 'manage_product_category']);
-    Route::get("admin/manage-seo", [PageLoader::class, 'manage_seo']);
+    });
 
-    Route::post("toggle-feedback-status", [FeedbackController::class, 'toggle_status']);
+    Route::group(['middleware'=>['check_shopping_auth']],function(){
 
-    Route::post("toggle-review-status", [ProductRatings::class, 'toggle_status']);
+        Route::get("admin/manage-period", [PageLoader::class, 'manage_period']);
+        Route::get("admin/manage-dynasty", [PageLoader::class, 'manage_dynasty']);
+        Route::get("admin/manage-ruler", [PageLoader::class, 'manage_ruler']);
+    
+        Route::get("admin/manage-stamps", [PageLoader::class, 'manage_stamps']);
+        Route::get("admin/add-stamp", [PageLoader::class, 'add_stamp']);
+        Route::get("admin/edit-stamp/{id}", [PageLoader::class, 'edit_stamp']);
+    
+    
+        Route::post("update-stamp-exe", [Stamps::class, 'update']);
+    
+        Route::get("admin/manage-coins", [PageLoader::class, 'manage_coins']);
+        Route::get("admin/add-coin", [PageLoader::class, 'add_coin']);
+        Route::get("admin/edit-coin/{id}", [PageLoader::class, 'edit_coin']);
+    
+        Route::get("admin/manage-notes", [PageLoader::class, 'manage_notes']);
+    
+        Route::get("admin/add-note", [PageLoader::class, 'add_note']);
+        Route::get("admin/edit-note/{id}", [PageLoader::class, 'edit_note']);
+        Route::post("update-note-exe", [Notes::class, 'update']);
+    
+        Route::post("get-countries", [Countries::class, 'get_countries']);
+
+        Route::post("create-new-coin", [Coins::class, 'create_new']);
+
+        Route::get("get-all-coins", [Coins::class, 'get_all_data']);
+        Route::get("get-all-notes", [Notes::class, 'get_all_data']);
+        Route::get("get-all-stamps", [Stamps::class, 'get_all_data']);
+
+        Route::post("create-stamp-exe", [Stamps::class, 'create_new']);
+
+        Route::post("set-coin-status-exe", [Coins::class, 'set_coin_status']);
+
+        Route::post("update-coin-exe", [Coins::class, 'update']);
+
+        Route::post("delete-coin-exe", [Coins::class, 'delete_coin']);
 
 
-    Route::post("get-countries", [Countries::class, 'get_countries']);
+        Route::post("create-note-exe", [Notes::class, 'create']);
 
-    Route::post("create-new-coin", [Coins::class, 'create_new']);
+        Route::get("get-all-orders", [Orders::class, 'get_all']);
 
-    Route::get("get-all-coins", [Coins::class, 'get_all_data']);
-    Route::get("get-all-notes", [Notes::class, 'get_all_data']);
-    Route::get("get-all-stamps", [Stamps::class, 'get_all_data']);
-
-    Route::post("create-stamp-exe", [Stamps::class, 'create_new']);
-
-    Route::post("set-coin-status-exe", [Coins::class, 'set_coin_status']);
-
-    Route::post("set-banner-status", [Banners::class, 'set_status']);
-
-    Route::post("create-new-banner", [Banners::class, 'create_new']);
-
-    Route::post('update-banner-exe', [Banners::class, 'update']);
-
-    Route::post("update-coin-exe", [Coins::class, 'update']);
-
-    Route::post("delete-coin-exe", [Coins::class, 'delete_coin']);
+        Route::get("get-all-coins", [Coins::class, 'get_all']);
 
 
-    Route::post("create-note-exe", [Notes::class, 'create']);
 
-    Route::get("get-all-orders", [Orders::class, 'get_all']);
+    });
+    
+    // Route::get("admin/manage-bulk-upload", [PageLoader::class, 'manage_bulk_upload']);
+    // Route::get("admin/manage-bulk-images-upload", [PageLoader::class, 'manage_bulk_images_upload']);
 
-    Route::get("get-all-coins", [Coins::class, 'get_all']);
+    // Route::get("countries-for-category-id", [Countries::class, 'get_countries_dropdown_html']);
 
-    Route::get("get-all-news", [News::class, 'get_all']);
+    // Route::post("bulk-upload-data-exe", [BulkUploadController::class, 'bulk_upload_data']);
 
-    Route::post("update-news", [News::class, 'update']);
-    Route::post("add-news-item-exe", [News::class, 'create']);
+    Route::group(['middleware'=>['check_shopping_auth']],function(){
 
-    Route::post("create-new-event-exe", [Events::class, 'create']);
-    Route::post("update-event-exe", [Events::class, 'update']);
+        Route::get("admin/manage-history", [PageLoader::class, 'manage_history']);
+        Route::get("admin/manage-enquiry", [PageLoader::class, 'manage_enquiry']);
+    
+        Route::get("admin/manage-banners", [PageLoader::class, 'manage_banners']);
+        Route::get("admin/manage-video", [PageLoader::class, 'manage_video']);
+        Route::get("admin/manage-story-week", [PageLoader::class, 'manage_story_week']);
+        Route::get("admin/manage-media-coverage", [PageLoader::class, 'manage_media_coverage']);
+        Route::get("admin/add-media-coverage", [PageLoader::class, 'add_media_coverage']);
+        Route::get("admin/edit-media-coverage/{id}", [PageLoader::class, 'edit_media_coverage']);
+        Route::get("admin/manage-events", [PageLoader::class, 'manage_events']);
+        Route::get("admin/manage-news", [PageLoader::class, 'manage_news']);
+        Route::get("admin/manage-career", [PageLoader::class, 'manage_career']);
+        Route::post("delete-media-pdf-exe", [MediaCoverages::class, 'delete_media_pdf']);
+        Route::post("update-media-coverage-exe", [MediaCoverages::class, 'update']);
+    
+        Route::get("admin/manage-feedback", [PageLoader::class, 'manage_feedback']);
+        Route::get("admin/manage-review", [PageLoader::class, 'manage_review']);
+    
+        Route::get("admin/manage-members", [PageLoader::class, 'manage_members']);
+        Route::get("admin/manage-watermark", [PageLoader::class, 'manage_watermark']);
+    
+        Route::get("admin/manage-auction", [PageLoader::class, 'manage_auction']);
+        Route::get("admin/manage-key-events", [PageLoader::class, 'manage_key_events']);
+        Route::get("admin/manage-coupon", [PageLoader::class, 'manage_coupon']);
+    
+    
+        Route::get("admin/manage-product-category", [PageLoader::class, 'manage_product_category']);
+        Route::get("admin/manage-seo", [PageLoader::class, 'manage_seo']);
+    
+        Route::post("toggle-feedback-status", [FeedbackController::class, 'toggle_status']);
+    
+        Route::post("toggle-review-status", [ProductRatings::class, 'toggle_status']);
+    
+    
+    
+        Route::post("set-banner-status", [Banners::class, 'set_status']);
+    
+        Route::post("create-new-banner", [Banners::class, 'create_new']);
+    
+        Route::post('update-banner-exe', [Banners::class, 'update']);
+    
+        Route::get("get-all-news", [News::class, 'get_all']);
+    
+        Route::post("update-news", [News::class, 'update']);
+        Route::post("add-news-item-exe", [News::class, 'create']);
+    
+        Route::post("create-new-event-exe", [Events::class, 'create']);
+        Route::post("update-event-exe", [Events::class, 'update']);
+    
+        Route::post("create-media-coverage-exe", [MediaCoverages::class, 'create']);
 
-    Route::post("create-media-coverage-exe", [MediaCoverages::class, 'create']);
+    });
+
+
 });
 
 Route::post("create-product-instock-notification-request", [Products::class, 'create_notification_request_in_stock']);

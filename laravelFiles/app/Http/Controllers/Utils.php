@@ -17,6 +17,13 @@ class Utils extends Controller
 
     private function page_loader($viewName, $data)
     {
+        if (!isset($data['description'])) {
+            $data['description'] = "";
+        }
+
+        if (!isset($data['keywords'])) {
+            $data['keywords'] = "";
+        }
         echo view("components.header", $data);
         echo view("pages." . $viewName, $data);
         echo view("components.footer", $data);

@@ -79,7 +79,7 @@
             @endphp
 
             <div class="product-grid">
-               <div class="product-image"> <a href="{{url("view-product/".$rlh["id"]."-".$rlh["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+               <div class="product-image"> <a href="{{url("view-product/".$rlh["id"]."-".$rlh["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}" alt="{{$rlh['name1']}}"> </a> </div>
                <div class="product-content">
                   <h2 class="title"><a href="{{url("view-product/".$rlh["id"]."-".$rlh["custom_url"])}}/">{{substr($rlh["name1"],0,40)}}...</a> </h2>
                   @if($rlh["discount"])
@@ -125,7 +125,7 @@
             @endphp
 
             <div class="product-grid">
-               <div class="product-image"> <a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+               <div class="product-image"> <a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}" alt="{{$random_coin['name1']}}"> </a> </div>
                <div class="product-content">
                   <h2 class="title"><a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}/">{{substr($random_coin["name1"],0,40)}}...</a> </h2>
 
@@ -172,7 +172,7 @@
             @endphp
 
             <div class="product-grid">
-               <div class="product-image"> <a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+               <div class="product-image"> <a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}/" class="image"> <img class="pic-1" alt="{{$random_note['name1']}}" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
                   <h2 class="title"><a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}/">{{substr($random_note["name1"],0,40)}}...</a> </h2>
                   
@@ -221,7 +221,7 @@
             @endphp
 
             <div class="product-grid">
-               <div class="product-image"> <a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+               <div class="product-image"> <a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}/" class="image"> <img alt="$random_accessory['name1']" class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
                   <h2 class="title"><a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}/">{{substr($random_accessory["name1"],0,40)}}...   </a> </h2>
                   
@@ -272,7 +272,7 @@
             @endphp
 
             <div class="product-grid">
-               <div class="product-image"> <a href="{{url("view-product/".$random_stamp["id"]."-".$random_stamp["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+               <div class="product-image"> <a href="{{url("view-product/".$random_stamp["id"]."-".$random_stamp["custom_url"])}}/" class="image"> <img class="pic-1" alt="{{ $random_stamp['name1'] }}" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
                   <h2 class="title"><a href="{{url("view-product/".$random_stamp["id"]."-".$random_stamp["custom_url"])}}/">{{substr($random_stamp["name1"],0,40)}}...</a> </h2>
                   

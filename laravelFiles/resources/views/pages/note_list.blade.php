@@ -80,9 +80,10 @@
                     <div class="row" id="noteBox">
                         
                         @foreach($notes as $note)
+                    
                         @if($note["obverse_image"]!="")
                         <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("note/detail/".$note["id"]."-".$note["denomination_unit"]."-".strtolower($note["denomination_title"]))}}/">
-                                <div class="info-item-grid-box"><img
+                                <div class="info-item-grid-box"><img alt="{{$note["denomination_unit"]." ".$note["denomination_title"]. " | ".$note['catalogue_ref_no'] }} | O"
                                         src="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}"
                                         class="img-fluid" >
                                     <div class="info-meta text-center">
@@ -95,7 +96,7 @@
                         @else
                         <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("note/detail/".$note["id"])}}/">
                             <div class="info-item-grid-box"><img
-                                        src="{{getenv("API_DEFAULT_IMG_PATH")}}"
+                                        src="{{getenv("API_DEFAULT_IMG_PATH")}}" alt="{{$note["denomination_unit"]." ".$note["denomination_title"]. " | ".$note['catalogue_ref_no'] }} | O"
                                         class="img-fluid" >
                                     <div class="info-meta text-center">
                                         <h2 class="info-item-grid-title">{{$note["denomination_unit"]." ".$note["denomination_title"]}}</h2>

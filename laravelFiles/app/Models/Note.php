@@ -31,4 +31,9 @@ class Note extends Model {
         return $this->hasMany(Feedback::class,"note_id","id");
     }
 
+    public function rarity() : HasOne
+    {
+        return $this->hasOne(Rarity::class,"id","rarity_id");
+    }
+
 }

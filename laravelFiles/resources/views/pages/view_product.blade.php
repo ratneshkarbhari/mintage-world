@@ -28,7 +28,7 @@
 
                         <div class="item zoomable">
                             <a class="lightbox" href="{{ getenv('PRODUCT_IMAGE_BASE_URL').$productImage }}">
-                                <img src="{{ getenv('PRODUCT_IMAGE_BASE_URL').$productImage }}" class="img-fluid zoomable__img" />
+                                <img src="{{ getenv('PRODUCT_IMAGE_BASE_URL').$productImage }}" class="img-fluid zoomable__img" alt="{{$product['name1']}}" />
                             </a>
                         </div>
 

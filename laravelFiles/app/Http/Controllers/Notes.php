@@ -299,9 +299,6 @@ class Notes extends Controller
         $siblingDynasties = Dynasty::where("period_id", $dynasty["period_id"])->get();
 
 
-
-
-
         $this->page_loader("denominations_notes", [
             "title" => $period["title"] . " notes | notes of " . $period["title"] . " " . $country["name"] . " | " . $period["title"] . " Period notes | Mintage World",
             "info_title" => "Denominations : " . $period["title"],
@@ -342,10 +339,11 @@ class Notes extends Controller
 
         if (!Cache::get('notes-' . $denominationUnit . "-" . $dynastyId)) {
 
-            $query = 'SELECT note.denomination_id, note.id, note.obverse_image, note.reverse_image, note.denomination_unit, denomination.title as denomination_title , note.issued_year, note.catalogue_ref_no, note.size, note.signatory, note.color, note.prefix, note.inset, dynasty.title, denomination.title, shape.title 
+            $query = 'SELECT note.denomination_id, note.id, note.obverse_image, note.reverse_image, note.denomination_unit, denomination.title as denomination_title , note.issued_year, note.catalogue_ref_no, note.size, note.signatory, note.color, note.prefix, note.inset, dynasty.title, denomination.title, shape.title , rarity.title as rarity
             FROM note 
             JOIN dynasty ON note.dynasty_id = dynasty.id 
-            JOIN denomination ON note.denomination_id = denomination.id JOIN shape ON note.shape_id = shape.id WHERE note.denomination_unit = ' . $denominationUnit . ' AND note.dynasty_id = ' . $dynastyId;
+            JOIN denomination ON note.denomination_id = denomination.id
+            JOIN rarity ON note.rarity_id = rarity.id JOIN shape ON note.shape_id = shape.id WHERE note.denomination_unit = ' . $denominationUnit . ' AND note.dynasty_id = ' . $dynastyId;
 
             $notes = DB::select($query);
 
@@ -358,6 +356,7 @@ class Notes extends Controller
 
 
         $notes = Cache::get('notes-' . $denominationUnit . "-" . $dynastyId);
+
 
         $denominationUnit = $notes[0]["denomination_unit"];
 
@@ -417,17 +416,14 @@ class Notes extends Controller
     function note_detail($noteId)
     {
 
-        if (!Cache::get('note-' . $noteId)) {
+        if (!$note =  Cache::get('note-' . $noteId)) {
 
-            $note = Note::find($noteId);
+            $noteModel = new Note();
 
-            Cache::put('note-' . $noteId, $note);
+            $note = $noteModel->with("denomination")->with("rarity")->with("feedback.member")->find($noteId);
+    
+    
         }
-
-        $noteModel = new Note();
-
-        $note = $noteModel->with("denomination")->with("feedback.member")->find($noteId);
-
 
         $denomination = Denomination::find($note["denomination_id"]);
 

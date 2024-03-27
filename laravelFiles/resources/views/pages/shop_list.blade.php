@@ -230,9 +230,9 @@
 
                   <div class="col-lg-3 col-md-6 col-6 mb-3">
                      <div class="product-grid">
-                        <div class="product-image"> <a href="{{url("view-product/".$product["id"]."-".$product["custom_url"])}}/" class="image"> <img class="pic-1" alt="{{$product['name1']}}" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+                        <div class="product-image"> <a target="_blank" href="{{url("view-product/".$product["id"]."-".$product["custom_url"])}}/" class="image"> <img class="pic-1" alt="{{$product['name1']}}" title="{{$product['name1']}}" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                         <div class="product-content">
-                           <h2 class="title"><a href="{{url("view-product/".$product["id"]."-".$product["custom_url"])}}/">{{substr($product["name1"],0,45)}}...</a> </h2>
+                           <h2 class="title"><a target="_blank" href="{{url("view-product/".$product["id"]."-".$product["custom_url"])}}/">{{substr($product["name1"],0,45)}}...</a> </h2>
                            @if($product["discount"])
                            <div class="price"><span class="d-inline-block me-3"><i class="fa fa-rupee-sign"></i> {{$product["price"]}}</span>
                               @php
@@ -248,7 +248,7 @@
                            @endif
                         </div>
 
-                        <a href="{{url("view-product/".$product["custom_url"])}}/" class="add-to-cart">Add to Cart</a>
+                        <a href="{{url('view-product/'.$product['custom_url'])}}/" class="add-to-cart">Add to Cart</a>
 
                      </div>
                   </div>

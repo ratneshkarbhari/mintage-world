@@ -22,45 +22,6 @@
 <!-- Carousel End -->
 
 
-<!-- About Start -->
-{{-- <section class="about-wraper overflow-hidden common-padding">
-    <div class="container-fluid about px-lg-2 px-lg-5">
-        <div class="row mx-lg-0">
-            <div class="col-lg-6 ps-lg-0 wow fadeInLeft about-img" data-wow-delay="0.1s">
-                <div class="position-relative h-100">
-                    <img class="position-absolute img-fluid w-100 h-100" src="{{url("assets/img/about.jpg")}}"
-                        style="object-fit: cover;" alt="">
-                </div>
-            </div>
-            <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
-                <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
-                <h1 class="mb-3 heading-1">About Us</h1>
-                <p>Mintage World is a newly established online Museum based in Mumbai. Catering to
-                    Numismatists, Notaphilists and Philatelists, we are committed to a higher quality of services.
-                </p>
-                <p>Mintage World was founded by Sri Sushilkumar Agrawal in 2015 who is also the Chairman & Managing
-                    Director of Ultra Media & Entertainment Pvt. Ltd. The purpose of this site is to impart
-                    knowledge
-                    and interest in the areas of Numismatics, Notaphily and Philately to the general public,
-                    collectors,
-                    students and scholars alike. Mintage World is the first website of its kind in the world where
-                    it
-                    provides all three domains under one roof.</p>
-
-
-
-                <a href="#" class="btn btn-explore">Explore More
-                    <span class="first"></span>
-                    <span class="second"></span>
-                    <span class="third"></span>
-                    <span class="fourth"></span>
-                </a>
-            </div>
-        </div>
-    </div>
-</section> --}}
-<!-- About End -->
-
 <section class="common-padding product-wraper home-page-product">
     <div class="container-fluid overflow-hidden px-lg-2 px-lg-5">
         <!-- <h6 class="text-secondary text-uppercase mb-3">Mintage World</h6> -->
@@ -79,7 +40,7 @@
             @endphp
 
             <div class="product-grid">
-               <div class="product-image"> <a href="{{url("view-product/".$rlh["id"]."-".$rlh["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}" alt="{{$rlh['name1']}}"> </a> </div>
+               <div class="product-image"> <a href="{{url("view-product/".$rlh["id"]."-".$rlh["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}" alt="{{$rlh['name1']}}" title="{{$rlh['name1']}}"> </a> </div>
                <div class="product-content">
                   <h2 class="title"><a href="{{url("view-product/".$rlh["id"]."-".$rlh["custom_url"])}}/">{{substr($rlh["name1"],0,40)}}...</a> </h2>
                   @if($rlh["discount"])
@@ -125,7 +86,7 @@
             @endphp
 
             <div class="product-grid">
-               <div class="product-image"> <a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}" alt="{{$random_coin['name1']}}"> </a> </div>
+               <div class="product-image"> <a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}/" class="image"> <img class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}" title="{{$random_coin['name1']}}" alt="{{$random_coin['name1']}}"> </a> </div>
                <div class="product-content">
                   <h2 class="title"><a href="{{url("view-product/".$random_coin["id"]."-".$random_coin["custom_url"])}}/">{{substr($random_coin["name1"],0,40)}}...</a> </h2>
 
@@ -172,7 +133,7 @@
             @endphp
 
             <div class="product-grid">
-               <div class="product-image"> <a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}/" class="image"> <img class="pic-1" alt="{{$random_note['name1']}}" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+               <div class="product-image"> <a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}/" class="image"> <img class="pic-1" alt="{{$random_note['name1']}}" title="{{$random_note['name1']}}" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
                   <h2 class="title"><a href="{{url("view-product/".$random_note["id"]."-".$random_note["custom_url"])}}/">{{substr($random_note["name1"],0,40)}}...</a> </h2>
                   
@@ -221,7 +182,7 @@
             @endphp
 
             <div class="product-grid">
-               <div class="product-image"> <a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}/" class="image"> <img alt="$random_accessory['name1']" class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+               <div class="product-image"> <a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}/" class="image"> <img alt="$random_accessory['name1']" title="$random_accessory['name1']" class="pic-1" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
                   <h2 class="title"><a href="{{url("view-product/".$random_accessory["id"]."-".$random_accessory["custom_url"])}}/">{{substr($random_accessory["name1"],0,40)}}...   </a> </h2>
                   
@@ -272,7 +233,7 @@
             @endphp
 
             <div class="product-grid">
-               <div class="product-image"> <a href="{{url("view-product/".$random_stamp["id"]."-".$random_stamp["custom_url"])}}/" class="image"> <img class="pic-1" alt="{{ $random_stamp['name1'] }}" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
+               <div class="product-image"> <a href="{{url("view-product/".$random_stamp["id"]."-".$random_stamp["custom_url"])}}/" class="image"> <img class="pic-1" alt="{{ $random_stamp['name1'] }}" title="{{ $random_stamp['name1'] }}" src="{{getenv("PRODUCT_HOME_PAGE_IMAGE_BASE_URL").$imgParts[2]}}"> </a> </div>
                <div class="product-content">
                   <h2 class="title"><a href="{{url("view-product/".$random_stamp["id"]."-".$random_stamp["custom_url"])}}/">{{substr($random_stamp["name1"],0,40)}}...</a> </h2>
                   

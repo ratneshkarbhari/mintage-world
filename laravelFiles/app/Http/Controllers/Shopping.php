@@ -88,6 +88,7 @@ class Shopping extends Controller
             "
         ]);
     }
+
     function shop_list($categorySlug, Request $request)
     {
         
@@ -114,6 +115,12 @@ class Shopping extends Controller
         if ($request->has('price_sort')&&$request->price_sort!="") {
 
             $productsQuery = $productsQuery->orderBy("price",$request->price_sort);
+
+
+        }else{
+
+            $productsQuery = $productsQuery->orderBy("id","desc");
+            $productsQuery = $productsQuery->orderBy("instock","desc");
 
 
         }
@@ -149,13 +156,13 @@ class Shopping extends Controller
 
         if($to==0){
             
-        $paginationInfoString = "Coming soon";
+            $paginationInfoString = "Coming soon";
 
 
 
         }else{
             
-        $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
+            $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
 
 
         }
@@ -202,13 +209,41 @@ class Shopping extends Controller
 
         if ($product) {
 
+            $imgParts = explode("/",$product["img"]);
+            $productImage = $imgParts[2];
+
+            if($product['instock']){
+                $availability = "InStock";
+            }else{
+                $availability = "OutOfStock";
+            }
+
+            $ratingScoreTotal = $ratingScoreAvg = 0;
+
+            foreach($product["product_ratings"] as $product_rating){
+                $ratingScoreTotal+=$product_rating['rating_score'];
+            }
+
+            $ratingScoreAvg = $ratingScoreTotal/count($product['product_ratings']);
+
+
             $this->page_loader("view_product", [
                 "title" => "Buy " . $product["name1"] . " Online",
                 "product" => $product,
                 "related_products" => $relatedProducts,
                 "category" => $product["product_category"],
                 "keywords" => $product['keywords'],
-                "description" => "Shop online for ".$product['name1']." at lowest price in India. Buy best quality products with free shipping on Mintage World."
+                "description" => "Shop online for ".$product['name1']." at lowest price in India. Buy best quality products with free shipping on Mintage World.",
+                "renderSchema" => TRUE,
+                "schema_data" => [
+                    "type" => "Product",
+                    "name" => $product['name1'],
+                    "image" => getenv('PRODUCT_IMAGE_BASE_URL').$productImage,
+                    "price" => $product['price'],
+                    "availability" => $availability,
+                    "rating_count" => count($product["product_ratings"]),
+                    "avg_rating" => $ratingScoreAvg
+                ]
             ]);
         } else {
 

@@ -70,7 +70,7 @@
                                             <div class="accordion-body filter-item-body">
                                                 <ul class="filter-item-list">
                                                     @foreach($metals as $metal)
-                                                    @if($metal["title"]!="")
+                                                    @if(!is_null($metal))
                                                     
                                                     <li class="form-check">
                                                         <input class="form-check-input filter-option" type="checkbox" name="metals[]" value="{{$metal["id"]}}" id="metal-{{$metal["id"]}}" >

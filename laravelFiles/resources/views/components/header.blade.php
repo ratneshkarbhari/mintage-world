@@ -73,6 +73,39 @@
 
     <!-- Template Stylesheet -->
     <link href="{{url("assets/css/style.css")}}" rel="stylesheet">
+
+    @isset($renderSchema)
+    <script type="application/ld+json">
+        {
+        "@context": "http://schema.org/",
+        "@type": "{{$schema_data['type']}}",
+        "name": "{{$schema_data['name']}}",
+        "image": "",
+            "brand": {
+            "@type": "Thing",
+            "name": "Mintage World"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "{{$schema_data['avg_rating']}}",
+            "reviewCount": "{{$schema_data['rating_count']}}"
+        },
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "INR",
+            "price": "{{$schema_data['price']}}",
+            "itemCondition": "New",
+            "availability": "{{$schema_data['availability']}}",
+            "seller": {
+            "@type": "Organization",
+            "name": "Mintage World"
+            }
+        }
+        }
+    </script>
+    @endisset
+            
+
 </head>
 
 <body>

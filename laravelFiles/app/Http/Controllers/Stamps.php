@@ -108,9 +108,9 @@ class Stamps extends Controller
 
         $period = Period::find($dynasty["period_id"]);
 
-        $allStamps = Stamp::where("dynasty_id",$dynasty["id"])->with("theme_category")->with("shape")->get();
+        $allStamps = Stamp::where("dynasty_id",$dynasty["id"])->with("theme_category")->with("shape")->with("rarity")->get();
 
-        $stamps = Stamp::where("dynasty_id",$dynasty["id"])->with("theme_category")->with("shape")->paginate(12);
+        $stamps = Stamp::where("dynasty_id",$dynasty["id"])->with("theme_category")->with("shape")->with("rarity")->paginate(12);
 
         $dynastiesInPeriod = Dynasty::where("period_id",$period["id"])->get();
 
@@ -161,9 +161,14 @@ class Stamps extends Controller
 
         $period = Period::find($dynasty["period_id"]);
 
+        if($stamp['meta_title']==""){
+            $title = $stamp['stamp_name']." | ".$stamp['issued_date']. " | ".$stamp['catalogue_ref_no']." | Stamps";
+        }else{
+            $title = $stamp['meta_title'];
+        }
 
         $this->page_loader("stamp_detail",[
-            "title" => $stamp['meta_title'],
+            "title" => $title,
             "stamp" => $stamp,
             "dynasty" => $dynasty, 
             "breadCrumbData" => [

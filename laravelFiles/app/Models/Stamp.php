@@ -32,6 +32,11 @@ class Stamp extends Model {
         return $this->hasOne(Shape::class,"id","shape_id");
     }
 
+    public function rarity() : HasOne
+    {
+        return $this->hasOne(Rarity::class,"id","rarity_id");
+    }
+
     public function feedback() : HasMany
     {
         return $this->hasMany(Feedback::class,"stamp_id","id");

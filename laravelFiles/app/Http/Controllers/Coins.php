@@ -151,11 +151,7 @@ class Coins extends Controller
             $dynasties = Dynasty::where("period_id", $periodId)->orderBy("order_by", "desc")->get();
         }
 
-
-
         $period = Period::find($periodId);
-
-        // dd($period);
 
         $country = Country::find($period["country_id"]);
 

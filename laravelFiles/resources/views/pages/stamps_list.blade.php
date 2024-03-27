@@ -66,7 +66,7 @@
                                     @if(($stamp["obverse_image"]!=""))
                                     <img
                                         src="{{getenv("STAMP_IMAGE_BASE_URL").$stamp["obverse_image"]}}"
-                                        class="img-fluid">
+                                        class="img-fluid" alt="{{$stamp['name']}} | {{$stamp['catalogue_ref_no']}} | {{$stamp['rarity']['title']}}">
                                     @else
                                     <img
                                     src="{{getenv("API_DEFAULT_IMG_PATH")}}"

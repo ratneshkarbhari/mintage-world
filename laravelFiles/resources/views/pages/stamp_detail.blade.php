@@ -78,7 +78,7 @@
                     </div>
                     </div>
                     <div id="sync2" class="owl-carousel owl-theme">
-                        <div class="item"> <img src="{{getenv("stamp_IMAGE_BASE_URL").$stamp["obverse_image"]}}" class="img-fluid" /> </div>
+                        <div class="item"> <img alt="{{$stamp['name']}} | {{$stamp['catalogue_ref_no']}} | O" src="{{getenv("stamp_IMAGE_BASE_URL").$stamp["obverse_image"]}}" class="img-fluid" /> </div>
                         <div class="item"> <img src="{{getenv("stamp_IMAGE_BASE_URL").$stamp["obverse_image"]}}" class="img-fluid" /> </div>
                     </div>
                 </div>

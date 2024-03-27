@@ -66,7 +66,7 @@
                                     @if(($stamp["obverse_image"]!=""))
                                     <img
                                         src="{{getenv("STAMP_IMAGE_BASE_URL").$stamp["obverse_image"]}}"
-                                        class="img-fluid" alt="{{$stamp['name']}} | {{$stamp['catalogue_ref_no']}} | {{$stamp['rarity']['title']}}">
+                                        class="img-fluid" alt="{{$stamp['name']}} | {{$stamp['catalogue_ref_no']}} | O">
                                     @else
                                     <img
                                     src="{{getenv("API_DEFAULT_IMG_PATH")}}"
@@ -82,7 +82,7 @@
                         <div class="col-lg-3 col-md-4 col-6 info-item-grid-outer-box"><a href="{{url("stamp/detail/".$stamp["id"])}}/">
                             <div class="info-item-grid-box"><img
                                         src="{{getenv("API_DEFAULT_IMG_PATH")}}"
-                                        class="img-fluid" alt="{{$stamp["stamp_name"]}}">
+                                        class="img-fluid" alt="{{$stamp['name']}} | {{$stamp['catalogue_ref_no']}} | O">
                                     <div class="info-meta text-center">
                                         <h2 class="info-item-grid-title">{{$stamp["stamp_name"]}}</h2>
                                     </div>

@@ -63,16 +63,16 @@
                     <div id="sync1" class="owl-carousel owl-theme tz-gallery">
                       <div class="item zoomable"> 
                           <a class="lightbox" href="{{getenv("API_DEFAULT_IMG_PATH")}}"> 
-                          <img alt="{{$coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']}}" src="{{getenv("API_DEFAULT_IMG_PATH")}}" class="img-fluid zoomable__img" /> </a> 
+                          <img alt="{{$coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']}} | O" src="{{getenv("API_DEFAULT_IMG_PATH")}}" class="img-fluid zoomable__img" /> </a> 
                       </div>
                       <div class="item zoomable">  
                           <a class="lightbox" href="{{getenv("API_DEFAULT_IMG_PATH")}}"> 
-                              <img alt="{{$coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']}}" src="{{getenv("API_DEFAULT_IMG_PATH")}}" class="img-fluid zoomable__img" /> </a> 
+                              <img alt="{{$coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']}} | O" src="{{getenv("API_DEFAULT_IMG_PATH")}}" class="img-fluid zoomable__img" /> </a> 
                       </div>
                       </div>
                       <div id="sync2" class="owl-carousel owl-theme">
-                          <div class="item"> <img alt="{{$coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']}}" src="{{getenv("API_DEFAULT_IMG_PATH")}}" class="img-fluid" /> </div>
-                          <div class="item"> <img alt="{{$coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']}}" src="{{getenv("API_DEFAULT_IMG_PATH")}}" class="img-fluid" /> </div>
+                          <div class="item"> <img alt="{{$coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']}} | O" src="{{getenv("API_DEFAULT_IMG_PATH")}}" class="img-fluid" /> </div>
+                          <div class="item"> <img alt="{{$coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']}} | O" src="{{getenv("API_DEFAULT_IMG_PATH")}}" class="img-fluid" /> </div>
                       </div>
                     </div>
   
@@ -84,16 +84,16 @@
                   <div id="sync1" class="owl-carousel owl-theme tz-gallery">
                     <div class="item zoomable"> 
                         <a class="lightbox" href="{{getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"]}}"> 
-                        <img alt="{{$coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']}}" src="{{getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"]}}" class="img-fluid zoomable__img" /></a> 
+                        <img alt="{{$coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']}} | O" src="{{getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"]}}" class="img-fluid zoomable__img" /></a> 
                     </div>
                     <div class="item zoomable">  
                         <a class="lightbox" href="{{getenv("COIN_IMAGE_BASE_URL").$coin["reverse_image"]}}"> 
-                            <img alt="{{$coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']}}" src="{{getenv("COIN_IMAGE_BASE_URL").$coin["reverse_image"]}}" class="img-fluid zoomable__img" /> </a> 
+                            <img alt="{{$coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']}} | R" src="{{getenv("COIN_IMAGE_BASE_URL").$coin["reverse_image"]}}" class="img-fluid zoomable__img" /> </a> 
                     </div>
                     </div>
                     <div id="sync2" class="owl-carousel owl-theme">
-                        <div class="item"> <img alt="{{$coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']}}" src="{{getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"]}}" class="img-fluid" /> </div>
-                        <div class="item"> <img alt="{{$coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']}}" src="{{getenv("COIN_IMAGE_BASE_URL").$coin["reverse_image"]}}" class="img-fluid" /> </div>
+                        <div class="item"> <img alt="{{$coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']}} | O" src="{{getenv("COIN_IMAGE_BASE_URL").$coin["obverse_image"]}}" class="img-fluid" /> </div>
+                        <div class="item"> <img alt="{{$coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no']}} | R" src="{{getenv("COIN_IMAGE_BASE_URL").$coin["reverse_image"]}}" class="img-fluid" /> </div>
                     </div>
                 </div>
 

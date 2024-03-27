@@ -274,8 +274,8 @@ class Coins extends Controller
 
         $coinsAll = $coinModel->where("ruler_id", $rulerId)->with("denomination")->with("metal")->with("rarity")->with("shape")->get();
 
-        $coins = $coinModel->where("ruler_id", $rulerId)->with("denomination")->with("metal")->with("rarity")->with("shape")->paginate(12);
 
+        $coins = $coinModel->where("ruler_id", $rulerId)->with("denomination")->with("metal")->with("rarity")->with("shape")->paginate(12);
 
         $ruler = Ruler::find($rulerId);
 
@@ -308,9 +308,14 @@ class Coins extends Controller
 
         $paginationInfoString = "Showing {$from} to {$to} of {$total} entries";
 
+        if(isset($ruler['meta_title'])&&$ruler['meta_title']!=""){
+            $metaTitle = $ruler['meta_title'];
+        }else{
+            $metaTitle = $coin['denomination']['title']." | ".$coin['issued_year']." | ".$coin['catalogue_ref_no'].' | O';
+        }
 
         $this->page_loader("list", [
-            "title" => $ruler['meta_title'],
+            "title" => $metaTitle,
             "info_title" => "Coins : " . $ruler["title"],
             "coins" => $coins,
             "dynasty" => $dynasty,

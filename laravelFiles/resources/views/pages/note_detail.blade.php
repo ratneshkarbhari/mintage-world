@@ -46,7 +46,7 @@
                     <div id="sync1" class="owl-carousel owl-theme tz-gallery">
                       <div class="item zoomable"> 
                           <a class="lightbox" href="{{getenv("API_DEFAULT_IMG_PATH")}}"> 
-                          <img src="{{getenv("API_DEFAULT_IMG_PATH")}}" alt="{{$note['denomination']['title']}} | {{$note['catalogue_ref_no']}} | {{$note['rarity']['title']}}" class="img-fluid zoomable__img" /> </a> 
+                          <img src="{{getenv("API_DEFAULT_IMG_PATH")}}" alt="{{$note['denomination']['title']}} | {{$note['catalogue_ref_no']}} | O" class="img-fluid zoomable__img" /> </a> 
                       </div>
                       <div class="item zoomable">  
                           <a class="lightbox" href="{{getenv("API_DEFAULT_IMG_PATH")}}"> 
@@ -67,20 +67,20 @@
                   <div id="sync1" class="owl-carousel owl-theme tz-gallery">
                     <div class="item zoomable"> 
                         <a class="lightbox" href="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}"> 
-                        <img alt="{{$note['denomination']['title']}} | {{$note['catalogue_ref_no']}} | {{$note['rarity']['title']}}" src="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}" class="img-fluid zoomable__img" /></a> 
+                        <img alt="{{$note['denomination']['title']}} | {{$note['catalogue_ref_no']}} | O" src="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}" class="img-fluid zoomable__img" /></a> 
                     </div>
                     @if($note["reverse_image"]!="")
                     <div class="item zoomable">  
                         <a class="lightbox" href="{{getenv("NOTE_BASE_URL").$note["reverse_image"]}}"> 
-                        <img alt="{{$note['denomination']['title']}} | {{$note['catalogue_ref_no']}} | {{$note['rarity']['title']}}" src="{{getenv("NOTE_BASE_URL").$note["reverse_image"]}}" class="img-fluid zoomable__img" /> </a> 
+                        <img alt="{{$note['denomination']['title']}} | {{$note['catalogue_ref_no']}} | R" src="{{getenv("NOTE_BASE_URL").$note["reverse_image"]}}" class="img-fluid zoomable__img" /> </a> 
                     </div>
                     @endif
                     </div>
                     <div id="sync2" class="owl-carousel owl-theme">
-                        <div class="item"> <img alt="{{$note['denomination']['title']}} | {{$note['catalogue_ref_no']}} | {{$note['rarity']['title']}}" src="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}" class="img-fluid" /> </div>
+                        <div class="item"> <img alt="{{$note['denomination']['title']}} | {{$note['catalogue_ref_no']}} | O" src="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}" class="img-fluid" /> </div>
                         @if($note["reverse_image"]!="")
 
-                        <div class="item"> <img alt="{{$note['denomination']['title']}} | {{$note['catalogue_ref_no']}} | {{$note['rarity']['title']}}" src="{{getenv("NOTE_BASE_URL").$note["reverse_image"]}}" class="img-fluid" /> </div>
+                        <div class="item"> <img alt="{{$note['denomination']['title']}} | {{$note['catalogue_ref_no']}} | R" src="{{getenv("NOTE_BASE_URL").$note["reverse_image"]}}" class="img-fluid" /> </div>
                         @endif
                     </div>
 
@@ -101,7 +101,7 @@
                         
                         @foreach($more_notes as $note)
                         
-                        <div class="item text-center"><a href="{{url('note/detail/'.$note["id"])}}/"><img class="img-fluid w-100" src="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}" alt="{{ $denomination["unit"]."|".$note["catalogue_ref_no"] }}"> 
+                        <div class="item text-center"><a href="{{url('note/detail/'.$note["id"])}}/"><img class="img-fluid w-100" src="{{getenv("NOTE_BASE_URL").$note["obverse_image"]}}" alt="{{ $note['denomination']["title"]."|".$note["catalogue_ref_no"] }} | O"> 
                                 <div class="latest-title">{{$note["catalogue_ref_no"]}}</div>
                             </a>
                         </div>

@@ -246,7 +246,7 @@ class Notes extends Controller
         $country = Country::find($period["country_id"]);
 
         $this->page_loader("dynasties_notes", [
-            "title" => $period["title"] . " notes | notes of " . $period["title"] . " " . $country["name"] . " | " . $period["title"] . " Period notes | Mintage World",
+            "title" => $period['meta_title'],
             "info_title" => "Dynasties : " . $period["title"],
             "dynasties" => $dynasties,
             "breadCrumbData" => [
@@ -264,6 +264,8 @@ class Notes extends Controller
                 ]
 
             ],
+            "description" => $period['meta_description'],
+            "keywords" => $period['meta_key'],
             "footer_content" => $period["footer_content"]
         ]);
     }
@@ -299,12 +301,15 @@ class Notes extends Controller
         $siblingDynasties = Dynasty::where("period_id", $dynasty["period_id"])->get();
 
 
+
         $this->page_loader("denominations_notes", [
-            "title" => $period["title"] . " notes | notes of " . $period["title"] . " " . $country["name"] . " | " . $period["title"] . " Period notes | Mintage World",
+            "title" => $dynasty['meta_title'],
             "info_title" => "Denominations : " . $period["title"],
             "denominations" => $denominations,
             "dynasty" => $dynasty,
             "sibling_dyanasties" => $siblingDynasties,
+            "keywords" => $dynasty['meta_key'],
+            "description" => $dynasty['meta_desc'],
             "breadCrumbData" => [
                 [
                     "slug" => "notes/",
@@ -322,7 +327,8 @@ class Notes extends Controller
                     "label" => $dynasty["title"]
                 ]
             ],
-            "footer_content" => $period["footer_content"]
+            "footer_content" => $period["footer_content"],
+            ""
         ]);
     }
 
@@ -378,6 +384,7 @@ class Notes extends Controller
             $issuedYears[]  = $note["issued_year"];
         }
 
+
         $this->page_loader("note_list", [
             "title" => $denominationUnit . " " . $denomination["title"],
             "info_title" => "Notes : " . $denominationUnit . " " . $denomination["title"],
@@ -416,6 +423,7 @@ class Notes extends Controller
     function note_detail($noteId)
     {
 
+
         if (!$note =  Cache::get('note-' . $noteId)) {
 
             $noteModel = new Note();
@@ -450,12 +458,14 @@ class Notes extends Controller
 
 
         $this->page_loader("note_detail", [
-            "title" => $note["catalogue_ref_no"],
+            "title" => $note["meta_title"],
             "note" => $note,
             "feedback_entries" => $feedback_entries,
             "denomination" => $denomination,
             "dynasty" => $dynasty,
             "more_notes" => $more_notes,
+            "description" => $note['meta_desc'],
+            "keywords" => $note['meta_key'],
             "breadCrumbData" => [
                 [
                     "slug" => "notes/",
